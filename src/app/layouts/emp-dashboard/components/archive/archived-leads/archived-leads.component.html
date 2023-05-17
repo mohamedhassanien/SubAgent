@@ -1,0 +1,107 @@
+<!-- <div class="section-container">
+  <div class="custom-row comments">
+    <div class="d-flex justify-content-between w-100">
+      <p class="title">Archived Students</p>
+
+      <div class="sort">
+        <div class="control">
+          <img src="../../../../../assets/images/search.gif" alt="" />
+          <input
+            type="text"
+            placeholder="Search..."
+            [(ngModel)]="studentSearch"
+          />
+        </div>
+      </div>
+    </div>
+    <button mat-button (click)="restoreStudents()" class="mb-3">
+      <mat-icon>unarchive</mat-icon>
+    </button>
+    <div class="table-wrapper">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Number</th>
+            <th scope="col" (click)="sortName()" class="sorting">
+              Name
+              <i *ngIf="sortingDownName" class="fas fa-caret-down"></i>
+              <i *ngIf="sortingUpName" class="fas fa-caret-up"></i>
+            </th>
+            <th scope="col" (click)="sortStatus()" class="sorting">
+              status
+              <i *ngIf="sortingDownStatus" class="fas fa-caret-down"></i>
+              <i *ngIf="sortingUpStatus" class="fas fa-caret-up"></i>
+            </th>
+            <th
+              scope="col"
+              (click)="sortNat()"
+              class="sorting"
+              style="width: 110px"
+            >
+              nationality
+              <i *ngIf="sortingDownNat" class="fas fa-caret-down"></i>
+              <i *ngIf="sortingUpNat" class="fas fa-caret-up"></i>
+            </th>
+            <th scope="col" (click)="sortEmail()" class="sorting">
+              email
+              <i *ngIf="sortDownEmail" class="fas fa-caret-down"></i>
+              <i *ngIf="sortUpEmail" class="fas fa-caret-up"></i>
+            </th>
+            <th>phone</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody style="overflow-x: scroll !important">
+          <tr
+            *ngFor="
+              let student of myStudents | filterOne: studentSearch;
+              let i = index
+            "
+            value="student"
+            #table
+          >
+            <td>
+              <input type="checkbox" (click)="getEmails(student[4])" />
+            </td>
+            <td class="text-center">
+              {{ i + 1 }}
+            </td>
+            <td>
+              <div class="flex btn">
+                <div class="img-holder" *ngIf="student[9] == ''">
+                  <img src="../../../../../assets/images/user.svg" alt="" />
+                </div>
+                <div class="img-holder" *ngIf="student[9] != ''">
+                  <img src="../../../../../assets/images/user.jpg" alt="" />
+                </div>
+                <div class="text btn">
+                  <p>{{ student[0] }}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              {{ student[13] }}
+            </td>
+            <td>
+              {{ student[5] }}
+            </td>
+            <td class="email">{{ student[4] }}</td>
+            <td>
+              <p>
+                <a href="https://api.whatsapp.com/send?phone={{ student[12] }}"
+                  ><img
+                    style="width: 15px; margin-right: 7px"
+                    src="../../../../../../assets/images/whatsapp.png"
+                    alt=""
+                  /><span>{{ student[12] }}</span></a
+                >
+              </p>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->

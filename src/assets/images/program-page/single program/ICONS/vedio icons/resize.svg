@@ -1,0 +1,21 @@
+<svg id="Component_362_4" data-name="Component 362 – 4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3645" data-name="Rectangle 3645" width="24" height="24" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_54245" data-name="Mask Group 54245" clip-path="url(#clip-path)">
+    <g id="vedio_tool_" data-name="vedio tool ">
+      <g id="Group_54882" data-name="Group 54882">
+        <g id="Group_54881" data-name="Group 54881">
+          <g id="Group_54880" data-name="Group 54880">
+            <path id="Path_11667" data-name="Path 11667" d="M8.438,319.5H1.875v-6.563a.938.938,0,0,0-1.875,0v7.5a.937.937,0,0,0,.938.938h7.5a.938.938,0,0,0,0-1.875Z" transform="translate(0 -297.375)" fill="#fff"/>
+            <path id="Path_11668" data-name="Path 11668" d="M8.438,0H.938A.937.937,0,0,0,0,.938v7.5a.938.938,0,0,0,1.875,0V1.875H8.438A.938.938,0,0,0,8.438,0Z" fill="#fff"/>
+            <path id="Path_11669" data-name="Path 11669" d="M320.438,312a.937.937,0,0,0-.937.938V319.5h-6.563a.938.938,0,0,0,0,1.875h7.5a.937.937,0,0,0,.938-.937v-7.5A.937.937,0,0,0,320.438,312Z" transform="translate(-297.375 -297.375)" fill="#fff"/>
+            <path id="Path_11670" data-name="Path 11670" d="M320.438,0h-7.5a.938.938,0,0,0,0,1.875H319.5V8.438a.938.938,0,0,0,1.875,0V.938A.937.937,0,0,0,320.438,0Z" transform="translate(-297.375)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

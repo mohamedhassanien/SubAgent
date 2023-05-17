@@ -1,0 +1,233 @@
+<!-- old_version -->
+<section class="my-info-section">
+  <div class="row">
+    <div class="col-12 picture-col">
+      <h1 class="title">{{ "STUDENTBOARD.MyInfo" | translate }}</h1>
+      <h2 class="sub-title">
+        {{ "STUDENTBOARD.ImpressEveryoneWithYourBestHeadshot" | translate }}
+      </h2>
+      <div class="d-flex align-items-center edit-profile-col">
+        <img
+          [src]="
+            profilePicture === '' ||
+            profilePicture === null ||
+            profilePicture === undefined ||
+            profilePicture === 'None' ||
+            profilePicture ===
+              'https://studentgator.com/assets/images/navbar/default-pic.svg'
+              ? 'https://studentgator.com/assets/images/navbar/default-pic.svg'
+              : profilePicture
+          "
+          alt="profile-picture"
+          class="picture rounded-circle"
+        />
+        <div class="user-info">
+          <p class="name">{{ fullName }}</p>
+          <p class="job" *ngIf="jobRole">{{ jobRole }}</p>
+          <p class="location" *ngIf="city || country">
+            {{ city }}.{{ country }}
+          </p>
+          <button
+            class="edit-btn d-flex justify-content-center align-items-center"
+            routerLink="/students/{{ fullName }}/edit-profile"
+            fragment="profile-picture"
+          >
+            <mat-icon>edit</mat-icon>
+            {{ "STUDENTBOARD.Editprofile" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bio-col col-md-9 col-12">
+      <h2 class="title">{{ fullName }}</h2>
+      <p class="describtion" *ngIf="userBio">
+        {{ userBio }}
+      </p>
+      <p class="describtion" *ngIf="!userBio">
+        {{ "STUDENTBOARD.Describeyourself" | translate }}
+
+        <a
+          routerLink="/students/{{ fullName }}/edit-profile"
+          fragment="about-you"
+        >
+          {{ "STUDENTBOARD.Clickhere" | translate }}
+        </a>
+      </p>
+    </div>
+    <div class="additional-info-col col-12">
+      <h2 class="title">
+        {{ "STUDENTBOARD.ProfessionalListing" | translate }}
+      </h2>
+      <div class="d-flex flex-column align-items-start justify-content-center">
+        <div
+          class="info d-flex align-items-center justify-content-center"
+          *ngIf="userEmail"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/additional-info/email.svg"
+            alt="email"
+          />
+          <p class="email">{{ userEmail }}</p>
+        </div>
+        <div
+          class="info d-flex align-items-center justify-content-center"
+          *ngIf="jobRole"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/additional-info/work.svg"
+            alt="job-role"
+          />
+          <p class="job-role">{{ jobRole }}</p>
+        </div>
+        <div
+          class="info d-flex align-items-center justify-content-center"
+          *ngIf="city"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/additional-info/location.svg"
+            alt="city"
+          />
+          <p class="location">
+            {{ "STUDENTBOARD.Livesin" | translate }} {{ city }}
+          </p>
+        </div>
+        <div
+          class="info d-flex align-items-center justify-content-center"
+          *ngIf="dateOfBirth"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/additional-info/date-of-brith.svg"
+            alt="birth-date"
+          />
+          <p class="date-of-birth">{{ dateOfBirth }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="education-col col-12">
+      <h2 class="title">{{ "STUDENTBOARD.EducationStatus" | translate }}</h2>
+      <div
+        class="d-flex flex-column justify-content-center align-items-start education-info-col"
+        *ngIf="university || faculty || languageTest"
+      >
+        <div
+          class="d-flex align-items-start graduation-info"
+          *ngIf="university || faculty"
+        >
+          <div class="graduated">
+            {{ "STUDENTBOARD.I’mGraduated" | translate }}
+          </div>
+          <div class="d-flex flex-column justify-content-center">
+            <div class="university">
+              {{ university }}
+            </div>
+            <div class="faculty">
+              {{ faculty }}
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex align-items-center language-info"
+          *ngIf="languageTest"
+        >
+          <div class="language">
+            {{ "STUDENTBOARD.LanguageTest" | translate }}
+          </div>
+          <div class="language-test">
+            {{ languageTest }}
+          </div>
+        </div>
+      </div>
+      <div
+        class="d-flex flex-column justify-content-center align-items-center empty-education-info-col"
+        *ngIf="!university && !faculty && !languageTest"
+      >
+        <div
+          class="d-flex flex-column justify-content-center align-items-center bookmark-circle"
+        >
+          <i class="fas fa-bookmark"></i>
+        </div>
+        <p>
+          {{ "STUDENTBOARD.Addyoureducationnow" | translate }}
+
+          <a
+            routerLink="/students/{{ fullName }}/general/education"
+            [queryParams]="{ step: '2' }"
+            fragment="level-of-education"
+          >
+            {{ "STUDENTBOARD.Clickhere" | translate }}
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="interested-col col-12">
+      <h2 class="title">{{ "STUDENTBOARD.FieldsofInterest" | translate }}</h2>
+      <div
+        class="interested-badges-col d-flex align-items-center flex-wrap"
+        *ngIf="fieldsInterested.length !== 0"
+      >
+        <div
+          class="field-badge d-flex justify-content-center align-items-center"
+          *ngFor="let fieldInterested of fieldsInterested"
+        >
+          {{ fieldInterested.name }}
+          <button
+            type="button"
+            mat-icon-button
+            class="d-flex btn justify-content-center align-items-center"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div
+        class="d-flex flex-column justify-content-center align-items-center empty-interested-badges-col"
+        *ngIf="fieldsInterested.length === 0"
+      >
+        <div
+          class="d-flex flex-column justify-content-center align-items-center bookmark-circle"
+        >
+          <i class="fas fa-bookmark"></i>
+        </div>
+        <p>
+          {{ "STUDENTBOARD.Addyourinterestsnow" | translate }}
+
+          <a
+            routerLink="/students/{{ fullName }}/general/education"
+            [queryParams]="{ step: '2' }"
+            fragment="field-interested"
+            >{{ "STUDENTBOARD.Clickhere" | translate }}
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="budget-col col-12">
+      <h2 class="title">{{ "STUDENTBOARD.MyBudget" | translate }}</h2>
+      <p class="range" *ngIf="minBudget && maxBudget">
+        {{ minBudget }}€ - {{ maxBudget }}€
+      </p>
+      <div
+        class="d-flex flex-column justify-content-center align-items-center empty-range"
+        *ngIf="!minBudget || !maxBudget"
+      >
+        <div
+          class="d-flex flex-column justify-content-center align-items-center bookmark-circle"
+        >
+          <i class="fas fa-bookmark"></i>
+        </div>
+        <p>
+          {{ "STUDENTBOARD.youdidn’taddanybudgettillnow" | translate }}
+
+          <a
+            routerLink="/students/{{ fullName }}/general/additional-information"
+            [queryParams]="{ step: '3' }"
+            fragment="budget"
+          >
+            {{ "STUDENTBOARD.Addnow" | translate }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

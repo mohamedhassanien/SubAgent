@@ -1,0 +1,478 @@
+<section class="step-two">
+  <div class="row">
+    <div class="col-12 combined-col">
+      <div class="d-flex justify-content-lg-between align-items-start">
+        <div class="title-col">
+          <h1 class="title">{{ "STUDENTBOARD.Welcometo" | translate }}</h1>
+          <h2 class="sub-title col-lg-9 col-12">
+            {{ "STUDENTBOARD.Your" | translate }}
+            {{ "STUDENTBOARD.profile" | translate }}
+          </h2>
+        </div>
+        <div class="picture-col d-none d-lg-block">
+          <img
+            src="../../../../../../assets/images/student-account/welcom-to.svg"
+            alt="welcome-to"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 describtion-col">
+      <p class="describtion d-block d-md-none d-lg-block">
+        {{ "STUDENTBOARD.Thankyouforjoiningus" | translate }}
+      </p>
+      <p class="three-steps-desc">
+        {{ "STUDENTBOARD.Continuebelow" | translate }}
+        <span>{{ "STUDENTBOARD.three" | translate }} </span>
+        {{ "STUDENTBOARD.easysteps" | translate }}
+        .
+      </p>
+    </div>
+    <div class="step-two-col col-12">
+      <div class="step-two d-flex align-items-center">
+        <a
+          class="main-circle active d-flex justify-content-center align-items-center"
+          [routerLink]="['/students', fullName, 'general', 'how-to-start']"
+          [queryParams]="{ step: '1' }"
+        >
+          <i class="fas fa-check"></i>
+        </a>
+        <div class="connector active"></div>
+        <div class="sec-circle active"></div>
+        <div class="connector active"></div>
+        <div class="sec-circle active"></div>
+        <div class="connector active"></div>
+        <a
+          class="main-circle active d-flex justify-content-center align-items-center"
+          [routerLink]="['/students', fullName, 'general', 'education']"
+          [queryParams]="{ step: '2' }"
+          fragment="level-of-education"
+        >
+          2
+        </a>
+        <div class="connector"></div>
+        <div class="sec-circle"></div>
+        <div class="connector"></div>
+        <div class="sec-circle"></div>
+        <div class="connector"></div>
+        <a
+          class="main-circle d-flex justify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'general',
+            'additional-information'
+          ]"
+          [queryParams]="{ step: '3' }"
+          fragment="study-in-france"
+        >
+          3
+        </a>
+      </div>
+    </div>
+    <div class="col-12 form-col">
+      <h1 class="education-title">
+        {{ "STUDENTBOARD.Education" | translate }}
+      </h1>
+      <h2 class="education-sub-title">
+        {{ "STUDENTBOARD.WhatisyourlevelofEducation" | translate }}
+      </h2>
+      <p class="status">{{ "STUDENTBOARD.Status" | translate }} :</p>
+      <form [formGroup]="stepTwoForm" (ngSubmit)="onSubmit(stepTwoForm)">
+        <div id="level-of-education">
+          <div class="row">
+            <mat-radio-group
+              class="d-flex align-items-center flex-wrap"
+              formControlName="status"
+              [(ngModel)]="statuswanted"
+            >
+              <!-- (change)="changeGrades($event)" -->
+              <mat-radio-button
+                class="radio-btn col-md-6 col-12"
+                *ngFor="let field of educationStatuss"
+                value="{{ field }}"
+              >
+                {{ field }}
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <div class="country-col col-md-6 col-12">
+              <div class="dropdown-center" #dropdown>
+                <button
+                  #dropdownBtn
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                >
+                  {{ countryName | shorten : 25 }}
+                  <i
+                    class="far fa-times-circle"
+                    *ngIf="countryName !== 'Country of Education' || ''"
+                    (click)="dropdown.click(); removeCountry()"
+                  >
+                  </i>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      class="searchInput"
+                      [(ngModel)]="searchCountry"
+                      [ngModelOptions]="{ standalone: true }"
+                      [value]="
+                        countryName === 'Country of Education'
+                          ? ''
+                          : countryName
+                      "
+                    />
+                    <i class="fas fa-search place-holder"></i>
+                    <hr />
+                    <div class="dropdown-container-overflow">
+                      <option
+                        [value]="country"
+                        *ngFor="
+                          let country of countries | filterOne : searchCountry
+                        "
+                        (click)="
+                          changeSelection($event, 'country'); dropdown.click()
+                        "
+                      >
+                        {{ country.country | shorten : 35 }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-col col-md-6 col-12">
+              <div class="dropdown-center">
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                >
+                  {{ levelName | shorten : 25 }}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <option
+                      [value]="level"
+                      *ngFor="let level of levels"
+                      (click)="
+                        changeSelection($event, 'level'); dropdown.click()
+                      "
+                    >
+                      {{ level }}
+                    </option>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grade-col col-12">
+              <div class="dropdown-center">
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                >
+                  {{ gradeName | shorten : 25 }}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <option
+                      [value]="grade"
+                      *ngFor="let grade of grades"
+                      (click)="
+                        changeSelection($event, 'grade'); dropdown.click()
+                      "
+                    >
+                      {{ grade }}
+                    </option>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div id="field-interested">
+          <div class="row">
+            <h1 class="title">
+              {{ "STUDENTBOARD.WhatisyourlevelofEducation" | translate }}
+              <span class="d-block d-md-none">
+                ( {{ "STUDENTBOARD.Selectallthatapply" | translate }} )
+              </span>
+            </h1>
+            <div class="col-12">
+              <div class="d-flex justify-content-between check-box-row row">
+                <div class="d-flex flex-column col-12 col-md-6">
+                  <mat-checkbox
+                    formArrayName="interests"
+                    (click)="onCheckLabel('Arts, Design & Architecture')"
+                  >
+                    {{ "STUDENTBOARD.ArtsDesign&Architecture" | translate }}
+                  </mat-checkbox>
+                  <mat-checkbox
+                    formArrayName="interests"
+                    (click)="onCheckLabel('Business & Management')"
+                  >
+                    {{ "STUDENTBOARD.Business&Management" | translate }}
+                  </mat-checkbox>
+                  <mat-checkbox
+                    formArrayName="interests"
+                    (click)="onCheckLabel('Computer Science & IT')"
+                  >
+                    {{ "STUDENTBOARD.ComputerScience&IT" | translate }}
+                  </mat-checkbox>
+                </div>
+                <div class="d-flex flex-column col-12 col-md-6">
+                  <mat-checkbox
+                    formArrayName="interests"
+                    (click)="onCheckLabel('Marketing & Communication')"
+                  >
+                    {{ "STUDENTBOARD.Marketing&Communication" | translate }}
+                  </mat-checkbox>
+                  <mat-checkbox
+                    formArrayName="interests"
+                    (click)="onCheckLabel('Engineering & Technology')"
+                  >
+                    {{ "STUDENTBOARD.Engineering&Technology" | translate }}
+                  </mat-checkbox>
+                  <mat-checkbox
+                    formArrayName="interests"
+                    (click)="onCheckLabel('Other')"
+                  >
+                    {{ "STUDENTBOARD.Other" | translate }}
+
+                    <span class="maximum">
+                      <span>*</span>
+                      {{ "STUDENTBOARD.Youcanaddmax" | translate }}
+                      {{ maxInputs }} {{ "STUDENTBOARD.fields" | translate }}
+                    </span>
+                  </mat-checkbox>
+                </div>
+                <mat-form-field
+                  class="example-chip-list"
+                  appearance="fill"
+                  *ngIf="addOther"
+                >
+                  <mat-label
+                    >{{ "STUDENTBOARD.FieldsofInterest" | translate }}
+                  </mat-label>
+                  <mat-chip-list #chipList aria-label="Fruit selection">
+                    <mat-chip
+                      *ngFor="let field of otherInterests"
+                      (removed)="remove(field)"
+                    >
+                      {{ field }}
+                      <button matChipRemove>
+                        <mat-icon>
+                          >{{ "STUDENTBOARD.cancel" | translate }}
+                        </mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input
+                      placeholder="What's on your mind..."
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event)"
+                    />
+                  </mat-chip-list>
+                </mat-form-field>
+              </div>
+              <hr />
+              <div
+                id="language-test"
+                [ngClass]="{
+                  'mb-0': stepTwoForm.get('french')?.value !== 'Yes i have'
+                }"
+              >
+                <div class="row">
+                  <h1 class="title">
+                    {{ "STUDENTBOARD.DoYouHaveEnglishTest" | translate }}
+                  </h1>
+                  <mat-radio-group
+                    class="d-flex align-items-center flex-wrap"
+                    formControlName="english"
+                    [(ngModel)]="englishwanted"
+                  >
+                    <!-- (change)="changeTest($event, 'english')" -->
+                    <mat-radio-button
+                      class="radio-btn col-md-3 col-6"
+                      *ngFor="let status of englishStatus"
+                      value="{{ status }}"
+                    >
+                      {{ status }}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                  <h1
+                    class="title test-title"
+                    *ngIf="stepTwoForm.get('english')?.value === 'Yes i have'"
+                  >
+                    {{ "STUDENTBOARD.WhichTypeOfEnglish" | translate }}
+
+                    <span class="all-apply"
+                      >({{
+                        "STUDENTBOARD.Selectallthatapply" | translate
+                      }}
+                      )</span
+                    >
+                  </h1>
+                  <div
+                    class="col-md-4 col-12 d-flex flex-column align-items-start test-type"
+                    *ngIf="stepTwoForm.get('english')?.value === 'Yes i have'"
+                  >
+                    <mat-checkbox (click)="addTest('TOEIC', 'Eng')">
+                      TOEIC
+                    </mat-checkbox>
+                    <div class="d-flex align-items-center score">
+                      <label for="toeic"
+                        >{{ "STUDENTBOARD.Score" | translate }}
+                      </label>
+                      <input
+                        type="text"
+                        (keyup)="addScore('TOEIC', 'Eng', $event)"
+                        id="toeic"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-4 col-12 d-flex flex-column align-items-start test-type"
+                    *ngIf="stepTwoForm.get('english')?.value === 'Yes i have'"
+                  >
+                    <mat-checkbox (click)="addTest('ILETS', 'Eng')">
+                      ILETS
+                    </mat-checkbox>
+                    <div class="d-flex align-items-center score">
+                      <label for="ilets"
+                        >{{ "STUDENTBOARD.Score" | translate }}
+                      </label>
+                      <input
+                        type="text"
+                        (keyup)="addScore('ILETS', 'Eng', $event)"
+                        id="ilets"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-4 col-12 d-flex flex-column align-items-start test-type"
+                    *ngIf="stepTwoForm.get('english')?.value === 'Yes i have'"
+                  >
+                    <mat-checkbox (click)="addTest('TOEFL', 'Eng')">
+                      TOEFL
+                    </mat-checkbox>
+                    <div class="d-flex align-items-center score">
+                      <label for="toefl"
+                        >{{ "STUDENTBOARD.Score" | translate }}
+                      </label>
+                      <input
+                        type="text"
+                        (keyup)="addScore('TOEFL', 'Eng', $event)"
+                        id="toefl"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <hr
+                  [ngClass]="{
+                    'mt-0': stepTwoForm.get('english')?.value !== 'Yes i have'
+                  }"
+                />
+                <div class="row">
+                  <h1 class="title">
+                    {{ "STUDENTBOARD.NextDoYouHaveFrenchTest" | translate }}
+                  </h1>
+                  <mat-radio-group
+                    class="d-flex align-items-center flex-wrap"
+                    formControlName="french"
+                    [(ngModel)]="frenchwanted"
+                  >
+                    <mat-radio-button
+                      class="radio-btn col-6 col-md-3"
+                      *ngFor="let status of englishStatus"
+                      value="{{ status }}"
+                    >
+                      {{ status }}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                  <h1
+                    class="title test-title"
+                    *ngIf="stepTwoForm.get('french')?.value === 'Yes i have'"
+                  >
+                    {{ "STUDENTBOARD.WhichTypeOfFrench" | translate }}
+                    <span class="all-apply"
+                      >(
+                      {{ "STUDENTBOARD.Selectallthatapply" | translate }}
+                      )</span
+                    >
+                  </h1>
+                  <div
+                    class="col-md-6 col-12 test-type"
+                    *ngIf="stepTwoForm.get('french')?.value === 'Yes i have'"
+                  >
+                    <mat-checkbox (click)="addTest('TCF', 'French')">
+                      TCF
+                    </mat-checkbox>
+                    <div class="d-flex align-items-start score">
+                      <label class="score-label"
+                        >{{ "STUDENTBOARD.Level" | translate }}
+                      </label>
+                      <mat-radio-group
+                        class="d-flex align-items-start flex-wrap"
+                      >
+                        <mat-radio-button
+                          class="radio-btn col-3"
+                          *ngFor="let score of frenchScores"
+                          value="{{ score }}"
+                          (change)="changeScore('TCF', score)"
+                        >
+                          {{ score }}
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-6 col-12 d-flex flex-column align-items-start test-type"
+                    *ngIf="stepTwoForm.get('french')?.value === 'Yes i have'"
+                  >
+                    <mat-checkbox (click)="addTest('DELF', 'French')">
+                      DELF
+                    </mat-checkbox>
+                    <div class="d-flex align-items-start score">
+                      <label class="score-label"
+                        >{{ "STUDENTBOARD.Level" | translate }}
+                      </label>
+                      <mat-radio-group
+                        class="d-flex align-items-start flex-wrap"
+                      >
+                        <mat-radio-button
+                          class="radio-btn col-3"
+                          *ngFor="let score of frenchScores"
+                          value="{{ score }}"
+                          (change)="changeScore('DELF', score)"
+                        >
+                          {{ score }}
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="submit-btn">
+                {{ "STUDENTBOARD.Next" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

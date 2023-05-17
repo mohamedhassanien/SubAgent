@@ -1,0 +1,46 @@
+<section class="forget-section">
+  <div class="row">
+    <div class="content">
+      <a routerLink="/landing/home">
+        <img src="../../../../../assets/images/elysee-logo.png" alt="SG logo" />
+      </a>
+      <p class="check">Check Your Email</p>
+      <p class="description">We have sent a confirmation link to your email</p>
+      <div class="d-flex justify-content-center">
+        <img
+          src="../../../../../assets/images/login-pages/check-your-email.svg"
+          alt="check your email"
+          class="check-image"
+        />
+      </div>
+      <div *ngIf="isLoading">
+        <div
+          class="spinner-border text-primary d-flex m-auto"
+          role="status"
+        ></div>
+      </div>
+      <div *ngIf="!isLoading">
+        <div class="send">
+          <button class="btn" routerLink="/auth/login">Skip now</button>
+        </div>
+        <div class="d-flex justify-content-center">
+          <p class="spam">
+            Did not receive the email? check your spam filter, <br />or
+            <span class="another">
+              <button (click)="resend()" [disabled]="timer != 0">
+                {{ send }}
+              </button>
+            </span>
+            after {{ timer }} seconds
+          </p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <i class="fas fa-exclamation-circle text-danger mt-1"></i>
+          <p class="skip m-0 ms-2">
+            You won't be able to interact with the website until you confirm.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

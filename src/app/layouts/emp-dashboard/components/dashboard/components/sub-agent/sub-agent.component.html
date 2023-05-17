@@ -1,0 +1,82 @@
+<td class="table-cell non-editable">{{ index + 1 }}</td>
+<td class="student-name table-cell non-editable">
+  <input type="text" readonly value="{{ subAgent.subAgentName }}" #nameInput />
+</td>
+<td class="student-email table-cell non-editable">
+  <a
+    class="d-flex align-items-center"
+    (click)="goToProfile(emailInput, 'email')"
+  >
+    <i class="fas fa-envelope"></i>
+    <input
+      type="email"
+      readonly
+      value="{{ subAgent.subAgentEmail }}"
+      #emailInput
+    />
+  </a>
+</td>
+<td class="student-phone table-cell non-editable">
+  <a
+    class="d-flex align-items-center"
+    (click)="goToProfile(phoneInput, 'phone')"
+  >
+    <img
+      src="../../../../../../../assets/images/employees/lead-visualisation/whats-app.svg"
+      alt="what's-app"
+    />
+    <input
+      type="tel"
+      value="{{ subAgent.subAgentPhone }}"
+      readonly
+      #phoneInput
+      [ngStyle]="{
+        'min-width': phoneInput.value.length + 'ch'
+      }"
+    />
+  </a>
+</td>
+<td class="student-nationality table-cell non-editable">
+  <input
+    type="text"
+    readonly
+    value="{{ subAgent.subAgentNationality }}"
+    #nationalityInput
+  />
+</td>
+<td class="student-company table-cell non-editable">
+  <input
+    type="text"
+    readonly
+    value="{{ subAgent.subAgentCompany }}"
+    #companyInput
+  />
+</td>
+<td class="student-reg table-cell non-editable">
+  <input
+    type="text"
+    readonly
+    value="{{ subAgent.subAgentCompanyRegNo }}"
+    #regInput
+  />
+</td>
+<td
+  class="actions table-cell d-flex justify-content-start align-items-center mt-2"
+>
+  <button class="more-actions" [matMenuTriggerFor]="menu">
+    <i class="fas fa-ellipsis-v"></i>
+  </button>
+  <!-- menu for more-actions -->
+  <mat-menu #menu="matMenu">
+    <!-- To delete assigned student -->
+    <button
+      mat-menu-item
+      (click)="
+        deleteSubAgent(subAgent.subAgentUserName, subAgent.subAgentEmail)
+      "
+    >
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </mat-menu>
+</td>

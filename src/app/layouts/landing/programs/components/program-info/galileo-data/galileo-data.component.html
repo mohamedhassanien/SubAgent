@@ -1,0 +1,269 @@
+<div class="container">
+    <form [formGroup]="registerationForm" (ngSubmit)="submit(registerationForm)">
+        <h2><span>1</span> PERSONAL INFORMATION / INFORMATIONS PERSONNELLES</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Family name / Nom <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text"
+                    [class.is-invalid]="userNameFeld?.invalid &&userNameFeld?.touched" formControlName="fName">
+                <div class="text-erorr-contan">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label>Current address / Adresse actuelle <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text"
+                    [class.is-invalid]="useraddress?.invalid &&useraddress?.touched" formControlName="address">
+                <div class="text-erorr-contan">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Given name / Prénom <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userIname?.invalid &&userIname?.touched" formControlName="lName">
+            </div>
+            <div class="col-lg-6">
+                <label>Zip code / Code postal <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="usercode?.invalid &&usercode?.touched" formControlName="code">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Gender / Sexe <span style="color: red;">*</span> :</label>
+                <div class="row pt-lg-2">
+                    <mat-radio-group formControlName="gender">
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-radio-button value="male">male</mat-radio-button>
+                            </div>
+                            <div class="col-6">
+                                <mat-radio-button value="Female">Female</mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label for="address">City / Ville <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="usercity?.invalid &&usercity?.touched" formControlName="city">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">Date of birth / Date de naissance <span style="color: red;">*</span>
+                    :</label><br>
+                      <div class="form-group">
+                        <input type="date" class="form-control"formControlName="date" id="date" required  name="date"
+                        [class.is-invalid]="userdate?.invalid &&userdate?.touched">
+                      </div>
+                <!-- <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userdate?.invalid &&userdate?.touched" formControlName="date"> -->
+            </div>
+            <div class="col-lg-6">
+                <label for="address">Country / Pays <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="usercountry?.invalid &&usercountry?.touched" formControlName="country">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">Nationality / Nationalité <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userNationality?.invalid &&userNationality?.touched"
+                    formControlName="Nationality">
+            </div>
+            <div class="col-lg-6">
+                <label for="address">E-mail / Courriel <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="useremail?.invalid &&useremail?.touched" formControlName="email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">Country of Birth / Pays de naissance <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userCountryBirth?.invalid &&userCountryBirth?.touched"
+                    formControlName="CountryBirth">
+            </div>
+            <div class="col-lg-6">
+                <label for="address">Cell phone / Portable <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userphone?.invalid &&userphone?.touched" formControlName="phone">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">City of Birth / Ville de naissance <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userCityBirth?.invalid &&userCityBirth?.touched" formControlName="CityBirth">
+            </div>
+            <div class="col-lg-6">
+                <label for="address">Parent’s E-mail / Courriel des parents <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="parentEmail?.invalid &&parentEmail?.touched" formControlName="ParentsEmail">
+            </div>
+        </div><br>
+
+        <h2><span>2</span> ACADEMIC INFORMATION / FORMATION</h2>
+        <p>Degree you are currently studying for (or most recent degree completed)</p>
+        <div>
+            <label>Diplôme en cours d’obtention (ou dernier diplôme obtenu) <span style="color: red;">*</span> :</label>
+            <input class="w-100 form-control" type="text" [value]=""
+                [class.is-invalid]="acdegree?.invalid &&acdegree?.touched" formControlName="degree">
+        </div>
+
+        <div>
+            <label>Year graduated / Année du diplôme <span style="color: red;">*</span> :</label>
+            <input class="w-100 form-control" type="number" [value]=""
+                [class.is-invalid]="acyearGraduated?.invalid &&acyearGraduated?.touched"
+                formControlName="yearGraduated">
+        </div>
+
+        <div>
+            <label>Number of undergraduate years completed / Nombre d’années de premier cycle validé <span
+                    style="color: red;">*</span> :</label>
+            <input class="w-100 form-control" type="number" [value]=""
+                [class.is-invalid]="acundergraduate?.invalid &&acundergraduate?.touched"
+                formControlName="undergraduate">
+        </div>
+
+        <div>
+            <label>Former Institution / Etablissement antérieur <span style="color: red;">*</span> :</label>
+            <input class="w-100 form-control" type="text" [value]=""
+                [class.is-invalid]="acInstitution?.invalid &&acInstitution?.touched" formControlName="Institution">
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <label>City / Ville <span style="color: red;">*</span> : </label>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="acacadimicCity?.invalid &&acacadimicCity?.touched"
+                    formControlName="acadimicCity">
+            </div>
+            <div class="col-6">
+                <label>Country / Pays <span style="color: red;">*</span> :</label>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="acacadimicCountry?.invalid &&acacadimicCountry?.touched"
+                    formControlName="acadimicCountry">
+            </div>
+        </div><br>
+
+        <h2><span>3</span> LANGUAGE SKILLS / COMPETENCES LINGUISTIQUES</h2>
+        <div>
+            <label>Former Institution / Etablissement antérieur <span style="color: red;">*</span> :</label>
+            <input class="w-100 form-control" type="text" [value]=""
+                [class.is-invalid]="langnativeLang?.invalid &&langnativeLang?.touched" formControlName="nativeLang">
+        </div>
+        <div class="">
+            <p>Proof of English level Specify which test and the level:</p>
+            <div class="item-container">
+                <ng-container>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>
+                                <mat-checkbox formControlName="IELTS">IELTS</mat-checkbox>
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <p>
+                                <mat-checkbox formControlName="TOEFL">TOEFL</mat-checkbox>
+                            </p>
+                        </div>
+                    </div>
+                    <br />
+                </ng-container>
+            </div>
+            <div class="">
+                <label>Level <span style="color: red;">*</span>:</label>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="langlevel?.invalid &&langlevel?.touched" formControlName="level">
+            </div>
+        </div>
+
+        <div class="">
+            <p>Indiquer votre niveau de français et préciser le test avec le niveau obtenu :</p>
+            <div class="item-container">
+                <ng-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <p>
+                                <mat-checkbox formControlName="TCF">TCF</mat-checkbox>
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <p>
+                                <mat-checkbox formControlName="DELF">DELF</mat-checkbox>
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <p>
+                                <mat-checkbox formControlName="DALF">DALF</mat-checkbox>
+                            </p>
+                        </div>
+                    </div>
+                    <br />
+                </ng-container>
+            </div>
+            <div class="">
+                <label>Niveau <span style="color: red;">*</span>:</label>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="langNiveau?.invalid &&langNiveau?.touched" formControlName="Niveau">
+            </div>
+        </div><br>
+
+        <h2><span>4</span> STUDENT DECLARATION / PARTIE RESERVEE A L’ETUDIANT</h2>
+        <p>I hereby declare that the information provided in this form is complete and accurate. The admission committee
+            has
+            the right
+            to verify any and all parts of my application materials. I am aware that any misrepresentation of facts in
+            my
+            application will
+            justify the denial of admission, the cancellation of admission or expulsion. </p>
+        <small>Je déclare sur l’honneur que les renseignements fournis dans ce formulaire sont exacts. Le comité
+            d’admission
+            se réserve le droit de vérifier toutes les pièces
+            jointes à ma candidature. Je suis conscient que toute fausse déclaration peut entrainer le refus
+            d’admission,
+            l’annulation de l’admission ou l’expulsion.</small>
+
+        <div class="row pt-lg-2">
+            <div class="col-lg-6">
+                <div class="">
+                    <label>Place & Date <span style="color: red;">*</span> :</label>
+                    <div class="form-group">
+                        <input type="date" class="form-control"formControlName="placedate" id="date" required  name="date"
+                        [class.is-invalid]="assplacedate?.invalid &&assplacedate?.touched">
+                      </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <p>Signature :</p>
+                <div class="">
+                    <label>Last name / Nom <span style="color: red;">*</span> :</label>
+                    <input class="w-100 form-control" type="text" [value]=""
+                        [class.is-invalid]="asssign1?.invalid &&asssign1?.touched" formControlName="sign1">
+                </div>
+                <div class="">
+                    <label>First name / Prénom <span style="color: red;">*</span> :</label>
+                    <input class="w-100 form-control " type="text" [value]=""
+                        [class.is-invalid]="asssign2?.invalid &&asssign2?.touched" formControlName="sign2">
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button class="pad-btn" type="submit"[disabled]="!registerationForm.valid" matStepperNext>Next</button>
+        </div>
+    </form>
+</div>

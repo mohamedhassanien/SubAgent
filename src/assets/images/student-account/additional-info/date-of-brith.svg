@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_54165" data-name="Group 54165" transform="translate(15972 16605)">
+    <g id="Group_54162" data-name="Group 54162" transform="translate(32 20)">
+      <circle id="Ellipse_411" data-name="Ellipse 411" cx="12" cy="12" r="12" transform="translate(-16004 -16625)" fill="#ffe8e8"/>
+      <path id="Icon_material-date-range" data-name="Icon material-date-range" d="M8.5,9H7.167v1.333H8.5Zm2.667,0H9.834v1.333h1.333Zm2.667,0H12.5v1.333h1.333Zm1.333-4.667H14.5V3H13.167V4.333H7.834V3H6.5V4.333H5.833A1.327,1.327,0,0,0,4.507,5.667L4.5,15a1.333,1.333,0,0,0,1.333,1.333h9.334A1.337,1.337,0,0,0,16.5,15V5.667A1.337,1.337,0,0,0,15.167,4.333Zm0,10.667H5.833V7.667h9.334Z" transform="translate(-16002.5 -16623)" fill="#f66666"/>
+    </g>
+  </g>
+</svg>

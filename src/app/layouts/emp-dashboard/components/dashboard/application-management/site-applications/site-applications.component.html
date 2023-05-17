@@ -1,0 +1,77 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <!-- <h2 class="section-title">Applications From The Website</h2>
+      <section class="stats-section row justify-content-center p-0">
+        <div class="col-lg-3 col-12">
+          <div
+            class="stats-col d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <p class="number">{{ applicationStats?.getAll }}</p>
+              <p class="stats">Total Applications</p>
+            </div>
+            <img
+              src="../../../../../../../assets/images/employees/lead-visualisation/total-usesrs.svg"
+              alt="Total Usesrs"
+            />
+          </div>
+        </div>
+        <div class="col-lg-3 col-12">
+          <div
+            class="stats-col d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <p class="number">{{ applicationStats?.getAccepted }}</p>
+              <p class="stats">Accepted Applications</p>
+            </div>
+            <img
+              src="../../../../../../../assets/images/employees/lead-visualisation/Applied-users.svg"
+              alt="Applied Users"
+            />
+          </div>
+        </div>
+        <div class="col-lg-3 col-12">
+          <div
+            class="stats-col d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <p class="number">{{ applicationStats?.getDepositPending }}</p>
+              <p class="stats">Pending Deposite</p>
+            </div>
+            <img
+              src="../../../../../../../assets/images/employees/lead-visualisation/First-contact.svg"
+              alt="First Contact"
+            />
+          </div>
+        </div>
+        <div class="col-lg-3 col-12">
+          <div
+            class="stats-col d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <p class="number">{{ applicationStats?.getVisaOK }}</p>
+              <p class="stats">Visa OK Applications</p>
+            </div>
+            <img
+              src="../../../../../../../assets/images/employees/lead-visualisation/Preparing-docs.svg"
+              alt="Preparing Docs"
+            />
+          </div>
+        </div>
+      </section> -->
+
+      <section class="table-section row">
+        <app-applications-table
+          class="p-0"
+          [allApplications]="allApplications"
+          [originalApplications]="originalApplications"
+          [searchApps]="searchApps"
+          [sizeName]="sizeName"
+          [loading]="loading"
+          (refresh)="getApplications()"
+        ></app-applications-table>
+      </section>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,2927 @@
+<div class="my-2 px-2 d-flex">
+  <button
+    [disabled]="isFirstPage()"
+    (click)="prevPage()"
+    pButton
+    pRipple
+    type="button"
+    styleClass="p-button-text"
+    icon="pi pi-chevron-left"
+    class="p-button-rounded p-button-text"
+  ></button>
+  <button
+    (click)="resetTable()"
+    pButton
+    pRipple
+    type="button"
+    styleClass="p-button-text"
+    icon="pi pi-refresh"
+    class="p-button-rounded p-button-text"
+  ></button>
+  <button
+    [disabled]="isLastPage()"
+    (click)="nextPage()"
+    pButton
+    pRipple
+    type="button"
+    styleClass="p-button-text"
+    icon="pi pi-chevron-right"
+    class="p-button-rounded p-button-text"
+  ></button>
+  <a
+    class="add-button ms-auto"
+    [routerLink]="[
+      '/employees',
+      empName,
+      'dashboard',
+      'lead-management',
+      'add-lead'
+    ]"
+  >
+    {{ "EMPDASHBOARD.addLead" | translate }}
+  </a>
+</div>
+<p-table
+  [value]="allStudents"
+  [paginator]="true"
+  [rows]="rows"
+  [(first)]="first"
+  [showCurrentPageReport]="true"
+  responsiveLayout="scroll"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [resizableColumns]="true"
+  styleClass="p-datatable-gridlines"
+  columnResizeMode="expand"
+  [loading]="loading"
+  [reorderableColumns]="true"
+  exportHeader="customExportHeader"
+  [globalFilterFields]="[
+    'studentStatus',
+    'schoolOfInterest',
+    'programOfInterest',
+    'studentIntakeMonth',
+    'studentIntakeYear',
+    'studentNationality',
+    'studentEmail',
+    'studentPhone',
+    'studentSource',
+    'studentName'
+  ]"
+  [filterDelay]="0"
+  [(selection)]="selectedColumns"
+  (onEditComplete)="editFields($event)"
+  #table
+>
+  <ng-template pTemplate="caption">
+    <div class="table-header d-flex ps-0">
+      {{ "EMPDASHBOARD.ListofAllLeads" | translate }}
+
+      <span class="p-input-icon-left ms-auto">
+        <input
+          #input
+          pInputText
+          type="text"
+          (input)="table.filterGlobal(input.value, 'contains')"
+          placeholder="Lead Search"
+          class="form-control"
+        />
+      </span>
+    </div>
+    <div class="d-flex">
+      <button
+        type="button"
+        pButton
+        pRipple
+        icon="pi pi-file-excel"
+        (click)="exportExcel()"
+        class="p-button-success mr-2"
+        pTooltip="XLS"
+        tooltipPosition="bottom"
+      ></button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 2em"></th>
+      <th pResizableColumn>
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pResizableColumn pReorderableColumn>ID</th>
+      <th
+        pSortableColumn="studentSeriousnessScore"
+        pResizableColumn
+        pReorderableColumn
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.Seriousness" | translate }}
+          <p-sortIcon field="studentSeriousnessScore"></p-sortIcon>
+          <p-columnFilter
+            type="numeric"
+            field="studentSeriousnessScore"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Seriousness Score"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="reminders" pResizableColumn pReorderableColumn>
+        {{ "EMPDASHBOARD.Reminders" | translate }}
+        <p-sortIcon field="reminders"></p-sortIcon>
+        <p-columnFilter
+          type="numeric"
+          field="reminders"
+          display="menu"
+          [hideOnClear]="true"
+          placeholder="Reminder"
+        >
+        </p-columnFilter>
+      </th>
+      <th pSortableColumn="studentStatus" pResizableColumn pReorderableColumn>
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.Status" | translate }}
+          <p-sortIcon field="studentStatus"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentStatus"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Student Status"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="studentName" pResizableColumn pReorderableColumn>
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.FullName" | translate }}
+          <p-sortIcon field="studentName"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentName"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Student Name"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th
+        pSortableColumn="schoolOfInterest"
+        pResizableColumn
+        pReorderableColumn
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.SchoolOfInterest" | translate }}
+          <p-sortIcon field="schoolOfInterest"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="schoolOfInterest"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="School"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th
+        pSortableColumn="programOfInterest"
+        pResizableColumn
+        pReorderableColumn
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.ProgramOfInterest" | translate }}
+
+          <p-sortIcon field="programOfInterest"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="programOfInterest"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Program"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th
+        pSortableColumn="studentIntakeMonth"
+        pResizableColumn
+        pReorderableColumnf
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.IntakeMonth" | translate }}
+          <p-sortIcon field="studentIntakeMonth"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentIntakeMonth"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Intake Month"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th
+        pSortableColumn="studentIntakeYear"
+        pResizableColumn
+        pReorderableColumn
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.IntakeYear" | translate }}
+          <p-sortIcon field="studentIntakeYear"></p-sortIcon>
+          <p-columnFilter
+            type="numeric"
+            field="studentIntakeYear"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Intake Year"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th
+        pSortableColumn="studentNationality"
+        pResizableColumn
+        pReorderableColumn
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.Nationality" | translate }}
+          <p-sortIcon field="studentNationality"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentNationality"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Country"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="studentEmail" pResizableColumn pReorderableColumn>
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.EmailAddress" | translate }}
+          <p-sortIcon field="studentEmail"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentEmail"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Email Address"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="studentPhone" pResizableColumn pReorderableColumn>
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.Number" | translate }}
+          <p-sortIcon field="studentPhone"></p-sortIcon>
+          <p-columnFilter
+            type="numeric"
+            field="studentPhone"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Phone Number"
+            class="ms-auto"
+            prefix="+"
+            [useGrouping]="false"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="studentSource" pResizableColumn pReorderableColumn>
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.Source" | translate }}
+          <p-sortIcon field="studentSource"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentSource"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Source"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th
+        pSortableColumn="studentEmpName"
+        pResizableColumn
+        pReorderableColumn
+        *ngIf="mainLink !== 'leads'"
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.EmployeeName" | translate }}
+          <p-sortIcon field="studentEmpName"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentEmpName"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Employee Name"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+
+      <th
+        pSortableColumn="vipServices"
+        pResizableColumn
+        pReorderableColumn
+        *ngIf="mainLink !== 'leads'"
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.VipServices" | translate }}
+          <p-sortIcon field="vipServices"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="vipServices"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Employee Name"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+
+      <th
+        pSortableColumn="studentCreatedAt"
+        pResizableColumn
+        pReorderableColumn
+      >
+        <div class="d-flex align-items-center">
+          {{ "EMPDASHBOARD.CreationDate" | translate }}
+          <p-sortIcon field="studentCreatedAt"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="studentCreatedAt"
+            display="menu"
+            [hideOnClear]="true"
+            placeholder="Creation Date"
+            class="ms-auto"
+          ></p-columnFilter>
+        </div>
+      </th>
+      <th style="width: 8rem"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowIndex="rowIndex" let-student>
+    <tr
+      [pSelectableRow]="student"
+      [pReorderableRow]="rowIndex"
+      style="height: 75px"
+    >
+      <td>
+        <span class="pi pi-bars" [pReorderableRowHandle]="rowIndex"></span>
+      </td>
+      <td>
+        <p-tableCheckbox [value]="student" [index]="rowIndex"></p-tableCheckbox>
+      </td>
+      <td>{{ rowIndex + 1 }}</td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentSeriousnessScore'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown
+              [options]="scores"
+              appendTo="body"
+              [(ngModel)]="student.studentSeriousnessScore"
+              [style]="{ width: '100%' }"
+            ></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            <div class="d-flex justify-content-center">
+              <p-badge
+                [value]="student.studentSeriousnessScore"
+                size="large"
+                [severity]="getBGColor(student.studentSeriousnessScore)"
+              ></p-badge>
+            </div>
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumnField]="'reminders'"
+      >
+        <p-progressBar
+          [value]="student.reminders"
+          [showValue]="true"
+          [unit]="student.reminders === 1 ? ' day' : ' days'"
+        ></p-progressBar>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentStatus'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown
+              [options]="studentStatus"
+              appendTo="body"
+              [(ngModel)]="student.studentStatus"
+              [style]="{ width: '100%' }"
+            ></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            <div class="d-flex justify-content-center">
+              <span
+                [ngStyle]="{
+                  background: getStatusBG(student.studentStatus),
+                  color: getStatusColor(student.studentStatus)
+                }"
+                class="status"
+              >
+                {{ student.studentStatus }}
+              </span>
+            </div>
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentName'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="student.studentName"
+              class="form-control w-100"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            <img
+              style="vertical-align: middle"
+              class="student-image"
+              [src]="
+                student.studentProfilePictureUrl
+                  ? student.studentProfilePictureUrl
+                  : 'https://studentgator.com/assets/images/navbar/default-pic.svg'
+              "
+              [alt]="student.studentName"
+            />
+            <span class="ms-3">
+              {{ student.studentName }}
+            </span>
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'schoolOfInterest'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown
+              [options]="schools"
+              [filter]="true"
+              optionLabel="schoolName"
+              optionValue="schoolName"
+              filterBy="schoolName"
+              appendTo="body"
+              [(ngModel)]="student.schoolOfInterest"
+              [style]="{ width: '100%' }"
+            ></p-dropdown>
+          </ng-template>
+
+          <ng-template pTemplate="output">
+            {{ student.schoolOfInterest }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'programOfInterest'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="student.programOfInterest"
+              class="form-control w-100"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.programOfInterest }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentIntakeMonth'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown
+              [options]="intakes"
+              appendTo="body"
+              [(ngModel)]="student.studentIntakeMonth"
+              [style]="{ width: '100%' }"
+            ></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.studentIntakeMonth }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentIntakeYear'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown
+              [options]="years"
+              appendTo="body"
+              [(ngModel)]="student.studentIntakeYear"
+              [style]="{ width: '100%' }"
+            ></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.studentIntakeYear }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentNationality'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown
+              [options]="countries"
+              appendTo="body"
+              [(ngModel)]="student.studentNationality"
+              [style]="{ width: '100%' }"
+            ></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.studentNationality }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentEmail'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="student.studentEmail"
+              class="form-control w-100"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.studentEmail }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentPhone'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="student.studentPhone"
+              class="form-control w-100"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.studentPhone }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentSource'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="student.studentSource"
+              class="form-control w-100"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.studentSource }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentEmpName'"
+        [pEditableColumnRowIndex]="rowIndex"
+        *ngIf="mainLink !== 'leads'"
+      >
+        {{ student.studentEmpName }}
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'vipServices'"
+        [pEditableColumnRowIndex]="rowIndex"
+        *ngIf="mainLink !== 'leads'"
+      >
+        no
+      </td>
+      <td
+        pEditableColumn
+        class="ui-resizable-column"
+        [pEditableColumn]="student"
+        [pEditableColumnField]="'studentCreatedAt'"
+        [pEditableColumnRowIndex]="rowIndex"
+      >
+        {{ student.studentCreatedAt }}
+      </td>
+      <td style="text-align: center">
+        <button
+          pButton
+          type="button"
+          class="p-button-secondary"
+          icon="pi pi-cog"
+          [matMenuTriggerFor]="menu"
+        ></button>
+
+        <mat-menu #menu="matMenu">
+          <button
+            mat-menu-item
+            (click)="openModal(info, 'info-modal', 'xl', [])"
+          >
+            <mat-icon>remove_red_eye</mat-icon>
+            <span>{{ "EMPDASHBOARD.View" | translate }} </span>
+          </button>
+
+          <!-- Profile Info -->
+          <ng-template #info let-c="close" let-d="dismiss">
+            <div class="modal-header d-flex justify-content-between">
+              <h4 class="modal-title" id="modal-basic-title">
+                {{ "EMPDASHBOARD.StudentInformation" | translate }}
+              </h4>
+              <button
+                type="button"
+                class="close-btn"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="info-section">
+                <div class="main-info d-flex align-items-center">
+                  <img
+                    class="profile-pic"
+                    [src]="
+                      student.studentProfilePictureUrl
+                        ? student.studentProfilePictureUrl
+                        : '../../../../../../../../assets/images/navbar/default-pic.svg'
+                    "
+                    [alt]="student.studentName"
+                  />
+                  <p class="student-name">{{ student.studentName }}</p>
+                </div>
+                <div class="sec-info">
+                  <div class="single-info d-flex align-items-center">
+                    <div
+                      class="icon-circle d-flex justify-content-center align-items-center"
+                    >
+                      <i class="far fa-envelope"></i>
+                    </div>
+                    <p>{{ student.studentEmail }}</p>
+                  </div>
+                  <div class="single-info d-flex align-items-center">
+                    <div
+                      class="icon-circle d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-briefcase"></i>
+                    </div>
+                    <p>{{ student.studentJobTitle }}</p>
+                  </div>
+                  <div class="single-info d-flex align-items-center">
+                    <div
+                      class="icon-circle d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <p>{{ student.studentNationality }}</p>
+                  </div>
+                  <div class="single-info d-flex align-items-center">
+                    <div
+                      class="icon-circle d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-calendar"></i>
+                    </div>
+                    <p>{{ student.studentDateOfBirth }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-container">
+                <div class="profile-info-section">
+                  <h2 class="title">
+                    {{ "EMPDASHBOARD.PersonalProfile" | translate }}
+                  </h2>
+                  <p>
+                    {{ student.studentBio }}
+                  </p>
+                </div>
+                <div class="education-status-section">
+                  <h2 class="title">
+                    {{ "EMPDASHBOARD.EducationStatus" | translate }}
+                  </h2>
+                  <div
+                    class="d-flex flex-column justify-content-center align-items-start education-info"
+                  >
+                    <div
+                      class="d-flex flex-column flex-lg-row align-items-start graduation-info"
+                    >
+                      <div class="graduated">
+                        {{ "EMPDASHBOARD.Graduate" | translate }}
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <div class="university">
+                          {{ student.studentEducation.university }}
+                        </div>
+                        <div class="faculty">
+                          {{ student.studentEducation.faculty }}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex flex-column flex-lg-row align-items-lg-center align-items-start language-info"
+                    >
+                      <div class="language">
+                        {{ "EMPDASHBOARD.LanguageTest" | translate }}
+                      </div>
+                      <div class="language-test">
+                        {{ student.studentEngTest }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="interests-section">
+                  <h2 class="title">
+                    {{ "EMPDASHBOARD.Interests" | translate }}
+                  </h2>
+                  <div
+                    class="interested-badges d-flex align-items-center flex-wrap"
+                  >
+                    <div
+                      class="field-badge d-flex justify-content-center align-items-center"
+                      *ngFor="
+                        let fieldInterested of student.studentFieldOfInterest
+                      "
+                    >
+                      {{ fieldInterested }}
+                    </div>
+                  </div>
+                </div>
+                <div class="wishlist-section">
+                  <h2 class="title">
+                    {{ "EMPDASHBOARD.Wishlist" | translate }}
+                  </h2>
+                  <div class="wishlist-col d-flex flex-wrap">
+                    <div
+                      class="col-md-4 col-12 d-flex programs-container"
+                      *ngFor="
+                        let program of student.studentSavedPrograms;
+                        let i = index
+                      "
+                    >
+                      <a
+                        [routerLink]="[
+                          '/landing/programs',
+                          program.name,
+                          program.id
+                        ]"
+                        (click)="closeModal()"
+                      >
+                        <mat-card [ngStyle]="{ background: getColor() }">
+                          <div class="row">
+                            <div class="col-md-12 col-5">
+                              <div class="image-container d-none d-md-block">
+                                <img
+                                  class="image-move"
+                                  src="../../../../../assets/images/schools/{{
+                                    program.school
+                                  }}/2.jpg"
+                                  alt="{{ program.school }}"
+                                />
+                              </div>
+                              <div class="h-100 d-md-none">
+                                <img
+                                  class="card-img m-0"
+                                  src="../../../../../assets/images/schools/{{
+                                    program.school
+                                  }}/2.jpg"
+                                  alt="{{ program.school }}"
+                                />
+                                <div
+                                  class="card-img-overlay d-flex justify-content-between align-items-end img ps-2"
+                                  style="
+                                    background-image: linear-gradient(
+                                      180deg,
+                                      #dedddd00 0%,
+                                      #6f77f4f7 100%
+                                    );
+                                  "
+                                >
+                                  <div
+                                    class="d-flex flex-column justify-content-center align-items-start school-name-sm pb-1"
+                                  >
+                                    <img
+                                      src="../../../../../assets/images/schools/schools logos/{{
+                                        program.school
+                                      }}.png"
+                                      alt="{{ program.school }}"
+                                    />
+                                    <p class="text-white">
+                                      {{ program.school }}
+                                    </p>
+                                  </div>
+                                  <div></div>
+                                </div>
+                              </div>
+                              <div
+                                class="price justify-content-center align-items-center d-none d-md-flex"
+                              >
+                                <p>€ {{ program.fee }}</p>
+                              </div>
+                            </div>
+                            <div class="col-7 d-block d-md-none">
+                              <p class="program-title">
+                                {{ program.type | shorten : 18 }}
+                              </p>
+                              <p class="program-name">
+                                {{ program.name | shorten : 30 }}
+                              </p>
+                              <p class="program-description">
+                                {{ program.desc | shorten : 38 }}
+                              </p>
+                              <div class="row">
+                                <div
+                                  class="col-12 d-flex justify-content-start align-items-center"
+                                >
+                                  <div
+                                    class="lang d-flex justify-content-center align-items-center"
+                                  >
+                                    <i class="fas fa-globe text-dark"></i>
+                                    <p class="m-0 ms-1">
+                                      In {{ program.lang }}
+                                    </p>
+                                  </div>
+                                  <div
+                                    class="date d-flex justify-content-center align-items-center ms-3"
+                                  >
+                                    <i class="far fa-calendar"></i>
+                                    <p class="m-0 ms-1">
+                                      At {{ program.intake }}
+                                    </p>
+                                  </div>
+                                </div>
+                                <div
+                                  class="col-12 d-flex justify-content-between align-items-center"
+                                >
+                                  <div class="price-sm m-0">
+                                    € {{ program.fee }}
+                                  </div>
+                                  <div
+                                    class="location d-flex justify-content-center align-items-center"
+                                  >
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p class="m-0 ms-1">
+                                      {{ program.city | shorten : 10 }}
+                                    </p>
+                                  </div>
+                                  <div
+                                    class="duration d-flex justify-content-center align-items-center"
+                                  >
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <p class="m-0 ms-1">
+                                      {{ program.length }} Year<span
+                                        *ngIf="program.length > '1'"
+                                        >s</span
+                                      >
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12 d-none d-md-block">
+                              <p class="program-title">
+                                {{ program.type | shorten : 18 }}
+                              </p>
+                              <p class="program-name">
+                                {{ program.name | shorten : 18 }}
+                              </p>
+                              <p class="program-description">
+                                {{ program.desc | shorten : 44 }}
+                              </p>
+                              <div
+                                class="school-name d-flex justify-content-start align-items-center"
+                              >
+                                <img
+                                  src="../../../../../assets/images/schools/schools logos/{{
+                                    program.school
+                                  }}.png"
+                                  alt="{{ program.school }}"
+                                />
+                                <p>
+                                  {{ program.school | shorten : 18 }}
+                                </p>
+                              </div>
+                            </div>
+                            <div class="info col-md-12 d-none d-md-block">
+                              <div
+                                class="row d-flex flex-column justify-content-between"
+                              >
+                                <div
+                                  class="first-info d-flex justify-content-between align-items-center"
+                                >
+                                  <div
+                                    class="d-flex justify-content-center align-items-center"
+                                  >
+                                    <i class="far fa-calendar"></i>
+                                    <p>At {{ program.intake }}</p>
+                                  </div>
+                                  <div
+                                    class="d-flex justify-content-center align-items-center"
+                                  >
+                                    <i class="fas fa-globe"></i>
+                                    <p>In {{ program.lang }}</p>
+                                  </div>
+                                </div>
+                                <div>
+                                  <hr />
+                                </div>
+                                <div
+                                  class="second-info d-flex justify-content-between align-items-center"
+                                >
+                                  <div
+                                    class="d-flex justify-content-center align-items-center"
+                                  >
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p>{{ program.city | shorten : 10 }}</p>
+                                  </div>
+                                  <div
+                                    class="d-flex justify-content-center align-items-center animation"
+                                  >
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <p>
+                                      {{ program.length }} Year<span
+                                        *ngIf="program.length > '1'"
+                                      >
+                                        s
+                                      </span>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </mat-card>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="budget-section">
+                  <h2 class="title">{{ "EMPDASHBOARD.Budget" | translate }}</h2>
+                  <p>
+                    {{
+                      student.studentBudget[0] ? student.studentBudget[0] : 0
+                    }}€ -
+                    {{
+                      student.studentBudget[1] ? student.studentBudget[1] : 0
+                    }}€
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- To view comments -->
+          <button
+            mat-menu-item
+            (click)="openModal(comments, 'comments-modal', 'lg', [])"
+          >
+            <mat-icon>comment</mat-icon>
+            <span>{{ "EMPDASHBOARD.ViewComments" | translate }}</span>
+          </button>
+
+          <!-- Comments -->
+          <ng-template #comments let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">
+                {{ "EMPDASHBOARD.Commentsof" | translate }}
+                <span>{{ student.studentName }}</span>
+              </h4>
+              <button
+                type="button"
+                class="close-btn"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div *ngFor="let comment of allComments; let j = index">
+                <div
+                  class="comment-box"
+                  *ngIf="comment.studentEmail === student.studentEmail"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h4 class="comment-name">
+                        {{ comment.empName }}
+                      </h4>
+                      <p class="comment-date">
+                        {{ comment.createdAt * 1000 | date : "medium" }}
+                      </p>
+                    </div>
+                    <div
+                      class="more-comments d-flex justify-content-center align-items-center"
+                    >
+                      <button
+                        class="more-actions"
+                        [matMenuTriggerFor]="commentsMenu"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </button>
+                      <!-- menu for more-actions -->
+                      <mat-menu #commentsMenu="matMenu">
+                        <button
+                          mat-menu-item
+                          (click)="changeEditComment(j, comment.comment)"
+                        >
+                          <mat-icon>edit</mat-icon>
+                          <span>{{ "EMPDASHBOARD.Edit" | translate }}</span>
+                        </button>
+                        <button
+                          mat-menu-item
+                          (click)="deleteComment(comment.commentId)"
+                        >
+                          <mat-icon>delete</mat-icon>
+                          <span>{{ "EMPDASHBOARD.Delete" | translate }}</span>
+                        </button>
+                      </mat-menu>
+                    </div>
+                  </div>
+                  <p class="comment" *ngIf="!editCommentMode[j]">
+                    {{ comment.comment }}
+                  </p>
+                  <form
+                    [formGroup]="editCommentForm"
+                    (ngSubmit)="
+                      editComment(
+                        editCommentForm,
+                        student.studentEmail,
+                        comment.commentId,
+                        j
+                      )
+                    "
+                    *ngIf="editCommentMode[j]"
+                  >
+                    <textarea
+                      class="comment-area"
+                      formControlName="editComment"
+                    >
+                    </textarea>
+                    <button
+                      class="submit-btn me-3"
+                      type="submit"
+                      [disabled]="!editCommentForm.valid"
+                      [ngClass]="{
+                        'main-btn':
+                          editCommentForm.controls['editComment'].value,
+                        'sec-btn':
+                          !editCommentForm.controls['editComment'].value
+                      }"
+                    >
+                      {{ "EMPDASHBOARD.save" | translate }}
+                    </button>
+                    <button
+                      class="cancel-btn"
+                      type="button"
+                      (click)="cancelEditComment(j)"
+                      [ngClass]="{
+                        'main-btn':
+                          !editCommentForm.controls['editComment'].value,
+                        'sec-btn': editCommentForm.controls['editComment'].value
+                      }"
+                    >
+                      {{ "EMPDASHBOARD.Cancel" | translate }}
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="add-comment-box">
+                <h4 class="comment-name">{{ empName }}</h4>
+                <p class="comment-date">
+                  {{ getTime() | date : "mediumTime" }}
+                </p>
+                <form
+                  [formGroup]="commentForm"
+                  (ngSubmit)="submit(commentForm, student.studentEmail)"
+                >
+                  <textarea
+                    class="comment-area"
+                    placeholder="Your Comment"
+                    formControlName="comment"
+                  ></textarea>
+                  <button
+                    class="submit-btn me-3"
+                    type="submit"
+                    [disabled]="!commentForm.valid"
+                    [ngClass]="{
+                      'main-btn': commentForm.controls['comment'].value,
+                      'sec-btn': !commentForm.controls['comment'].value
+                    }"
+                  >
+                    {{ "EMPDASHBOARD.Comment" | translate }}
+                  </button>
+                  <button
+                    class="cancel-btn"
+                    type="button"
+                    (click)="commentForm.reset()"
+                    [ngClass]="{
+                      'main-btn': !commentForm.controls['comment'].value,
+                      'sec-btn': commentForm.controls['comment'].value
+                    }"
+                  >
+                    {{ "EMPDASHBOARD.Cancel" | translate }}
+                  </button>
+                </form>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- To assign for other employees -->
+          <button
+            mat-menu-item
+            [matMenuTriggerFor]="assign"
+            *ngIf="mainLink === 'all-leads' || mainLink === 'leads'"
+          >
+            <mat-icon>assignment</mat-icon>
+            <span>{{ "EMPDASHBOARD.Assign" | translate }}</span>
+          </button>
+
+          <mat-menu #assign="matMenu">
+            <button
+              mat-menu-item
+              (click)="assingLead(student.studentUserName, empUserName)"
+              *ngIf="mainLink !== 'leads'"
+            >
+              {{ "EMPDASHBOARD.ForMe" | translate }}
+            </button>
+            <button
+              mat-menu-item
+              [matMenuTriggerFor]="others"
+              *ngIf="mainLink !== 'all-leads'"
+            >
+              {{ "EMPDASHBOARD.ForOthers" | translate }}
+            </button>
+            <button
+              mat-menu-item
+              [matMenuTriggerFor]="others"
+              *ngIf="
+                (mainLink == 'all-leads' && type == 'owner') ||
+                (mainLink == 'all-leads' && type == 'owner')
+              "
+            >
+              {{ "EMPDASHBOARD.ForOthers" | translate }}
+            </button>
+
+            <mat-menu #others="matMenu">
+              <button
+                mat-menu-item
+                *ngFor="let emp of employees"
+                (click)="assingLead(student.studentUserName, emp.Username)"
+              >
+                {{ emp.Name }}
+              </button>
+            </mat-menu>
+          </mat-menu>
+
+          <!-- To archive a lead -->
+          <button
+            mat-menu-item
+            (click)="archiveLead(student.studentEmail)"
+            *ngIf="mainLink === 'leads'"
+          >
+            <mat-icon>archive</mat-icon>
+            <span>
+              {{ "EMPDASHBOARD.archive" | translate }}
+            </span>
+          </button>
+
+          <!-- To unarchive a lead -->
+          <button
+            mat-menu-item
+            (click)="unarchiveLead(student.studentEmail)"
+            *ngIf="mainLink === 'archived-leads'"
+          >
+            <mat-icon>unarchive</mat-icon>
+            <span> {{ "EMPDASHBOARD.unarchive" | translate }} </span>
+          </button>
+
+          <!-- To restore deleted student -->
+          <button
+            mat-menu-item
+            (click)="restoreStudent(student.studentEmail)"
+            *ngIf="mainLink === 'deleted-leads'"
+          >
+            <mat-icon>restore_from_trash</mat-icon>
+            <span> {{ "EMPDASHBOARD.Restore" | translate }} </span>
+          </button>
+
+          <!-- To restore student to prospect -->
+          <button
+            mat-menu-item
+            (click)="restoreToProspect(student.studentUserName)"
+            *ngIf="mainLink === 'all-leads' || mainLink === 'leads'"
+          >
+            <mat-icon>restore_from_trash</mat-icon>
+            <span>{{ "EMPDASHBOARD.Restore" | translate }}</span>
+          </button>
+
+          <!-- To delete assigned student -->
+          <button
+            mat-menu-item
+            (click)="deleteStudent(student.studentUserName)"
+            *ngIf="mainLink === 'archived-leads' || mainLink === 'leads'"
+          >
+            <mat-icon>delete</mat-icon>
+            <span>{{ "EMPDASHBOARD.Delete" | translate }}</span>
+          </button>
+          <!-- To view documents -->
+          <button
+            mat-menu-item
+            (click)="
+              openModal(documents, 'documents-modal', 'xl', student.studentDocs)
+            "
+          >
+            <mat-icon> insert_drive_file</mat-icon>
+            <span> {{ "EMPDASHBOARD.ViewDocument" | translate }}</span>
+          </button>
+        </mat-menu>
+
+        <!-- Documents -->
+        <ng-template #documents let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              {{ "EMPDASHBOARD.Documentsof" | translate
+              }}{{ student.studentName }}
+            </h4>
+            <button
+              type="button"
+              class="close-btn"
+              aria-label="Close"
+              (click)="d('Cross click')"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body d-lg-block d-none">
+            <table class="documents-table">
+              <tr class="table-row">
+                <td class="documents">
+                  {{ "EMPDASHBOARD.Documents" | translate }}
+                </td>
+                <td class="status text-center" colspan="2">
+                  {{ "EMPDASHBOARD.Status" | translate }}
+                </td>
+              </tr>
+              <tr class="main-row">
+                <td class="main-title">
+                  {{ "EMPDASHBOARD.IDENTITYDOCUMENTS" | translate }}
+                </td>
+                <td class="sec-title">
+                  {{ "EMPDASHBOARD.Uploaded" | translate }}
+                </td>
+                <td class="sec-title w-25">
+                  {{ "EMPDASHBOARD.Document" | translate }}
+                </td>
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  {{ "EMPDASHBOARD.CopyofPasseport/orID" | translate }}
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.pass
+                          ? '#E5E7FF'
+                          : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.pass,
+                          'fa-check': urlObject.pass
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.pass ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.pass ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.pass ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.pass"
+                    [href]="urlObject.pass"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="passInput.click()"
+                    *ngIf="!uploadPercentage.pass && !urlObject.pass"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p class="percentage" *ngIf="uploadPercentage.pass">
+                    {{ uploadPercentage.pass }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('pass', student.studentUserName)"
+                    *ngIf="!uploadPercentage.pass && urlObject.pass"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #passInput
+                  type="file"
+                  (change)="chooseFile($event, 'pass', student.studentUserName)"
+                  style="display: none"
+                />
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  {{ "EMPDASHBOARD.IdentityPhoto" | translate }}
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.identity_photo
+                          ? '#E5E7FF'
+                          : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.identity_photo,
+                          'fa-check': urlObject.identity_photo
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.identity_photo
+                            ? '#6F77F4'
+                            : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.identity_photo ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.identity_photo ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.identity_photo"
+                    [href]="urlObject.identity_photo"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="photoInput.click()"
+                    *ngIf="
+                      !uploadPercentage.identity_photo &&
+                      !urlObject.identity_photo
+                    "
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="
+                      uploadPercentage.identity_photo &&
+                      !urlObject.identity_photo
+                    "
+                  >
+                    {{ uploadPercentage.identity_photo }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="
+                      deleteFile('identity_photo', student.studentUserName)
+                    "
+                    *ngIf="
+                      !uploadPercentage.identity_photo &&
+                      urlObject.identity_photo
+                    "
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #photoInput
+                  type="file"
+                  (change)="
+                    chooseFile(
+                      $event,
+                      'identity_photo',
+                      student.studentUserName
+                    )
+                  "
+                  style="display: none"
+                />
+              </tr>
+              <tr class="main-row">
+                <td class="main-title">
+                  {{ "EMPDASHBOARD.MOTIVATIONDOCUMENTS" | translate }}
+                </td>
+                <td class="sec-title">
+                  {{ "EMPDASHBOARD.Uploaded" | translate }}
+                </td>
+                <td class="sec-title w-25">
+                  {{ "EMPDASHBOARD.Document" | translate }}
+                </td>
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  {{ "EMPDASHBOARD.Resume" | translate }}
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.cv ? '#E5E7FF' : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.cv,
+                          'fa-check': urlObject.cv
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.cv ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.cv ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.cv ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.cv"
+                    [href]="urlObject.cv"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="resumeInput.click()"
+                    *ngIf="!uploadPercentage.cv && !urlObject.cv"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="uploadPercentage.cv && !urlObject.cv"
+                  >
+                    {{ uploadPercentage.cv }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('cv', student.studentUserName)"
+                    *ngIf="!uploadPercentage.cv && urlObject.cv"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #resumeInput
+                  type="file"
+                  (change)="chooseFile($event, 'cv', student.studentUserName)"
+                  style="display: none"
+                />
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  {{ "EMPDASHBOARD.MotivationLetter" | translate }}
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.ml ? '#E5E7FF' : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.ml,
+                          'fa-check': urlObject.ml
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.ml ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.ml ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.ml ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.ml"
+                    [href]="urlObject.ml"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="mlInput.click()"
+                    *ngIf="!uploadPercentage.ml && !urlObject.ml"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="uploadPercentage.ml && !urlObject.ml"
+                  >
+                    {{ uploadPercentage.ml }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('ml', student.studentUserName)"
+                    *ngIf="!uploadPercentage.ml && urlObject.ml"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #mlInput
+                  type="file"
+                  (change)="chooseFile($event, 'ml', student.studentUserName)"
+                  style="display: none"
+                />
+              </tr>
+              <tr class="main-row">
+                <td class="main-title">
+                  {{ "EMPDASHBOARD.ACADEMICDOCUMENTS" | translate }}
+                </td>
+                <td class="sec-title">
+                  {{ "EMPDASHBOARD.Uploaded" | translate }}
+                </td>
+                <td class="sec-title w-25">
+                  {{ "EMPDASHBOARD.Document" | translate }}
+                </td>
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  {{ "EMPDASHBOARD.Transcripts" | translate }}
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.trans
+                          ? '#E5E7FF'
+                          : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.trans,
+                          'fa-check': urlObject.trans
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.trans ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.trans ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.trans ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.trans"
+                    [href]="urlObject.trans"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="transInput.click()"
+                    *ngIf="!uploadPercentage.trans && !urlObject.trans"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="uploadPercentage.trans && !urlObject.trans"
+                  >
+                    {{ uploadPercentage.trans }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('trans', student.studentUserName)"
+                    *ngIf="!uploadPercentage.trans && urlObject.trans"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #transInput
+                  type="file"
+                  (change)="
+                    chooseFile($event, 'trans', student.studentUserName)
+                  "
+                  style="display: none"
+                />
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  {{ "EMPDASHBOARD.Certificates" | translate }}
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.certificate
+                          ? '#E5E7FF'
+                          : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.certificate,
+                          'fa-check': urlObject.certificate
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.certificate ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.certificate ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.certificate ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.certificate"
+                    [href]="urlObject.certificate"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="certificatesInput.click()"
+                    *ngIf="
+                      !uploadPercentage.certificate && !urlObject.certificate
+                    "
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="
+                      uploadPercentage.certificate && !urlObject.certificate
+                    "
+                  >
+                    {{ uploadPercentage.certificate }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('certificate', student.studentUserName)"
+                    *ngIf="
+                      !uploadPercentage.certificate && urlObject.certificate
+                    "
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #certificatesInput
+                  type="file"
+                  (change)="
+                    chooseFile($event, 'certificate', student.studentUserName)
+                  "
+                  style="display: none"
+                />
+              </tr>
+              <tr class="main-row">
+                <td class="main-title">
+                  {{ "EMPDASHBOARD.LANGUAGEPROOFS" | translate }}
+                </td>
+                <td class="sec-title">
+                  {{ "EMPDASHBOARD.Uploaded" | translate }}
+                </td>
+                <td class="sec-title w-25">
+                  {{ "EMPDASHBOARD.Document" | translate }}
+                </td>
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">ILETS/TOEIC/TOEFL</td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.engTest
+                          ? '#E5E7FF'
+                          : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.engTest,
+                          'fa-check': urlObject.engTest
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.engTest ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.engTest ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.engTest ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.engTest"
+                    [href]="urlObject.engTest"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="englishInput.click()"
+                    *ngIf="!uploadPercentage.engTest && !urlObject.engTest"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="uploadPercentage.engTest && !urlObject.engTest"
+                  >
+                    {{ uploadPercentage.engTest }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('engTest', student.studentUserName)"
+                    *ngIf="!uploadPercentage.engTest && urlObject.engTest"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #englishInput
+                  type="file"
+                  (change)="
+                    chooseFile($event, 'engTest', student.studentUserName)
+                  "
+                  style="display: none"
+                />
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">TCF/DELF/DALF</td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.frenchTest
+                          ? '#E5E7FF'
+                          : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.frenchTest,
+                          'fa-check': urlObject.frenchTest
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.frenchTest ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.frenchTest ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.frenchTest ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.frenchTest"
+                    [href]="urlObject.frenchTest"
+                    target="_blank"
+                  >
+                    VIEW
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="frenchInput.click()"
+                    *ngIf="
+                      !uploadPercentage.frenchTest && !urlObject.frenchTest
+                    "
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="uploadPercentage.frenchTest && !urlObject.frenchTest"
+                  >
+                    {{ uploadPercentage.frenchTest }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('frenchTest', student.studentUserName)"
+                    *ngIf="!uploadPercentage.frenchTest && urlObject.frenchTest"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #frenchInput
+                  type="file"
+                  (change)="
+                    chooseFile($event, 'frenchTest', student.studentUserName)
+                  "
+                  style="display: none"
+                />
+              </tr>
+              <tr class="main-row">
+                <td class="main-title">
+                  {{ "EMPDASHBOARD.SUPPORTINGDOCUMENTS" | translate }}
+                </td>
+                <td class="sec-title">
+                  {{ "EMPDASHBOARD.Uploaded" | translate }}
+                </td>
+                <td class="sec-title w-25">
+                  {{ "EMPDASHBOARD.Document" | translate }}
+                </td>
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  Recommendation Letters <br />(With Email And Number Of The
+                  Referee)
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                  style="height: 84px"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.rl ? '#E5E7FF' : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.rl,
+                          'fa-check': urlObject.rl
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.rl ? '#6F77F4' : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.rl ? '#6F77F4' : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.rl ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.rl"
+                    [href]="urlObject.rl"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="rlInput.click()"
+                    *ngIf="!uploadPercentage.rl && !urlObject.rl"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="uploadPercentage.rl && !urlObject.rl"
+                  >
+                    {{ uploadPercentage.rl }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="deleteFile('rl', student.studentUserName)"
+                    *ngIf="!uploadPercentage.rl && urlObject.rl"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #rlInput
+                  type="file"
+                  (change)="chooseFile($event, 'rl', student.studentUserName)"
+                  style="display: none"
+                />
+              </tr>
+              <tr class="sec-row">
+                <td class="main-desc">
+                  Certification Of Extracurricular <br />Activities / Or
+                  Professional Activities
+                </td>
+                <td
+                  class="sec-desc d-flex justify-content-between align-items-center"
+                  style="height: 84px"
+                >
+                  <div class="status-desc d-flex align-items-center">
+                    <div
+                      class="status-icon d-flex justify-content-center align-items-center"
+                      [ngStyle]="{
+                        'background-color': urlObject.professional_act
+                          ? '#E5E7FF'
+                          : '#FFDDDD'
+                      }"
+                    >
+                      <i
+                        class="fas"
+                        [ngClass]="{
+                          'fa-times': !urlObject.professional_act,
+                          'fa-check': urlObject.professional_act
+                        }"
+                        [ngStyle]="{
+                          color: urlObject.professional_act
+                            ? '#6F77F4'
+                            : '#F66666'
+                        }"
+                      ></i>
+                    </div>
+                    <span
+                      class="status-name"
+                      [ngStyle]="{
+                        color: urlObject.professional_act
+                          ? '#6F77F4'
+                          : '#F66666'
+                      }"
+                    >
+                      {{ urlObject.professional_act ? "Yes" : "No" }}
+                    </span>
+                  </div>
+                  <a
+                    class="status-link"
+                    *ngIf="urlObject.professional_act"
+                    [href]="urlObject.professional_act"
+                    target="_blank"
+                  >
+                    {{ "EMPDASHBOARD.VIEW" | translate }}
+                  </a>
+                </td>
+                <td class="sec-desc text-center">
+                  <div
+                    class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="activitiesInput.click()"
+                    *ngIf="
+                      !uploadPercentage.professional_act &&
+                      !urlObject.professional_act
+                    "
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <p
+                    class="percentage"
+                    *ngIf="
+                      uploadPercentage.professional_act &&
+                      !urlObject.professional_act
+                    "
+                  >
+                    {{ uploadPercentage.professional_act }}%
+                  </p>
+                  <div
+                    class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                    (click)="
+                      deleteFile('professional_act', student.studentUserName)
+                    "
+                    *ngIf="
+                      !uploadPercentage.professional_act &&
+                      urlObject.professional_act
+                    "
+                  >
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+                <!-- File input -->
+                <input
+                  #activitiesInput
+                  type="file"
+                  (change)="
+                    chooseFile(
+                      $event,
+                      'professional_act',
+                      student.studentUserName
+                    )
+                  "
+                  style="display: none"
+                />
+              </tr>
+            </table>
+          </div>
+          <div class="modal-body d-lg-none">
+            <mdb-accordion class="accordion">
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.CopyofPasseport" | translate }}
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="!uploadPercentage.pass && !urlObject.pass"
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile($event, 'pass', student.studentUserName)
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="urlObject.pass || uploadPercentage.pass"
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.pass
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.pass,
+                            'fa-check': urlObject.pass
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.pass ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.pass ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.pass ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.pass">
+                      {{ uploadPercentage.pass }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.pass"
+                      [href]="urlObject.pass"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.IdentityPhoto" | translate }}
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="
+                      !uploadPercentage.identity_photo &&
+                      !urlObject.identity_photo
+                    "
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile(
+                          $event,
+                          'identity_photo',
+                          student.studentUserName
+                        )
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="
+                      urlObject.identity_photo ||
+                      uploadPercentage.identity_photo
+                    "
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.identity_photo
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.identity_photo,
+                            'fa-check': urlObject.identity_photo
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.identity_photo
+                              ? '#6F77F4'
+                              : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.identity_photo
+                            ? '#6F77F4'
+                            : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.identity_photo ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p
+                      class="percentage"
+                      *ngIf="uploadPercentage.identity_photo"
+                    >
+                      {{ uploadPercentage.identity_photo }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.identity_photo"
+                      [href]="urlObject.identity_photo"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.Resume" | translate }}
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="!uploadPercentage.cv && !urlObject.cv"
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile($event, 'cv', student.studentUserName)
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="urlObject.cv || uploadPercentage.cv"
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.cv
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.cv,
+                            'fa-check': urlObject.cv
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.cv ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.cv ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.cv ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.cv">
+                      {{ uploadPercentage.cv }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.cv"
+                      [href]="urlObject.cv"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.MotivationLetter" | translate }}
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="!uploadPercentage.ml && !urlObject.ml"
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile($event, 'ml', student.studentUserName)
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="urlObject.ml || uploadPercentage.ml"
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.ml
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.ml,
+                            'fa-check': urlObject.ml
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.ml ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.ml ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.ml ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.ml">
+                      {{ uploadPercentage.ml }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.ml"
+                      [href]="urlObject.ml"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.Transcripts" | translate }}
+
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="!uploadPercentage.trans && !urlObject.trans"
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile($event, 'trans', student.studentUserName)
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="urlObject.trans || uploadPercentage.trans"
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.trans
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.trans,
+                            'fa-check': urlObject.trans
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.trans ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.trans ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.trans ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.trans">
+                      {{ uploadPercentage.trans }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.trans"
+                      [href]="urlObject.trans"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.Certificates" | translate }}
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="
+                      !uploadPercentage.certificate && !urlObject.certificate
+                    "
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile(
+                          $event,
+                          'certificate',
+                          student.studentUserName
+                        )
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="
+                      urlObject.certificate || uploadPercentage.certificate
+                    "
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.certificate
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.certificate,
+                            'fa-check': urlObject.certificate
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.certificate ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.certificate ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.certificate ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.certificate">
+                      {{ uploadPercentage.certificate }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.certificate"
+                      [href]="urlObject.certificate"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  Lets/Toeic/Toefl
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="!uploadPercentage.engTest && !urlObject.engTest"
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile($event, 'engTest', student.studentUserName)
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="urlObject.engTest || uploadPercentage.engTest"
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.engTest
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.engTest,
+                            'fa-check': urlObject.engTest
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.engTest ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.engTest ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.engTest ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.engTest">
+                      {{ uploadPercentage.engTest }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.engTest"
+                      [href]="urlObject.engTest"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  Tcf/Delf/Dalf
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="
+                      !uploadPercentage.frenchTest && !urlObject.frenchTest
+                    "
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile(
+                          $event,
+                          'frenchTest',
+                          student.studentUserName
+                        )
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="urlObject.frenchTest || uploadPercentage.frenchTest"
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.frenchTest
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.frenchTest,
+                            'fa-check': urlObject.frenchTest
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.frenchTest ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.frenchTest ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.frenchTest ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.frenchTest">
+                      {{ uploadPercentage.frenchTest }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.frenchTest"
+                      [href]="urlObject.frenchTest"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.RecommendationLetters" | translate }}
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="!uploadPercentage.rl && !urlObject.rl"
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile($event, 'rl', student.studentUserName)
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="urlObject.rl || uploadPercentage.rl"
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.rl
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.rl,
+                            'fa-check': urlObject.rl
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.rl ? '#6F77F4' : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.rl ? '#6F77F4' : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.rl ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.rl">
+                      {{ uploadPercentage.rl }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.rl"
+                      [href]="urlObject.rl"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.View" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+              <mdb-accordion-item>
+                <ng-template
+                  mdbAccordionItemHeader
+                  class="d-flex justify-content-start align-items-center"
+                >
+                  {{ "EMPDASHBOARD.Certification" | translate }}
+                  <i class="fas fa-plus ms-auto"></i>
+                </ng-template>
+                <ng-template mdbAccordionItemBody>
+                  <div
+                    *ngIf="
+                      !uploadPercentage.professional_act &&
+                      !urlObject.professional_act
+                    "
+                    class="d-flex align-items-center w-100"
+                  >
+                    <input
+                      type="file"
+                      (change)="
+                        chooseFile(
+                          $event,
+                          'professional_act',
+                          student.studentUserName
+                        )
+                      "
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center w-100"
+                    *ngIf="
+                      urlObject.professional_act ||
+                      uploadPercentage.professional_act
+                    "
+                  >
+                    <div class="status-desc d-flex align-items-center">
+                      <div
+                        class="status-icon d-flex justify-content-center align-items-center"
+                        [ngStyle]="{
+                          'background-color': urlObject.professional_act
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="{
+                            'fa-times': !urlObject.professional_act,
+                            'fa-check': urlObject.professional_act
+                          }"
+                          [ngStyle]="{
+                            color: urlObject.professional_act
+                              ? '#6F77F4'
+                              : '#F66666'
+                          }"
+                        ></i>
+                      </div>
+                      <span
+                        class="status-name"
+                        [ngStyle]="{
+                          color: urlObject.professional_act
+                            ? '#6F77F4'
+                            : '#F66666'
+                        }"
+                      >
+                        {{ urlObject.professional_act ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <p
+                      class="percentage"
+                      *ngIf="uploadPercentage.professional_act"
+                    >
+                      {{ uploadPercentage.professional_act }}%
+                    </p>
+                    <a
+                      class="status-link"
+                      *ngIf="urlObject.professional_act"
+                      [href]="urlObject.professional_act"
+                      target="_blank"
+                    >
+                      {{ "EMPDASHBOARD.VIEW" | translate }}
+                    </a>
+                  </div>
+                </ng-template>
+              </mdb-accordion-item>
+            </mdb-accordion>
+          </div>
+        </ng-template>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [attr.colspan]="columns.length">
+        {{ "EMPDASHBOARD.Norecordsfound" | translate }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

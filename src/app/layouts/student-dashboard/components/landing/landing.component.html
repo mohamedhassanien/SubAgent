@@ -1,0 +1,512 @@
+<app-header></app-header>
+
+<section class="top-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 top-info-col">
+        <div class="row d-flex">
+          <div class="col-12 col-lg-8">
+            <div
+              class="left-info d-flex justify-content-start align-items-center"
+            >
+              <img
+                [src]="
+                  profilePicture === '' ||
+                  profilePicture === null ||
+                  profilePicture === undefined ||
+                  profilePicture === 'None' ||
+                  profilePicture ===
+                    'https://studentgator.com/assets/images/navbar/default-pic.svg'
+                    ? 'https://studentgator.com/assets/images/navbar/default-pic.svg'
+                    : profilePicture
+                "
+                alt="profile-picture"
+                class="user-picture rounded-circle"
+              />
+              <div class="set-up-profile">
+                <div class="nav-tree">
+                  <nav>
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        {{ profileName }}
+                      </li>
+                      <li class="seperator">></li>
+                      <li class="breadcrumb-item" aria-current="page">
+                        <a
+                          routerLink="{{
+                            originalMainRouter.includes('#')
+                              ? originalMainRouter.split('#')[0]
+                              : originalMainRouter
+                          }}"
+                          [queryParams]="
+                            originalMainRouter === 'general'
+                              ? { step: '1' }
+                              : null
+                          "
+                          routerLinkActive="activated-breadcrumb"
+                          [routerLinkActiveOptions]="{ exact: true }"
+                          >{{ mainRouter }}</a
+                        >
+                      </li>
+                      <li class="seperator" *ngIf="secRouter">></li>
+                      <li
+                        class="breadcrumb-item active"
+                        aria-current="page"
+                        *ngIf="secRouter"
+                      >
+                        <a
+                          class="activated-breadcrumb"
+                          [routerLink]="originalSecRouter"
+                          [ngClass]="{ 'activated-breadcrumb': !subRouter }"
+                        >
+                          {{ secRouter }}
+                        </a>
+                      </li>
+                      <li class="seperator" *ngIf="subRouter">></li>
+                      <li
+                        class="breadcrumb-item active"
+                        aria-current="page"
+                        *ngIf="subRouter"
+                      >
+                        <p class="activated-breadcrumb">
+                          {{ subRouter }}
+                        </p>
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+                <p class="set-up-profile">{{ description }}</p>
+              </div>
+            </div>
+          </div>
+          <!-- progress bar -->
+          <div class="col-lg-4 col-12 col-md-7 progress-col">
+            <div class="right-info">
+              <p class="progress-title">Your Progress</p>
+              <p class="progress-percentage">
+                <span>{{ progressPercentage }}%</span> Completed
+              </p>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  [ngStyle]="{ width: progressPercentage + '%' }"
+                  role="progressbar"
+                  aria-valuenow="75"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <hr class="col-12" />
+          <!-- Mobile navigation -->
+          <div class="dropdown-center col-12 d-block d-lg-none dropdown-col">
+            <button
+              class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              data-bs-offset="0,14"
+            >
+              {{
+                secRouter
+                  ? secRouter.substring(0, 1).toUpperCase() +
+                    secRouter.substring(1, secRouter.length)
+                  : mainRouter.substring(0, 1).toUpperCase() +
+                    mainRouter.substring(1, mainRouter.length)
+              }}
+            </button>
+            <div class="dropdown-menu">
+              <div class="dropdown-continer">
+                <div class="profile-part">
+                  <h1>
+                    <a
+                      class="title"
+                      routerLink="profile"
+                      routerLinkActive="active-title"
+                    >
+                      Profile
+                    </a>
+                  </h1>
+                  <a
+                    class="link"
+                    routerLink="profile/myinfo"
+                    routerLinkActive="active-link"
+                  >
+                    My Info
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="profile/mywishlist"
+                    routerLinkActive="active-link"
+                  >
+                    My Wishlist
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="profile/mydocuments"
+                    routerLinkActive="active-link"
+                  >
+                    My Documents
+                  </a>
+                </div>
+                <div class="general-part">
+                  <h1>
+                    <a
+                      class="title"
+                      routerLink="general"
+                      [queryParams]="{ step: '1' }"
+                      routerLinkActive="active-title"
+                    >
+                      General
+                    </a>
+                  </h1>
+                  <a
+                    class="link"
+                    routerLink="general/how-to-start"
+                    [queryParams]="{ step: '1' }"
+                    routerLinkActive="active-link"
+                    [ngClass]="{
+                      'active-link':
+                        originalMainRouter === 'general' &&
+                        (originalSecRouter === '' ||
+                          originalSecRouter === 'how-to-start')
+                    }"
+                  >
+                    How To Start
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="general/education"
+                    [queryParams]="{ step: '2' }"
+                    fragment="level-of-education"
+                    [ngClass]="{
+                      'active-link':
+                        fragment === 'level-of-education' &&
+                        originalMainRouter === 'general'
+                    }"
+                  >
+                    Level of Education
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="general/education"
+                    [queryParams]="{ step: '2' }"
+                    fragment="field-interested"
+                    [ngClass]="{
+                      'active-link':
+                        fragment === 'field-interested' &&
+                        originalMainRouter === 'general'
+                    }"
+                  >
+                    Field Interested
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="general/education"
+                    [queryParams]="{ step: '2' }"
+                    fragment="language-test"
+                    [ngClass]="{
+                      'active-link':
+                        fragment === 'language-test' &&
+                        originalMainRouter === 'general'
+                    }"
+                  >
+                    Language Test
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="general/additional-information"
+                    [queryParams]="{ step: '3' }"
+                    fragment="study-in-france"
+                    [ngClass]="{
+                      'active-link':
+                        fragment === 'study-in-france' &&
+                        originalMainRouter === 'general'
+                    }"
+                  >
+                    Study in France
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="general/additional-information"
+                    [queryParams]="{ step: '3' }"
+                    fragment="budget"
+                    [ngClass]="{
+                      'active-link':
+                        fragment === 'budget' &&
+                        originalMainRouter === 'general'
+                    }"
+                  >
+                    What's your Budget
+                  </a>
+                </div>
+                <div class="edit-part">
+                  <h1>
+                    <a
+                      class="title"
+                      routerLink="edit-profile"
+                      fragment="profile-picture"
+                      routerLinkActive="active-title"
+                    >
+                      Edit Profile
+                    </a>
+                  </h1>
+                  <a
+                    class="link"
+                    routerLink="edit-profile"
+                    fragment="profile-picture"
+                    [ngClass]="{
+                      'active-link':
+                        fragment === 'profile-picture' ||
+                        originalMainRouter == 'edit-profile'
+                    }"
+                  >
+                    Profile Picture
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="edit-profile"
+                    fragment="about-you"
+                    [ngClass]="{ 'active-link': fragment === 'about-you' }"
+                  >
+                    About You
+                  </a>
+                </div>
+                <div class="edit-part">
+                  <h1>
+                    <a
+                      class="title"
+                      routerLink="account-settings"
+                      fragment="email"
+                      routerLinkActive="active-title"
+                    >
+                      Account Settings
+                    </a>
+                  </h1>
+                  <a
+                    class="link"
+                    routerLink="account-settings"
+                    fragment="email"
+                    [ngClass]="{
+                      'active-link':
+                        fragment === 'email' ||
+                        originalMainRouter == 'account-settings'
+                    }"
+                  >
+                    Email
+                  </a>
+                  <a
+                    class="link"
+                    routerLink="account-settings"
+                    fragment="password"
+                    [ngClass]="{ 'active-link': fragment === 'password' }"
+                  >
+                    Password
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Web navigation -->
+          <aside class="col-3 sidebar-col d-none d-lg-block">
+            <div class="profile-part">
+              <h1>
+                <a
+                  class="title"
+                  routerLink="profile"
+                  routerLinkActive="active-title"
+                >
+                  Profile
+                </a>
+              </h1>
+              <a
+                class="link"
+                routerLink="profile/myinfo"
+                routerLinkActive="active-link"
+              >
+                <p>My Info</p>
+              </a>
+              <a
+                class="link"
+                routerLink="profile/mywishlist"
+                routerLinkActive="active-link"
+              >
+                <p>My Wishlist</p>
+              </a>
+              <a
+                class="link"
+                routerLink="profile/mydocuments"
+                routerLinkActive="active-link"
+              >
+                <p>My Documents</p>
+              </a>
+            </div>
+            <div class="general-part">
+              <h1>
+                <a
+                  class="title"
+                  routerLink="general"
+                  [queryParams]="{ step: '1' }"
+                  [ngClass]="{
+                    'active-title': originalMainRouter === 'general'
+                  }"
+                >
+                  General
+                </a>
+              </h1>
+              <a
+                class="link"
+                routerLink="general/how-to-start"
+                [queryParams]="{ step: '1' }"
+                routerLinkActive="active-link"
+                [ngClass]="{
+                  'active-link':
+                    originalMainRouter === 'general' &&
+                    (originalSecRouter === '' ||
+                      originalSecRouter === 'how-to-start')
+                }"
+              >
+                <p>How To Start</p>
+              </a>
+              <a
+                class="link"
+                routerLink="general/education"
+                [queryParams]="{ step: '2' }"
+                fragment="level-of-education"
+                [ngClass]="{
+                  'active-link':
+                    fragment === 'level-of-education' &&
+                    originalMainRouter === 'general'
+                }"
+              >
+                <p>Level of Education</p>
+              </a>
+              <a
+                class="link"
+                routerLink="general/education"
+                [queryParams]="{ step: '2' }"
+                fragment="field-interested"
+                [ngClass]="{
+                  'active-link':
+                    fragment === 'field-interested' &&
+                    originalMainRouter === 'general'
+                }"
+              >
+                <p>Field Interested</p>
+              </a>
+              <a
+                class="link"
+                routerLink="general/education"
+                [queryParams]="{ step: '2' }"
+                fragment="language-test"
+                [ngClass]="{
+                  'active-link':
+                    fragment === 'language-test' &&
+                    originalMainRouter === 'general'
+                }"
+              >
+                <p>Language Test</p>
+              </a>
+              <a
+                class="link"
+                routerLink="general/additional-information"
+                [queryParams]="{ step: '3' }"
+                fragment="study-in-france"
+                [ngClass]="{
+                  'active-link':
+                    fragment === 'study-in-france' &&
+                    originalMainRouter === 'general'
+                }"
+              >
+                <p>Study in France</p>
+              </a>
+              <a
+                class="link"
+                routerLink="general/additional-information"
+                [queryParams]="{ step: '3' }"
+                fragment="budget"
+                [ngClass]="{
+                  'active-link':
+                    fragment === 'budget' && originalMainRouter === 'general'
+                }"
+              >
+                <p>What's your Budget</p>
+              </a>
+            </div>
+            <div class="edit-part">
+              <h1>
+                <a
+                  class="title"
+                  routerLink="edit-profile"
+                  fragment="profile-picture"
+                  routerLinkActive="active-title"
+                >
+                  Edit Profile
+                </a>
+              </h1>
+              <a
+                class="link"
+                routerLink="edit-profile"
+                fragment="profile-picture"
+                [ngClass]="{
+                  'active-link':
+                    fragment === 'profile-picture' ||
+                    originalMainRouter == 'edit-profile'
+                }"
+              >
+                <p>Profile Picture</p>
+              </a>
+              <a
+                class="link"
+                routerLink="edit-profile"
+                fragment="about-you"
+                [ngClass]="{ 'active-link': fragment === 'about-you' }"
+              >
+                <p>About You</p>
+              </a>
+            </div>
+            <div class="edit-part">
+              <h1>
+                <a
+                  class="title"
+                  routerLink="account-settings"
+                  fragment="email"
+                  routerLinkActive="active-title"
+                >
+                  Account Settings
+                </a>
+              </h1>
+              <a
+                class="link"
+                routerLink="account-settings"
+                fragment="email"
+                [ngClass]="{
+                  'active-link':
+                    fragment === 'email' ||
+                    originalMainRouter == 'account-settings'
+                }"
+              >
+                <p>Email</p>
+              </a>
+              <a
+                class="link"
+                routerLink="account-settings"
+                fragment="password"
+                [ngClass]="{ 'active-link': fragment === 'password' }"
+              >
+                <p>Password</p>
+              </a>
+            </div>
+          </aside>
+          <!-- Child Components -->
+          <section class="col-12 col-lg-9 components-col">
+            <router-outlet></router-outlet>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,102 @@
+<section class="step-one">
+  <div class="row">
+    <div class="col-12 combined-col">
+      <div class="d-flex justify-content-lg-between align-items-start">
+        <div class="title-col">
+          <h1 class="title">{{ "STUDENTBOARD.Welcometo" | translate }}</h1>
+          <h2 class="sub-title col-lg-9 col-12">
+            {{ "STUDENTBOARD.Your" | translate }}
+            {{ "STUDENTBOARD.profile" | translate }}
+          </h2>
+        </div>
+        <div class="picture-col d-none d-lg-block">
+          <img
+            src="../../../../../../assets/images/student-account/welcom-to.svg"
+            alt="welcome-to"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 describtion-col">
+      <p class="describtion d-block d-md-none d-lg-block">
+        {{ "STUDENTBOARD.Thankyouforjoiningus" | translate }}
+      </p>
+      <p class="three-steps-desc">
+        {{ "STUDENTBOARD.Continuebelow" | translate }}
+        <span>{{ "STUDENTBOARD.three" | translate }} </span>
+        {{ "STUDENTBOARD.easysteps" | translate }}
+        .
+      </p>
+    </div>
+    <div class="step-one-col col-12">
+      <div class="step-one d-flex align-items-center">
+        <a
+          class="main-circle active d-flex justify-content-center align-items-center"
+          [routerLink]="['/students', fullName, 'general', 'how-to-start']"
+          [queryParams]="{ step: '1' }"
+        >
+          1
+        </a>
+        <div class="connector"></div>
+        <div class="sec-circle"></div>
+        <div class="connector"></div>
+        <div class="sec-circle"></div>
+        <div class="connector"></div>
+        <a
+          class="main-circle d-flex justify-content-center align-items-center"
+          [routerLink]="['/students', fullName, 'general', 'education']"
+          [queryParams]="{ step: '2' }"
+          fragment="level-of-education"
+        >
+          2
+        </a>
+        <div class="connector"></div>
+        <div class="sec-circle"></div>
+        <div class="connector"></div>
+        <div class="sec-circle"></div>
+        <div class="connector"></div>
+        <a
+          class="main-circle d-flex justify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'general',
+            'additional-information'
+          ]"
+          [queryParams]="{ step: '3' }"
+          fragment="study-in-france"
+        >
+          3
+        </a>
+      </div>
+    </div>
+    <div class="step-one-desc-col col-12">
+      <h1 class="how-to-start-title">
+        {{ "STUDENTBOARD.HowToStart" | translate }}
+      </h1>
+      <h2 class="how-to-start-sub-title">
+        {{ "STUDENTBOARD.Ifyouarenot" | translate }}
+      </h2>
+      <p class="invitation">
+        {{ "STUDENTBOARD.Weinviteyou" | translate }}
+      </p>
+      <p class="complete-profile">
+        {{ "STUDENTBOARD.Inordertogettoknowyoubetter" | translate }}
+      </p>
+      <p class="correct-info">
+        {{
+          "STUDENTBOARD.Pleasebesuretoenterthecorrectinformation" | translate
+        }}
+      </p>
+    </div>
+    <div class="btn-col col-12">
+      <a
+        [routerLink]="['/students', fullName, 'general', 'education']"
+        [queryParams]="{ step: '2' }"
+        class="d-flex justify-content-center align-items-center"
+      >
+        {{ "STUDENTBOARD.Next" | translate }}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3649" data-name="Rectangle 3649" width="24" height="24" transform="translate(-5380 -1495)" fill="#8b8b8b"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_54247" data-name="Mask Group 54247" transform="translate(5380 1495)" clip-path="url(#clip-path)">
+    <g id="location" transform="translate(-5376 -1495)">
+      <g id="Group_54934" data-name="Group 54934" transform="translate(7.542 1.875)">
+        <g id="Group_54933" data-name="Group 54933">
+          <path id="Path_11679" data-name="Path 11679" d="M247.372,40a.469.469,0,1,0,.465.472A.469.469,0,0,0,247.372,40Z" transform="translate(-246.9 -40.005)" fill="#8b8b8b"/>
+        </g>
+      </g>
+      <g id="Group_54936" data-name="Group 54936" transform="translate(4.688 4.688)">
+        <g id="Group_54935" data-name="Group 54935">
+          <path id="Path_11680" data-name="Path 11680" d="M189.3,100a3.281,3.281,0,1,0-.049,6.562h.025A3.281,3.281,0,0,0,189.3,100Zm-.024,5.625h-.018a2.344,2.344,0,0,1,.017-4.688h.018a2.344,2.344,0,0,1-.017,4.688Z" transform="translate(-185.999 -100.002)" fill="#8b8b8b"/>
+        </g>
+      </g>
+      <g id="Group_54938" data-name="Group 54938" transform="translate(9.389 2.204)">
+        <g id="Group_54937" data-name="Group 54937">
+          <path id="Path_11681" data-name="Path 11681" d="M286.912,47.038a.469.469,0,1,0-.313.884,5.15,5.15,0,0,1,3.424,4.893.469.469,0,0,0,.465.472h0a.469.469,0,0,0,.469-.465A6.089,6.089,0,0,0,286.912,47.038Z" transform="translate(-286.287 -47.011)" fill="#8b8b8b"/>
+        </g>
+      </g>
+      <g id="Group_54940" data-name="Group 54940" transform="translate(0)">
+        <g id="Group_54939" data-name="Group 54939">
+          <path id="Path_11682" data-name="Path 11682" d="M96.841,17.646c3.118-4.013,5.066-6.106,5.093-9.617A7.969,7.969,0,1,0,86,7.909c-.027,3.606,1.958,5.7,5.1,9.736-3.123.467-5.1,1.639-5.1,3.074,0,.961.888,1.823,2.5,2.428a17.941,17.941,0,0,0,10.936,0c1.613-.6,2.5-1.467,2.5-2.428C101.934,19.285,99.962,18.113,96.841,17.646Zm-9.907-9.73A7.031,7.031,0,1,1,101,8.022c-.025,3.334-2.091,5.389-5.39,9.69-.588.767-1.129,1.492-1.64,2.2-.51-.709-1.04-1.421-1.637-2.2C88.894,13.231,86.909,11.331,86.934,7.916Zm7.031,15.146c-4.024,0-7.031-1.237-7.031-2.344,0-.82,1.8-1.857,4.82-2.216.668.877,1.254,1.673,1.828,2.486a.469.469,0,0,0,.382.2h0a.469.469,0,0,0,.382-.2c.569-.8,1.171-1.619,1.833-2.486,3.02.359,4.816,1.4,4.816,2.215C101,21.825,97.989,23.062,93.965,23.062Z" transform="translate(-85.996)" fill="#8b8b8b"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

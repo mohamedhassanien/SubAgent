@@ -1,0 +1,120 @@
+<section class="documents-section">
+  <div class="row">
+    <h1 class="title">{{ "STUDENTBOARD.Documents" | translate }}</h1>
+    <div class="d-flex justify-content-start flex-wrap documents-col">
+      <div class="col-6 col-md-4 documents">
+        <a
+          class="d-flex flex-column jsutify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'profile',
+            'mydocuments',
+            'identity-documents'
+          ]"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/documents.svg"
+            alt="document"
+          />
+          <p class="files">2 {{ "STUDENTBOARD.files" | translate }}</p>
+          <p class="category">
+            {{ "STUDENTBOARD.IdentityDocuments" | translate }}
+          </p>
+        </a>
+      </div>
+      <div
+        class="col-6 col-md-4 documents d-flex flex-column align-items-end align-items-md-center"
+      >
+        <a
+          class="d-flex flex-column jsutify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'profile',
+            'mydocuments',
+            'motivation-documents'
+          ]"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/documents.svg"
+            alt="document"
+          />
+          <p class="files">2 {{ "STUDENTBOARD.files" | translate }}</p>
+          <p class="category">
+            {{ "STUDENTBOARD.MotivationDocuments" | translate }}
+          </p>
+        </a>
+      </div>
+      <div
+        class="col-6 col-md-4 documents d-flex flex-column align-items-md-end align-items-start"
+      >
+        <a
+          class="d-flex flex-column jsutify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'profile',
+            'mydocuments',
+            'academic-documents'
+          ]"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/documents.svg"
+            alt="document"
+          />
+          <p class="files">2 {{ "STUDENTBOARD.files" | translate }}</p>
+          <p class="category">
+            {{ "STUDENTBOARD.AcademicDocuments" | translate }}
+          </p>
+        </a>
+      </div>
+      <div
+        class="col-6 col-md-4 documents d-flex flex-column align-items-md-start align-items-end"
+      >
+        <a
+          class="d-flex flex-column jsutify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'profile',
+            'mydocuments',
+            'language-documents'
+          ]"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/documents.svg"
+            alt="document"
+          />
+          <p class="files">2 {{ "STUDENTBOARD.files" | translate }}</p>
+          <p class="category">
+            {{ "STUDENTBOARD.LanguageProofs" | translate }}
+          </p>
+        </a>
+      </div>
+      <div
+        class="col-6 col-md-4 documents d-flex flex-column align-items-md-center align-items-start"
+      >
+        <a
+          class="d-flex flex-column jsutify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'profile',
+            'mydocuments',
+            'supporting-documents'
+          ]"
+        >
+          <img
+            src="../../../../../../assets/images/student-account/documents.svg"
+            alt="document"
+          />
+          <p class="files">2 {{ "STUDENTBOARD.files" | translate }}</p>
+          <p class="category">
+            {{ "STUDENTBOARD.SupportingDocuments" | translate }}
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

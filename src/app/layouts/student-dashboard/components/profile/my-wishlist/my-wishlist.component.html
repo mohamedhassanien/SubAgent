@@ -1,0 +1,234 @@
+<section class="wishlisted-programs">
+  <div class="row">
+    <div
+      class="col-12 empty-wishlist-col d-flex justify-content-cetner align-items-center flex-column"
+      *ngIf="programs?.length === 0"
+    >
+      <img
+        src="../../../../../../assets/images/student-account/empty-wishlist.svg"
+        alt="empty-wishlist"
+        class="empty-img"
+      />
+      <h1 class="empty-title">
+        {{ "STUDENTBOARD.WishlistisEmpty" | translate }}
+      </h1>
+      <p class="empty-describtion">
+        {{ "STUDENTBOARD.Browseprogramstogetmoreinfoanddiscounts" | translate }}
+      </p>
+      <button class="programs-btn" routerLink="/landing/programs">
+        {{ "STUDENTBOARD.BrowseProgramsNow" | translate }}
+      </button>
+    </div>
+    <div class="wishlist-col d-flex flex-wrap" *ngIf="programs?.length !== 0">
+      <div
+        class="col-md-6 col-12 d-flex programs-container"
+        *ngFor="let program of programs; let i = index"
+      >
+        <a [routerLink]="['/landing/programs', program.id]">
+          <mat-card [ngStyle]="{ background: getColor() }">
+            <div class="row">
+              <div class="col-md-12 col-5">
+                <div class="image-container d-none d-md-block">
+                  <img
+                    class="image-move"
+                    src="../../../../../assets/images/schools/{{
+                      program.school
+                    }}/2.jpg"
+                    alt="{{ program.school }}"
+                  />
+                </div>
+                <!-- Responsive -->
+                <div class="h-100 d-md-none">
+                  <img
+                    class="card-img m-0"
+                    src="../../../../../assets/images/schools/{{
+                      program.school
+                    }}/2.jpg"
+                    alt="{{ program.school }}"
+                  />
+                  <div
+                    class="card-img-overlay d-flex justify-content-between align-items-end img ps-2"
+                    style="
+                      background-image: linear-gradient(
+                        180deg,
+                        #dedddd00 0%,
+                        #6f77f4f7 100%
+                      );
+                    "
+                  >
+                    <div
+                      class="d-flex flex-column justify-content-center align-items-start school-name-sm pb-1"
+                    >
+                      <img
+                        src="../../../../../assets/images/schools/schools logos/{{
+                          program.school
+                        }}.png"
+                        alt="{{ program.school }}"
+                      />
+                      <p class="text-white">
+                        {{ program.school }}
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        mat-icon-button
+                        (click)="
+                          $event.preventDefault();
+                          $event.stopPropagation();
+                          removeFromWishlist(program.id)
+                        "
+                        class="like"
+                      >
+                        <mat-icon class="wishlist"> favorite </mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Web -->
+                <div
+                  class="price justify-content-center align-items-center d-none d-md-flex"
+                >
+                  <p>€ {{ program.fee }}</p>
+                </div>
+              </div>
+              <!-- Responsive -->
+              <div class="col-7 d-block d-md-none">
+                <p class="program-title">
+                  {{ program.type | shorten : 18 }}
+                </p>
+                <p class="program-name">
+                  {{ program.name | shorten : 30 }}
+                </p>
+                <p class="program-description">
+                  {{ program.desc | shorten : 38 }}
+                </p>
+                <div class="row">
+                  <div
+                    class="col-12 d-flex justify-content-start align-items-center"
+                  >
+                    <div
+                      class="lang d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-globe text-dark"></i>
+                      <p class="m-0 ms-1">In {{ program.lang }}</p>
+                    </div>
+                    <div
+                      class="date d-flex justify-content-center align-items-center ms-3"
+                    >
+                      <i class="far fa-calendar"></i>
+                      <p class="m-0 ms-1">At {{ program.intake }}</p>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="price-sm m-0">€ {{ program.fee }}</div>
+                    <div
+                      class="location d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-map-marker-alt"></i>
+                      <p class="m-0 ms-1">
+                        {{ program.city | shorten : 10 }}
+                      </p>
+                    </div>
+                    <div
+                      class="duration d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-hourglass-half"></i>
+                      <p class="m-0 ms-1">
+                        {{ program.length }} Year<span
+                          *ngIf="program.length > 1"
+                          >s</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Web -->
+              <div class="col-md-12 d-none d-md-block">
+                <p class="program-title">
+                  {{ program.type | shorten : 18 }}
+                </p>
+                <p class="program-name">
+                  {{ program.name | shorten : 18 }}
+                </p>
+                <p class="program-description">
+                  {{ program.desc | shorten : 44 }}
+                </p>
+                <div
+                  class="school-name d-flex justify-content-start align-items-center"
+                >
+                  <img
+                    src="../../../../../assets/images/schools/schools logos/{{
+                      program.school
+                    }}.png"
+                    alt="{{ program.school }}"
+                  />
+                  <p>
+                    {{ program.school | shorten : 18 }}
+                  </p>
+                </div>
+              </div>
+              <div class="info col-md-12 d-none d-md-block">
+                <div class="row d-flex flex-column justify-content-between">
+                  <div
+                    class="first-info d-flex justify-content-between align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <i class="far fa-calendar"></i>
+                      <p>At {{ program.intake }}</p>
+                    </div>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-globe"></i>
+                      <p>In {{ program.lang }}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <hr />
+                  </div>
+                  <div
+                    class="second-info d-flex justify-content-between align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <i class="fas fa-map-marker-alt"></i>
+                      <p>{{ program.city | shorten : 10 }}</p>
+                    </div>
+                    <div
+                      class="d-flex justify-content-center align-items-center animation"
+                    >
+                      <i class="fas fa-hourglass-half"></i>
+                      <p>
+                        {{ program.length }} Year<span
+                          *ngIf="program.length > 1"
+                          >s</span
+                        >
+                      </p>
+                    </div>
+                    <button
+                      mat-icon-button
+                      (click)="
+                        $event.preventDefault();
+                        $event.stopPropagation();
+                        removeFromWishlist(program.id)
+                      "
+                      class="like"
+                    >
+                      <mat-icon class="wishlist"> favorite </mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

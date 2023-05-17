@@ -1,0 +1,17 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <h2 class="section-title">All Leads</h2>
+      <section class="table-section row">
+        <app-leads-table
+          [sizeName]="sizeName"
+          [allStudents]="allStudents"
+          [originalStudents]="originalStudents"
+          [loading]="loading"
+          (refresh)="getStudents()"
+          class="p-0"
+        ></app-leads-table>
+      </section>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,286 @@
+<div class="wrap p-md-4 p-2">
+  <section class="pt-md-2 pb-md-3">
+    <div class="row pt-2 pt-md-0">
+      <div class="col-md-6">
+        <div
+          class="title bg-white borderR-5 d-flex justify-content-between align-items-center"
+        >
+          <h1 class="p-2">{{ "EMPDASHBOARD.ApplicationVsSources" | translate }}</h1>
+
+          <button
+            mat-icon-button
+            class="btn p-2"
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span>{{ "EMPDASHBOARD.Yesterday" | translate }}</span>
+            </button>
+            <mat-divider></mat-divider>
+
+            <button mat-menu-item>
+              <span>2 {{ "EMPDASHBOARD.DaysAgo" | translate }}</span>
+            </button>
+            <mat-divider></mat-divider>
+
+            <button mat-menu-item>
+              <span>3 {{ "EMPDASHBOARD.DaysAgo" | translate }}</span>
+            </button>
+          </mat-menu>
+        </div>
+
+        <div
+          class="dropdowns d-flex align-items-center justify-content-center bg-white px-3"
+        >
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onMonthChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedMonth" disabled selected>
+                {{ "EMPDASHBOARD.choosethemonth" | translate }}
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">{{
+              "EMPDASHBOARD.Month" | translate
+            }}</label>
+          </div>
+
+          <div class="form-floating mx-3">
+            <select
+              class="form-select"
+              (change)="onYearChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedYear" disabled selected>
+                {{ "EMPDASHBOARD.choosetheyear" | translate }}
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">
+              {{ "EMPDASHBOARD.Year" | translate }}
+            </label>
+          </div>
+          <button
+            (click)="onSourcesApply()"
+            class="btn bg-primary text-white mx-3 px-5 py-2"
+          >
+            {{ "EMPDASHBOARD.Apply" | translate }}
+          </button>
+        </div>
+
+        <div id="chart" class="bg-white borderR-5">
+          <apx-chart
+            [series]="appSourcesChart.series"
+            [chart]="appSourcesChart.chart"
+            [labels]="appSourcesChart.labels"
+            [responsive]="appSourcesChart.responsive"
+            [colors]="appSourcesChart.colors"
+          ></apx-chart>
+        </div>
+      </div>
+      <div class="col-md-6 my-md-0 my-4">
+        <div
+          class="title bg-white borderR-5 d-flex justify-content-between align-items-center"
+        >
+          <h1 class="p-2">
+            {{ "EMPDASHBOARD.ApplicationStagesVscount" | translate }}
+          </h1>
+
+          <button
+            mat-icon-button
+            class="btn p-2"
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span>{{ "EMPDASHBOARD.Yesterday" | translate }}</span>
+            </button>
+            <mat-divider></mat-divider>
+
+            <button mat-menu-item>
+              <span>2 {{ "EMPDASHBOARD.DaysAgo" | translate }}</span>
+            </button>
+            <mat-divider></mat-divider>
+
+            <button mat-menu-item>
+              <span>3 {{ "EMPDASHBOARD.DaysAgo" | translate }}</span>
+            </button>
+          </mat-menu>
+        </div>
+
+        <div
+          class="dropdowns d-flex align-items-center justify-content-center bg-white px-3"
+        >
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onMonthChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedMonth" disabled selected>
+                {{ "EMPDASHBOARD.choosethemonth" | translate }}
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid"
+              >{{ "EMPDASHBOARD.Month" | translate }}
+            </label>
+          </div>
+
+          <div class="form-floating mx-3">
+            <select
+              class="form-select"
+              (change)="onYearChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedYear" disabled selected>
+                {{ "EMPDASHBOARD.choosetheyear" | translate }}
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">{{
+              "EMPDASHBOARD.Year" | translate
+            }}</label>
+          </div>
+          <button
+            (click)="onStagesApply()"
+            class="btn bg-primary text-white mx-3 px-5 py-2"
+          >
+            {{ "EMPDASHBOARD.Apply" | translate }}
+          </button>
+        </div>
+
+        <div id="chart" class="bg-white borderR-5">
+          <apx-chart
+            [series]="appStagesChart.series"
+            [chart]="appStagesChart.chart"
+            [labels]="appStagesChart.labels"
+            [responsive]="appStagesChart.responsive"
+            [colors]="appStagesChart.colors"
+          >
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div
+      class="row title bg-white borderR-5 d-flex justify-content-between align-items-center"
+    >
+      <div
+        class="title bg-white borderR-5 d-flex justify-content-between align-items-center"
+      >
+        <h1 class="p-2"> {{ "EMPDASHBOARD.ApplicationVsSchool" | translate }}</h1>
+
+        <button
+          mat-icon-button
+          class="btn p-2"
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>{{ "EMPDASHBOARD.Yesterday" | translate }}</span>
+          </button>
+          <mat-divider></mat-divider>
+
+          <button mat-menu-item>
+            <span>2 {{ "EMPDASHBOARD.DaysAgo" | translate }}</span>
+          </button>
+          <mat-divider></mat-divider>
+
+          <button mat-menu-item>
+            <span>3 {{ "EMPDASHBOARD.DaysAgo" | translate }}</span>
+          </button>
+        </mat-menu>
+      </div>
+
+      <div
+        class="dropdowns d-flex align-items-center justify-content-center bg-white px-3"
+      >
+        <div class="form-floating">
+          <select
+            class="form-select"
+            (change)="onMonthChange($event)"
+            id="floatingSelectGrid"
+          >
+            <option [value]="selectedMonth" disabled selected>
+              {{ "EMPDASHBOARD.choosethemonth" | translate }}
+            </option>
+
+            <option [value]="month" *ngFor="let month of months">
+              {{ month }}
+            </option>
+          </select>
+          <label for="floatingSelectGrid">{{
+            "EMPDASHBOARD.Month" | translate
+          }}</label>
+        </div>
+
+        <div class="form-floating mx-3">
+          <select
+            class="form-select"
+            (change)="onYearChange($event)"
+            id="floatingSelectGrid"
+          >
+            <option [value]="selectedYear" disabled selected>
+              {{ "EMPDASHBOARD.choosetheyear" | translate }}
+            </option>
+
+            <option [value]="year" *ngFor="let year of years">
+              {{ year }}
+            </option>
+          </select>
+          <label for="floatingSelectGrid">
+            {{ "EMPDASHBOARD.Year" | translate }}
+          </label>
+        </div>
+        <button
+          (click)="onSchlsApply()"
+          class="btn bg-primary text-white mx-3 px-5 py-2"
+        >
+          {{ "EMPDASHBOARD.Apply" | translate }}
+        </button>
+      </div>
+
+      <div class="col-md-12">
+        <div id="chart p-3">
+          <apx-chart
+            [series]="appSchoolChart.series"
+            [chart]="appSchoolChart.chart"
+            [dataLabels]="appSchoolChart.dataLabels"
+            [plotOptions]="appSchoolChart.plotOptions"
+            [yaxis]="appSchoolChart.yaxis"
+            [xaxis]="appSchoolChart.xaxis"
+            [title]="appSchoolChart.title"
+            [colors]="appSchoolChart.colors"
+          ></apx-chart>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

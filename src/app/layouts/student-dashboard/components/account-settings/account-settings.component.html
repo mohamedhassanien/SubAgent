@@ -1,0 +1,149 @@
+<section id="email">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="title">{{ "STUDENTBOARD.Email" | translate }}</h1>
+      <h2 class="sub-title">
+        {{ "STUDENTBOARD.Changeyouremail" | translate }}
+      </h2>
+      <form
+        [formGroup]="changeEmailForm"
+        (ngSubmit)="onSubmitEmail(changeEmailForm)"
+      >
+        <div class="row">
+          <div class="d-flex flex-column col email-col pe-3">
+            <label for="current-email"
+              >{{ "STUDENTBOARD.CurrentEmail" | translate }}
+            </label>
+            <input
+              type="email"
+              id="current-email"
+              formControlName="currentEmail"
+            />
+          </div>
+          <div class="d-flex flex-column col email-col ps-3">
+            <label for="new-email"
+              >{{ "STUDENTBOARD.NewEmail" | translate }}
+            </label>
+            <input type="email" id="new-email" formControlName="newEmail" />
+          </div>
+        </div>
+        <div class="d-flex flex-column col password-col">
+          <label for="your-password"
+            >{{ "STUDENTBOARD.YourPassword" | translate }}
+          </label>
+          <input
+            [type]="showPassword ? 'password' : 'text'"
+            id="your-password"
+            formControlName="yourPassword"
+          />
+          <mat-icon (click)="showPasswordFunc('password')">
+            {{ showPassword ? "visibility_off" : "visibility" }}
+          </mat-icon>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+          <button
+            type="button"
+            class="reset-btn"
+            (click)="resetData('changeEmailForm')"
+          >
+            {{ "STUDENTBOARD.Reset" | translate }}
+          </button>
+          <button type="submit" class="save-btn">
+            {{ "STUDENTBOARD.SaveChanges" | translate }}
+          </button>
+        </div>
+        <div class="spinner-border text-primary" *ngIf="submittedEmail"></div>
+        <p
+          *ngIf="emailData?.status"
+          class="response-message"
+          [ngStyle]="{ color: emailData?.status === 200 ? 'green' : 'red' }"
+        >
+          {{ emailData?.message }}
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+<div class="seperator"></div>
+<section id="password">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="title">{{ "STUDENTBOARD.YourPassword" | translate }}</h1>
+      <h2 class="sub-title">
+        {{ "STUDENTBOARD.Changeyourpassword" | translate }}
+      </h2>
+      <form
+        [formGroup]="changePasswordForm"
+        (ngSubmit)="onSubmitPassword(changePasswordForm)"
+      >
+        <div class="d-flex flex-column col current-password-col">
+          <label for="current-password"
+            >{{ "STUDENTBOARD.CurrentPassword" | translate }}
+          </label>
+          <input
+            [type]="showCurrentPassword ? 'password' : 'text'"
+            id="current-password"
+            formControlName="currentPassword"
+          />
+          <mat-icon (click)="showPasswordFunc('currentPassword')">
+            {{ showCurrentPassword ? "visibility_off" : "visibility" }}
+          </mat-icon>
+        </div>
+        <div class="row">
+          <div class="d-flex flex-column col password-col pe-3">
+            <label for="new-password"
+              >{{ "STUDENTBOARD.NewPassword" | translate }}
+            </label>
+            <input
+              [type]="showNewPassword ? 'password' : 'text'"
+              id="new-password"
+              formControlName="newPassword"
+            />
+            <mat-icon (click)="showPasswordFunc('newPassword')">
+              {{ showNewPassword ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </div>
+          <div class="d-flex flex-column col password-col ps-3">
+            <label for="repeat-new-password"
+              >{{ "STUDENTBOARD.RepeatPassword" | translate }}
+            </label>
+            <input
+              [type]="showRepeatPassword ? 'password' : 'text'"
+              id="repeat-new-password"
+              formControlName="repeatNewPassword"
+            />
+            <mat-icon (click)="showPasswordFunc('repeatPassword')">
+              {{ showRepeatPassword ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end align-items-center">
+          <button
+            type="button"
+            class="reset-btn"
+            (click)="resetData('changePasswordForm')"
+          >
+            {{ "STUDENTBOARD.Reset" | translate }}
+          </button>
+          <button type="submit" class="save-btn">
+            {{ "STUDENTBOARD.SaveChanges" | translate }}
+          </button>
+        </div>
+        <div
+          class="spinner-border text-primary"
+          *ngIf="submittedPassword"
+        ></div>
+        <p
+          *ngIf="passwordData?.status"
+          class="response-message"
+          [ngStyle]="{
+            color: passwordData?.status === 200 ? 'green' : 'red'
+          }"
+        >
+          {{ passwordData?.message }}
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

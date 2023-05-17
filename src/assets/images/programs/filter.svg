@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2553" data-name="Rectangle 2553" width="24" height="24" transform="translate(-2338 1170)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_5480" data-name="Mask Group 5480" transform="translate(2338 -1170)" clip-path="url(#clip-path)">
+    <g id="Group_6720" data-name="Group 6720" transform="translate(-30.999 -38)">
+      <path id="Union_3" data-name="Union 3" d="M11.953,1.878H.932A.939.939,0,0,1,.932,0H22.973a.94.94,0,0,1,.085,1.875q-.042,0-.085,0Z" transform="translate(-2306.906 1227.033)" fill="#fff"/>
+      <path id="Union_2" data-name="Union 2" d="M12.047,1.878H.932A.939.939,0,0,1,.932,0H22.973a.9.9,0,0,1,.933.939.9.9,0,0,1-.933.939Z" transform="translate(-2307 1218.925)" fill="#fff"/>
+      <path id="Union_1" data-name="Union 1" d="M12.047,1.878H.932A.939.939,0,0,1,.932,0H22.973a.9.9,0,0,1,.933.939.9.9,0,0,1-.933.939Z" transform="translate(-2307 1210.91)" fill="#fff"/>
+      <path id="Union_5" data-name="Union 5" d="M2.943,5.886h0A2.943,2.943,0,0,1,2.943,0h0a2.943,2.943,0,0,1,.348,5.865,2.958,2.958,0,0,1-.348.021Z" transform="translate(-2291.885 1217.015)" fill="#f08e43"/>
+      <path id="Union_4" data-name="Union 4" d="M2.943,5.886A2.943,2.943,0,1,1,5.886,2.943h0a2.96,2.96,0,0,1-.023.372v.011A2.944,2.944,0,0,1,2.943,5.886Z" transform="translate(-2299.9 1225.03)" fill="#f6d86a"/>
+      <path id="Union_6" data-name="Union 6" d="M0,2.943a2.943,2.943,0,0,1,5.886,0h0a2.966,2.966,0,0,1-.015.3v.009l0,.028,0,.017,0,.018,0,.028V3.35A2.943,2.943,0,0,1,0,2.943Z" transform="translate(-2303.908 1209)" fill="#ff5151"/>
+    </g>
+  </g>
+</svg>

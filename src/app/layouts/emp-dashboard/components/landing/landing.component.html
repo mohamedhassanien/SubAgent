@@ -1,0 +1,640 @@
+<mat-drawer-container>
+  <mat-drawer
+    #drawer
+    [mode]="screenWidth > 768 ? 'side' : 'over'"
+    [opened]="screenWidth > 768 ? true : false"
+  >
+    <aside>
+      <div class="container-part">
+        <a routerLink="/landing/programs">
+          <img
+            src="../../../../../assets/images/elysee-logo.png"
+            alt="SG-logo"
+            class="sg-logo d-none d-lg-block rounded p-3"
+          />
+        </a>
+        <h3 class="title">{{ "EMPDASHBOARD.menu" | translate }}</h3>
+      </div>
+
+      <!-- stats menu -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#statsMenus"
+          aria-expanded="false"
+          aria-controls="statsMenus"
+          routerLinkActive="activated-main-link"
+        >
+          <i class="fas fa-signal"></i>
+          {{ "EMPDASHBOARD.statistics" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="statsMenus">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'statistics',
+                    'nationalities'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+
+                  {{ "EMPDASHBOARD.nationalities" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'statistics',
+                    'applications'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.applications" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'statistics',
+                    'schools'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.schools" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'statistics',
+                    'employees'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.employees" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- target menu -->
+      <p class="main-list" *ngIf="type == 'owner'">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#targetMenu"
+          aria-expanded="false"
+          aria-controls="targetMenu"
+        >
+          <i class="fa fa-chart-line"></i>
+          {{ "EMPDASHBOARD.targetManagment" | translate }}
+        </button>
+      </p>
+      <div class="row" *ngIf="type == 'owner'">
+        <div class="col">
+          <div class="collapse multi-collapse" id="targetMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'add-target'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.addTarget" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- prospect menu -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#prospectMenu"
+          aria-expanded="false"
+          aria-controls="prospectMenu"
+        >
+          <i class="fas fa-user-friends"></i>
+          {{ "EMPDASHBOARD.prospectManagment" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="prospectMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'prospect',
+                    'all-prospect'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.allProspect" | translate }}
+                </a>
+
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'prospect',
+                    'my-prospect'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.myProspect" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'prospect',
+                    'add-prospect'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.addProspect" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- lead menu -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#leadMenu"
+          aria-expanded="false"
+          aria-controls="leadMenu"
+        >
+          <i class="fa fa-chalkboard-teacher"></i>
+          {{ "EMPDASHBOARD.leadManagement" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="leadMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'lead-management',
+                    'add-lead'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.addLead" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'lead-management',
+                    'all-leads'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.allLeads" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'lead-management',
+                    'leads'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.myLeads" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- emp menu -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#employeeMenu"
+          aria-expanded="false"
+          aria-controls="employeeMenu"
+        >
+          <i class="fa fa-id-card-alt"></i>
+          {{ "EMPDASHBOARD.employeeManagment" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="employeeMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'add-employee'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.addEmployee" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- apps menu -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#appsMenu"
+          aria-expanded="false"
+          aria-controls="appsMenu"
+        >
+          <i class="fas fa-sticky-note"></i>
+          {{ "EMPDASHBOARD.applicationManagement" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="appsMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'application-management',
+                    'all-applications'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.allApplications" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'application-management',
+                    'applications'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.myApplications" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'application-management',
+                    'site-apps'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.websiteApplications" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- archive menu -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#archivedMenu"
+          aria-expanded="false"
+          aria-controls="archivedMenu"
+        >
+          <i class="fas fa-archive"></i>
+          {{ "EMPDASHBOARD.archivedRecords" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="archivedMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'archived-records',
+                    'archived-leads'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.archivedLeads" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'archived-records',
+                    'archived-applications'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.archivedApplications" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- delete -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#deletedMenu"
+          aria-expanded="false"
+          aria-controls="deletedMenu"
+        >
+          <i class="fas fa-trash"></i>
+          {{ "EMPDASHBOARD.deletedRecords" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="deletedMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'deleted-records',
+                    'deleted-leads'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.deletedLeads" | translate }}
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'deleted-records',
+                    'deleted-applications'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.deletedApplications" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programs Management -->
+      <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#programsMenu"
+          aria-expanded="false"
+          aria-controls="programsMenu"
+        >
+          <i class="fas fa-pager"></i>
+          {{ "EMPDASHBOARD.programsManagement" | translate }}
+        </button>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="programsMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'programs-management',
+                    'edit-program'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  {{ "EMPDASHBOARD.editProgram" | translate }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </mat-drawer>
+
+  <nav class="d-flex align-items-center">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <ul
+            class="d-flex align-items-center justify-content-end w-100 h-100 m-0 p-0"
+          >
+            <li class="side-menu me-auto">
+              <div
+                type="button"
+                class="menu-container d-flex justify-content-center align-items-center"
+                (click)="drawer.toggle()"
+              >
+                <img
+                  src="../../../../../../assets/images/employees/nav icons/menu_icon.svg"
+                  alt="menu-icon"
+                />
+              </div>
+            </li>
+            <li
+              class="fullscreen-item d-none d-lg-block"
+              (click)="toggleFullScreen()"
+            >
+              <img
+                src="../../../../../../assets/images/employees/nav icons/f-hd_icon.svg"
+                alt="fullscreen"
+              />
+            </li>
+            <li
+              class="d-flex align-items-center notification-item h-100 d-none d-lg-block"
+            >
+              <div
+                class="image-container d-flex justify-content-center align-items-center"
+              >
+                <div class="demo-section">
+                  <mat-icon
+                    matBadge="{{ notifications.length }}"
+                    matBadgeColor="warn"
+                    >notifications</mat-icon
+                  >
+                </div>
+              </div>
+              <ul class="notification-list">
+                <li class="title">
+                  <p>
+                    {{ "EMPDASHBOARD.notifications" | translate }}
+                  </p>
+                  <hr />
+                </li>
+                <li
+                  class="notification"
+                  *ngFor="let notification of notifications"
+                >
+                  <div class="d-flex align-items-start notificaiton-info">
+                    <div>
+                      <p
+                        class="notification-status"
+                        (mouseover)="onHover($event, notification.id)"
+                      >
+                        <span class="notification-name">{{
+                          notification.body
+                        }}</span>
+                      </p>
+                      <p class="notification-duration">
+                        {{ getDate(notification.date) }}
+                      </p>
+                    </div>
+                  </div>
+                  <hr />
+                </li>
+                <li
+                  class="more d-flex justify-content-center"
+                  *ngIf="notifications?.length !== 0"
+                >
+                  {{ "EMPDASHBOARD.viewAllNotifications" | translate }}
+                  <a class="more-link"> </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              class="d-flex justify-content-between align-items-center profile-dropdown h-100"
+            >
+              <a class="d-flex align-items-center">
+                <img
+                  [src]="
+                    profilePicture
+                      ? profilePicture
+                      : '../../../../../../assets/images/navbar/default-pic.svg'
+                  "
+                  alt="default-pic"
+                  class="profile-image"
+                />
+                <p class="m-0 employee-name">{{ fullName.split(" ")[0] }}</p>
+              </a>
+              <i class="fas fa-angle-down"></i>
+              <ul class="dropdown">
+                <li class="dropdown-list" (click)="signOut()">
+                  <a class="dropdown-link"
+                    ><i class="fas fa-sign-out-alt"></i>
+
+                    {{ "EMPDASHBOARD.Logout" | translate }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

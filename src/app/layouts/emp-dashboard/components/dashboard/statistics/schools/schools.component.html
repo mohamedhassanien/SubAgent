@@ -1,0 +1,236 @@
+<div class="wrap p-3">
+  <section class="pt-md-3">
+    <div class="row">
+      <div class="col-md-12">
+        <div
+          class="title bg-white borderR-5 d-flex justify-content-between align-items-center"
+        >
+          <h3 class="p-3 text-blue">
+            {{ "EMPDASHBOARD.TopSchoolsApplied" | translate }}
+          </h3>
+          <select
+            class="form-select w-25 mx-3"
+            (change)="changeEmpData($event)"
+          >
+            <option value="{{ emp.empName }}" *ngFor="let emp of empData">
+              {{ emp.empName }}
+            </option>
+          </select>
+        </div>
+
+        <div
+          class="dropdowns d-flex align-items-center justify-content-center bg-white px-3"
+        >
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onMonthChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedMonth" disabled selected>
+                {{ "EMPDASHBOARD.choosethemonth" | translate }}
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">{{
+              "EMPDASHBOARD.Month" | translate
+            }}</label>
+          </div>
+
+          <div class="form-floating mx-3">
+            <select
+              class="form-select"
+              (change)="onYearChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedYear" disabled selected>
+                {{ "EMPDASHBOARD.choosetheyear" | translate }}
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">{{
+              "EMPDASHBOARD.Year" | translate
+            }}</label>
+          </div>
+          <button
+            (click)="onTopSchApply()"
+            class="btn bg-primary text-white mx-3 px-5 py-2"
+          >
+            {{ "EMPDASHBOARD.Apply" | translate }}
+          </button>
+        </div>
+
+        <div id="chart" class="bg-white borderR-5">
+          <apx-chart
+            [series]="schoolEmpsChart.series"
+            [chart]="schoolEmpsChart.chart"
+            [dataLabels]="schoolEmpsChart.dataLabels"
+            [plotOptions]="schoolEmpsChart.plotOptions"
+            [colors]="schoolEmpsChart.colors"
+            [xaxis]="schoolEmpsChart.xaxis"
+          ></apx-chart>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-3">
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <div
+          class="title bg-white borderR-5 d-flex justify-content-between align-items-center"
+        >
+          <h3 class="p-3 text-blue">
+            {{ "EMPDASHBOARD.RejectionPerSchoolVsNationalities" | translate }}
+          </h3>
+
+          <select
+            class="form-select w-25 mx-3"
+            (change)="changeRejSchoolsData($event)"
+          >
+            <option
+              value="{{ rejSchool.schoolName }}"
+              *ngFor="let rejSchool of rejSchoolData"
+            >
+              {{ rejSchool.schoolName }}
+            </option>
+          </select>
+        </div>
+
+        <div
+          class="dropdowns d-flex align-items-center justify-content-center bg-white px-3"
+        >
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onMonthChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedMonth" disabled selected>
+                {{ "EMPDASHBOARD.choosethemonth" | translate }}
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">{{
+              "EMPDASHBOARD.Month" | translate
+            }}</label>
+          </div>
+
+          <div class="form-floating mx-3">
+            <select
+              class="form-select"
+              (change)="onYearChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedYear" disabled selected>
+                {{ "EMPDASHBOARD.choosetheyear" | translate }}
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">{{
+              "EMPDASHBOARD.Year" | translate
+            }}</label>
+          </div>
+          <button
+            (click)="onRejNatiSchApply()"
+            class="btn bg-primary text-white mx-3 px-5 py-2"
+          >
+            {{ "EMPDASHBOARD.Apply" | translate }}
+          </button>
+        </div>
+
+        <div id="chart" class="bg-white borderR-5">
+          <apx-chart
+            [series]="rejPerSchoolChart.series"
+            [chart]="rejPerSchoolChart.chart"
+            [dataLabels]="rejPerSchoolChart.dataLabels"
+            [plotOptions]="rejPerSchoolChart.plotOptions"
+            [colors]="rejPerSchoolChart.colors"
+            [xaxis]="rejPerSchoolChart.xaxis"
+          ></apx-chart>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div
+          class="title bg-white borderR-5 d-flex justify-content-between align-items-center"
+        >
+          <h3 class="p-3">
+            {{ "EMPDASHBOARD.RejectionPerSchoolVsEmployee" | translate }}
+          </h3>
+        </div>
+
+        <div
+          class="dropdowns d-flex align-items-center justify-content-center bg-white px-3 pb-5"
+        >
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onMonthChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedMonth" disabled selected>
+                {{ "EMPDASHBOARD.choosethemonth" | translate }}
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">
+              {{ "EMPDASHBOARD.Month" | translate }}
+            </label>
+          </div>
+
+          <div class="form-floating mx-3">
+            <select
+              class="form-select"
+              (change)="onYearChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option [value]="selectedYear" disabled selected>
+                {{ "EMPDASHBOARD.choosetheyear" | translate }}
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">
+              {{ "EMPDASHBOARD.Year" | translate }}
+            </label>
+          </div>
+          <button
+            (click)="onRejEmpSchApply()"
+            class="btn bg-primary text-white mx-3 px-5 py-2"
+          >
+            {{ "EMPDASHBOARD.Apply" | translate }}
+          </button>
+        </div>
+
+        <div id="chart" class="bg-white h-100 borderR-5">
+          <apx-chart
+            [series]="rejSchoolEmp.series"
+            [chart]="rejSchoolEmp.chart"
+            [labels]="rejSchoolEmp.labels"
+            [responsive]="rejSchoolEmp.responsive"
+            [colors]="rejSchoolEmp.colors"
+          >
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

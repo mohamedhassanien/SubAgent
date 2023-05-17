@@ -1,0 +1,28 @@
+p {
+  font-family: Poppins;
+}
+:host ::ng-deep .p-dropdown {
+  width: 14rem;
+}
+
+.country-item-value {
+  img.flag {
+    width: 17px;
+  }
+}
+
+p-skeleton {
+  width: 100%;
+}
+
+section {
+  background-color: #f7f7f7;
+  .container-fluid {
+    padding: 26px 0 26px 16px;
+    h2.section-title {
+      font: normal normal 600 24px Poppins;
+      color: #373b79;
+      margin-bottom: 26px;
+    }
+  }
+}

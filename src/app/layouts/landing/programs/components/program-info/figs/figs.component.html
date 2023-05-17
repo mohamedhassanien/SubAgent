@@ -1,0 +1,412 @@
+<main class="container">
+    <form [formGroup]="registerationForm" (ngSubmit)="submit(registerationForm)">
+
+        <h2><span>1</span> JE POSTULE POUR</h2>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label>ECOLE <span style="color: red;">*</span> :</label><br>
+                <input type="text" class="w-100 form-control"
+                    [class.is-invalid]="university?.invalid &&university?.touched" formControlName="university">
+                <div class="text-erorr-contan"></div>
+            </div>
+            <div class="col-lg-6">
+                <label>PROGRAMME <span style="color: red;">*</span> :</label><br>
+                <input type="text" class="w-100 form-control" [class.is-invalid]="program?.invalid &&program?.touched"
+                    formControlName="program">
+                <div class="text-erorr-contan"></div>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div>
+                    <label class="pb-lg-1 pb-md-1">NIVEAU <span style="color: red;">*</span> :</label><br>
+                    <div class="row">
+                        <div class="col-4 text-center">
+                            <mat-checkbox formControlName="BACHELOR1">BACHELOR 1</mat-checkbox><br>
+                            <mat-checkbox formControlName="BACHELOR2">BACHELOR 2</mat-checkbox><br>
+                            <mat-checkbox formControlName="BACHELOR3">BACHELOR 3</mat-checkbox>
+                        </div>
+                        <div class="col-6 text-center">
+                            <mat-checkbox formControlName="MASTER1">MASTER 1</mat-checkbox><br>
+                            <mat-checkbox formControlName="MASTER2">MASTER 2</mat-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <mat-radio-group formControlName="rentree">
+                    <label class="pb-lg-1 pb-md-1">RENTREE <span style="color: red;">*</span> :</label><br>
+                    <mat-radio-button value="SEPTEMBRE 2022">SEPTEMBRE 2022</mat-radio-button><br>
+                    <mat-radio-button class="pt-lg-1" value="RENTREE DECALEE 2023">RENTREE DECALEE 2023
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div><br>
+
+
+        <div class="row">
+            <label class="pb-lg-1 pb-md-1">CAMPUS <span style="color: red;">*</span> :</label>
+            <div>
+                <mat-radio-group formControlName="CAMPUS">
+                    <mat-radio-button class="col-lg-2 col-4" value="Paris">Paris</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4" value="Lyon">Lyon</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4" value="Toulouse">Toulouse</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4" value="Bordeaux">Bordeaux</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4" value="Nantes">Nantes</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4" value="Montpellier">Montpellier</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4 pt-lg-1" value="Nice">Nice</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4 pt-lg-1" value="Lille">Lille</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4 pt-lg-1" value="Grenoble">Grenoble</mat-radio-button>
+                    <mat-radio-button class="col-lg-2 col-4 pt-lg-1" value="Amiens">Amiens</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div><br><br>
+
+
+        <h2><span>2</span> PERSONAL INFORMATION / INFORMATIONS PERSONNELLES</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Nom <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [class.is-invalid]="fName?.invalid &&fName?.touched"
+                    formControlName="fName">
+                <div class="text-erorr-contan">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label>PreNom <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [class.is-invalid]="lName?.invalid &&lName?.touched"
+                    formControlName="lName">
+                <div class="text-erorr-contan"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Gender / Sexe <span style="color: red;">*</span> :</label>
+                <div class="row pt-lg-2">
+                    <mat-radio-group formControlName="gender">
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-radio-button value="male">Masculin</mat-radio-button>
+                            </div>
+                            <div class="col-6">
+                                <mat-radio-button value="Female">Féminin</mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label for="second name">Nationalité <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userNationality?.invalid &&userNationality?.touched"
+                    formControlName="Nationality">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">Date of birth / Date de naissance <span style="color: red;">*</span>
+                    :</label><br>
+                <div class="form-group">
+                    <input type="date" class="form-control" formControlName="date" id="date" required name="date"
+                        [class.is-invalid]="userdate?.invalid &&userdate?.touched">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label for="address">Country of birth / Lieu de naissance <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userbirthPlace?.invalid &&userbirthPlace?.touched" formControlName="birthPlace">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">Age <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userAge?.invalid &&userAge?.touched" formControlName="age">
+            </div>
+            <div class="col-lg-6">
+                <label for="address">Statut Matrimonial <span style="color: red;">*</span> :</label><br>
+                <div class="row pt-lg-2">
+                    <mat-radio-group formControlName="status">
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-radio-button value="Célibataire">Célibataire</mat-radio-button>
+                            </div>
+                            <div class="col-6">
+                                <mat-radio-button value="Marié(e)">Marié(e)</mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">Ville <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="usercity?.invalid &&usercity?.touched" formControlName="city">
+            </div>
+            <div class="col-lg-6">
+                <label for="address">Pays <span style="color: red;">*</span> :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="usercountry?.invalid &&usercountry?.touched" formControlName="country">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <label for="second name">Adresse <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="userAdresse?.invalid &&userAdresse?.touched" formControlName="Adresse">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">E-mail <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="useremail?.invalid &&useremail?.touched" formControlName="email">
+            </div>
+            <div class="col-lg-6">
+                <label for="address">Tel.Portable <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="usertel?.invalid &&usertel?.touched" formControlName="tel">
+            </div>
+        </div><br>
+
+        <h3>Comment envisagez-vous de régler vos frais d'études?</h3>
+
+        <div>
+            <mat-radio-group formControlName="money" class="col-6">
+                <div class="d-flex justify-content-between">
+                    <mat-radio-button value="myself">Par mes propres moyens</mat-radio-button>
+                    <mat-radio-button value="family">Support familial</mat-radio-button><br>
+                </div>
+                <div class="d-flex pt-lg-1">
+                    <mat-radio-button value="sponser">Autre sponsor (merci de préciser):</mat-radio-button>
+                    <input type="text" formControlName="sponserName" class="sponser w-25 px-1 mt-lg-1">
+                </div>
+            </mat-radio-group>
+
+        </div><br><br>
+
+
+        <h2><span>3</span> INFORMATIONS FAMILIALES</h2>
+        <div>
+            <label>NOM ET PRENOM DE VOTRE PERE <span style="color: red;">*</span> :</label>
+            <input class="w-100 form-control" type="text" [value]=""
+                [class.is-invalid]="fatherName?.invalid &&fatherName?.touched" formControlName="ffname">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">PROFESSION <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="fatherJob?.invalid &&fatherJob?.touched" formControlName="fjob">
+            </div>
+            <div class="col-lg-6">
+                <label for="address"> PAYS <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="fatherCountry?.invalid &&fatherCountry?.touched" formControlName="fcountry">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">TEL. PORTABLE <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="fatherTell?.invalid &&fatherTell?.touched" formControlName="ftell">
+            </div>
+            <div class="col-lg-6">
+                <label for="address"> EMAIL <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="fatherEmail?.invalid &&fatherEmail?.touched" formControlName="femail">
+            </div>
+        </div><br><br>
+
+        <div>
+            <label>NOM ET PRENOM DE VOTRE MERE <span style="color: red;">*</span> :</label>
+            <input class="w-100 form-control" type="text" [value]=""
+                [class.is-invalid]="motherName?.invalid &&motherName?.touched" formControlName="mname">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">PROFESSION <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="motherJob?.invalid &&motherJob?.touched" formControlName="mjob">
+            </div>
+            <div class="col-lg-6">
+                <label for="address"> PAYS <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="motherCountry?.invalid &&motherCountry?.touched" formControlName="mcountry">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="second name">TEL. PORTABLE <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="motherTell?.invalid &&motherTell?.touched" formControlName="mtell">
+            </div>
+            <div class="col-lg-6">
+                <label for="address"> EMAIL <span style="color: red;">*</span>
+                    :</label><br>
+                <input class="w-100 form-control" type="text" [value]=""
+                    [class.is-invalid]="motherEmail?.invalid &&motherEmail?.touched" formControlName="memail">
+            </div>
+        </div><br><br>
+
+
+
+        <h2><span>4</span> PARCOURS ACADEMIQUE</h2>
+        <p>Listez la liste des etablissements que vous avez trequentes, en commencant par le dernier diplome obtenu ou
+            en cours
+            d'obtention.</p>
+        <div class="row pt-lg-1">
+            <div class="col-3">
+                <p class="text-center fw-bold">ECOLE</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center fw-bold">PAYS</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center fw-bold">DIPLOME (OBTENU OUEN COURS)</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center fw-bold">DE A (DATE)</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3"><input class="form-control h-75" formControlName="ecole1" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="pays1" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="dip1" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="date1" type="text"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"><input class="form-control h-75" formControlName="ecole2"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="pays2"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="dip2"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="date2"></div>
+        </div><br><br>
+
+
+
+        <h2><span>5</span> COMPETENCES LINGUISTIQUES</h2>
+        <div class="d-flex">
+            <label class="d-flex align-items-center">LANGUE MATERNELLE <span style="color: red;">*</span> :</label>
+            <input class="form-control w-50 ms-3 h-50" type="text"
+                [class.is-invalid]="usermotherLanguage?.invalid &&usermotherLanguage?.touched"
+                formControlName="motherLanguage">
+        </div><br>
+
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th class="text-center fw-bold" scope="col">NOMBRE D'ANNEES D'ETUDES</th>
+                        <th class="text-center fw-bold languages" scope="col">TEST DE NIVEAU <br>(TOEFL, TOEIC, IELTS...
+                            / TCF, DELF...)
+                        </th>
+                        <th class="text-center fw-bold" scope="col">SCORE ET DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-center fw-bold" scope="row">ANGLAIS</th>
+                        <td><input class="form-control w-100 h-50" formControlName="english1" type="text"></td>
+                        <td><input class="form-control w-100 h-50" formControlName="english2" type="text"></td>
+                        <td><input class="form-control w-100 h-50" formControlName="english3" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th class="text-center fw-bold" scope="row">FRANÇAIS</th>
+                        <td><input class="form-control w-100 h-50" formControlName="french1" type="text"></td>
+                        <td><input class="form-control w-100 h-50" formControlName="french2" type="text"></td>
+                        <td><input class="form-control w-100 h-50" formControlName="french3" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th class="text-center fw-bold" scope="row">AUTRE</th>
+                        <td><input class="form-control w-100 h-50" formControlName="other1" type="text"></td>
+                        <td><input class="form-control w-100 h-50" formControlName="other2" type="text"></td>
+                        <td><input class="form-control w-100 h-50" formControlName="other3" type="text"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><br><br>
+
+        <h2><span>6</span> EXPERIENCE PROFESSIONNELLE</h2>
+        <p>Décrivez vos expériences professionnelles:</p>
+
+        <div class="row">
+            <div class="col-3">
+                <p class="text-center fw-bold">ENTREPRISE</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center fw-bold">MISSION</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center fw-bold">PAYS</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center fw-bold">DE A DATE</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3"><input class="form-control h-75" formControlName="ent1" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="mission1" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="pay1" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="dedate1" type="text"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"><input class="form-control h-75" formControlName="ent2" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="mission2" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="pay2" type="text"></div>
+            <div class="col-3"><input class="form-control h-75" formControlName="dedate2" type="text"></div>
+        </div><br>
+
+        <p>Je déclare sur l'honneur que les renseignements fournis dans ce formulaire sont exacts.</p>
+        <p>Le comite d'admission se reserve le droit de verifier toutes les pièces iointes à ma candidature.</p>
+        <p>Je suis conscient(e) que toute rausse declaration peut entrainer le refus d'admission. l'annulation de
+            l'admission ou
+            l'expulsion.</p>
+
+        <div class="row pt-lg-2">
+            <div class="col-lg-6">
+                <div>
+                    <label>LIEU ET DATE <span style="color: red;">*</span> :</label>
+                    <div class="form-group">
+                        <input type="date" class="form-control" formControlName="placedate" id="date" required
+                            name="date" [class.is-invalid]="assplacedate?.invalid &&assplacedate?.touched">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <p style="color: gray;">Signature :</p>
+                <div>
+                    <label>Name / Nom <span style="color: red;">*</span> :</label>
+                    <input class="w-100 form-control" type="text" [value]=""
+                        [class.is-invalid]="asssign?.invalid &&asssign?.touched" formControlName="sign">
+                </div>
+            </div>
+        </div><br>
+        <button class="pad-btn" type="submit">Next</button>
+    </form>
+</main>

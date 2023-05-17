@@ -1,0 +1,123 @@
+<section class="step-three">
+  <div class="row">
+    <div class="col-12 combined-col">
+      <div class="d-flex justify-content-lg-between align-items-start">
+        <div class="title-col">
+          <h1 class="title">{{ "STUDENTBOARD.Welcometo" | translate }}</h1>
+          <h2 class="sub-title col-lg-9 col-12">
+            {{ "STUDENTBOARD.Your" | translate }} 
+            {{ "STUDENTBOARD.profile" | translate }}
+          </h2>
+        </div>
+        <div class="picture-col d-none d-lg-block">
+          <img
+            src="../../../../../../assets/images/student-account/welcom-to.svg"
+            alt="welcome-to"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 describtion-col">
+      <p class="describtion d-block d-md-none d-lg-block">
+        {{ "STUDENTBOARD.Thankyouforjoiningus" | translate }}
+      </p>
+      <p class="three-steps-desc">
+        {{ "STUDENTBOARD.Continuebelow" | translate }}
+        <span>{{ "STUDENTBOARD.three" | translate }} </span>
+        {{ "STUDENTBOARD.easysteps" | translate }}
+        .
+      </p>
+    </div>
+    <div class="step-three-col col-12">
+      <div class="step-three d-flex align-items-center">
+        <a
+          class="main-circle active d-flex justify-content-center align-items-center"
+          [routerLink]="['/students', fullName, 'general', 'how-to-start']"
+          [queryParams]="{ step: '1' }"
+        >
+          <i class="fas fa-check"></i>
+        </a>
+        <div class="connector active"></div>
+        <div class="sec-circle active"></div>
+        <div class="connector active"></div>
+        <div class="sec-circle active"></div>
+        <div class="connector active"></div>
+        <a
+          class="main-circle active d-flex justify-content-center align-items-center"
+          [routerLink]="['/students', fullName, 'general', 'education']"
+          [queryParams]="{ step: '2' }"
+          fragment="level-of-education"
+        >
+          <i class="fas fa-check"></i>
+        </a>
+        <div class="connector active"></div>
+        <div class="sec-circle active"></div>
+        <div class="connector active"></div>
+        <div class="sec-circle active"></div>
+        <div class="connector active"></div>
+        <a
+          class="main-circle active d-flex justify-content-center align-items-center"
+          [routerLink]="[
+            '/students',
+            fullName,
+            'general',
+            'additional-information'
+          ]"
+          [queryParams]="{ step: '3' }"
+          fragment="study-in-france"
+        >
+          3
+        </a>
+      </div>
+    </div>
+    <form
+      class="col-12"
+      [formGroup]="thirdStep"
+      (ngSubmit)="onSubmit(thirdStep)"
+    >
+      <div id="study-in-france">
+        <h1 class="title">Let’s get to <span>know you !</span></h1>
+        <h2 class="sub-title">
+          {{ "STUDENTBOARD.Wouldyoulike" | translate }}
+        </h2>
+        <mat-radio-group
+          class="d-flex align-items-center flex-wrap"
+          formControlName="language"
+          [(ngModel)]="wantedLang"
+        >
+          <mat-radio-button
+            class="radio-btn col-md-3 col-12"
+            *ngFor="let interest of studyInterests"
+            id="{{ interest }}"
+            value="{{ interest }}"
+          >
+            {{ interest }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <hr />
+      <div id="budget">
+        <h2 class="sub-title">
+          {{ "STUDENTBOARD.Whatisyourbudget" | translate }}
+        </h2>
+        <div class="range-col d-flex align-items-center">
+          <div class="row">
+            <p class="range col-12 col-md-3 col-lg-4">
+              {{ "STUDENTBOARD.PriceRange" | translate }}
+            </p>
+            <ngx-slider
+              class="col-12 col-md"
+              [(value)]="minValue"
+              [(highValue)]="maxValue"
+              [options]="options"
+            ></ngx-slider>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        {{ "STUDENTBOARD.Save" | translate }}
+      </button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,354 @@
+section.step-one {
+  padding: 100px 70px;
+  p {
+    margin: 0;
+  }
+  .row {
+    .combined-col {
+      margin-bottom: 16px;
+      .title-col {
+        h1.title {
+          font: normal normal 500 24px Poppins;
+          color: #ff5151;
+          margin-bottom: 16px;
+        }
+        h2.sub-title {
+          font: normal normal 600 33px Poppins;
+          span {
+            color: #6f77f4;
+          }
+        }
+      }
+      .picture-col {
+        img {
+          width: 182px;
+          height: 146px;
+        }
+      }
+    }
+    .describtion-col {
+      margin-bottom: 32px;
+      p.describtion {
+        font: normal normal normal 16px/24px Poppins;
+        color: #7b7b7b;
+      }
+      p.three-steps-desc {
+        font: normal normal 500 18px/28px Poppins;
+        span {
+          color: #ff5151;
+        }
+      }
+    }
+    .step-one-col {
+      margin-bottom: 30px;
+      .step-one {
+        width: 100%;
+        .connector {
+          width: 12%;
+          height: 6px;
+          background-color: #e5e7ff;
+        }
+        a.main-circle {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 1px solid #e5e7ff;
+          background-color: #fff;
+          font: normal normal 500 24px Poppins;
+          color: #6f77f4;
+          &:hover {
+            box-shadow: 0px 3px 12px #1721d54e;
+          }
+        }
+        .sec-circle {
+          width: 19px;
+          height: 19px;
+          border-radius: 50%;
+          background-color: #e5e7ff;
+        }
+        a.main-circle.active {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background-color: #6f77f4;
+          border: 1px solid #6f77f4;
+          color: #fff;
+          &:hover {
+            box-shadow: 0px 3px 12px #1721d54e;
+          }
+        }
+        .connector.active {
+          background-color: #6f77f4;
+        }
+        .sec-circle.active {
+          background-color: #6f77f4;
+        }
+      }
+    }
+    .step-one-desc-col {
+      margin-bottom: 50px;
+      h1.how-to-start-title {
+        font: normal normal bold 24px/40px Poppins;
+        color: #ff5151;
+        margin-bottom: 16px;
+      }
+      h2.how-to-start-sub-title {
+        font: normal normal 600 24px/33px Poppins;
+        margin-bottom: 16px;
+      }
+      p.invitation {
+        font: normal normal normal 16px/24px Poppins;
+        margin-bottom: 16px;
+      }
+      p.complete-profile {
+        font: normal normal normal 16px/24px Poppins;
+        margin-bottom: 25px;
+        span {
+          color: #6f77f4;
+        }
+      }
+      p.correct-info {
+        font: normal normal normal 16px/24px Poppins;
+      }
+    }
+    .btn-col {
+      a {
+        height: 56px;
+        background-color: #6f77f4;
+        border-radius: 5px;
+        font: normal normal 500 18px/40px Poppins;
+        color: #fff;
+        &:hover {
+          background-color: #4751de;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991.9px) and (min-width: 768px) {
+  section.step-one {
+    padding: 32px 0;
+    .row {
+      .combined-col {
+        margin-bottom: 18px;
+        .title-col {
+          h1.title {
+            font: normal normal 500 20px Poppins;
+            color: #ff5151;
+            margin-bottom: 8px;
+          }
+          h2.sub-title {
+            font: normal normal 600 24px Poppins;
+            margin: 0;
+            span {
+              color: #6f77f4;
+            }
+          }
+        }
+      }
+      .describtion-col {
+        margin-bottom: 50px;
+        p.three-steps-desc {
+          font: normal normal 500 16px/28px Poppins;
+          span {
+            color: #ff5151;
+          }
+        }
+      }
+      .step-one-col {
+        margin-bottom: 37px;
+        .step-one {
+          width: 100%;
+          .connector {
+            width: 12.8%;
+            height: 6px;
+            background-color: #e5e7ff;
+          }
+          a.main-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #e5e7ff;
+            background-color: #fff;
+            font: normal normal 500 24px Poppins;
+            color: #6f77f4;
+            &:hover {
+              box-shadow: 0px 3px 12px #1721d54e;
+            }
+          }
+          .sec-circle {
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background-color: #e5e7ff;
+          }
+          a.main-circle.active {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #6f77f4;
+            color: #fff;
+            &:hover {
+              box-shadow: 0px 3px 12px #1721d54e;
+            }
+          }
+        }
+      }
+      .step-one-desc-col {
+        margin-bottom: 50px;
+        h1.how-to-start-title {
+          font: normal normal bold 20px/40px Poppins;
+          color: #ff5151;
+          margin-bottom: 16px;
+        }
+        h2.how-to-start-sub-title {
+          font: normal normal 600 24px/33px Poppins;
+          margin-bottom: 16px;
+        }
+        p.invitation {
+          font: normal normal normal 16px/24px Poppins;
+          margin-bottom: 16px;
+        }
+        p.complete-profile {
+          margin-bottom: 16px;
+          font: normal normal normal 16px/24px Poppins;
+          span {
+            color: #6f77f4;
+          }
+        }
+        p.correct-info {
+          font: normal normal normal 16px/24px Poppins;
+        }
+      }
+      .btn-col {
+        a {
+          height: 56px;
+          background-color: #6f77f4;
+          border-radius: 5px;
+          font: normal normal 500 18px/40px Poppins;
+          color: #fff;
+          &:hover {
+            background-color: #4751de;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  section.step-one {
+    padding: 24px 0;
+    .row {
+      .combined-col {
+        margin-bottom: 8px;
+        .title-col {
+          h1.title {
+            font: normal normal 500 18px Poppins;
+            color: #ff5151;
+            margin-bottom: 8px;
+          }
+          h2.sub-title {
+            font: normal normal 600 24px Poppins;
+            margin: 0;
+            span {
+              color: #6f77f4;
+            }
+          }
+        }
+      }
+      .describtion-col {
+        margin-bottom: 32px;
+        p.describtion {
+          font: normal normal normal 16px/22px Poppins;
+          color: #7b7b7b;
+          margin-bottom: 17px;
+        }
+        p.three-steps-desc {
+          font: normal normal 500 16px/28px Poppins;
+          span {
+            color: #ff5151;
+          }
+        }
+      }
+      .step-one-col {
+        margin-bottom: 33px;
+        .step-one {
+          width: 100%;
+          .connector {
+            width: 12%;
+            height: 3px;
+            background-color: #e5e7ff;
+          }
+          a.main-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid #e5e7ff;
+            background-color: #fff;
+            font: normal normal 500 16px Poppins;
+            color: #6f77f4;
+            &:hover {
+              box-shadow: 0px 3px 12px #1721d54e;
+            }
+          }
+          .sec-circle {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: #e5e7ff;
+          }
+          a.main-circle.active {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #6f77f4;
+            color: #fff;
+            &:hover {
+              box-shadow: 0px 3px 12px #1721d54e;
+            }
+          }
+        }
+      }
+      .step-one-desc-col {
+        margin-bottom: 50px;
+        h1.how-to-start-title {
+          font: normal normal 600 18px/40px Poppins;
+          color: #ff5151;
+          margin-bottom: 12px;
+        }
+        h2.how-to-start-sub-title {
+          font: normal normal 600 24px/33px Poppins;
+          margin-bottom: 16px;
+        }
+        p.invitation {
+          font: normal normal 500 16px/24px Poppins;
+          margin-bottom: 16px;
+        }
+        p.complete-profile {
+          margin-bottom: 20px;
+          font: normal normal normal 16px/24px Poppins;
+          span {
+            color: #6f77f4;
+          }
+        }
+        p.correct-info {
+          font: normal normal normal 16px/24px Poppins;
+        }
+      }
+      .btn-col {
+        a {
+          height: 50px;
+          background-color: #6f77f4;
+          border-radius: 5px;
+          font: normal normal 500 18px/40px Poppins;
+          color: #fff;
+          &:hover {
+            background-color: #4751de;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+<section class="login-section">
+  <div class="row">
+    <div class="login-content">
+      <img src="../../../../../assets/images/elysee-logo.png" alt="SG logo" />
+      <p class="welcome-back d-block d-xl-none">Welcome back!</p>
+      <p class="account">{{ "LOGIN.LoginHeading" | translate }}</p>
+      <p class="welcome-back d-none d-xl-block">Welcome back!</p>
+      <p class="description">
+        {{ "LOGIN.loginDesc" | translate }}
+      </p>
+      <div class="alert alert-danger" role="alert" *ngIf="forgotPassword">
+        <h4 class="alert-heading">
+          {{ "LOGIN.CredentialsInvalid" | translate }}
+        </h4>
+        <p>
+          {{ "LOGIN.hintMsg" | translate }}
+        </p>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="error">
+        <h4 class="alert-heading">{{ "LOGIN.errorMsg" | translate }}</h4>
+        <p>{{ errMessage }}</p>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="errorFB">
+        <h4 class="alert-heading">{{ "LOGIN.Error" | translate }}</h4>
+        <p>{{ "LOGIN.errorMsg" | translate }}</p>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="isVerified">
+        <h4 class="alert-heading">{{ "LOGIN.Error" | translate }}</h4>
+        <p>{{ verMsg }}</p>
+      </div>
+      <div *ngIf="isLoading">
+        <div
+          class="spinner-border text-primary d-flex m-auto"
+          role="status"
+        ></div>
+      </div>
+      <div *ngIf="!isLoading">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+          <div>
+            <input
+              type="text"
+              id="email"
+              formControlName="email"
+              class="form-control emailInput"
+            />
+            <label for="email" class="emailLabel">{{
+              "EMPDASHBOARD.EmailAddress" | translate
+            }}</label>
+          </div>
+          <div class="mt-3">
+            <input
+              [type]="show ? 'text' : 'password'"
+              id="password"
+              min="8"
+              max="16"
+              formControlName="password"
+              class="form-control passwordInput"
+            />
+            <mat-icon (click)="showPassword()">{{
+              show ? "visibility_off" : "visibility"
+            }}</mat-icon>
+            <label for="password" class="passwordLabel">{{
+              "LOGIN.Password" | translate
+            }}</label>
+          </div>
+          <div
+            class="d-flex justify-content-between align-items-center forget-row"
+          >
+            <div
+              class="checkbox d-flex justify-content-center align-items-center"
+            >
+              <input
+                type="checkbox"
+                id="checkbox"
+                formControlName="keep"
+                value="true"
+                class="checkbox-input"
+              />
+              <label for="checkbox" class="ms-2">{{
+                "LOGIN.KeepMe" | translate
+              }}</label>
+            </div>
+            <a class="forget" routerLink="/auth/reset-password">
+              {{ "LOGIN.ForgotPassword" | translate }}
+            </a>
+          </div>
+          <div class="login">
+            <button class="btn" type="submit" [disabled]="!loginForm.valid">
+              {{ "LOGIN.Login" | translate }}
+            </button>
+          </div>
+          <p class="create d-flex justify-content-center">
+            {{ "LOGIN.DoNothave" | translate }}
+
+            <a class="ms-2" routerLink="/auth/register">
+              {{ "LOGIN.Signup" | translate }}
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

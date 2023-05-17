@@ -1,0 +1,374 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <h2 class="section-title">{{ "EMPDASHBOARD.addLead" | translate }}</h2>
+      <div class="col-12">
+        <form
+          class="form-section"
+          [formGroup]="addForm"
+          (ngSubmit)="sumbit(addForm)"
+        >
+          <div class="row">
+            <div class="col-lg-6 col-12 input-col">
+              <label for="firstName">{{ "EMPDASHBOARD.FirstName" | translate }}*</label>
+              <input
+                type="text"
+                id="firstName"
+                class="form-input"
+                formControlName="firstName"
+                [ngClass]="{
+                  'form-input-error':
+                    !addForm.controls['firstName'].valid &&
+                    addForm.controls['firstName'].dirty
+                }"
+              />
+              <span
+                class="error-text"
+                *ngIf="
+                  !addForm.controls['firstName'].valid &&
+                  addForm.controls['firstName'].dirty
+                "
+              >
+              {{ "EMPDASHBOARD.FirstNameRequired" | translate }}
+              </span>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="lastName">{{ "EMPDASHBOARD.LastName" | translate }}*</label>
+              <input
+                type="text"
+                id="lastName"
+                class="form-input"
+                formControlName="secondName"
+                [ngClass]="{
+                  'form-input-error':
+                    !addForm.controls['secondName'].valid &&
+                    addForm.controls['secondName'].dirty
+                }"
+              />
+              <span
+                class="error-text"
+                *ngIf="
+                  !addForm.controls['secondName'].valid &&
+                  addForm.controls['secondName'].dirty
+                "
+              >
+              {{ "EMPDASHBOARD.LastNameRequired" | translate }}
+              </span>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="email">{{ "EMPDASHBOARD.email" | translate }}*</label>
+              <input
+                type="email"
+                id="email"
+                class="form-input"
+                formControlName="email"
+                [ngClass]="{
+                  'form-input-error':
+                    !addForm.controls['email'].valid &&
+                    addForm.controls['email'].touched
+                }"
+              />
+              <span
+                class="error-text"
+                *ngIf="
+                  !addForm.controls['email'].valid &&
+                  addForm.controls['email'].touched
+                "
+              >
+              {{ "EMPDASHBOARD.addLead" | translate }}
+              </span>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="phone">{{ "EMPDASHBOARD.YourNumber" | translate }}*</label>
+              <ngx-intl-tel-input
+                [enableAutoCountrySelect]="false"
+                [enablePlaceholder]="true"
+                [searchCountryFlag]="true"
+                [searchCountryField]="[
+                  SearchCountryField.Iso2,
+                  SearchCountryField.Name
+                ]"
+                [selectFirstCountry]="false"
+                [selectedCountryISO]="CountryISO.France"
+                maxlength="15"
+                id="phone"
+                formControlName="phone"
+              ></ngx-intl-tel-input>
+              <span
+                class="error-text"
+                *ngIf="
+                  !addForm.controls['phone'].valid &&
+                  addForm.controls['phone'].touched &&
+                  addForm.controls['phone'].dirty
+                "
+              >
+              {{ "EMPDASHBOARD.YourNumbeRequired" | translate }}
+              </span>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="school">{{ "EMPDASHBOARD.addLead" | translate }}*</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                  [ngClass]="{ 'text-dark': schoolName !== 'Select School' }"
+                >
+                  {{ schoolName | shorten : 25 }}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      class="searchInput"
+                      [(ngModel)]="searchSchool"
+                      [ngModelOptions]="{ standalone: true }"
+                      [value]="schoolName === 'Select School' ? '' : schoolName"
+                    />
+                    <i class="fas fa-search place-holder"></i>
+                    <hr />
+                    <div class="dropdown-container-overflow">
+                      <option
+                        value="Not Decided"
+                        (click)="
+                          changeSelection('school', $event); dropdown.click()
+                        "
+                      >
+                      {{ "EMPDASHBOARD.SchoolOfInterest" | translate }}
+                      </option>
+                      <option
+                        [value]="school"
+                        *ngFor="
+                          let school of schools | filterOne : searchSchool
+                        "
+                        (click)="
+                          changeSelection('school', $event); dropdown.click()
+                        "
+                      >
+                        <img
+                          src="../../../../../../../assets/images/schools/{{
+                            school.schoolName
+                          }}.png"
+                          alt="{{ school.schoolName }}"
+                        />
+                        {{ school.schoolName | shorten : 35 }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="program">{{ "EMPDASHBOARD.ProgramOfInterest" | translate }}*</label>
+              <input
+                type="text"
+                id="program"
+                class="form-input"
+                formControlName="program"
+                placeholder="Enter a Program"
+                [ngClass]="{
+                  'form-input-error':
+                    !addForm.controls['program'].valid &&
+                    addForm.controls['program'].dirty
+                }"
+              />
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="school">{{ "EMPDASHBOARD.country" | translate }}*</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                  [ngClass]="{ 'text-dark': countryName !== 'Select Country' }"
+                >
+                  {{ countryName | shorten : 25 }}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      class="searchInput"
+                      [(ngModel)]="searchCountry"
+                      [ngModelOptions]="{ standalone: true }"
+                      [value]="
+                        countryName === 'Select Country' ? '' : countryName
+                      "
+                    />
+                    <i class="fas fa-search place-holder"></i>
+                    <hr />
+                    <div class="dropdown-container-overflow">
+                      <option
+                        [value]="country"
+                        *ngFor="
+                          let country of countries | filterOne : searchCountry
+                        "
+                        (click)="
+                          changeSelection('country', $event); dropdown.click()
+                        "
+                      >
+                        {{ country.country | shorten : 35 }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="school">{{ "EMPDASHBOARD.Seriousness" | translate }}*</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                  [ngClass]="{
+                    'text-dark': seriousNumber !== 'Select Score'
+                  }"
+                >
+                  {{ seriousNumber }}
+                </button>
+                <div class="dropdown-menu score-menu">
+                  <div class="dropdown-container">
+                    <div class="dropdown-container-overflow">
+                      <option
+                        *ngFor="let seriousScore of seriousScores"
+                        (click)="
+                          changeSelection('score', $event); dropdown.click()
+                        "
+                      >
+                        {{ seriousScore }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="school">{{ "EMPDASHBOARD.IntakeMonth" | translate }}*</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                  [ngClass]="{
+                    'text-dark': intakeMonthName !== 'Select Month'
+                  }"
+                >
+                  {{ intakeMonthName }}
+                </button>
+                <div class="dropdown-menu score-menu">
+                  <div class="dropdown-container">
+                    <div class="dropdown-container-overflow">
+                      <option
+                        *ngFor="let intakeMonth of intakeMonths"
+                        (click)="
+                          changeSelection('month', $event); dropdown.click()
+                        "
+                      >
+                        {{ intakeMonth }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 input-col">
+              <label for="school">{{ "EMPDASHBOARD.IntakeYear" | translate }}*</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                  [ngClass]="{
+                    'text-dark': intakeYearName !== 'Select Year'
+                  }"
+                >
+                  {{ intakeYearName }}
+                </button>
+                <div class="dropdown-menu score-menu">
+                  <div class="dropdown-container">
+                    <div class="dropdown-container-overflow">
+                      <option
+                        *ngFor="let intakeYear of intakeYears"
+                        (click)="
+                          changeSelection('year', $event); dropdown.click()
+                        "
+                      >
+                        {{ intakeYear }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 source-col">
+              <label>{{ "EMPDASHBOARD.Source" | translate }}*</label>
+              <mat-radio-group
+                class="d-flex align-items-start flex-wrap"
+                formControlName="source"
+              >
+                <mat-radio-button
+                  class="radio-btn col-lg-3 col-6"
+                  *ngFor="let source of sources"
+                  value="{{ source }}"
+                  (change)="changeSelection('source', source)"
+                >
+                  {{ source }}
+                </mat-radio-button>
+              </mat-radio-group>
+              <div *ngIf="addForm.controls['source'].value === 'Other'">
+                <input
+                  type="text"
+                  class="form-input"
+                  formControlName="customSource"
+                  [ngClass]="{
+                    'form-input-error':
+                      addForm.controls['source'].value === 'Other' &&
+                      addForm.controls['customSource'].value === '' &&
+                      addForm.controls['customSource'].touched
+                  }"
+                />
+                <span
+                  class="error-text"
+                  *ngIf="
+                    addForm.controls['source'].value === 'Other' &&
+                    addForm.controls['customSource'].value === '' &&
+                    addForm.controls['customSource'].touched
+                  "
+                >
+                {{ "EMPDASHBOARD.SourceRequired" | translate }}
+                </span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button
+                class="submit-button"
+                type="submit"
+                [disabled]="
+                  !addForm.valid ||
+                  schoolName === 'Select School' ||
+                  seriousNumber === 'Select Score' ||
+                  countryName === 'Select Country'
+                "
+              >
+              {{ "EMPDASHBOARD.save" | translate }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

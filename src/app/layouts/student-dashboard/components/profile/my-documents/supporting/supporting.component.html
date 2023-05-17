@@ -1,0 +1,165 @@
+<section class="identity">
+  <div class="row">
+    <h1 class="title">{{ "STUDENTBOARD.SupportingDocuments" | translate }}</h1>
+    <h2 class="sub-title">
+      {{ "STUDENTBOARD.AttachmentsshouldbePNGJPGorPDFformats" | translate }}
+    </h2>
+    <mdb-accordion [flush]="true" class="accordion">
+      <mdb-accordion-item>
+        <ng-template
+          mdbAccordionItemHeader
+          class="d-flex justify-content-start align-items-center"
+        >
+          <img
+            src="../../../../../../../assets/images/student-account/file.svg"
+            alt="upload"
+            class="me-3"
+          />
+          <p class="name">
+            {{ "STUDENTBOARD.RecommendationLetters" | translate }}
+          </p>
+          <i class="fas fa-plus ms-auto"></i>
+        </ng-template>
+        <ng-template mdbAccordionItemBody>
+          <div
+            *ngIf="!firstFileLoading"
+            class="d-flex align-items-center w-100"
+          >
+            <input
+              type="file"
+              (change)="chooseFirst($event)"
+              accept=".png, .jpg, .jpeg, .pdf, .doc"
+              *ngIf="firstErrorMsg !== 'File has been Deleted Successfully!'"
+            />
+            <span class="error-msg mx-auto" *ngIf="firstSelectCondition">
+              {{ firstErrorMsg }}
+            </span>
+            <button
+              type="button"
+              class="btn upload-btn ms-auto"
+              (click)="uploadFirst()"
+              *ngIf="firstErrorMsg !== 'File has been Deleted Successfully!'"
+            >
+              {{ "STUDENTBOARD.Upload" | translate }}
+            </button>
+          </div>
+          <div class="d-flex align-items-center w-100" *ngIf="firstFileLoading">
+            <img
+              src="../../../../../../../assets/images/student-account/photo.svg"
+              alt="upload"
+              class="me-3"
+            />
+            <p class="name">
+              {{ firstFileName }}
+            </p>
+            <div class="d-flex align-items-center ms-auto stats">
+              <p
+                class="percentage"
+                [ngStyle]="{
+                  color: firstFilePercentage === 100 ? 'green' : '#8b8b8b'
+                }"
+                *ngIf="firstFilePercentage !== 0"
+              >
+                {{ firstFilePercentage }}%
+              </p>
+              <button
+                class="view"
+                (click)="getFirst()"
+                [disabled]="!firstFileUrl"
+              >
+                {{ "STUDENTBOARD.Upload" | translate }}
+              </button>
+              <button
+                class="square d-flex justify-content-center align-items-center"
+                (click)="deleteFirst()"
+                [disabled]="!firstFileUrl"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </mdb-accordion-item>
+    </mdb-accordion>
+    <mdb-accordion [flush]="true" class="accordion">
+      <mdb-accordion-item>
+        <ng-template
+          mdbAccordionItemHeader
+          class="d-flex justify-content-start align-items-center"
+        >
+          <img
+            src="../../../../../../../assets/images/student-account/file.svg"
+            alt="upload"
+            class="me-3"
+          />
+          <p class="name">
+            {{ "STUDENTBOARD.Certification" | translate }}
+          </p>
+          <i class="fas fa-plus ms-auto"></i>
+        </ng-template>
+        <ng-template mdbAccordionItemBody>
+          <div
+            *ngIf="!secondFileLoading"
+            class="d-flex align-items-center w-100"
+          >
+            <input
+              type="file"
+              (change)="chooseSecond($event)"
+              accept=".png, .jpg, .jpeg, .pdf, .doc"
+              *ngIf="secondErrorMsg !== 'File has been Deleted Successfully!'"
+            />
+            <span class="error-msg mx-auto" *ngIf="secondSelectCondition">
+              {{ secondErrorMsg }}
+            </span>
+            <button
+              type="button"
+              class="btn upload-btn ms-auto"
+              (click)="uploadSecond()"
+              *ngIf="secondErrorMsg !== 'File has been Deleted Successfully!'"
+            >
+              {{ "STUDENTBOARD.Upload" | translate }}
+            </button>
+          </div>
+          <div
+            class="d-flex align-items-center w-100"
+            *ngIf="secondFileLoading"
+          >
+            <img
+              src="../../../../../../../assets/images/student-account/photo.svg"
+              alt="upload"
+              class="me-3"
+            />
+            <p class="name">
+              {{ secondFileName }}
+            </p>
+            <div class="d-flex align-items-center ms-auto stats">
+              <p
+                class="percentage"
+                [ngStyle]="{
+                  color: secondFilePercentage === 100 ? 'green' : '#8b8b8b'
+                }"
+                *ngIf="secondFilePercentage !== 0"
+              >
+                {{ secondFilePercentage }}%
+              </p>
+              <button
+                class="view"
+                (click)="getSecond()"
+                [disabled]="!secondFileUrl"
+              >
+                {{ "STUDENTBOARD.view" | translate }}
+              </button>
+              <button
+                class="square d-flex justify-content-center align-items-center"
+                (click)="deleteSecond()"
+                [disabled]="!secondFileUrl"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </mdb-accordion-item>
+    </mdb-accordion>
+  </div>
+</section>

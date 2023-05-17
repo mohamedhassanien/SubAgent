@@ -1,0 +1,32 @@
+section {
+  // width: 100vw;
+  // height: 90vh;
+  margin: 20vh 0;
+}
+img {
+  width: 128px;
+  height: 182px;
+}
+ng-lottie {
+  margin-top: -70px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  img {
+    width: 100px;
+    height: 140px;
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  img {
+    width: 80px;
+    height: 110px;
+  }
+  ng-lottie {
+    div:nth-child(1) {
+      width: 150px !important;
+      height: 190px !important;
+    }
+  }
+}

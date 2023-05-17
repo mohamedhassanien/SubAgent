@@ -1,0 +1,266 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a
+      class="navbar-brand"
+      routerLink="/landing/home"
+      routerLinkActive="router-link-active"
+    >
+      <img
+        src="../../../../assets/images/elysee-logo.png"
+        alt="logo"
+        title="Homepage"
+      />
+    </a>
+    <button
+      mat-button
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+      style="color: #6f77f4"
+      class="navbar-toggler h-100"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- navbar mobile -->
+    <div class="modal fade" id="staticBackdrop">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header px-5 border-0">
+            <button
+              type="button"
+              class="ms-auto btn shadow-none"
+              style="color: #373b79"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="fas fa-window-close fa-2x"></i>
+            </button>
+          </div>
+
+          <div
+            class="modal-body d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="line"></div>
+
+            <div
+              class="profile-info d-flex align-self-center justify-content-start"
+              *ngIf="isLoggedIn"
+            >
+              <img
+                [src]="
+                  profilePic == 'None' ||
+                  profilePic == 'null' ||
+                  profilePic == '' ||
+                  profilePic ==
+                    'https://studentgator.com/assets/images/navbar/default-pic.svg'
+                    ? '../../../../assets/images/navbar/default-pic.svg'
+                    : profilePic
+                "
+                class="me-2"
+                alt="profile-pic"
+              />
+              <p class="m-0">Hello {{ name }}</p>
+            </div>
+            <div
+              class="profile-info d-flex align-self-center flex-column justify-content-center"
+              *ngIf="!isLoggedIn"
+            >
+              <p class="title text-center">Login Or Registration</p>
+              <hr class="seperator" />
+              <a
+                class="log-btn btn d-flex justify-content-center align-items-center"
+                data-bs-dismiss="modal"
+                (click)="logInPage()"
+              >
+                Login
+              </a>
+              <a
+                class="reg-btn btn d-flex justify-content-center align-items-center"
+                data-bs-dismiss="modal"
+                (click)="registerPage()"
+              >
+                Registration
+              </a>
+              <hr />
+            </div>
+            <div class="search-menu">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search for a program"
+                (keydown.enter)="searchForPrograms()"
+                [(ngModel)]="searchText"
+              />
+              <i class="fas fa-search search-icon"></i>
+            </div>
+            <ul class="menu-list align-self-center p-0 mt-3">
+              <hr />
+              <hr />
+              <li class="nav-item">
+                <a
+                  data-bs-toggle="collapse"
+                  href="#collapsePrograms"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapsePrograms"
+                  class="d-flex align-items-center"
+                >
+                  <img
+                    src="../../../../assets/images/navbar/menu icons/programs.svg"
+                    alt="home-icon"
+                    class="me-3"
+                  />
+                  Programs
+                  <mat-icon>expand_more</mat-icon>
+                </a>
+                <div class="collapse mt-3" id="collapsePrograms">
+                  <li
+                    data-bs-dismiss="modal"
+                    *ngFor="let category of categories; let i = index"
+                  >
+                    <a
+                      (click)="goToPrograms(category[1])"
+                      class="nav-item d-flex justify-content-start align-items-center"
+                    >
+                      <img
+                        src="../../../../../assets/images/navbar/{{
+                          category[0]
+                        }}.svg"
+                        alt="category[0]"
+                        class="category-img me-2"
+                        style="width: 10%"
+                      />
+                      {{ category[0] }}
+                    </a>
+                    <hr *ngIf="i != categories.length - 1" />
+                  </li>
+                </div>
+              </li>
+              <hr />
+
+              <li data-bs-dismiss="modal" *ngIf="isLoggedIn">
+                <a
+                  class="nav-item d-flex justify-content-start align-items-center"
+                  [routerLink]="
+                    type === 'student'
+                      ? ['/students', 'myinfo']
+                      : type === 'employee' || 'owner'
+                      ? ['/employees', name, 'dashboard']
+                      : ['/employees', name, 'dashboard']
+                  "
+                >
+                  <img
+                    src="../../../../assets/images/navbar/menu icons/profile.svg"
+                    alt="home-icon"
+                    class="me-3"
+                  />
+                  <p>My profile</p>
+                </a>
+              </li>
+
+              <hr *ngIf="isLoggedIn" />
+              <li *ngIf="isLoggedIn" data-bs-dismiss="modal">
+                <a
+                  class="nav-item d-flex justify-content-start align-items-center"
+                  (click)="logoutMob()"
+                >
+                  <img
+                    src="../../../../assets/images/navbar/menu icons/logout.svg"
+                    alt="home-icon"
+                    class="me-3"
+                  />
+                  <p>Logout</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- navbar web -->
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mx-auto">
+        <!-- <li class="nav-item pe-4 px-2 mt-2 links">
+          <a
+            class="nav-link"
+            routerLink="/landing/programs"
+            routerLinkActive="clicked-link"
+            >Programs</a
+          >
+        </li> -->
+      </ul>
+
+      <input
+        id="search-box"
+        type="text"
+        class="search-box"
+        placeholder="Search for a program"
+        [(ngModel)]="searchText"
+        (keydown.enter)="searchForPrograms()"
+      />
+      <label for="search-box"><i class="fa fa-search search-icon"></i></label>
+
+      <select
+        class="form-control-sm"
+        #locale
+        (change)="changeLocale(locale.value)"
+      >
+        <option value="en">En</option>
+        <option value="fr">Fr</option>
+      </select>
+
+      <div class="btn-group" *ngIf="!isLoggedIn">
+        <button class="btn log-in ms-3" routerLink="/auth/login">LOGIN</button>
+      </div>
+
+      <ul class="navbar-nav">
+        <li class="nav-item ms-auto profile-nav" *ngIf="isLoggedIn">
+          <div class="dropdown-profile">
+            <a
+              class="nav-link d-flex justify-content-between align-items-center"
+              [routerLink]="getType()"
+            >
+              <img
+                [src]="
+                  profilePic === 'None' ||
+                  profilePic === null ||
+                  profilePic === '' ||
+                  profilePic === undefined ||
+                  profilePic ===
+                    'https://studentgator.com/assets/images/navbar/default-pic.svg'
+                    ? '../../../../assets/images/navbar/default-pic.svg'
+                    : profilePic
+                "
+                alt="profile-pic"
+                class="rounded-circle"
+              />
+              <p class="m-0">{{ name }}</p>
+              <mat-icon>expand_more</mat-icon>
+            </a>
+            <div class="dropdown-content-profile py-4 px-4">
+              <div *ngFor="let link of profileLinks; let i = index">
+                <a
+                  class="py-2"
+                  [routerLink]="link[1]"
+                  (click)="logOut(link[0])"
+                >
+                  <img
+                    src="../../../../../assets/images/navbar/profile/{{
+                      link[0]
+                    }}.svg"
+                    [alt]="link[0]"
+                    class="me-3"
+                    style="width: 17%"
+                  />
+                  {{ link[0] }}
+                </a>
+                <hr class="m-0" *ngIf="i != profileLinks.length - 1" />
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
