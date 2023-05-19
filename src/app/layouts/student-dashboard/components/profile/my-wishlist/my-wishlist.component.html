@@ -31,9 +31,7 @@
                 <div class="image-container d-none d-md-block">
                   <img
                     class="image-move"
-                    src="../../../../../assets/images/schools/{{
-                      program.school
-                    }}/2.jpg"
+                    src="../../../../../assets/images/prog-info-bg.png"
                     alt="{{ program.school }}"
                   />
                 </div>
@@ -41,30 +39,21 @@
                 <div class="h-100 d-md-none">
                   <img
                     class="card-img m-0"
-                    src="../../../../../assets/images/schools/{{
-                      program.school
-                    }}/2.jpg"
+                    src="../../../../../assets/images/prog-info-bg.png"
                     alt="{{ program.school }}"
                   />
                   <div
                     class="card-img-overlay d-flex justify-content-between align-items-end img ps-2"
-                    style="
-                      background-image: linear-gradient(
-                        180deg,
-                        #dedddd00 0%,
-                        #6f77f4f7 100%
-                      );
-                    "
                   >
                     <div
                       class="d-flex flex-column justify-content-center align-items-start school-name-sm pb-1"
                     >
-                      <img
+                      <!-- <img
                         src="../../../../../assets/images/schools/schools logos/{{
                           program.school
                         }}.png"
                         alt="{{ program.school }}"
-                      />
+                      /> -->
                       <p class="text-white">
                         {{ program.school }}
                       </p>
@@ -159,12 +148,12 @@
                 <div
                   class="school-name d-flex justify-content-start align-items-center"
                 >
-                  <img
+                  <!-- <img
                     src="../../../../../assets/images/schools/schools logos/{{
                       program.school
                     }}.png"
                     alt="{{ program.school }}"
-                  />
+                  /> -->
                   <p>
                     {{ program.school | shorten : 18 }}
                   </p>

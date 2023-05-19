@@ -7,24 +7,22 @@ h5,
 input {
   font-family: Poppins !important;
 }
+
 .mat-input-element::placeholder {
   font-size: 17px;
   font-family: Poppins !important;
   align-items: center;
   display: flex;
 }
+
 .mat-icon {
   color: #6c6c6c;
 }
 
 .intro-section {
-  background: transparent
-    linear-gradient(
-      113deg,
+  background: transparent linear-gradient(113deg,
       rgba(111, 119, 244, 0.08),
-      rgba(253, 130, 130, 0.08)
-    )
-    no-repeat padding-box;
+      rgba(253, 130, 130, 0.08)) no-repeat padding-box;
   padding: 0;
   border-radius: 10px;
   border-top-left-radius: 0;
@@ -43,7 +41,7 @@ input {
     }
 
     .intro-title {
-      font: normal normal 600 40px/55px Poppins;
+      font: normal normal 600 37px/55px Poppins;
       letter-spacing: 0px;
       // color: #323232;
       color: #000000;
@@ -61,7 +59,7 @@ input {
       // color: #555454;
       color: #6c6c6c;
       text-align: left;
-      font-size: 15.4px;
+      font-size: 15px;
     }
 
     .last-department {
@@ -70,18 +68,15 @@ input {
 
     .pro-btn {
       height: 60px;
-      background: transparent linear-gradient(180deg, #ff5151 0%, #6f77f4 100%)
-        0% 0% no-repeat padding-box;
+      background: transparent linear-gradient(180deg, #ff5151 0%, #6f77f4 100%) 0% 0% no-repeat padding-box;
       border-radius: 8px;
-      font: normal normal 600 20px/30px Poppins;
+      font: normal normal 600 18px/30px Poppins;
       color: #fff;
       border: none;
       padding: 0px 15px;
 
       &:hover {
-        background: transparent
-          linear-gradient(180deg, #ff5151 0%, #6f77f4 120%) 0% 0% no-repeat
-          padding-box;
+        background: transparent linear-gradient(180deg, #ff5151 0%, #6f77f4 120%) 0% 0% no-repeat padding-box;
       }
     }
 
@@ -131,11 +126,12 @@ input {
 
   .first-row {
     .all-reset {
-      padding-top: 57px;
+      padding-top: 90px;
+      padding-right: 30px;
     }
 
     .sort-by {
-      font: normal normal 600 24px/75px Poppins;
+      font: normal normal 600 22px/75px Poppins;
       letter-spacing: 0px;
       color: #000000;
       margin: 0;
@@ -151,7 +147,7 @@ input {
 
       p {
         margin: 0;
-        font-size: 12px;
+        font-size: 15px;
       }
     }
 
@@ -323,13 +319,11 @@ input {
     }
 
     .mat-radio-button.mat-accent .mat-radio-inner-circle {
-      background: transparent linear-gradient(142deg, #ff5151 0%, #6f77f4 100%)
-        0% 0% no-repeat padding-box;
+      background: transparent linear-gradient(142deg, #ff5151 0%, #6f77f4 100%) 0% 0% no-repeat padding-box;
     }
 
     .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-      background: transparent linear-gradient(142deg, #ff5151 0%, #6f77f4 100%)
-        0% 0% no-repeat padding-box;
+      background: transparent linear-gradient(142deg, #ff5151 0%, #6f77f4 100%) 0% 0% no-repeat padding-box;
       border: 0.1px solid transparent;
     }
 
@@ -484,12 +478,10 @@ input {
           }
 
           p {
-            background: transparent
-              linear-gradient(90deg, #fd8282 0%, #6f77f4 100%) 0% 0% no-repeat
-              padding-box;
+            background: transparent linear-gradient(90deg, #fd8282 0%, #6f77f4 100%) 0% 0% no-repeat padding-box;
             border-radius: 5px;
             text-align: center;
-            font: normal normal bold 10.5px/25px Poppins;
+            font: normal normal bold 13px/25px Poppins;
             letter-spacing: 0px;
             color: #ffffff;
             display: inline-block;
@@ -864,6 +856,7 @@ input {
     align-items: center;
     display: flex;
   }
+
   .container {
     width: 370px !important;
   }
@@ -1068,16 +1061,11 @@ input {
           }
 
           .mat-radio-button.mat-accent .mat-radio-inner-circle {
-            background: transparent
-              linear-gradient(142deg, #ff5151 0%, #6f77f4 100%) 0% 0% no-repeat
-              padding-box;
+            background: transparent linear-gradient(142deg, #ff5151 0%, #6f77f4 100%) 0% 0% no-repeat padding-box;
           }
 
-          .mat-radio-button.mat-accent.mat-radio-checked
-            .mat-radio-outer-circle {
-            background: transparent
-              linear-gradient(142deg, #ff5151 0%, #6f77f4 100%) 0% 0% no-repeat
-              padding-box;
+          .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+            background: transparent linear-gradient(142deg, #ff5151 0%, #6f77f4 100%) 0% 0% no-repeat padding-box;
             border: 0.1px solid transparent;
           }
 
@@ -1345,12 +1333,11 @@ input {
 
           .card-end {
             p {
-              background: transparent
-                linear-gradient(90deg, #fd8282 0%, #6f77f4 100%) 0% 0% no-repeat
-                padding-box;
+              background: transparent linear-gradient(90deg, #fd8282 0%, #6f77f4 100%) 0% 0% no-repeat padding-box;
               border-radius: 5px;
               text-align: center;
               font: normal normal 600 10px/16px Poppins;
+              margin-top: 2px;
             }
 
             .fav-ico {
