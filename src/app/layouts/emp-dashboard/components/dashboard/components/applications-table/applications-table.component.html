@@ -211,22 +211,6 @@
         </div>
       </th>
 
-      <th pSortableColumn="schoolFee" pResizableColumn pReorderableColumn>
-        <div class="d-flex align-items-center">
-          {{ "EMPDASHBOARD.ScholarshipAmount" | translate }}
-
-          <p-sortIcon field="schoolFee"></p-sortIcon>
-          <p-columnFilter
-            type="text"
-            field="schoolFee"
-            display="menu"
-            [hideOnClear]="true"
-            placeholder="Program"
-            class="ms-auto"
-          ></p-columnFilter>
-        </div>
-      </th>
-
       <th
         pSortableColumn="studentEmpName"
         pResizableColumn
@@ -541,28 +525,6 @@
           </ng-template>
           <ng-template pTemplate="output">
             {{ student.schoolCampus }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-
-      <td
-        pEditableColumn
-        class="ui-resizable-column"
-        [pEditableColumn]="student"
-        [pEditableColumnField]="'schoolFee'"
-        [pEditableColumnRowIndex]="rowIndex"
-      >
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input
-              pInputText
-              type="text"
-              [(ngModel)]="student.schoolFee"
-              class="form-control w-100"
-            />
-          </ng-template>
-          <ng-template pTemplate="output">
-            {{ student.schoolFee }}
           </ng-template>
         </p-cellEditor>
       </td>
@@ -1342,14 +1304,14 @@
           </button>
 
           <!-- To delete assigned student -->
-          <button
+          <!-- <button
             mat-menu-item
             (click)="deleteApp(student.appid)"
             *ngIf="mainLink !== 'deleted-applications'"
           >
             <mat-icon>delete</mat-icon>
             <span> {{ "EMPDASHBOARD.Delete" | translate }} </span>
-          </button>
+          </button> -->
 
           <!-- To view documents -->
           <button
@@ -2545,9 +2507,7 @@
                   mdbAccordionItemHeader
                   class="d-flex justify-content-start align-items-center"
                 >
-                  {{
-                    "EMPDASHBOARD.Transcripts" | translate
-                  }}
+                  {{ "EMPDASHBOARD.Transcripts" | translate }}
                   <i class="fas fa-plus ms-auto"></i>
                 </ng-template>
                 <ng-template mdbAccordionItemBody>

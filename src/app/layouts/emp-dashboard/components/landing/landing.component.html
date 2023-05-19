@@ -43,21 +43,6 @@
                     fullName,
                     'dashboard',
                     'statistics',
-                    'nationalities'
-                  ]"
-                  routerLinkActive="activated-secondary-link"
-                >
-                  <i class="fas fa-angle-right"></i>
-
-                  {{ "EMPDASHBOARD.nationalities" | translate }}
-                </a>
-                <a
-                  class="secondary-link"
-                  [routerLink]="[
-                    '/employees',
-                    fullName,
-                    'dashboard',
-                    'statistics',
                     'applications'
                   ]"
                   routerLinkActive="activated-secondary-link"
@@ -432,59 +417,6 @@
         </div>
       </div>
 
-      <!-- delete -->
-      <p class="main-list">
-        <button
-          class="main-link"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#deletedMenu"
-          aria-expanded="false"
-          aria-controls="deletedMenu"
-        >
-          <i class="fas fa-trash"></i>
-          {{ "EMPDASHBOARD.deletedRecords" | translate }}
-        </button>
-      </p>
-      <div class="row">
-        <div class="col">
-          <div class="collapse multi-collapse" id="deletedMenu">
-            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
-              <div class="secondary-list d-flex flex-column">
-                <a
-                  class="secondary-link"
-                  [routerLink]="[
-                    '/employees',
-                    fullName,
-                    'dashboard',
-                    'deleted-records',
-                    'deleted-leads'
-                  ]"
-                  routerLinkActive="activated-secondary-link"
-                >
-                  <i class="fas fa-angle-right"></i>
-                  {{ "EMPDASHBOARD.deletedLeads" | translate }}
-                </a>
-                <a
-                  class="secondary-link"
-                  [routerLink]="[
-                    '/employees',
-                    fullName,
-                    'dashboard',
-                    'deleted-records',
-                    'deleted-applications'
-                  ]"
-                  routerLinkActive="activated-secondary-link"
-                >
-                  <i class="fas fa-angle-right"></i>
-                  {{ "EMPDASHBOARD.deletedApplications" | translate }}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Programs Management -->
       <p class="main-list">
         <button
@@ -554,6 +486,16 @@
                 alt="fullscreen"
               />
             </li>
+
+            <select
+              class="form-control-sm mx-3"
+              #locale
+              (change)="changeLocale(locale.value)"
+            >
+              <option selected value="en">En</option>
+              <option selected value="fr">Fr</option>
+            </select>
+
             <li
               class="d-flex align-items-center notification-item h-100 d-none d-lg-block"
             >
@@ -568,6 +510,7 @@
                   >
                 </div>
               </div>
+
               <ul class="notification-list">
                 <li class="title">
                   <p>
@@ -626,7 +569,7 @@
                   <a class="dropdown-link"
                     ><i class="fas fa-sign-out-alt"></i>
 
-                    {{ "EMPDASHBOARD.Logout" | translate }}
+                    {{ "EMPDASHBOARD.logout" | translate }}
                   </a>
                 </li>
               </ul>

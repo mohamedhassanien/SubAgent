@@ -10,14 +10,10 @@ import { MyApplicationsComponent } from './components/dashboard/application-mana
 import { ArchivedRecordsComponent } from './components/dashboard/archived-records/archived-records.component';
 import { ArchivedLeadsComponent } from './components/dashboard/archived-records/archived-leads/archived-leads.component';
 import { ArchivedApplicationsComponent } from './components/dashboard/archived-records/archived-applications/archived-applications.component';
-import { DeletedRecordsComponent } from './components/dashboard/deleted-records/deleted-records.component';
-import { DeletedLeadsComponent } from './components/dashboard/deleted-records/deleted-leads/deleted-leads.component';
-import { DeletedApplicationsComponent } from './components/dashboard/deleted-records/deleted-applications/deleted-applications.component';
 import { LeadManagementComponent } from './components/dashboard/lead-management/lead-management.component';
 import { LeadsComponent } from './components/dashboard/lead-management/leads/leads.component';
 import { AddLeadComponent } from './components/dashboard/lead-management/add-lead/add-lead.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { NationalitiesComponent } from './components/dashboard/statistics/nationalities/nationalities.component';
 import { ApplicationsComponent } from './components/dashboard/statistics/applications/applications.component';
 import { SchoolsComponent } from './components/dashboard/statistics/schools/schools.component';
 import { EmployeesComponent } from './components/dashboard/statistics/employees/employees.component';
@@ -55,10 +51,6 @@ const routes: Routes = [
               {
                 path: '',
                 redirectTo: 'nationalities',
-              },
-              {
-                path: 'nationalities',
-                component: NationalitiesComponent,
               },
               {
                 path: 'applications',
@@ -174,24 +166,6 @@ const routes: Routes = [
               {
                 path: 'archived-applications',
                 component: ArchivedApplicationsComponent,
-              },
-            ],
-          },
-          {
-            path: 'deleted-records',
-            component: DeletedRecordsComponent,
-            children: [
-              {
-                path: '',
-                redirectTo: 'deleted-leads',
-              },
-              {
-                path: 'deleted-leads',
-                component: DeletedLeadsComponent,
-              },
-              {
-                path: 'deleted-applications',
-                component: DeletedApplicationsComponent,
               },
             ],
           },

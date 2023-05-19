@@ -27,15 +27,11 @@ import { AddLeadComponent } from './components/dashboard/lead-management/add-lea
 import { ArchivedRecordsComponent } from './components/dashboard/archived-records/archived-records.component';
 import { ArchivedLeadsComponent } from './components/dashboard/archived-records/archived-leads/archived-leads.component';
 import { ArchivedApplicationsComponent } from './components/dashboard/archived-records/archived-applications/archived-applications.component';
-import { DeletedRecordsComponent } from './components/dashboard/deleted-records/deleted-records.component';
-import { DeletedLeadsComponent } from './components/dashboard/deleted-records/deleted-leads/deleted-leads.component';
-import { DeletedApplicationsComponent } from './components/dashboard/deleted-records/deleted-applications/deleted-applications.component';
 import { ApplicationManagementComponent } from './components/dashboard/application-management/application-management.component';
 import { AllApplicationsComponent } from './components/dashboard/application-management/all-applications/all-applications.component';
 import { MyApplicationsComponent } from './components/dashboard/application-management/my-applications/my-applications.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { StatisticsComponent } from './components/dashboard/statistics/statistics.component';
-import { NationalitiesComponent } from './components/dashboard/statistics/nationalities/nationalities.component';
 import { SchoolsComponent } from './components/dashboard/statistics/schools/schools.component';
 import { EmployeesComponent } from './components/dashboard/statistics/employees/employees.component';
 import { LeadComponent } from './components/dashboard/lead-management/leads/lead/lead.component';
@@ -70,7 +66,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     StatisticsComponent,
     LeadManagementComponent,
     ApplicationManagementComponent,
-    NationalitiesComponent,
     SchoolsComponent,
     EmployeesComponent,
     LeadsComponent,
@@ -83,9 +78,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ArchivedRecordsComponent,
     ArchivedLeadsComponent,
     ArchivedApplicationsComponent,
-    DeletedRecordsComponent,
-    DeletedLeadsComponent,
-    DeletedApplicationsComponent,
     LeadsTableComponent,
     ApplicationsTableComponent,
     UploadedDocumentsComponent,

@@ -44,7 +44,7 @@ export class LandingComponent implements OnInit {
     });
     this.screenWidth = window.innerWidth;
     this.translator.localEvent;
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('fr');
 
     this.translator.localEvent.subscribe((locale) =>
       this.translate.use(locale)
@@ -52,6 +52,10 @@ export class LandingComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  changeLocale(locale: string) {
+    this.translator.changeLocale(locale);
+  }
 
   onHover(e: any, id: any) {
     if (e.isTrusted) {
