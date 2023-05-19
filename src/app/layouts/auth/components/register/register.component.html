@@ -2,8 +2,8 @@
   <div class="row">
     <div class="content">
       <img src="../../../../../assets/images/elysee-logo.png" alt="SG logo" />
-      <p class="start">{{ "REGISTER.Start" | translate }}</p>
-      <p class="description">{{ "REGISTER.WithRegistration" | translate }}</p>
+      <p class="start">Commençons</p>
+      <p class="description">Avec inscription</p>
       <div *ngIf="isLoading && !isError">
         <div
           class="spinner-border text-primary d-flex m-auto"
@@ -11,7 +11,7 @@
         ></div>
       </div>
       <div class="alert alert-danger" role="alert" *ngIf="isError">
-        <h4 class="alert-heading">{{ "LOGIN.errorMsg" | translate }}</h4>
+        <h4 class="alert-heading">There's something went wrong!</h4>
         <p>{{ errorMessage }}</p>
       </div>
       <div *ngIf="!isLoading">
@@ -33,12 +33,12 @@
                   submitted && registerationForm.controls['name'].invalid
               }"
             />
-            <label for="name">{{ "EMPDASHBOARD.FullName" | translate }}</label>
+            <label for="name">Nom complet</label>
             <p
               class="validation mb-3"
               *ngIf="submitted && registerationForm.controls['name'].invalid"
             >
-              {{ "REGISTER.nameInvalid" | translate }}
+              Vous devez entrer un nom valide.
             </p>
           </div>
           <div>
@@ -55,14 +55,12 @@
                   submitted && registerationForm.controls['email'].invalid
               }"
             />
-            <label for="email">{{
-              "EMPDASHBOARD.EmailAddress" | translate
-            }}</label>
+            <label for="email"> Adresse électronique </label>
             <p
               class="validation mb-3"
               *ngIf="submitted && registerationForm.controls['email'].invalid"
             >
-              {{ "REGISTER.emailInvalid" | translate }}
+              Vous devez entrer un courriel valide.
             </p>
           </div>
           <div class="phone">
@@ -85,12 +83,12 @@
                   : 'phone'
               "
             ></ngx-intl-tel-input>
-            <label for="phone">{{ "REGISTER.YourPhone" | translate }}</label>
+            <label for="phone">Votre téléphone</label>
             <p
               class="validation mb-2"
               *ngIf="submitted && registerationForm.controls['phone'].invalid"
             >
-              {{ "REGISTER.phoneInvalid" | translate }}
+              Vous devez entrer un numéro de téléphone valide.
             </p>
           </div>
           <div #authhidden class="m-0">
@@ -109,14 +107,14 @@
                   submitted && registerationForm.controls['password'].invalid
               }"
             />
-            <label for="password">{{ "LOGIN.Password" | translate }}</label>
+            <label for="password">Mot de passe</label>
             <p
               class="validation mb-0"
               *ngIf="
                 submitted && registerationForm.controls['password'].invalid
               "
             >
-              {{ "REGISTER.passValid" | translate }}
+              Vous devez entrer un mot de passe de 8 à 16 caractères.
             </p>
           </div>
           <div #authhidden1>
@@ -136,9 +134,7 @@
                   registerationForm.controls['confirmPassword'].invalid
               }"
             />
-            <label for="confirmPass word">{{
-              "REGISTER.ConfirmPassword" | translate
-            }}</label>
+            <label for="confirmPass word"> Confirmer le mot de passe </label>
             <p
               class="validation mb-3"
               *ngIf="
@@ -146,7 +142,7 @@
                 registerationForm.controls['confirmPassword'].invalid
               "
             >
-              {{ "REGISTER.ConfirmPasswordInvalid" | translate }}
+              Vous devez saisir le même mot de passe.
             </p>
           </div>
           <div class="row">
@@ -161,9 +157,7 @@
                     submitted && registerationForm.controls['country'].invalid
                 }"
               >
-                <option value="" disabled>
-                  Select Country {{ "LOGIN.errorMsg" | translate }}
-                </option>
+                <option value="" disabled>Sélectionner un pays</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -473,16 +467,14 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
               </select>
-              <label for="country">
-                {{ "EMPDASHBOARD.country" | translate }}</label
-              >
+              <label for="country"> pays</label>
               <p
                 class="validation m-0"
                 *ngIf="
                   submitted && registerationForm.controls['country'].invalid
                 "
               >
-                {{ "REGISTER.countryInvalid" | translate }}
+                Vous devez choisir un pays.
               </p>
             </div>
             <div class="col">
@@ -497,12 +489,12 @@
                     submitted && registerationForm.controls['age'].invalid
                 }"
               />
-              <label for="age"> {{ "REGISTER.YourAge" | translate }}</label>
+              <label for="age">Votre âge</label>
               <p
                 class="validation m-0"
                 *ngIf="submitted && registerationForm.controls['age'].invalid"
               >
-                {{ "REGISTER.ageInvalid" | translate }}
+                Vous devez entrer un âge.
               </p>
             </div>
             <div class="col-12 mt-3">
@@ -515,11 +507,9 @@
                     submitted && registerationForm.controls['contact'].invalid
                 }"
               >
-                <option value="" disabled>
-                  {{ "REGISTER.SelectRepresentative" | translate }}
-                </option>
-                <option value="I have no representative">
-                  {{ "REGISTER.Ihavenorepresentative" | translate }}
+                <option value="" disabled>Sélectionner un représentant</option>
+                <option value="Je n'ai pas de représentant">
+                  Je n'ai pas de représentant
                 </option>
                 <option
                   value="{{ representative.Username }}"
@@ -531,7 +521,7 @@
                 </option>
               </select>
               <label for="contact">
-                {{ "REGISTER.representativeQus" | translate }}
+                Êtes-vous en contact avec l'un de nos représentants ?
               </label>
               <p
                 class="validation m-0"
@@ -539,20 +529,16 @@
                   submitted && registerationForm.controls['contact'].invalid
                 "
               >
-                {{ "REGISTER.resentativeInvalid" | translate }}
+                Vous devez sélectionner un représentant.
               </p>
             </div>
           </div>
           <div class="signUp">
-            <button class="btn" type="submit">
-              {{ "LOGIN.Signup" | translate }}
-            </button>
+            <button class="btn" type="submit">S'inscrire</button>
           </div>
           <p class="logIn d-flex justify-content-center">
-            {{ "REGISTER.Haveanaccount" | translate }}
-            <a class="ms-2" routerLink="/auth/login">
-              {{ "LOGIN.Login" | translate }}</a
-            >
+            Vous avez déjà un compte ?
+            <a class="ms-2" routerLink="/auth/login"> Connexion</a>
           </p>
         </form>
       </div>

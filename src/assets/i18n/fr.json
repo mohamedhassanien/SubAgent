@@ -216,7 +216,9 @@
     "ForgotPassword": "Mot de passe oublié?",
     "DoNothave": "Ne pas avoir de compte?",
     "Login": "Connexion",
-    "Signup": "S'inscrire"
+    "Signup": "S'inscrire",
+    "EmailAddress": "Adresse électronique"
+
   },
 
   "REGISTER": {

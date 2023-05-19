@@ -40,19 +40,19 @@
     "WhatTheyStudied": "What They Studied?",
     "Top": "Top",
     "ICART": "ICART, the school of cultural and art market management.For more than 50 years, ICART has established itself in the world of arts and culture as the reference school whose vocation is to train professionals in the art market and cultural management. The world of arts and culture is undergoing unprecedented changes: the growing internationalization of artistic exchanges, the expansion of the leisure industry, the development of new cultural practices, the opening up to new technologies, etc.",
-    "School":"School",
-    
+    "School": "School",
+
     "SchoolSocialMedia": "School Social Media",
     "OurGallery": "Our Gallery",
     "OurEvents": "Our Events",
-    "PopularPrograms":"Popular Programs",
-    "Location":"Location",
-    "Duration":"Duration",
-    "Year":"Year",
-    "Intake":"Intake",
-    "Language":"Language",
-    "Requirement":"Requirement",
-    "PreYear":"Pre -Year"
+    "PopularPrograms": "Popular Programs",
+    "Location": "Location",
+    "Duration": "Duration",
+    "Year": "Year",
+    "Intake": "Intake",
+    "Language": "Language",
+    "Requirement": "Requirement",
+    "PreYear": "Pre -Year"
   },
 
   "EMPDASHBOARD": {
@@ -220,7 +220,8 @@
     "ForgotPassword": "Forgot password?",
     "DoNothave": "Don’t have an account?",
     "Login": "Login",
-    "Signup": "Sign up"
+    "Signup": "Sign up",
+    "EmailAddress": "EmailAddress"
   },
   "REGISTER": {
     "Start": "Let’s Start",
@@ -361,7 +362,6 @@
     "Deletepicture": "Delete picture",
     "Reset": "Reset",
     "email": "Email",
-    "Setupyourprofile":"Set up your profile."
-
+    "Setupyourprofile": "Set up your profile."
   }
 }
