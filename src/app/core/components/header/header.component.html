@@ -191,23 +191,13 @@
         </li> -->
       </ul>
 
-      <input
-        id="search-box"
-        type="text"
-        class="search-box"
-        placeholder="Search for a program"
-        [(ngModel)]="searchText"
-        (keydown.enter)="searchForPrograms()"
-      />
-      <label for="search-box"><i class="fa fa-search search-icon"></i></label>
-
       <select
-        class="form-control-sm"
+        class="form-control-sm mx-3"
         #locale
         (change)="changeLocale(locale.value)"
       >
-        <option value="en">En</option>
-        <option value="fr">Fr</option>
+        <option selected value="en">En</option>
+        <option selected value="fr">Fr</option>
       </select>
 
       <div class="btn-group" *ngIf="!isLoggedIn">

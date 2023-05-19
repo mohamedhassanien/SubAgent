@@ -80,7 +80,7 @@ export class HeaderComponent implements OnInit {
       this.profilePic = data;
     });
 
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('fr');
   }
 
   changeLocale(locale: string) {

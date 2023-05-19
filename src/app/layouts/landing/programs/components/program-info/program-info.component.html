@@ -5,12 +5,6 @@
     <div class="container">
       <div class="row">
         <div class="col-12 title-col">
-          <div class="nav-pages mb-3">
-            <a routerLink="/landing/programs">Programs</a>
-            <span>/</span>
-            <span class="m-0">{{ title }}</span>
-          </div>
-
           <div>
             <div class="cont-img">
               <img
@@ -64,7 +58,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal2"
                   >
-                    Apply Now
+                    {{ "PROGRAM.ApplyNow" | translate }}
                   </button>
                   <div class="fav-ico">
                     <button
@@ -118,7 +112,7 @@
                       aria-selected="true"
                       (click)="setTitle('Overview')"
                     >
-                      <p>Overview</p>
+                      <p>{{ "PROGRAM.Overview" | translate }}</p>
                     </button>
                   </li>
                   <li
@@ -137,7 +131,7 @@
                       aria-selected="false"
                       (click)="setTitle('City Info')"
                     >
-                      <p>SPECIALISATION</p>
+                      <p>{{ "PROGRAM.SPECIALISATION" | translate }}</p>
                     </button>
                   </li>
                 </ul>
@@ -167,14 +161,18 @@
                     </div>
 
                     <h3 class="title">
-                      About {{ programData.schoolInfo.schoolName }} School
+                      {{ "PROGRAM.About" | translate }}
+                      {{ programData.schoolInfo.schoolName }}
+                      {{ "PROGRAM.School" | translate }}
                     </h3>
                     <p class="description text-justify">
                       {{ programData.schoolInfo.schoolDesr }}
                     </p>
                     <hr />
-                    <p class="alumin">Alumni</p>
-                    <p class="question">Where They Live?</p>
+                    <p class="alumin">{{ "PROGRAM.Alumni" | translate }}</p>
+                    <p class="question">
+                      {{ "PROGRAM.WhereTheyLive" | translate }}
+                    </p>
                     <div class="circular-container">
                       <div class="row">
                         <div
@@ -214,7 +212,9 @@
                     </div>
                     <hr />
 
-                    <h3 class="question">Where They Work?</h3>
+                    <h3 class="question">
+                      {{ "PROGRAM.WhereTheyWork" | translate }}
+                    </h3>
                     <div class="circular-container">
                       <div class="row">
                         <div
@@ -253,7 +253,9 @@
                     <hr />
                     <div class="row justify-content-between">
                       <div class="col-md-6 col-12">
-                        <h3 class="final-question">What They Do?</h3>
+                        <h3 class="final-question">
+                          {{ "PROGRAM.WhereTheyWork" | translate }}
+                        </h3>
                         <div
                           class="progress-section"
                           *ngFor="let activity of activities; let i = index"
@@ -292,7 +294,9 @@
                       </div>
 
                       <div class="col-md-6 col-12">
-                        <h3 class="final-question">What They Studied?</h3>
+                        <h3 class="final-question">
+                          {{ "PROGRAM.WhatTheyStudied" | translate }}
+                        </h3>
                         <div
                           class="progress-section"
                           *ngFor="let study of studies; let i = index"
@@ -352,130 +356,6 @@
                       </div>
                     </div>
                   </div>
-
-                  <div
-                    class="tab-pane fade photo-tab style-mobile other-schools"
-                    id="contact-tab-pane"
-                    role="tabpanel"
-                    aria-labelledby="contact-tab"
-                    tabindex="0"
-                  >
-                    <div>
-                      <div class="d-flex ingo-bus">
-                        <p class="card-category px-3">
-                          {{ programData.programType | shorten : 30 }}
-                        </p>
-                        <p class="top px-3 ms-2 align-items-center">Top 30</p>
-                      </div>
-                      <h3 class="school-info-name title">
-                        {{ programData.schoolInfo.schoolName }} School
-                      </h3>
-                      <p class="school-french">
-                        ICART, the school of cultural and art market
-                        management.For more than 50 years, ICART has established
-                        itself in the world of arts and culture as the reference
-                        school whose vocation is to train professionals in the
-                        art market and cultural management. The world of arts
-                        and culture is undergoing unprecedented changes: the
-                        growing internationalization of artistic exchanges, the
-                        expansion of the leisure industry, the development of
-                        new cultural practices, the opening up to new
-                        technologies, etc.
-                      </p>
-                      <br />
-                      <div class="row all-social">
-                        <div class="col-lg-5 col-md-5 col-5 d-flex">
-                          <p class="socialmedia-text">School Social Media</p>
-                          <i
-                            class="fas fa-right-long right-social ps-lg-2 ps-md-2 ps-1 align-items-start"
-                          ></i>
-                        </div>
-                        <div class="col-lg-5 col-md-6 col-7">
-                          <div
-                            class="social-table d-flex justify-content-evenly"
-                          >
-                            <i
-                              routerLink=""
-                              class="social-icon fab fa-instagram"
-                            ></i>
-                            <i
-                              routerLink=""
-                              class="social-icon fab fa-linkedin-in"
-                            ></i>
-                            <i
-                              routerLink=""
-                              class="social-icon fab fa-twitter"
-                            ></i>
-                            <i
-                              routerLink=""
-                              class="social-icon fab fa-facebook-f"
-                            ></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br />
-                    <h3 class="title">Our Gallery</h3>
-                    <div class="d-flex flex-wrap p-lg-0 p-md-0">
-                      <div class="col-12 photo-one-col">
-                        <div
-                          class="overlay d-flex flex-column justify-content-center align-items-center"
-                        >
-                          <p class="type">Our Events</p>
-                          <p class="description">
-                            Lorem Ipsum Is Simply Dummy Text Of The Printing And
-                            Typesetting Industry. Lorem Ipsum Has Been The
-                            Industry’s Standard Dummy
-                          </p>
-                          <p class="more">Watch More..</p>
-                        </div>
-                        <img
-                          src="../../../../../assets/images/schools/{{
-                            programData.schoolInfo.schoolName
-                          }}/1.jpg"
-                          alt="{{ programData.schoolInfo.schoolName }}"
-                        />
-                      </div>
-                      <div class="col-md-7 col-12 photo-two-col">
-                        <div
-                          class="overlay d-flex flex-column justify-content-center align-items-center"
-                        >
-                          <p class="type">Our Sessions</p>
-                          <p class="description">
-                            Lorem Ipsum Is Simply Dummy Text Of The Printing And
-                            Typesetting Industry. Lorem Ipsum Has Been The
-                            Industry’s Standard Dummy
-                          </p>
-                          <p class="more">Watch More..</p>
-                        </div>
-                        <img
-                          src="../../../../../assets/images/schools/{{
-                            programData.schoolInfo.schoolName
-                          }}/2.jpg"
-                          alt="{{ programData.schoolInfo.schoolName }}"
-                        />
-                      </div>
-                      <div class="col-md col-12 photo-three-col">
-                        <div
-                          class="overlay d-flex flex-column justify-content-center align-items-center"
-                        >
-                          <p class="type">Our Students</p>
-                          <p class="description">
-                            Lorem Ipsum Is Simply Dummy Text Of The Printing And
-                            Typesetting Industry. Lorem Ipsum Has Been The
-                            Industry’s Standard Dummy
-                          </p>
-                          <p class="more">Watch More..</p>
-                        </div>
-                        <img
-                          src="../../../../../assets/images/schools/{{
-                            programData.schoolInfo.schoolName
-                          }}/3.jpg"
-                          alt="{{ programData.schoolInfo.schoolName }}"
-                        />
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
               <iframe
@@ -511,7 +391,9 @@
                             src="../../../../../assets/images/program-page/details/location.svg"
                             alt="location"
                           />
-                          <p class="property">Location</p>
+                          <p class="property">
+                            {{ "PROGRAM.Location" | translate }}
+                          </p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ nameCity }}</p>
@@ -527,12 +409,15 @@
                             src="../../../../../assets/images/program-page/details/duration.svg"
                             alt="duration"
                           />
-                          <p class="property">Duration</p>
+                          <p class="property">
+                            {{ "PROGRAM.Duration" | translate }}
+                          </p>
                         </div>
                         <div class="property-value">
                           <p class="value">
-                            {{ programData.programLength }} Year<span
-                              *ngIf="programData.programLength > 1"
+                            {{ programData.programLength }}
+                            {{ "PROGRAM.Year" | translate
+                            }}<span *ngIf="programData.programLength > 1"
                               >s</span
                             >
                           </p>
@@ -551,7 +436,9 @@
                             src="../../../../../assets/images/program-page/details/time.svg"
                             alt="time"
                           />
-                          <p class="property">Inake</p>
+                          <p class="property">
+                            {{ "PROGRAM.Intake" | translate }}
+                          </p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ programData.programIntake }}</p>
@@ -567,7 +454,9 @@
                             src="../../../../../assets/images/program-page/details/language.svg"
                             alt="language"
                           />
-                          <p class="property">Language</p>
+                          <p class="property">
+                            {{ "PROGRAM.Language" | translate }}
+                          </p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ programData.programLang }}</p>
@@ -586,7 +475,9 @@
                             class="fa fa-hashtag"
                             style="font-size: 10px; color: #7b7b7bbb"
                           ></i>
-                          <p class="property ps-2">Requirement</p>
+                          <p class="property ps-2">
+                            {{ "PROGRAM.Requirement" | translate }}
+                          </p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ programData.programLevel }}</p>
@@ -595,7 +486,8 @@
                     </div>
                   </div>
                   <p class="price d-flex align-items-center">
-                    €{{ programData.programFee }}<span>Pre -Year</span>
+                    €{{ programData.programFee
+                    }}<span>{{ "PROGRAM.PreYear" | translate }}</span>
                   </p>
                   <div class="row">
                     <div class="col-lg-5 col-md-5 col-5">
@@ -604,7 +496,7 @@
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal3"
                       >
-                        Apply Now
+                        {{ "PROGRAM.ApplyNow" | translate }}
                       </button>
                     </div>
                     <div
@@ -642,7 +534,9 @@
                         src="../../../../../assets/images/program-page/details/location.svg"
                         alt="location"
                       />
-                      <p class="property">Location</p>
+                      <p class="property">
+                        {{ "PROGRAM.Location" | translate }}
+                      </p>
                     </div>
                     <div class="property-value">
                       <p class="value">{{ programData.cityInfo?.Name }}</p>
@@ -659,14 +553,15 @@
                         src="../../../../../assets/images/program-page/details/duration.svg"
                         alt="duration"
                       />
-                      <p class="property">Duration</p>
+                      <p class="property">
+                        {{ "PROGRAM.Duration" | translate }}
+                      </p>
                     </div>
                     <div class="property-value">
                       <p class="value">
-                        {{ programData.programLength }} Year<span
-                          *ngIf="programData.programLength > 1"
-                          >s</span
-                        >
+                        {{ programData.programLength }}
+                        {{ "PROGRAM.Year" | translate
+                        }}<span *ngIf="programData.programLength > 1">s</span>
                       </p>
                     </div>
                   </div>
@@ -680,7 +575,7 @@
                         src="../../../../../assets/images/program-page/details/time.svg"
                         alt="time"
                       />
-                      <p class="property">Intake</p>
+                      <p class="property">{{ "PROGRAM.Intake" | translate }}</p>
                     </div>
                     <div class="property-value">
                       <p class="value">{{ programData.programIntake }}</p>
@@ -696,7 +591,9 @@
                         src="../../../../../assets/images/program-page/details/language.svg"
                         alt="language"
                       />
-                      <p class="property">Language</p>
+                      <p class="property">
+                        {{ "PROGRAM.Language" | translate }}
+                      </p>
                     </div>
                     <div class="property-value">
                       <p class="value">{{ programData.programLang }}</p>
@@ -712,7 +609,9 @@
                         class="fa fa-hashtag"
                         style="font-size: 23px; color: #7b7b7bbb"
                       ></i>
-                      <p class="property ps-3">Requirement</p>
+                      <p class="property ps-3">
+                        {{ "PROGRAM.Requirement" | translate }}
+                      </p>
                     </div>
                     <div class="property-value">
                       {{ programData.programLevel }}
@@ -730,7 +629,7 @@
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal2"
                     >
-                      Apply Now
+                      {{ "PROGRAM.ApplyNow" | translate }}
                     </button>
                   </div>
                 </div>
@@ -751,7 +650,9 @@
             <div
               class="related-programs bg-light d-lg-block d-md-none d-none p-3"
             >
-              <h3 class="title">Popular Programs</h3>
+              <h3 class="title">
+                {{ "PROGRAM.PopularPrograms" | translate }}
+              </h3>
               <div class="related-programs-container">
                 <a
                   class="program-card d-flex"
