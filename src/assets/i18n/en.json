@@ -21,7 +21,13 @@
     "selectCity": "Select City",
     "noProgramsFound": "No Programs Found!",
     "apply": "Apply",
-    "startApplication": "START APPLICTION"
+    "startApplication": "START APPLICTION",
+    "weFound": "We found",
+    "programsAvilable": "Programs available for you",
+    "Morethan":"More than",
+    "programs":"programs",
+    "in":"in",
+    "Schools":"Schools around the world"
   },
 
   "EMPDASHBOARD": {
@@ -245,8 +251,7 @@
     "Continuebelow": "Continue below",
     "three": "three",
     "easysteps": "easy steps",
-    "Ifyouarenotyetinordertogetintouchwithsomeonefromtheteam": " If you are not yet, in order to get in touch with someone from the team",
-    " Weinviteyoutocompleteyourprogressbarbycompletingthe3steps": " We invite you to complete your progress bar by completing the 3 steps",
+    "Weinviteyou": " We invite you to complete your progress bar by completing the 3 steps",
     " Inordertogettoknowyoubetter": " In order to get to know you better, we invite you to complete your profile. Once the profile is",
     "100%complete": "100% complete",
     "someonefromStudentGatorwillcontactyou": "someone from StudentGator will contact you",
@@ -304,7 +309,7 @@
     "LevelofEducation": "Level of Education",
     "FieldInterested": "Field Interested",
     "StudyinFrance": "Study in France",
-    "What'syourBudget": "What's your Budget?",
+    "WhatisyourBudget": "What's your Budget?",
     "EditProfile": "Edit Profile",
     "AccountSettings": "Account Settings",
     "BrowseProgramsNow": "Browse Programs Now",

@@ -82,9 +82,12 @@
           <!-- progress bar -->
           <div class="col-lg-4 col-12 col-md-7 progress-col">
             <div class="right-info">
-              <p class="progress-title">Your Progress</p>
+              <p class="progress-title">
+                {{ "STUDENTBOARD.YourProgress" | translate }}
+              </p>
               <p class="progress-percentage">
-                <span>{{ progressPercentage }}%</span> Completed
+                <span>{{ progressPercentage }}%</span>
+                {{ "STUDENTBOARD.Completed" | translate }}
               </p>
               <div class="progress">
                 <div
@@ -125,7 +128,7 @@
                       routerLink="profile"
                       routerLinkActive="active-title"
                     >
-                      Profile
+                      {{ "STUDENTBOARD.profile" | translate }}
                     </a>
                   </h1>
                   <a
@@ -133,21 +136,21 @@
                     routerLink="profile/myinfo"
                     routerLinkActive="active-link"
                   >
-                    My Info
+                    {{ "STUDENTBOARD.myInfo" | translate }}
                   </a>
                   <a
                     class="link"
                     routerLink="profile/mywishlist"
                     routerLinkActive="active-link"
                   >
-                    My Wishlist
+                    {{ "STUDENTBOARD.myWishlist" | translate }}
                   </a>
                   <a
                     class="link"
                     routerLink="profile/mydocuments"
                     routerLinkActive="active-link"
                   >
-                    My Documents
+                    {{ "STUDENTBOARD.myDocuments" | translate }}
                   </a>
                 </div>
                 <div class="general-part">
@@ -158,7 +161,7 @@
                       [queryParams]="{ step: '1' }"
                       routerLinkActive="active-title"
                     >
-                      General
+                      {{ "STUDENTBOARD.General" | translate }}
                     </a>
                   </h1>
                   <a
@@ -173,7 +176,7 @@
                           originalSecRouter === 'how-to-start')
                     }"
                   >
-                    How To Start
+                    {{ "STUDENTBOARD.HowToStart" | translate }}
                   </a>
                   <a
                     class="link"
@@ -186,7 +189,7 @@
                         originalMainRouter === 'general'
                     }"
                   >
-                    Level of Education
+                    {{ "STUDENTBOARD.LevelofEducation" | translate }}
                   </a>
                   <a
                     class="link"
@@ -199,7 +202,7 @@
                         originalMainRouter === 'general'
                     }"
                   >
-                    Field Interested
+                    {{ "STUDENTBOARD.FieldInterested" | translate }}
                   </a>
                   <a
                     class="link"
@@ -212,7 +215,7 @@
                         originalMainRouter === 'general'
                     }"
                   >
-                    Language Test
+                    {{ "STUDENTBOARD.LanguageTest" | translate }}
                   </a>
                   <a
                     class="link"
@@ -225,7 +228,7 @@
                         originalMainRouter === 'general'
                     }"
                   >
-                    Study in France
+                    {{ "STUDENTBOARD.StudyinFrance" | translate }}
                   </a>
                   <a
                     class="link"
@@ -238,7 +241,7 @@
                         originalMainRouter === 'general'
                     }"
                   >
-                    What's your Budget
+                    {{ "STUDENTBOARD.WhatisyourBudget" | translate }}
                   </a>
                 </div>
                 <div class="edit-part">
@@ -249,7 +252,7 @@
                       fragment="profile-picture"
                       routerLinkActive="active-title"
                     >
-                      Edit Profile
+                      {{ "STUDENTBOARD.Editprofile" | translate }}
                     </a>
                   </h1>
                   <a
@@ -262,7 +265,7 @@
                         originalMainRouter == 'edit-profile'
                     }"
                   >
-                    Profile Picture
+                    {{ "STUDENTBOARD.ProfilePicture" | translate }}
                   </a>
                   <a
                     class="link"
@@ -270,7 +273,7 @@
                     fragment="about-you"
                     [ngClass]="{ 'active-link': fragment === 'about-you' }"
                   >
-                    About You
+                    {{ "STUDENTBOARD.AboutYou" | translate }}
                   </a>
                 </div>
                 <div class="edit-part">
@@ -281,7 +284,7 @@
                       fragment="email"
                       routerLinkActive="active-title"
                     >
-                      Account Settings
+                      {{ "STUDENTBOARD.AccountSettings" | translate }}
                     </a>
                   </h1>
                   <a
@@ -294,7 +297,7 @@
                         originalMainRouter == 'account-settings'
                     }"
                   >
-                    Email
+                    {{ "STUDENTBOARD.email" | translate }}
                   </a>
                   <a
                     class="link"
@@ -302,7 +305,7 @@
                     fragment="password"
                     [ngClass]="{ 'active-link': fragment === 'password' }"
                   >
-                    Password
+                    {{ "STUDENTBOARD.Password" | translate }}
                   </a>
                 </div>
               </div>
@@ -317,7 +320,7 @@
                   routerLink="profile"
                   routerLinkActive="active-title"
                 >
-                  Profile
+                  {{ "STUDENTBOARD.profile" | translate }}
                 </a>
               </h1>
               <a
@@ -325,21 +328,21 @@
                 routerLink="profile/myinfo"
                 routerLinkActive="active-link"
               >
-                <p>My Info</p>
+                <p>{{ "STUDENTBOARD.MyInfo" | translate }}</p>
               </a>
               <a
                 class="link"
                 routerLink="profile/mywishlist"
                 routerLinkActive="active-link"
               >
-                <p>My Wishlist</p>
+                <p>{{ "STUDENTBOARD.MyWishlist" | translate }}</p>
               </a>
               <a
                 class="link"
                 routerLink="profile/mydocuments"
                 routerLinkActive="active-link"
               >
-                <p>My Documents</p>
+                <p>{{ "STUDENTBOARD.MyDocuments" | translate }}</p>
               </a>
             </div>
             <div class="general-part">
@@ -352,7 +355,7 @@
                     'active-title': originalMainRouter === 'general'
                   }"
                 >
-                  General
+                  {{ "STUDENTBOARD.General" | translate }}
                 </a>
               </h1>
               <a
@@ -367,7 +370,9 @@
                       originalSecRouter === 'how-to-start')
                 }"
               >
-                <p>How To Start</p>
+                <p>
+                  {{ "STUDENTBOARD.HowToStart" | translate }}
+                </p>
               </a>
               <a
                 class="link"
@@ -380,7 +385,7 @@
                     originalMainRouter === 'general'
                 }"
               >
-                <p>Level of Education</p>
+                <p>{{ "STUDENTBOARD.LevelofEducation" | translate }}</p>
               </a>
               <a
                 class="link"
@@ -393,7 +398,7 @@
                     originalMainRouter === 'general'
                 }"
               >
-                <p>Field Interested</p>
+                <p>{{ "STUDENTBOARD.FieldInterested" | translate }}</p>
               </a>
               <a
                 class="link"
@@ -406,7 +411,7 @@
                     originalMainRouter === 'general'
                 }"
               >
-                <p>Language Test</p>
+                <p>{{ "STUDENTBOARD.LanguageTest" | translate }}</p>
               </a>
               <a
                 class="link"
@@ -419,7 +424,7 @@
                     originalMainRouter === 'general'
                 }"
               >
-                <p>Study in France</p>
+                <p>{{ "STUDENTBOARD.StudyinFrance" | translate }}</p>
               </a>
               <a
                 class="link"
@@ -431,7 +436,7 @@
                     fragment === 'budget' && originalMainRouter === 'general'
                 }"
               >
-                <p>What's your Budget</p>
+                <p>{{ "STUDENTBOARD.WhatisyourBudget" | translate }}</p>
               </a>
             </div>
             <div class="edit-part">
@@ -442,7 +447,7 @@
                   fragment="profile-picture"
                   routerLinkActive="active-title"
                 >
-                  Edit Profile
+                  {{ "STUDENTBOARD.EditProfile" | translate }}
                 </a>
               </h1>
               <a
@@ -455,7 +460,7 @@
                     originalMainRouter == 'edit-profile'
                 }"
               >
-                <p>Profile Picture</p>
+                <p>{{ "STUDENTBOARD.ProfilePicture" | translate }}</p>
               </a>
               <a
                 class="link"
@@ -463,7 +468,7 @@
                 fragment="about-you"
                 [ngClass]="{ 'active-link': fragment === 'about-you' }"
               >
-                <p>About You</p>
+                <p>{{ "STUDENTBOARD.AboutYou" | translate }}</p>
               </a>
             </div>
             <div class="edit-part">
@@ -474,7 +479,7 @@
                   fragment="email"
                   routerLinkActive="active-title"
                 >
-                  Account Settings
+                  {{ "STUDENTBOARD.AccountSettings" | translate }}
                 </a>
               </h1>
               <a
@@ -487,7 +492,7 @@
                     originalMainRouter == 'account-settings'
                 }"
               >
-                <p>Email</p>
+                <p>{{ "STUDENTBOARD.email" | translate }}</p>
               </a>
               <a
                 class="link"
@@ -495,7 +500,7 @@
                 fragment="password"
                 [ngClass]="{ 'active-link': fragment === 'password' }"
               >
-                <p>Password</p>
+                <p>{{ "STUDENTBOARD.Password" | translate }}</p>
               </a>
             </div>
           </aside>

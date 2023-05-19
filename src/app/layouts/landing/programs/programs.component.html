@@ -1,11 +1,13 @@
 <section class="intro-section d-flex justify-content-center">
   <div class="row container">
     <div class="col-xl-8 col-md-6 col-12 main-first">
-      <!-- <p class="intro-title">
-        More than <span>1000</span> programs <br /><span> in 80</span> Schools
-        around the world
-      </p> -->
-      <h3>{{ "PROGRAM.headingTitle" | translate }}</h3>
+      <p class="intro-title">
+        {{ "PROGRAM.Morethan" | translate }} <span>1000</span>
+        {{ "PROGRAM.programs" | translate }} <br /><span>
+          {{ "PROGRAM.in" | translate }} 80</span
+        >
+        {{ "PROGRAM.Schools" | translate }}
+      </p>
 
       <p class="intro-desc">{{ "PROGRAM.headingDesc" | translate }}</p>
       <div class="row last-department">
@@ -279,10 +281,12 @@
           </div>
           <div class="col-xl-9 offset-1 col-md-8 d-lg-block d-md-block d-none">
             <p class="popular-title">
-              {{ "PROGRAM.noProgramsFound" | translate }}
+              {{ "PROGRAM.mostPopularPrograms" | translate }}
             </p>
             <p class="programs-number">
-              We found {{ programsLength }} Programs available for you
+              {{ "PROGRAM.weFound" | translate }}
+              {{ programsLength }}
+              {{ "PROGRAM.programsAvilable" | translate }}
             </p>
           </div>
         </div>

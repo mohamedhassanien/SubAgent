@@ -21,7 +21,13 @@
     "mostPopularPrograms": "Programmes les plus populaires",
     "noProgramsFound": "Aucun programme trouvé!",
     "apply": "Appliquer",
-    "startApplication": "COMMENCER LA DEMANDE"
+    "startApplication": "COMMENCER LA DEMANDE",
+    "weFound": "Nous avons trouvé",
+    "programsAvilable": "Programmes disponibles pour vous",
+    "Morethan": "Plus de",
+    "programs": "programmes",
+    "in": "en",
+    "Schools": "Les écoles du monde entier"
   },
   "EMPDASHBOARD": {
     "menu": "MENU",
@@ -232,7 +238,6 @@
     "MotivationDocuments": "Documents de motivation",
     "SupportingDocuments": "Documents d'appui",
     "AttachmentsshouldbePNGJPGorPDFformats": "Les pièces jointes doivent être au format PNG, JPG ou PDF.",
-
     "Welcometo": "Bienvenue à",
     "Your": "Votre",
     "studentgator": "studentgator",
@@ -308,7 +313,7 @@
     "CopyofPassportorID": "Copie du passeport ou de la carte d'identité",
     "Certificates": "Copie des diplômes obtenus (certificats)",
     "view": "vue",
-    "LanguageProofs":"Épreuves linguistiques",
+    "LanguageProofs": "Épreuves linguistiques",
     "IdentityPhoto": "Photo d'identité",
     "YourResume": "Votre CV",
     "CoverLetter": "Votre lettre de motivation (lettre de motivation)",
