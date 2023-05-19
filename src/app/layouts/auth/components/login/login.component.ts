@@ -154,20 +154,10 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('done', 'done');
           localStorage.setItem('type', 'owner');
           this.router.navigate(['/landing/programs']);
-        } else if (type == '7') {
+        } else {
           localStorage.setItem('type', 'tech');
           sessionStorage.setItem('done', 'done');
           this.router.navigate(['/landing/programs']);
-        } else if (type == '9') {
-          localStorage.setItem('type', 'sub-agent');
-          sessionStorage.setItem('done', 'done');
-          this.router.navigate(['/sub-agents', name, 'dashboard']);
-        } else if (type == '10') {
-          localStorage.setItem('type', 'sub-agent-emp');
-          localStorage.setItem('subagent-username', subagentUsername);
-          localStorage.setItem('subagent-name', subagentName);
-          localStorage.setItem('subagent-email', subagentEmail);
-          this.router.navigate(['/sub-agents', subagentName, 'dashboard']);
         }
       } else {
         this.isLoading = false;

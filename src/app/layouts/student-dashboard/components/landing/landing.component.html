@@ -25,57 +25,11 @@
               />
               <div class="set-up-profile">
                 <div class="nav-tree">
-                  <nav>
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item">
-                        {{ profileName }}
-                      </li>
-                      <li class="seperator">></li>
-                      <li class="breadcrumb-item" aria-current="page">
-                        <a
-                          routerLink="{{
-                            originalMainRouter.includes('#')
-                              ? originalMainRouter.split('#')[0]
-                              : originalMainRouter
-                          }}"
-                          [queryParams]="
-                            originalMainRouter === 'general'
-                              ? { step: '1' }
-                              : null
-                          "
-                          routerLinkActive="activated-breadcrumb"
-                          [routerLinkActiveOptions]="{ exact: true }"
-                          >{{ mainRouter }}</a
-                        >
-                      </li>
-                      <li class="seperator" *ngIf="secRouter">></li>
-                      <li
-                        class="breadcrumb-item active"
-                        aria-current="page"
-                        *ngIf="secRouter"
-                      >
-                        <a
-                          class="activated-breadcrumb"
-                          [routerLink]="originalSecRouter"
-                          [ngClass]="{ 'activated-breadcrumb': !subRouter }"
-                        >
-                          {{ secRouter }}
-                        </a>
-                      </li>
-                      <li class="seperator" *ngIf="subRouter">></li>
-                      <li
-                        class="breadcrumb-item active"
-                        aria-current="page"
-                        *ngIf="subRouter"
-                      >
-                        <p class="activated-breadcrumb">
-                          {{ subRouter }}
-                        </p>
-                      </li>
-                    </ol>
-                  </nav>
+                  <h4 class="text-capitalize">
+                    {{ profileName }}
+                  </h4>
                 </div>
-                <p class="set-up-profile">{{ description }}</p>
+                <p class="set-up-profile">{{ "STUDENTBOARD.Setupyourprofile" | translate }}</p>
               </div>
             </div>
           </div>

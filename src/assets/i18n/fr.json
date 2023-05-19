@@ -27,8 +27,31 @@
     "Morethan": "Plus de",
     "programs": "programmes",
     "in": "en",
-    "Schools": "Les écoles du monde entier"
+    "Schools": "Les écoles du monde entier",
+    "Programs": "Les programmes",
+    "ApplyNow": "Postuler",
+    "Overview": "Vue d'ensemble",
+    "SPECIALISATION": "SPÉCIALISATION",
+    "About": "A propos de",
+    "Alumni": "Anciens élèves",
+    "WhereTheyLive": "Où vivent-ils?",
+    "WhereTheyWork": "Où travaillent-ils?",
+    "WhatTheyDo": "Que font-ils?",
+    "WhatTheyStudied": "Ce qu'ils ont étudié?",
+    "School": "L'école",
+    "SchoolSocialMedia": "Médias sociaux à l'école",
+    "OurGallery": "Notre galerie",
+    "OurEvents": "Nos événements",
+    "PopularPrograms": "Programmes populaires",
+    "Location": "Localisation",
+    "Duration": "La durée",
+    "Year": "Année",
+    "Intake": "Intake",
+    "Language": "Langue",
+    "Requirement": "Exigence",
+    "PreYear": "Pré-année"
   },
+
   "EMPDASHBOARD": {
     "menu": "MENU",
     "statistics": "Statistiques",
@@ -179,6 +202,7 @@
     "RejectionPerSchoolVsEmployee": "Refus par école ou par employé",
     "ApplicationsStagesVsEmployee": "Les étapes de l'application par rapport à l'employé"
   },
+
   "LOGIN": {
     "LoginHeading": "Connectez-vous avec votre compte",
     "Welcomeback": "Bienvenue à nouveau!",
@@ -194,6 +218,7 @@
     "Login": "Connexion",
     "Signup": "S'inscrire"
   },
+
   "REGISTER": {
     "Start": "Commençons",
     "WithRegistration": "Avec inscription",
@@ -213,6 +238,7 @@
     "resentativeInvalid": "Vous devez sélectionner un représentant.",
     "Haveanaccount": "Vous avez déjà un compte ?"
   },
+
   "STUDENTBOARD": {
     "MyInfo": "Mes informations",
     "ImpressEveryoneWithYourBestHeadshot": "Impressionnez tout le monde avec votre meilleur cliché",
@@ -331,6 +357,8 @@
     "Inordertogettoknowyoubetter": "Afin de mieux vous connaître, nous vous invitons à compléter votre profil. Une fois le profil complété à 100%, une personne de StudentGator vous contactera.",
     "Pleasebesuretoenterthecorrectinformation": "Veillez à saisir les informations correctes lorsque vous remplissez votre profil.",
     "Deletepicture": "Supprimer l'image",
-    "Reset": "Remise à zéro"
+    "Reset": "Remise à zéro",
+    "email": "Courriel",
+    "Setupyourprofile": "Créez votre profil"
   }
 }

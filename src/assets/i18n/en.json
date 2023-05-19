@@ -24,10 +24,35 @@
     "startApplication": "START APPLICTION",
     "weFound": "We found",
     "programsAvilable": "Programs available for you",
-    "Morethan":"More than",
-    "programs":"programs",
-    "in":"in",
-    "Schools":"Schools around the world"
+    "Morethan": "More than",
+    "programs": "programs",
+    "in": "in",
+    "Schools": "Schools around the world",
+    "Programs": "Programs",
+    "ApplyNow": "Apply Now",
+    "Overview": "Overview",
+    "SPECIALISATION": "SPECIALISATION",
+    "About": "About",
+    "Alumni": "Alumni",
+    "WhereTheyLive": "Where They Live?",
+    "WhereTheyWork": "Where They Work?",
+    "WhatTheyDo": "What They Do ?",
+    "WhatTheyStudied": "What They Studied?",
+    "Top": "Top",
+    "ICART": "ICART, the school of cultural and art market management.For more than 50 years, ICART has established itself in the world of arts and culture as the reference school whose vocation is to train professionals in the art market and cultural management. The world of arts and culture is undergoing unprecedented changes: the growing internationalization of artistic exchanges, the expansion of the leisure industry, the development of new cultural practices, the opening up to new technologies, etc.",
+    "School":"School",
+    
+    "SchoolSocialMedia": "School Social Media",
+    "OurGallery": "Our Gallery",
+    "OurEvents": "Our Events",
+    "PopularPrograms":"Popular Programs",
+    "Location":"Location",
+    "Duration":"Duration",
+    "Year":"Year",
+    "Intake":"Intake",
+    "Language":"Language",
+    "Requirement":"Requirement",
+    "PreYear":"Pre -Year"
   },
 
   "EMPDASHBOARD": {
@@ -334,6 +359,9 @@
     "Inordertogettoknowyoubetter": "In order to get to know you better, we invite you to complete your profile. Once the profile is 100% complete, someone from StudentGator will contact you.",
     "Pleasebesuretoenterthecorrectinformation": "Please be sure to enter the correct information when filling out your profile.",
     "Deletepicture": "Delete picture",
-    "Reset": "Reset"
+    "Reset": "Reset",
+    "email": "Email",
+    "Setupyourprofile":"Set up your profile"
+
   }
 }
