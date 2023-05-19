@@ -35,6 +35,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatCardModule} from '@angular/material/card'; 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MyInfoComponent } from './components/profile/my-info/my-info.component';
 import { HttpClient } from '@angular/common/http';
@@ -82,6 +83,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     MatInputModule,
     MatChipsModule,
     MatCheckboxModule,
+    MatCardModule,
     LottieModule.forRoot({ player: playerFactory }),
     TranslateModule.forChild({
       loader: {

@@ -43,7 +43,7 @@ section.wishlisted-programs {
     a {
       width: 330px;
       height: 510px;
-      mat-card {
+      mat-card{
         height: 100%;
         border: 0;
         background: #f7f7f7 0% 0% no-repeat padding-box;
@@ -140,9 +140,13 @@ section.wishlisted-programs {
             p {
               margin: 0 2px;
             }
+           button{
+            border: none;
             .wishlist {
               color: red;
+              padding-top: 4px;
             }
+           }
           }
         }
       }
@@ -275,8 +279,12 @@ section.wishlisted-programs {
             .white-wishlist {
               color: #fff;
             }
-            .wishlist {
-              color: red;
+            button{
+              border: none;
+              background: none;
+              .wishlist {
+                color: red;
+              }
             }
           }
           .program-title {
