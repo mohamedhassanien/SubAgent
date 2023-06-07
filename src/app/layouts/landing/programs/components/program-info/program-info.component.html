@@ -5,12 +5,15 @@
     <div class="container">
       <div class="row">
         <div class="col-12 title-col">
+          <div class="nav-pages mb-3">
+            <a routerLink="/landing/programs">programmes</a>
+            <span>/</span>
+            <span class="m-0">{{ title }}</span>
+          </div>
+
           <div>
             <div class="cont-img">
-              <img
-                class="w-100 h-100"
-                src="../../../../../../assets/images/prog-info-bg.png"
-              />
+              <img class="w-100 h-100" src="/assets/images/prog-info-bg.png" />
               <div class="back-color w-100 h-100">
                 <p class="fees">
                   <span class="me-2">€</span>{{ programData.programFee }}
@@ -58,11 +61,11 @@
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal2"
                   >
-                    {{ "PROGRAM.ApplyNow" | translate }}
+                    Postuler
                   </button>
                   <div class="fav-ico">
                     <button
-                      style="border: none;background: none;"
+                      style="border: none"
                       i-button
                       (click)="
                         $event.preventDefault(); $event.stopPropagation()
@@ -112,7 +115,7 @@
                       aria-selected="true"
                       (click)="setTitle('Overview')"
                     >
-                      <p>{{ "PROGRAM.Overview" | translate }}</p>
+                      <p>Vue d'ensemble</p>
                     </button>
                   </li>
                   <li
@@ -131,7 +134,7 @@
                       aria-selected="false"
                       (click)="setTitle('City Info')"
                     >
-                      <p>{{ "PROGRAM.SPECIALISATION" | translate }}</p>
+                      <p>SPÉCIALISATION</p>
                     </button>
                   </li>
                 </ul>
@@ -152,27 +155,23 @@
                         class="pulse h-50 ms-1"
                       >
                         <p
-                          (click)="changeVideo(pro.youtubelink, pro.Name, i)"
+                          (click)="changeVideo(pro.youtubelink, pro.Name)"
                           class="city-pro"
                         >
                           {{ pro.Name }}
                         </p>
                       </div>
                     </div>
-
                     <h3 class="title">
-                      {{ "PROGRAM.About" | translate }}
-                      {{ programData.schoolInfo.schoolName }}
-                      {{ "PROGRAM.School" | translate }}
+                      A propos de
+                      {{ programData.schoolInfo.schoolName }} L'école
                     </h3>
                     <p class="description text-justify">
                       {{ programData.schoolInfo.schoolDesr }}
                     </p>
                     <hr />
-                    <p class="alumin">{{ "PROGRAM.Alumni" | translate }}</p>
-                    <p class="question">
-                      {{ "PROGRAM.WhereTheyLive" | translate }}
-                    </p>
+                    <p class="alumin">Anciens élèves</p>
+                    <p class="question">Où vivent-ils?</p>
                     <div class="circular-container">
                       <div class="row">
                         <div
@@ -212,9 +211,7 @@
                     </div>
                     <hr />
 
-                    <h3 class="question">
-                      {{ "PROGRAM.WhereTheyWork" | translate }}
-                    </h3>
+                    <h3 class="question">Où travaillent-ils?</h3>
                     <div class="circular-container">
                       <div class="row">
                         <div
@@ -253,9 +250,7 @@
                     <hr />
                     <div class="row justify-content-between">
                       <div class="col-md-6 col-12">
-                        <h3 class="final-question">
-                          {{ "PROGRAM.WhereTheyWork" | translate }}
-                        </h3>
+                        <h3 class="final-question">Que font-ils?</h3>
                         <div
                           class="progress-section"
                           *ngFor="let activity of activities; let i = index"
@@ -294,9 +289,7 @@
                       </div>
 
                       <div class="col-md-6 col-12">
-                        <h3 class="final-question">
-                          {{ "PROGRAM.WhatTheyStudied" | translate }}
-                        </h3>
+                        <h3 class="final-question">Ce qu'ils ont étudié?</h3>
                         <div
                           class="progress-section"
                           *ngFor="let study of studies; let i = index"
@@ -356,6 +349,139 @@
                       </div>
                     </div>
                   </div>
+
+                  <div
+                    class="tab-pane fade photo-tab style-mobile other-schools"
+                    id="contact-tab-pane"
+                    role="tabpanel"
+                    aria-labelledby="contact-tab"
+                    tabindex="0"
+                  >
+                    <div>
+                      <div class="d-flex ingo-bus">
+                        <p class="card-category px-3">
+                          {{ programData.programType | shorten : 30 }}
+                        </p>
+                        <p class="top px-3 ms-2 align-items-center">
+                          Le top 30
+                        </p>
+                      </div>
+                      <h3 class="school-info-name title">
+                        {{ programData.schoolInfo.schoolName }} L'école
+                      </h3>
+                      <p class="school-french">
+                        ICART, l'école de gestion du marché de l'art et de la
+                        culture. Depuis plus de 50 ans, l'ICART s'est imposé
+                        dans le monde des arts et de la culture comme la
+                        référence en matière de gestion du marché de l'art. dans
+                        le monde des arts et de la culture comme l'école de
+                        référence de référence dont la vocation est de former
+                        des professionnels du marché de l'art et de la gestion
+                        culturelle. marché de l'art et du management culturel.
+                        Le monde des arts et de la culture et de la culture
+                        connaît des mutations sans précédent :
+                        l'internationalisation l'internationalisation croissante
+                        des échanges artistiques, l'expansion l'expansion de
+                        l'industrie des loisirs, le développement de nouvelles
+                        pratiques culturelles, l'ouverture aux nouvelles
+                        technologies, etc.
+                      </p>
+                      <br />
+                      <div class="row all-social">
+                        <div class="col-lg-5 col-md-5 col-5 d-flex">
+                          <p class="socialmedia-text">
+                            Médias sociaux à l'école
+                          </p>
+                          <i
+                            class="fas fa-right-long right-social ps-lg-2 ps-md-2 ps-1 align-items-start"
+                          ></i>
+                        </div>
+                        <div class="col-lg-5 col-md-6 col-7">
+                          <div
+                            class="social-table d-flex justify-content-evenly"
+                          >
+                            <i
+                              routerLink=""
+                              class="social-icon fab fa-instagram"
+                            ></i>
+                            <i
+                              routerLink=""
+                              class="social-icon fab fa-linkedin-in"
+                            ></i>
+                            <i
+                              routerLink=""
+                              class="social-icon fab fa-twitter"
+                            ></i>
+                            <i
+                              routerLink=""
+                              class="social-icon fab fa-facebook-f"
+                            ></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <h3 class="title">Notre galerie</h3>
+                    <div class="d-flex flex-wrap p-lg-0 p-md-0">
+                      <div class="col-12 photo-one-col">
+                        <div
+                          class="overlay d-flex flex-column justify-content-center align-items-center"
+                        >
+                          <p class="type">Nos événements</p>
+                          <p class="description">
+                            Lorem Ipsum Is Simply Dummy Text Of The Printing And
+                            Typesetting Industry. Lorem Ipsum Has Been The
+                            Industry’s Standard Dummy
+                          </p>
+                          <p class="more">Voir plus..</p>
+                        </div>
+                        <img
+                          src="/assets/images/schools/{{
+                            programData.schoolInfo.schoolName
+                          }}/1.jpg"
+                          alt="{{ programData.schoolInfo.schoolName }}"
+                        />
+                      </div>
+                      <div class="col-md-7 col-12 photo-two-col">
+                        <div
+                          class="overlay d-flex flex-column justify-content-center align-items-center"
+                        >
+                          <p class="type">Nos sessions</p>
+                          <p class="description">
+                            Lorem Ipsum Is Simply Dummy Text Of The Printing And
+                            Typesetting Industry. Lorem Ipsum Has Been The
+                            Industry’s Standard Dummy
+                          </p>
+                          <p class="more">Watch More..</p>
+                        </div>
+                        <img
+                          src="/assets/images/schools/{{
+                            programData.schoolInfo.schoolName
+                          }}/2.jpg"
+                          alt="{{ programData.schoolInfo.schoolName }}"
+                        />
+                      </div>
+                      <div class="col-md col-12 photo-three-col">
+                        <div
+                          class="overlay d-flex flex-column justify-content-center align-items-center"
+                        >
+                          <p class="type">Our Students</p>
+                          <p class="description">
+                            Lorem Ipsum Is Simply Dummy Text Of The Printing And
+                            Typesetting Industry. Lorem Ipsum Has Been The
+                            Industry’s Standard Dummy
+                          </p>
+                          <p class="more">Watch More..</p>
+                        </div>
+                        <img
+                          src="/assets/images/schools/{{
+                            programData.schoolInfo.schoolName
+                          }}/3.jpg"
+                          alt="{{ programData.schoolInfo.schoolName }}"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <iframe
@@ -388,12 +514,10 @@
                       >
                         <div class="property-name d-flex">
                           <img
-                            src="../../../../../assets/images/program-page/details/location.svg"
+                            src="/assets/images/program-page/details/location.svg"
                             alt="location"
                           />
-                          <p class="property">
-                            {{ "PROGRAM.Location" | translate }}
-                          </p>
+                          <p class="property">Localisation</p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ nameCity }}</p>
@@ -406,18 +530,15 @@
                       >
                         <div class="property-name d-flex">
                           <img
-                            src="../../../../../assets/images/program-page/details/duration.svg"
+                            src="/assets/images/program-page/details/duration.svg"
                             alt="duration"
                           />
-                          <p class="property">
-                            {{ "PROGRAM.Duration" | translate }}
-                          </p>
+                          <p class="property">Durée de l'accord</p>
                         </div>
                         <div class="property-value">
                           <p class="value">
-                            {{ programData.programLength }}
-                            {{ "PROGRAM.Year" | translate
-                            }}<span *ngIf="programData.programLength > 1"
+                            {{ programData.programLength }} Année<span
+                              *ngIf="programData.programLength > 1"
                               >s</span
                             >
                           </p>
@@ -433,12 +554,10 @@
                       >
                         <div class="property-name d-flex">
                           <img
-                            src="../../../../../assets/images/program-page/details/time.svg"
+                            src="/assets/images/program-page/details/time.svg"
                             alt="time"
                           />
-                          <p class="property">
-                            {{ "PROGRAM.Intake" | translate }}
-                          </p>
+                          <p class="property">Inake</p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ programData.programIntake }}</p>
@@ -451,12 +570,10 @@
                       >
                         <div class="property-name d-flex">
                           <img
-                            src="../../../../../assets/images/program-page/details/language.svg"
+                            src="/assets/images/program-page/details/language.svg"
                             alt="language"
                           />
-                          <p class="property">
-                            {{ "PROGRAM.Language" | translate }}
-                          </p>
+                          <p class="property">Langue</p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ programData.programLang }}</p>
@@ -475,9 +592,7 @@
                             class="fa fa-hashtag"
                             style="font-size: 10px; color: #7b7b7bbb"
                           ></i>
-                          <p class="property ps-2">
-                            {{ "PROGRAM.Requirement" | translate }}
-                          </p>
+                          <p class="property ps-2">Exigence</p>
                         </div>
                         <div class="property-value">
                           <p class="value">{{ programData.programLevel }}</p>
@@ -486,8 +601,7 @@
                     </div>
                   </div>
                   <p class="price d-flex align-items-center">
-                    €{{ programData.programFee
-                    }}<span>{{ "PROGRAM.PreYear" | translate }}</span>
+                    €{{ programData.programFee }}<span>Pré-année</span>
                   </p>
                   <div class="row">
                     <div class="col-lg-5 col-md-5 col-5">
@@ -496,14 +610,14 @@
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal3"
                       >
-                        {{ "PROGRAM.ApplyNow" | translate }}
+                        Postuler
                       </button>
                     </div>
                     <div
                       class="fav-ico col-5 d-lg-none justify-content-start ms-0 ps-0"
                     >
                       <button
-                        style="border: none;background: none;"
+                        style="border: none"
                         i-button
                         (click)="
                           $event.preventDefault(); $event.stopPropagation()
@@ -531,15 +645,13 @@
                   >
                     <div class="property-name d-flex">
                       <img
-                        src="../../../../../assets/images/program-page/details/location.svg"
+                        src="/assets/images/program-page/details/location.svg"
                         alt="location"
                       />
-                      <p class="property">
-                        {{ "PROGRAM.Location" | translate }}
-                      </p>
+                      <p class="property">Localisation</p>
                     </div>
                     <div class="property-value">
-                      <p class="value">{{ programData.cityInfo.Name }}</p>
+                      <p class="value">{{ programData.cityInfo?.Name }}</p>
                       <p class="value">{{ nameCity }}</p>
                     </div>
                   </div>
@@ -550,18 +662,17 @@
                   >
                     <div class="property-name d-flex">
                       <img
-                        src="../../../../../assets/images/program-page/details/duration.svg"
+                        src="/assets/images/program-page/details/duration.svg"
                         alt="duration"
                       />
-                      <p class="property">
-                        {{ "PROGRAM.Duration" | translate }}
-                      </p>
+                      <p class="property">Durée de l'accord</p>
                     </div>
                     <div class="property-value">
                       <p class="value">
-                        {{ programData.programLength }}
-                        {{ "PROGRAM.Year" | translate
-                        }}<span *ngIf="programData.programLength > 1">s</span>
+                        {{ programData.programLength }} Année<span
+                          *ngIf="programData.programLength > 1"
+                          >s</span
+                        >
                       </p>
                     </div>
                   </div>
@@ -572,10 +683,10 @@
                   >
                     <div class="property-name d-flex">
                       <img
-                        src="../../../../../assets/images/program-page/details/time.svg"
+                        src="/assets/images/program-page/details/time.svg"
                         alt="time"
                       />
-                      <p class="property">{{ "PROGRAM.Intake" | translate }}</p>
+                      <p class="property">Intake</p>
                     </div>
                     <div class="property-value">
                       <p class="value">{{ programData.programIntake }}</p>
@@ -588,12 +699,10 @@
                   >
                     <div class="property-name d-flex">
                       <img
-                        src="../../../../../assets/images/program-page/details/language.svg"
+                        src="/assets/images/program-page/details/language.svg"
                         alt="language"
                       />
-                      <p class="property">
-                        {{ "PROGRAM.Language" | translate }}
-                      </p>
+                      <p class="property">Langue</p>
                     </div>
                     <div class="property-value">
                       <p class="value">{{ programData.programLang }}</p>
@@ -609,9 +718,7 @@
                         class="fa fa-hashtag"
                         style="font-size: 23px; color: #7b7b7bbb"
                       ></i>
-                      <p class="property ps-3">
-                        {{ "PROGRAM.Requirement" | translate }}
-                      </p>
+                      <p class="property ps-3">Exigence</p>
                     </div>
                     <div class="property-value">
                       {{ programData.programLevel }}
@@ -629,7 +736,7 @@
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal2"
                     >
-                      {{ "PROGRAM.ApplyNow" | translate }}
+                      Postuler
                     </button>
                   </div>
                 </div>
@@ -650,9 +757,7 @@
             <div
               class="related-programs bg-light d-lg-block d-md-none d-none p-3"
             >
-              <h3 class="title">
-                {{ "PROGRAM.PopularPrograms" | translate }}
-              </h3>
+              <h3 class="title">Programmes populaires</h3>
               <div class="related-programs-container">
                 <a
                   class="program-card d-flex"
@@ -715,19 +820,20 @@
     <div class="modal-content">
       <br /><br />
       <div class="first-row">
-        <h1 class="welcome pb-0 mb-0">Welcome to</h1>
+        <h1 class="welcome pb-0 mb-0">Bienvenue à</h1>
         <div class="first-textpop">
           <img
             class=""
             _ngcontent-lin-c364=""
-            src="../../../../../../assets/images/elysee-logo.png"
+            src="/assets/images/elysee-logo.png"
             alt="SG-logo"
             title="Homepage"
           />
         </div>
         <p class="details-tit">
-          We have your basic information, please review and make sure all your
-          data is accurate.
+          Nous avons reçu vos informations de base, veuillez les vérifier et
+          vous assurer que toutes vos données sont exactes. données sont
+          exactes.
         </p>
       </div>
       <div
@@ -735,13 +841,15 @@
         class="modal-body popup madel-total-body"
       >
         <mat-stepper #stepper>
-          <mat-step *ngIf="ANYPROGRAM">
-            <ng-template matStepLabel>Info Verification</ng-template>
+          <mat-step>
+            <ng-template matStepLabel
+              >Vérification des informations</ng-template
+            >
             <section>
               <div class="all-inputs">
                 <p class="basic-details">
-                  Note that: to change your basic information, please go to the
-                  "Account settings"
+                  Remarque : pour modifier vos informations de base, veuillez
+                  vous rendre dans la section "Paramètres du compte"
                 </p>
                 <div class="row mt-lg-2">
                   <div class="col-lg-6 mt-4 form-group">
@@ -811,25 +919,32 @@
                   </div>
                 </div>
               </div>
-              <button class="btn-next" matStepperNext>Next</button>
+              <button class="btn-next" matStepperNext>Suivant</button>
             </section>
           </mat-step>
 
-          <mat-step [editable]="false" *ngIf="PDFGAL">
-            <ng-template matStepLabel>Info Verification</ng-template>
+          <!-- <mat-step [editable]="false" *ngIf="PDFGAL">
+            <ng-template matStepLabel
+              >Vérification des informations</ng-template
+            >
             <app-galileo-data [programIdChild]="programId"></app-galileo-data>
-          </mat-step>
+          </mat-step> -->
 
-          <mat-step [editable]="false" *ngIf="PDFFIGS">
-            <ng-template matStepLabel>Info Verification</ng-template>
-            <app-figs [programIdChild]="programId"></app-figs>
-          </mat-step>
+          <!-- <mat-step [editable]="false" *ngIf="PDFFIGS">
+            <ng-template matStepLabel
+              >Vérification des informations</ng-template
+            >
+            <app-figs
+              [programIdChild]="programId"
+              [programCamp]="nameCity"
+            ></app-figs>
+          </mat-step> -->
 
           <mat-step>
-            <ng-template matStepLabel>Upload Documents</ng-template>
+            <ng-template matStepLabel>Télécharger des documents</ng-template>
             <p class="basic-details pt-4">
-              Please Fill all the field, so you move on to the next step of your
-              application.
+              Veuillez remplir tous les champs, afin de passer à l'étape
+              suivante de votre candidature.
             </p>
 
             <div class="row first-step-row pt-3">
@@ -838,7 +953,7 @@
                   class="doc-details d-flex justify-content-between align-items-center"
                 >
                   <h3>
-                    Resume
+                    Curriculum vitae
                     <span *ngIf="!urlObject.cv" class="text-danger">*</span>
                   </h3>
 
@@ -849,7 +964,7 @@
                       [href]="urlObject.cv"
                       target="_blank"
                     >
-                      <i class="fa fa-eye"></i><span class="px-2">View</span>
+                      <i class="fa fa-eye"></i><span class="px-2">Voir</span>
                     </a>
                     <p
                       class="percentage m-0 text-success"
@@ -863,7 +978,7 @@
                       (click)="deleteFile('cv', studentUserName)"
                       *ngIf="!uploadPercentage.cv && urlObject.cv"
                     >
-                      <span class="px-2">Delete</span
+                      <span class="px-2">Supprimer</span
                       ><i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -896,7 +1011,7 @@
                   class="doc-details d-flex justify-content-between align-items-center"
                 >
                   <h3>
-                    Certificate
+                    Certificat
                     <span *ngIf="!urlObject.certificate" class="text-danger"
                       >*</span
                     >
@@ -909,7 +1024,7 @@
                       [href]="urlObject.certificate"
                       target="_blank"
                     >
-                      <i class="fa fa-eye"></i><span class="px-2">View</span>
+                      <i class="fa fa-eye"></i><span class="px-2">Voir</span>
                     </a>
                     <p
                       class="percentage m-0 text-success"
@@ -927,7 +1042,7 @@
                         !uploadPercentage.certificate && urlObject.certificate
                       "
                     >
-                      <span class="px-2">Delete</span
+                      <span class="px-2">Supprimer</span
                       ><i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -968,19 +1083,19 @@
               <p class="text-dark info">
                 <i class="fas fa-info"></i>
 
-                Check <a href="https://www.ilovepdf.com/">ILovePdf</a> for help
-                in converting and merging files
+                Vérifier <a href="https://www.ilovepdf.com/">ILovePdf</a> pour
+                obtenir de l'aide sur la conversion et la fusion de fichiers
               </p>
               <button class="btn-next" type="submit" matStepperNext>
-                Next
+                Suivant
               </button>
             </div>
           </mat-step>
 
           <mat-step>
-            <ng-template matStepLabel>Application Status</ng-template>
+            <ng-template matStepLabel>Statut de la demande</ng-template>
             <div class="third-row">
-              <p class="app-done pt-4">Your application is being reviewed !</p>
+              <p class="app-done pt-4">Votre demande est en cours d'examen !</p>
               <div class="d-flex justify-content-center">
                 <ng-lottie
                   [options]="options"
@@ -989,15 +1104,15 @@
                 ></ng-lottie>
               </div>
               <p class="interview">
-                <i class="fas fa-info"></i>Meanwhile you can start preparing
-                your interview.
+                <i class="fas fa-info"></i>Entre-temps, vous pouvez commencer à
+                préparer votre entretien.
               </p>
               <button
                 data-bs-dismiss="modal"
                 class="pad-btn"
                 (click)="postProgram()"
               >
-                Done
+                Terminé
               </button>
             </div>
           </mat-step>
@@ -1020,33 +1135,34 @@
     <div class="modal-content total-data">
       <br /><br />
       <div class="first-row1">
-        <h1 class="welcome1 pb-0 mb-0">Welcome to</h1>
+        <h1 class="welcome1 pb-0 mb-0">Bienvenue à</h1>
         <div class="">
           <img
             class="img22"
             _ngcontent-lin-c364=""
-            src="../../../../../../assets/images/elysee-logo.png"
+            src="../../../../assets/images/navbar/studentgator icon/logo.svg"
             alt="SG-logo"
             title="Homepage"
           />
         </div>
         <p class="details-tit1">
-          We have your basic information, please review and make sure all your
-          data is accurate.
+          Nous avons reçu vos informations de base, veuillez les vérifier et
+          vous assurer que toutes vos données sont exactes. données sont
+          exactes.
         </p>
       </div>
       <div class="modal-body popup madel-total-body pt-0 mt-0">
         <mat-vertical-stepper linear #stepper>
-          <mat-step *ngIf="ANYPROGRAM">
+          <mat-step>
             <ng-template matStepLabel class="text-label"
-              >Info Verification</ng-template
+              >Vérification des informations</ng-template
             >
 
             <section>
               <div class="all-inputs">
                 <p class="basic-details1">
-                  Note that: to change your basic information, please go to the
-                  "Account settings"
+                  Remarque : pour modifier vos informations de base, veuillez
+                  vous rendre dans la section "Paramètres du compte"
                 </p>
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                   <div class="row mt-lg-2">
@@ -1121,27 +1237,21 @@
                   </div>
                 </form>
                 <button class="btn-next" type="submit" matStepperNext>
-                  Next
+                  Suivant
                 </button>
               </div>
             </section>
           </mat-step>
 
-          <mat-step [editable]="false" *ngIf="PDFGAL">
-            <ng-template matStepLabel>Info Verification</ng-template>
-            <app-galileo-data [programIdChild]="programId"></app-galileo-data>
-          </mat-step>
+         
 
-          <mat-step [editable]="false" *ngIf="PDFFIGS">
-            <ng-template matStepLabel>Info Verification</ng-template>
-            <app-figs [programIdChild]="programId"></app-figs>
-          </mat-step>
+        
 
           <mat-step>
-            <ng-template matStepLabel>Upload Documents</ng-template>
+            <ng-template matStepLabel>Télécharger des documents</ng-template>
             <p class="basic-details1">
-              Please Fill all the field, so you move on to the next step of your
-              application.
+              Veuillez remplir tous les champs, afin de passer à l'étape
+              suivante de votre candidature. candidature.
             </p>
 
             <div class="row first-step-row pt-1">
@@ -1150,7 +1260,7 @@
                   class="doc-details d-flex justify-content-between align-items-center"
                 >
                   <h3>
-                    Resume
+                    Curriculum vitae
                     <span *ngIf="!urlObject.cv" class="text-danger">*</span>
                   </h3>
 
@@ -1161,7 +1271,7 @@
                       [href]="urlObject.cv"
                       target="_blank"
                     >
-                      <i class="fa fa-eye"></i><span class="px-2">View</span>
+                      <i class="fa fa-eye"></i><span class="px-2">Voir</span>
                     </a>
                     <p
                       class="percentage m-0 text-success"
@@ -1175,7 +1285,7 @@
                       (click)="deleteFile('cv', studentUserName)"
                       *ngIf="!uploadPercentage.cv && urlObject.cv"
                     >
-                      <span class="px-2">Delete</span
+                      <span class="px-2">Supprimer</span
                       ><i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -1208,7 +1318,7 @@
                   class="doc-details d-flex justify-content-between align-items-center"
                 >
                   <h3>
-                    Certificate
+                    Certificat
                     <span *ngIf="!urlObject.certificate" class="text-danger"
                       >*</span
                     >
@@ -1221,7 +1331,7 @@
                       [href]="urlObject.certificate"
                       target="_blank"
                     >
-                      <i class="fa fa-eye"></i><span class="px-2">View</span>
+                      <i class="fa fa-eye"></i><span class="px-2">Voir</span>
                     </a>
                     <p
                       class="percentage m-0 text-success"
@@ -1239,7 +1349,7 @@
                         !uploadPercentage.certificate && urlObject.certificate
                       "
                     >
-                      <span class="px-2">Delete</span
+                      <span class="px-2">Supprimer</span
                       ><i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -1280,23 +1390,20 @@
               <p class="text-dark info">
                 <i class="fas fa-info"></i>
 
-                Check <a href="https://www.ilovepdf.com/">ILovePdf</a> for help
-                in converting and merging files
+                Vérifier <a href="https://www.ilovepdf.com/">ILovePdf</a> pour
+                obtenir de l'aide pour convertir et fusionner des fichiers
               </p>
             </div>
             <button class="btn-next" type="submit" matStepperNext>Next</button>
           </mat-step>
 
-          <mat-step [editable]="false" *ngIf="PDFGAL">
-            <ng-template matStepLabel>Galileo Application</ng-template>
-            <app-galileo-data [programIdChild]="programId"></app-galileo-data>
-          </mat-step>
+         
 
           <mat-step>
-            <ng-template matStepLabel>Application Status</ng-template>
+            <ng-template matStepLabel>Statut de la demande</ng-template>
             <div class="third-row1">
               <p class="app-done1 p-0 m-0">
-                Your application is being reviewed !
+                Votre demande est en cours d'examen !
               </p>
 
               <div class="d-flex justify-content-center">
@@ -1308,15 +1415,15 @@
               </div>
 
               <p class="interview1 pt-0">
-                <i class="fas fa-info"></i>Meanwhile you can start preparing
-                your interview.
+                <i class="fas fa-info"></i>Entre-temps, vous pouvez commencer à
+                préparer votre entretien.
               </p>
               <button
                 data-bs-dismiss="modal"
                 class="pad-btn"
                 (click)="postProgram()"
               >
-                Done
+                Terminé
               </button>
             </div>
           </mat-step>

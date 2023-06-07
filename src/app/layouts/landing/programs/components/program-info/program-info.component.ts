@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Program } from 'src/app/shared/models/program';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { StudentsService } from 'src/app/shared/services/students/students.service';
 
 // To configure the snackBar
 import {
@@ -30,10 +31,9 @@ import {
 import { CountryISO, SearchCountryField } from 'ngx-intl-tel-input';
 import { I } from '@angular/cdk/keycodes';
 import { Upload } from 'src/app/shared/services/upload/upload';
-import { UploadService } from 'src/app/shared/services/upload/upload.service';
-import { SchoolsService } from 'src/app/layouts/emp-dashboard/services/schools/schools.service';
-import { StudentsService } from 'src/app/shared/services/students/students.service';
 import { ProgramsService } from '../../services/programs.service';
+import { SchoolsService } from 'src/app/layouts/emp-dashboard/services/schools/schools.service';
+import { UploadService } from 'src/app/shared/services/upload/upload.service';
 interface Field {
   name: string;
 }
@@ -56,12 +56,12 @@ interface Percentage {
   selector: 'app-program-info',
   templateUrl: './program-info.component.html',
   styleUrls: ['./program-info.component.scss'],
+  // encapsulation: ViewEncapsulation.None,
 })
 export class ProgramInfoComponent implements OnInit {
-  lewyer: string = 'jkjkjkj';
-
   files: File[] = [];
   studentUserName: string = String(localStorage.getItem('userName'));
+  specc: any;
   onSelect(event: any) {
     console.log(event);
     this.files.push(...event.addedFiles);
@@ -74,7 +74,7 @@ export class ProgramInfoComponent implements OnInit {
   upload(): void {
     //get image upload file obj;
   }
-  [x: string]: any;
+  // [x: string]: any;
   title: string = 'Overview';
 
   fields: Field[] = [];
@@ -185,6 +185,7 @@ export class ProgramInfoComponent implements OnInit {
     private _SchoolsService: SchoolsService,
     private _StudentsService: StudentsService,
     private _snackBar: MatSnackBar,
+    private studentservice: StudentsService,
     private formBuilder: FormBuilder,
     private router: Router,
     private breakpointObserver: BreakpointObserver,
@@ -233,12 +234,12 @@ export class ProgramInfoComponent implements OnInit {
       )
       .subscribe();
   }
-  ANYPROGRAM: boolean = true;
-  PDFGAL: boolean = false;
-  PDFFIGS: boolean = false;
+  // ANYPROGRAM: boolean = true;
+  // PDFGAL: boolean = false;
+  // PDFFIGS: boolean = false;
   ngOnInit(): void {
     // console.log(this.programName, this.programId, this.name);
-    this._StudentsService.profile(this.email).subscribe((data: any) => {
+    this.studentservice.profile(this.email).subscribe((data: any) => {
       this.infoStudent = data[0].data[0];
       this.selectedField = this.infoStudent.fieldOfInterests;
       console.log(this.infoStudent);
@@ -265,11 +266,11 @@ export class ProgramInfoComponent implements OnInit {
   momo: boolean = false;
   nameCity: string = '';
   videoCity: string = '';
+  jkjkj: any[] = [];
   //change video and cityname by click
-  changeVideo(x: any, y: any, index: any) {
+  changeVideo(x: any, y: any) {
     this.videoCity = x;
     this.nameCity = y;
-    console.log(index);
   }
 
   activeChange(index: any) {
@@ -367,12 +368,12 @@ export class ProgramInfoComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  onResize() {
     this.screenWidth = window.innerWidth;
   }
 
   getProgramInfo(id: number) {
-    this._ProgramsService.getSingleProgramInfo(id).subscribe((data: Program) => {
+    this._ProgramsService.getSingleProgramInfo(id).subscribe((data) => {
       const {
         WhattheydoInfo,
         Whattheystudy,
@@ -385,24 +386,9 @@ export class ProgramInfoComponent implements OnInit {
       this.programData = data;
       this.nameCity = this.programData.cities[0].Name;
       this.videoCity = this.programData.cities[0].youtubelink;
+      this.specc = spec;
       if (spec.length > 1) {
         this.SPECIALISATIONEror = true;
-      }
-
-      if (
-        this.programData.schoolInfo.schoolName.includes('GALILEO') ||
-        this.programData.schoolInfo.schoolName.includes('Galileo')
-      ) {
-        this.ANYPROGRAM = false;
-        this.PDFGAL = true;
-      }
-
-      if (
-        this.programData.schoolInfo.schoolName.includes('FIGS') ||
-        this.programData.schoolInfo.schoolName.includes('Figs')
-      ) {
-        this.ANYPROGRAM = false;
-        this.PDFFIGS = true;
       }
 
       // To call related schools API
@@ -411,7 +397,7 @@ export class ProgramInfoComponent implements OnInit {
       // To get Activities
       this.activities = WhattheydoInfo;
       let activityTotals = 0;
-      WhattheydoInfo.map((obj: { number: number; }) => {
+      WhattheydoInfo.map((obj) => {
         activityTotals += obj.number;
       });
       this.activityPercentage = activityTotals;
@@ -419,7 +405,7 @@ export class ProgramInfoComponent implements OnInit {
       // To get Activities
       this.studies = Whattheystudy;
       let studyTotals = 0;
-      Whattheystudy.map((obj: { number: number; }) => {
+      Whattheystudy.map((obj) => {
         studyTotals += obj.number;
       });
       this.studyPercentage = studyTotals;
@@ -427,7 +413,7 @@ export class ProgramInfoComponent implements OnInit {
       // To get Activities
       this.works = Wheretheywork;
       let workTotals = 0;
-      Wheretheywork.map((obj: { number: number; }) => {
+      Wheretheywork.map((obj) => {
         workTotals += obj.number;
       });
       this.workPercentage = workTotals;
@@ -435,7 +421,7 @@ export class ProgramInfoComponent implements OnInit {
       // To get locations
       this.locations = Wheretheylive;
       let locationTotals = 0;
-      Wheretheylive.map((obj: { number: number; }) => {
+      Wheretheylive.map((obj) => {
         locationTotals += obj.number;
       });
       this.locationsPercentage = locationTotals;
@@ -466,7 +452,7 @@ export class ProgramInfoComponent implements OnInit {
       .subscribe((data: any) => {
         // const dataArray = data as [];
         const [{ programs }] = data;
-        programs.forEach((program: { [x: string]: string | any }) => {
+        programs.forEach((program: any) => {
           this.isFav[program['id']] = true;
         });
       });

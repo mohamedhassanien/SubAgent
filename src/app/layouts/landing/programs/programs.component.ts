@@ -59,7 +59,6 @@ export class ProgramsComponent implements OnInit {
 
   // Arrays
   // Array to select Categories of programs
-  categories: any[] = [];
   // Array of Favorites
   isFav: boolean[] = [];
   // Array of schools
@@ -79,6 +78,14 @@ export class ProgramsComponent implements OnInit {
   filterBox: boolean = false;
   logos: string[] = [];
   oddLogos: string[] = [];
+  newCategories: any[] = [
+    ['Arts, Design & Architecture', 'Arts, Design %26 Architecture'],
+    ['Business & Management', 'Business %26 Management'],
+    ['Computer Science & IT', 'Computer Science %26 IT'],
+    ['Engineering & Technology', 'Engineering %26 Technology'],
+    ['Marketing & communication', 'Marketing %26 communication'],
+  ];
+
   constructor(
     private programService: ProgramsService,
     private _snackBar: MatSnackBar,
@@ -88,8 +95,6 @@ export class ProgramsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // To recall get categories at first
-    this.getCategories();
     // To Intialize the filter form before rendering the component
     // if (sessionStorage.length == 0) {
     this.filterForm = new FormGroup({
@@ -97,6 +102,7 @@ export class ProgramsComponent implements OnInit {
       // 'type': new FormControl('None'),
       city: new FormControl('None'),
       category: new FormControl('None'),
+      type: new FormControl('None'),
       school: new FormControl('None'),
       language: new FormControl('None'),
       budget: new FormControl('None'),
@@ -112,6 +118,7 @@ export class ProgramsComponent implements OnInit {
       // const typeSession = String(sessionStorage.getItem('type'));
       const citySession = String(sessionStorage.getItem('city'));
       const categorySession = String(sessionStorage.getItem('category'));
+      const typeSession = String(sessionStorage.getItem('type'));
       const schoolSession = String(sessionStorage.getItem('school'));
       const languageSession = String(sessionStorage.getItem('language'));
       const budgetSession = String(sessionStorage.getItem('budget'));
@@ -126,6 +133,7 @@ export class ProgramsComponent implements OnInit {
         // 'type': new FormControl(typeSession),
         city: new FormControl(citySession),
         category: new FormControl(categorySession),
+        type: new FormControl(typeSession),
         school: new FormControl(schoolSession),
         language: new FormControl(languageSession),
         budget: new FormControl(budgetSession),
@@ -145,6 +153,7 @@ export class ProgramsComponent implements OnInit {
         language: new FormControl('None'),
         budget: new FormControl('None'),
         skill: new FormControl('None'),
+        type: new FormControl('None'),
       });
     }
 
@@ -159,6 +168,7 @@ export class ProgramsComponent implements OnInit {
       sessionStorage.removeItem('language');
       sessionStorage.removeItem('budget');
       sessionStorage.removeItem('skill');
+      sessionStorage.removeItem('type');
     }
 
     // To recall all programs and assign it to an array after page is loaded
@@ -166,18 +176,14 @@ export class ProgramsComponent implements OnInit {
 
     // To close filter box in case it was opened before
     this.filterBox = false;
+
+    this.getAllCities();
   }
 
-  // to get all categories
-  getCategories() {
-    this.programService.getCategories().subscribe((data) => {
-      let dataArray = data as any[];
-      let newCategories: any[] = [];
-      dataArray.forEach((category) => {
-        newCategories.push([category[0], category[0].replace('&', '%26')]);
-      });
-      this.categories = newCategories;
-      console.log(this.categories);
+  getAllCities() {
+    return this.programService.getCities().subscribe((data: any) => {
+      this.cities = data;
+      console.log(this.cities);
     });
   }
 
@@ -194,6 +200,7 @@ export class ProgramsComponent implements OnInit {
         (data) => {
           // setting the data to an array type
           let dataArray: any = data as [];
+
           this.bachelor = [];
           this.master = [];
           this.mba = [];
@@ -220,10 +227,11 @@ export class ProgramsComponent implements OnInit {
                 this.phd.push(obj.level);
               }
               this.schools.push(obj.schoolName);
-              this.cities.push(obj.city);
+
               this.logos.push(obj.logo);
             }
           );
+
           // getting the odd schools from schools array and sorting them in an ascending order
           for (let i = 0; i < this.schools.length; i++) {
             if (
@@ -250,19 +258,6 @@ export class ProgramsComponent implements OnInit {
           }
           this.oddLogos.sort((a, b) => (a > b ? 1 : -1));
 
-          // getting the odd cities from cities array and sorting them in an ascending order
-          for (let i = 0; i < this.cities.length; i++) {
-            if (
-              !this.oddCities.includes(this.cities[i]) &&
-              this.cities[i] != '' &&
-              this.cities[i] != ' ' &&
-              this.cities[i] != '-'
-            ) {
-              this.oddCities.push(this.cities[i]);
-            }
-          }
-
-          this.oddCities.sort((a, b) => (a > b ? 1 : -1));
           // assiging data to programs
           this.programs = this.shuffle(dataArray);
           this.programsLength = this.programs.length;
@@ -276,13 +271,13 @@ export class ProgramsComponent implements OnInit {
       );
     } else if (sessionStorage.getItem('searchInput')) {
       const searchInputSession = String(sessionStorage.getItem('searchInput'));
-      const typeSession = 'None';
       const citySession = String(sessionStorage.getItem('city'));
       const categorySession = String(sessionStorage.getItem('category'));
       const schoolSession = String(sessionStorage.getItem('school'));
       const languageSession = String(sessionStorage.getItem('language'));
       const budgetSession = String(sessionStorage.getItem('budget'));
       const skillSession = String(sessionStorage.getItem('skill'));
+      const typeSession = String(sessionStorage.getItem('type'));
 
       this.filterForm.patchValue({
         search: searchInputSession == 'None' ? null : searchInputSession,
@@ -292,17 +287,18 @@ export class ProgramsComponent implements OnInit {
         language: languageSession,
         budget: budgetSession,
         skill: skillSession,
+        type: typeSession,
       });
       this.programService
         .getAllFilteredPrograms(
           searchInputSession,
           citySession,
           languageSession,
-          typeSession,
           skillSession,
           budgetSession,
           schoolSession,
-          categorySession
+          categorySession,
+          typeSession
         )
         .subscribe(
           (data) => {
@@ -480,9 +476,9 @@ export class ProgramsComponent implements OnInit {
     }
 
     // const type = filterForm.value.type;
-    const type = 'None';
     const city = filterForm.value.city;
     const category = filterForm.value.category;
+    const type = filterForm.value.type;
     const school = filterForm.value.school;
     const language = filterForm.value.language;
     const budget = filterForm.value.budget;
@@ -496,6 +492,7 @@ export class ProgramsComponent implements OnInit {
     sessionStorage.setItem('language', filterForm.value.language);
     sessionStorage.setItem('budget', filterForm.value.budget);
     sessionStorage.setItem('skill', filterForm.value.skill);
+    sessionStorage.setItem('type', filterForm.value.type);
 
     this.programService
       .getAllFilteredPrograms(
@@ -506,7 +503,7 @@ export class ProgramsComponent implements OnInit {
         skill,
         budget,
         school,
-        category
+        type
       )
       .subscribe(
         (data) => {

@@ -24,8 +24,6 @@ import { CoreModule } from 'src/app/core/core.module';
 import { LandingRoutingModule } from './landing-routing.module';
 import { ProgramsComponent } from './programs/programs.component';
 import { ProgramInfoComponent } from './programs/components/program-info/program-info.component';
-import { FigsComponent } from './programs/components/program-info/figs/figs.component';
-import { GalileoDataComponent } from './programs/components/program-info/galileo-data/galileo-data.component';
 import { LandingComponent } from './landing/landing.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
@@ -35,8 +33,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   declarations: [
     ProgramsComponent,
     ProgramInfoComponent,
-    FigsComponent,
-    GalileoDataComponent,
     LandingComponent,
   ],
   imports: [

@@ -50,7 +50,7 @@ const routes: Routes = [
             children: [
               {
                 path: '',
-                redirectTo: 'nationalities',
+                redirectTo: 'applications',
               },
               {
                 path: 'applications',
