@@ -111,7 +111,7 @@
     "Number": "Number",
     "Source": "Source",
     "Seriousness": "Seriousness",
-    "View": "View",
+    "VIEW": "View",
     "StudentInformation": "Student Information",
     "PersonalProfile": "Personal Profile",
     "EducationStatus": "Education Status",
@@ -204,7 +204,8 @@
     "TopSchoolsApplied": "Top Schools Applied",
     "RejectionPerSchoolVsNationalities": "Rejection Per School Vs Nationalities",
     "RejectionPerSchoolVsEmployee": "Rejection Per School Vs Employee",
-    "ApplicationsStagesVsEmployee": "Applications Stages Vs Employee"
+    "ApplicationsStagesVsEmployee": "Applications Stages Vs Employee",
+    "Documentsof":"Documents of"
   },
 
   "LOGIN": {

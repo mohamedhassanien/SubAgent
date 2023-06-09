@@ -715,7 +715,7 @@
             (click)="openModal(info, 'info-modal', 'xl', [])"
           >
             <mat-icon>remove_red_eye</mat-icon>
-            <span> {{ "EMPDASHBOARD.View" | translate }} </span>
+            <span> {{ "EMPDASHBOARD.VIEW" | translate }} </span>
           </button>
 
           <!-- Profile Info -->
@@ -1080,7 +1080,7 @@
               (click)="assingLead(student.studentUsername, empUserName)"
               *ngIf="mainLink !== 'leads'"
             >
-              {{ "EMPDASHBOARD.ForMe " | translate }}
+              {{ "EMPDASHBOARD.ForMe" | translate }}
             </button>
 
             <mat-menu #others="matMenu">
@@ -1255,8 +1255,8 @@
           <button
             mat-menu-item
             [matMenuTriggerFor]="assign"
-            *ngIf="mainLink === 'all-applications'"
-          >
+            *ngIf="mainLink === 'all-applications' || mainLink ==='site-apps'"
+            >
             <mat-icon>assignment</mat-icon>
             <span> {{ "EMPDASHBOARD.Assign" | translate }}</span>
           </button>
@@ -1265,18 +1265,20 @@
             <button
               mat-menu-item
               (click)="assingLead(student.studentUserName, empUserName)"
-              *ngIf="mainLink === 'all-applications'"
+              *ngIf="mainLink === 'all-applications' || mainLink ==='site-apps'"
             >
               {{ "EMPDASHBOARD.ForMe" | translate }}
             </button>
           </mat-menu>
 
-          <!-- To archive a lead -->
+          <!-- To archive a app -->
           <button
             mat-menu-item
             (click)="archiveApp(student.studentEmail)"
             *ngIf="
-              mainLink === 'all-applications' || mainLink === 'applications'
+              mainLink === 'all-applications' ||
+              mainLink === 'applications' ||
+              mainLink === 'site-apps'
             "
           >
             <mat-icon>archive</mat-icon>
@@ -1374,7 +1376,7 @@
               </tr>
               <tr class="sec-row">
                 <td class="main-desc">
-                  {{ "EMPDASHBOARD.CopyofPasseport/orID" | translate }}
+                  {{ "EMPDASHBOARD.CopyofPasseport" | translate }}
                 </td>
                 <td
                   class="sec-desc d-flex justify-content-between align-items-center"

@@ -107,7 +107,7 @@
     "Number": "Nombre",
     "Source": "Source",
     "Seriousness": "Sérieux",
-    "View": "Voir",
+    "VIEW": "Voir",
     "StudentInformation": "Informations sur les étudiants",
     "PersonalProfile": "Profil personnel",
     "EducationStatus": "Statut de l'éducation",
@@ -200,7 +200,9 @@
     "TopSchoolsApplied": "Principales écoles sollicitées",
     "RejectionPerSchoolVsNationalities": "Refus par école en fonction des nationalités",
     "RejectionPerSchoolVsEmployee": "Refus par école ou par employé",
-    "ApplicationsStagesVsEmployee": "Les étapes de l'application par rapport à l'employé"
+    "ApplicationsStagesVsEmployee": "Les étapes de l'application par rapport à l'employé",
+    "Documentsof":"Documents de"
+    
   },
 
   "LOGIN": {

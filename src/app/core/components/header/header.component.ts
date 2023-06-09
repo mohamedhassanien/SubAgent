@@ -158,9 +158,6 @@ export class HeaderComponent implements OnInit {
   logOut(condition: string) {
     if (condition == 'Logout') {
       localStorage.clear();
-      this._router.navigate(['/auth/login']).then(() => {
-        window.location.reload();
-      });
     }
   }
   logoutMob() {
