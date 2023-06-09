@@ -110,7 +110,7 @@
                     alt="home-icon"
                     class="me-3"
                   />
-                  Programs
+                  Programmes
                   <mat-icon>expand_more</mat-icon>
                 </a>
                 <div class="collapse mt-3" id="collapsePrograms">
@@ -123,9 +123,7 @@
                       class="nav-item d-flex justify-content-start align-items-center"
                     >
                       <img
-                        src="/assets/images/navbar/{{
-                          category[0]
-                        }}.svg"
+                        src="/assets/images/navbar/{{ category[0] }}.svg"
                         alt="category[0]"
                         class="category-img me-2"
                         style="width: 10%"
@@ -154,7 +152,7 @@
                     alt="home-icon"
                     class="me-3"
                   />
-                  <p>My profile</p>
+                  <p>Mon profil</p>
                 </a>
               </li>
 
@@ -169,7 +167,7 @@
                     alt="home-icon"
                     class="me-3"
                   />
-                  <p>Logout</p>
+                  <p>Déconnexion</p>
                 </a>
               </li>
             </ul>
@@ -242,12 +240,11 @@
                 <img
                   src="/assets/images/navbar/profile/My profile.svg"
                   alt="profile-pic"
-                  class="me-3"
+                  class="me-1"
                   style="width: 17%"
                 />
-                My profile
+                Mon profil
               </a>
-              <!--****************************** -->
               <div *ngFor="let link of profileLinks; let i = index">
                 <a
                   class="py-2"
@@ -255,11 +252,9 @@
                   (click)="logOut(link[0])"
                 >
                   <img
-                    src="/assets/images/navbar/profile/{{
-                      link[0]
-                    }}.svg"
+                    src="/assets/images/navbar/profile/{{ link[0] }}.svg"
                     [alt]="link[0]"
-                    class="me-3"
+                    class="me-1"
                     style="width: 17%"
                   />
                   {{ link[0] }}

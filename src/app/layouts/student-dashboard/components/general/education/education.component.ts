@@ -21,18 +21,18 @@ export class EducationComponent implements OnInit {
   // values!: string[];
 
   fullName: string;
-  defaultField: string = 'I have graduated';
+  defaultField: string = "J'ai obtenu mon diplôme";
   educationStatuss: string[] = [
-    'I have graduated',
-    'I am still in High school',
+    "J'ai obtenu mon diplôme",
+    'Je suis encore au lycée',
   ];
 
   countries!: any;
   searchCountry: string = '';
-  countryName: string = 'Country of Education';
+  countryName: string = "Pays d'enseignement";
 
   levelName!: string;
-  levels: string[] = ['Undergraduate', 'Postgraduate'];
+  levels: string[] = ['Premier cycle', 'Troisième cycle'];
 
   gradeName!: string;
   grades: string[] = [
@@ -40,7 +40,7 @@ export class EducationComponent implements OnInit {
     'Bachelor Year 2',
     'Bachelor Year 3',
     'Bachelor Year 4',
-    'Bachelor Year 4',
+    'Bachelor Year 5',
   ];
 
   addOther: boolean = false;
@@ -48,9 +48,9 @@ export class EducationComponent implements OnInit {
   otherInterests: string[] = [];
 
   englishStatus: string[] = [
-    'Yes i have',
-    'I will pass it',
-    'I don’t have a test',
+    "Oui, je l'ai fait",
+    'Je le transmettrai',
+    "Je n'ai pas de test",
   ];
   frenchScores: string[] = ['B1', 'B2', 'C1', 'C2'];
 

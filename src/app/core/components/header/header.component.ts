@@ -57,8 +57,8 @@ export class HeaderComponent implements OnInit {
   profileLinks: any[] = [
     // ['My profile', '/students/dashboard'],
     // ['Edit profile', '/students/myinfo'],
-    ['Programs', '/landing/programs'],
-    ['Logout', '/auth/login'],
+    ['Programmes', '/landing/programs'],
+    ['Déconnexion', '/auth/login'],
   ];
 
   // Elements in HTML

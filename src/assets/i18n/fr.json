@@ -1,6 +1,6 @@
 {
   "PROGRAM": {
-    "headingTitle": "Plus de 1000 programmes dans 80 écoles à travers le monde",
+    "headingTitle": "Plus de 1000 programmes dans 80 écoles à travers le monde",
     "headingDesc": "Il n'a jamais été aussi facile de filtrer les programmes et de trouver ceux qui vous conviennent le mieux.",
     "viewProg": "Voir les programmes",
     "search": "Recherche",
@@ -26,8 +26,8 @@
     "programsAvilable": "Programmes disponibles",
     "Morethan": "Plus de",
     "programs": "programmes",
-    "in": "en",
-    "Schools": "Les écoles du monde entier",
+    "in": "dans",
+    "Schools": "écoles à travers le monde",
     "Programs": "Les programmes",
     "ApplyNow": "Postuler",
     "Overview": "Vue d'ensemble",
@@ -201,8 +201,7 @@
     "RejectionPerSchoolVsNationalities": "Refus par école en fonction des nationalités",
     "RejectionPerSchoolVsEmployee": "Refus par école ou par employé",
     "ApplicationsStagesVsEmployee": "Les étapes de l'application par rapport à l'employé",
-    "Documentsof":"Documents de"
-    
+    "Documentsof": "Documents de"
   },
 
   "LOGIN": {
@@ -269,16 +268,16 @@
     "AttachmentsshouldbePNGJPGorPDFformats": "Les pièces jointes doivent être au format PNG, JPG ou PDF.",
     "Welcometo": "Bienvenue à",
     "Your": "Votre",
-    "studentgator": "studentgator",
+    "studentgator": "Cours-Elysée",
     "profile": "profil",
-    "Thankyouforjoiningus": "en France et à vous accompagner dans toutes les démarches pour nous rejoindre en France",
+    "Thankyouforjoiningus": "Merci d'avoir choisir Cours Elysée, nous  sommes là pour vous aider à rejoindre les meilleurs programmes en France et pour vous accompagner dans toutes les démarches pour nous rejoindre en France.",
     "Continuebelow": "Continuer ci-dessous",
     "three": "trois",
     "easysteps": "étapes simples",
     "Ifyouarenotyetinordertogetintouchwithsomeonefromtheteam": " Si vous ne l'êtes pas encore, pour prendre contact avec un membre de l'équipe",
     "Weinviteyou": "Nous vous invitons à compléter votre barre de progression en effectuant les 3 étapes suivantes",
     "100%complete": "100% complet",
-    "someonefromStudentGatorwillcontactyou": "une personne de StudentGator vous contactera",
+    "someonefromStudentGatorwillcontactyou": "une personne de Cours-Elysée vous contactera",
     "Pleasebesuretoenterthecorrectinformationwhenfillingoutyourprofile.": " Veillez à saisir les informations correctes lorsque vous remplissez votre profil.",
     "Next": "Suivant",
     "Education": "L'éducation",
@@ -356,7 +355,7 @@
     "WhichTypeOfFrench": "Quel type de français?",
     "cancel": "annuler",
     "Ifyouarenotyet": "Si vous ne l'êtes pas encore, pour prendre contact avec un membre de l'équipe",
-    "Inordertogettoknowyoubetter": "Afin de mieux vous connaître, nous vous invitons à compléter votre profil. Une fois le profil complété à 100%, une personne de StudentGator vous contactera.",
+    "Inordertogettoknowyoubetter": "Afin de mieux vous connaître, nous vous invitons à compléter votre profil. Une fois le profil complété à 100%, une personne de Cours-Elysée vous contactera.",
     "Pleasebesuretoenterthecorrectinformation": "Veillez à saisir les informations correctes lorsque vous remplissez votre profil.",
     "Deletepicture": "Supprimer l'image",
     "Reset": "Remise à zéro",
