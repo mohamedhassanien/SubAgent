@@ -22,7 +22,7 @@ export class AdditionalInformationComponent implements OnInit {
     ceil: 25000,
   };
 
-  studyInterests: string[] = ['English test', 'French test', 'Open to both'];
+  studyInterests: string[] = ['Anglais', 'Francais', 'Les deux'];
 
   constructor(
     private _FormBuilder: FormBuilder,

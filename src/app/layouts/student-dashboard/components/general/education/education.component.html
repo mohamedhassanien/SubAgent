@@ -108,7 +108,7 @@
                   {{ countryName | shorten : 25 }}
                   <i
                     class="far fa-times-circle"
-                    *ngIf="countryName !== 'Country of Education' || ''"
+                    *ngIf="countryName !== 'Pays d\'études' || ''"
                     (click)="dropdown.click(); removeCountry()"
                   >
                   </i>
@@ -122,7 +122,7 @@
                       [(ngModel)]="searchCountry"
                       [ngModelOptions]="{ standalone: true }"
                       [value]="
-                        countryName === 'Country of Education'
+                        countryName === 'Pays d\'études'
                           ? ''
                           : countryName
                       "

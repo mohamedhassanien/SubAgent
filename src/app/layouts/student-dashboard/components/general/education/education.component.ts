@@ -221,7 +221,7 @@ export class EducationComponent implements OnInit {
 
   // To reset country selection
   removeCountry() {
-    this.countryName = 'Country of Education';
+    this.countryName = 'Pays d\'études';
   }
 
   // To change grades if I'm still studying option is selected
