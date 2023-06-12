@@ -52,7 +52,8 @@ import { SiteApplicationsComponent } from './components/dashboard/application-ma
 import { EditProgramComponent } from './components/dashboard/programs-management/edit-program/edit-program.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -105,6 +106,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ButtonModule,
     BadgeModule,
     ProgressBarModule,
+    MatInputModule,
     NgxIntlTelInputModule,
     MatSidenavModule,
     DropdownModule,
