@@ -312,6 +312,18 @@
                       {{ status }}
                     </mat-radio-button>
                   </mat-radio-group>
+                  <mat-radio-group
+                  formControlName="enscore"
+                  [(ngModel)]="englishsc">
+                   <mat-radio-button
+                   class="radio-btn col-3"
+                   *ngFor="let score of englishScores"
+                   value="{{ score }}"
+                  
+                 >
+                   {{ score }}
+                 </mat-radio-button>
+                  </mat-radio-group>
                   <h1
                     class="title test-title"
                     *ngIf="stepTwoForm.get('english')?.value === 'Yes i have'"
@@ -396,12 +408,29 @@
                   >
                     <mat-radio-button
                       class="radio-btn col-6 col-md-3"
-                      *ngFor="let status of englishStatus"
+                      *ngFor="let status of frenchStatus"
                       value="{{ status }}"
                     >
                       {{ status }}
                     </mat-radio-button>
                   </mat-radio-group>
+                 <mat-radio-group
+                 formControlName="frscore"
+                 [(ngModel)]="frenchsc">
+                  <mat-radio-button
+                  class="radio-btn col-3"
+                  *ngFor="let score of frenchScores"
+                  value="{{ score }}"
+                 
+                >
+                  {{ score }}
+                </mat-radio-button>
+                 </mat-radio-group>
+                  <mat-radio-group
+                  class="d-flex align-items-start flex-wrap"
+                >
+                
+                </mat-radio-group>
                   <h1
                     class="title test-title"
                     *ngIf="stepTwoForm.get('french')?.value === 'Yes i have'"

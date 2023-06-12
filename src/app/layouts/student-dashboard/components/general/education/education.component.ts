@@ -48,10 +48,15 @@ export class EducationComponent implements OnInit {
   otherInterests: string[] = [];
 
   englishStatus: string[] = [
-    "Oui, je l'ai fait",
-    'Je le transmettrai',
-    "Je n'ai pas de test",
+    "Toiec",
+    'Toefl',
+    "IELTS",
   ];
+  frenchStatus: string[] = [
+    "DELF",
+    'TCF',
+  ];
+  englishScores: string[] = ['B1', 'B2', 'C1', 'C2'];
   frenchScores: string[] = ['B1', 'B2', 'C1', 'C2'];
 
   engScores: object[] = [];
@@ -72,6 +77,9 @@ export class EducationComponent implements OnInit {
   englishstatuswanted!: any;
   englishwanted!: string;
   frenchwanted!: string;
+  englishsc!: string;
+  frenchsc!: string;
+
   constructor(
     private _StudentsService: StudentsService,
     private _FormBuilder: FormBuilder,
@@ -90,10 +98,13 @@ export class EducationComponent implements OnInit {
       // english: ['I don’t have a test', Validators.required],
       english: ['I don’t have a test', Validators.required],
       french: ['I don’t have a test', Validators.required],
+      frscore: [ Validators.required],
+      enscore: [ Validators.required],
     });
   }
 
   ngOnInit(): void {
+    
     this._StudentsService
       .profile(String(localStorage.getItem('userEmail')))
       .subscribe((data: any) => {
@@ -111,6 +122,8 @@ export class EducationComponent implements OnInit {
                 studentEngTest,
                 studentFrenchTest,
                 engTest,
+                frenchTestsTypeAndScore,
+                engTestsTypeAndScore
               },
             ],
           },
@@ -122,6 +135,10 @@ export class EducationComponent implements OnInit {
         this.englishwanted = studentEngTest;
         this.frenchwanted = studentFrenchTest;
         this.englishstatuswanted = engTest;
+        this.frenchsc = frenchTestsTypeAndScore
+        this.englishsc = engTestsTypeAndScore
+
+
       });
     if (
       (this._ActivatedRoute.snapshot.queryParams['step'] == 2 &&
@@ -142,7 +159,7 @@ export class EducationComponent implements OnInit {
   onCheckLabel(interest: string) {
     const form = <FormArray>this.stepTwoForm.get('interests');
     const control = new FormControl(interest);
-    console.log(interest);
+    // console.log(interest);
 
     if (form.value.includes(interest)) {
       const index = form.value.indexOf(interest);
@@ -325,6 +342,9 @@ export class EducationComponent implements OnInit {
     const userEmail = String(localStorage.getItem('userEmail'));
     const userName = String(localStorage.getItem('userName'));
     console.log(formData.value);
+    // this.totalfr = this.frenchwanted.concat(this.frenchsc)
+    // console.log(this.totalfr);
+    
 
     const country = this.countryName;
 
@@ -333,14 +353,14 @@ export class EducationComponent implements OnInit {
 
     const grade = this.gradeName === 'Degree' ? 'None' : this.gradeName;
 
-    console.log(this.engScores, this.frenScores);
+    // console.log(this.engScores, this.frenScores);
 
-    const englishScores = JSON.stringify(this.engScores);
-    const frenchScores = JSON.stringify(this.frenScores);
+    const englishScores = JSON.stringify(this.englishsc);
+    const frenchScores = JSON.stringify(this.frenchsc);
 
-    console.log(englishScores, frenchScores);
+    // console.log(englishScores, frenchScores);
 
-    const { status, interests, english, french } = formData.value;
+    const { status, interests, english, french,frscore,enscore } = formData.value;
 
     this._StudentsService
       .secondStep(
@@ -352,12 +372,12 @@ export class EducationComponent implements OnInit {
         grade,
         interests,
         english,
-        englishScores,
+        enscore,
         french,
-        frenchScores
+        frscore,
+        
       )
       .subscribe(() => {
-        console.log(interests);
 
         this._Router.navigate(
           [
