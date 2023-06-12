@@ -245,6 +245,9 @@
   },
 
   "STUDENTBOARD": {
+    "country":"Country of Education",
+    "letsget":"Let’s get to",
+    "knowyou":"know you !",
     "MyInfo": "My Info",
     "ImpressEveryoneWithYourBestHeadshot": "Impress Everyone With Your Best Headshot",
     "Editprofile": "Edit profile",

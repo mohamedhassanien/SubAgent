@@ -242,6 +242,9 @@
   },
 
   "STUDENTBOARD": {
+    "country":"Pays d'etudes",
+    "letsget":"Faisons",
+    "knowyou":" connaissance !",
     "MyInfo": "Mes informations",
     "ImpressEveryoneWithYourBestHeadshot": "Impressionnez tout le monde avec votre meilleur cliché",
     "Describeyourself": "Décrivez-vous",
