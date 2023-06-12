@@ -53,6 +53,7 @@
   },
 
   "EMPDASHBOARD": {
+    "IntakeYear":"Année d'admission",
     "menu": "MENU",
     "statistics": "Statistiques",
     "nationalities": "Nationalités",
@@ -157,7 +158,7 @@
     "RecommendationLetters": "Lettres de recommandation (avec l'adresse électronique et le numéro de téléphone de la personne de référence)",
     "Certification": "Certification des activités extrascolaires / ou professionnelles",
     "Norecordsfound": "Aucun enregistrement n'a été trouvé",
-    "ListofAllLeads": "Liste de tous les prospects",
+    "ListofAllLeads": "Liste de tous les leads",
     "SchoolOfInterest": "École d'intérêt",
     "ProgramOfInterest": "Programme d'intérêt",
     "Nationality": "Nationalité",
@@ -315,7 +316,7 @@
     "Jobtitle": "Titre du poste",
     "DateofBirth": "Date de naissance",
     "TellUsSomethingAboutYourself": "Parlez-nous de vous",
-    "DiscardChanges": "Modifications des rejets",
+    "DiscardChanges": "Annuler les modifications",
     "Email": "Courriel",
     "Changeyouremail": "Modifier votre adresse électronique",
     "CurrentEmail": "Courriel actuel",
