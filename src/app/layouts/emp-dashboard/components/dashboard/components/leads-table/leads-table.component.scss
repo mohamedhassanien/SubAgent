@@ -628,3 +628,11 @@ a.add-button {
     }
   }
 }
+
+div.cdk-overlay-container,
+div.cdk-overlay-container .cdk-global-overlay-wrapper,
+div.cdk-overlay-container .cdk-overlay-backdrop,
+div.cdk-overlay-container .cdk-overlay-connected-position-bounding-box,
+div.cdk-overlay-container .cdk-overlay-pane {
+  z-index: 1200;
+}

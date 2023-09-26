@@ -205,7 +205,9 @@
     "RejectionPerSchoolVsNationalities": "Rejection Per School Vs Nationalities",
     "RejectionPerSchoolVsEmployee": "Rejection Per School Vs Employee",
     "ApplicationsStagesVsEmployee": "Applications Stages Vs Employee",
-    "Documentsof":"Documents of"
+    "Documentsof":"Documents of",
+    "Comment":"Comment",
+    "Cancel":"Cancel"
   },
 
   "LOGIN": {
