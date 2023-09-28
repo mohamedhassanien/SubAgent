@@ -111,6 +111,38 @@ export class ProspectTableComponent implements OnInit {
   // To edit leads
   editFields(data: any) {
     console.log(data);
+    const {
+      data: {
+        username,
+        name,
+        email,
+        fieldOfInterest,
+        phone,
+        score,
+        nationality,
+      },
+    } = data;
+
+    this._EmployeeService
+      .editProspect(
+        username,
+        name,
+        email,
+        fieldOfInterest,
+        phone,
+        score,
+        nationality
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        const { status, Message } = data;
+        if (status === 201) {
+          this.confirmAction();
+          this.refreshStudents();
+        } else {
+          this.errorAction(Message);
+        }
+      });
   }
 
   // To switch to previous page programmatically
