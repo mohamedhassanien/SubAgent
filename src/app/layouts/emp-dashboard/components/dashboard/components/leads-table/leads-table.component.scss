@@ -11,6 +11,22 @@ a.add-button {
   }
 }
 
+.p-progressbar-determinate .p-progressbar-value {
+  overflow: visible !important;
+}
+
+.p-progressbar-determinate .p-progressbar-label {
+  text-align: center;
+  height: 100%;
+  width: 125px;
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: #495057;
+  line-height: 1.5rem;
+  margin-left: 41.5px;
+}
+
 .status {
   border-radius: 5px;
   padding: 0.25em 0.5rem;
