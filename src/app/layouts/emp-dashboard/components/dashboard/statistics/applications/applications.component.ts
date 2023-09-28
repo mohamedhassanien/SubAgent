@@ -33,6 +33,7 @@ export class ApplicationsComponent implements OnInit {
 
   getAppStages(month: string, year: number) {
     this._StatisticsService.getAppStages(month, year).subscribe((data) => {
+      console.log('stages', data);
       const stagesArr = data as [];
       const stage: [] = [];
       const number: [] = [];

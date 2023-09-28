@@ -202,7 +202,9 @@
     "RejectionPerSchoolVsNationalities": "Refus par école en fonction des nationalités",
     "RejectionPerSchoolVsEmployee": "Refus par école ou par employé",
     "ApplicationsStagesVsEmployee": "Les étapes de l'application par rapport à l'employé",
-    "Documentsof": "Documents de"
+    "Documentsof": "Documents de",
+    "Comment":"Commentaire",
+    "Cancel":"Annuler"
   },
 
   "LOGIN": {

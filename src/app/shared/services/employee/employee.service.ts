@@ -56,6 +56,22 @@ export class EmployeeService {
     );
   }
 
+  editProspect(
+    username: string,
+    name: string,
+    email: string,
+    foi: string,
+    phone: string,
+    score: string,
+    nationality: string
+  ) {
+    return this.http.post(
+      environment.APIURL +
+        `/EditProspect?username=${username}&name=${name}&email=${email}&phone=${phone}&score=${score}&foi=${foi}&nationality=${nationality}`,
+      httpOptions
+    );
+  }
+
   // To get a specific employee students
   getEmployeeStudents() {
     return this.http.post(

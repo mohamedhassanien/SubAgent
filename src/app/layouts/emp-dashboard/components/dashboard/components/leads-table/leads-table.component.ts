@@ -295,6 +295,7 @@ export class LeadsTableComponent implements OnInit {
         studentStatus,
         studentIntakeMonth,
         studentIntakeYear,
+        vip,
       },
     } = data;
 

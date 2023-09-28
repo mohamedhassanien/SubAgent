@@ -50,11 +50,11 @@ export class AllLeadsComponent implements OnInit {
     this.loading = true;
     this._EmployeeService.getAllEmployeesStudents().subscribe((data: any) => {
       const [{ status, employeeStudnents }] = data;
+      console.log(employeeStudnents);
       this.originalStudents = employeeStudnents;
       this.allStudents = employeeStudnents;
       this.loading = false;
       console.log(this.allStudents);
-      
     });
   }
 
