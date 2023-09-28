@@ -93,17 +93,17 @@
       <th pResizableColumn pReorderableColumn>ID</th>
 
       <th
-        pSortableColumn="prospectName"
+        pSortableColumn="name"
         pResizableColumn
         pReorderableColumn
         *ngIf="mainLink !== 'leads'"
       >
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.name" | translate }}
-          <p-sortIcon field="prospectName"></p-sortIcon>
+          <p-sortIcon field="name"></p-sortIcon>
           <p-columnFilter
             type="text"
-            field="prospectName"
+            field="name"
             display="menu"
             [hideOnClear]="true"
             placeholder="Name"
@@ -112,13 +112,13 @@
         </div>
       </th>
 
-      <th pSortableColumn="prospectEmail" pResizableColumn pReorderableColumn>
+      <th pSortableColumn="email" pResizableColumn pReorderableColumn>
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.EmailAddress" | translate }}
-          <p-sortIcon field="prospectEmail"></p-sortIcon>
+          <p-sortIcon field="email"></p-sortIcon>
           <p-columnFilter
             type="text"
-            field="prospectEmail"
+            field="email"
             display="menu"
             [hideOnClear]="true"
             placeholder="Email Address"
@@ -127,13 +127,13 @@
         </div>
       </th>
 
-      <th pSortableColumn="prospectScore" pResizableColumn pReorderableColumn>
+      <th pSortableColumn="score" pResizableColumn pReorderableColumn>
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.Seriousness" | translate }}
-          <p-sortIcon field="prospectScore"></p-sortIcon>
+          <p-sortIcon field="score"></p-sortIcon>
           <p-columnFilter
             type="numeric"
-            field="prospectScore"
+            field="score"
             display="menu"
             [hideOnClear]="true"
             placeholder="score"
@@ -143,7 +143,7 @@
       </th>
 
       <th
-        pSortableColumn="prospectFieldOfInterest"
+        pSortableColumn="fieldOfInterest"
         pResizableColumn
         pReorderableColumn
         *ngIf="mainLink !== 'leads'"
@@ -151,10 +151,10 @@
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.Fieldofintereset" | translate }}
 
-          <p-sortIcon field="prospectFieldOfInterest"></p-sortIcon>
+          <p-sortIcon field="fieldOfInterest"></p-sortIcon>
           <p-columnFilter
             type="text"
-            field="prospectFieldOfInterest"
+            field="fieldOfInterest"
             display="menu"
             [hideOnClear]="true"
             placeholder="Field of intereset"
@@ -163,13 +163,13 @@
         </div>
       </th>
 
-      <th pSortableColumn="prospectPhone" pResizableColumn pReorderableColumn>
+      <th pSortableColumn="phone" pResizableColumn pReorderableColumn>
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.Phone" | translate }}
-          <p-sortIcon field="prospectPhone"></p-sortIcon>
+          <p-sortIcon field="phone"></p-sortIcon>
           <p-columnFilter
             type="numeric"
-            field="prospectPhone"
+            field="phone"
             display="menu"
             [hideOnClear]="true"
             placeholder="Phone Number"
@@ -181,17 +181,17 @@
       </th>
 
       <th
-        pSortableColumn="prospectNationality"
+        pSortableColumn="nationality"
         pResizableColumn
         pReorderableColumn
         *ngIf="mainLink !== 'leads'"
       >
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.Nationality" | translate }}
-          <p-sortIcon field="prospectNationality"></p-sortIcon>
+          <p-sortIcon field="nationality"></p-sortIcon>
           <p-columnFilter
             type="text"
-            field="prospectNationality"
+            field="nationality"
             display="menu"
             [hideOnClear]="true"
             placeholder="Nationality"
@@ -228,7 +228,7 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="prospect"
-        [pEditableColumnField]="'prospectName'"
+        [pEditableColumnField]="'name'"
         [pEditableColumnRowIndex]="rowIndex"
       >
         <p-cellEditor>
@@ -251,7 +251,7 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="prospect"
-        [pEditableColumnField]="'prospectEmail'"
+        [pEditableColumnField]="'email'"
         [pEditableColumnRowIndex]="rowIndex"
       >
         <p-cellEditor>
@@ -274,7 +274,7 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="prospect"
-        [pEditableColumnField]="'prospectScore'"
+        [pEditableColumnField]="'score'"
         [pEditableColumnRowIndex]="rowIndex"
       >
         <p-cellEditor>
@@ -297,7 +297,7 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="prospect"
-        [pEditableColumnField]="'prospectFieldOfInterest'"
+        [pEditableColumnField]="'fieldOfInterest'"
         [pEditableColumnRowIndex]="rowIndex"
       >
         <p-cellEditor>
@@ -320,7 +320,7 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="prospect"
-        [pEditableColumnField]="'prospectPhone'"
+        [pEditableColumnField]="'phone'"
         [pEditableColumnRowIndex]="rowIndex"
       >
         <p-cellEditor>
@@ -343,7 +343,7 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="prospect"
-        [pEditableColumnField]="'prospectNationality'"
+        [pEditableColumnField]="'nationality'"
         [pEditableColumnRowIndex]="rowIndex"
       >
         <p-cellEditor>

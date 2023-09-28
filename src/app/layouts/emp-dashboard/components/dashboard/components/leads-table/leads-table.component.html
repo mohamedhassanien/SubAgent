@@ -29,6 +29,7 @@
     class="p-button-rounded p-button-text"
   ></button>
   <a
+    *ngIf="mainLink !== 'leads'"
     class="add-button ms-auto"
     [routerLink]="[
       '/employees',
@@ -1314,8 +1315,8 @@
         <ng-template #documents let-c="close" let-d="dismiss">
           <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">
-              {{ "EMPDASHBOARD.Documentsof" | translate
-              }} {{ student.studentName }}
+              {{ "EMPDASHBOARD.Documentsof" | translate }}
+              {{ student.studentName }}
             </h4>
             <button
               type="button"
