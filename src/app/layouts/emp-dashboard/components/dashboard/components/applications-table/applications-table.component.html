@@ -231,13 +231,13 @@
         </div>
       </th>
 
-      <th pSortableColumn="vipServices" pResizableColumn pReorderableColumn>
+      <th pSortableColumn="vip" pResizableColumn pReorderableColumn>
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.VipServices" | translate }}
-          <p-sortIcon field="vipServices"></p-sortIcon>
+          <p-sortIcon field="vip"></p-sortIcon>
           <p-columnFilter
             type="text"
-            field="vipServices"
+            field="vip"
             display="menu"
             [hideOnClear]="true"
             class="ms-auto"
@@ -547,7 +547,7 @@
         [pEditableColumnField]="'vipServices'"
         [pEditableColumnRowIndex]="rowIndex"
       >
-        no
+        {{ student.vip }}
       </td>
 
       <td
@@ -1255,8 +1255,8 @@
           <button
             mat-menu-item
             [matMenuTriggerFor]="assign"
-            *ngIf="mainLink === 'all-applications' || mainLink ==='site-apps'"
-            >
+            *ngIf="mainLink === 'all-applications' || mainLink === 'site-apps'"
+          >
             <mat-icon>assignment</mat-icon>
             <span> {{ "EMPDASHBOARD.Assign" | translate }}</span>
           </button>
@@ -1265,7 +1265,9 @@
             <button
               mat-menu-item
               (click)="assingLead(student.studentUserName, empUserName)"
-              *ngIf="mainLink === 'all-applications' || mainLink ==='site-apps'"
+              *ngIf="
+                mainLink === 'all-applications' || mainLink === 'site-apps'
+              "
             >
               {{ "EMPDASHBOARD.ForMe" | translate }}
             </button>
