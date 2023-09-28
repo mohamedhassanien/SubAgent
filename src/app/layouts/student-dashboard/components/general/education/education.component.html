@@ -212,21 +212,24 @@
             <div class="col-12">
               <div class="d-flex justify-content-between check-box-row row">
                 <div class="d-flex flex-column col-12 col-md-6">
-                  <mat-checkbox
+                  <mat-checkbox #checkBox
                     formArrayName="interests"
-                    (click)="onCheckLabel('Arts, Design & Architecture')"
+                    (click)="onCheckLabel('Arts, Design and Architecture')"
+                    [checked]="arts"
                   >
                     {{ "STUDENTBOARD.ArtsDesign&Architecture" | translate }}
                   </mat-checkbox>
                   <mat-checkbox
                     formArrayName="interests"
-                    (click)="onCheckLabel('Business & Management')"
+                    (click)="onCheckLabel('Business and Management')"
+                    [checked]="Business"
                   >
                     {{ "STUDENTBOARD.Business&Management" | translate }}
                   </mat-checkbox>
                   <mat-checkbox
                     formArrayName="interests"
-                    (click)="onCheckLabel('Computer Science & IT')"
+                    (click)="onCheckLabel('Computer Science and IT')"
+                    [checked]="computer"
                   >
                     {{ "STUDENTBOARD.ComputerScience&IT" | translate }}
                   </mat-checkbox>
@@ -234,13 +237,15 @@
                 <div class="d-flex flex-column col-12 col-md-6">
                   <mat-checkbox
                     formArrayName="interests"
-                    (click)="onCheckLabel('Marketing & Communication')"
+                    (click)="onCheckLabel('Marketing and Communication')"
+                    [checked]="marketing"
                   >
                     {{ "STUDENTBOARD.Marketing&Communication" | translate }}
                   </mat-checkbox>
                   <mat-checkbox
                     formArrayName="interests"
-                    (click)="onCheckLabel('Engineering & Technology')"
+                    (click)="onCheckLabel('Engineering and Technology')"
+                    [checked]="engineering"
                   >
                     {{ "STUDENTBOARD.Engineering&Technology" | translate }}
                   </mat-checkbox>

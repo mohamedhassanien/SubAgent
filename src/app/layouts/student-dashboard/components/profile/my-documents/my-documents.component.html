@@ -47,7 +47,7 @@
         </a>
       </div>
       <div
-        class="col-6 col-md-4 documents d-flex flex-column align-items-md-end align-items-start"
+        class="col-6 col-md-4 documents d-flex flex-column align-items-md-center align-items-start"
       >
         <a
           class="d-flex flex-column jsutify-content-center align-items-center"
@@ -115,6 +115,30 @@
           </p>
         </a>
       </div>
+      <!-- //****************************************** -->
+      <div
+      class="col-6 col-md-4 documents d-flex flex-column align-items-md-center align-items-start"
+    >
+      <a
+        class="d-flex flex-column jsutify-content-center align-items-center"
+        [routerLink]="[
+          '/students',
+          fullName,
+          'profile',
+          'mydocuments',
+          'vip'
+        ]"
+      >
+        <img
+          src="../../../../../../assets/images/student-account/documents.svg"
+          alt="document"
+        />
+        <p class="files">1 {{ "STUDENTBOARD.files" | translate }}</p>
+        <p class="category">
+          Vip Documents
+        </p>
+      </a>
+    </div>
     </div>
   </div>
 </section>

@@ -17,6 +17,7 @@ import { MyWishlistComponent } from './components/profile/my-wishlist/my-wishlis
 import { ProfileComponent } from './components/profile/profile.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { MyInfoComponent } from './components/profile/my-info/my-info.component';
+import { VipComponent } from './components/profile/my-documents/vip/vip.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
           {
             path: 'mydocuments/supporting-documents',
             component: SupportingComponent,
+          },
+          {
+            path: 'mydocuments/vip',
+            component: VipComponent,
           },
           {
             path: 'programs',

@@ -441,7 +441,7 @@ export class ProgramsComponent implements OnInit {
     sessionStorage.clear();
     this.filterForm = new FormGroup({
       search: new FormControl(null),
-      // 'type': new FormControl('None'),
+      type: new FormControl('None'),
       city: new FormControl('None'),
       category: new FormControl('None'),
       school: new FormControl('None'),
@@ -483,7 +483,8 @@ export class ProgramsComponent implements OnInit {
     const language = filterForm.value.language;
     const budget = filterForm.value.budget;
     const skill = filterForm.value.skill;
-
+ 
+    
     // sessionStorage.setItem('searchInput', searchValue);
     sessionStorage.setItem('type', filterForm.value.type);
     sessionStorage.setItem('city', filterForm.value.city);
@@ -503,7 +504,7 @@ export class ProgramsComponent implements OnInit {
         skill,
         budget,
         school,
-        type
+        category,
       )
       .subscribe(
         (data) => {

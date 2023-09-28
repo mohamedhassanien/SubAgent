@@ -34,6 +34,7 @@ export class EditProfileComponent implements OnInit {
   birthDate!: string;
   jobTitle!: string;
 
+
   loadingPic: boolean = false;
   msg!: string;
 
@@ -162,6 +163,8 @@ export class EditProfileComponent implements OnInit {
       this.university = university;
       // To assign user Faculty
       this.faculty = faculty;
+      console.log(country);
+      
 
       // To assign country
       if (country === '') {

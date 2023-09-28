@@ -14,6 +14,7 @@ export class AdditionalInformationComponent implements OnInit {
   fullName: string;
   wantedLang!: string;
   thirdStep!: FormGroup;
+  vipservice!: string;
 
   minValue: number = 4000;
   maxValue: number = 10000;
@@ -23,6 +24,7 @@ export class AdditionalInformationComponent implements OnInit {
   };
 
   studyInterests: string[] = ['Anglais', 'Francais', 'Les deux'];
+  vipser: string[] = ['Yes', 'No'];
 
   constructor(
     private _FormBuilder: FormBuilder,
@@ -38,6 +40,7 @@ export class AdditionalInformationComponent implements OnInit {
     // To initiate thirdStep form
     this.thirdStep = this._FormBuilder.group({
       language: [this.wantedLang ? this.wantedLang : '', Validators.required],
+      vip: [this.vipservice ? this.vipservice : '', Validators.required],
     });
   }
 
@@ -60,6 +63,7 @@ export class AdditionalInformationComponent implements OnInit {
             {
               budget: [min, max],
               wantedStudeyLang,
+              vip
             },
           ],
         },
@@ -80,19 +84,22 @@ export class AdditionalInformationComponent implements OnInit {
       }
       // To assing wanted language
       this.wantedLang = wantedStudeyLang;
+      this.vipservice = vip
     });
   }
 
   // To submit the form
   onSubmit(formData: FormGroup) {
     const { language } = formData.value;
+    const { vip } = formData.value;
+    
     const minValue = this.minValue;
     const maxValue = this.maxValue;
     const userEmail = String(localStorage.getItem('userEmail'));
     const userName = String(localStorage.getItem('userName'));
 
     this._StudentsService
-      .thirdStep(userEmail, userName, language, minValue, maxValue)
+      .thirdStep(userEmail, userName, language, minValue, maxValue, vip)
       .subscribe(() => {
         this._Router.navigate([
           '/students',

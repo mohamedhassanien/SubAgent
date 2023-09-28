@@ -151,6 +151,8 @@ export class LandingComponent implements OnInit {
     this._StudentsService
       .getStuProgress(StuName, StuEmail)
       .subscribe((data: any) => {
+        console.log(data);
+        
         if (data[0].status == 200) {
           this.progressPercentage = Math.floor(
             data[0].percentage.replace('%', '')

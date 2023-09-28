@@ -95,6 +95,25 @@
           </mat-radio-button>
         </mat-radio-group>
       </div>
+      <div id="study-in-france" class="mt-3">
+        <h2 class="sub-title">
+         VIP Service
+        </h2>
+        <mat-radio-group
+          class="d-flex align-items-center flex-wrap"
+          formControlName="vip"
+          [(ngModel)]="vipservice"
+        >
+          <mat-radio-button
+            class="radio-btn col-md-3 col-12"
+            *ngFor="let vp of vipser"
+            id="{{ vp }}"
+            value="{{ vp }}"
+          >
+            {{ vp }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
       <hr />
       <div id="budget">
         <h2 class="sub-title">

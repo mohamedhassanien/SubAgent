@@ -43,6 +43,8 @@ export class EducationComponent implements OnInit {
     'Bachelor Year 5',
   ];
 
+
+
   addOther: boolean = false;
   maxInputs: number = 10;
   otherInterests: string[] = [];
@@ -79,6 +81,7 @@ export class EducationComponent implements OnInit {
   frenchwanted!: string;
   englishsc!: string;
   frenchsc!: string;
+  fieldinterests: any
 
   constructor(
     private _StudentsService: StudentsService,
@@ -93,18 +96,23 @@ export class EducationComponent implements OnInit {
     this.getAllCountries();
     // To Initialize the form
     this.stepTwoForm = this._FormBuilder.group({
-      status: ['I have graduated', Validators.required],
+      status: ['', Validators.required],
       interests: new FormArray([], Validators.required),
       // english: ['I don’t have a test', Validators.required],
-      english: ['I don’t have a test', Validators.required],
-      french: ['I don’t have a test', Validators.required],
-      frscore: [ Validators.required],
-      enscore: [ Validators.required],
+      english: ['', Validators.required],
+      french: ['', Validators.required],
+      frscore: [Validators.required],
+      enscore: [Validators.required],
     });
   }
 
+  Business: boolean = false
+  arts: boolean = false
+  computer: boolean = false
+  marketing: boolean = false
+  engineering: boolean = false
+
   ngOnInit(): void {
-    
     this._StudentsService
       .profile(String(localStorage.getItem('userEmail')))
       .subscribe((data: any) => {
@@ -115,6 +123,7 @@ export class EducationComponent implements OnInit {
             data: [
               {
                 countrywanted,
+                location:{country},
                 educationStatus,
                 educationLevel,
                 studentDegree,
@@ -128,7 +137,7 @@ export class EducationComponent implements OnInit {
             ],
           },
         ] = data;
-        this.countryName = countrywanted;
+        this.countryName = country;
         this.statuswanted = educationStatus;
         this.levelName = educationLevel;
         this.gradeName = studentDegree;
@@ -137,9 +146,27 @@ export class EducationComponent implements OnInit {
         this.englishstatuswanted = engTest;
         this.frenchsc = frenchTestsTypeAndScore
         this.englishsc = engTestsTypeAndScore
+        this.fieldinterests = fieldOfInterests
 
+        this.fieldinterests.forEach((e: any) => {
+          if (e.name == 'Business and Management') {
+            this.Business = true
+          } if (e.name == 'Arts, Design and Architecture') {
+            this.arts = true
+          } if (e.name == 'Computer Science and IT') {
+            this.computer = true
+          } if (e.name == 'Marketing and Communication') {
+            this.marketing = true
+          } if (e.name == 'Engineering and Technology') {
+            this.engineering = true
+          }
+
+        });
 
       });
+
+
+
     if (
       (this._ActivatedRoute.snapshot.queryParams['step'] == 2 &&
         this._ActivatedRoute.snapshot.fragment == 'level-of-education') ||
@@ -159,19 +186,21 @@ export class EducationComponent implements OnInit {
   onCheckLabel(interest: string) {
     const form = <FormArray>this.stepTwoForm.get('interests');
     const control = new FormControl(interest);
-    // console.log(interest);
 
     if (form.value.includes(interest)) {
       const index = form.value.indexOf(interest);
       this.maxInputs++;
       form.removeAt(index);
+
     } else {
       this.maxInputs--;
-      if (this.otherInterests.length > this.maxInputs) {
+
+      if (this.fieldinterests.length > this.maxInputs) {
         form.controls.pop();
-        this.otherInterests.pop();
+        this.fieldinterests.pop();
       }
       form.push(control);
+
     }
     if (interest === 'Other' && form.value.includes(interest)) {
       this.addOther = !this.addOther;
@@ -338,29 +367,27 @@ export class EducationComponent implements OnInit {
   }
 
   // To submit the form
+  // interests: []=[]
   onSubmit(formData: FormGroup) {
     const userEmail = String(localStorage.getItem('userEmail'));
     const userName = String(localStorage.getItem('userName'));
-    console.log(formData.value);
-    // this.totalfr = this.frenchwanted.concat(this.frenchsc)
-    // console.log(this.totalfr);
-    
+    const status = formData.value.status
+    let interests = []
+
 
     const country = this.countryName;
-
-    const level =
-      this.levelName === 'Education level' ? 'None' : this.levelName;
-
+    const level = this.levelName === 'Education level' ? 'None' : this.levelName;
     const grade = this.gradeName === 'Degree' ? 'None' : this.gradeName;
 
-    // console.log(this.engScores, this.frenScores);
 
-    const englishScores = JSON.stringify(this.englishsc);
-    const frenchScores = JSON.stringify(this.frenchsc);
+    const english = JSON.stringify(formData.value.english);
+    const french = JSON.stringify(formData.value.french);
+    const enscore = JSON.stringify(formData.value.enscore);
+    const frscore = JSON.stringify(formData.value.frscore);
+    interests = formData.value.interests;
 
-    // console.log(englishScores, frenchScores);
 
-    const { status, interests, english, french,frscore,enscore } = formData.value;
+    // const { status, interests, english, french,frscore,enscore } = formData.value ;
 
     this._StudentsService
       .secondStep(
@@ -375,7 +402,6 @@ export class EducationComponent implements OnInit {
         enscore,
         french,
         frscore,
-        
       )
       .subscribe(() => {
 
@@ -390,4 +416,6 @@ export class EducationComponent implements OnInit {
         );
       });
   }
+
+
 }

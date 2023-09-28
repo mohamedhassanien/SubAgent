@@ -68,7 +68,7 @@ export class MyInfoComponent implements OnInit {
         this.userBio = bio;
         this.userEmail = email;
         this.fieldsInterested = fieldOfInterests;     
-        console.log(fieldOfInterests);
+        // console.log(fieldOfInterests);
         
         this.minBudget = minBudget;
         this.maxBudget = maxBudget;
@@ -77,6 +77,7 @@ export class MyInfoComponent implements OnInit {
         this.university = university;
         this.faculty = faculty;
         this.languageTest = langtest;
+        this.country = country
       }
     });
   }

@@ -103,11 +103,12 @@ export class StudentsService {
     userName: string,
     lang: string,
     min: number,
-    max: number
+    max: number,
+    vip:string
   ) {
     return this.http.post(
       environment.APIURL +
-        `student/stepThreeStudent?studentEmail=${email}&studentUserName=${userName}&wantedStudeyLang=${lang}&studentMinBudget=${min}&studentMaxBudget=${max}`,
+        `student/stepThreeStudent?studentEmail=${email}&studentUserName=${userName}&wantedStudeyLang=${lang}&studentMinBudget=${min}&studentMaxBudget=${max}&vip=${vip}`,
       httpOptions
     );
   }
