@@ -323,17 +323,17 @@
       </th>
 
       <th
-        pSortableColumn="vipServices"
+        pSortableColumn="vip"
         pResizableColumn
         pReorderableColumn
         *ngIf="mainLink !== 'leads'"
       >
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.VipServices" | translate }}
-          <p-sortIcon field="vipServices"></p-sortIcon>
+          <p-sortIcon field="vip"></p-sortIcon>
           <p-columnFilter
             type="text"
-            field="vipServices"
+            field="vip"
             display="menu"
             [hideOnClear]="true"
             placeholder="Employee Name"
@@ -664,11 +664,21 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="student"
-        [pEditableColumnField]="'vipServices'"
+        [pEditableColumnField]="'vip'"
         [pEditableColumnRowIndex]="rowIndex"
         *ngIf="mainLink !== 'leads'"
       >
-        no
+        <ng-template pTemplate="input">
+          <input
+            pInputText
+            type="text"
+            [(ngModel)]="student.vip"
+            class="form-control w-100"
+          />
+        </ng-template>
+        <ng-template pTemplate="output">
+          {{ student.vip }}
+        </ng-template>
       </td>
       <td
         pEditableColumn
