@@ -305,7 +305,6 @@ export class EmployeeService {
     year: string,
     vip?: string
   ) {
-    console.log(vip);
     return this.http.post(
       environment.APIURL +
         `employee/editstudentinfo?empid=${this.empUsername}&studentFullName=${fullName}&studentEmail=${email}&studentUserName=${userName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolInterest=${school}&studnetProgInterest=${program}&source=${source}&serious=${score}&status=${status}&intakeYear=${year}&intakeMonth=${month}&vip=${vip}`,
