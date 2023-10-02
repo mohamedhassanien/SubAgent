@@ -163,8 +163,8 @@ export class ApplicationsComponent implements OnInit {
         sourceName.push(sources['source']);
         sourceNumbers.push(sources['number']);
       }
-      sourceName.shift();
-      sourceNumbers.pop();
+      // sourceName.shift();
+      // sourceNumbers.pop();
 
       this.appSourcesChart = {
         series: sourceNumbers,

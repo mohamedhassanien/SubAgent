@@ -312,7 +312,8 @@ export class LeadsTableComponent implements OnInit {
         studentSeriousnessScore,
         studentStatus,
         studentIntakeMonth,
-        studentIntakeYear
+        studentIntakeYear,
+        vip
       )
       .subscribe((res: any) => {
         const [{ status, Message }] = res;

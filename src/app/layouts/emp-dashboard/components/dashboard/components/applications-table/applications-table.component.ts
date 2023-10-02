@@ -486,6 +486,7 @@ export class ApplicationsTableComponent implements OnInit {
         schoolCampus,
         studentIntakeMonth,
         studentIntakeYear,
+        vip,
       },
     } = data;
 
@@ -503,7 +504,8 @@ export class ApplicationsTableComponent implements OnInit {
         studensStatus,
         schoolCampus,
         studentIntakeMonth,
-        studentIntakeYear
+        studentIntakeYear,
+        vip
       )
       .subscribe((res: any) => {
         const [{ status, Message }] = res;

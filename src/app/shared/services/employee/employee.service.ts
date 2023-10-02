@@ -302,11 +302,13 @@ export class EmployeeService {
     score: string,
     status: string,
     month: string,
-    year: string
+    year: string,
+    vip?: string
   ) {
+    console.log(vip);
     return this.http.post(
       environment.APIURL +
-        `employee/editstudentinfo?empid=${this.empUsername}&studentFullName=${fullName}&studentEmail=${email}&studentUserName=${userName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolInterest=${school}&studnetProgInterest=${program}&source=${source}&serious=${score}&status=${status}&intakeYear=${year}&intakeMonth=${month}`,
+        `employee/editstudentinfo?empid=${this.empUsername}&studentFullName=${fullName}&studentEmail=${email}&studentUserName=${userName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolInterest=${school}&studnetProgInterest=${program}&source=${source}&serious=${score}&status=${status}&intakeYear=${year}&intakeMonth=${month}&vip=${vip}`,
       httpOptions
     );
   }
@@ -325,11 +327,12 @@ export class EmployeeService {
     status: string,
     campus: string,
     month: string,
-    year: string
+    year: string,
+    vip?: string
   ) {
     return this.http.post(
       environment.APIURL +
-        `employee/edit/app?empid=${this.empUsername}&studentFullName=${studentName}&studentEmail=${studentEmail}&studentUserName=${studentUserName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolName=${school}&studnetProgName=${program}&source=${source}&serious=${score}&status=${status}&schoolCampus=${campus}&studnetIntakeMonth=${month}&studnetIntakeYear=${year}`,
+        `employee/edit/app?empid=${this.empUsername}&studentFullName=${studentName}&studentEmail=${studentEmail}&studentUserName=${studentUserName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolName=${school}&studnetProgName=${program}&source=${source}&serious=${score}&status=${status}&schoolCampus=${campus}&studnetIntakeMonth=${month}&studnetIntakeYear=${year}&vip=${vip}`,
       httpOptions
     );
   }

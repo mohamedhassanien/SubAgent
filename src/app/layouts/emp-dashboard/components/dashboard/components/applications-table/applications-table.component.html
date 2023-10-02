@@ -240,6 +240,7 @@
             field="vip"
             display="menu"
             [hideOnClear]="true"
+            placeholder="Employee Name"
             class="ms-auto"
           ></p-columnFilter>
         </div>
@@ -248,7 +249,7 @@
       <th
         pSortableColumn="studentIntakeMonth"
         pResizableColumn
-        pReorderableColumnf
+        pReorderableColumn
       >
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.IntakeMonth" | translate }}
@@ -544,10 +545,22 @@
         pEditableColumn
         class="ui-resizable-column"
         [pEditableColumn]="student"
-        [pEditableColumnField]="'vipServices'"
+        [pEditableColumnField]="'vip'"
         [pEditableColumnRowIndex]="rowIndex"
       >
-        {{ student.vip }}
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="student.vip"
+              class="form-control w-100"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.vip }}
+          </ng-template>
+        </p-cellEditor>
       </td>
 
       <td
