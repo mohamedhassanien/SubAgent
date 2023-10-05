@@ -322,12 +322,7 @@
         </div>
       </th>
 
-      <th
-        pSortableColumn="vip"
-        pResizableColumn
-        pReorderableColumn
-        *ngIf="mainLink !== 'leads'"
-      >
+      <th pSortableColumn="vip" pResizableColumn pReorderableColumn>
         <div class="d-flex align-items-center">
           {{ "EMPDASHBOARD.VipServices" | translate }}
           <p-sortIcon field="vip"></p-sortIcon>
@@ -666,19 +661,20 @@
         [pEditableColumn]="student"
         [pEditableColumnField]="'vip'"
         [pEditableColumnRowIndex]="rowIndex"
-        *ngIf="mainLink !== 'leads'"
       >
-        <ng-template pTemplate="input">
-          <input
-            pInputText
-            type="text"
-            [(ngModel)]="student.vip"
-            class="form-control w-100"
-          />
-        </ng-template>
-        <ng-template pTemplate="output">
-          {{ student.vip }}
-        </ng-template>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="student.vip"
+              class="form-control w-100"
+            />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ student.vip }}
+          </ng-template>
+        </p-cellEditor>
       </td>
       <td
         pEditableColumn
