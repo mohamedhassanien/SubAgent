@@ -1,0 +1,126 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin-bottom: 0;
+    color: var(--primary-black, #121212);
+    line-height: normal;
+}
+
+.one-group {
+    border-radius: 10px;
+    background: var(--primary-white, #FDFDFD);
+    box-shadow: 0px 0px 25px 0px rgba(119, 119, 119, 0.13);
+    padding: 16px;
+
+    .profile {
+        width: 80px;
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: 8px;
+    }
+
+    .box {
+        margin-top: 16px;
+        padding: 16px;
+        text-align: center;
+        justify-content: center;
+        border-radius: var(--5, 5px);
+        border: 2px solid var(--light-purple, #fbe8ea);
+        background: var(--primary-white, #FDFDFD);
+        width: 46.5%;
+
+        h1 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+
+
+    select {
+        border-radius: var(--5, 5px);
+        border: 1px solid var(--secondry-grey, #7B7B7B);
+        padding: 8px 12px 8px 24px;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-black, #121212);
+
+        &:focus {
+            border: none;
+        }
+    }
+
+    .apply {
+        color: var(--primary-white, #FDFDFD);
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        background: var(--primary-purple, #16294f);
+        padding: 8px 32px;
+        border: none;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    .hurry {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    h5 {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+}
+
+.firstprog {
+    border-radius: 27px;
+    background: var(--shade, #fbe8ea);
+
+    .firstbar {
+        border-radius: 27px;
+        background: var(--primary-purple, #16294f);
+    }
+}
+
+.secondprog {
+    border-radius: 27px;
+    background: var(--light-yellow, #FFF2C2);
+
+    .secondbar {
+        border-radius: 27px;
+        background: #DFB102;
+    }
+}
+
+.thirdprog {
+    border-radius: 27px;
+    background: #FFCACA;
+
+    .thirdbar {
+        border-radius: 27px;
+        background: var(--secondry-red, #FF5151);
+    }
+}

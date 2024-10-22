@@ -1,0 +1,181 @@
+<!-- accordion -->
+<section class="accordion">
+    <div class="row">
+        <div class="col-lg-12 px-0">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
+                            (click)="showIconBtn()">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <h3 routerLinkActive="bordertext" style="width: 82%" class="m-0">
+                                    Why is it important to validate your VISA ?
+                                </h3>
+                                <div style="width: 3%" class="open d-flex justify-content-center align-items-center"
+                                    *ngIf="showIcon">
+                                    <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                                </div>
+                                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                                    *ngIf="!showIcon">
+                                    <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h4>It allows you to :</h4>
+                            <ul>
+                                <li>
+                                    <p>Remain in good standing on French territory for the duration of the validity of
+                                        your visa.</p>
+                                </li>
+                                <li>
+                                    <p>Leave France, beyond the 3 months following your arrival, without needing a visa
+                                        to return.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- // -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingtwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapsetwo" aria-expanded="false" aria-controls="flush-collapsetwo"
+                            (click)="showIconBtn2()">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <h3 routerLinkActive="bordertext" style="width: 82%" class="m-0">
+                                    What do you need to validate your VLS-TS visa?
+                                </h3>
+                                <div style="width: 3%" class="open d-flex justify-content-center align-items-center"
+                                    *ngIf="showIcon2">
+                                    <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                                </div>
+                                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                                    *ngIf="!showIcon2">
+                                    <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapsetwo" class="accordion-collapse collapse" aria-labelledby="flush-headingtwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h4>You will need:</h4>
+                            <ul>
+                                <li>
+                                    <p>a valid email address,</p>
+                                </li>
+                                <li>
+                                    <p>information on your visa,</p>
+                                </li>
+                                <li>
+                                    <p>your date of arrival in France,</p>
+                                </li>
+                                <li>
+                                    <p>your home address in France,</p>
+                                </li>
+                                <li>
+                                    <p>a bank card to pay online the fee for issuing the residence permit.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- //// -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingthree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapsethree" aria-expanded="false"
+                            aria-controls="flush-collapsethree" (click)="showIconBtn3()">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <h3 routerLinkActive="bordertext" style="width: 82%" class="m-0">
+                                    When to do it ?
+                                </h3>
+                                <div style="width: 3%" class="open d-flex justify-content-center align-items-center"
+                                    *ngIf="showIcon3">
+                                    <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                                </div>
+                                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                                    *ngIf="!showIcon3">
+                                    <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapsethree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingthree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>Within the <span>first three months following your arrival,</span> you must register and
+                                validate your visa at the following address: <a
+                                    href="https://administration-etrangers-en-france.interieur.gouv.fr/particuliers/#/"
+                                    target="_blank">Accueil | Étrangers en France (interieur.gouv.fr)</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- // -->
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingfour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapsefour" aria-expanded="false"
+                            aria-controls="flush-collapsefour" (click)="showIconBtn4()">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <h3 routerLinkActive="bordertext" style="width: 82%" class="m-0">
+                                    How to do it?
+                                </h3>
+                                <div style="width: 3%" class="open d-flex justify-content-center align-items-center"
+                                    *ngIf="showIcon4">
+                                    <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                                </div>
+                                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                                    *ngIf="!showIcon4">
+                                    <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p><span>A.</span> Sign in : <a
+                                    href="https://administration-etrangers-en-france.interieur.gouv.fr/particuliers/#/"
+                                    target="_blank">administration-etrangers-en-france.interieur.gouv.fr;</a></p>
+                            <p class="mt-lg-3"><span>B.</span> Inform your VISA’s information : number, start and end
+                                date of validity,
+                                date of issue and reason for stay</p>
+                            <p class="mt-lg-3"><span>C.</span> Enter the complementary information such as family
+                                situation, phone
+                                number, email…</p>
+                            <p class="mt-lg-3"><span>D.</span> Pay the tax online, you will need a stamp:</p>
+                            <div class="row back-blue">
+                                <div class="col-lg-6 col-md-6 col-12s">
+                                    <h5>Option 1</h5>
+                                    <p>You can purchase an electronic stamp online. The option is displayed on the
+                                        screen.</p>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <h5>Option 1</h5>
+                                    <p>You enter the number of the electronic stamp you previously purchased.</p>
+                                </div>
+                            </div>
+                            <p class="mt-lg-3 mt-md-2 mt-1"><span>E.</span> Download the confirmation of the validation of your
+                                VLS-TS. That’s it, your visa has been validated !</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- img -->
+<!-- <section class="text-center img-sec d-lg-block d-md-none d-none">
+    <img src="/assets/images/navigator/visa/validate visa/tourist.svg" alt="tourist">
+</section> -->

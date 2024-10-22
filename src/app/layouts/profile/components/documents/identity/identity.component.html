@@ -1,0 +1,171 @@
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button
+        class="accordion-button collapsed d-flex justify-content-between align-items-center"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#flush-collapseOne"
+        aria-expanded="false"
+        aria-controls="flush-collapseOne"
+      >
+      Copie du passeport ou de la carte d'identité
+        <img
+          src="../../../../../../assets/images/profile/documents/add.svg"
+          alt="add"
+        />
+      </button>
+    </h2>
+    <div
+      id="flush-collapseOne"
+      class="accordion-collapse collapse"
+      aria-labelledby="flush-headingOne"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body">
+        <div *ngIf="!firstFileLoading" class="d-flex align-items-center widthcustom">
+          <input
+            class="uploadDocs"
+            id="uploadDocs"
+            type="file"
+            (change)="chooseFirst($event)"
+            accept=".png, .jpg, .jpeg, .pdf, .doc"
+            *ngIf="firstErrorMsg !== 'File has been Deleted Successfully!'"
+          />
+          <label for="uploadDocs" *ngIf="!firstSelectCondition">Copie du passeport ou ID</label>
+          <span class="error-msg" *ngIf="firstSelectCondition">
+            {{ firstErrorMsg }}
+          </span>
+          <!-- <button
+            type="button"
+            class="btn upload-btn ms-auto"
+            (click)="uploadFirst()"
+            *ngIf="firstErrorMsg !== 'File has been Deleted Successfully!'"
+          >
+            Upload
+          </button> -->
+        </div>
+        <div class="d-flex align-items-center" *ngIf="firstFileLoading">
+          <img
+            src="/../assets/images/student-account/photo.svg"
+            alt="upload"
+            class="me-2"
+          />
+          <p class="name">
+            {{ firstFileName }}
+          </p>
+          <div class="d-flex align-items-center ms-auto stats">
+            <p
+              class="percentage"
+              [ngStyle]="{
+                color: firstFilePercentage === 100 ? 'green' : '#8b8b8b'
+              }"
+              *ngIf="firstFilePercentage !== 0"
+            >
+              {{ firstFilePercentage }}%
+            </p>
+            <button
+              class="view"
+              (click)="getFirst()"
+              [disabled]="!firstFileUrl"
+            >
+              view
+            </button>
+            <button
+              class="square d-flex justify-content-center align-items-center"
+              (click)="deleteFirst()"
+              [disabled]="!firstFileUrl"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item mt-3">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button
+        class="accordion-button collapsed d-flex justify-content-between align-items-center"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#flush-collapseTwo"
+        aria-expanded="false"
+        aria-controls="flush-collapseTwo"
+      >
+        Identity photo
+        <img
+          src="../../../../../../assets/images/profile/documents/add.svg"
+          alt="add"
+        />
+      </button>
+    </h2>
+    <div
+      id="flush-collapseTwo"
+      class="accordion-collapse collapse"
+      aria-labelledby="flush-headingTwo"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body">
+        <div *ngIf="!secondFileLoading" class="d-flex align-items-center widthcustom">
+          <input
+            class="uploadDocs"
+            id="uploadDocs2"
+            type="file"
+            (change)="chooseSecond($event)"
+            accept=".png, .jpg, .jpeg, .pdf, .doc"
+            *ngIf="secondErrorMsg !== 'File has been Deleted Successfully!'"
+          />
+          <label for="uploadDocs2" *ngIf="!secondSelectCondition">Upload Photo</label>
+          <span class="error-msg" *ngIf="secondSelectCondition">
+            {{ secondErrorMsg }}
+          </span>
+          <!-- <button
+            type="button"
+            class="btn upload-btn ms-auto"
+            (click)="uploadSecond()"
+            *ngIf="secondErrorMsg !== 'File has been Deleted Successfully!'"
+          >
+            Upload
+          </button> -->
+        </div>
+        <div class="d-flex align-items-center" *ngIf="secondFileLoading">
+          <img
+            src="/../assets/images/student-account/photo.svg"
+            alt="upload"
+            class="me-2"
+          />
+          <p class="name">
+            {{ secondFileName }}
+          </p>
+          <div class="d-flex align-items-center ms-auto stats">
+            <p
+              class="percentage"
+              [ngStyle]="{
+                color: secondFilePercentage === 100 ? 'green' : '#8b8b8b'
+              }"
+              *ngIf="secondFilePercentage !== 0"
+            >
+              {{ secondFilePercentage }}%
+            </p>
+            <button
+              class="view"
+              (click)="getSecond()"
+              [disabled]="!secondFileUrl"
+            >
+              view
+            </button>
+            <button
+              class="square d-flex justify-content-center align-items-center"
+              (click)="deleteSecond()"
+              [disabled]="!secondFileUrl"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

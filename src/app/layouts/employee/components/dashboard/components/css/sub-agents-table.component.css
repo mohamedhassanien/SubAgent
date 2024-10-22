@@ -1,0 +1,166 @@
+.table-outer-container {
+  background-color: #fff;
+}
+
+.table-outer-container table.lead-table {
+  width: 100%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.table-outer-container table.lead-table tr.main-row {
+  border-bottom: 1px solid #484848;
+}
+
+.table-outer-container table.lead-table tr.main-row td button {
+  padding: 10px 32px;
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  background-color: transparent;
+  border: none;
+}
+
+.table-outer-container table.lead-table tr.main-row td button i {
+  margin-left: 16px;
+}
+
+.table-outer-container table.lead-table tr.main-row td button::after {
+  display: none;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu {
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  min-width: 242px;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-header {
+  background-color: #e5e7ff;
+  padding: 10px 0;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-header i {
+  font-size: 18px;
+  color: #16294f;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .filter {
+  padding: 10px 16px;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .filter p {
+  margin-bottom: 9px;
+  font: normal normal normal 14px Poppins;
+  color: #484848;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .filter select {
+  width: 100%;
+  border: 1px solid #ab4851;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .main-list {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .main-list .sec-list {
+  font: normal normal normal 16px Poppins;
+  color: #969696;
+  padding: 10px 0 10px 15px;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .main-list .sec-list:hover {
+  background-color: #ededed;
+  color: #000;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .main-list .reset {
+  font: normal normal normal 14px Poppins;
+  color: #484848;
+  padding: 10px 0 10px 15px;
+}
+
+.table-outer-container table.lead-table tr.main-row td .dropdown-menu .menu-body .main-list .reset:hover {
+  color: #ab4851;
+}
+
+.table-outer-container table.lead-table tr.main-row td:hover {
+  background-color: #dedddd;
+}
+
+.table-outer-container table.lead-table tr.sec-row {
+  border-bottom: 1px solid #dedddd;
+}
+
+.pagination-row {
+  padding: 15px 45px 15px 25px;
+  background-color: #fff;
+  margin-top: -4px;
+  margin-bottom: 50px;
+}
+
+.pagination-row p.numbers {
+  margin: 0;
+  font: normal normal normal 16px Poppins;
+  color: #969696;
+}
+
+.pagination-row ul.pagination {
+  margin: 0;
+}
+
+.pagination-row ngb-pagination li {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.pagination-row ngb-pagination li a {
+  border-radius: 50%;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  font: normal normal normal 14px Poppins;
+  color: #969696;
+}
+
+.pagination-row ngb-pagination li a:hover {
+  background-color: #ab4851;
+  color: #fff;
+}
+
+.pagination-row ngb-pagination li a:focus {
+  background-color: transparent;
+  color: #969696;
+}
+
+.pagination-row ngb-pagination li.active a {
+  background-color: #ab4851;
+  font: normal normal normal 14px Poppins;
+  color: #fff;
+}
+
+.pagination-row ngb-pagination li:first-child a span {
+  display: none;
+}
+
+.pagination-row ngb-pagination li:first-child a:before {
+  content: "<";
+  font: normal normal 600 16px Poppins;
+}
+
+.pagination-row ngb-pagination li:last-child a span {
+  display: none;
+}
+
+.pagination-row ngb-pagination li:last-child a::before {
+  content: ">";
+  font: normal normal 600 16px Poppins;
+}

@@ -60,6 +60,9 @@ export interface Program {
     schoolName: string;
     logo:string
   };
+  gmaps:string;
   spec:[]
+  coverpic:string;
+  logopic: string;
 
 }

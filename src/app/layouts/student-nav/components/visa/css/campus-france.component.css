@@ -1,0 +1,324 @@
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+p span {
+  font-weight: 600;
+}
+
+.back-blue {
+  background: #fbe8ea;
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.back-blue h4 {
+  background: #fbe8ea;
+  border-radius: 5px;
+  text-align: center;
+  padding: 16px 0px;
+}
+
+.back-red {
+  background: #FDC9C9;
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.back-red h1 {
+  font-size: 22px;
+}
+
+.back-red h4 {
+  background: #FFE4E4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 16px 0px;
+  margin-top: 10px;
+}
+
+.back-orange {
+  margin-top: 24px;
+}
+
+.back-orange .row {
+  margin-top: 24px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.back-orange .row .one-col {
+  background: #FFF2C2;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 10px;
+  padding: 24px 15px;
+  width: 48.8%;
+}
+
+.back-orange .row .one-col h5 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.back-orange .row .one-col p {
+  padding-top: 8px;
+}
+
+.accordion .row .accordion-item {
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 24px;
+  background-color: transparent;
+}
+
+.accordion .row .accordion-item h2 {
+  width: 100%;
+  margin: 0;
+  border-radius: 10px;
+  background: #FDFDFD;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+}
+
+.accordion .row .accordion-item h2 button {
+  border-radius: 20px;
+  box-shadow: none !important;
+  background: white;
+  border: 1px solid #16294f;
+}
+
+.accordion .row .accordion-item h2 button::after {
+  display: none;
+}
+
+.accordion .row .accordion-item h2 button h3 {
+  font-weight: 600;
+}
+
+.accordion .row .accordion-item h2 img {
+  width: 24px;
+  height: 24px;
+}
+
+.accordion .row .accordion-item .collapsed {
+  background-color: white;
+  border: none !important;
+  border-radius: 10px;
+  line-height: 1.2;
+  padding: 12px 24px 12px 24px !important;
+}
+
+.accordion .row .accordion-item .collapsed::after {
+  border: none;
+}
+
+.accordion .row .accordion-item .accordion-body {
+  background-color: white;
+  margin-top: 8px;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border: 1px solid #16294f;
+}
+
+.accordion .row .accordion-item .accordion-body .click-here {
+  cursor: pointer;
+}
+
+.accordion .row .accordion-item .accordion-body .describtion a {
+  text-decoration: none;
+  color: rgb(111, 119, 244);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  .back-blue {
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .back-blue h4 {
+    padding: 16px 0px;
+  }
+
+  .back-red {
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .back-red h1 {
+    font-size: 16px;
+  }
+
+  .back-red h4 {
+    padding: 16px 0px;
+  }
+
+  .back-orange {
+    margin-top: 16px;
+  }
+
+  .back-orange .row {
+    margin-top: 16px;
+  }
+
+  .back-orange .row .one-col {
+    padding: 24px 15px;
+    width: 48.8%;
+  }
+
+  .back-orange .row .one-col h5 {
+    font-size: 18px;
+  }
+
+  .back-orange .row .one-col p {
+    padding-top: 8px;
+    line-height: 20px;
+  }
+
+  .accordion .row .accordion-item {
+    margin-bottom: 16px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .modal-dialog .modal-content .modal-header {
+    padding: 16px 8px;
+  }
+
+  .modal-dialog .modal-content .modal-header img {
+    width: 8%;
+  }
+
+  .modal-dialog .modal-content .modal-header h5 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 4px;
+    padding-top: 6px;
+    color: #16294f;
+  }
+
+  .modal-dialog .modal-content .modal-header .button:focus {
+    outline: none !important;
+  }
+
+  .modal-dialog .modal-content .modal-body {
+    padding: 8px 8px 16px 8px;
+  }
+
+  .modals .btn {
+    background-color: #FDFDFD;
+    padding: 14px;
+    margin-top: 16px;
+    border: 1px solid #16294f;
+    border-radius: 5px;
+  }
+
+  .modals .btn h3 {
+    margin-top: 4px;
+  }
+
+  .back-blue {
+    border-radius: 10px;
+    padding: 8px;
+    margin-top: 8px;
+  }
+
+  .back-blue h4 {
+    padding: 4px;
+  }
+
+  .back-red {
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 8px;
+  }
+
+  .back-red h1 {
+    font-size: 14px;
+  }
+
+  .back-red h4 {
+    padding: 8px;
+  }
+
+  .back-orange {
+    margin-top: 16px;
+  }
+
+  .back-orange .row {
+    margin-top: 0px;
+  }
+
+  .back-orange .row .one-col {
+    padding: 8px 30px;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .back-orange .row .one-col h5 {
+    font-size: 14px;
+  }
+
+  .back-orange .row .one-col p {
+    padding-top: 4px;
+    line-height: 18px;
+  }
+}

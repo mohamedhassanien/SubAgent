@@ -1,0 +1,692 @@
+.housing-nav {
+  height: 83px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.filter-section .filter-options {
+  background: #f4f4f4 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  margin-bottom: 21px;
+}
+
+.filter-section .filter-options .filter-number {
+  font: normal normal 600 16px Poppins;
+  color: #6e77f3;
+}
+
+.filter-section .filter-options .notifications {
+  color: #555454;
+}
+
+.filter-section .filter-options .clear-filter {
+  font: normal normal 300 12px Poppins;
+  color: #555454;
+}
+
+.filter-section .mat-expansion-panel {
+  border-radius: 5px;
+  margin: 16px 0;
+}
+
+.filter-section .location {
+  background: #f4f4f4 0% 0% no-repeat padding-box;
+}
+
+.filter-section .location .location-title {
+  font: normal normal 600 16px Poppins;
+  color: #6e77f3;
+}
+
+.filter-section .price {
+  background: #f4f4f4 0% 0% no-repeat padding-box;
+}
+
+.filter-section .price .price-title {
+  font: normal normal 600 16px Poppins;
+  color: #6e77f3;
+}
+
+.filter-section .price .ngx-slider-pointer {
+  top: 0;
+  background: transparent linear-gradient(238deg, #f66666 0%, #6e77f3 100%) 0% 0% no-repeat padding-box;
+}
+
+.filter-section .price .ngx-slider-bar {
+  background: transparent linear-gradient(265deg, #f66666 0%, #6e77f3 100%) 0% 0% no-repeat padding-box;
+}
+
+.filter-section .price p {
+  font: normal normal normal 12px Poppins;
+}
+
+.filter-section .price input {
+  color: #afafaf;
+  font: normal normal normal 12px Poppins;
+}
+
+.filter-section .price .mat-checkbox-inner-container {
+  border-radius: 4px;
+}
+
+.filter-section .date {
+  background: #f4f4f4 0% 0% no-repeat padding-box;
+}
+
+.filter-section .date .date-title {
+  font: normal normal 600 16px Poppins;
+  color: #6e77f3;
+}
+
+.filter-section .date mat-form-field {
+  width: 100% !important;
+}
+
+.filter-section .type .type-title {
+  font: normal normal 600 16px Poppins;
+  color: #6e77f3;
+}
+
+.filter-section .type p {
+  font: normal normal medium 14px/75px Poppins;
+  color: #555454;
+}
+
+.filter-section .type mat-chip {
+  background: #d2d5f7 0% 0% no-repeat padding-box;
+  font: normal normal normal 10px Poppins;
+  color: #555454;
+}
+
+.filter-section .size .size-title,
+.filter-section .size .furniture-title,
+.filter-section .size .facilities-title,
+.filter-section .size .amenities-title,
+.filter-section .size .suitable-for-title,
+.filter-section .size .registration-title,
+.filter-section .furniture .size-title,
+.filter-section .furniture .furniture-title,
+.filter-section .furniture .facilities-title,
+.filter-section .furniture .amenities-title,
+.filter-section .furniture .suitable-for-title,
+.filter-section .furniture .registration-title,
+.filter-section .facilities .size-title,
+.filter-section .facilities .furniture-title,
+.filter-section .facilities .facilities-title,
+.filter-section .facilities .amenities-title,
+.filter-section .facilities .suitable-for-title,
+.filter-section .facilities .registration-title,
+.filter-section .amenities .size-title,
+.filter-section .amenities .furniture-title,
+.filter-section .amenities .facilities-title,
+.filter-section .amenities .amenities-title,
+.filter-section .amenities .suitable-for-title,
+.filter-section .amenities .registration-title,
+.filter-section .suitable-for .size-title,
+.filter-section .suitable-for .furniture-title,
+.filter-section .suitable-for .facilities-title,
+.filter-section .suitable-for .amenities-title,
+.filter-section .suitable-for .suitable-for-title,
+.filter-section .suitable-for .registration-title,
+.filter-section .registration .size-title,
+.filter-section .registration .furniture-title,
+.filter-section .registration .facilities-title,
+.filter-section .registration .amenities-title,
+.filter-section .registration .suitable-for-title,
+.filter-section .registration .registration-title {
+  font: normal normal 600 16px Poppins;
+  color: #6e77f3;
+}
+
+.filter-section .size p,
+.filter-section .furniture p,
+.filter-section .facilities p,
+.filter-section .amenities p,
+.filter-section .suitable-for p,
+.filter-section .registration p {
+  font: normal normal 400 14px Poppins;
+  color: #555454;
+}
+
+.filter-section .size mat-chip,
+.filter-section .furniture mat-chip,
+.filter-section .facilities mat-chip,
+.filter-section .amenities mat-chip,
+.filter-section .suitable-for mat-chip,
+.filter-section .registration mat-chip {
+  background: #d2d5f7 0% 0% no-repeat padding-box;
+  font: normal normal normal 10px Poppins;
+  color: #555454;
+}
+
+.filter-section .info-title {
+  margin-top: 22px;
+  font: normal normal 500 18px/30px Poppins;
+  text-transform: capitalize;
+}
+
+.filter-section .sorting .mat-form-field-flex {
+  background-color: #f2f3ff;
+}
+
+.filter-section a mat-card {
+  border: 0;
+  box-sizing: content-box;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  position: relative;
+}
+
+.filter-section a mat-card .animation {
+  margin: 0;
+  transition: all 400ms ease-in-out;
+}
+
+.filter-section a mat-card .like {
+  transition: all 400ms ease-in-out;
+}
+
+.filter-section a mat-card:hover {
+  box-shadow: 0px 3px 10px #ffc9c9;
+  border: 2px solid #fff7f7;
+}
+
+.filter-section a mat-card:hover .animation {
+  margin-left: -25px;
+}
+
+.filter-section a mat-card:hover .like {
+  margin-right: 7px;
+}
+
+.filter-section a mat-card .sale {
+  width: 141px;
+  height: 23px;
+  background: #16294f 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  color: #fff;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.filter-section a mat-card .sale p {
+  margin: 0;
+  font: normal normal 300 12px/18px Poppins;
+}
+
+.filter-section a mat-card img {
+  height: 190px;
+  border-radius: 5px;
+  margin-bottom: 14px;
+}
+
+.filter-section a mat-card .price {
+  width: 91px;
+  height: 37px;
+  background: transparent linear-gradient(132deg, #ff5151 0%, #16294f 100%) 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  position: absolute;
+  top: 158px;
+  right: 25px;
+}
+
+.filter-section a mat-card .price p {
+  font: normal normal bold 16px/25px Poppins;
+  margin: 0;
+  color: #fff;
+}
+
+.filter-section a mat-card .program-title {
+  font: normal normal 600 16px Poppins;
+  margin: 0;
+}
+
+.filter-section a mat-card .program-name {
+  font: normal normal normal 16px Poppins;
+  text-transform: capitalize;
+  line-height: 1;
+}
+
+.filter-section a mat-card .program-description {
+  font: normal normal 300 12px/16px Poppins;
+  color: #555454;
+}
+
+.filter-section a mat-card .school-name {
+  margin-top: 17px;
+}
+
+.filter-section a mat-card .school-name img {
+  width: 44px;
+  height: 22px;
+}
+
+.filter-section a mat-card .school-name p {
+  margin-left: 8px;
+  font: normal normal normal 16px Poppins;
+}
+
+.filter-section a mat-card .info .first-info {
+  font: normal normal 300 16px Poppins;
+  text-transform: capitalize;
+  color: #8b8b8b;
+}
+
+.filter-section a mat-card .info .first-info p {
+  margin: 0 9px;
+}
+
+.filter-section a mat-card .info hr {
+  margin-top: 14px;
+}
+
+.filter-section a mat-card .info .second-info {
+  font: normal normal 300 16px Poppins;
+  text-transform: capitalize;
+  color: #8b8b8b;
+}
+
+.filter-section a mat-card .info .second-info p {
+  margin: 0 9px;
+}
+
+.filter-section ngb-pagination {
+  margin-top: 80px;
+  margin-bottom: 90px;
+}
+
+.filter-section ngb-pagination .page-item.active .page-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #000;
+}
+
+.filter-section ngb-pagination .page-item .page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  font: normal normal 600 18px/27px Poppins;
+  border: 1px solid #bebebe;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 199.9px) {
+  .mat-expansion-panel {
+    width: 170px;
+    border-radius: 5px;
+    margin: 8px 0;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .container {
+    width: 375px !important;
+  }
+
+  .filter-section .filter-options {
+    background: #f4f4f4 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    margin-bottom: 21px;
+  }
+
+  .filter-section .filter-options .filter-number {
+    font: normal normal 600 16px Poppins;
+    color: #6e77f3;
+  }
+
+  .filter-section .filter-options .notifications {
+    color: #555454;
+  }
+
+  .filter-section .filter-options .clear-filter {
+    font: normal normal 300 12px Poppins;
+    color: #555454;
+  }
+
+  .filter-section .mat-expansion-panel {
+    border-radius: 5px;
+    margin: 16px 0;
+  }
+
+  .filter-section .location {
+    background: #f4f4f4 0% 0% no-repeat padding-box;
+  }
+
+  .filter-section .location .location-title {
+    font: normal normal 600 16px Poppins;
+    color: #6e77f3;
+  }
+
+  .filter-section .price {
+    background: #f4f4f4 0% 0% no-repeat padding-box;
+  }
+
+  .filter-section .price .price-title {
+    font: normal normal 600 16px Poppins;
+    color: #6e77f3;
+  }
+
+  .filter-section .price .ngx-slider-pointer {
+    top: 0;
+    background: transparent linear-gradient(238deg, #f66666 0%, #6e77f3 100%) 0% 0% no-repeat padding-box;
+  }
+
+  .filter-section .price .ngx-slider-bar {
+    background: transparent linear-gradient(265deg, #f66666 0%, #6e77f3 100%) 0% 0% no-repeat padding-box;
+  }
+
+  .filter-section .price p {
+    font: normal normal normal 12px Poppins;
+  }
+
+  .filter-section .price input {
+    color: #afafaf;
+    font: normal normal normal 12px Poppins;
+  }
+
+  .filter-section .price .mat-checkbox-inner-container {
+    border-radius: 4px;
+  }
+
+  .filter-section .date {
+    background: #f4f4f4 0% 0% no-repeat padding-box;
+  }
+
+  .filter-section .date .date-title {
+    font: normal normal 600 16px Poppins;
+    color: #6e77f3;
+  }
+
+  .filter-section .date mat-form-field {
+    width: 100% !important;
+  }
+
+  .filter-section .type .type-title {
+    font: normal normal 600 16px Poppins;
+    color: #6e77f3;
+  }
+
+  .filter-section .type p {
+    font: normal normal medium 14px/75px Poppins;
+    color: #555454;
+  }
+
+  .filter-section .type mat-chip {
+    background: #d2d5f7 0% 0% no-repeat padding-box;
+    font: normal normal normal 10px Poppins;
+    color: #555454;
+  }
+
+  .filter-section .size .size-title,
+  .filter-section .size .furniture-title,
+  .filter-section .size .facilities-title,
+  .filter-section .size .amenities-title,
+  .filter-section .size .suitable-for-title,
+  .filter-section .size .registration-title,
+  .filter-section .furniture .size-title,
+  .filter-section .furniture .furniture-title,
+  .filter-section .furniture .facilities-title,
+  .filter-section .furniture .amenities-title,
+  .filter-section .furniture .suitable-for-title,
+  .filter-section .furniture .registration-title,
+  .filter-section .facilities .size-title,
+  .filter-section .facilities .furniture-title,
+  .filter-section .facilities .facilities-title,
+  .filter-section .facilities .amenities-title,
+  .filter-section .facilities .suitable-for-title,
+  .filter-section .facilities .registration-title,
+  .filter-section .amenities .size-title,
+  .filter-section .amenities .furniture-title,
+  .filter-section .amenities .facilities-title,
+  .filter-section .amenities .amenities-title,
+  .filter-section .amenities .suitable-for-title,
+  .filter-section .amenities .registration-title,
+  .filter-section .suitable-for .size-title,
+  .filter-section .suitable-for .furniture-title,
+  .filter-section .suitable-for .facilities-title,
+  .filter-section .suitable-for .amenities-title,
+  .filter-section .suitable-for .suitable-for-title,
+  .filter-section .suitable-for .registration-title,
+  .filter-section .registration .size-title,
+  .filter-section .registration .furniture-title,
+  .filter-section .registration .facilities-title,
+  .filter-section .registration .amenities-title,
+  .filter-section .registration .suitable-for-title,
+  .filter-section .registration .registration-title {
+    font: normal normal 600 16px Poppins;
+    color: #6e77f3;
+  }
+
+  .filter-section .size p,
+  .filter-section .furniture p,
+  .filter-section .facilities p,
+  .filter-section .amenities p,
+  .filter-section .suitable-for p,
+  .filter-section .registration p {
+    font: normal normal 400 14px Poppins;
+    color: #555454;
+  }
+
+  .filter-section .size mat-chip,
+  .filter-section .furniture mat-chip,
+  .filter-section .facilities mat-chip,
+  .filter-section .amenities mat-chip,
+  .filter-section .suitable-for mat-chip,
+  .filter-section .registration mat-chip {
+    background: #d2d5f7 0% 0% no-repeat padding-box;
+    font: normal normal normal 10px Poppins;
+    color: #555454;
+  }
+
+  .filter-section .info-title {
+    margin-top: 22px;
+    font: normal normal 500 14px/30px Poppins;
+    text-transform: capitalize;
+  }
+
+  .filter-section .sorting .mat-form-field-flex {
+    background-color: #f2f3ff;
+  }
+
+  .filter-section a mat-card {
+    border: 0;
+    box-sizing: content-box;
+    background: #f7f7f7 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .filter-section a mat-card .animation {
+    margin: 0;
+    transition: all 400ms ease-in-out;
+  }
+
+  .filter-section a mat-card .like {
+    transition: all 400ms ease-in-out;
+  }
+
+  .filter-section a mat-card:hover {
+    box-shadow: 0px 3px 10px #ffc9c9;
+    border: 2px solid #fff7f7;
+  }
+
+  .filter-section a mat-card:hover .animation {
+    margin-left: -25px;
+  }
+
+  .filter-section a mat-card:hover .like {
+    margin-right: 7px;
+  }
+
+  .filter-section a mat-card .sale {
+    width: 141px;
+    height: 23px;
+    background: #16294f 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    color: #fff;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+
+  .filter-section a mat-card .sale p {
+    margin: 0;
+    font: normal normal 300 12px/18px Poppins;
+  }
+
+  .filter-section a mat-card img {
+    border-radius: 5px;
+  }
+
+  .filter-section a mat-card .price {
+    width: 111px;
+    height: 31px;
+    background: transparent linear-gradient(132deg, #ff5151 0%, #16294f 100%) 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    position: absolute;
+    top: 166px;
+    left: 36px;
+  }
+
+  .filter-section a mat-card .price p {
+    font: normal normal bold 16px/25px Poppins;
+    margin: 0;
+    color: #fff;
+  }
+
+  .filter-section a mat-card .program-title {
+    font: normal normal 600 14px Poppins;
+    margin: 0;
+  }
+
+  .filter-section a mat-card .program-name {
+    font: normal normal normal 14px Poppins;
+    text-transform: capitalize;
+    line-height: 1;
+  }
+
+  .filter-section a mat-card .program-description {
+    font: normal normal 300 11px/16px Poppins;
+    color: #555454;
+  }
+
+  .filter-section a mat-card .school-name {
+    margin-top: 17px;
+  }
+
+  .filter-section a mat-card .school-name img {
+    width: 44px;
+    height: 22px;
+  }
+
+  .filter-section a mat-card .school-name p {
+    margin-left: 8px;
+    font: normal normal normal 14px Poppins;
+  }
+
+  .filter-section a mat-card .info .first-info {
+    font: normal normal 300 14px Poppins;
+    text-transform: capitalize;
+    color: #8b8b8b;
+  }
+
+  .filter-section a mat-card .info .first-info p {
+    margin: 0 9px;
+  }
+
+  .filter-section a mat-card .info hr {
+    margin-top: 14px;
+  }
+
+  .filter-section a mat-card .info .second-info {
+    font: normal normal 300 14px Poppins;
+    text-transform: capitalize;
+    color: #8b8b8b;
+  }
+
+  .filter-section a mat-card .info .second-info p {
+    margin: 0 9px;
+  }
+
+  .filter-section .options {
+    height: 45px;
+    background: #f7f7f7 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+  }
+
+  .filter-section .options img {
+    width: 26px;
+    height: 23px;
+  }
+
+  .filter-section #filterScreen .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+  }
+
+  .filter-section #filterScreen .filter-box {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    z-index: 100;
+  }
+
+  .filter-section #filterScreen .filter-box .close-btn {
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    top: -25px;
+    border-radius: 50%;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    color: #16294f;
+    font-size: 20px;
+  }
+
+  .filter-section #filterScreen .ngx-slider-pointer {
+    top: 0;
+    background: transparent linear-gradient(238deg, #f66666 0%, #6e77f3 100%) 0% 0% no-repeat padding-box;
+  }
+
+  .filter-section #filterScreen .ngx-slider-bar {
+    background: transparent linear-gradient(265deg, #f66666 0%, #6e77f3 100%) 0% 0% no-repeat padding-box;
+  }
+
+  .filter-section ngb-pagination {
+    margin-top: 80px;
+    margin-bottom: 90px;
+  }
+
+  .filter-section ngb-pagination .page-item.active .page-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #000;
+  }
+
+  .filter-section ngb-pagination .page-item .page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2.5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    font: normal normal 600 18px/27px Poppins;
+    border: 1px solid #bebebe;
+  }
+}

@@ -1,0 +1,135 @@
+<section class="m-4">
+  <div class="row d-flex justify-content-between">
+    <!-- reminder chart -->
+    <div class="col-6 pe-0">
+      <div class="content">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1>
+            Reminders statistics
+          </h1>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between">
+
+          <div class="col-4">
+            <select class="form-select" (change)="onMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled selected>
+                Month
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-4">
+            <select class="form-select" (change)="onYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled selected>
+                Year
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-4">
+            <select class="form-select" (change)="onStatusChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedStatus" disabled selected>
+                Status
+              </option>
+
+              <option [value]="status" *ngFor="let status of Status">
+                {{ status }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-9 mt-3">
+            <select class="form-select" (change)="onemployeeChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedRepresentative" disabled selected>
+                Representative
+              </option>
+
+              <option [value]="res.Username" *ngFor="let res of representatives">
+                {{ res.Name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-3 mt-3">
+            <button (click)="onReminderApply()" class="apply w-100">
+              Apply
+            </button>
+          </div>
+        </div>
+
+        <div id="chart" class="bg-white borderR-2 mt-3">
+          <apx-chart [series]="appReminderChart.series" [chart]="appReminderChart.chart" [labels]="appReminderChart.labels"
+            [responsive]="appReminderChart.responsive" [colors]="appReminderChart.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+
+    <!-- prospect chart -->
+    <div class="col-6 ps-0">
+      <div class="content">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1>
+            Prospects status
+          </h1>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between">
+
+          <div class="col-md-6">
+            <select class="form-select" (change)="onMonthChange1($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth1" disabled selected>
+                Month
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <select class="form-select" (change)="onYearChange1($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear1" disabled selected>
+                Year
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-9 mt-3">
+            <select class="form-select" (change)="onemployeeChange1($event)" id="floatingSelectGrid">
+              <option [value]="selectedRepresentative1" disabled selected>
+                Representative
+              </option>
+
+              <option [value]="res.Username" *ngFor="let res of representatives">
+                {{ res.Name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-3 mt-3">
+            <button (click)="onProspectApply()" class="apply w-100">
+              Apply
+            </button>
+          </div>
+        </div>
+
+        <div id="chart" class="bg-white borderR-2 mt-3">
+          <apx-chart [series]="appProspectChart.series" [chart]="appProspectChart.chart" [labels]="appProspectChart.labels"
+            [responsive]="appProspectChart.responsive" [colors]="appProspectChart.colors"></apx-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

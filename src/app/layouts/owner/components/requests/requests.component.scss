@@ -1,0 +1,86 @@
+.section-container{
+    margin: 32px;
+    .custom-row{
+        .custom-col{
+            position: relative;
+            flex: 0 0 25%;
+            padding: 21px 28px 29px 27.9px;
+            border-radius: 3px;
+            box-shadow: 1.5px 2.6px 10px 0 rgba(119, 119, 119, 0.1);
+            background-color: #fff;
+            .img-holder{
+                width: 126px;
+                height: 126px;
+                margin: 8px auto 18px auto;
+                box-shadow: 0px 10px 30px 0 rgb(0 0 0 / 10%);
+                background-color: #b5b5b5;
+                border-radius: 50%;
+            }
+            .text{
+                text-align: center;
+                >div{
+                    color: #abafb3;
+                    &:first-child::after{
+                        content: "";
+                        width: 35px;
+                        height: 1px;
+                        background-color: var(--main-color);
+                        display: block;
+                        text-align: center;
+                        margin: 10px auto;
+                    }
+                    p{
+                        margin: 0;
+                        font-size: 18px;
+                    }
+                    span{
+                        display: block;
+                        margin: 4px 0 7px 0;
+                        // line-height: 1.5;
+                    }
+                    .main{
+                        color: var(--main-color);
+                    }
+                }
+                .social{
+                    display: flex;
+                    justify-content: center;
+                    gap: 7px;
+                    a{
+                        width: 15px;
+                        height: 15px;
+                        display: inline-block;
+                        img{
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+            .more-action{
+                position: absolute;
+                width: 50%;
+                background-color: white;
+                left: 95%;
+                top: 3%;
+                .btn-holder{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                    button{
+                        color:#464a53;;
+                        text-align: left;
+                        padding: 0 12px;
+                        border: none;
+                        height: 52px;
+                        background-color: unset;
+                        &:hover{
+                            color: var(--main-color);
+                            background-color: rgb(111, 119, 244, .1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

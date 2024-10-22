@@ -1,0 +1,231 @@
+h1,
+h2,
+h3,
+h3,
+h4,
+h5,
+p,
+span {
+  margin-bottom: 0;
+  line-height: normal;
+  color: var(--primary-black, #121212);
+  font-family: "Poppins";
+}
+
+.programs-section {
+  margin-top: 16px;
+}
+
+.programs-section .container-fluid {
+  padding: 0;
+}
+
+.programs-section .container-fluid h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.programs-section .container-fluid .noProgramsFound h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #121212;
+}
+
+.programs-section .container-fluid .noProgramsFound p {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--content-grey, #444);
+  margin-top: 16px;
+}
+
+.programs-section .container-fluid .noProgramsFound button {
+  padding: 8px 32px;
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 24px;
+  margin-top: 16px;
+  border: none;
+}
+
+.programs-section .container-fluid .row .card {
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px 0px rgba(119, 119, 119, 0.13);
+  cursor: pointer;
+}
+
+.programs-section .container-fluid .row .card .main-img {
+  padding: 16px 16px 0px 16px;
+  position: relative;
+}
+
+.programs-section .container-fluid .row .card .main-img img {
+  border-radius: 10px;
+}
+
+.programs-section .container-fluid .row .card .fav-ico {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+}
+
+.programs-section .container-fluid .row .card .fav-ico i,
+.programs-section .container-fluid .row .card .fav-ico img {
+  font-size: 22px;
+  display: inline-block;
+  padding: 0px;
+  border: none;
+  border-radius: 5px;
+}
+
+.programs-section .container-fluid .row .card .fav-ico .white-wishlist {
+  color: #FFF;
+}
+
+.programs-section .container-fluid .row .card .fav-ico .wishlist {
+  color: red;
+  text-shadow: none;
+}
+
+.programs-section .container-fluid .row .card .prog-fee {
+  position: absolute;
+  border-radius: 5px;
+  background: var(--primary-white, #FDFDFD);
+  padding: 4px;
+  right: 24px;
+  top: 136px;
+}
+
+.programs-section .container-fluid .row .card .prog-fee p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.programs-section .container-fluid .row .card .logo-img {
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid var(--primary-black, #121212);
+  background: var(--primary-white, #FDFDFD);
+  width: 128px;
+  height: 60px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  left: 24px;
+  top: 130px;
+}
+
+.programs-section .container-fluid .row .card .logo-img img {
+  padding: 12px;
+}
+
+.programs-section .container-fluid .row .card .card-body {
+  margin-top: 32px;
+  padding: 0px 16px 16px 16px;
+}
+
+.programs-section .container-fluid .row .card .card-body .category {
+  border-radius: 100px;
+  background: var(--shade, #fbe8ea);
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.programs-section .container-fluid .row .card .card-body .pfee {
+  border-radius: 54px;
+  background: #FDD5D5;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+.programs-section .container-fluid .row .card .card-body .progname {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.programs-section .container-fluid .row .card .card-body .schoolname {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.programs-section .container-fluid .row .card .card-body .last-data {
+  padding-top: 8px;
+}
+
+.programs-section .container-fluid .row .card .card-body .last-data p {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.programs-section .container-fluid .row .card:hover {
+  border-radius: 10px;
+  background: var(--primary-white, #FDFDFD);
+  box-shadow: 4px 4px 30px 0px rgba(148, 148, 148, 0.5);
+}
+
+.programs-section .container-fluid .row ngb-pagination {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.programs-section .container-fluid .row ngb-pagination .page-item.active .page-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #16294f 0% 0% no-repeat padding-box;
+  border-color: #16294f;
+  color: #fff;
+}
+
+.programs-section .container-fluid .row ngb-pagination .page-item .page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  font: normal normal 600 18px/27px Poppins;
+  color: #bebebe;
+  border: 1px solid #bebebe;
+}
+
+.noprograms p {
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.noprograms .add-program {
+  padding: 8px 32px;
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+  color: var(--primary-white, #FDFDFD);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+}
+
+.noprograms .contact-us {
+  border-radius: 8px;
+  border: 1px solid var(--primary-purple, #16294f);
+  padding: 8px 32px;
+  color: var(--primary-purple, #16294f);
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 8px;
+  background-color: transparent;
+}

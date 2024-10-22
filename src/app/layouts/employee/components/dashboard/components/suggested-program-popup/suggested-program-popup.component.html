@@ -1,0 +1,998 @@
+<!-- SUGGESTED PROGRAMS POPUPS -->
+
+
+<!-- LIST OF SUGGESTED PROGRAMS -->
+<section>
+    <div class="modal-cards">
+      <div class="modal-header d-flex justify-content-end p-0" style="padding-bottom: 10px !important;">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
+          <button type="button" class="close-btn float-end" aria-label="Close" (click)="closeModal()">
+            <i class="fi-rr-cross-small"></i>
+          </button>
+        </div>
+      </div>
+  
+       <!-- program cards -->
+<div class="row">
+  <h2 *ngIf="chosenProg" class="section-title">Suggested Programs (Chosen by student)</h2>
+</div>
+    <div class="card" *ngFor="let program of chosenProgram; index as i">
+      <div class="row">
+        <div class="col-md-4 col-design">
+          <div class="image-cardstyle" style="height: 150px;">
+            <img class="cardimage"
+              src="../../../../../assets/images/schools/schools logos/{{program.schoolName}}.png"
+              alt="../../../../../assets/images/not-found/bg.png">
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card-body" id="popCard">
+            <div class="d-flex justify-content-between" style="padding-bottom: 0px !important;">
+              <div>
+                <h3 class="card-school">{{program.schoolName}}</h3>
+                <span class="card-price"> € {{program.Price}} </span>
+              </div>
+
+              <button pButton type="button" class="p-button-text p-button-rounded p-button-secondary"
+                icon="pi pi-ellipsis-v" style="padding-top: 0px !important; color: #121212 !important;"
+                [matMenuTriggerFor]="menu"></button>
+
+              <mat-menu #menu="matMenu">
+
+                <!-- edit card -->
+                <div _ngcontent-evs-c382="" class="dropdown-content-profile py-4 px-4 prog-edit-card">
+                  <div class="row edit-card">
+                    <a class="edit-card-text" (click)="openModal(
+                      alterProgramDetails,
+                      'suggested-modal',
+                      'editcardsize',
+                      [i],
+                      true
+                    )">
+                      <i class="fi-rr-pencil edit-card-icon"></i> Edit </a>
+                  </div>
+                  <div class="row edit-card">
+                    <a class="edit-card-text" (click)="deleteSuggestedProgram(i)">
+                      <i class="fi-rr-trash edit-card-icon"></i> Delete </a>
+                  </div>
+                </div>
+                <!-- edit card -->
+              </mat-menu>
+            </div>
+            <div style="margin-bottom: 10px;">
+              <a class="link" href={{program.Link}}>Program Link</a>
+            </div>
+            <div style="max-width:190px; max-height:38px; margin-bottom:10px;">
+              <div class="d-flex justify-content-between">
+                <div class="card-info">
+                  <div class="d-flex" style="padding-bottom: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-calendar.svg"
+                      alt="" style="margin-right: 4px; float:left">
+                    <p>{{program.intakeMonth}}</p>
+                  </div>
+                  <div class="d-flex" style="padding-top: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-globe.svg"
+                      alt="" style="margin-right: 4px;">
+                    <p>{{program.Language}}</p>
+                  </div>
+                </div>
+                <div class="last-data" style="padding-bottom: 4px;">
+                  <div class="d-flex">
+                    <img class="card-icons"
+                      src="../../../.././../assets/images/programs/fi-rr-time-oclock.svg" alt=""
+                      style="margin-right: 4px;">
+                    <p>{{program.duration}}</p>
+                  </div>
+                  <div class="d-flex" style="padding-top: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-marker.svg"
+                      alt="" style="margin-right: 4px;">
+                    <p>Paris</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <span class="comment"><i class="fi-rr-comment"></i>Comment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h2 *ngIf="notchosenProg" class="section-title">Suggested Programs</h2>
+    </div>
+        <div class="card" *ngFor="let program of notchosen; index as i">
+          <div class="row">
+            <div class="col-md-4 col-design">
+              <div class="image-cardstyle" style="height: 150px;">
+                <img class="cardimage"
+                  src="../../../../../assets/images/schools/schools logos/{{program.schoolName}}.png"
+                  alt="../../../../../assets/images/not-found/bg.png">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="card-body" id="popCard">
+                <div class="d-flex justify-content-between" style="padding-bottom: 0px !important;">
+                  <div>
+                    <h3 class="card-school">{{program.schoolName}}</h3>
+                    <span class="card-price"> € {{program.Price}} </span>
+                  </div>
+    
+                  <button pButton type="button" class="p-button-text p-button-rounded p-button-secondary"
+                    icon="pi pi-ellipsis-v" style="padding-top: 0px !important; color: #121212 !important;"
+                    [matMenuTriggerFor]="menu"></button>
+    
+                  <mat-menu #menu="matMenu">
+    
+                    <!-- edit card -->
+                    <div _ngcontent-evs-c382="" class="dropdown-content-profile py-4 px-4 prog-edit-card">
+                      <div class="row edit-card">
+                        <a class="edit-card-text" (click)="openModal(
+                          alterProgramDetails,
+                          'suggested-modal',
+                          'editcardsize',
+                          [i],
+                          true
+                        )">
+                          <i class="fi-rr-pencil edit-card-icon"></i> Edit </a>
+                      </div>
+                      <div class="row edit-card">
+                        <a class="edit-card-text" (click)="deleteSuggestedProgram(i)">
+                          <i class="fi-rr-trash edit-card-icon"></i> Delete </a>
+                      </div>
+                    </div>
+                    <!-- edit card -->
+                  </mat-menu>
+                </div>
+                <div style="margin-bottom: 10px;">
+                  <a class="link" href={{program.Link}}>Program Link</a>
+                </div>
+                <div style="max-width:190px; max-height:38px; margin-bottom:10px;">
+                  <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                      <div class="d-flex" style="padding-bottom: 4px;">
+                        <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-calendar.svg"
+                          alt="" style="margin-right: 4px; float:left">
+                        <p>{{program.intakeMonth}}</p>
+                      </div>
+                      <div class="d-flex" style="padding-top: 4px;">
+                        <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-globe.svg"
+                          alt="" style="margin-right: 4px;">
+                        <p>{{program.Language}}</p>
+                      </div>
+                    </div>
+                    <div class="last-data" style="padding-bottom: 4px;">
+                      <div class="d-flex">
+                        <img class="card-icons"
+                          src="../../../.././../assets/images/programs/fi-rr-time-oclock.svg" alt=""
+                          style="margin-right: 4px;">
+                        <p>{{program.duration}}</p>
+                      </div>
+                      <div class="d-flex" style="padding-top: 4px;">
+                        <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-marker.svg"
+                          alt="" style="margin-right: 4px;">
+                        <p>Paris</p>
+                      </div>
+                    </div>
+    
+                  </div>
+    
+                </div>
+                <span class="comment"><i class="fi-rr-comment"></i>Comment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- program cards -->
+
+      <div class="row card-bottom">
+        <div class="btn-container d-flex justify-content-end">
+          <div class="add-prog">
+            <button style="background: none; border: none; display:flex;" 
+            (click)="openModal(suggested,
+            'suggested-modal',
+            'xl',
+            [])">
+              <i class="fi fi-rr-plus-small add-sug add-another-prog"></i>
+              <span class="add-sug">Add Program</span>
+            </button>
+          </div>
+          <button class="submit-button card-button" type="button" (click)="closeModal()">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+</section>
+
+<ng-template #suggestedCard let-c="close" let-d="dismiss">
+    <div class="modal-cards">
+      <div class="modal-header d-flex justify-content-end p-0" style="padding-bottom: 10px !important;">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
+          <button type="button" class="close-btn float-end" aria-label="Close" (click)="closeModal()">
+            <i class="fi-rr-cross-small"></i>
+          </button>
+        </div>
+      </div>
+  
+       <!-- program cards -->
+<div class="row">
+  <h2 *ngIf="chosenProg" class="section-title">Suggested Programs (Chosen by student)</h2>
+</div>
+    <div class="card" *ngFor="let program of chosenProgram; index as i">
+      <div class="row">
+        <div class="col-md-4 col-design">
+          <div class="image-cardstyle" style="height: 150px;">
+            <img class="cardimage"
+              src="../../../../../assets/images/schools/schools logos/{{program.schoolName}}.png"
+              alt="../../../../../assets/images/not-found/bg.png">
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card-body" id="popCard">
+            <div class="d-flex justify-content-between" style="padding-bottom: 0px !important;">
+              <div>
+                <h3 class="card-school">{{program.schoolName}}</h3>
+                <span class="card-price"> € {{program.Price}} </span>
+              </div>
+
+              <button pButton type="button" class="p-button-text p-button-rounded p-button-secondary"
+                icon="pi pi-ellipsis-v" style="padding-top: 0px !important; color: #121212 !important;"
+                [matMenuTriggerFor]="menu"></button>
+
+              <mat-menu #menu="matMenu">
+
+                <!-- edit card -->
+                <div _ngcontent-evs-c382="" class="dropdown-content-profile py-4 px-4 prog-edit-card">
+                  <div class="row edit-card">
+                    <a class="edit-card-text" (click)="openModal(
+                      alterProgramDetails,
+                      'suggested-modal',
+                      'editcardsize',
+                      [i],
+                      true
+                    )">
+                      <i class="fi-rr-pencil edit-card-icon"></i> Edit </a>
+                  </div>
+                  <div class="row edit-card">
+                    <a class="edit-card-text" (click)="deleteSuggestedProgram(i)">
+                      <i class="fi-rr-trash edit-card-icon"></i> Delete </a>
+                  </div>
+                </div>
+                <!-- edit card -->
+              </mat-menu>
+            </div>
+            <div style="margin-bottom: 10px;">
+              <a class="link" href={{program.Link}}>Program Link</a>
+            </div>
+            <div style="max-width:190px; max-height:38px; margin-bottom:10px;">
+              <div class="d-flex justify-content-between">
+                <div class="card-info">
+                  <div class="d-flex" style="padding-bottom: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-calendar.svg"
+                      alt="" style="margin-right: 4px; float:left">
+                    <p>{{program.intakeMonth}}</p>
+                  </div>
+                  <div class="d-flex" style="padding-top: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-globe.svg"
+                      alt="" style="margin-right: 4px;">
+                    <p>{{program.Language}}</p>
+                  </div>
+                </div>
+                <div class="last-data" style="padding-bottom: 4px;">
+                  <div class="d-flex">
+                    <img class="card-icons"
+                      src="../../../.././../assets/images/programs/fi-rr-time-oclock.svg" alt=""
+                      style="margin-right: 4px;">
+                    <p>{{program.duration}}</p>
+                  </div>
+                  <div class="d-flex" style="padding-top: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-marker.svg"
+                      alt="" style="margin-right: 4px;">
+                    <p>Paris</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <span class="comment"><i class="fi-rr-comment"></i>Comment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h2 *ngIf="notchosenProg" class="section-title">Suggested Programs </h2>
+    </div>
+        <div class="card" *ngFor="let program of notchosen; index as i">
+          <div class="row">
+            <div class="col-md-4 col-design">
+              <div class="image-cardstyle" style="height: 150px;">
+                <img class="cardimage"
+                  src="../../../../../assets/images/schools/schools logos/{{program.schoolName}}.png"
+                  alt="../../../../../assets/images/not-found/bg.png">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="card-body" id="popCard">
+                <div class="d-flex justify-content-between" style="padding-bottom: 0px !important;">
+                  <div>
+                    <h3 class="card-school">{{program.schoolName}}</h3>
+                    <span class="card-price"> € {{program.Price}} </span>
+                  </div>
+    
+                  <button pButton type="button" class="p-button-text p-button-rounded p-button-secondary"
+                    icon="pi pi-ellipsis-v" style="padding-top: 0px !important; color: #121212 !important;"
+                    [matMenuTriggerFor]="menu"></button>
+    
+                  <mat-menu #menu="matMenu">
+    
+                    <!-- edit card -->
+                    <div _ngcontent-evs-c382="" class="dropdown-content-profile py-4 px-4 prog-edit-card">
+                      <div class="row edit-card">
+                        <a class="edit-card-text" (click)="openModal(
+                          alterProgramDetails,
+                          'suggested-modal',
+                          'editcardsize',
+                          [i],
+                          true
+                        )">
+                          <i class="fi-rr-pencil edit-card-icon"></i> Edit </a>
+                      </div>
+                      <div class="row edit-card">
+                        <a class="edit-card-text" (click)="deleteSuggestedProgram(i)">
+                          <i class="fi-rr-trash edit-card-icon"></i> Delete </a>
+                      </div>
+                    </div>
+                    <!-- edit card -->
+                  </mat-menu>
+                </div>
+                <div style="margin-bottom: 10px;">
+                  <a class="link" href={{program.Link}}>Program Link</a>
+                </div>
+                <div style="max-width:190px; max-height:38px; margin-bottom:10px;">
+                  <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                      <div class="d-flex" style="padding-bottom: 4px;">
+                        <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-calendar.svg"
+                          alt="" style="margin-right: 4px; float:left">
+                        <p>{{program.intakeMonth}}</p>
+                      </div>
+                      <div class="d-flex" style="padding-top: 4px;">
+                        <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-globe.svg"
+                          alt="" style="margin-right: 4px;">
+                        <p>{{program.Language}}</p>
+                      </div>
+                    </div>
+                    <div class="last-data" style="padding-bottom: 4px;">
+                      <div class="d-flex">
+                        <img class="card-icons"
+                          src="../../../.././../assets/images/programs/fi-rr-time-oclock.svg" alt=""
+                          style="margin-right: 4px;">
+                        <p>{{program.duration}}</p>
+                      </div>
+                      <div class="d-flex" style="padding-top: 4px;">
+                        <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-marker.svg"
+                          alt="" style="margin-right: 4px;">
+                        <p>Paris</p>
+                      </div>
+                    </div>
+    
+                  </div>
+    
+                </div>
+                <span class="comment"><i class="fi-rr-comment"></i>Comment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- program cards -->
+
+      <div class="row card-bottom">
+        <div class="btn-container d-flex justify-content-end">
+          <div class="add-prog">
+            <button style="background: none; border: none; display:flex;" 
+            (click)="openModal(suggested,
+            'suggested-modal',
+            'xl',
+            [])">
+              <i class="fi fi-rr-plus-small add-sug add-another-prog"></i>
+              <span class="add-sug">Add Program</span>
+            </button>
+          </div>
+          <button class="submit-button card-button" type="button" (click)="closeModal()">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+</ng-template>
+  
+  <!-- ADD SUGGESTED PROGRAM -->
+  
+  <ng-template #suggested let-c="close" let-d="dismiss">
+    <div class="modal-header d-flex justify-content-end p-0" style="padding-bottom: 10px !important;">
+      <div class="col-sm-6">
+        <h2 class="section-title">Suggested Programs</h2>
+      </div>
+      <div class="col-sm-6">
+        <button type="button" class="close-btn float-end" aria-label="Close" (click)="cancelForm()">
+          <i class="fi-rr-cross-small"></i>
+        </button>
+      </div>
+  
+  
+    </div>
+    <div class="row">
+  
+      <div class="col-12">
+        <form class="form-section" [formGroup]="suggestedSchoolForm" (ngSubmit)="addSuggestedSchool()" #f="ngForm">
+          <div class="row heightset">
+            <div class="col-sm-6 input-col">
+              <label for="school" class="inputfield">Suggested School*</label>
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolSuggestion>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': addSugg_schoolName !== 'Select School'
+                    }">
+                    {{addSugg_schoolName}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="schoolSearch"
+                        [ngModelOptions]="{ standalone: true }" />
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="school" *ngFor="
+                          let school of schools
+                            | filterOne : schoolSearch
+                        " (click)="
+                        changeSelectionSugg('school', $event);
+                          schoolSuggestion.click()
+                        ">
+                          {{ school.schoolName }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="programName" class="inputfield">Program Name*</label>
+              <!-- <input type="text" class="form-input form-control" formControlName="programName"> -->
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolprogram>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': suggestedSchoolProg !== 'Select Program' && suggestedSchoolProg !== 'Select School First'
+                    }">
+                    {{suggestedSchoolProg}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="programSearch"
+                        [ngModelOptions]="{ standalone: true }" 
+                        [value]="
+                        suggestedSchoolProg === 'Select Program'
+                        ? ''
+                        : suggestedSchoolProg
+                    "/>
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="program" *ngFor="
+                        let program of schoolPrograms
+                          | filterOne : programSearch
+                          let i = index
+                      " (click)="
+                      changeSelectionSugg('program', $event, i);
+                        schoolprogram.click()
+                      ">
+                          {{ program.name }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row heightset">
+            <div class="col-sm-6 input-col">
+              <label for="field" class="inputfield">Field</label>
+              <input type="text" class="form-input form-control" formControlName="programField" [readonly]="true">
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="price" class="inputfield">Program Price</label>
+              <input type="number" class="form-input form-control" formControlName="programPrice" [readonly]="true">
+            </div>
+          </div>
+          <div class="row heightset">
+  
+  
+            <div class="col-sm-6 input-col">
+              <label for="intakeMonth" class="inputfield">Intake Month*</label>
+              <!-- <input type="text" class="form-input form-control" formControlName="intakeMonth" [readonly]="true"> -->
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolSuggestion>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': intakeMonth !== 'Select Intake' && intakeMonth !== 'Select School First' && intakeMonth !== 'Select Program First'
+                    }">
+                    {{intakeMonth}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="intakeSearch"
+                        [ngModelOptions]="{ standalone: true }" />
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="month" *ngFor="
+                          let month of inTakeMonths
+                            | filterOne : intakeSearch
+                        " (click)="
+                        changeSelectionSugg('intakeMonth', $event);
+                          schoolSuggestion.click()
+                        ">
+                          {{ month }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="duration" class="inputfield">Duration</label>
+              <input type="text" class="form-input form-control" formControlName="Duration" [readonly]="true">
+            </div>
+          </div>
+          <div class="row heightset">
+            <div class="col-sm-6 input-col">
+              <label for="link" class="inputfield">Program Link*</label>
+              <input type="text" class="form-input form-control" formControlName="programLink">
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="price" class="inputfield">Program Language*</label>
+              <!-- <input type="text" class="form-input form-control" formControlName="programLang" [readonly]="true"> -->
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolprogram>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': ProgramLanguage !== 'Select Language' && ProgramLanguage !== 'Select School First' && ProgramLanguage !== 'Select Program First'
+                    }">
+                    {{ProgramLanguage}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="languageSearch"
+                        [ngModelOptions]="{ standalone: true }" 
+                        [value]="
+                        ProgramLocation === 'Select Location'
+                        ? ''
+                        : ProgramLocation
+                    "/>
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="lang" *ngFor="
+                        let lang of programLanguages
+                          | filterOne : languageSearch
+                          let i = index
+                      " (click)="
+                      changeSelectionSugg('language', $event, i);
+                        schoolprogram.click()
+                      ">
+                          {{ lang }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row heightset">
+  
+          
+          <div class="col-sm-6 input-col">
+            <label for="programName" class="inputfield">Location*</label>
+            <!-- <input type="text" class="form-input form-control" formControlName="programName"> -->
+            <div class="row ">
+              <div class="dropdown-center dropdown-col" #schoolprogram>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                  type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                  [ngClass]="{
+                    'text-dark': ProgramLocation !== 'Select Location' && ProgramLocation !== 'Select School First' && ProgramLocation !== 'Select Program First'
+                  }">
+                  {{ProgramLocation}}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="locationSearch"
+                      [ngModelOptions]="{ standalone: true }" 
+                      [value]="
+                      ProgramLocation === 'Select Location'
+                      ? ''
+                      : ProgramLocation
+                  "/>
+                    <i class="fas fa-search place-holder"></i>
+                    <hr />
+                    <div class="dropdown-container-overflow">
+                      <option [value]="location" *ngFor="
+                      let location of programLocations
+                        | filterOne : locationSearch
+                        let i = index
+                    " (click)="
+                    changeSelectionSugg('location', $event, i);
+                      schoolprogram.click()
+                    ">
+                        {{ location }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row commentstyle">
+            <div class="col-12 input-col">
+              <label for="comment" class="inputfield"> Comment </label>
+              <textarea rows="4" type="text" class="comment-area form-control comment"
+                formControlName="comment"></textarea>
+            </div>
+          </div>
+          <div class="btn-container d-flex justify-content-end">
+            <button class="submit-button add" type="submit">
+              Add Program
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-template>
+  
+  <!-- EDIT SUGGESTED PROGRAM -->
+  
+  <ng-template #alterProgramDetails let-c="close" let-d="dismiss">
+    <div class="modal-header d-flex justify-content-end p-0" style="padding-bottom: 10px !important;">
+      <div class="col-sm-6">
+        <h2 class="section-title">Suggested Programs</h2>
+      </div>
+      <div class="col-sm-6">
+        <button type="button" class="close-btn float-end" aria-label="Close" (click)="cancelForm()">
+          <i class="fi-rr-cross-small"></i>
+        </button>
+      </div>
+    </div>
+  
+    <ng-template [ngTemplateOutlet]="ProgramCard"></ng-template>
+  
+    <div class="row">
+  
+      <div class="col-12">
+        <form class="form-section" [formGroup]="editSuggestedSchoolForm"
+          (ngSubmit)="editSuggestedProgram()" #f="ngForm">
+          <div class="row heightset">
+            <div class="col-sm-6 input-col">
+              <label for="school" class="inputfield">Suggested School*</label>
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolSuggestion>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': addSugg_schoolName !== 'Select School'
+                    }">
+                    {{addSugg_schoolName}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="schoolSearch"
+                        [ngModelOptions]="{ standalone: true }" />
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="school" *ngFor="
+                          let school of schools
+                            | filterOne : schoolSearch
+                        " (click)="
+                        changeSelectionSugg('school', $event);
+                          schoolSuggestion.click()
+                        ">
+                          {{ school.schoolName }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="programName" class="inputfield">Program Name*</label>
+              <!-- <input type="text" class="form-input form-control" formControlName="programName"> -->
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolprogram>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': suggestedSchoolProg !== 'Select Program' && suggestedSchoolProg !== 'Select School First'
+                    }">
+                    {{suggestedSchoolProg}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="programSearch"
+                        [ngModelOptions]="{ standalone: true }" 
+                        [value]="
+                        suggestedSchoolProg === 'Select Program'
+                        ? ''
+                        : suggestedSchoolProg
+                    "/>
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="program" *ngFor="
+                        let program of schoolPrograms
+                          | filterOne : programSearch
+                          let i = index
+                      " (click)="
+                      changeSelectionSugg('program', $event, i);
+                        schoolprogram.click()
+                      ">
+                          {{ program.name }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row heightset">
+            <div class="col-sm-6 input-col">
+              <label for="field" class="inputfield">Field</label>
+              <input type="text" class="form-input form-control" formControlName="programField" [readonly]="true">
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="price" class="inputfield">Program Price</label>
+              <input type="number" class="form-input form-control" formControlName="programPrice" [readonly]="true">
+            </div>
+          </div>
+          <div class="row heightset">
+  
+  
+            <div class="col-sm-6 input-col">
+              <label for="intakeMonth" class="inputfield">Intake Month*</label>
+              <!-- <input type="text" class="form-input form-control" formControlName="intakeMonth" [readonly]="true"> -->
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolSuggestion>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': intakeMonth !== 'Select Intake' && intakeMonth !== 'Select School First' && intakeMonth !== 'Select Program First'
+                    }">
+                    {{intakeMonth}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="intakeSearch"
+                        [ngModelOptions]="{ standalone: true }" />
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="month" *ngFor="
+                          let month of inTakeMonths
+                            | filterOne : intakeSearch
+                        " (click)="
+                        changeSelectionSugg('intakeMonth', $event);
+                          schoolSuggestion.click()
+                        ">
+                          {{ month }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="duration" class="inputfield">Duration</label>
+              <input type="text" class="form-input form-control" formControlName="Duration" [readonly]="true">
+            </div>
+          </div>
+          <div class="row heightset">
+            <div class="col-sm-6 input-col">
+              <label for="link" class="inputfield">Program Link*</label>
+              <input type="text" class="form-input form-control" formControlName="programLink">
+            </div>
+            <div class="col-sm-6 input-col">
+              <label for="price" class="inputfield">Program Language*</label>
+              <!-- <input type="text" class="form-input form-control" formControlName="programLang" [readonly]="true"> -->
+              <div class="row ">
+                <div class="dropdown-center dropdown-col" #schoolprogram>
+                  <button
+                    class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                    [ngClass]="{
+                      'text-dark': ProgramLanguage !== 'Select Language' && ProgramLanguage !== 'Select School First' && ProgramLanguage !== 'Select Program First'
+                    }">
+                    {{ProgramLanguage}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="languageSearch"
+                        [ngModelOptions]="{ standalone: true }" 
+                        [value]="
+                        ProgramLocation === 'Select Location'
+                        ? ''
+                        : ProgramLocation
+                    "/>
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="lang" *ngFor="
+                        let lang of programLanguages
+                          | filterOne : languageSearch
+                          let i = index
+                      " (click)="
+                      changeSelectionSugg('language', $event, i);
+                        schoolprogram.click()
+                      ">
+                          {{ lang }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row heightset">
+  
+          
+          <div class="col-sm-6 input-col">
+            <label for="programName" class="inputfield">Location*</label>
+            <!-- <input type="text" class="form-input form-control" formControlName="programName"> -->
+            <div class="row ">
+              <div class="dropdown-center dropdown-col" #schoolprogram>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3 form-drop-down"
+                  type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                  [ngClass]="{
+                    'text-dark': ProgramLocation !== 'Select Location' && ProgramLocation !== 'Select School First' && ProgramLocation !== 'Select Program First'
+                  }">
+                  {{ProgramLocation}}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="locationSearch"
+                      [ngModelOptions]="{ standalone: true }" 
+                      [value]="
+                      ProgramLocation === 'Select Location'
+                      ? ''
+                      : ProgramLocation
+                  "/>
+                    <i class="fas fa-search place-holder"></i>
+                    <hr />
+                    <div class="dropdown-container-overflow">
+                      <option [value]="location" *ngFor="
+                      let location of programLocations
+                        | filterOne : locationSearch
+                        let i = index
+                    " (click)="
+                    changeSelectionSugg('location', $event, i);
+                      schoolprogram.click()
+                    ">
+                        {{ location }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row commentstyle">
+            <div class="col-12 input-col">
+              <label for="comment" class="inputfield"> Comment </label>
+              <textarea rows="4" type="text" class="comment-area form-control comment"
+                formControlName="comment"></textarea>
+            </div>
+          </div>
+          <div class="btn-container d-flex justify-content-end">
+            <button class="submit-button add" type="submit">
+              Add Program
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-template>
+  
+  <!-- EDIT PROGRAM CARD -->
+  
+  <ng-template #ProgramCard id="programCard">
+  
+    <div class="card">
+      <div class="row">
+        <div class="col-md-4 col-design">
+          <div class="image-cardstyle" style="height: 150px;">
+            <img class="cardimage"
+              src="../../../../../assets/images/schools/schools logos/{{suggestedPrograms[editCardIndex].schoolName}}.png"
+              alt="../../../../../assets/images/not-found/bg.png">
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card-body" id="popCard">
+            <div class="d-flex justify-content-between" style="padding-bottom: 0px !important;">
+              <div>
+                <h3 class="card-school">{{suggestedPrograms[editCardIndex].schoolName}}</h3>
+                <span class="card-price"> € {{suggestedPrograms[editCardIndex].Price}} </span>
+              </div>
+            </div>
+            <div style="margin-bottom: 10px;">
+              <a class="link" href={{suggestedPrograms[editCardIndex].Link}}>Program Link</a>
+            </div>
+            <div style="max-width:190px; max-height:38px; margin-bottom:10px;">
+              <div class="d-flex justify-content-between">
+                <div class="card-info">
+                  <div class="d-flex" style="padding-bottom: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-calendar.svg"
+                      alt="" style="margin-right: 4px; float:left">
+                    <p>{{suggestedPrograms[editCardIndex].intakeMonth}}</p>
+                  </div>
+                  <div class="d-flex" style="padding-top: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-globe.svg"
+                      alt="" style="margin-right: 4px;">
+                    <p>{{suggestedPrograms[editCardIndex].Language}}</p>
+                  </div>
+                </div>
+                <div class="last-data" style="padding-bottom: 4px;">
+                  <div class="d-flex">
+                    <img class="card-icons"
+                      src="../../../.././../assets/images/programs/fi-rr-time-oclock.svg" alt=""
+                      style="margin-right: 4px;">
+                    <p>{{suggestedPrograms[editCardIndex].duration}}</p>
+                  </div>
+                  <div class="d-flex" style="padding-top: 4px;">
+                    <img class="card-icons" src="../../../.././../assets/images/programs/fi-rr-marker.svg"
+                      alt="" style="margin-right: 4px;">
+                    <p>Paris</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="comment"><i class="fi-rr-comment"></i>Comment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  

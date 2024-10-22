@@ -1,81 +1,76 @@
-<footer>
-  <div class="container">
-    <div class="row d-flex justify-content-between">
-      <div class="col-xl-3 col-md-5 col-12 first-col">
-        <img
-          src="../../../../assets/images/elysee-logo.png"
-          alt="studentgator-logo"
-        />
-        <p class="description">
-          Vous accompagne à chaque étape de votre parcours pour vous aider à
-          atteindre l'excellence académique.
-        </p>
-      </div>
-      <div class="col-xl-3 col-md-3 col-6 services-col">
-        <div class="row">
-          <p class="title">Services</p>
-          <a class="link" routerLink="/landing/programs">Programmes</a>
-        </div>
-      </div>
-      <!-- <div class="col-xl-3 col-md-4 col-6 info-col">
-        <div class="row">
-          <a class="link" routerLink="/auth/login" *ngIf="!isLoggedIn()"
-            >Login</a
-          >
-        </div>
-      </div> -->
-      <div class="col-xl-3 col-md-4 col-12 contact-col">
-        <div class="row">
-          <p class="title">Contact us</p>
-          <div class="d-flex justify-content-start align-items-start">
-            <i class="fas fa-phone-alt me-2 pt-1"></i>
-            <p class="contact">+216 28 395 065</p>
-          </div>
-          <div class="d-flex justify-content-start align-items-start">
-            <i class="fas fa-envelope me-2 pt-1"></i>
-            <p class="contact">contact@courselysee.com</p>
+<footer class="bottom-0 start-0 end-0">
+  <div class="footer-top-section bg-main-mustard">
+    <div class="container">
+      <div class="row pt-5 d-flex justify-content-around">
+        <div class="col-md-6">
+          <div class="footer-caption d-flex flex-column">
+            <a class="navbar-brand" [routerLink]="['/']">
+              <img src="assets/images/elias.png" style="width: 150px;" />
+            </a>
+            <p class="white-text" style="width: 80%;">Bienvenue sur <strong> Cours Elysée la Plateforme</strong>, où
+              vous découvrirez notre vaste réseau d'écoles en France, prêtes à vous accompagner dans la réussite de
+              votre parcours académique.</p>
           </div>
         </div>
-      </div>
-      <div class="links d-flex justify-content-start align-items-center">
-        <a
-          class="circle d-flex justify-content-center align-items-center"
-          href="https://www.instagram.com/cours.elysee/"
-          title="instgram"
-          target="_blank"
-        >
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a
-          class="circle d-flex justify-content-center align-items-center"
-          href="https://www.linkedin.com/company/82212787/admin/"
-          title="linked-in"
-          target="_blank"
-        >
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a
-          class="circle d-flex justify-content-center align-items-center"
-          href="https://www.facebook.com/MinaFikom"
-          title="facebook"
-          target="_blank"
-        >
-          <i class="fab fa-facebook-f"></i>
-        </a>
+        <div class="col-md-2">
+          <div class="lists d-flex justify-content-between">
+            <div class="right d-flex flex-column">
+              <div>
+                <h4 class="text-main-blue">Rubriques</h4>
+              </div>
+              <div>
+                <ul class="white-text ps-0">
+                  <li><a href="">Qui Sommes Nous</a></li>
+                  <li><a href="">Nos services</a></li>
+                  <li><a href="">Ecoles</a></li>
+                  <li><a href="">programmes</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="social_icon">
+            <div>
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <p>+216 28 395 065</p>
+          </div>
+          <div class="social_icon">
+            <div>
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <p>3, app 132 1esc , Rue windermere, residence Raoudha, Tunis 1035, Tunisie</p>
+          </div>
+          <div class="social_icon">
+            <div>
+              <i class="far fa-envelope"></i>
+            </div>
+            <p>contact@courselysee.com.tn</p>
+          </div>
+          <br/><br/>
+          <div class="elemenator-social-icons d-flex align-items-center justify-content-end social">
+            <a target="_blank" href="https://www.facebook.com/courselysee" class="text-white link_hover"><i
+                class="fab fa-facebook-f p-3"></i></a>
+            <a target="_blank" href="https://www.instagram.com/cours.elysee" class="link_hover"><i
+                class="fab fa-instagram p-3"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/company/cours-elys%C3%A9e/posts/?feedView=all"
+              class="text-white link_hover"><i class="fab fa-linkedin-in"></i></a>
+            <a target="_blank" href="https://www.tiktok.com/@cours.elysee8" class="text-white link_hover"><i
+                class="fab fa-tiktok p-3"></i></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <hr />
-  <div class="container">
-    <p class="rights text-white">
-      ©
-      <a
-        href="http://courselysee.tn/#/auth/login"
-        class="text-white text-decoration-underline"
-        target="_blank"
-        >Cours-Elysee</a
-      >
-      All rights reserved.
-    </p>
+  <div class="footer-bottom-section">
+    <div class="container">
+      <div class="row footer-copyrights d-flex justify-content-between align-items-center text-white">
+        <div class="col-md-12 text-center">
+          <span> {{currentYear}} © Tous droits réservés par Cours-Elysée</span>
+        </div>
+
+      </div>
+    </div>
   </div>
 </footer>

@@ -1,0 +1,19 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <section class="table-section row">
+        
+        <app-restored-lead-table
+          [searchLeads]="searchProspects"
+          [sizeName]="sizeName"
+          [allProspects]="allProspects"
+          [originalProspects]="originalProspects"
+          [loading]="loading"
+          (refresh)="getprospects()"
+          class="p-0"
+        ></app-restored-lead-table>
+     
+      </section>
+    </div>
+  </div>
+</section>

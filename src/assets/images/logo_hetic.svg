@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="logo_hetic" width="91.986" height="33.451" viewBox="0 0 91.986 33.451">
+    <defs>
+        <style>
+            .cls-1{fill:#1b1b1b}
+        </style>
+    </defs>
+    <path id="Rectangle_56" d="M0 0H3.011V9.012H0z" class="cls-1" transform="translate(24.707 0.411)"/>
+    <path id="Rectangle_57" d="M0 0H3.011V9.012H0z" class="cls-1" transform="translate(30.708 0.411)"/>
+    <path id="Rectangle_58" d="M0 0H3.011V9.012H0z" class="cls-1" transform="translate(12.559 12.416)"/>
+    <path id="Rectangle_59" d="M0 0H3.011V9.012H0z" class="cls-1" transform="translate(18.56 12.416)"/>
+    <path id="Rectangle_60" d="M0 0H3.011V9.012H0z" class="cls-1" transform="translate(0.425 24.439)"/>
+    <path id="Rectangle_61" d="M0 0H3.011V9.012H0z" class="cls-1" transform="translate(6.429 24.439)"/>
+    <path id="Path_72" d="M13.915 21.833a4.917 4.917 0 1 1 4.915-4.918 4.924 4.924 0 0 1-4.915 4.918zm0-7.108a2.189 2.189 0 1 0 2.185 2.19 2.189 2.189 0 0 0-2.185-2.189z" class="cls-1" transform="translate(-9 -12)"/>
+    <path id="Path_73" d="M711.915 367.23a4.915 4.915 0 1 1 4.915-4.915 4.921 4.921 0 0 1-4.915 4.915zm0-7.1a2.189 2.189 0 1 0 2.189 2.189 2.189 2.189 0 0 0-2.189-2.194z" class="cls-1" transform="translate(-682.703 -345.377)"/>
+    <path id="Rectangle_62" d="M0 0H9.012V3.011H0z" class="cls-1" transform="translate(24.707 30.44)"/>
+    <path id="Rectangle_63" d="M0 0H9.012V3.011H0z" class="cls-1" transform="translate(24.707 24.439)"/>
+    <path id="Rectangle_64" d="M0 0H9.012V3.011H0z" class="cls-1" transform="translate(0.425 18.421)"/>
+    <path id="Rectangle_65" d="M0 0H9.012V3.011H0z" class="cls-1" transform="translate(0.425 12.416)"/>
+    <path id="Path_74" d="M1224.538 356.7v3.15h-3.15v-3.15h-2.788v9.012h2.788v-3.436h3.15v3.436h2.774V356.7z" class="cls-1" transform="translate(-1176.182 -344.284)"/>
+    <path id="Path_75" d="M1582.933 358.844V356.7h-7.233v9.012h7.233v-2.158h-4.522v-1.34h4.522v-2.141h-4.522v-1.229z" class="cls-1" transform="translate(-1520.852 -344.284)"/>
+    <path id="Path_76" d="M1871.336 356.7h-8.636v2.315h2.945v6.7h2.76v-6.7h2.931z" class="cls-1" transform="translate(-1797.862 -344.284)"/>
+    <path id="Rectangle_66" d="M0 0H2.774V9.012H0z" class="cls-1" transform="translate(76.562 12.43)"/>
+    <path id="Path_77" d="M2381.485 369.084a2.058 2.058 0 0 1-1.984 1.277 2.253 2.253 0 0 1 0-4.5 2.02 2.02 0 0 1 1.984 1.291h2.757a4.712 4.712 0 1 0 0 1.922z" class="cls-1" transform="translate(-2292.256 -351.168)"/>
+</svg>

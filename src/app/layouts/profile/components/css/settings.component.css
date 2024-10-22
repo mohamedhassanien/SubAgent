@@ -1,0 +1,140 @@
+h1,
+h2,
+h3,
+h3,
+h4,
+h5,
+p,
+span {
+  margin-bottom: 0;
+  line-height: normal;
+  color: var(--primary-black, #121212);
+  font-family: "Poppins";
+}
+
+.iti--allow-dropdown input {
+  border: none !important;
+  height: 37px !important;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.data {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(119, 119, 119, 0.13);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+}
+
+.data label {
+  color: var(--primary-black, #121212);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+
+.data h1 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.data img {
+  cursor: pointer;
+}
+
+.data p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+.data .input-data {
+  margin-top: 16px;
+}
+
+.data .input-data input {
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid var(--secondry-grey, #7b7b7b);
+  background-color: white;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondry-grey, #7b7b7b);
+}
+
+.data .input-data i {
+  font-size: 18px;
+  position: absolute;
+  right: 28px;
+  top: 40px;
+}
+
+.data .input-data button {
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+  padding: 8px 32px;
+  color: var(--primary-white, #fdfdfd);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  margin-top: 16px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h2 {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h2 {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .data {
+    padding: 12px 20px;
+    margin-bottom: 18px;
+  }
+
+  .data h1 {
+    font-size: 14px;
+  }
+
+  .data p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .data .input-data {
+    margin-top: 10px;
+  }
+
+  .data .input-data input {
+    height: 40px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .data .input-data i {
+    font-size: 16px;
+    right: 20px;
+    top: 13px;
+  }
+
+  .data .input-data button {
+    border-radius: 6px;
+    padding: 8px 24px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}

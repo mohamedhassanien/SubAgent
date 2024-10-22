@@ -1,0 +1,413 @@
+<app-header></app-header>
+
+<!-- hero section -->
+<section class="profile-information">
+  <div class="background-white pb-2 pt-2 header_bg" style="background-color: #fdfdfd; padding-bottom:25px!important">
+    <div class="container">
+      <div class="information">
+        <div class="row">
+          <div class="col-lg-2 col-md-3 profile-pic ps-0 position-relative">
+            <img class="position-relative user-image" [src]="
+                profilePicture === 'None' ||
+                profilePicture === null ||
+                profilePicture === '' ||
+                profilePicture === undefined ||
+                profilePicture ===
+                  'https://studentgator.com/assets/images/navbar/default-pic.svg'
+                  ? '../../../../assets/images/navbar/default-pic.svg'
+                  : profilePicture
+              " (click)="fileInput.click()" alt="user" />
+            <h1 class="user-name d-lg-none d-block text-center">
+              {{ userName }}
+            </h1>
+            <div class="position-absolute addimg d-lg-block d-none" (click)="fileInput.click()">
+              <img src="../../../assets/images/profile/addimg.svg" alt="addimg" />
+              <input #fileInput type="file" (change)="chooseImage($event)" style="display: none"
+                accept=".png, .jpg, .jpeg" />
+            </div>
+            <h1 class="user-name d-lg-block d-none">{{ userName }}</h1>
+          </div>
+          <div class="col-lg-10 col-md-9 profile_setting pe-0">
+            <div class="d-flex justify-content-end">
+              <button (click)="openModal(whatsApp, 'whatsApp_modal', 'lg', [])"
+                class="d-flex align-items-center justify-content-center">
+                <img src="../../../assets/images/profile/WhatsApp logo.svg" alt="WhatsApp" />
+                <p>Contact</p>
+              </button>
+
+              <a class="nav-link d-flex align-items-center" id="pills-Alternance-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-Alternance" type="button" role="tab" aria-controls="pills-Alternance"
+                aria-selected="false" routerLink="settings" routerLinkActive="active">
+                <i class="fi fi-rr-settings"></i>
+                Paramètres
+              </a>
+            </div>
+            <h1>Votre histoire commence <span class="red_color">ici!</span></h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="col-lg-3 col-12 all-tabs d-lg-none d-block p-0">
+  <div class="nav flex-lg-column nav-pills child-nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link d-flex align-items-center" id="pills-pay-the-deposit-tab" data-bs-toggle="pill"
+      data-bs-target="#pills-pay-the-deposit" type="button" role="tab" aria-controls="pills-pay-the-deposit"
+      aria-selected="false" routerLink="documents" routerLinkActive="active">
+      <i class="fi fi-rr-folder"></i>
+      Mes documents
+    </a>
+
+    <a class="nav-link d-flex align-items-center" id="pills-pay-cvec-tab" data-bs-toggle="pill"
+      data-bs-target="#pills-pay-cvec" type="button" role="tab" aria-controls="pills-pay-cvec" aria-selected="true"
+      routerLink="application" routerLinkActive="active">
+      <i class="fi fi-rr-graduation-cap"></i>
+      Ma candidature
+    </a>
+
+    <a class="nav-link d-flex align-items-center" id="pills-Alternance-tab" data-bs-toggle="pill"
+      data-bs-target="#pills-Alternance" type="button" role="tab" aria-controls="pills-Alternance" aria-selected="false"
+      routerLink="wishlist" routerLinkActive="active">
+      <i class="fi fi-rr-heart"></i>
+      Ma liste de souhaits
+    </a>
+
+    <a class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-4" id="pills-Alternance-tab"
+      routerLink="notification" routerLinkActive="active">
+      <i class="far fa-bell"></i>
+      Notifications
+    </a>
+  </div>
+</div>
+
+<!-- tabs -->
+<section class="section-tabs">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12 all-tabs d-lg-block d-none p0">
+        <div class="nav nav-pills child-nav row" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+          <div class="col-lg-2 col-md-4 col-5">
+            <a class="nav-link d-flex align-items-center" id="pills-pay-the-deposit-tab" data-bs-toggle="pill"
+              data-bs-target="#pills-pay-the-deposit" type="button" role="tab" aria-controls="pills-pay-the-deposit"
+              aria-selected="false" routerLink="documents" routerLinkActive="active">
+              <i class="fi fi-rr-folder"></i>
+              Mes documents
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-3">
+            <a class="nav-link d-flex align-items-center" id="pills-pay-cvec-tab" data-bs-toggle="pill"
+              data-bs-target="#pills-pay-cvec" type="button" role="tab" aria-controls="pills-pay-cvec"
+              aria-selected="true" routerLink="programs" routerLinkActive="active">
+              <i class="fi-rr-bulb"></i>
+              suggérés
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-3">
+            <a class="nav-link d-flex align-items-center" id="pills-pay-cvec-tab" data-bs-toggle="pill"
+              data-bs-target="#pills-pay-cvec" type="button" role="tab" aria-controls="pills-pay-cvec"
+              aria-selected="true" routerLink="application" routerLinkActive="active">
+              <i class="fi fi-rr-graduation-cap"></i>
+              Ma candidature
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 col-4">
+            <a class="nav-link d-flex align-items-center" id="pills-Alternance-tab" data-bs-toggle="pill"
+              data-bs-target="#pills-Alternance" type="button" role="tab" aria-controls="pills-Alternance"
+              aria-selected="false" routerLink="wishlist" routerLinkActive="active">
+              <i class="fi fi-rr-heart"></i>
+              Ma liste de souhaits
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 col-4">
+            <a class="nav-link d-flex align-items-center" id="pills-Alternance-tab" routerLink="notification"
+              routerLinkActive="active">
+              <i class="far fa-bell"></i>
+              Notifications
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-12 pl0">
+        <div class="left_section">
+          <div class="left_section_title">Votre profil :</div>
+          <div class="">
+            <h2 class="mb-lg-0">Intéressé par :</h2>
+            <div class="d-flex flex-wrap">
+              <div *ngFor="let int of interests">
+                <p class="mt-2">{{ int }}</p>
+              </div>
+            </div>
+            <!-- <div class="d-flex" *ngFor="let int of interests">
+              <p class="mt-1">{{int.name}}</p>
+            </div> -->
+          </div>
+
+          <!-- languagese -->
+          <!-- <div class="data">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>Test de langue :</h1>
+
+        <span *ngIf="!openLang" (click)="showLang()" class="edit_cancel">
+          <i class="fas fa-edit"></i>
+          <span>Modifier</span>
+        </span>
+        <span *ngIf="openLang" (click)="showLang()" class="edit_cancel">
+          <i class="fas fa-times"></i>
+          <span>Annuler</span>
+        </span>
+      </div>
+      <div class="d-flex w-50 justify-content-between">
+        <p *ngIf="!openLang" class="w-50">English: {{ englishTestName }}</p>
+        <p *ngIf="!openLang" class="w-50">Niveau: {{ englishTestScore }}</p>
+      </div>
+      <div class="d-flex w-50 justify-content-between">
+        <p *ngIf="!openLang" class="w-50">French: {{ frenchTestName }}</p>
+        <p *ngIf="!openLang" class="w-50">Niveau: {{ frenchTestScore }}</p>
+      </div>
+      <div *ngIf="openLang" class="input-data">
+        <form [formGroup]="languageForm" (ngSubmit)="onSubmitlang(languageForm)">
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label>Votre test d'anglais</label>
+              <p-dropdown class="input" formControlName="englang" [options]="englishlang"
+                [style]="{ width: '100%' }"></p-dropdown>
+            </div>
+            <div class="col-6 mb-3">
+              <label>Votre niveau</label>
+              <p-inputNumber class="input" formControlName="engscore"
+                [min]="setEnglishScoreLimits('min', languageForm.value.englang)"
+                [max]="setEnglishScoreLimits('max', languageForm.value.englang)" [style]="{ width: '100%' }">
+              </p-inputNumber>
+            </div>
+            <div class="col-6">
+              <label>Votre test de français</label>
+              <p-dropdown class="input" formControlName="frelang" [options]="frenchlang"
+                [style]="{ width: '100%' }"></p-dropdown>
+            </div>
+            <div class="col-6">
+              <label>Votre niveau</label>
+              <p-dropdown class="input" formControlName="frenchscore" [options]="frenchScore"
+                [style]="{ width: '100%' }"></p-dropdown>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button class="btn" type="submit" [disabled]="!languageForm.valid">
+              Enregistrer
+            </button>
+            <div class="d-flex">
+              <button class="clear_test clear_english" (click)="clearEnglish(languageForm)">Test d'anglais
+                clair</button>
+              <button class="clear_test" (click)="clearFrench(languageForm)">Test de français clair</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div> -->
+          <div class="">
+            <h2>Test de langue :</h2>
+            <div class="lang_option">
+              <p class="mt-2">Anglais : {{ englishTestName }}</p>
+              <p class="mt-2">Français : {{ frenchTestName }}</p>
+            </div>
+            <h5 class="d-flex align-items-end">
+              Mon budget : &nbsp; <span>€ {{ budget }}</span>
+            </h5>
+            <div class="d-flex prefernce" style="cursor: pointer;" (click)="
+                openModal(suggested, 'suggested-modal', 'lg', [])
+              ">
+              <div>
+                <i class="far fa-file-alt"></i>
+                <span>Préférences</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <!-- <div *ngIf="represntativefound" class="representive">
+              <img src="../../../assets/images/profile/human.svg" alt="user" />
+              <h1>{{ repName }}</h1>
+              <h2>Votre représentant</h2>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+      <div class="tab-content navs col-lg-9 col-12" id="v-pills-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
+<ng-template #suggested let-c="close" let-d="dismiss">
+  <div class="mprefrence">
+    <h6>Préférences</h6>
+    <!-- education -->
+    <div class="data">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>Education</h1>
+        <span *ngIf="!openMobile" (click)="showMobile()" class="edit_cancel">
+          <i class="fas fa-edit"></i>
+          <span>Modifier</span>
+        </span>
+        <span *ngIf="openMobile" (click)="showMobile()" class="edit_cancel">
+          <i class="fas fa-times"></i>
+          <span>Annuler</span>
+        </span>
+      </div>
+      <p *ngIf="!openMobile">{{ educationLevel }} {{ educationStatus }}</p>
+      <div *ngIf="openMobile" class="input-data">
+        <form [formGroup]="educationForm" (ngSubmit)="onSubmiteducation(educationForm)">
+          <div class="row">
+            <div class="col-6">
+              <label>Votre statut actuel</label>
+              <p-dropdown class="input" formControlName="edustatus" [options]="educationStatusOptions"
+                [style]="{ width: '100%' }"></p-dropdown>
+            </div>
+            <div class="col-6">
+              <label>Votre niveau d'éducation le plus élevé</label>
+              <p-dropdown class="input" formControlName="edulevel" [options]="educationLevelOptions"
+                (click)="setEduLevelOpt(educationForm.value.edustatus)" [style]="{ width: '100%' }"
+                [disabled]="educationForm.controls.edustatus.status === null"></p-dropdown>
+            </div>
+          </div>
+          <button class="btn" type="submit" [disabled]="!educationForm.valid">
+            Enregistrer
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+
+    <!-- interests -->
+    <div class="data">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>Domaine d'intérêt</h1>
+
+        <span *ngIf="!openinter" (click)="showinter()" class="edit_cancel">
+          <i class="fas fa-edit"></i>
+          <span>Modifier</span>
+        </span>
+        <span *ngIf="openinter" (click)="showinter()" class="edit_cancel">
+          <i class="fas fa-times"></i>
+          <span>Annuler</span>
+        </span>
+      </div>
+      <div class="d-flex" *ngIf="!openinter">
+        <small *ngFor="let pro of interests">{{ pro | shorten: 20 }}</small>
+      </div>
+      <div *ngIf="openinter" class="input-data">
+        <form [formGroup]="interestsForm" (ngSubmit)="onSubmiterests(interestsForm)">
+          <div class="row">
+            <div class="col-6">
+              <label>Domaine d'intérêt</label>
+              <p-multiSelect [options]="interstFields" display="chip" class="form-input input"
+                formControlName="interstsarray" [style]="{ width: '100%' }" [(ngModel)]="interests"></p-multiSelect>
+            </div>
+          </div>
+          <button class="btn" type="submit" [disabled]="!interestsForm.valid">
+            Enregistrer
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- budget -->
+    <div class="data">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>Budget maximum</h1>
+        <span *ngIf="!openbudget" (click)="showbudget()" class="edit_cancel">
+          <i class="fas fa-edit"></i>
+          <span>Modifier</span>
+        </span>
+        <span *ngIf="openbudget" (click)="showbudget()" class="edit_cancel">
+          <i class="fas fa-times"></i>
+          <span>Annuler</span>
+        </span>
+      </div>
+      <p *ngIf="!openbudget">€ {{ budget }}</p>
+      <div *ngIf="openbudget" class="input-data">
+        <form [formGroup]="budgetForm" (ngSubmit)="onSubmitbudget(budgetForm)">
+          <label>Budget</label>
+          <input class="input" type="number" class="w-50 form-control" min="6000" formControlName="budgetvalue"
+            min="5000" max="100000" />
+          <p class="validation mb-3" *ngIf="budgetForm.controls.budgetvalue.invalid">Le minimum est de 6 000€ et le
+            maximum est de 20 000€. </p>
+          <button class="btn" type="submit" [disabled]="!budgetForm.valid">
+            Enregistrer
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #welcome let-c="close" let-d="dismiss">
+  <div class="welcom_container">
+    <img src="../../../assets/images/welcome.jpeg" />
+    <h1>Bienvenue sur Cours Élysée la Plateforme</h1>
+    <p>Notre équipe est ravie de vous aider et nous vous contacterons dans les 24 prochaines heures. N'hésitez pas à
+      télécharger tout document qui peut nous aider à mieux vous soutenir.</p>
+
+    <div>
+      <a (click)="navigateToProgram()" style="cursor: pointer;">Découvrez nos programmes.</a>
+      <a (click)="dismiss()" class="upload_link" style="cursor: pointer;">Téléchargez vos documents.</a>
+    </div>
+  </div>
+
+</ng-template>
+<ng-template #whatsApp let-c="close" let-d="dismiss">
+  <div class="whatsApp_container">
+    <img class="position-relative user-image" [src]="
+                profilePicture === 'None' ||
+                profilePicture === null ||
+                profilePicture === '' ||
+                profilePicture === undefined ||
+                profilePicture ===
+                  'https://studentgator.com/assets/images/navbar/default-pic.svg'
+                  ? '../../../../assets/images/navbar/default-pic.svg'
+                  : profilePicture" alt="user" />
+
+    <h1>Êtes-vous sûr de vouloir contacter ? <br> {{ userName }} Maintenant ?</h1>
+    <a href="https://wa.me/+21628395065" target="_blank" class="whatsApp_link">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_6091_41631)">
+          <path
+            d="M0.0566406 23.9975L1.74508 17.8386C0.704453 16.0321 0.154609 13.9902 0.154609 11.8893C0.154609 5.33145 5.49508 -0.00292969 12.0468 -0.00292969C15.2277 -0.00292969 18.2123 1.2341 20.4637 3.48551C22.7085 5.73035 23.9455 8.72145 23.9455 11.8958C23.9455 18.4536 18.6051 23.788 12.0534 23.788H12.0468C10.057 23.788 8.10039 23.2907 6.36602 22.3414L0.0566406 23.9975ZM6.65383 20.195L7.01383 20.4111C8.53211 21.3144 10.273 21.7855 12.0468 21.7921H12.0534C17.5054 21.7921 21.936 17.361 21.936 11.9094C21.936 9.2652 20.9085 6.78457 19.0434 4.91941C17.1782 3.05426 14.6976 2.0202 12.0534 2.0202C6.60133 2.0202 2.16414 6.45129 2.16414 11.9029C2.16414 13.768 2.68773 15.5877 3.67586 17.165L3.91164 17.5382L2.91039 21.1836L6.65383 20.195Z"
+            fill="white" />
+          <path
+            d="M0.468628 23.5849L2.09847 17.6355C1.09066 15.8946 0.567065 13.9179 0.567065 11.8957C0.567065 5.56664 5.71769 0.416016 12.0468 0.416016C15.1161 0.416016 18.0027 1.61367 20.1688 3.78023C22.3353 5.95336 23.533 8.83289 23.5264 11.9023C23.5264 18.2313 18.3758 23.382 12.0468 23.382H12.0402C10.116 23.382 8.23113 22.8977 6.55582 21.9879L0.468628 23.5849Z"
+            fill="url(#paint0_linear_6091_41631)" />
+          <path
+            d="M0.0566406 23.9975L1.74508 17.8386C0.704453 16.0321 0.154609 13.9902 0.154609 11.8893C0.154609 5.33145 5.49508 -0.00292969 12.0468 -0.00292969C15.2277 -0.00292969 18.2123 1.2341 20.4637 3.48551C22.7085 5.73035 23.9455 8.72145 23.9455 11.8958C23.9455 18.4536 18.6051 23.788 12.0534 23.788H12.0468C10.057 23.788 8.10039 23.2907 6.36602 22.3414L0.0566406 23.9975ZM6.65383 20.195L7.01383 20.4111C8.53211 21.3144 10.273 21.7855 12.0468 21.7921H12.0534C17.5054 21.7921 21.936 17.361 21.936 11.9094C21.936 9.2652 20.9085 6.78457 19.0434 4.91941C17.1782 3.05426 14.6976 2.0202 12.0534 2.0202C6.60133 2.0202 2.16414 6.45129 2.16414 11.9029C2.16414 13.768 2.68773 15.5877 3.67586 17.165L3.91164 17.5382L2.91039 21.1836L6.65383 20.195Z"
+            fill="white" />
+          <path
+            d="M9.07536 6.92182C8.8527 6.42447 8.61739 6.41791 8.40786 6.41135C8.2377 6.40479 8.03473 6.40479 7.83833 6.40479C7.64192 6.40479 7.32129 6.47697 7.04661 6.77791C6.77192 7.07229 6.00598 7.79229 6.00598 9.25854C6.00598 10.7182 7.07286 12.1315 7.21676 12.3345C7.36723 12.5309 9.27176 15.6265 12.2957 16.8176C14.8091 17.8057 15.3196 17.6093 15.8624 17.5638C16.4057 17.5113 17.623 16.8438 17.8714 16.1501C18.1204 15.4563 18.1204 14.8606 18.0416 14.7363C17.9694 14.6121 17.7669 14.5399 17.4721 14.3895C17.1777 14.239 15.7115 13.519 15.4433 13.421C15.1686 13.3231 14.9722 13.2706 14.7758 13.5715C14.5794 13.8659 14.0099 14.5399 13.8332 14.7363C13.663 14.9328 13.4863 14.959 13.1919 14.8085C12.8975 14.6581 11.9352 14.344 10.8032 13.3357C9.91957 12.5506 9.32426 11.5751 9.14754 11.2807C8.97739 10.9863 9.12786 10.8228 9.27833 10.6723C9.40911 10.5415 9.5727 10.3254 9.72317 10.1487C9.87364 9.97197 9.91958 9.85432 10.0175 9.65135C10.1155 9.45494 10.07 9.27822 9.99129 9.12775C9.91958 8.97682 9.34348 7.51104 9.07536 6.92182Z"
+            fill="white" />
+        </g>
+        <defs>
+          <linearGradient id="paint0_linear_6091_41631" x1="11.9976" y1="23.5851" x2="11.9976" y2="0.416292"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#20B038" />
+            <stop offset="1" stop-color="#60D66A" />
+          </linearGradient>
+          <clipPath id="clip0_6091_41631">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+      <span>Contact</span>
+    </a>
+    <a (click)="dismiss()" style="cursor: pointer;">Annuler</a>
+
+  </div>
+</ng-template>

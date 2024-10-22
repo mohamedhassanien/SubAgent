@@ -1,0 +1,606 @@
+<main style="background: var(--background, #f7f7f7)">
+  <!-- intro-section -->
+  <section class="intro-section">
+    <div class="row">
+      <div class="col-lg-6 col-12 ps-0 first-content">
+        <h1>
+          Plus de 1000 programmes dans 120 écoles <br />
+          à travers le monde
+        </h1>
+        
+        <p>
+          Abonnez-vous à notre newsletter et soyez informé de toutes nos nouvelles mises à jour
+        </p>
+        <div class="intro-input d-lg-block d-none">
+          <div class="position-relative">
+            <!-- <form [formGroup]="filterForm" (ngSubmit)="onSubmit(filterForm)">
+              <input type="text" class="form-control" placeholder="Search for programs, schools..."
+                formControlName="search" [(ngModel)]="search" (keyup.enter)="onSubmit(filterForm)" />
+              <button (click)="onSubmit(filterForm)">
+                <img src="../../../../../assets/images/programs/search.svg" alt="search" />
+              </button>
+            </form> -->
+            
+            <form class="example-form" [formGroup]="filterForm" (ngSubmit)="onSubmit(filterForm)">
+              <mat-form-field class="example-full-width">
+                <!-- <mat-label>Search for programs</mat-label> -->
+                <input type="text"
+                       placeholder="Rechercher des programmes"
+                      
+                       matInput
+                       [formControl]="myControl"
+                       [matAutocomplete]="auto"
+                       [(ngModel)]="search"
+                       (keyup.enter)="onSubmit(filterForm)">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="onSubmit(filterForm)">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12 pe-0">
+        <div class="d-flex justify-content-lg-end justify-content-center">
+          <img class="graduate-img" src="../../../../../assets/images/programs/graduation-books.png"
+            alt="graduation" />
+        </div>
+        <div class="intro-input d-lg-none d-md-block d-block">
+          <div class="position-relative">
+            <form [formGroup]="filterForm" (ngSubmit)="onSubmit(filterForm)">
+              <input type="text" class="form-control" placeholder="Rechercher des programmes..."
+                formControlName="search" [(ngModel)]="search" (keyup.enter)="onSubmit(filterForm)" />
+              <button (click)="onSubmit(filterForm)">
+                <img src="../../../../../assets/images/programs/search.svg" alt="search" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- filter-section -->
+  <section class="filter-section d-lg-block d-md-block d-none" (scroll)="onScroll()"
+    [ngClass]="navbarFixed ? 'fixedd' : 'static'">
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit(filterForm)">
+      <div class="row">
+        <!-- schools -->
+        <div class="col-lg-2 col-md-4 col-12">
+          <!-- <p>Schools</p> -->
+          <mat-form-field class="select-school w-100" appearance="fill">
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-select formControlName="school" (selectionChange)="onSubmit(filterForm)" placeholder="Nom de l'école">
+                <mat-option value="{{ school.schoolName }}" *ngFor="let school of schoolsName">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
+
+                      <p class="m-0">
+                        {{ school.schoolName }}
+                      </p>
+                      <!-- <div style="width: 14%">
+                        <img
+                          class="w-100"
+                          src="https://studentgator.com/assets/images/schools/schools logos/{{
+                            school
+                          }}.png"
+                          alt="logos"
+                        />
+                      </div> -->
+                    </div>
+                  </div>
+                </mat-option>
+              </mat-select>
+              <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+            </div>
+          </mat-form-field>
+        </div>
+        <!-- fields -->
+        <div class="col-lg-2 col-md-4 col-12">
+          <!-- <p>Field</p> -->
+          <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-select formControlName="category" class="select" placeholder="Champ" panelClass="panel"
+                (selectionChange)="onSubmit(filterForm)">
+                <div>
+                  <mat-option value="Arts, Design and Architecture">
+                    <div class="d-flex">
+                      <img src="../assets/images/programs/icons/Art, Design & Architecture.svg" width="16px"
+                        height="16px" style="margin-right: 10px;" alt="">
+                
+                      <p> Arts, Design et Architecture </p>
+
+                    </div>
+                  </mat-option>
+                  <mat-option value="Business and management">
+                    <div class="d-flex ">
+                      <img src="../assets/images/programs/icons/Business & management.svg" width="16px" height="16px"
+                        style="margin-right: 10px;" alt="">
+                      <p> Affaires et gestion</p>
+
+                    </div>
+                  </mat-option>
+                  <mat-option value="Computer science and IT">
+                    <div class="d-flex ">
+                      <img src="../assets/images/programs/icons/Computer science & IT.svg" width="16px" height="16px"
+                        style="margin-right: 10px;" alt="">
+                      <p> Informatique et technologies de l'information</p>
+
+                    </div>
+                  </mat-option>
+                  <mat-option value="Marketing and communication">
+                    <div class="d-flex ">
+                      <img src="../assets/images/programs/icons/Marketing & communication.svg" width="16px"
+                        height="16px" style="margin-right: 10px;" alt="">
+                      <p> Marketing et communication </p>
+
+                    </div>
+                  </mat-option>
+                  <mat-option value="Engineering and technology">
+                    <div class="d-flex">
+                      <img src="../assets/images/programs/icons/Engineering & technology.svg" width="16px" height="16px"
+                        style="margin-right: 10px;" alt="">
+                      <p>Ingénierie et technologie</p>
+
+                    </div>
+                  </mat-option>
+                </div>
+              </mat-select>
+              <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+            </div>
+          </mat-form-field>
+        </div>
+        <!-- level -->
+        <div class="col-lg-2 col-md-4 col-12">
+          <!-- <p>Level</p> -->
+          <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-select formControlName="skill" class="select" placeholder="Année d'entrée" panelClass="panel"
+                (selectionChange)="onSubmit(filterForm)">
+                <div *ngFor="let level of Levels">
+                  <mat-option value="{{ level[1] }}">
+                    {{ level[0] }}
+                  </mat-option>
+                </div>
+              </mat-select>
+              <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+            </div>
+          </mat-form-field>
+        </div>
+        <!-- Budget -->
+        <div class="col-lg-2 col-md-4 col-12">
+          <div class="dropdown-budget">
+            <button class="btn w-100 dropdown-toggle d-flex justify-content-between align-items-center" type="button"
+              id="dropdownMenuButton1" data-bs-toggle="dropdown"  aria-expanded="false" (click)="toggle=!toggle">
+              <p class="text-budget">{{ placebudget }}</p>
+              <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableOutside" >
+              <p class="mb-3" style="color: #121212; font-size: 14px; font-weight: 500">
+                Budget maximum/an
+              </p>
+              <div>
+                <ngx-slider #slider [(value)]="value" [options]="options" (click)="preventClosing($event)"></ngx-slider>
+              </div>
+              <div class="d-flex justify-content-between mt-3 pt-2">
+                <input value="{{ slider.value }}" type="number" formControlName="budget" (keyup)="change($event)" />
+                <button class="budget-btn" (click)="onSubmit(filterForm); palce(); toggle=!toggle"  data-bs-toggle="dropdown" aria-expanded="true">
+                  Apply
+                </button>
+              </div>
+            </ul>
+          </div>
+
+          <!-- <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-select formControlName="budget" class="select" placeholder="Select Budget" panelClass="panel"
+                (selectionChange)="onSubmit(filterForm)">
+                <div *ngFor="let budget of Budgets">
+                  <mat-option value="{{ budget[1] }}">
+                    {{ budget[0] }}
+                  </mat-option>
+                </div>
+              </mat-select>
+                    <img
+                src="../../../../../assets/images/programs/arrowdown.svg"
+                alt=""
+              />
+            </div>
+          </mat-form-field> -->
+        </div>
+        <!-- Languages -->
+        <div class="col-lg-2 col-md-4 col-12">
+          <!-- <p>Language</p> -->
+          <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-select [(value)]="selectedOption" formControlName="language" class="select" placeholder="Langue"
+                panelClass="my-custom-class" (selectionChange)="onSubmit(filterForm)">
+                <div *ngFor="let language of languages">
+                  <mat-option value="{{ language[1] }}">
+                    {{ language[0] }}
+                  </mat-option>
+                </div>
+              </mat-select>
+              <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+            </div>
+          </mat-form-field>
+        </div>
+        <!-- Location -->
+        <div class="col-lg-2 col-md-4 col-12">
+          <!-- <p>Location</p> -->
+          <mat-form-field class="select-city w-100" appearance="fill">
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-select formControlName="city" (selectionChange)="onSubmit(filterForm)" class="select"
+                placeholder="Ville">
+
+                <mat-option value="{{ city }}" *ngFor="let city of citiesArray">
+                  {{ city }}
+                </mat-option>
+              </mat-select>
+              <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- tags filter and reset button -->
+  <div class="row filter-reset d-flex align-items-center">
+    <div class="col-10 ps-0">
+      <!-- filter tags -->
+      <section class="filter-tags d-lg-block d-none">
+        <div class="row d-flex align-items-center">
+          <span class="col-3 pe-0" #sc>
+            <span class="fil" *ngIf="fschool && fschool.substr(0, 19) != 'null'">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>{{ fschool.substr(0, 19) }}</p>
+                <img (click)="removefilter(filterForm)" src="../../../../../assets/images/programs/cross.svg"
+                  alt="cross" />
+                  
+              </div>
+            </span>
+          </span>
+          <div class="col-3 pe-0" #ca>
+            <span class="fil" *ngIf="fcategory">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>{{ fcategory.substr(0, 22) }}</p>
+                <img (click)="removefilter1(filterForm)" src="../../../../../assets/images/programs/cross.svg"
+                  alt="cross" />
+              </div>
+            </span>
+          </div>
+          <div class="col-2 pe-0" #le>
+            <span class="fil" *ngIf="fskill">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>{{ fskill.substr(0, 22) }}</p>
+                <img (click)="removefilter2(filterForm)" src="../../../../../assets/images/programs/cross.svg"
+                  alt="cross" />
+              </div>
+            </span>
+          </div>
+          <div class="col-2 pe-0" #bd>
+            <span class="fil" *ngIf="fbudget">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>€ {{ fbudget.substr(0, 22) }}</p>
+                <img (click)="removefilter3(filterForm)" src="../../../../../assets/images/programs/cross.svg"
+                  alt="cross" />
+              </div>
+            </span>
+          </div>
+          <div class="col-2 pe-0" #la>
+            <span class="fil" *ngIf="flanguage">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>{{ flanguage.substr(0, 22) }}</p>
+                <img (click)="removefilter4(filterForm)" src="../../../../../assets/images/programs/cross.svg"
+                  alt="cross" />
+              </div>
+            </span>
+          </div>
+          <div class="col-3 pe-0" #lc>
+            <span class="fil" *ngIf="fcity">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>{{ fcity.substr(0, 25) }}</p>
+                <img (click)="removefilter5(filterForm)" src="../../../../../assets/images/programs/cross.svg"
+                  alt="cross" />
+              </div>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-2 pe-0">
+      <!-- reset in web and tab -->
+      <section *ngIf="reset" class="d-lg-block d-md-block d-none">
+        <div class="d-flex justify-content-end reset" (click)="resetFilter()">
+          <img src="../../../../../assets/images/programs/reset.svg" alt="reset" />
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- filter and reset in mobile -->
+  <section class="d-lg-none d-md-none d-block mob-filter">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="filter-btn">
+        <button (click)="openFilterScreen(); $event.preventDefault()">
+          <img class="me-1" src="../../../../../assets/images/programs/fi-rr-settings-sliders.svg" alt="settings" />
+          Filter
+        </button>
+      </div>
+      <div *ngIf="reset" class="d-flex justify-content-end reset" (click)="resetFilter()">
+        <img src="../../../../../assets/images/programs/reset.svg" alt="reset" />
+      </div>
+    </div>
+  </section>
+
+  <!-- content filter in mobile -->
+  <div id="filterScreen" class="row d-block d-md-none" *ngIf="filterBox">
+    <div class="backdrop" (click)="closeFilterScreen()"></div>
+    <div class="filter-box">
+      <div class="close-btn btn d-flex justify-content-center align-items-center" (click)="closeFilterScreen()">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="d-flex justify-content-between align-items-end">
+        <p class="sort-by">Filter</p>
+      </div>
+
+      <section class="filter-section">
+        <form [formGroup]="filterForm" (ngSubmit)="onSubmit(filterForm)">
+          <div class="row">
+            <!-- schools -->
+            <div class="col-lg-2 col-md-4 col-12">
+              <p>Schools</p>
+              <mat-form-field class="select-school w-100" appearance="fill">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-select formControlName="school" (selectionChange)="onSubmit(filterForm)"
+                    placeholder="Select School">
+                    <mat-option value="None">All Schools</mat-option>
+                    <mat-option value="{{ school }}" *ngFor="let school of oddLogos">
+                      <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <p class="m-0">
+                            {{ school.substr(0, 27) }}
+                          </p>
+                          <img style="width: 15%" src="https://studentgator.com/assets/images/schools/schools logos/{{
+                              school
+                            }}.png" alt="" />
+                        </div>
+                      </div>
+                    </mat-option>
+                  </mat-select>
+                  <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+                </div>
+              </mat-form-field>
+            </div>
+            <!-- fields -->
+            <div class="col-lg-2 col-md-4 col-12">
+              <p>Field</p>
+              <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-select formControlName="category" class="select" placeholder="Select Field" panelClass="panel"
+                    (selectionChange)="onSubmit(filterForm)">
+                    <div *ngFor="let category of newCategories">
+                      <mat-option value="{{ category[1] }}">
+                        <div class="d-flex justify-content-between">
+                          <img src="/assets/images/programs/{{ category[0] }}.svg" alt="category[0]"
+                            class="category-img" style="width: 4%" />
+                          {{ category[0] }}
+                        </div>
+                      </mat-option>
+                    </div>
+                  </mat-select>
+                  <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+                </div>
+              </mat-form-field>
+            </div>
+            <!-- level -->
+            <div class="col-lg-2 col-md-4 col-12">
+              <p>Level</p>
+              <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-select formControlName="skill" class="select" placeholder="Select Level" panelClass="panel"
+                    (selectionChange)="onSubmit(filterForm)">
+                    <div *ngFor="let level of Levels">
+                      <mat-option value="{{ level[1] }}">
+                        {{ level[0] }}
+                      </mat-option>
+                    </div>
+                  </mat-select>
+                  <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+                </div>
+              </mat-form-field>
+            </div>
+            <!-- Budget -->
+            <div class="col-lg-2 col-md-4 col-12">
+              <p>Budget</p>
+              <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-select formControlName="budget" class="select" placeholder="Budget" panelClass="panel"
+                    (selectionChange)="onSubmit(filterForm)">
+                    <mat-option value="{{ value }}" class="jk">
+                      <p class="pb-3" style="
+                          color: #121212;
+                          font-size: 14px;
+                          font-weight: 500;
+                        ">
+                        Maximum budget/year
+                      </p>
+                      <div>
+                        <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+                      </div>
+                    </mat-option>
+                    <div></div>
+                  </mat-select>
+                  <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+                </div>
+              </mat-form-field>
+              <!-- <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-select formControlName="budget" class="select" placeholder="Select Budget" panelClass="panel"
+                    (selectionChange)="onSubmit(filterForm)">
+                    <div *ngFor="let budget of Budgets">
+                      <mat-option value="{{ budget[1] }}">
+                        {{ budget[0] }}
+                      </mat-option>
+                    </div>
+                  </mat-select>
+                        <img
+                src="../../../../../assets/images/programs/arrowdown.svg"
+                alt=""
+              />
+                </div>
+              </mat-form-field> -->
+            </div>
+            <!-- Languages -->
+            <div class="col-lg-2 col-md-4 col-12">
+              <p>Language</p>
+              <mat-form-field class="select-categories cat-nav w-100" appearance="fill">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-select formControlName="language" class="select" placeholder="Select Language" panelClass="panel"
+                    (selectionChange)="onSubmit(filterForm)">
+                    <div *ngFor="let language of languages">
+                      <mat-option value="{{ language[1] }}">
+                        {{ language[0] }}
+                      </mat-option>
+                    </div>
+                  </mat-select>
+                  <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+                </div>
+              </mat-form-field>
+            </div>
+            <!-- Location -->
+            <div class="col-lg-2 col-md-4 col-12">
+              <p>Location</p>
+              <mat-form-field class="select-city w-100" appearance="fill">
+                <div class="d-flex justify-content-between align-items-center">
+                  <mat-select formControlName="city" (selectionChange)="onSubmit(filterForm)" class="select"
+                    placeholder="Select City">
+                    <mat-option value="None">Select City</mat-option>
+                    <mat-option value="{{ city }}" *ngFor="let city of citiesArray">
+                      {{ city }}
+                    </mat-option>
+                  </mat-select>
+                  <img src="../../../../../assets/images/programs/arrowdown.svg" alt="" />
+                </div>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <button class="btn w-100 continue-btn" type="button" (click)="closeFilterScreen()">
+        <p class="text-center text-white m-0">Continue</p>
+      </button>
+    </div>
+  </div>
+
+  <!-- programs-section -->
+  
+  <section class="programs-section">
+    <div class="container-fluid">
+      <div class="row text-center my-lg-5 my-md-4 my-2" *ngIf="isLoading">
+        <app-spinner></app-spinner>
+      </div>
+      <div class="text-center">
+        <img class="mt-5 w-50 mb-5" src="../../../../../assets/images/programs/not found.svg" alt="Programs Not Found"
+          *ngIf="serverError" />
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center noProgramsFound" *ngIf="noProgramsFound">
+        <img src="../../../../../assets/images/programs/fi-rr-heart.svg" alt="img" />
+        <h2 class="">Aucun programme trouvé !</h2>
+        <p>Essayez de modifier ou de supprimer certains de vos filtres.</p>
+        <button (click)="resetFilter()">Supprimer le filtre</button>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="total_programs"><span class="black_color">Total des programmes : </span>{{programs.length}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-12" *ngFor="
+            let program of programs
+              | slice: (page - 1) * pageSize:page * pageSize;
+            let i = index
+          ">
+          <div class="card mt-lg-4 mt-md-4 mt-3" (click)="checkLogin(program.progName, program.id)">
+            <div class="main-img" style="width: 100%; height: 167px">
+              <img class="w-100 h-100" src="{{ program.coverpic }}" alt="back-img" />
+            </div>
+            <div class="fav-ico">
+              <button style="border: none; background-color: transparent" i-button (click)="
+                  $event.preventDefault();
+                  $event.stopPropagation();
+                  addToWishlist(program.id)
+                " class="like">
+                <img *ngIf="!isFav[program.id]" src="../../../../../assets/images/programs/fi-rr-heart.svg"
+                  alt="heart" />
+                <img *ngIf="isFav[program.id]" src="../../../../../assets/images/programs/fi-sr-heart-fav.svg"
+                  alt="heart-fav" />
+              </button>
+            </div>
+            <div class="logo-img">
+              <img class="w-100 h-100" style="object-fit: fill !important" src="{{ program.logopic }}" alt="logo" />
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <p class="category">{{ program?.category | shorten: 25 }}</p>
+                <p *ngIf="program.fee !== 'Alternance only'" class="pfee"
+                matTooltip="Average Price"
+                matTooltipPosition="above"
+                >
+                  € {{ program.fee }}
+                </p>
+                <p
+                  *ngIf="program.fee == 'Alternance only'"
+                  style="font-size: 12px"
+                  class="pfee"
+                  matTooltip="Average Price"
+                  matTooltipPosition="above"
+                >
+                  {{ program.fee }}
+                </p>
+              </div>
+              <h2 class="progname">{{ program?.progName | shorten: 25 }}</h2>
+              <p class="schoolname">{{ program?.schoolName | shorten: 25 }}</p>
+              <div class="d-flex justify-content-between">
+                <div class="last-data">
+                  <div class="d-flex">
+                    <img class="me-2" src="../../../.././../assets/images/programs/fi-rr-calendar.svg" alt="calendar" />
+                    <p>{{ program?.start_date | shorten: 4 }}</p>
+                  </div>
+                  <div class="d-flex pt-2">
+                    <img class="me-2" src="../../../.././../assets/images/programs/fi-rr-globe.svg" alt="globe" />
+                    <p>{{ program.lang }}</p>
+                  </div>
+                </div>
+                <div class="last-data">
+                  <div class="d-flex">
+                    <img class="me-2" src="../../../.././../assets/images/programs/fi-rr-time-oclock.svg" alt="time" />
+                    <p>{{ program.lenght }} Year</p>
+                  </div>
+                  <div class="d-flex pt-2">
+                    <img class="me-2" src="../../../.././../assets/images/programs/fi-rr-marker.svg" alt="marker" />
+                    <p *ngIf="program.city.length == '1'">
+                      {{ program?.city }}
+                    </p>
+                    <p *ngIf="program.city.length > '1'">
+                      {{ program?.city[0] }},+1
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ngb-pagination [collectionSize]="programs.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
+          [boundaryLinks]="true" *ngIf="programs.length != 0" (pageChange)="loadPage()" class="d-flex justify-content-center">
+        </ngb-pagination>
+        
+      </div>
+    </div>
+  </section>
+</main>

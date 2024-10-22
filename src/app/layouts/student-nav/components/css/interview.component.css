@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.fixed {
+  position: fixed;
+  z-index: 999;
+  top: 16px;
+  left: 58px;
+  width: 22%;
+}
+
+.fixed .next {
+  display: none;
+}
+
+.static {
+  position: relative;
+}
+
+.pi-chevron-left:before {
+  content: "▮" !important;
+  /* this is your text. You can also use UTF-8 character codes as I do here */
+  font-family: FontAwesome;
+}
+
+.open {
+  pointer-events: all;
+}
+
+.close {
+  pointer-events: none;
+}
+
+.next h4 {
+  color: var(--primary-purple, #16294f);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .fixed {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  .check-circle {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .fixed {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  .col-lg-9 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .check-circle {
+    display: none;
+  }
+}

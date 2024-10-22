@@ -1,0 +1,283 @@
+<section #myElem id="programs-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-12 ps-lg-0 pe-lg-4" (click)="goDown()">
+        <div
+          class="nav flex-xl-column nav-pills child-nav"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+          [ngClass]="navbarFixed ? 'fixed' : 'static'"
+        >
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-3"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="booking"
+            routerLinkActive="active"
+            (click)="steps1()"
+          >
+            <img
+              src="/assets/images/navigator/housing/housing-nav-icons/1.svg"
+              alt="Booking"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Booking
+            <img
+              *ngIf="!book"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="book"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-4"
+            id="pills-ascams-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-ascams"
+            type="button"
+            role="tab"
+            aria-controls="pills-ascams"
+            aria-selected="false"
+            routerLink="avoid-scams"
+            routerLinkActive="active"
+            [ngClass]="book ? 'open' : 'close'"
+            (click)="steps2()"
+          >
+          <!-- [ngClass]="book ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/housing/housing-nav-icons/2.svg"
+              alt="Avoid Scams"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Avoid Scams
+            <img
+              *ngIf="!avoid"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="avoid"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-3"
+            id="pills-Garant-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-Garant"
+            type="button"
+            role="tab"
+            aria-controls="pills-Garant"
+            aria-selected="false"
+            routerLink="garant"
+            routerLinkActive="active"
+            [ngClass]="avoid ? 'open' : 'close'"
+            (click)="steps3()"
+          >
+          <!-- [ngClass]="avoid ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/housing/housing-nav-icons/3.svg"
+              alt="Garant"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Garant
+            <img
+              *ngIf="!garant"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="garant"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-HousingCert-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-HousingCert"
+            type="button"
+            role="tab"
+            aria-controls="pills-HousingCert"
+            aria-selected="false"
+            routerLink="housing-certificate"
+            routerLinkActive="active"
+            [ngClass]="garant ? 'open' : 'close'"
+            (click)="steps4()"
+          >
+          <!-- [ngClass]="garant ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/housing/housing-nav-icons/4.svg"
+              alt="Housing certificate"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Housing certificate
+            <img
+              *ngIf="!hcertificate"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="hcertificate"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-HousingIns-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-HousingIns"
+            type="button"
+            role="tab"
+            aria-controls="pills-HousingIns"
+            aria-selected="false"
+            routerLink="housing-insurance"
+            routerLinkActive="active"
+            [ngClass]="hcertificate ? 'open' : 'close'"
+            (click)="steps5()"
+          >
+          <!-- [ngClass]="hcertificate ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/housing/housing-nav-icons/5.svg"
+              alt="Housing insurance"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Housing insurance
+            <img
+              *ngIf="!hinsurance"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="hinsurance"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-6"
+            id="pills-Appartement-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-Appartement"
+            type="button"
+            role="tab"
+            aria-controls="pills-Appartement"
+            aria-selected="false"
+            routerLink="appartement-inventory"
+            routerLinkActive="active"
+            [ngClass]="hinsurance ? 'open' : 'close'"
+            (click)="steps6()"
+          >
+          <!-- [ngClass]="hinsurance ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/housing/housing-nav-icons/6.svg"
+              alt="Appartement inventory"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Appartement inventory
+            <img
+              *ngIf="!inventory"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="inventory"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-3"
+            id="pills-CAF-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-CAF"
+            type="button"
+            role="tab"
+            aria-controls="pills-CAF"
+            aria-selected="false"
+            routerLink="caf"
+            routerLinkActive="active"
+            [ngClass]="inventory ? 'open' : 'close'"
+            (click)="steps7()"
+          >
+          <!-- [ngClass]="inventory ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/housing/housing-nav-icons/7.svg"
+              alt="CAF"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            CAF
+            <img
+              *ngIf="!caf"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="caf"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+        </div>
+        <div *ngIf="caf" class="d-flex align-items-center next mt-3">
+          <h4>Next</h4>
+          <img
+            class="mx-1"
+            src="../../../../../assets/images/navigator/next.svg"
+            alt="next"
+          />
+          <h4
+            routerLink="/student-navigator/visa/campus-france"
+            style="cursor: pointer"
+          >
+            Visa
+          </h4>
+        </div>
+      </div>
+      <div class="tab-content navs col-lg-9 col-12" id="v-pills-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

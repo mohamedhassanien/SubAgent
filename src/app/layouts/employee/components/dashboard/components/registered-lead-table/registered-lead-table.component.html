@@ -1,0 +1,1448 @@
+<div class="my-2 px-2 d-flex flex-column">
+  <div class="table-header d-flex ps-0 justify-content-between">
+    <div class="d-flex align-items-center">
+      <a class="secondary-link me-5" [routerLink]="[
+          '/employees',
+          empName,
+          'dashboard',
+          'lead-management',
+          'registered-lead'
+        ]" routerLinkActive="activated-secondary-link">
+        New account
+      </a>
+      <a class="secondary-link" [routerLink]="[
+          '/employees',
+          empName,
+          'dashboard',
+          'lead-management',
+          'restored-lead'
+        ]" routerLinkActive="activated-secondary-link">
+        Restored
+      </a>
+    </div>
+    <!-- <a
+      class="add-button"
+      [routerLink]="[
+        '/employees',
+        empName,
+        'dashboard',
+        'lead-management',
+        'add-prospect'
+      ]"
+    >
+      Add lead
+    </a> -->
+    <button mat-menu-item (click)="openModal(add, 'add-modal', 'xl', [])" class="add-button">
+      <span>Add Lead</span>
+    </button>
+
+    <ng-template #add let-c="close" let-d="dismiss">
+      <app-add-prospect></app-add-prospect>
+    </ng-template>
+
+
+  </div>
+  <p-table [value]="allProspects" [paginator]="true" [rows]="rows" [(first)]="first" [showCurrentPageReport]="true"
+    responsiveLayout="scroll" currentPageReportTemplate="" [resizableColumns]="true"
+    styleClass="table-style p-datatable-striped" columnResizeMode="expand" [loading]="loading"
+    [reorderableColumns]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]" exportHeader="customExportHeader" [lazy]="false" [globalFilterFields]="[
+      'studentName',
+      'studentEmail',
+      'AccountCreatedDays',
+      'studentSeriousnessScore',
+      'studentFieldOfInterest',
+      'studentPhone',
+      'studentNationality'
+    ]" [filterDelay]="0" [(selection)]="selectedColumns" (onEditComplete)="editFields($event)" selectionMode="single"
+    #table>
+    <ng-template pTemplate="caption">
+      <div class="d-flex ps-0">
+        <span class="p-input-icon-left ms-auto">
+          <input #input pInputText type="text" (input)="table.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search" class="form-control" />
+        </span>
+      </div>
+      <div class="w-100 d-flex justify-content-center position-relative top-controls">
+        <button type="button" pButton pRipple icon="fi fi-rr-download" (click)="exportExcel()"
+          class="p-button-success mr-2 position-relative" pTooltip="XLS" tooltipPosition="bottom"></button>
+        <button (click)="goLeft()">
+          <i class="fi fi-rr-angle-double-small-left me-2"></i>
+        </button>
+        <button (click)="goRight()">
+          <i class="fi fi-rr-angle-double-small-right ms-2"></i>
+        </button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" #tableWidth>
+      <tr>
+        <th pResizableColumn id="left-most">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+
+        <th><span class="table-title">ID</span></th>
+
+        <th pSortableColumn="studentSeriousnessScore" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Score </span>
+            <p-sortIcon field="studentSeriousnessScore"></p-sortIcon>
+            <p-columnFilter type="numeric" field="studentSeriousnessScore" display="menu" [hideOnClear]="true"
+              placeholder="score" class="ms-auto"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="AccountCreatedDays" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Account Creation </span>
+            <p-sortIcon field="AccountCreatedDays"></p-sortIcon>
+            <p-columnFilter type="numeric" field="AccountCreatedDays" display="menu" [hideOnClear]="true"
+              placeholder="# of days">
+            </p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="studentName" pReorderableColumn *ngIf="mainLink !== 'leads'">
+          <div class="d-flex align-items-center">
+            <span class="table-title">Name </span>
+            <p-sortIcon field="studentName"></p-sortIcon>
+            <p-columnFilter type="text" field="studentName" display="menu" [hideOnClear]="true"
+              placeholder="Name"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="studentFieldOfInterest" pResizableColumn pReorderableColumn *ngIf="mainLink !== 'leads'">
+          <div class="d-flex align-items-center">
+            <span class="table-title">Field of intereset</span>
+            <p-sortIcon field="studentFieldOfInterest"></p-sortIcon>
+            <p-columnFilter type="text" field="studentFieldOfInterest" display="menu" [hideOnClear]="true"
+              placeholder="Field of intereset"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="studentPhone" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Phone</span>
+            <p-sortIcon field="studentPhone"></p-sortIcon>
+            <p-columnFilter type="text" field="studentPhone" display="menu" [hideOnClear]="true"
+              placeholder="Phone Number" prefix="+" [useGrouping]="false"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="studentNationality" pReorderableColumn *ngIf="mainLink !== 'leads'">
+          <div class="d-flex align-items-center">
+            <span class="table-title">Country</span>
+            <p-sortIcon field="studentNationality"></p-sortIcon>
+            <p-columnFilter type="text" field="studentNationality" display="menu" [hideOnClear]="true"
+              placeholder="Nationality"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="studentEmail" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Email Address </span>
+            <p-sortIcon field="studentEmail"></p-sortIcon>
+            <p-columnFilter type="text" field="studentEmail" display="menu" [hideOnClear]="true"
+              placeholder="Email Address"></p-columnFilter>
+          </div>
+        </th>
+
+        <th style="width: 8rem" id="right-most"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowIndex="rowIndex" let-prospect>
+      <tr style="height: 75px">
+        <td>
+          <p-tableCheckbox [value]="prospect" [index]="rowIndex"></p-tableCheckbox>
+        </td>
+
+        <!-- id -->
+        <td>
+          <span class="id-text"> {{ rowIndex + 1 }}</span>
+        </td>
+
+        <!-- score -->
+        <td pEditableColumn class="ui-resizable-column" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'studentSeriousnessScore'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown [options]="scores" appendTo="body" [(ngModel)]="prospect.studentSeriousnessScore"
+                [style]="{ width: '100%' }"></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <div class="d-flex justify-content-center">
+                <p-badge [styleClass]="getScoreColor(prospect.studentSeriousnessScore)"
+                  [value]="prospect.studentSeriousnessScore" size="large"></p-badge>
+              </div>
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <!-- account creation -->
+        <td pEditableColumn class="ui-resizable-column" [pEditableColumn]="prospect" [pEditableColumnField]="'date'"
+          [pEditableColumnRowIndex]="rowIndex">
+          <div class="progress-container position-relative" *ngIf="prospect.AccountCreatedDays !== undefined">
+            <span class="position-absolute value font-poppins" [ngStyle]="{
+                color: prospect.AccountCreatedDays > 20 ? '#FDFDFD' : '#121212'
+              }">{{
+              prospect.AccountCreatedDays > 25
+              ? "25+ days"
+              : prospect.AccountCreatedDays === 1
+              ? prospect.AccountCreatedDays + " day"
+              : prospect.AccountCreatedDays + " days"
+              }}</span>
+            <p-progressBar [ngClass]="getProgressColor(prospect.AccountCreatedDays)"
+              [value]="setProgressValue(prospect.AccountCreatedDays)" [showValue]="false"></p-progressBar>
+          </div>
+        </td>
+
+        <!-- name -->
+        <td pEditableColumn [pEditableColumn]="prospect" [pEditableColumnField]="'studentName'"
+          [pEditableColumnRowIndex]="rowIndex" class="ui-resizable-column font-poppins">
+          <button mat-menu-item (click)="
+              openModal(
+                documents,
+                'documents-modal',
+                'xl',
+                prospect.studentDocs
+              )
+            ">
+            {{ prospect.studentName }}
+          </button>
+
+          <!-- Name Modal -->
+          <ng-template #documents let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <input pInputText type="text" [(ngModel)]="prospect.studentName" class="form-control name-modal-input" />
+              <button type="button" class="close-btn" aria-label="Close" (click)="d('Cross click')">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body d-lg-block d-none">
+              <table class="documents-table">
+                <tr class="table-row">
+                  <td class="documents">Documents</td>
+                  <td class="status text-center" colspan="2">Status</td>
+                </tr>
+                <tr class="main-row">
+                  <td class="main-title">IDENTITY DOCUMENTS</td>
+                  <td class="sec-title">Uploaded</td>
+                  <td class="sec-title w-25">Document</td>
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">Copy of Passeport / or ID</td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.pass
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.pass,
+                            'fa-check': urlObject.pass
+                          }" [ngStyle]="{
+                            color: urlObject.pass ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.pass ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.pass ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.pass" [href]="urlObject.pass" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="passInput.click()" *ngIf="!uploadPercentage.pass && !urlObject.pass">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.pass">
+                      {{ uploadPercentage.pass }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="deleteFile('pass', prospect.studentUserName)"
+                      *ngIf="!uploadPercentage.pass && urlObject.pass">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #passInput type="file" (change)="
+                      chooseFile($event, 'pass', prospect.studentUserName)
+                    " style="display: none" />
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">Identity Photo</td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.identity_photo
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.identity_photo,
+                            'fa-check': urlObject.identity_photo
+                          }" [ngStyle]="{
+                            color: urlObject.identity_photo
+                              ? '#16294f'
+                              : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.identity_photo
+                            ? '#16294f'
+                            : '#F66666'
+                        }">
+                        {{ urlObject.identity_photo ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.identity_photo" [href]="urlObject.identity_photo"
+                      target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="photoInput.click()" *ngIf="
+                        !uploadPercentage.identity_photo &&
+                        !urlObject.identity_photo
+                      ">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="
+                        uploadPercentage.identity_photo &&
+                        !urlObject.identity_photo
+                      ">
+                      {{ uploadPercentage.identity_photo }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto" (click)="
+                        deleteFile('identity_photo', prospect.studentUserName)
+                      " *ngIf="
+                        !uploadPercentage.identity_photo &&
+                        urlObject.identity_photo
+                      ">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #photoInput type="file" (change)="
+                      chooseFile(
+                        $event,
+                        'identity_photo',
+                        prospect.studentUserName
+                      )
+                    " style="display: none" />
+                </tr>
+                <tr class="main-row">
+                  <td class="main-title">MOTIVATION DOCUMENTS</td>
+                  <td class="sec-title">Uploaded</td>
+                  <td class="sec-title w-25">Document</td>
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">Resume</td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.cv
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.cv,
+                            'fa-check': urlObject.cv
+                          }" [ngStyle]="{
+                            color: urlObject.cv ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.cv ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.cv ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.cv" [href]="urlObject.cv" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="resumeInput.click()" *ngIf="!uploadPercentage.cv && !urlObject.cv">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.cv && !urlObject.cv">
+                      {{ uploadPercentage.cv }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="deleteFile('cv', prospect.studentUserName)" *ngIf="!uploadPercentage.cv && urlObject.cv">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #resumeInput type="file" (change)="
+                      chooseFile($event, 'cv', prospect.studentUserName)
+                    " style="display: none" />
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">Motivation Letter ( Cover Letter )</td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.ml
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.ml,
+                            'fa-check': urlObject.ml
+                          }" [ngStyle]="{
+                            color: urlObject.ml ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.ml ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.ml ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.ml" [href]="urlObject.ml" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="mlInput.click()" *ngIf="!uploadPercentage.ml && !urlObject.ml">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.ml && !urlObject.ml">
+                      {{ uploadPercentage.ml }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="deleteFile('ml', prospect.studentUserName)" *ngIf="!uploadPercentage.ml && urlObject.ml">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #mlInput type="file" (change)="
+                      chooseFile($event, 'ml', prospect.studentUserName)
+                    " style="display: none" />
+                </tr>
+                <tr class="main-row">
+                  <td class="main-title">ACADEMIC DOCUMENTS</td>
+                  <td class="sec-title">Uploaded</td>
+                  <td class="sec-title w-25">Document</td>
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">
+                    Copy The Last Three Years Transcripts
+                  </td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.trans
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.trans,
+                            'fa-check': urlObject.trans
+                          }" [ngStyle]="{
+                            color: urlObject.trans ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.trans ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.trans ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.trans" [href]="urlObject.trans" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="transInput.click()" *ngIf="!uploadPercentage.trans && !urlObject.trans">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.trans && !urlObject.trans">
+                      {{ uploadPercentage.trans }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="deleteFile('trans', prospect.studentUserName)"
+                      *ngIf="!uploadPercentage.trans && urlObject.trans">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #transInput type="file" (change)="
+                      chooseFile($event, 'trans', prospect.studentUserName)
+                    " style="display: none" />
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">
+                    Copy Of Degrees Obtained ( Certificates )
+                  </td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.certificate
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.certificate,
+                            'fa-check': urlObject.certificate
+                          }" [ngStyle]="{
+                            color: urlObject.certificate ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.certificate ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.certificate ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.certificate" [href]="urlObject.certificate" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="certificatesInput.click()" *ngIf="
+                        !uploadPercentage.certificate && !urlObject.certificate
+                      ">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="
+                        uploadPercentage.certificate && !urlObject.certificate
+                      ">
+                      {{ uploadPercentage.certificate }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto" (click)="
+                        deleteFile('certificate', prospect.studentUserName)
+                      " *ngIf="
+                        !uploadPercentage.certificate && urlObject.certificate
+                      ">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #certificatesInput type="file" (change)="
+                      chooseFile(
+                        $event,
+                        'certificate',
+                        prospect.studentUserName
+                      )
+                    " style="display: none" />
+                </tr>
+                <tr class="main-row">
+                  <td class="main-title">LANGUAGE PROOFS</td>
+                  <td class="sec-title">Uploaded</td>
+                  <td class="sec-title w-25">Document</td>
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">ILETS/TOEIC/TOEFL</td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.engTest
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.engTest,
+                            'fa-check': urlObject.engTest
+                          }" [ngStyle]="{
+                            color: urlObject.engTest ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.engTest ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.engTest ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.engTest" [href]="urlObject.engTest" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="englishInput.click()" *ngIf="!uploadPercentage.engTest && !urlObject.engTest">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.engTest && !urlObject.engTest">
+                      {{ uploadPercentage.engTest }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="deleteFile('engTest', prospect.studentUserName)"
+                      *ngIf="!uploadPercentage.engTest && urlObject.engTest">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #englishInput type="file" (change)="
+                      chooseFile($event, 'engTest', prospect.studentUserName)
+                    " style="display: none" />
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">TCF/DELF/DALF</td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.frenchTest
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.frenchTest,
+                            'fa-check': urlObject.frenchTest
+                          }" [ngStyle]="{
+                            color: urlObject.frenchTest ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.frenchTest ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.frenchTest ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.frenchTest" [href]="urlObject.frenchTest" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="frenchInput.click()" *ngIf="
+                        !uploadPercentage.frenchTest && !urlObject.frenchTest
+                      ">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="
+                        uploadPercentage.frenchTest && !urlObject.frenchTest
+                      ">
+                      {{ uploadPercentage.frenchTest }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto" (click)="
+                        deleteFile('frenchTest', prospect.studentUserName)
+                      " *ngIf="
+                        !uploadPercentage.frenchTest && urlObject.frenchTest
+                      ">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #frenchInput type="file" (change)="
+                      chooseFile($event, 'frenchTest', prospect.studentUserName)
+                    " style="display: none" />
+                </tr>
+                <tr class="main-row">
+                  <td class="main-title">SUPPORTING DOCUMENTS</td>
+                  <td class="sec-title">Uploaded</td>
+                  <td class="sec-title w-25">Document</td>
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">
+                    Recommendation Letters <br />(With Email And Number Of The
+                    Referee)
+                  </td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center" style="height: 84px">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.rl
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.rl,
+                            'fa-check': urlObject.rl
+                          }" [ngStyle]="{
+                            color: urlObject.rl ? '#16294f' : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.rl ? '#16294f' : '#F66666'
+                        }">
+                        {{ urlObject.rl ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.rl" [href]="urlObject.rl" target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="rlInput.click()" *ngIf="!uploadPercentage.rl && !urlObject.rl">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="uploadPercentage.rl && !urlObject.rl">
+                      {{ uploadPercentage.rl }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="deleteFile('rl', prospect.studentUserName)" *ngIf="!uploadPercentage.rl && urlObject.rl">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #rlInput type="file" (change)="
+                      chooseFile($event, 'rl', prospect.studentUserName)
+                    " style="display: none" />
+                </tr>
+                <tr class="sec-row">
+                  <td class="main-desc">
+                    Certification Of Extracurricular <br />Activities / Or
+                    Professional Activities
+                  </td>
+                  <td class="sec-desc d-flex justify-content-between align-items-center" style="height: 84px">
+                    <div class="status-desc d-flex align-items-center">
+                      <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                          'background-color': urlObject.professional_act
+                            ? '#E5E7FF'
+                            : '#FFDDDD'
+                        }">
+                        <i class="fas" [ngClass]="{
+                            'fa-times': !urlObject.professional_act,
+                            'fa-check': urlObject.professional_act
+                          }" [ngStyle]="{
+                            color: urlObject.professional_act
+                              ? '#16294f'
+                              : '#F66666'
+                          }"></i>
+                      </div>
+                      <span class="status-name" [ngStyle]="{
+                          color: urlObject.professional_act
+                            ? '#16294f'
+                            : '#F66666'
+                        }">
+                        {{ urlObject.professional_act ? "Yes" : "No" }}
+                      </span>
+                    </div>
+                    <a class="status-link" *ngIf="urlObject.professional_act" [href]="urlObject.professional_act"
+                      target="_blank">
+                      VIEW
+                    </a>
+                  </td>
+                  <td class="sec-desc text-center">
+                    <div class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                      (click)="activitiesInput.click()" *ngIf="
+                        !uploadPercentage.professional_act &&
+                        !urlObject.professional_act
+                      ">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                    <p class="percentage" *ngIf="
+                        uploadPercentage.professional_act &&
+                        !urlObject.professional_act
+                      ">
+                      {{ uploadPercentage.professional_act }}%
+                    </p>
+                    <div class="success-btn d-flex justify-content-center align-items-center mx-auto" (click)="
+                        deleteFile('professional_act', prospect.studentUserName)
+                      " *ngIf="
+                        !uploadPercentage.professional_act &&
+                        urlObject.professional_act
+                      ">
+                      <i class="fas fa-trash"></i>
+                    </div>
+                  </td>
+                  <!-- File input -->
+                  <input #activitiesInput type="file" (change)="
+                      chooseFile(
+                        $event,
+                        'professional_act',
+                        prospect.studentUserName
+                      )
+                    " style="display: none" />
+                </tr>
+              </table>
+            </div>
+            <div class="modal-body d-lg-none">
+              <mdb-accordion class="accordion">
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Copy of Passeport / or ID
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="!uploadPercentage.pass && !urlObject.pass" class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile($event, 'pass', prospect.studentUserName)
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100"
+                      *ngIf="urlObject.pass || uploadPercentage.pass">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.pass
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.pass,
+                              'fa-check': urlObject.pass
+                            }" [ngStyle]="{
+                              color: urlObject.pass ? '#16294f' : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.pass ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.pass ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.pass">
+                        {{ uploadPercentage.pass }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.pass" [href]="urlObject.pass" target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Identity Photo
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="
+                        !uploadPercentage.identity_photo &&
+                        !urlObject.identity_photo
+                      " class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile(
+                            $event,
+                            'identity_photo',
+                            prospect.studentUserName
+                          )
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100" *ngIf="
+                        urlObject.identity_photo ||
+                        uploadPercentage.identity_photo
+                      ">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.identity_photo
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.identity_photo,
+                              'fa-check': urlObject.identity_photo
+                            }" [ngStyle]="{
+                              color: urlObject.identity_photo
+                                ? '#16294f'
+                                : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.identity_photo
+                              ? '#16294f'
+                              : '#F66666'
+                          }">
+                          {{ urlObject.identity_photo ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.identity_photo">
+                        {{ uploadPercentage.identity_photo }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.identity_photo" [href]="urlObject.identity_photo"
+                        target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Resume
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="!uploadPercentage.cv && !urlObject.cv" class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile($event, 'cv', prospect.studentUserName)
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100"
+                      *ngIf="urlObject.cv || uploadPercentage.cv">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.cv
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.cv,
+                              'fa-check': urlObject.cv
+                            }" [ngStyle]="{
+                              color: urlObject.cv ? '#16294f' : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.cv ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.cv ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.cv">
+                        {{ uploadPercentage.cv }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.cv" [href]="urlObject.cv" target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Motivation Letter ( Cover Letter )
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="!uploadPercentage.ml && !urlObject.ml" class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile($event, 'ml', prospect.studentUserName)
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100"
+                      *ngIf="urlObject.ml || uploadPercentage.ml">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.ml
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.ml,
+                              'fa-check': urlObject.ml
+                            }" [ngStyle]="{
+                              color: urlObject.ml ? '#16294f' : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.ml ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.ml ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.ml">
+                        {{ uploadPercentage.ml }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.ml" [href]="urlObject.ml" target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Copy The Last Three Years Transcripts
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="!uploadPercentage.trans && !urlObject.trans" class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile($event, 'trans', prospect.studentUserName)
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100"
+                      *ngIf="urlObject.trans || uploadPercentage.trans">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.trans
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.trans,
+                              'fa-check': urlObject.trans
+                            }" [ngStyle]="{
+                              color: urlObject.trans ? '#16294f' : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.trans ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.trans ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.trans">
+                        {{ uploadPercentage.trans }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.trans" [href]="urlObject.trans" target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Copy Of Degrees Obtained ( Certificates )
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="
+                        !uploadPercentage.certificate && !urlObject.certificate
+                      " class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile(
+                            $event,
+                            'certificate',
+                            prospect.studentUserName
+                          )
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100" *ngIf="
+                        urlObject.certificate || uploadPercentage.certificate
+                      ">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.certificate
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.certificate,
+                              'fa-check': urlObject.certificate
+                            }" [ngStyle]="{
+                              color: urlObject.certificate
+                                ? '#16294f'
+                                : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.certificate ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.certificate ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.certificate">
+                        {{ uploadPercentage.certificate }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.certificate" [href]="urlObject.certificate"
+                        target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Lets/Toeic/Toefl
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="!uploadPercentage.engTest && !urlObject.engTest"
+                      class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile(
+                            $event,
+                            'engTest',
+                            prospect.studentUserName
+                          )
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100"
+                      *ngIf="urlObject.engTest || uploadPercentage.engTest">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.engTest
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.engTest,
+                              'fa-check': urlObject.engTest
+                            }" [ngStyle]="{
+                              color: urlObject.engTest ? '#16294f' : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.engTest ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.engTest ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.engTest">
+                        {{ uploadPercentage.engTest }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.engTest" [href]="urlObject.engTest" target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Tcf/Delf/Dalf
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="
+                        !uploadPercentage.frenchTest && !urlObject.frenchTest
+                      " class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile(
+                            $event,
+                            'frenchTest',
+                            prospect.studentUserName
+                          )
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100" *ngIf="
+                        urlObject.frenchTest || uploadPercentage.frenchTest
+                      ">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.frenchTest
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.frenchTest,
+                              'fa-check': urlObject.frenchTest
+                            }" [ngStyle]="{
+                              color: urlObject.frenchTest
+                                ? '#16294f'
+                                : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.frenchTest ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.frenchTest ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.frenchTest">
+                        {{ uploadPercentage.frenchTest }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.frenchTest" [href]="urlObject.frenchTest" target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Recommendation Letters ( With Email And Number Of The
+                    Referee)
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="!uploadPercentage.rl && !urlObject.rl" class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile($event, 'rl', prospect.studentUserName)
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100"
+                      *ngIf="urlObject.rl || uploadPercentage.rl">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.rl
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.rl,
+                              'fa-check': urlObject.rl
+                            }" [ngStyle]="{
+                              color: urlObject.rl ? '#16294f' : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.rl ? '#16294f' : '#F66666'
+                          }">
+                          {{ urlObject.rl ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.rl">
+                        {{ uploadPercentage.rl }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.rl" [href]="urlObject.rl" target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+                <mdb-accordion-item>
+                  <ng-template mdbAccordionItemHeader class="d-flex justify-content-start align-items-center">
+                    Certification Of Extracurricular Activities / Or
+                    Professional Activities
+                    <i class="fas fa-plus ms-auto"></i>
+                  </ng-template>
+                  <ng-template mdbAccordionItemBody>
+                    <div *ngIf="
+                        !uploadPercentage.professional_act &&
+                        !urlObject.professional_act
+                      " class="d-flex align-items-center w-100">
+                      <input type="file" (change)="
+                          chooseFile(
+                            $event,
+                            'professional_act',
+                            prospect.studentUserName
+                          )
+                        " />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100" *ngIf="
+                        urlObject.professional_act ||
+                        uploadPercentage.professional_act
+                      ">
+                      <div class="status-desc d-flex align-items-center">
+                        <div class="status-icon d-flex justify-content-center align-items-center" [ngStyle]="{
+                            'background-color': urlObject.professional_act
+                              ? '#E5E7FF'
+                              : '#FFDDDD'
+                          }">
+                          <i class="fas" [ngClass]="{
+                              'fa-times': !urlObject.professional_act,
+                              'fa-check': urlObject.professional_act
+                            }" [ngStyle]="{
+                              color: urlObject.professional_act
+                                ? '#16294f'
+                                : '#F66666'
+                            }"></i>
+                        </div>
+                        <span class="status-name" [ngStyle]="{
+                            color: urlObject.professional_act
+                              ? '#16294f'
+                              : '#F66666'
+                          }">
+                          {{ urlObject.professional_act ? "Yes" : "No" }}
+                        </span>
+                      </div>
+                      <p class="percentage" *ngIf="uploadPercentage.professional_act">
+                        {{ uploadPercentage.professional_act }}%
+                      </p>
+                      <a class="status-link" *ngIf="urlObject.professional_act" [href]="urlObject.professional_act"
+                        target="_blank">
+                        VIEW
+                      </a>
+                    </div>
+                  </ng-template>
+                </mdb-accordion-item>
+              </mdb-accordion>
+            </div>
+          </ng-template>
+          <!-- <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                pInputText
+                type="text"
+                [(ngModel)]="prospect.studentName"
+                class="form-control w-100"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.studentName }}
+            </ng-template>
+          </p-cellEditor> -->
+        </td>
+
+        <!-- fieldOfInterest -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'studentFieldOfInterest'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown [options]="fieldsOfInterest" appendTo="body" [(ngModel)]="prospect.studentFieldOfInterest"
+                [style]="{ width: '100%' }"></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <span *ngIf="prospect.studentFieldOfInterest.length !== 0" class="status" [ngStyle]="{
+                  background: '#E8E8E8',
+                  color: '#121212'
+                }" class="status">
+                {{ prospect.studentFieldOfInterest }}
+              </span>
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <!-- phone -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'studentPhone'" [pEditableColumnRowIndex]="rowIndex">
+          <ngx-intl-tel-input [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="false"
+            [searchCountryField]="[
+              SearchCountryField.Iso2,
+              SearchCountryField.Name
+            ]" PhoneNumberFormat="INTERNATIONAL" [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.France"
+            [(ngModel)]="prospect.studentPhone" name="studentPhone"></ngx-intl-tel-input>
+        </td>
+
+        <!-- country -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'studentNationality'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="prospect.studentNationality" class="form-control w-100" />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.studentNationality }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <!-- email -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'studentEmail'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="prospect.studentEmail" class="form-control w-100" />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.studentEmail }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td style="text-align: center">
+          <button pButton type="button" class="p-button-text p-button-rounded p-button-secondary"
+            icon="pi pi-ellipsis-v" [matMenuTriggerFor]="menu"></button>
+
+          <mat-menu #menu="matMenu">
+            <!-- To assign for other employees -->
+            <button mat-menu-item [matMenuTriggerFor]="assign">
+              <i class="fi fi-rr-forward"></i>
+              <span>Assign</span>
+            </button>
+
+            <mat-menu #assign="matMenu">
+              <button mat-menu-item (click)="assignProspect(prospect.studentUserName, empUserName)">
+                For Me
+              </button>
+              <button mat-menu-item [matMenuTriggerFor]="others">
+                For Others
+              </button>
+
+              <mat-menu #others="matMenu">
+                <button mat-menu-item *ngFor="let emp of employees" (click)="
+                    assignProspect(prospect.studentUserName, emp.Username)
+                  ">
+                  {{ emp.Name }}
+                </button>
+              </mat-menu>
+            </mat-menu>
+
+            <!-- To view comments -->
+            <!-- <button
+              mat-menu-item
+              (click)="
+                openModal(comments, 'comments-modal', 'lg', prospect.email)
+              "
+            >
+              <i class="fi fi-rr-comment"></i>
+              <span>Comments</span>
+            </button> -->
+
+            <!-- Comments -->
+            <ng-template #comments let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">
+                  Comments of <span>{{ prospect.name }}</span>
+                </h4>
+                <button type="button" class="close-btn" aria-label="Close" (click)="d('Cross click')">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body row">
+                <div class="col-3">
+                  <img src="../../../../../../../assets/images/employees/modal-visuals/comments-modal.svg" alt=""
+                    class="w-100" />
+                </div>
+                <div class="col-9">
+                  <div *ngFor="let comment of allComments; let j = index">
+                    <div class="comment-box" *ngIf="comment.studentEmail === prospect.email">
+                      <i class="fi fi-rr-menu-dots-vertical d-flex justify-content-end mb-1"
+                        [matMenuTriggerFor]="commentsMenu"></i>
+                      <div class="d-flex justify-content-between">
+                        <h4 class="comment-name">
+                          {{ comment.empName }}
+                        </h4>
+                        <p class="comment-date">
+                          {{ comment.createdAt * 1000 | date: "short" }}
+                        </p>
+                        <mat-menu #commentsMenu>
+                          <button mat-menu-item (click)="changeEditComment(j, comment.comment)">
+                            <i class="fi fi-rr-edit"></i>
+                            <span>Edit</span>
+                          </button>
+                          <button mat-menu-item (click)="deleteComment(comment.commentId)">
+                            <i class="fi fi-rr-trash"></i>
+                            <span>Delete</span>
+                          </button>
+                        </mat-menu>
+                      </div>
+                      <p class="comment" *ngIf="!editCommentMode[j]" [innerHTML]="comment.comment">
+
+                      </p>
+                      <form [formGroup]="editCommentForm" (ngSubmit)="
+                          editComment(
+                            editCommentForm,
+                            prospect.email,
+                            comment.commentId,
+                            j
+                          )
+                        " *ngIf="editCommentMode[j]">
+                        <textarea class="comment-area" formControlName="editComment">
+                        </textarea>
+                        <button class="submit-btn me-3" type="submit" [disabled]="!editCommentForm.valid" [ngClass]="{
+                            'main-btn':
+                              editCommentForm.controls.editComment.value,
+                            'sec-btn':
+                              !editCommentForm.controls.editComment.value
+                          }">
+                          Save
+                        </button>
+                        <button class="cancel-btn" type="button" (click)="cancelEditComment(j)" [ngClass]="{
+                            'main-btn':
+                              !editCommentForm.controls.editComment.value,
+                            'sec-btn':
+                              editCommentForm.controls.editComment.value
+                          }">
+                          Cancel
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  <h4 *ngIf="!isThereComments" class="no-comments-text">
+                    No Comments Were Found
+                  </h4>
+                  <button class="comment-toggler" (click)="toggleNewComment(prospect.email)" *ngIf="!isAddingComment">
+                    <i class="fi fi-rr-plus-small"></i>
+                    <span>Add Another Comment</span>
+                  </button>
+                  <div class="add-comment-box" *ngIf="isAddingComment">
+                    <form [formGroup]="commentForm" (ngSubmit)="submit(commentForm, prospect.email)">
+                      <textarea class="comment-area" placeholder="Your Comment" formControlName="comment"></textarea>
+                      <h4 class="new-comment-name">{{ empName }}</h4>
+                      <p class="new-comment-date">
+                        {{ getTime() | date: "shortTime" }}
+                      </p>
+                      <div class="btn-container d-flex justify-content-end">
+                        <button class="submit-btn" type="submit" [disabled]="!commentForm.valid" [ngClass]="{
+                            'main-btn': commentForm.controls.comment.value,
+                            'sec-btn': !commentForm.controls.comment.value
+                          }">
+                          Done
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </mat-menu>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length">No leads found</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -1,0 +1,123 @@
+section {
+  background: var(--background, #F7F7F7);
+  padding: 40px 48px;
+}
+
+section .main-prog {
+  position: relative;
+}
+
+section .main-prog .progress .progress-bar {
+  background-color: #16294f;
+}
+
+section .main-prog .progress .progress-bar::after {
+  content: "";
+  background-image: url("../../../assets/images/chat-bot/air.svg");
+}
+
+section .main-prog .progress .progcount {
+  color: var(--untap, #636363);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+section .information h1 {
+  color: var(--secondry-red, #FF5151);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+section .information p {
+  color: var(--content-grey, #444);
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  section {
+    background: var(--background, #F7F7F7);
+    padding: 40px 28px;
+  }
+
+  section .main-prog {
+    position: relative;
+  }
+
+  section .main-prog .progress .progress-bar {
+    background-color: #16294f;
+  }
+
+  section .main-prog .progress .progress-bar::after {
+    content: "";
+    background-image: url("../../../assets/images/chat-bot/air.svg");
+  }
+
+  section .main-prog .progress .progcount {
+    color: var(--untap, #636363);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  section .information h1 {
+    color: var(--secondry-red, #FF5151);
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  section .information p {
+    color: var(--content-grey, #444);
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  section {
+    background: var(--background, #F7F7F7);
+    padding: 20px 16px;
+  }
+
+  section .main-prog {
+    position: relative;
+    margin-top: 22px;
+  }
+
+  section .main-prog .progress .progress-bar {
+    background-color: #16294f;
+  }
+
+  section .main-prog .progress .progress-bar::after {
+    content: "";
+    background-image: url("../../../assets/images/chat-bot/air.svg");
+  }
+
+  section .main-prog .progress .progcount {
+    color: var(--untap, #636363);
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  section .information h1 {
+    color: var(--secondry-red, #FF5151);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  section .information p {
+    color: var(--content-grey, #444);
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 17px;
+  }
+
+  section .information img {
+    width: 50%;
+    margin-bottom: 16px;
+  }
+}

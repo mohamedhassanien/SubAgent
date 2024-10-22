@@ -1,0 +1,55 @@
+section {
+  .row {
+    width: 602px;
+    height: 650px;
+    padding: 0 40px;
+    box-shadow: 1px 0px 3px #00000040;
+
+    .headline {
+      border-bottom: 1px solid #00000026;
+      padding-top: 40px;
+      padding-top: 20px;
+      h1 {
+        font: normal normal bold 36px/48px Roboto;
+        text-transform: uppercase;
+        color: #000000;
+      }
+      p {
+        font: normal normal normal 12px/16px Roboto;
+        color: #000000b3;
+        text-transform: capitalize;
+      }
+    }
+
+    .left-side,
+    .right-side {
+      h1 {
+        text-decoration: underline;
+        font: normal normal bold 15px/20px Roboto;
+        text-transform: uppercase;
+        padding-top: 25px;
+      }
+      .headings {
+        h2 {
+          font: normal normal bold 10px/13px Roboto;
+          color: #000000;
+        }
+        p {
+          font: normal normal normal 9px/11px Roboto;
+          color: #000000b3;
+        }
+      }
+      .exp-headings {
+        h1 {
+          font: normal normal bold 12px/16px Roboto;
+          color: #000000;
+          text-transform: capitalize;
+        }
+        p {
+          font: normal normal normal 10px/13px Roboto;
+          color: #000000;
+        }
+      }
+    }
+  }
+}

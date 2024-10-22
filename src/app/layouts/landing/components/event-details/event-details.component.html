@@ -1,0 +1,266 @@
+<!-- <div class="section-container">
+    <div class="home">
+        <h2 class="title">Ambassador meeting</h2>
+        <div class="ictx-holder">
+            <div class="ictx">
+                <div class="ictx-icon">
+                    <img
+src="/assets/images/docs.png" alt="">
+                </div>
+                <div class="ictx-text">
+                    <p class="o166d">Paris,France</p>
+                </div>
+            </div>
+            <div class="ictx">
+                <div class="ictx-icon">
+                    <img
+src="/assets/images/docs.png" alt="">
+                </div>
+                <div class="ictx-text">
+                    <p class="o166d">Nov. 21, 2020</p>
+                </div>
+            </div>
+            <div class="ictx">
+                <div class="ictx-icon">
+                    <img
+src="/assets/images/docs.png" alt="">
+                </div>
+                <div class="ictx-text">
+                    <p class="o166d">5:30 PM - 8:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <countdown [config]="config"></countdown>
+            <p><span>Days</span> <span>Hours</span> <span>Minutes</span> <span>Seconds</span></p>
+        </div>
+    </div>
+
+    <div class="custom-row about">
+        <div class="custom-col">
+            <div class="img-holder">
+                <img
+src="" alt="">
+            </div>
+            <div class="text">
+                <h2>About The Event</h2>
+                <p>Feugiat nisl pretium fusce id velit ut tortor. Ultricies tristique nulla aliquet enim tortor at. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed. </p>
+                <h2>Participation includes the following services</h2>
+                <ul>
+                    <li>Consectetur adipiscing elit duis tristique sollicitudin nibh;</li>
+
+                    <li>Mauris in aliquam sem fringilla. Eu sem integer vitae justo;</li>
+                    
+                    <li>Eu lobortis elementum nibh tellus. Volutpat odio facilisis mauris sit amet massa vitae tortor;</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="custom-col ticket">
+            <div>
+                <ul>
+                    <li>
+                        <div class="ictx">
+                            <div class="ictx-icon">
+                                <img
+src="/assets/images/docs.png" alt="">
+                            </div>
+                            <div class="ictx-text">
+                                <p class="o146db">Cost</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="o146d">130</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="ictx">
+                            <div class="ictx-icon">
+                                <img
+src="/assets/images/docs.png" alt="">
+                            </div>
+                            <div class="ictx-text">
+                                <p class="o146db">Total</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="o146d">6</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="ictx">
+                            <div class="ictx-icon">
+                                <img
+src="/assets/images/docs.png" alt="">
+                            </div>
+                            <div class="ictx-text">
+                                <p class="o146db">Booked</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="o146d">117</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="qr-code">
+                <p class="o146d">* Scan the QR code to proceed the payment</p>
+            </div>
+            <div class="form">
+                <button class="get" (click)="open(content)">Get Ticket</button>
+
+                <ng-template #content let-modal>
+                    <div class="modal-body">
+                        <div class="img-holder">
+                            <img
+src="" alt="">
+                        </div>
+                        <div class="text">
+                            <p><span>19</span> November</p>
+                            <h3>Ambassador meeting</h3>
+                            <form>
+                                <div class="control">
+                                    <div class="ictx">
+                                        <div class="ictx-icon">
+                                            <img
+src="/assets/images/docs.png" alt="">
+                                        </div>
+                                        <div class="ictx-text">
+                                            <p class="o186db">Cost:</p>
+                                        </div>
+                                    </div>
+                                    <input type="text" readonly placeholder="$90">
+                                </div>
+
+                                <div class="control">
+                                    <div class="ictx">
+                                        <div class="ictx-icon">
+                                            <img
+src="/assets/images/docs.png" alt="">
+                                        </div>
+                                        <div class="ictx-text">
+                                            <p class="o186db">Quantity:</p>
+                                        </div>
+                                    </div>
+                                    <input type="number" min="0" max="10" value="2">
+                                </div>
+
+                                <div class="control radio">
+                                    <div>
+                                        <input type="radio" name="" id="">
+                                        <label for="">PayPal</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="" id="">
+                                        <label for="">Credit Card</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="" id="">
+                                        <label for="">Apple Pay</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="" id="">
+                                        <label for="">Google Pay</label>
+                                    </div>
+                                </div>
+
+                                <div class="submit">
+                                    <button type="submit" class="get" (click)="modal.close('Save click')">Get One</button>
+                                    <p class="o146d">* You must <a href="">Login</a> before register event.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            
+            <span>* You must <a href="">Login</a> before register event.</span>
+            <div class="social">
+                <a href=""><img
+src="/assets/images/facebook-color.png" alt=""></a>
+                <a href=""><img
+src="/assets/images/instagram-color.png" alt=""></a>
+                <a href=""><img
+src="/assets/images/twitter-color.png" alt=""></a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="custom-row speaker">
+        <h3>Speakers of the event</h3>
+        <div class="box">
+            <div class="img-holder">
+                <img
+src="" alt="">
+            </div>
+            <div class="text">
+                <p>Niko</p>
+                <span class="o166d">CEO</span>
+                <div class="social">
+                    <img
+src="/assets/images/twitter-color.png" alt="">
+                    <img
+src="/assets/images/instagram-color.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img-holder">
+                <img
+src="" alt="">
+            </div>
+            <div class="text">
+                <p>Aya</p>
+                <span class="o166d">CEO</span>
+                <div class="social">
+                    <img
+src="/assets/images/twitter-color.png" alt="">
+                    <img
+src="/assets/images/instagram-color.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="img-holder">
+                <img
+src="" alt="">
+            </div>
+            <div class="text">
+                <p>Niko</p>
+                <span class="o166d">CEO</span>
+                <div class="social">
+                    <img
+src="/assets/images/twitter-color.png" alt="">
+                    <img
+src="/assets/images/instagram-color.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-row form">
+        <h3>Do you have <span>any questions?</span></h3>
+        <p class="o186d">Tempor orci dapibus ultrices in iaculis nunc. 
+            Sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum.
+            Tempus quam pellentesque nec nam.</p>
+        <form>
+            <div class="control">
+                <img
+src="/assets/images/user.png" alt="">
+                <input type="text" placeholder="Enter Your Name">
+            </div>
+            <div class="control">
+                <input type="email" placeholder="Enter Your Email">
+            </div>
+            <div class="control textarea">
+                <textarea placeholder="Your question"></textarea>
+            </div>
+            <button type="submit">send a message</button>
+        </form>
+    </div>
+</div> -->

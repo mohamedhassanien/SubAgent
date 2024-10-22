@@ -1,0 +1,1389 @@
+td.table-cell {
+  background-color: #fff;
+  padding: 10px;
+  font: normal normal normal 14px Poppins;
+  color: #484848;
+}
+
+td.table-cell i {
+  color: #000;
+  margin-right: 8px;
+}
+
+td.table-cell img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+td.table-cell p {
+  margin: 0;
+}
+
+td.table-cell button.edit-btn {
+  background-color: transparent;
+  border: none;
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-right: 45px;
+}
+
+td.table-cell button.edit-btn i {
+  margin-right: 12px;
+}
+
+td.table-cell button.edit-btn:hover {
+  color: #16294f;
+}
+
+td.table-cell button.edit-btn:hover i {
+  color: #16294f;
+}
+
+td.table-cell.actions.table-cell {
+  background-color: #fff;
+}
+
+td.table-cell.actions.table-cell button.more-actions {
+  background-color: transparent;
+  border: none;
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-right: 45px;
+}
+
+td.table-cell.actions.table-cell button.more-actions:hover i {
+  color: #16294f;
+}
+
+td.table-cell.actions.table-cell button.comments {
+  background-color: transparent;
+  border: none;
+  font: normal normal normal 16px Poppins;
+  margin-right: 24px;
+}
+
+td.table-cell.actions.table-cell button.comments mat-icon {
+  color: #484848;
+}
+
+td.table-cell.actions.table-cell button.comments:hover mat-icon {
+  color: #16294f;
+}
+
+td.table-cell.actions.table-cell button.accept-btn {
+  background-color: #ab4851;
+  border-radius: 5px;
+  padding: 9px 42px;
+  font: normal normal normal 14px Poppins;
+  color: #fff;
+  margin-right: 8px;
+  border: none;
+}
+
+td.table-cell.actions.table-cell button.accept-btn:hover {
+  background-color: #8b90f3;
+}
+
+td.table-cell.actions.table-cell button.cancel-btn {
+  background-color: #fff;
+  border: none;
+  padding: 9px 42px;
+  border-radius: 5px;
+  font: normal normal normal 14px Poppins;
+  color: #ab4851;
+}
+
+td.table-cell.actions.table-cell button.cancel-btn:hover {
+  color: #131ddd;
+}
+
+td.table-cell select {
+  border: 1px solid #ab4851;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+td.table-cell .warning-container {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+td.table-cell .warning-container i {
+  color: #fff;
+  margin: 0;
+  font-weight: 600;
+}
+
+td.non-editable input {
+  padding: 0;
+}
+
+td.non-editable input:read-only {
+  background-color: #fff;
+  border: none;
+  width: 100%;
+}
+
+td.non-editable p {
+  margin: 0;
+}
+
+td.non-editable.student-email a,
+td.non-editable.student-phone a {
+  cursor: pointer;
+}
+
+td.non-editable.student-email a input,
+td.non-editable.student-phone a input {
+  cursor: pointer;
+  color: #484848;
+}
+
+td.non-editable.student-email a:hover input,
+td.non-editable.student-phone a:hover input {
+  color: #000;
+}
+
+td.non-editable.student-name input {
+  cursor: pointer;
+  color: #2e5fc8;
+}
+
+td.non-editable.student-name input:hover input {
+  color: #2012b8;
+}
+
+td.non-editable.student-score .score-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+td.non-editable .search-input {
+  width: 100%;
+  border: 1px solid #ab4851;
+  border-radius: 8px;
+}
+
+td.editable input {
+  border: 1px solid #ab4851;
+  border-radius: 8px;
+  padding: 9px;
+  font: normal normal normal 14px Poppins;
+  color: #484848;
+  min-width: 100%;
+}
+
+td.editable.student-score select {
+  min-width: 100px;
+}
+
+td.editable select {
+  border: 1px solid #ab4851;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+td.editable .search-input {
+  width: 100%;
+  border: 1px solid #ab4851;
+  border-radius: 8px;
+}
+
+td.editable .search-input .p-dropdown-items-wrapper {
+  height: 150px;
+}
+
+.comments-modal .modal-dialog .modal-content {
+  padding: 32px;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-header {
+  padding: 0;
+  padding-bottom: 32px;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-header h4.modal-title {
+  font: normal normal 600 18px Poppins;
+  color: #373b79;
+  margin: 0;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-header h4.modal-title span {
+  font: normal normal 500 18px Poppins;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-header button.close-btn {
+  color: #cfd1f8;
+  font-size: 22px;
+  background-color: #fff;
+  border: 0;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-header button.close-btn:hover {
+  color: #a0a6ff;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-header button.close-btn:focus {
+  box-shadow: none;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body {
+  padding: 16px 0;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box h4.comment-name,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box h4.comment-name {
+  font: normal normal 500 18px Poppins;
+  color: #2b2b2b;
+  margin-bottom: 4px;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box p.comment-date,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box p.comment-date {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-bottom: 16px;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box .more-comments,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box .more-comments {
+  width: 40px;
+  height: 40px;
+  background-color: #e5e7ff;
+  border-radius: 5px;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box .more-comments .more-actions,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box .more-comments .more-actions {
+  border: none;
+  background-color: transparent;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box .more-comments mat-icon,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box .more-comments mat-icon {
+  color: #a0a6ff;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form textarea.comment-area,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form textarea.comment-area {
+  height: 120px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #707070;
+  padding: 16px;
+  font: normal normal normal 16px Poppins;
+  color: #000;
+  background-color: transparent;
+  margin-bottom: 16px;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form textarea.comment-area::placeholder,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form textarea.comment-area::placeholder {
+  color: #8b8b8b;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn {
+  padding: 8px 24px;
+  border-radius: 4px;
+  font: normal normal 500 16px Poppins;
+  border: none;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn.main-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn.main-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn.main-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn.main-btn {
+  background-color: #16294f;
+  color: #fff;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn.main-btn:hover,
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn.main-btn:hover,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn.main-btn:hover,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn.main-btn:hover {
+  background-color: #8b92f5;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn.sec-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn.sec-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn.sec-btn,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn.sec-btn {
+  background-color: #ededed;
+  color: #969696;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn:disabled,
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn:disabled,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn:disabled,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn:disabled {
+  background-color: #ededed;
+  color: #969696;
+}
+
+.comments-modal .modal-dialog .modal-content .modal-body .add-comment-box p.comment,
+.comments-modal .modal-dialog .modal-content .modal-body .comment-box p.comment {
+  font: normal normal normal 16px Arial;
+  color: #000;
+  margin: 0;
+}
+
+.documents-modal .modal-dialog .modal-content {
+  padding: 50px 40px;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-header {
+  padding: 0;
+  padding-bottom: 32px;
+  border: none;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-header h4.modal-title {
+  font: normal normal 500 24px Poppins;
+  color: #484848;
+  margin: 0;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-header button.close-btn {
+  color: #cfd1f8;
+  font-size: 22px;
+  background-color: #fff;
+  border: 0;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-header button.close-btn:hover {
+  color: #a0a6ff;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-header button.close-btn:focus {
+  box-shadow: none;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body {
+  padding: 0;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table {
+  border: 1px solid #e5e7ff;
+  width: 100%;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.table-row td.documents,
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.table-row td.status {
+  font: normal normal 600 16px Poppins;
+  padding: 14px 0 14px 24px;
+  border-right: 1px solid #e5e7ff;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.table-row td.status {
+  width: 50%;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.table-row td.documents {
+  width: 50%;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.main-row td.main-title {
+  background-color: #e5e7ff;
+  font: normal normal 600 16px Poppins;
+  color: #373b79;
+  padding: 17px 0 17px 24px;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.main-row td.sec-title {
+  background-color: #e5e7ff;
+  font: normal normal normal 16px Poppins;
+  color: #373b79;
+  padding: 17px 0 17px 32px;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.main-desc {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  border-right: 1px solid #e5e7ff;
+  border-bottom: 1px solid #e5e7ff;
+  padding: 17px 0 17px 24px;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc {
+  padding: 17px;
+  border-right: 1px solid #e5e7ff;
+  border-bottom: 1px solid #e5e7ff;
+  height: 100%;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .status-desc .status-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 9px;
+  font-size: 16px;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .status-desc .status-icon i {
+  margin: 0;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .status-desc .status-name {
+  font: normal normal normal 16px Poppins;
+  color: #f66666;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .status-link {
+  font: normal normal normal 16px Poppins;
+  color: #a0a6ff;
+  border-bottom: 1px solid #a0a6ff;
+  margin: 0;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .status-link:hover {
+  color: #16294f;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .add-btn,
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .success-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #a0a6ff;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .add-btn:hover,
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .success-btn:hover {
+  background-color: #ab4851;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .add-btn i,
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .success-btn i {
+  color: #fff;
+  font-size: 16px;
+  margin: 0;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc .success-btn {
+  background-color: #ab4851;
+}
+
+.documents-modal .modal-dialog .modal-content .modal-body table.documents-table tr.sec-row td.sec-desc p.percentage {
+  font: normal normal 600 16px Poppins;
+  color: #ab4851;
+  margin: 0;
+}
+
+.info-modal .modal-content {
+  padding: 40px;
+}
+
+.info-modal .modal-content .modal-header {
+  border: none;
+  padding: 0;
+}
+
+.info-modal .modal-content .modal-header .modal-title {
+  font: normal normal 600 24px Poppins;
+  color: #484848;
+  margin: 0;
+}
+
+.info-modal .modal-content .modal-header button {
+  background-color: transparent;
+  border: none;
+}
+
+.info-modal .modal-content .modal-header button i {
+  font-size: 24px;
+  color: #cfd1f8;
+}
+
+.info-modal .modal-content .modal-body {
+  padding: 0;
+}
+
+.info-modal .modal-content .modal-body .info-section {
+  position: relative;
+}
+
+.info-modal .modal-content .modal-body .info-section .main-info {
+  position: relative;
+  z-index: 3;
+  left: 70px;
+  top: 70px;
+}
+
+.info-modal .modal-content .modal-body .info-section .main-info img.profile-pic {
+  width: 180px;
+  height: 180px;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.info-modal .modal-content .modal-body .info-section .main-info p.student-name {
+  margin: 0;
+  font: normal normal 600 24px Poppins;
+  color: #373b79;
+}
+
+.info-modal .modal-content .modal-body .info-section .sec-info {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 10px 10px 10px 260px;
+  background-color: #e5e7ff;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.info-modal .modal-content .modal-body .info-section .sec-info .single-info {
+  margin-bottom: 10px;
+}
+
+.info-modal .modal-content .modal-body .info-section .sec-info .single-info .icon-circle {
+  width: 24px;
+  height: 24px;
+  background-color: #000;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.info-modal .modal-content .modal-body .info-section .sec-info .single-info .icon-circle i {
+  color: #fff;
+}
+
+.info-modal .modal-content .modal-body .info-section .sec-info .single-info p {
+  margin: 0;
+  font: normal normal normal 16px Poppins;
+  color: #000;
+}
+
+.info-modal .modal-content .modal-body .modal-container {
+  padding: 0 70px 200px;
+  border: 1px solid #707070;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: none;
+}
+
+.info-modal .modal-content .modal-body .modal-container h2.title {
+  font: normal normal 600 24px Poppins;
+  color: #000000;
+  padding: 0 5px;
+  border-bottom: solid 7px #16294f;
+  margin: 30px 0;
+  display: inline-block;
+}
+
+.info-modal .modal-content .modal-body .modal-container .profile-info-section p {
+  font: normal normal normal 16px Poppins;
+  margin: 0;
+  color: #484848;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info {
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .graduated {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-right: 32px;
+  position: relative;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .graduated::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ab4851;
+  position: absolute;
+  left: -20px;
+  top: 10px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .university {
+  font: normal normal normal 16px Poppins;
+  color: #ab4851;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .faculty {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .language-info {
+  padding-left: 20px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .language-info .language {
+  font: normal normal normal 16px/33px Poppins;
+  color: #484848;
+  margin-right: 32px;
+  position: relative;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .language-info .language::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ab4851;
+  position: absolute;
+  left: -20px;
+  top: 10px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .education-status-section .language-info .language-test {
+  font: normal normal normal 16px Poppins;
+  color: #ab4851;
+}
+
+.info-modal .modal-content .modal-body .modal-container .interests-section .interested-badges .field-badge {
+  padding: 8px 13px;
+  margin: 0 16px 16px 0;
+  height: 38px;
+  background-color: #f5f5ff;
+  border: 1px solid #7179e5;
+  border-radius: 5px;
+  font: normal normal normal 16px/25px Poppins;
+  color: #7179e5;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col .programs-container {
+  padding: 0 16px;
+  margin-bottom: 32px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col .programs-container:nth-child(even) {
+  justify-content: flex-start;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col .programs-container:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a {
+  width: 330px;
+  height: 510px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card {
+  height: 100%;
+  border: 0;
+  background: #f7f7f7 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: none;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card:hover {
+  box-shadow: 0px 3px 10px #ffc9c9;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card:hover .image-move {
+  transform: scale(1.25);
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .sale {
+  width: 141px;
+  height: 23px;
+  background: #16294f 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  color: #fff;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .sale p {
+  margin: 0;
+  font: normal normal 300 12px/18px Poppins;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .image-container {
+  height: 190px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .image-container img {
+  height: 100%;
+  transition: all 500ms ease-in-out;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .price {
+  width: 91px;
+  height: 37px;
+  background: linear-gradient(132deg, #ff5151 0%, #16294f 100%);
+  border-radius: 5px;
+  position: absolute;
+  top: 158px;
+  right: 25px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .price p {
+  font: normal normal bold 16px/25px Poppins;
+  margin: 0;
+  color: #fff;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .program-title {
+  margin-top: 14px;
+  font: normal normal 600 16px Poppins;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .program-name {
+  font: normal normal normal 16px Poppins;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .program-description {
+  font: normal normal 300 16px/22px Poppins;
+  color: #3b3b3b;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .school-name {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .school-name img {
+  width: 44px;
+  height: 22px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .school-name p {
+  margin: 0 0 0 8px;
+  font: normal normal normal 15px Poppins;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .info .first-info {
+  font: normal normal 300 16px/25px Poppins;
+  text-transform: capitalize;
+  color: #8b8b8b;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .info .first-info p {
+  margin: 0 2px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .info hr {
+  margin-top: 14px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .info .second-info {
+  font: normal normal 300 16px/25px Poppins;
+  text-transform: capitalize;
+  color: #8b8b8b;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .info .second-info p {
+  margin: 0 2px;
+}
+
+.info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .info .second-info .wishlist {
+  color: red;
+}
+
+.info-modal .modal-content .modal-body .modal-container .budget-section p {
+  font: normal normal normal 16px Poppins;
+  color: #16294f;
+}
+
+@media (max-width: 768px) {
+  .comments-modal .modal-dialog .modal-content {
+    padding: 32px;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-header {
+    padding: 0;
+    padding-bottom: 32px;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-header h4.modal-title {
+    font: normal normal 600 18px Poppins;
+    color: #373b79;
+    margin: 0;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-header h4.modal-title span {
+    font: normal normal 500 18px Poppins;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-header button.close-btn {
+    color: #cfd1f8;
+    font-size: 22px;
+    background-color: #fff;
+    border: 0;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-header button.close-btn:hover {
+    color: #a0a6ff;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-header button.close-btn:focus {
+    box-shadow: none;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body {
+    padding: 16px 0;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box h4.comment-name,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box h4.comment-name {
+    font: normal normal 500 18px Poppins;
+    color: #2b2b2b;
+    margin-bottom: 4px;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box p.comment-date,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box p.comment-date {
+    font: normal normal normal 16px Poppins;
+    color: #484848;
+    margin-bottom: 16px;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box .more-comments,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box .more-comments {
+    width: 40px;
+    height: 40px;
+    background-color: #e5e7ff;
+    border-radius: 5px;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box .more-comments .more-actions,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box .more-comments .more-actions {
+    border: none;
+    background-color: transparent;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box .more-comments mat-icon,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box .more-comments mat-icon {
+    color: #a0a6ff;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form textarea.comment-area,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form textarea.comment-area {
+    height: 120px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #707070;
+    padding: 16px;
+    font: normal normal normal 16px Poppins;
+    color: #000;
+    background-color: transparent;
+    margin-bottom: 16px;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form textarea.comment-area::placeholder,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form textarea.comment-area::placeholder {
+    color: #8b8b8b;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font: normal normal 500 16px Poppins;
+    border: none;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn.main-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn.main-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn.main-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn.main-btn {
+    background-color: #16294f;
+    color: #fff;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn.sec-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn.sec-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn.sec-btn,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn.sec-btn {
+    background-color: #ededed;
+    color: #969696;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn:hover,
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn:hover,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn:hover,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn:hover {
+    background-color: #8b92f5;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.submit-btn:disabled,
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box form button.cancel-btn:disabled,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.submit-btn:disabled,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box form button.cancel-btn:disabled {
+    background-color: #ededed;
+    color: #969696;
+  }
+
+  .comments-modal .modal-dialog .modal-content .modal-body .add-comment-box p.comment,
+  .comments-modal .modal-dialog .modal-content .modal-body .comment-box p.comment {
+    font: normal normal normal 16px Arial;
+    color: #000;
+    margin: 0;
+  }
+
+  .documents-modal .modal-dialog .modal-content {
+    padding: 50px 40px;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-header {
+    padding: 0;
+    padding-bottom: 32px;
+    border: none;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-header h4.modal-title {
+    font: normal normal 500 18px Poppins;
+    color: #484848;
+    margin: 0;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-header button.close-btn {
+    color: #cfd1f8;
+    font-size: 22px;
+    background-color: #fff;
+    border: 0;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-header button.close-btn:hover {
+    color: #a0a6ff;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-header button.close-btn:focus {
+    box-shadow: none;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body {
+    padding: 0;
+    border: none;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item {
+    border: none;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-header {
+    margin-bottom: 16px;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-header .accordion-button {
+    padding: 16px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: none;
+    font: normal normal normal 16px/25px Poppins;
+    color: #000;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-header .accordion-button:focus {
+    box-shadow: none;
+    color: #000;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-header .accordion-button:hover i {
+    color: #000;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-header .accordion-button::after {
+    display: none;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-header .accordion-button img {
+    width: 22px;
+    height: 28px;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-header .accordion-button i {
+    color: #707070;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-body {
+    padding: 16px 16px 16px 22px;
+    box-shadow: 0px 3px 6px #cbcbcb;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-body .percentage {
+    font: normal normal 600 16px Poppins;
+    color: #ab4851;
+    margin: 0;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-body .status-desc .status-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 9px;
+    font-size: 16px;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-body .status-desc .status-icon i {
+    margin: 0;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-body .status-desc .status-name {
+    font: normal normal normal 16px Poppins;
+    color: #f66666;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-body .status-link {
+    font: normal normal normal 16px Poppins;
+    color: #a0a6ff;
+    border-bottom: 1px solid #a0a6ff;
+    margin: 0;
+  }
+
+  .documents-modal .modal-dialog .modal-content .modal-body .accordion .accordion-item .accordion-body .status-link:hover {
+    color: #16294f;
+  }
+
+  .info-modal .modal-content {
+    padding: 10px;
+  }
+
+  .info-modal .modal-content .modal-header {
+    border: none;
+    padding: 0;
+  }
+
+  .info-modal .modal-content .modal-header .modal-title {
+    font: normal normal 600 24px Poppins;
+    color: #484848;
+    margin: 0;
+  }
+
+  .info-modal .modal-content .modal-header button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .info-modal .modal-content .modal-header button i {
+    font-size: 24px;
+    color: #cfd1f8;
+  }
+
+  .info-modal .modal-content .modal-body {
+    padding: 0;
+  }
+
+  .info-modal .modal-content .modal-body .info-section {
+    position: relative;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .main-info {
+    position: relative;
+    z-index: 3;
+    left: 25px;
+    top: 43px;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .main-info img.profile-pic {
+    width: 110px;
+    height: 110px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .main-info p.student-name {
+    margin: 0;
+    font: normal normal 600 20px Poppins;
+    color: #373b79;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .sec-info {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 10px 10px 10px 130px;
+    background-color: #e5e7ff;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .sec-info .single-info {
+    margin-bottom: 10px;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .sec-info .single-info .icon-circle {
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-right: 13px;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .sec-info .single-info .icon-circle i {
+    color: #fff;
+  }
+
+  .info-modal .modal-content .modal-body .info-section .sec-info .single-info p {
+    margin: 0;
+    font: normal normal normal 12px Poppins;
+    color: #000;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container {
+    padding: 0 15px 50px;
+    border: 1px solid #707070;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: none;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container h2.title {
+    font: normal normal 600 24px Poppins;
+    color: #000000;
+    padding: 0 5px;
+    border-bottom: solid 7px #16294f;
+    margin: 15px 0;
+    display: inline-block;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .profile-info-section p {
+    font: normal normal normal 16px Poppins;
+    margin: 0;
+    color: #484848;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info {
+    padding-left: 20px;
+    margin-bottom: 25px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .graduated {
+    font: normal normal normal 16px Poppins;
+    color: #484848;
+    margin-right: 32px;
+    position: relative;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .graduated::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ab4851;
+    position: absolute;
+    left: -20px;
+    top: 10px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .university {
+    font: normal normal normal 16px Poppins;
+    color: #ab4851;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .graduation-info .faculty {
+    font: normal normal normal 16px Poppins;
+    color: #484848;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .language-info {
+    padding-left: 20px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .language-info .language {
+    font: normal normal normal 16px/33px Poppins;
+    color: #484848;
+    margin-right: 32px;
+    position: relative;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .language-info .language::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ab4851;
+    position: absolute;
+    left: -20px;
+    top: 10px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .education-status-section .language-info .language-test {
+    font: normal normal normal 16px Poppins;
+    color: #ab4851;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .interests-section .interested-badges .field-badge {
+    padding: 8px 13px;
+    margin: 0 16px 16px 0;
+    height: 38px;
+    background-color: #f5f5ff;
+    border: 1px solid #7179e5;
+    border-radius: 5px;
+    font: normal normal normal 16px/25px Poppins;
+    color: #7179e5;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col {
+    padding: 16px 0;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col .programs-container {
+    padding: 0;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a {
+    width: 100%;
+    height: 150px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card {
+    height: initial;
+    padding: 10px;
+    box-shadow: none;
+    width: 330px;
+    margin-left: -13px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card:focus {
+    box-shadow: 0px 3px 6px rgba(111, 119, 244, 0.431372549);
+    border: 1px solid #16294f;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card:hover {
+    border: 0;
+    box-shadow: 0px 3px 6px rgba(111, 119, 244, 0.431372549);
+    background: transparent linear-gradient(244deg, #f4f4ff 0%, #edeeff 100%) 0% 0% no-repeat padding-box;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .bg {
+    background-image: linear-gradient(180deg, rgba(222, 221, 221, 0) 0%, rgba(111, 119, 244, 0.968627451) 100%);
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .card-img {
+    width: 129px;
+    height: 135px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .img {
+    width: 129px;
+    height: 135px;
+    top: 10px;
+    left: 10px;
+    padding: 16px 0 0 16px;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .img .school-name-sm img {
+    width: 46px;
+    height: 17px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .img .school-name-sm p {
+    font: normal normal 600 9px Poppins;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .img .white-wishlist {
+    color: #fff;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .img .wishlist {
+    color: red;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .program-title {
+    font: normal normal 600 12px/20px Poppins;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .program-name {
+    font: normal normal 500 12px/13px Poppins;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .program-description {
+    font: normal normal 300 13px/19px Poppins;
+    color: #4c4b4b;
+    margin-bottom: 10px;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .lang p {
+    font: normal normal 300 11px/13px Poppins;
+    color: #555454;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .lang i {
+    font-size: 11px;
+    color: #555454;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .date {
+    font: normal normal 300 11px Poppins;
+    color: #555454;
+    text-transform: capitalize;
+    text-align: left;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .price-sm {
+    font: normal normal bolder 12px/20px Poppins;
+    color: #ff5151;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .location {
+    font: normal normal 300 11px/13px Poppins;
+    color: #8b8b8b;
+    text-transform: capitalize;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .wishlist-section .wishlist-col a mat-card .duration {
+    font: normal normal 300 11px/13px Poppins;
+    color: #8b8b8b;
+    text-transform: capitalize;
+  }
+
+  .info-modal .modal-content .modal-body .modal-container .budget-section p {
+    font: normal normal normal 16px Poppins;
+    color: #16294f;
+  }
+}

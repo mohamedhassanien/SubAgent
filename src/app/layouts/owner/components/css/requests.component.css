@@ -1,0 +1,83 @@
+.section-container {
+  margin: 32px;
+}
+.section-container .custom-row .custom-col {
+  position: relative;
+  flex: 0 0 25%;
+  padding: 21px 28px 29px 27.9px;
+  border-radius: 3px;
+  box-shadow: 1.5px 2.6px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+}
+.section-container .custom-row .custom-col .img-holder {
+  width: 126px;
+  height: 126px;
+  margin: 8px auto 18px auto;
+  box-shadow: 0px 10px 30px 0 rgba(0, 0, 0, 0.1);
+  background-color: #b5b5b5;
+  border-radius: 50%;
+}
+.section-container .custom-row .custom-col .text {
+  text-align: center;
+}
+.section-container .custom-row .custom-col .text > div {
+  color: #abafb3;
+}
+.section-container .custom-row .custom-col .text > div:first-child::after {
+  content: "";
+  width: 35px;
+  height: 1px;
+  background-color: var(--main-color);
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+}
+.section-container .custom-row .custom-col .text > div p {
+  margin: 0;
+  font-size: 18px;
+}
+.section-container .custom-row .custom-col .text > div span {
+  display: block;
+  margin: 4px 0 7px 0;
+}
+.section-container .custom-row .custom-col .text > div .main {
+  color: var(--main-color);
+}
+.section-container .custom-row .custom-col .text .social {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+.section-container .custom-row .custom-col .text .social a {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
+.section-container .custom-row .custom-col .text .social a img {
+  height: 100%;
+  object-fit: contain;
+}
+.section-container .custom-row .custom-col .more-action {
+  position: absolute;
+  width: 50%;
+  background-color: white;
+  left: 95%;
+  top: 3%;
+}
+.section-container .custom-row .custom-col .more-action .btn-holder {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.section-container .custom-row .custom-col .more-action .btn-holder button {
+  color: #464a53;
+  text-align: left;
+  padding: 0 12px;
+  border: none;
+  height: 52px;
+  background-color: unset;
+}
+.section-container .custom-row .custom-col .more-action .btn-holder button:hover {
+  color: var(--main-color);
+  background-color: rgba(111, 119, 244, 0.1);
+}

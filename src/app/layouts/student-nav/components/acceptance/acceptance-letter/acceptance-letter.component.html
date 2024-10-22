@@ -1,0 +1,49 @@
+<div>
+    <h1>Upload Acceptance letter *</h1>
+    <div class="upload-input">
+        <p *ngIf="!firstFileLoading">Choose PNG, jPG or PDF format</p>
+        <div *ngIf="firstFileLoading" class="d-flex align-items-center upload-text">
+            <h5>{{firstFileName}}</h5>
+            <img (click)="deleteFirst()" class="ms-4" src="../../../../../../assets/images/navigator/x.svg" alt="x">
+        </div>
+        <label *ngIf="!firstFileLoading" for="inputTag" class="align-items-center" (change)="chooseFirst($event)">
+            <img class="me-2" src="../../../../../../assets/images/why-assets/upload-white.svg" alt="upload">
+            Upload
+            <input id="inputTag" type="file" />
+            <span id="imageName"></span>
+        </label>
+        <label *ngIf="firstFileLoading" class="align-items-center">
+            <i class="me-2" style="color: white;" class="fas fa-check"></i>
+            <!-- <img class="me-2" src="../../../../../../assets/images/navigator/check.svg" alt="check"> -->
+            Done
+        </label>
+    </div>
+
+
+    <!-- <div *ngIf="firstFileLoading" class="d-flex align-items-center mt-2">
+        <img class="me-2" src="../../../../../../assets/images/navigator/Processing.svg" alt="Processing">
+        <h4>Someone from our team will review your eligibility for this program</h4>
+    </div> -->
+</div>
+<div >
+<div class="d-flex help">
+        
+    <div class="col-sm-9">
+      <div class="row r1">
+        What is the acceptance letter ?
+      </div>
+      <div class="row r2">
+        <li>Acceptance letter is<span> document </span>that admits students into an educational institution.</li>
+         <li>Typically, Schools admission boards send our acceptance letters to students they have</li>
+         <li> chosen <span> are a good fit for a school program.</span></li>
+      </div>
+      <div class="row r3">
+        If you apply to several colleges, you may receive several college acceptance letters
+      </div>
+    </div>
+    <img
+    src="../../../../../assets/images/why-assets/email-marketing.svg"
+    alt=""
+  />
+  </div>
+</div>

@@ -1,0 +1,151 @@
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #FF5151;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.tips .row {
+  margin-top: 24px;
+}
+.tips .row img {
+  width: 50%;
+  display: initial;
+}
+.tips .row p {
+  margin-top: 8px;
+}
+
+.flags {
+  margin-top: 40px;
+}
+
+.money {
+  margin-top: 40px;
+}
+.money .steps-money {
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+  padding: 24px;
+}
+.money .steps-money p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  border-radius: var(--5, 5px) 20px;
+  background: var(--primary-white, #FDFDFD);
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.examples {
+  margin-top: 40px;
+}
+.examples img {
+  margin-top: 24px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .tips .row {
+    margin-top: 24px;
+  }
+  .tips .row p {
+    margin-top: 8px;
+  }
+  .flags {
+    margin-top: 32px;
+  }
+  .money {
+    margin-top: 32px;
+  }
+  .money .steps-money {
+    padding: 16px;
+  }
+  .money .steps-money p {
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 5px 20px;
+    padding: 8px 16px;
+    margin-top: 8px;
+  }
+  .examples {
+    margin-top: 32px;
+  }
+  .examples img {
+    margin-top: 24px;
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .tips .row {
+    margin-top: 8px;
+  }
+  .tips .row p {
+    margin-top: 8px;
+  }
+  .flags {
+    margin-top: 32px;
+  }
+  .money {
+    margin-top: 24px;
+  }
+  .money .steps-money {
+    padding: 8px;
+  }
+  .money .steps-money p {
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 5px 20px;
+    padding: 8px 16px;
+    margin-top: 8px;
+  }
+  .examples {
+    margin-top: 24px;
+  }
+  .examples img {
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,494 @@
+.section-container {
+  margin: 64px 32px 0 32px;
+}
+
+.section-container .custom-row {
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+}
+
+.section-container .custom-row>.custom-col {
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  flex: 0 0 48%;
+  height: fit-content;
+}
+
+.section-container .custom-row>.custom-col>p.title {
+  flex: 0 0 100%;
+}
+
+.section-container .custom-row>.custom-col p.title {
+  font-size: 22px;
+  color: #464a53;
+}
+
+.section-container .custom-row>.custom-col .box {
+  padding: 25px 30px 26px 30px;
+  border-radius: 3px;
+  box-shadow: 0.5px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #16294f;
+  display: flex;
+  flex: 0 0 48%;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+.section-container .custom-row>.custom-col .box .text span {
+  font-size: 18px;
+  color: #fefeff;
+  line-height: 1;
+}
+
+.section-container .custom-row>.custom-col .box .text p {
+  line-height: 1;
+  font-size: 35px;
+  color: #fff;
+}
+
+.section-container .custom-row>.custom-col .box .img-holder {
+  align-self: center;
+  border-radius: 50%;
+  background-color: #fff;
+  height: 52px;
+  width: 52px;
+}
+
+.section-container .custom-row>.custom-col .box:nth-child(2) {
+  background-color: var(--yellow-color);
+}
+
+.section-container .custom-row>.custom-col .box:nth-child(3) {
+  background-color: var(--red-color);
+}
+
+.section-container .custom-row>.custom-col .flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-container .custom-row>.custom-col .flex input {
+  font-size: 15px;
+  padding: 9px 20.7px 9px 20px;
+  border-radius: 3px;
+  border: solid 1px #dddfe1;
+  background-color: rgba(33, 141, 250, 0);
+}
+
+.section-container .custom-row>.custom-col .statistic {
+  display: flex;
+  width: 100%;
+  gap: 38px;
+  justify-content: flex-start;
+}
+
+.section-container .custom-row>.custom-col .statistic .y-axis {
+  gap: 35px;
+  flex: 0 0 5%;
+}
+
+.section-container .custom-row>.custom-col .statistic .y-axis div {
+  font-size: 16px;
+  text-align: right;
+  color: #6a707e;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis {
+  flex: 0 0 85%;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table {
+  position: relative;
+  height: 100%;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody {
+  height: 95%;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress {
+  width: 35px;
+  display: flex;
+  gap: 3px;
+  height: 317px;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div {
+  position: relative;
+  width: 18px;
+  height: 90%;
+  align-self: flex-end;
+  transition: all 0.5s ease;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div .hover {
+  height: fit-content;
+  box-shadow: 0px 10px 30px 0 rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  width: 190px;
+  padding: 24px 20px 35px 24px;
+  position: absolute;
+  border-radius: 0;
+  transition: all 0.5s ease;
+  bottom: 112%;
+  left: -90px;
+  visibility: hidden;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div .hover::after {
+  content: "";
+  border: 14px solid var(--main-color);
+  position: absolute;
+  width: 0;
+  top: 100%;
+  border-color: transparent;
+  left: 43%;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div .hover p {
+  font-size: 14px;
+  font-family: "Open sans";
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+  color: transparent;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div:hover {
+  background-color: var(--main-color);
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div:hover .hover {
+  background-color: var(--main-color);
+  visibility: visible;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div:hover .hover::after {
+  border-color: var(--main-color) transparent transparent transparent;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div:hover .hover p {
+  color: #fff;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div:nth-child(1) {
+  background-color: var(--red-color);
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table tbody tr td .custom-progress div:nth-child(2) {
+  background-color: var(--yellow-color);
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table thead {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table thead tr {
+  justify-content: space-between;
+  display: flex;
+}
+
+.section-container .custom-row>.custom-col .statistic .x-axis table thead tr th {
+  width: 35px;
+  margin-top: 6px;
+  font-weight: normal;
+  letter-spacing: 0.32px;
+  text-align: center;
+  font-size: 15px;
+  color: #6a707e;
+}
+
+.section-container .custom-row>.custom-col ul {
+  flex: 0 0 100%;
+  gap: 10px;
+}
+
+.section-container .custom-row>.custom-col ul li {
+  margin: 0 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 21px 88px 19px 21px;
+  border-radius: 3px;
+  box-shadow: 0.5px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+}
+
+.section-container .custom-row>.custom-col ul li span {
+  color: #464a53;
+}
+
+.section-container .custom-row>.custom-col ul li:hover {
+  box-shadow: 3.1px 19.8px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.section-container .custom-row>.custom-col:nth-child(2) {
+  flex: 0 0 50%;
+}
+
+.section-container .custom-row>.custom-col:nth-child(4) {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+}
+
+.section-container .custom-row>.custom-col:nth-child(2),
+.section-container .custom-row>.custom-col:nth-child(4) {
+  padding: 29px 29px 47px 30px;
+  box-shadow: 0.5px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  height: fit-content;
+}
+
+.section-container .custom-row>.custom-col:nth-child(3) {
+  flex: 0 0 100%;
+}
+
+.section-container .custom-row>.custom-col form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+}
+
+.section-container .custom-row>.custom-col form .custom-col {
+  flex: 0 0 48%;
+  height: fit-content;
+  padding: 30px 28.7px 40px 28px;
+  border-radius: 3px;
+  box-shadow: 0.5px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  gap: 11px;
+  justify-content: flex-start;
+}
+
+.section-container .custom-row>.custom-col form .custom-col .control {
+  width: 48%;
+}
+
+.section-container .custom-row>.custom-col form .custom-col .control input {
+  width: 100%;
+  padding: 5px 11px 5px 10px;
+  border: 1px solid #dddfe1;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(1) {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(1) .btn-holder,
+.section-container .custom-row>.custom-col form .custom-col:nth-child(1) p.title {
+  flex: 0 0 100%;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(1) .btn-holder {
+  justify-content: flex-end;
+  display: flex;
+  margin-top: 119px;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(1) .btn-holder button {
+  padding: 12px 64px 9px 65px;
+  background-color: #16294f;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div {
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(171, 175, 179, 0.2);
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .control a {
+  display: inline-block;
+  height: 77px;
+  padding: 0 22.7px 0 23px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a323e;
+  border-radius: 10px;
+  line-height: 77px;
+  background-color: #fcfeff;
+  width: 100%;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .control.file {
+  width: 100%;
+  border: dashed 2px #b8c5cc;
+  background-color: #fcfeff;
+  border-radius: 7px;
+  padding: 38px 11px 38px 11px;
+  margin-bottom: 40px;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .control.file input {
+  border: none;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .control.select {
+  width: 100%;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .control.select select {
+  border-radius: 3px;
+  border: solid 1px #dddfe1;
+  height: 49px;
+  width: 90%;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .flex {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 21px;
+  margin-top: 19px;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .flex .control.select {
+  width: 38%;
+}
+
+.section-container .custom-row>.custom-col form .custom-col:nth-child(2)>div .flex .control.select select {
+  width: 100%;
+}
+
+.section-container .custom-row form,
+.section-container .custom-row>table,
+.section-container .custom-row .d-flex {
+  width: 100%;
+  margin: auto;
+}
+
+.section-container .custom-row>table {
+  margin-bottom: 0;
+  margin-top: 41px;
+  font-family: "Roboto";
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.section-container .custom-row>table thead tr th {
+  padding: 12px 11px 11px 12px;
+  border: none;
+  font-weight: normal;
+  color: #464a53;
+}
+
+.section-container .custom-row>table tbody tr {
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  margin: 12px 0;
+}
+
+.section-container .custom-row>table tbody tr td {
+  height: 70px;
+  line-height: 70px;
+  border: none;
+  padding: 0 11px 0 12px;
+}
+
+.section-container .custom-row>table tbody tr td .img-holder {
+  width: 39px;
+  height: 39px;
+  background-color: #000;
+  border-radius: 50%;
+  align-self: center;
+  display: flex;
+}
+
+.section-container .custom-row>table tbody tr td .img-holder img {
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-container .custom-row>table tbody tr td p {
+  font-size: 16px;
+  color: #6a707e;
+  margin: 0;
+}
+
+.section-container .custom-row>table tbody tr td.status p {
+  margin: 0;
+}
+
+.section-container .custom-row>table tbody tr td.status p span {
+  padding: 9px 19px 9px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 15px;
+  font-family: "Open Sans";
+  letter-spacing: 0.16px;
+  color: #fff;
+}
+
+.section-container .custom-row>table tbody tr td.status p span.paid {
+  background-color: var(--main-color);
+}
+
+.section-container .custom-row>table tbody tr td.status p span.unpaid {
+  background-color: var(--red-color);
+}
+
+.section-container .custom-row>table tbody tr td.date {
+  font-size: 16px;
+  color: #abafb3;
+}
+
+.section-container .custom-row>table tbody tr td:nth-child(1) {
+  display: flex;
+}
+
+.section-container .custom-row>table tbody tr:hover {
+  box-shadow: 3.1px 19.8px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.section-container .custom-row .d-flex {
+  margin: 31px auto;
+  justify-content: flex-end;
+}
+
+.section-container .custom-row .d-flex ::ng-deep ngb-pagination ul {
+  margin: 0;
+  gap: 12px;
+}
+
+.section-container .custom-row .d-flex ::ng-deep ngb-pagination ul li a {
+  width: 38.2px;
+  height: 38.2px;
+  box-shadow: 0px 10px 30px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  border-radius: 50%;
+  border: none;
+  color: #abafb3;
+  text-align: center;
+}
+
+.section-container .custom-row .d-flex ::ng-deep ngb-pagination ul li a:hover {
+  background: #fff;
+}
+
+.section-container .custom-row .d-flex ::ng-deep ngb-pagination ul li a:focus {
+  box-shadow: none;
+}
+
+.section-container .custom-row .d-flex ::ng-deep ngb-pagination ul li.active a {
+  color: #fff;
+  background-color: var(--main-color);
+}

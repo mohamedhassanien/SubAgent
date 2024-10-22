@@ -1,0 +1,385 @@
+* {
+  scroll-behavior: smooth;
+}
+
+input {
+  font-family: Poppins !important;
+}
+
+.search-section {
+  width: 100% !important;
+  background: url(../../../../../assets/images/schools-background.svg);
+  padding: 0;
+}
+
+.search-section .container {
+  padding: 55px 340px 55px 340px;
+  height: 171px;
+}
+
+.search-section .container .position-relative form {
+  width: inherit;
+}
+
+.search-section .container .position-relative .form-control {
+  border-radius: 10px;
+  height: 56px;
+  border: 0;
+  padding: 20px;
+}
+
+.search-section .container .position-relative .form-control::placeholder {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #7b7b7b;
+}
+
+.search-section .container .position-relative .form-control form {
+  width: 100%;
+}
+
+.search-section button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: #fdfdfd;
+  border: 1px solid #16294f;
+  border-radius: 8px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  color: #16294f;
+  width: 142px;
+  height: 40px;
+}
+
+.search-section button p {
+  font-size: 16px;
+  font-weight: 600;
+  height: 100%;
+  color: #16294f;
+}
+
+.search-section button:hover {
+  background: #16294f;
+}
+
+.search-section button:hover p {
+  color: #fdfdfd;
+}
+
+.school-section .container {
+  margin-top: 40px;
+}
+
+.school-section .container .card {
+  width: 312px !important;
+  height: 232px !important;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 40px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+.school-section .container .card .card-images {
+  height: 169px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.school-section .container .card .card-images img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.school-section .container .card .card-images .logo-container {
+  width: 128px;
+  height: 71px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: white;
+  transition: opacity 1s, transform 0.5s;
+}
+
+.school-section .container .card .card-images .logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 3px;
+}
+
+.school-section .container .card .card-images .card-img-overlay img {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  transform: translate(50%, -50%);
+  width: 36px;
+  height: 45px;
+  border-radius: 0;
+  margin-top: -0.1rem;
+  opacity: 1;
+}
+
+.school-section .container .card .card-body {
+  padding: 0.5rem 0.5rem;
+  background: #f7f7f7;
+}
+
+.school-section .container .card .card-body h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #121212;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.school-section .container .card .card-body .card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s;
+  transform-origin: center;
+}
+
+.school-section .container .card .card-body .card-link .view-link {
+  align-items: center;
+  margin: auto;
+  color: #16294f;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.school-section .container .card .card-body .card-link .view-link img {
+  margin-right: 4px;
+}
+
+.school-section .container .card:hover .card-images .logo-container {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.school-section .container .card:hover .card-link,
+.school-section .container .card:hover .view-link {
+  transform: scale(1.1);
+  font: normal normal 600 12px/18px Poppins;
+}
+
+.school-section ngb-pagination {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.school-section ngb-pagination .page-item.active .page-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #16294f 0% 0% no-repeat padding-box;
+  border-color: #16294f;
+  color: #fff;
+}
+
+.school-section ngb-pagination .page-item .page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  font: normal normal 600 18px/27px Poppins;
+  color: #bebebe;
+  border: 1px solid #bebebe;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199.9px) {
+  .search-section .container {
+    padding: 55px 57px 55px 57px;
+    height: 171px;
+  }
+
+  .search-section .container .position-relative .form-control {
+    border-radius: 10px;
+    width: inherit;
+    height: 53px;
+    border: 0;
+    padding: 20px;
+  }
+
+  .search-section .container .position-relative .form-control input {
+    width: inherit !important;
+  }
+
+  .search-section .container .position-relative .form-control::placeholder {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #7b7b7b;
+  }
+
+  .search-section .container button {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    background: #fdfdfd;
+    border: 1px solid #16294f;
+    border-radius: 8px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    color: #16294f;
+    width: 142px;
+    height: 40px;
+  }
+
+  .search-section .container button p {
+    font-size: 16px;
+    font-weight: 600;
+    height: 100%;
+  }
+
+  .search-section .container button:hover {
+    background: #16294f;
+    color: #fdfdfd;
+  }
+
+  .school-section .container {
+    margin-top: 34px;
+  }
+
+  .school-section .container .card {
+    width: 312px !important;
+    height: 232px !important;
+  }
+
+  .school-section .container .card .card-images {
+    height: 187px;
+    position: relative;
+  }
+
+  .school-section .container .card .card-images img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .school-section .container .card .card-images .logo-container {
+    width: 155px;
+    height: 71px;
+  }
+
+  .school-section .container .card .card-images .card-img-overlay img {
+    width: 36px;
+    height: 45px;
+  }
+
+  .input-form {
+    padding-top: 24px;
+  }
+
+  .input-form .form-control {
+    height: 59px;
+  }
+
+  .input-form .form-control::placeholder {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  .search-section .container {
+    padding: 67px 16px 67px 16px;
+    height: 171px;
+  }
+
+  .search-section .container .card {
+    margin-bottom: 24px;
+  }
+
+  .search-section .container .position-relative .form-control {
+    margin: auto !important;
+    border-radius: 10px;
+    width: 343px;
+    height: 37px;
+    border: 0;
+    padding: 20px;
+    width: inherit;
+  }
+
+  .search-section .container .position-relative .form-control input {
+    width: inherit;
+  }
+
+  .search-section .container .position-relative .form-control::placeholder {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 30px;
+    color: #7b7b7b;
+  }
+
+  .search-section .container button {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    background: #fdfdfd;
+    border: 1px solid #16294f;
+    border-radius: 8px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    color: #16294f;
+    width: 98px;
+    height: 26px;
+    padding: 2px;
+  }
+
+  .search-section .container button p {
+    font-size: 14px;
+    font-weight: 600;
+    height: 100%;
+  }
+
+  .search-section .container button:hover {
+    background: #16294f;
+    color: #fdfdfd;
+  }
+
+  .school-section .container {
+    margin-top: 16px;
+    padding: 0;
+  }
+
+  .pagination-section {
+    margin-bottom: 80px;
+  }
+
+  .pagination>li>a,
+  .pagination>li>span {
+    margin-bottom: 15% !important;
+    border-radius: 50% !important;
+    margin: 0 5px;
+    font-size: 12px;
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .page-link {
+    display: flex;
+    justify-content: center;
+    padding-top: 1px;
+  }
+}

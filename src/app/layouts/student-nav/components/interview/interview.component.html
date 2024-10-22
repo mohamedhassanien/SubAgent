@@ -1,0 +1,69 @@
+<section id="programs-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-12 ps-lg-0 pe-lg-4" (click)="goDown()">
+        <div
+          class="nav flex-xl-column child-nav nav-pills"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+          [ngClass]="navbarFixed ? 'fixed' : 'static'"
+        >
+          <a
+            class="nav-link d-flex align-items-center d-flex align-items-center col-lg-12 col-md-4 col-6"
+            id="pills-interview-pre-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-interview-pre"
+            type="button"
+            role="tab"
+            aria-controls="pills-interview-pre"
+            aria-selected="false"
+            routerLink="interview-pre"
+            routerLinkActive="active"
+            (click)="steps1()"
+          >
+            <img
+              src="../../../../../assets/images/navigator/application/application-nav-icons/4.svg"
+              alt="Interview preparation"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Interview preparation
+            <img
+              *ngIf="!interviewpre"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="interviewpre"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+        </div>
+        <div *ngIf="interviewpre" class="d-flex align-items-center next mt-3">
+          <h4>Next</h4>
+          <img
+            class="mx-1"
+            src="../../../../../assets/images/navigator/next.svg"
+            alt="next"
+          />
+          <h4
+            routerLink="/student-navigator/acceptance/acceptance-letter"
+            style="cursor: pointer"
+          >
+            Acceptance
+          </h4>
+        </div>
+      </div>
+      <div class="col-lg-9 col-12 ps-lg-0">
+        <div class="tab-content navs" id="v-pills-tabContent">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

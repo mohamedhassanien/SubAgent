@@ -6,8 +6,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/Auth/auth.service';
 import { ConfirmedValidator } from 'src/app/shared/validation/confirmed.validator';
-import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-change-password',
@@ -58,7 +59,7 @@ export class ChangePasswordComponent implements OnInit {
     );
 
     this.activeRoute.params.subscribe((param) => {
-      this.token = param['token'];
+      this.token = param.token;
     });
   }
 
@@ -71,17 +72,38 @@ export class ChangePasswordComponent implements OnInit {
   showRepeatPassword() {
     this.showRepeat = !this.showRepeat;
   }
+  confirmAction(message: string) {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: message,
+      timer: 2000,
+    });
+  }
 
+  // To confirm error
+  errorAction(message: string) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: message,
+    });
+  }
+ 
   // Submitting the form
   onSubmit(formData: FormGroup) {
     let sha1 = require('sha1');
-    const password = sha1(formData.controls['password'].value);
+    const password = sha1(formData.controls.password.value);
 
     this.authService.changePassword(this.token, password).subscribe((data) => {
-      console.log(data);
-      if (data) {
-        this.router.navigate(['/auth/login']);
+      console.log(data[0]);
+      if (data[0].status === 200) {
+       this.confirmAction(data[0].message)
+       this.router.navigate(['/auth/login']);
       }
+     else if(data[0].status === 400){
+      this.errorAction(data[0].message)
+     }
     });
   }
 }

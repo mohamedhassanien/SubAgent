@@ -1,0 +1,366 @@
+* {
+  scroll-behavior: smooth;
+}
+
+p {
+  margin: 0;
+}
+
+footer {
+  background: #16294f;
+  padding-top: 146px;
+  height: 550px;
+  margin-top: 80px;
+}
+
+footer .card {
+  height: 196px;
+  border: 0;
+  background: url(../../../../assets/images/footer/subscribe-bg.svg), #ffffff;
+  border-radius: 20px;
+  position: absolute;
+  top: -242px;
+  left: 0;
+  width: 100%;
+  padding: 30px 40px;
+}
+
+footer .card .card-headings {
+  width: 404px;
+}
+
+footer .card .card-headings h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 48px;
+  color: #121212;
+  margin-bottom: 0;
+}
+
+footer .card .card-headings p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #121212;
+}
+
+footer .card .card-input .form-control {
+  border-radius: 10px;
+  height: 55px;
+  border: 0;
+  padding: 20px;
+}
+
+footer .card .card-input .form-control::placeholder {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7b7b7b;
+}
+
+footer .card .card-input button {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: none;
+  padding: 8px 32px;
+}
+
+footer .card .card-input button p {
+  color: #fdfdfd;
+}
+
+footer .img-row {
+  padding-bottom: 32px;
+}
+
+footer .img-row img {
+  width: 217px;
+  height: 40px;
+}
+
+footer .container .link {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #fdfdfd;
+  padding-bottom: 8px;
+}
+
+footer .container .services-col .title,
+footer .container .contact-col .title {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #ffffff;
+  margin-bottom: 0;
+  padding-bottom: 16px;
+}
+
+footer .container .links-col .links {
+  padding-bottom: 8px;
+}
+
+footer .container .contact-col div:not(.row) {
+  margin-bottom: 16px;
+}
+
+footer .container .contact-col div:not(.row) .contact {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ffffff;
+  margin: 0;
+  padding-left: 24px;
+}
+
+footer .container .contact-col .contact-icon {
+  width: 23.96px;
+  height: 24.01px;
+}
+
+footer .container .links .circle {
+  margin-right: 16px;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+
+footer .container .links .circle i {
+  font-size: 24px;
+  color: #fff;
+}
+
+footer .container .links .circle:hover {
+  background: #000;
+  border: none;
+}
+
+footer .container .rights {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 18px 0;
+}
+
+footer hr {
+  color: rgb(197, 196, 196);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199.9px) {
+  footer {
+    height: 833px;
+  }
+
+  footer .img-row {
+    padding-bottom: 42px;
+  }
+
+  footer .img-row img {
+    width: 229px;
+    height: 42px;
+    position: relative;
+  }
+
+  footer .container .rights {
+    padding: 16px 0;
+  }
+
+  footer .card {
+    padding: 24px 42px;
+    height: auto;
+    top: -268px;
+  }
+
+  footer .card .card-headings {
+    margin: 0 auto;
+  }
+
+  footer .card .card-headings h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    margin: 0 0 8px;
+  }
+
+  footer .card .card-headings p {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+  }
+
+  footer .card .card-input {
+    padding-top: 24px;
+  }
+
+  footer .card .card-input .form-control {
+    height: 59px;
+  }
+
+  footer .card .card-input .form-control::placeholder {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #7b7b7b;
+  }
+
+  footer .card .card-input button {
+    font-size: 14px;
+    line-height: 21px;
+    padding: 8px 32px;
+    top: 11px;
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  footer {
+    height: 100%;
+    margin-top: 28px;
+  }
+
+  footer .img-row {
+    padding: 24px 0;
+  }
+
+  footer .img-row img {
+    width: 176px;
+    height: 32px;
+  }
+
+  footer .container .rights {
+    padding: 16px 0;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  footer .container .link {
+    font-size: 12px;
+    line-height: 27px;
+    font-weight: 500;
+  }
+
+  footer .container .links .circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  footer .container .links .circle i {
+    font-size: 18px;
+  }
+
+  footer .container .services-col .title,
+  footer .container .contact-col .title {
+    padding-bottom: 16px;
+    font-size: 18px;
+    line-height: 150%;
+    font-weight: 600;
+  }
+
+  footer .container .services-col .p,
+  footer .container .contact-col .p {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  footer .container .contact-col {
+    padding-top: 24px;
+    padding-right: 90px;
+  }
+
+  footer .container .contact-col .contact {
+    padding-left: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  footer .container .contact-col div:not(.row) {
+    margin-bottom: 16px;
+  }
+
+  footer .container .contact-col div:not(.row) .contact {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  footer .container .contact-col .contact-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  footer .card {
+    padding: 16px 22px;
+    height: auto;
+    top: -268px;
+    margin: 0 auto;
+  }
+
+  footer .card .card-headings {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  footer .card .card-headings h1 {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0 0 8px;
+  }
+
+  footer .card .card-headings p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  footer .card .card-input {
+    padding-top: 24px;
+  }
+
+  footer .card .card-input .form-control {
+    height: 40px;
+  }
+
+  footer .card .card-input .form-control::placeholder {
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+  }
+
+  footer .card .card-input button {
+    position: static;
+    width: 169px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 8px 0;
+    display: block;
+    margin: 0 auto;
+    margin-top: 19px;
+  }
+
+  footer .info-col {
+    padding-bottom: 24px;
+  }
+}

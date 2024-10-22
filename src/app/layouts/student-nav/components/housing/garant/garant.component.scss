@@ -1,0 +1,494 @@
+h1 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+h5 {
+    font-weight: 600;
+    font-size: 20px;
+    color: #FF5151;
+}
+
+p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.ticket {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 40px;
+
+    .ticket-section {
+        position: relative;
+
+        .ticket-img {
+            margin-top: 32px;
+        }
+
+        p {
+            position: absolute;
+            top: 0;
+            font-weight: 700;
+            font-size: 22px;
+            left: 21%;
+            top: 71%;
+        }
+    }
+
+    .ticket-section2 {
+        position: relative;
+
+        .ticket-img {
+            margin-top: 32px;
+        }
+
+        p {
+            position: absolute;
+            top: 0;
+            font-weight: 700;
+            font-size: 22px;
+            left: 15%;
+            top: 71%;
+        }
+    }
+}
+
+.garant {
+    h1 {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    p {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+
+        span {
+
+            font-weight: 600;
+
+        }
+    }
+
+    .logo {
+        width: 156px;
+        height: 40px;
+    }
+}
+
+.garant2 {
+    margin-top: 32px;
+
+    h1 {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    ul {
+        margin-top: 16px;
+
+        li {
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            padding-top: 8px;
+        }
+    }
+
+    .action-btn {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        text-align: left;
+        border: 1px solid #16294f !important;
+        padding: 8px 32px;
+    }
+
+    .logo {
+        width: 186px;
+        height: 40px;
+    }
+}
+
+
+.accordion {
+    padding: 3px;
+
+    .row {
+        margin-top: 24px;
+
+        .accordion-item {
+            border-radius: 10px;
+            width: 100%;
+            border: none;
+            margin-bottom: 24px;
+            background-color: transparent;
+
+            h2 {
+                width: 100%;
+                margin: 0;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+
+
+                button {
+                    border-radius: 10px;
+                    box-shadow: none !important;
+                    border: none;
+                    background: white;
+
+
+                    &::after {
+                        display: none;
+                    }
+
+                    .open,
+                    .close {
+                        border-radius: 10px;
+                        border: 0px;
+                        width: 24px;
+                        height: 24px;
+                        color: #4751de;
+                    }
+
+                    h3 {
+                        font-family: Poppins;
+                        font-size: 18px;
+                        font-weight: 600;
+                        line-height: 27px;
+                        text-align: left;
+
+                    }
+                }
+
+                .collapsed {
+                    background-color: white;
+                    border: none !important;
+                    border-radius: 10px;
+                    line-height: 1.2;
+                    padding: 12px 24px 12px 24px;
+
+                    &::after {
+                        border: none;
+
+                    }
+
+                    .open,
+                    .close {
+                        border: none !important;
+                        width: 24px;
+                        height: 24px;
+                    }
+
+
+                    h3 {
+                        font-weight: 400;
+                    }
+                }
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            .accordion-body {
+                background-color: white;
+                margin-top: 8px;
+                border-radius: 10px;
+                padding: 12px 24px;
+                box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+
+                .click-here {
+                    cursor: pointer;
+                }
+
+                .describtion {
+                    font-family: Poppins;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    text-align: left;
+
+                    p {
+                        font-family: Poppins;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 24px;
+                        text-align: left;
+
+                        span {
+                            font-family: Poppins;
+                            font-size: 16px;
+                            font-weight: 600;
+                            line-height: 24px;
+                            text-align: left;
+
+                        }
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: rgba(111, 119, 244, 1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    h1 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .ticket {
+        border-radius: 10px;
+        padding: 16px;
+        margin-top: 32px;
+
+        .garant {
+            img {
+                width: 23%;
+            }
+        }
+
+        .ticket-section {
+            position: relative;
+
+            .ticket-img {
+                margin-top: 16px;
+                width: 50%;
+            }
+
+            p {
+                position: absolute;
+                top: 0;
+                font-size: 14px;
+                left: 17.4%;
+                top: 68%;
+            }
+        }
+
+        .ticket-section2 {
+            position: relative;
+
+            .ticket-img {
+                margin-top: 16px;
+                width: 50%;
+            }
+
+            p {
+                position: absolute;
+                top: 0;
+                font-size: 14px;
+                left: 17.5%;
+                top: 69%;
+            }
+        }
+    }
+
+    .garant2 {
+        margin-top: 16px;
+
+        img {
+            width: 27%;
+        }
+
+        ul {
+            margin-top: 16px;
+
+            li {
+                font-size: 16px;
+                padding-top: 8px;
+            }
+        }
+
+        .action-btn {
+            padding: 8px 32px;
+        }
+    }
+
+    .accordion {
+
+        .row {
+            margin-top: 24px;
+
+            .accordion-item {
+                margin-bottom: 16px;
+
+                h2 {
+                    button {
+                        padding: 8px 16px;
+                    }
+
+                    .collapsed {
+                        padding: 8px 16px;
+                    }
+                }
+
+                .accordion-body {
+                    padding: 8px 16px;
+                }
+            }
+
+        }
+    }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+    h1 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    h3 {
+        font-size: 14px;
+        line-height: 21px
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .ticket {
+        border-radius: 5px;
+        padding: 8px;
+        margin-top: 24px;
+
+        .garant {
+            img {
+                width: 30%;
+            }
+        }
+
+        .ticket-section {
+            position: relative;
+
+            .ticket-img {
+                margin-top: 16px;
+                width: 100%;
+            }
+
+            p {
+                position: absolute;
+                top: 0;
+                font-size: 13px;
+                left: 37.4%;
+                top: 71%;
+            }
+        }
+
+        .ticket-section2 {
+            position: relative;
+
+            .ticket-img {
+                margin-top: 16px;
+                width: 100%;
+            }
+
+            p {
+                position: absolute;
+                top: 0;
+                font-size: 13px;
+                left: 37.5%;
+                top: 71%;
+            }
+        }
+    }
+
+    .garant2 {
+        margin-top: 16px;
+
+        img {
+            width: 35%;
+        }
+
+        ul {
+            margin-top: 8px;
+
+            li {
+                font-size: 12px;
+                padding-top: 4px;
+            }
+        }
+
+        .action-btn {
+            padding: 8px 32px;
+        }
+    }
+
+    .accordion {
+        .row {
+            margin-top: 16px;
+
+            .accordion-item {
+                margin-bottom: 12px;
+
+                h2 {
+                    button {
+                        padding: 8px 16px 8px 8px;
+                    }
+
+                    .collapsed {
+                        padding: 8px 16px 8px 8px;
+                    }
+                }
+
+                .accordion-body {
+                    padding: 8px;
+                }
+            }
+
+        }
+    }
+
+}

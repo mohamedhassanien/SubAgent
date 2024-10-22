@@ -1,0 +1,138 @@
+.fixed {
+  position: fixed;
+  z-index: 999999999999999;
+  top: 16px;
+  // left: 58px;
+  // width: 22%;
+
+  .next {
+    display: none;
+  }
+}
+
+.static {
+  position: relative;
+}
+
+.open {
+  pointer-events: all;
+}
+
+.close {
+  pointer-events: none;
+}
+
+.next {
+  h4 {
+    color: var(--primary-purple, #16294f);
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .fixed {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  .check-circle {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .fixed {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  .check-circle {
+    display: none;
+  }
+
+  .popup_header {
+    img {
+      display: none;
+    }
+
+    .card_title {
+      font-size: 14px !important;
+    }
+
+    .card_text {
+      font-size: 12px !important;
+    }
+  }
+
+  .textarea_label {
+    font-size: 12px !important;
+  }
+
+  .contact-us {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+
+.popup_textarea {
+  margin: 0px 40px;
+  border-radius: 5px;
+  border: 1px solid #898989;
+  padding: 12px 16px;
+  margin-bottom: 40px !important;
+}
+
+.popup_header {
+  margin: 40px;
+}
+
+.textarea_label {
+  margin: 8px 40px;
+  font-family: Poppins !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #121212;
+
+}
+
+.contact-us {
+  border-radius: 8px;
+  border: 1px solid var(--primary-purple, #16294f);
+  padding: 8px 32px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  // margin-left: 8px;
+  background-color: #16294f;
+  margin-bottom: 40px !important;
+  margin: 0px 25px;
+  // margin-top: 40px;
+}
+
+.done_button {
+  display: flex;
+  justify-content: end;
+}
+
+.card_title {
+  font-family: Poppins !important;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+
+
+}
+
+.card_text {
+  font-family: Poppins !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #121212;
+}

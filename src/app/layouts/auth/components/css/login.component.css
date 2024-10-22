@@ -1,0 +1,431 @@
+section {
+  background-image: url(../../../../../assets/images/login-pages/map-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section .login-content {
+  margin-top: 52px;
+  padding: 0 60px;
+}
+
+section .login-content img {
+  width: 174px;
+  height: 32px;
+  margin-bottom: 33px;
+}
+
+section .login-content .account {
+  font: normal normal 600 24px Poppins;
+  line-height: 36px;
+  margin-bottom: 25px;
+}
+
+section .login-content .welcome-back {
+  font: normal normal 600 18px Poppins;
+  line-height: 27px;
+  margin-bottom: 8px;
+  color: #ff5151;
+}
+
+section .login-content .btn-group {
+  margin-top: 16px;
+}
+
+section .login-content .btn-group .google,
+section .login-content .btn-group .facebook {
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  background-color: #fdfdfd;
+  width: 220px;
+  height: 40px;
+  font: normal normal normal 14px Poppins;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+
+section .login-content .btn-group .google:hover,
+section .login-content .btn-group .facebook:hover {
+  border: 2px solid #6770f7;
+}
+
+section .login-content .btn-group .google:focus,
+section .login-content .btn-group .facebook:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: #edeeff 0% 0% no-repeat padding-box;
+}
+
+section .login-content .btn-group .google .logo,
+section .login-content .btn-group .facebook .logo {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+}
+
+section .login-content .btn-group .google p,
+section .login-content .btn-group .facebook p {
+  margin: 0;
+  margin-left: 5px;
+}
+
+section .login-content .btn-group .google .text-mobile,
+section .login-content .btn-group .facebook .text-mobile {
+  display: none;
+}
+
+section .login-content .seperator {
+  margin: 20px 0;
+}
+
+section .login-content .seperator hr {
+  width: 45.4545454545%;
+}
+
+section .login-content .seperator p {
+  font: normal normal normal 18px Poppins;
+  color: #8b8b8b;
+  margin: 0;
+}
+
+section .login-content .form-control {
+  color: #121212 !important;
+}
+
+section .login-content label {
+  font: normal normal normal 14px Poppins;
+  color: #121212;
+  padding: 0 20px;
+  padding-left: 0px;
+  margin-bottom: 8px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+section .login-content input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #7b7b7b;
+  border-radius: 8px;
+  padding-left: 16px;
+  background-color: #f7f7f7;
+}
+
+section .login-content input:-webkit-autofill {
+  -webkit-box-shadow: 200px 200px 100px #f7f7f7 inset;
+}
+
+section .login-content input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #6770f7;
+  -webkit-box-shadow: 200px 200px 100px white inset;
+}
+
+section .login-content input:focus::placeholder {
+  color: transparent;
+}
+
+section .login-content .emailInput:focus+.emailLabel {
+  color: #6770f7;
+}
+
+section .login-content .passwordLabel {
+  top: -67px;
+  right: 0px;
+}
+
+section .login-content .passwordInput:focus+.passwordLabel {
+  color: #6770f7;
+}
+
+section .login-content mat-icon {
+  position: relative;
+  top: -35px;
+  left: 94%;
+  cursor: pointer;
+}
+
+section .login-content .forget {
+  font: normal normal 400 16px Poppins;
+  color: #16294f;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  bottom: 23px;
+  right: 5px;
+}
+
+section .login-content .forget-row .checkbox input {
+  -webkit-box-shadow: unset;
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+section .login-content .forget-row .checkbox label {
+  all: unset;
+  font: normal normal normal 16px Poppins;
+  cursor: context-menu;
+  color: #121212;
+}
+
+section .login-content .alert {
+  margin-bottom: 40px;
+}
+
+section .login-content .login {
+  margin-top: 15px;
+  width: 100%;
+  height: 47px;
+}
+
+section .login-content .login button {
+  width: 100%;
+  height: 100%;
+  background: #16294f;
+  border-radius: 8px;
+  font: normal normal normal 16px Poppins;
+  color: #ffffff;
+}
+
+section .login-content .login button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+section .login-content .create {
+  margin-top: 16px;
+  font: normal normal normal 16px Poppins;
+  color: #121212;
+}
+
+section .login-content .create a {
+  font: normal normal 600 16px/23px Poppins;
+  color: #16294f;
+}
+
+section .login-background {
+  background: #6770f7;
+}
+
+@media only screen and (max-width: 1199.9px) and (min-width: 768px) {
+  section .login-content {
+    padding: 0 75px;
+  }
+
+  section .login-content img {
+    width: 174px;
+    height: 32px;
+  }
+
+  section .login-content .account {
+    font: normal normal 600 20px Poppins;
+    margin-bottom: 24px;
+  }
+
+  section .login-content .welcome-back {
+    font: normal normal 600 16px Poppins;
+    margin-bottom: 16px;
+    color: #ff5151;
+  }
+
+  section .login-content .description {
+    text-align: center;
+    font: normal normal normal 16px Poppins;
+    margin-bottom: 20px;
+  }
+
+  section .login-content .btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  }
+
+  section .login-content .btn-group .google,
+  section .login-content .btn-group .facebook {
+    background-color: #fdfdfd;
+    width: 204px;
+    height: 40px;
+    border: none;
+    font: normal normal normal 12px Poppins;
+  }
+
+  section .login-content .btn-group .google .logo,
+  section .login-content .btn-group .facebook .logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  section .login-content .btn-group .google p,
+  section .login-content .btn-group .facebook p {
+    margin-left: 10px;
+  }
+
+  section .login-content .btn-group .google:focus,
+  section .login-content .btn-group .facebook:focus {
+    border: none;
+  }
+
+  section .login-content .btn-group .text-mobile {
+    display: none;
+  }
+
+  section .login-content .seperator {
+    margin: 30px 0;
+  }
+
+  section .login-content .seperator p {
+    font: normal normal normal 16px Poppins;
+  }
+
+  section .login-content input {
+    width: 100%;
+    padding-left: 16px;
+  }
+
+  section .login-content mat-icon {
+    left: 94%;
+  }
+
+  section .forget-row {
+    margin-bottom: 180px;
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  section .login-content {
+    padding: 0 20px;
+  }
+
+  section .login-content img {
+    width: 115px;
+    height: 21px;
+  }
+
+  section .login-content .account {
+    font: normal normal 600 14px Poppins;
+    margin-bottom: 16px;
+  }
+
+  section .login-content .welcome-back {
+    font: normal normal 600 12px Poppins;
+    color: #ff5151;
+    margin-bottom: 8px;
+  }
+
+  section .login-content .btn-group .google,
+  section .login-content .btn-group .facebook {
+    background-color: #fdfdfd;
+    width: 98px;
+    height: 26px;
+    padding: 0;
+    border: none;
+    font: normal normal 600 12px Poppins;
+  }
+
+  section .login-content .btn-group .google .logo,
+  section .login-content .btn-group .facebook .logo {
+    width: 16px;
+    height: 16px;
+  }
+
+  section .login-content .btn-group .google:focus,
+  section .login-content .btn-group .facebook:focus {
+    border: none;
+  }
+
+  section .login-content .btn-group .google p,
+  section .login-content .btn-group .facebook p {
+    margin-left: 5px;
+  }
+
+  section .login-content .btn-group .google .text-mobile,
+  section .login-content .btn-group .facebook .text-mobile {
+    display: block;
+  }
+
+  section .login-content .btn-group .google .text-full,
+  section .login-content .btn-group .facebook .text-full {
+    display: none;
+  }
+
+  section .login-content .seperator {
+    margin: 24px 0;
+  }
+
+  section .login-content .seperator hr {
+    width: 40%;
+  }
+
+  section .login-content .seperator p {
+    font: normal normal normal 18px Poppins;
+    color: #8b8b8b;
+    margin: 0;
+  }
+
+  section .login-content label {
+    font: normal normal normal 12px Poppins;
+    top: 10px;
+    right: -25px;
+    padding: 0 10px;
+  }
+
+  section .login-content input {
+    font: normal normal normal 14px Poppins;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #dedddd;
+    border-radius: 8px;
+    padding-left: 16px;
+  }
+
+  section .login-content input:-webkit-autofill {
+    -webkit-box-shadow: 200px 200px 100px #f7f7f7 inset;
+  }
+
+  section .login-content input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid #6770f7;
+    -webkit-box-shadow: 200px 200px 100px #f7f7f7 inset;
+  }
+
+  section .login-content mat-icon {
+    left: 90%;
+  }
+
+  section .login-content .forget {
+    font-size: 14px;
+  }
+
+  section .login-content .forget-row .checkbox label {
+    font-size: 14px;
+  }
+
+  section .login {
+    width: 344px;
+    height: 34px;
+    margin-top: 22px;
+  }
+
+  section .login button {
+    font: normal normal 600 12px Poppins;
+  }
+
+  section .create {
+    margin-top: 14px;
+    font-size: 12px !important;
+    font: normal normal normal 12px Poppins !important;
+    color: #8b8b8b;
+  }
+
+  section .create a {
+    font: normal normal normal 12px Poppins !important;
+  }
+
+  section .forget-row {
+    margin-bottom: 127px;
+  }
+}

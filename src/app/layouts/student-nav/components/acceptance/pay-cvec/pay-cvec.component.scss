@@ -1,0 +1,328 @@
+h1 {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+}
+
+h3 {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: left;
+}
+
+p {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+
+    span {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        text-align: left;
+
+    }
+}
+
+.accordion {
+    padding: 5px;
+    .row {
+        margin-top: 24px;
+
+        .accordion-item {
+            border-radius: 10px;
+            width: 100%;
+            border: none;
+            margin-bottom: 24px;
+            background-color: transparent;
+
+            h2 {
+                width: 100%;
+                margin: 0;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+
+                button {
+                    border-radius: 10px;
+                    box-shadow: none !important;
+                    border: none;
+                    background: white;
+
+
+                    &::after {
+                        display: none;
+                    }
+
+                    .open,
+                    .close {
+                        border-radius: 10px;
+                        border: 0px;
+                        width: 24px;
+                        height: 24px;
+                        color: #4751de;
+                    }
+
+                    h3 {
+                        font-weight: 600;
+                    }
+                }
+
+                .collapsed {
+                    background-color: white;
+                    border: none !important;
+                    border-radius: 10px;
+                    line-height: 1.2;
+                    padding: 12px 24px 12px 24px !important;
+
+                    &::after {
+                        border: none;
+                    }
+
+                    .open,
+                    .close {
+                        border: none !important;
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    h3 {
+                        font-weight: 400;
+                    }
+                }
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            .accordion-body {
+                background-color: white;
+                margin-top: 8px;
+                border-radius: 10px;
+                padding: 12px 24px;
+                box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+
+                .click-here {
+                    cursor: pointer;
+                }
+
+                .describtion {
+                    a {
+                        color: rgba(111, 119, 244, 1);
+                        text-decoration: underline !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.steps {
+    border-radius: 10px;
+    background: var(--frame, #FBF7EA);
+    padding: 24px;
+    margin-top: 40px;
+
+    .row {
+        margin-top: 16px;
+
+        .one-text {
+            border-radius: var(--5, 5px);
+            background: var(--primary-white, #FDFDFD);
+            padding: 1px 8px;
+
+            h1 {
+                font-family: Poppins;
+                font-size: 40px;
+                font-weight: 700;
+                line-height: 60px;
+                text-align: center;
+                // color: #898989;
+                margin-right: 15px;
+                font-weight: 700;
+                color: #ddd;
+            }
+
+            img {
+                margin-right: 15px;
+            }
+
+            p {
+                display: flex;
+                align-items: center;
+                font-family: Poppins;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
+
+
+                a {
+                    color: rgba(111, 119, 244, 1);
+                    text-decoration: underline !important;
+                }
+            }
+        }
+    }
+
+    .details {
+        text-align: center;
+        margin-top: 24px;
+
+        p {
+            font-weight: 400;
+            font-size: 20px;
+            color: rgba(255, 81, 81, 1);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        a {
+            font-weight: 600;
+            font-size: 20px;
+            color: #121212;
+            text-decoration: underline !important;
+        }
+    }
+
+    h1 {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: left;
+
+        span {
+            font-family: Poppins;
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 48px;
+            text-align: left;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    h1 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .accordion {
+
+        .row {
+            margin-top: 16px;
+
+            .accordion-item {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .steps {
+        padding: 16px;
+        border-radius: 10px;
+        margin-top: 32px;
+
+        .row {
+
+            .one-text {
+                border-radius: 5px;
+                padding: 12px 16px;
+
+
+                p {
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .details {
+            margin-top: 16px;
+        }
+    }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+    h1 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    h3 {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .accordion {
+
+        .row {
+            margin-top: 16px;
+
+            .accordion-item {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    .steps {
+        padding: 8px;
+        border-radius: 5px;
+        margin-top: 24px;
+
+        .row {
+            .one-text {
+                border-radius: 5px;
+                padding: 8px;
+                margin-top: 8px;
+
+                img {
+                    width: 19px;
+                    height: 21px;
+                }
+
+                p {
+                    margin-top: 4px;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .details {
+            margin-top: 8px;
+
+            p,
+            a {
+                font-size: 13px;
+                line-height: 10px;
+            }
+        }
+    }
+}

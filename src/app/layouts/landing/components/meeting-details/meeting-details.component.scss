@@ -1,0 +1,295 @@
+// .section-container.meeting{
+//     margin: 120px auto;
+//     .head, .body{
+//         width: 75%;
+//         margin: auto;
+//     }
+//     .head{
+//         h2{
+//             font-family: 'Open Sans';
+//             font-size: 52px;
+//             text-align: center;
+//             color: #1a323e;
+//         }
+//         p{
+//             text-align: center;
+//             margin: 50px auto 75px;
+//             width: 75%;
+
+//         }
+//     }
+//     .body{
+//         justify-content: flex-start;
+//         gap: 22px;
+//         .custom-col{
+//             &.join{
+//                 flex: 0 0 30%;
+//                 gap: 22px;
+//                 height: fit-content;
+//                 justify-content: flex-start;
+//                 .card-body{
+//                     margin: auto;
+//                     box-shadow: 0 0 30px 0 rgb(26 50 62 / 2%);
+//                     background-color: #fff;
+//                     border-radius: 20px;
+//                     padding: 22px 2px;
+//                     p{
+//                         display: flex;
+//                         justify-content: space-around;
+//                         margin: 0;
+//                         span{
+//                             font-family: 'Open Sans';
+//                             font-size: 16px;
+//                             font-weight: bold;
+//                             color: #b8c5cc;
+//                             text-align: center;
+//                         }
+//                     }
+//                     ::ng-deep{
+//                         countdown{
+//                             span{
+//                                 font-family: 'Open Sans';
+//                                 font-size: 42px;
+//                                 font-weight: bold;
+//                                 color: #1a323e;
+//                                 line-height: 1;
+//                                 &::first-letter{
+//                                     color: var(--red-color);
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//                 &>div:not(.card-body){
+//                     padding: 21px 22px ;;
+//                     box-shadow: 3px 3px 3px 0 rgba(27, 32, 34, 0.02);
+//                     background-color: #fff;
+//                     >h3{
+//                         font-family: 'Open Sans';
+//                         font-size: 30px;
+//                         font-weight: bold;
+//                         color: #1a323e;
+//                         margin-bottom: 22px;
+//                     }
+//                     ul{
+//                         margin: 0;
+//                         padding-bottom: 52px;
+//                         border-bottom: 1px solid #dfe7ec;
+//                         margin-bottom: 22px;
+//                         li{
+//                             display: flex;
+//                             justify-content: space-between;
+//                             margin: 11px 0;
+//                             .ictx{
+//                                 flex: 0 0 50%;
+//                                 gap: 6px;
+//                                 justify-content: flex-start;
+//                                 .ictx-icon{
+//                                     img{
+//                                         display: inline;
+//                                         vertical-align: middle;
+//                                     }
+//                                 }
+//                                 .ictx-text{
+//                                     p{
+//                                         color: #1a323e;
+//                                     }
+//                                 }
+//                             }
+//                             span{
+//                                 text-transform: capitalize;
+//                             }
+//                         }
+//                         li:first-child{
+//                             span{
+//                                 font-weight: bold;
+//                                 line-height: 1;
+//                                 color: var(--main-color);
+//                             }
+//                         }
+//                     }
+//                     .note{
+//                         span{
+//                             color: #1a323e;
+//                         }
+//                     }
+//                     .btn-holder{
+//                         gap: 12px;
+//                         margin: 40px 0 20px 0;
+//                         button.join{
+//                             font-size: 12px;
+//                             color: #fff;
+//                             background-color: var(--main-color);
+//                             text-transform: uppercase;
+//                             border: none;
+//                             padding: 15px 0;
+//                             width: 80%;
+//                             border-radius: 36px;
+//                         }
+//                     }
+//                     .social{
+//                         display: flex;
+//                         justify-content: center;
+//                         flex-wrap: wrap;
+//                         gap: 12px;
+//                         p{
+//                             flex: 0 0 100%;
+//                             text-align: center;
+//                             margin-bottom: 0;
+//                         }
+//                         a{
+//                             width: 17.8px;
+//                             height: 17px;
+//                             display: inherit;
+//                             img{
+//                                 height: 100%;
+//                                 object-fit: contain;
+//                             }
+//                         }
+//                     }
+//                 }
+
+//             }
+//             &.details{
+//                 flex: 0 0 60%;
+//                 .img-holder{
+//                     width: 100%;
+//                     margin: 0 0 22px 0;
+//                     border-radius: 10px;
+//                     background-color: #dfe7ec;
+//                     min-height: 300px;
+//                     img{
+//                         border-radius: 10px;
+//                         height: 100%;
+//                         object-fit: cover;
+//                     }
+//                 }
+//                 .text{
+//                     &>h3{
+//                         font-size: 30px;
+//                         font-weight: bold;
+//                         font-family: 'Open Sans';
+//                         color: #1a323e;
+//                     }
+//                     .ictx{
+//                         justify-content: flex-start;
+//                         p{
+//                             margin: 0;
+//                             color: #6d7b82;
+//                         }
+//                     }
+//                     ul{
+//                         list-style-type: square;
+//                         margin: 12px 0 15px 20px;
+//                         li{
+//                             line-height: 1.56;
+//                             color: #1a323e;
+//                             &::marker{
+//                                 color: #1a323e;
+//                             }
+//                         }
+//                     }
+//                     &>p{
+//                         color: #1a323e;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .section-container.more{
+//     margin: 120px auto;
+//     background-color: #fcfeff;
+//     padding: 80px 0;
+//     h2{
+//         margin: 0 162px 58px 159px;
+//         font-family: 'Open Sans';
+//         font-size: 48px;
+//         text-align: center;
+//         color: #1a323e;
+//     }
+//     .custom-row{
+//         width: 75%;
+//         margin: auto;
+//         flex-wrap: wrap;
+//         gap: 20px 2.5%;
+//         margin-top: 35px;
+//         padding: 0 0 20px 0;
+//         justify-content: flex-start;
+//         .custom-col{
+//             border-radius: 10px;
+//             transition: all .6s ease;
+//             flex: 0 0 23%;
+//             position: relative;
+//             padding: 0 0 14px;
+//             box-shadow: 3px 3px 3px 0 rgb(26 50 62 / 2%);
+//             transition: all .6s ease;
+//             border: 2px solid white;
+//             a{
+//                 position: relative;
+//                 .icon-holder{
+//                     position: relative;
+//                     border-radius: 10px 10px 0 0;
+//                     background-color: #b8c5cc;
+//                     height: 174px;
+//                     .link{
+//                         display: flex;
+//                         position: absolute;
+//                         top: 90%;
+//                         left: 75%;
+//                         border-radius: 50%;
+//                         box-shadow: 0 5px 10px 0 rgb(0 0 0 / 2%);
+//                         background-color: #fff;
+//                         width: 35px;
+//                         height: 35px;
+//                         img{
+//                             width: 18px;
+//                             margin: auto;
+//                             display: block;
+//                         }
+//                     }
+//                 }
+//                 .text{
+//                     padding: 10px 15px 0;
+//                     &>div{
+//                         color: #b8c5cc;
+//                         padding: 5px 0;
+//                         h5{
+//                             color: #1a323e;
+//                             margin-bottom: 32px;
+//                             max-height: 38px;
+//                             overflow: hidden;
+//                             min-height: 38px;
+//                             text-transform: capitalize;
+//                         }
+//                         p.id{
+//                             color: #1a323e;
+//                             border-bottom: 1px solid #dfe7ec;
+//                             padding-bottom: 21px;
+//                         }
+//                         .img-holder{
+//                             width: 50px;
+//                             height: 50px;
+//                             background-color: #b8c5cc;
+//                             border-radius: 50%;
+//                         }
+//                         .ictx{
+//                             flex: 0 0 48%;
+//                             justify-content: flex-start;
+//                             p{
+//                                 margin: 0;
+//                             }
+//                             a{
+//                                 color: var(--red-color);
+//                             }
+//                         }
+//                     }
+//                 }
+//                 &:hover{
+//                     text-decoration: none;
+//                 }
+//             }
+//         }
+//     }
+// }

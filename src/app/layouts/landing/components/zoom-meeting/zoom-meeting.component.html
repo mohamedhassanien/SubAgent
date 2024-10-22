@@ -1,0 +1,105 @@
+<!-- <div class="section-container">
+    <div class="custom-row calender">
+        
+        <div [ngSwitch]="view" class="calender">
+
+            <mwl-calendar-month-view
+              *ngSwitchCase="'month'"
+              [viewDate]="viewDate"
+              [events]="events"
+              [activeDayIsOpen]="true">
+            </mwl-calendar-month-view>
+
+            <mwl-calendar-week-view
+                *ngSwitchCase="'week'"
+                [viewDate]="viewDate"
+                [events]="events">
+            </mwl-calendar-week-view>
+            
+            <mwl-calendar-day-view
+                *ngSwitchCase="'day'"
+                [viewDate]="viewDate"
+                [events]="events">
+            </mwl-calendar-day-view>
+        </div>
+    </div>
+
+    <div class="custom-row">
+        <div class="form">
+            <div class="text o166d">We found <span>23 meetings</span> available for you</div>
+            <form [formGroup]="typeForm">
+                <select formControlName="type" [(ngModel)]="searchText" autofocus>
+                    <option value="" default selected>All Meetings</option>
+                    <option value="completed">completed status</option>
+                </select>
+            </form>
+        </div>
+
+        <div class="custom-row">
+            <div class="custom-col" *ngFor="let meet of meetings" >
+                <a routerLink="/landing/zoom">
+                    <div class="icon-holder">
+                        <img
+src="" alt="">
+                        <div class="link">
+                            <img
+src="/assets/images/push-pin.png" alt="">
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div>
+                            <h5 class="o166db">
+                                Meet Oumaima for checking your documents
+                            </h5>
+                        </div>
+
+                        <div class="o146d">Meeting ID: <p class="o166db id">341261748963</p></div>
+    
+                        <div class="ictx-holder">
+                            <div class="ictx">
+                                <div class="ictx-icon">
+                                    <img
+src="/assets/images/docs.png" alt="">
+                                </div>
+                                <div class="ictx-text">
+                                    <p class="o146d">Oct. 26, 2020</p>
+                                </div>
+                            </div>
+    
+                            <div class="ictx">
+                                <div class="ictx-icon">
+                                    <img
+src="/assets/images/user.png" alt="">
+                                </div>
+                                <div class="ictx-text">
+                                    <p class="o146d">10:00 AM</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="ictx-holder">
+                            <div class="ictx">
+                                <div class="ictx-icon">
+                                    <img
+src="/assets/images/docs.png" alt="">
+                                </div>
+                                <div class="ictx-text">
+                                    <p class="o146d">15 min</p>
+                                </div>
+                            </div>
+                            <div class="ictx">
+                                <a routerLink="/landing/zoom">Details &#8594;</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [maxSize]="2"
+        [collectionSize]="8"></ngb-pagination>
+    </div>
+</div> -->

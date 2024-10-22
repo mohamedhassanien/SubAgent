@@ -1,0 +1,599 @@
+.wrap {
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+  padding: 24px;
+
+  .inside-wrap {
+    border-radius: 10px;
+    background: var(--primary-white, #FDFDFD);
+    padding: 16px;
+
+    li {
+      color: var(--primary-black, #121212);
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      margin-bottom: 4px;
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+.qyuestion {
+  color: var(--primary-black, #121212);
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 24px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+
+.nav-wrapper {
+  .nav-pills {
+    .nav-item {
+      button.nav-link {
+        font-weight: 600;
+        font-size: 24px;
+        color: #7b7b7b;
+        border-radius: 75px;
+        height: 60px;
+        border: 1px solid #7b7b7b;
+        text-transform: none;
+
+        &.eng {
+          margin-right: -100px;
+          padding-right: 120px;
+
+          &.active {
+            background: #fbe8ea;
+            color: #121212;
+            border: none;
+            z-index: 999999;
+            position: relative;
+            padding-right: 30px;
+          }
+        }
+
+        &.fr {
+          padding-left: 120px;
+
+          &.active {
+            background: #fbe8ea;
+            color: #121212;
+            border: none;
+            z-index: 999999999;
+            position: relative;
+            padding-left: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tab-content {
+  h3 {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+
+  }
+
+  .warning-msg {
+    padding: 20px 277px;
+    background: #ffd0d0;
+    border-radius: 5px;
+    text-align: center;
+
+    p:first-child {
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    P:last-child {
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+
+  .warning-msg-single {
+    padding: 20px;
+    background: #ffd0d0;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 24px
+  }
+
+  .leave {
+    color: #ff5151;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .duolingo {
+    margin-top: 40px;
+
+    h1 {
+      font-weight: 600;
+      font-size: 24px;
+      color: #ff5151;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 24px;
+      color: #121212;
+    }
+  }
+
+  ul {
+    li {
+      font-size: 20px;
+      font-weight: 400;
+
+      a {
+        color: #16294f;
+      }
+    }
+  }
+
+  .child-list {
+    padding: 0;
+
+    .nav-link {
+      box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+      border-radius: 10px;
+      background: #ffffff;
+      color: #121212;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      font-family: Poppins;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+      text-align: left;
+
+
+      &.active {
+        border: 2px solid #16294f;
+        background: #fdfdfd;
+        border-radius: 10px;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 30px;
+        text-align: left;
+        color: #16294f;
+
+        img {
+          opacity: 1;
+        }
+      }
+
+      img {
+        margin-right: 24px;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .accordion-item {
+    .accordion-button::after {
+      background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+
+    .accordion-button {
+      font-weight: 400;
+      font-size: 20px;
+      color: #121212;
+      background: #fdfdfd;
+      border: 0;
+      box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+      border-radius: 5px;
+      margin-bottom: 16px;
+      padding: 8px 24px;
+    }
+
+    .accordion-button:not(.collapsed) {
+      font-weight: 500;
+    }
+
+    .collapse {
+      background: #fdfdfd;
+      box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+    }
+
+    .accordion-body {
+
+      border-radius: 5px;
+
+      // margin-top: 8px;
+      padding: 8px 24px;
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      margin-bottom: 16px;
+
+
+      .tags {
+        .tag {
+          padding: 4px 8px;
+          background: #fbe8ea;
+          border-radius: 5px;
+          font-weight: 400;
+          font-size: 18px;
+          display: inline-block;
+          margin-right: 8px;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .accordion-body.others-content {
+      .headings {
+        p:first-child {
+          font-weight: 600;
+          font-size: 20px;
+          color: #ff5151;
+        }
+
+        p:last-child {
+          font-weight: 700;
+          font-size: 20px;
+          margin-top: 16px;
+        }
+      }
+
+      .other-title {
+        margin-top: 24px;
+
+        p {
+          font-weight: 700;
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+
+      .other-desc {
+        font-weight: 400;
+        font-size: 18px;
+
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .nav-wrapper {
+    .nav-pills {
+      .nav-item {
+        button.nav-link {
+          font-size: 20px;
+          height: 55px;
+
+          &.eng {
+            margin-right: -100px;
+            padding-right: 110px;
+
+            &.active {
+              padding-right: 30px;
+            }
+          }
+
+          &.fr {
+            padding-left: 110px;
+
+            &.active {
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    .warning-msg {
+      padding: 16px;
+
+      p:first-child {
+        font-size: 20px;
+      }
+
+      P:last-child {
+        font-size: 16px;
+        margin-top: 8px;
+      }
+    }
+
+    .warning-msg-single {
+      padding: 16px;
+      margin-top: 24px;
+    }
+
+    .leave {
+      margin-bottom: 16px;
+    }
+
+    .duolingo {
+      margin-top: 32px;
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        text-align: left;
+      }
+    }
+
+    ul {
+      li {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .child-list {
+      .nav-link {
+        border-radius: 20px;
+        font-size: 20px;
+        padding: 14px;
+        border-radius: 10px;
+
+        &.active {
+          font-size: 24px;
+          border-radius: 10px;
+          padding: 12px;
+        }
+
+        img {
+          margin-right: 12px;
+        }
+      }
+    }
+
+    .accordion-item {
+      .accordion-button {
+        font-size: 20px;
+        margin-bottom: 16px;
+        padding: 8px 16px;
+      }
+
+      .accordion-button:not(.collapsed) {
+        margin-bottom: 8px;
+      }
+
+      .accordion-body {
+        margin-bottom: 8px;
+        font-size: 16px;
+        padding: 8px 16px;
+
+        .tags {
+          .tag {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .accordion-body.others-content {
+        .headings {
+          p:first-child {
+            font-size: 20px;
+          }
+
+          p:last-child {
+            font-size: 18px;
+            margin-top: 8px;
+          }
+        }
+
+        .other-title {
+          margin-top: 0px;
+
+          img {
+            width: 85px;
+            height: 85px;
+          }
+
+          p {
+            font-size: 20px;
+          }
+        }
+
+        .other-desc {
+          font-size: 16px;
+          line-height: 24px;
+
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .nav-wrapper {
+    .nav-pills {
+      .nav-item {
+        button.nav-link {
+          font-size: 14px;
+          height: 50px;
+
+          &.eng {
+            margin-right: -100px;
+            padding-right: 98px;
+
+            &.active {
+              padding-right: 30px;
+            }
+          }
+
+          &.fr {
+            padding-left: 98px;
+
+            &.active {
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    .warning-msg {
+      padding: 4px;
+      margin-bottom: 0px;
+
+      p:first-child {
+        font-size: 14px;
+      }
+
+      P:last-child {
+        font-size: 12px;
+        margin-top: 4px;
+      }
+    }
+
+    .warning-msg-single {
+      padding: 8px;
+      margin-top: 16px;
+      margin-bottom: 12px;
+    }
+
+    .leave {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .duolingo {
+      margin-top: 16px;
+
+      h1 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    ul {
+      li {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+
+    .child-list {
+      .nav-item {
+        margin: 0;
+        width: 50%;
+
+        .nav-link {
+          font-size: 12px;
+          padding: 9px;
+          border-radius: 5px;
+
+          &.active {
+            font-size: 13px;
+            border-radius: 5px;
+            padding: 4px;
+          }
+
+          img {
+            margin-right: 2px;
+            width: 27%;
+          }
+        }
+      }
+
+    }
+
+    .accordion-item {
+      .accordion-button {
+        font-size: 14px;
+        margin-bottom: 8px;
+        padding: 4px 8px;
+      }
+
+      .accordion-button:not(.collapsed) {
+        margin-bottom: 4px;
+      }
+
+      .accordion-body {
+        margin-bottom: 4px;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 8px;
+
+        .tags {
+          .tag {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .accordion-body.others-content {
+        .headings {
+          p:first-child {
+            font-size: 14px;
+          }
+
+          p:last-child {
+            font-size: 16px;
+            margin-top: 8px;
+          }
+        }
+
+        .other-title {
+          margin-top: 0px;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+
+          p {
+            font-size: 16px;
+          }
+        }
+
+        .other-desc {
+          font-size: 12px;
+          line-height: 18px;
+
+        }
+      }
+    }
+  }
+}
+
+.other-desc {
+  p {
+    font-size: 16px !important;
+  }
+}

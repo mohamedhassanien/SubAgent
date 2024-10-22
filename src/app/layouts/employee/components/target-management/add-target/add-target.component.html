@@ -1,0 +1,85 @@
+<div class="wrap">
+  <section class="p-3">
+    <div class="row px-5">
+      <h1 class="p-3 text-blue">Add target</h1>
+
+      <div class="col-md-12">
+        <div
+          class="title bg-white borderR-5 d-flex justify-content-between align-items-center"
+        >
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onEmpChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option value="" selected disabled>choose the employee</option>
+              <option [value]="emp.Username" *ngFor="let emp of employees">
+                {{ emp.Name }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">Employee</label>
+          </div>
+
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onMonthChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option value="" selected disabled>choose the month</option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">Month</label>
+          </div>
+
+          <div class="form-floating">
+            <select
+              class="form-select"
+              (change)="onYearChange($event)"
+              id="floatingSelectGrid"
+            >
+              <option value="" selected disabled>choose the year</option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">Year</label>
+          </div>
+
+          <div class="form-floating">
+            <input
+              type="number"
+              id="floatingSelectGrid"
+              class="form-control"
+              value="0"
+              (input)="onTargetChange($event)"
+            />
+            <label for="floatingSelectGrid">Targer</label>
+          </div>
+          <button
+            type="button"
+            (click)="onAdd()"
+            class="btn btn-success text-white"
+          >
+            Add
+          </button>
+
+          <button
+            type="button"
+            (click)="onEdit()"
+            class="btn btn-primary text-white"
+          >
+            Edit
+          </button>
+        </div>
+
+        <div id="chart" class="bg-white borderR-5"></div>
+      </div>
+    </div>
+  </section>
+</div>

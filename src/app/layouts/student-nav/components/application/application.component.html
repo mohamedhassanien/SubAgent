@@ -1,0 +1,285 @@
+<section id="programs-container">
+  <div class="tab-content-horizontal d-xl-none d-block" (click)="goDown()">
+    <div
+      class="nav nav-pills child-nav justify-content-evenly w-100"
+      id="v-pills-tab"
+      role="tablist"
+      aria-orientation="vertical"
+      [ngClass]="navbarFixed ? 'fixed' : 'static'"
+    >
+      <a
+        class="nav-link d-flex align-items-center flex-column mx-0"
+        id="pills-cv-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-cv"
+        type="button"
+        role="tab"
+        aria-controls="pills-cv"
+        aria-selected="false"
+        routerLink="cv-transcript"
+        routerLinkActive="active"
+      >
+        <img
+          src="/assets/images/navigator/application/application-nav-icons/1.svg"
+          alt="Build CV"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        CV/Transcript
+      </a>
+
+      <a
+        class="nav-link d-flex align-items-center flex-column mx-0"
+        id="pills-ml-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-ml"
+        type="button"
+        role="tab"
+        aria-controls="pills-ml"
+        aria-selected="false"
+        routerLink="motivation-letter"
+        routerLinkActive="active"
+        [ngClass]="motivation ? 'open' : 'close'"
+      >
+        <img
+          src="/assets/images/navigator/application/application-nav-icons/2.svg"
+          alt="Motivation letter"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        Motivation letter
+      </a>
+
+      <a
+        class="nav-link d-flex align-items-center flex-column mx-0"
+        id="pills-rl-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-rl"
+        type="button"
+        role="tab"
+        aria-controls="pills-rl"
+        aria-selected="false"
+        routerLink="recommendation-letter"
+        routerLinkActive="active"
+        [ngClass]="recmmondation ? 'open' : 'close'"
+      >
+        <img
+          src="/assets/images/navigator/application/application-nav-icons/3.svg"
+          alt="recommendation letter"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        recommendation letter
+      </a>
+
+      <a
+        class="nav-link d-flex align-items-center flex-column mx-0"
+        id="pills-lang-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-lang"
+        type="button"
+        role="tab"
+        aria-controls="pills-lang"
+        aria-selected="false"
+        routerLink="language-test"
+        routerLinkActive="active"
+        [ngClass]="language ? 'open' : 'close'"
+        (click)="steps()"
+      >
+        <img
+          src="/assets/images/navigator/application/application-nav-icons/5.svg"
+          alt="Language test"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        Language test
+      </a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-xl-3 col-12 ps-lg-0 pe-lg-4 d-xl-block d-none"
+        (click)="goDown()"
+      >
+        <div
+          class="nav flex-xl-column child-nav nav-pills"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+          [ngClass]="navbarFixed ? 'fixed' : 'static'"
+        >
+          <a
+            class="nav-link d-flex align-items-center d-flex align-items-center col-lg-12 col-md-3 col-5"
+            id="pills-cv-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-cv"
+            type="button"
+            role="tab"
+            aria-controls="pills-cv"
+            aria-selected="false"
+            routerLink="cv-transcript"
+            routerLinkActive="active"
+          >
+            <img
+              src="/assets/images/navigator/application/application-nav-icons/1.svg"
+              alt="Build CV"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            CV/Transcript
+            <img
+              *ngIf="!motivation"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="motivation"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-5"
+            id="pills-ml-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-ml"
+            type="button"
+            role="tab"
+            aria-controls="pills-ml"
+            aria-selected="false"
+            routerLink="motivation-letter"
+            routerLinkActive="active"
+            [ngClass]="motivation ? 'open' : 'close'"
+          >
+            <img
+              src="/assets/images/navigator/application/application-nav-icons/2.svg"
+              alt="Motivation letter"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Motivation letter
+            <img
+              *ngIf="!recmmondation"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="recmmondation"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-6"
+            id="pills-rl-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-rl"
+            type="button"
+            role="tab"
+            aria-controls="pills-rl"
+            aria-selected="false"
+            routerLink="recommendation-letter"
+            routerLinkActive="active"
+            [ngClass]="recmmondation ? 'open' : 'close'"
+          >
+            <img
+              src="/assets/images/navigator/application/application-nav-icons/3.svg"
+              alt="recommendation letter"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            recommendation letter
+            <img
+              *ngIf="!language"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="language"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+
+          <!-- <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-6 me-0 pe-0"
+            id="pills-ip-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-ip"
+            type="button"
+            role="tab"
+            aria-controls="pills-ip"
+            aria-selected="false"
+            routerLink="interview-preparation"
+            routerLinkActive="active"
+          >
+            <img
+              src="/assets/images/navigator/application/application-nav-icons/4.svg"
+              alt="Interview preparation"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Interview preparation
+          </a> -->
+
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-4"
+            id="pills-lang-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-lang"
+            type="button"
+            role="tab"
+            aria-controls="pills-lang"
+            aria-selected="false"
+            routerLink="language-test"
+            routerLinkActive="active"
+            [ngClass]="language ? 'open' : 'close'"
+            (click)="steps()"
+          >
+            <img
+              src="/assets/images/navigator/application/application-nav-icons/5.svg"
+              alt="Language test"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Language test
+            <img
+              *ngIf="!allapp"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="allapp"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+        </div>
+        <div *ngIf="allapp" class="d-flex align-items-center next mt-3">
+          <h4>Next</h4>
+          <img
+            class="mx-1"
+            src="../../../../../assets/images/navigator/next.svg"
+            alt="next"
+          />
+          <h4 routerLink="/student-navigator/interview/interview-pre">
+            Interview
+          </h4>
+        </div>
+      </div>
+      <div class="tab-content navs col-xl-9 col-12" id="v-pills-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

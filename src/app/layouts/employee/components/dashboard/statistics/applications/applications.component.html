@@ -1,0 +1,858 @@
+<div class="wrap p-md-4 p-2">
+
+  <section>
+    <div class="row d-flex justify-content-between">
+      <div class="dropdowns row d-flex align-items-center px-3 pe-4 graphs-cards">
+        <select class="form-select month-year" (change)="oncardsMonth($event)" id="floatingSelectGrid" style="margin-right: 10px;">
+          <option [value]="selectedMonth" disabled >
+            Month
+          </option>
+
+          <option [value]="'All'" selected>
+            All
+          </option>
+
+          <option [value]="month" *ngFor="let month of months">
+            {{ month }}
+          </option>
+        </select>
+
+        <select class="form-select month-year" (change)="oncardsYear($event)" id="floatingSelectGrid">
+          <option [value]="selectedYear" disabled >
+            Year
+          </option>
+
+          <option [value]="'All'" selected>
+            All
+          </option>
+
+          <option [value]="year" *ngFor="let year of years">
+            {{ year }}
+          </option>
+        </select>         
+
+    </div>
+
+      <div class="col-4 one-static">
+        <div class="d-flex align-items-center">
+          <img class="me-3" src="../../../../../../../assets/images/employees/Statistics/blue.svg" alt="blue">
+          <div>
+            <h1 class="mb-2">Total Applications</h1>
+            <h2 class="mb-3">{{totalvalue}}</h2>
+          </div>
+        </div>
+        <div class="main-prog position-relative mt-4">
+          <div class="progress firstprog" style="height: 10px;">
+            <div class="progress-bar firstbar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+              aria-valuemax="100" [ngStyle]="{ width: totalWidth + '%' }"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 one-static">
+        <div class="d-flex align-items-center">
+          <img class="me-3" src="../../../../../../../assets/images/employees/Statistics/yellow.svg" alt="yellow">
+          <div>
+            <h1 class="mb-2">Deposit paid</h1>
+            <h2 class="mb-3">{{acceptedValue}}</h2>
+          </div>
+        </div>
+        <div class="main-prog position-relative mt-4">
+          <div class="progress secondprog" style="height: 10px;">
+            <div class="progress-bar secondbar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+              aria-valuemax="100" [ngStyle]="{ width: acceptedWidth + '%' }"></div>
+          </div>
+          <p class="progcount position-absolute mb-2"
+            [ngStyle]="{'left': 'calc(' + acceptedWidth +'%'+  ' - 4%)','top':'-24px'}">{{acceptedWidth | number :
+            '1.1-1'}}%</p>
+        </div>
+      </div>
+
+      <div class="col-4 one-static">
+        <div class="d-flex align-items-center">
+          <img class="me-3" src="../../../../../../../assets/images/employees/Statistics/red.svg" alt="red">
+          <div>
+            <h1 class="mb-2">Rejected</h1>
+            <h2 class="mb-3">{{rejectedValue}}</h2>
+          </div>
+        </div>
+        <div class="main-prog position-relative mt-4">
+          <div class="progress thirdprog" style="height: 10px;">
+            <div class="progress-bar thirdbar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+              aria-valuemax="100" [ngStyle]="{ width: rejectedWidth + '%' }"></div>
+          </div>
+          <p class="progcount position-absolute mb-2"
+            [ngStyle]="{'left': 'calc(' + rejectedWidth +'%'+  ' - 4%)','top':'-24px'}">
+            {{rejectedWidth | number : '1.1-1'}}%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- first caharts -->
+  <section class="mt-4">
+    <div class="row d-flex justify-content-between pt-2 pt-md-0">
+
+      <!-- Application sources -->
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Prospects Pipeline
+          </h1>
+          <h1 class=" p-3">
+            Number of students = {{totalStudents}}
+          </h1>
+        </div>
+        
+          
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          <!-- <div class="col-4"> -->
+            <select class="form-select month-year" (change)="onMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled >
+                Month
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+          <!-- </div> -->
+
+          <!-- <div class="col-4 ps-0"> -->
+            <select class="form-select month-year" (change)="onYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled >
+                Year
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+            <!-- </div> -->
+        </div>
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          <!-- <div class="col-4">
+            <select class="form-select" (change)="onMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled selected>
+                Month
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-4 ps-0">
+            <select class="form-select" (change)="onYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled selected>
+                Year
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select> -->
+            <!-- <div class="col-9 mt-3"> -->
+              <select class="form-select rep-school-drop" (change)="onemployeeChange($event)" id="floatingSelectGrid">
+                <option [value]="selectedRepresentative" disabled >
+                  Representative
+                </option>
+
+                <option [value]="'All'" selected>
+                  All
+                </option>
+
+                <option [value]="res.username" *ngFor="let res of representatives">
+                  {{ res.name }}
+                </option>
+              </select>
+            <!-- </div> -->
+          <!-- </div> -->
+          <button (click)="onProspectStatusApply()" class="apply col-4 apply-filter">
+            Apply
+          </button>
+        </div>
+
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="appSourcesChart.series" [chart]="appSourcesChart.chart" [labels]="appSourcesChart.labels"
+            [responsive]="appSourcesChart.responsive" [colors]="appSourcesChart.colors"></apx-chart>
+        </div>
+      </div>
+
+      <!-- Application status -->
+      <div class="col-md-6 my-md-0 my-4 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class="ps-0 p-3">
+            Applications pipeline
+          </h1>
+          <h1 class="ps-0 p-3">
+            Number of applications = {{TotalApps}}
+          </h1>
+
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 pe-4 graphs-filter">
+            <select class="form-select month-year" (change)="onAPMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled >
+                Month
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+
+            <select class="form-select month-year" (change)="onAPYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled >
+                Year
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>         
+
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 pe-4 graphs-filter">
+          <!-- <div class="col-4 ps-0">
+            <select class="form-select" (change)="onMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled selected>
+                Month
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+          </div>
+
+          <div class=" col-4 ps-0">
+            <select class="form-select" (change)="onYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled selected>
+                Year
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+          </div> -->
+          <!-- <div class="col-9 mt-3"> -->
+            <select class="form-select rep-school-drop" (change)="onAPemployeeChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedRepresentative" disabled >
+                Representative
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="res.username" *ngFor="let res of representatives">
+                {{ res.name }}
+              </option>
+            </select>
+          <!-- </div> -->
+          <button (click)="onStagesApply()" class="apply col-4 appl apply-filter">
+            Apply
+          </button>
+        </div>
+
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="appStagesChart.series" [chart]="appStagesChart.chart" [labels]="appStagesChart.labels"
+            [responsive]="appStagesChart.responsive" [colors]="appStagesChart.colors">
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section>
+    <div class="row d-flex justify-content-between pt-2 pt-md-0 mt-4">
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Top schools in Prospects
+          </h1>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+            <select class="form-select month-year " (change)="onTPMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled >
+                Month
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+
+            <select class="form-select month-year" (change)="onTPYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled >
+                Year
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          <!-- <div class="col-4">
+            <select class="form-select" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled selected>
+                Month
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-4 ps-0">
+            <select class="form-select" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled selected>
+                Year
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+          </div> -->
+            <select class="form-select rep-school-drop" (change)="onTPemployeeChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedRepresentative" disabled >
+                Representative
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="res.username" *ngFor="let res of representatives">
+                {{ res.name }}
+              </option>
+            </select>
+          <button (click)="onProspectSchoolApply()" class="apply  col-4 apply-filter">
+            Apply
+          </button>
+        </div>
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="topSchoolInProspect.series" [chart]="topSchoolInProspect.chart"
+            [labels]="topSchoolInProspect.labels" [responsive]="topSchoolInProspect.responsive"
+            [colors]="topSchoolInProspect.colors">
+          </apx-chart>
+        </div>
+      </div>
+
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Application Statistics
+          </h1>
+
+        </div>
+
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+
+          <select class="form-select month-year" (change)="onASMonthChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedMonth" disabled >
+              Month
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="month" *ngFor="let month of months">
+              {{ month }}
+            </option>
+          </select>
+
+          <select class="form-select month-year" (change)="onASYearChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedYear" disabled >
+              Year
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="year" *ngFor="let year of years">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+
+          <select class="form-select rep-school-drop" (change)="onASemployeeChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedRepresentative" disabled >
+              Representative
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="res.username" *ngFor="let res of representatives">
+              {{ res.name }}
+            </option>
+          </select>
+
+          <button class="apply col-4 apply-filter " (click)="onApplicationRadar()">
+            Apply
+          </button>
+        </div>
+
+        <div id="chart" class="mt-3">
+          <apx-chart
+            [series]="appRadar.series"
+            [chart]="appRadar.chart"
+            [xaxis]="appRadar.xaxis"
+            [stroke]="appRadar.stroke"
+            [colors]="appRadar.colors"
+            [dataLabels]="appRadar.dataLabels"
+            [tooltip]="appRadar.tooltip"
+            [plotOptions]="appRadar.plotOptions"
+            [markers]="appRadar.markers"
+            [yaxis]="appRadar.yaxis"
+            [fill]="appRadar.fill"
+          ></apx-chart>
+        </div>
+        <!-- <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Conversion Rate
+          </h1>
+
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          <select class="form-select month-year " (change)="onMonthChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedMonth" disabled selected>
+              Month
+            </option>
+
+            <option [value]="month" *ngFor="let month of months">
+              {{ month }}
+            </option>
+          </select>
+
+          <select class="form-select month-year" (change)="onYearChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedYear" disabled selected>
+              Year
+            </option>
+
+            <option [value]="year" *ngFor="let year of years">
+              {{ year }}
+            </option>
+          </select>
+
+      </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter graphs-filter">
+
+          <select class="form-select rep-school-drop" (change)="onemployeeChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedRepresentative" disabled selected>
+              Representative
+            </option>
+
+            <option [value]="res.username" *ngFor="let res of representatives">
+              {{ res.name }}
+            </option>
+          </select>
+
+          <button class="apply col-4 apply-filter " (click)="onConversionRate()">
+            Apply
+          </button>
+        </div>
+
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="conversionRate.series" [chart]="conversionRate.chart"
+            [labels]="conversionRate.labels" [responsive]="conversionRate.responsive"
+            [colors]="conversionRate.colors">
+          </apx-chart>
+        </div> -->
+
+      </div>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------ -->
+
+    <div class="row d-flex justify-content-between pt-2 pt-md-0 mt-4">
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Top School in applications
+          </h1>
+        </div>
+
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+
+            <select class="form-select month-year" (change)="onTAMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled >
+                Month
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+
+            <select class="form-select month-year" (change)="onTAYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled >
+                Year
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          
+          <select class="form-select rep-school-drop" (change)="onTAemployeeChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedRepresentative" disabled >
+              Representative
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="res.username" *ngFor="let res of representatives">
+              {{ res.name }}
+            </option>
+          </select>
+
+          <button class="apply col-4 apply-filter" (click)="onTopSchoolsApp()" >
+            Apply
+          </button>
+        </div>
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="topSchoolInApplications.series" [chart]="topSchoolInApplications.chart"
+            [labels]="topSchoolInApplications.labels" [responsive]="topSchoolInApplications.responsive"
+            [colors]="topSchoolInApplications.colors">
+          </apx-chart>
+        </div>
+      </div>
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Top Source of Applications
+          </h1>
+        </div>
+
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+
+            <select class="form-select month-year" (change)="onTSAMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled >
+                Month
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+
+            <select class="form-select month-year" (change)="onTSAYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled >
+                Year
+              </option>
+
+              <option [value]="'All'" selected>
+                All
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          
+          <select class="form-select rep-school-drop" (change)="onTSAemployeeChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedRepresentative" disabled >
+              Representative
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="res.username" *ngFor="let res of representatives">
+              {{ res.name }}
+            </option>
+          </select>
+
+          <button class="apply col-4 apply-filter" (click)="onSourceApplication()" >
+            Apply
+          </button>
+        </div>
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="sourceApp.series" [chart]="sourceApp.chart"
+            [labels]="sourceApp.labels" [responsive]="sourceApp.responsive"
+            [colors]="sourceApp.colors">
+          </apx-chart>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ------------------------------------------------------------------------ -->
+
+    <div class="row d-flex justify-content-between pt-2 pt-md-0 mt-4">
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Top Previous School in Application
+          </h1>
+        </div>
+
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+
+          <select class="form-select month-year" (change)="onTPAMonthChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedMonth" disabled >
+              Month
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="month" *ngFor="let month of months">
+              {{ month }}
+            </option>
+          </select>
+
+          <select class="form-select month-year" (change)="onTPAYearChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedYear" disabled >
+              Year
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="year" *ngFor="let year of years">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          <!-- <div class="col-4">
+            <select class="form-select" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled selected>
+                Month
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-4 ps-0">
+            <select class="form-select" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled selected>
+                Year
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+          </div> -->
+
+          <select class="form-select rep-school-drop" (change)="onTPAemployeeChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedRepresentative" disabled >
+              Representative
+            </option>
+
+            <option [value]="'All'" selected>
+              All
+            </option>
+
+            <option [value]="res.username" *ngFor="let res of representatives">
+              {{ res.name }}
+            </option>
+          </select>
+
+          <button class="apply col-4 apply-filter" (click)="onTopPreSchoolApp()">
+            Apply
+          </button>
+        </div>
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="topPreviousSchoolInApplication.series" [chart]="topPreviousSchoolInApplication.chart"
+            [labels]="topPreviousSchoolInApplication.labels" [responsive]="topPreviousSchoolInApplication.responsive"
+            [colors]="topPreviousSchoolInApplication.colors">
+          </apx-chart>
+        </div>
+      </div>
+     
+    </div>
+    <!-- ------------------------------------------------------------------------ -->
+<!-- 
+    <div class="row d-flex justify-content-between pt-2 pt-md-0 mt-4">
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Previouse School Prospect
+          </h1>
+        </div>
+
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+
+          <select class="form-select month-year" (change)="onMonthChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedMonth" disabled selected>
+              Month
+            </option>
+
+            <option [value]="month" *ngFor="let month of months">
+              {{ month }}
+            </option>
+          </select>
+
+          <select class="form-select month-year" (click)="onYearChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedYear" disabled selected>
+              Year
+            </option>
+
+            <option [value]="year" *ngFor="let year of years">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          <select class="form-select rep-school-drop" (change)="onSchoolNameChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedRepresentative" disabled selected>
+              School Name
+            </option>
+
+            <option [value]="res.schoolName" *ngFor="let res of schools">
+              {{ res.schoolName }}
+            </option>
+          </select>
+
+          <button class="apply col-4 apply-filter" (click)="onPreviouseSchoolProspect()">
+            Apply
+          </button>
+        </div>
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="preSchoolInProspect.series" [chart]="preSchoolInProspect.chart"
+            [labels]="preSchoolInProspect.labels" [responsive]="preSchoolInProspect.responsive"
+            [colors]="preSchoolInProspect.colors">
+          </apx-chart>
+        </div>
+      </div>
+      <div class="col-md-6 one-app">
+        <div class="title d-flex justify-content-between align-items-center">
+          <h1 class=" p-3">
+            Previouse School Application
+          </h1>
+
+        </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+
+            <select class="form-select month-year" (change)="onYearChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedMonth" disabled selected>
+                Month
+              </option>
+
+              <option [value]="month" *ngFor="let month of months">
+                {{ month }}
+              </option>
+            </select>
+
+            <select class="form-select month-year" (change)="onMonthChange($event)" id="floatingSelectGrid">
+              <option [value]="selectedYear" disabled selected>
+                Year
+              </option>
+
+              <option [value]="year" *ngFor="let year of years">
+                {{ year }}
+              </option>
+            </select>
+          </div>
+
+        <div class="dropdowns row d-flex align-items-center justify-content-between px-3 graphs-filter">
+          <select class="form-select rep-school-drop" (change)="onSchoolNameChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedRepresentative" disabled selected>
+              School Name
+            </option>
+
+            <option [value]="res.schoolName" *ngFor="let res of schools">
+              {{ res.schoolName }}
+            </option>
+          </select>
+
+          <button class="apply col-4 apply-filter "  (click)="onPreviouseSchoolApplication()">
+            Apply
+          </button>
+        </div>
+
+        <div id="chart" class=" mt-3">
+          <apx-chart [series]="preSchoolInApplication.series" [chart]="preSchoolInApplication.chart"
+            [labels]="preSchoolInApplication.labels" [responsive]="preSchoolInApplication.responsive"
+            [colors]="preSchoolInApplication.colors">
+          </apx-chart>
+        </div>
+
+      </div>
+    </div> -->
+  </section>
+
+</div>

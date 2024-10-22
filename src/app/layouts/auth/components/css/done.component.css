@@ -1,0 +1,126 @@
+section {
+  background-image: url(../../../../../assets/images/login-pages/map-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section .content {
+  margin-top: 52px;
+  padding: 0 120px;
+}
+
+section .content .logo {
+  width: 213px;
+  height: 39px;
+  margin-bottom: 32px;
+}
+
+section .content .congeratulations-image {
+  width: 288px;
+  height: 280px;
+  margin-bottom: 38px;
+}
+
+section .content .congeratulations {
+  font: normal normal 600 30px/35px Poppins;
+  text-transform: capitalize;
+  color: #FD8282;
+  margin-bottom: 6px;
+}
+
+section .content .description {
+  font: normal normal normal 16px Poppins;
+  color: #8B8B8B;
+  margin-bottom: 16px;
+}
+
+section .content .login-link {
+  margin-top: 15px;
+  width: 100%;
+  height: 47px;
+}
+
+section .content .login-link button {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #16294f 0%, #4751DE 100%);
+  border-radius: 8px;
+  font: normal normal normal 18px Poppins;
+  color: #FFFFFF;
+}
+
+section .content .login-link button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 1199.9px) and (min-width: 768px) {
+  section .content {
+    margin-top: 50px;
+    padding: 0 170px;
+  }
+
+  section .content .logo {
+    margin-bottom: 57px;
+  }
+
+  section .content .congeratulations-image {
+    width: 288px;
+    height: 280px;
+    margin-bottom: 30px;
+  }
+
+  section .content .congeratulations {
+    font: normal normal 600 25px/35px Poppins;
+    margin-bottom: 6px;
+  }
+
+  section .content .description {
+    font: normal normal normal 16px Poppins;
+    margin-bottom: 6px;
+  }
+
+  section .content .login {
+    font: normal normal normal 16px Poppins;
+  }
+
+  section .content a {
+    font: normal normal normal 18px Poppins;
+    padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  section .content {
+    padding: 0 40px;
+  }
+
+  section .content .logo {
+    margin-bottom: 57px;
+  }
+
+  section .content .congeratulations-image {
+    width: 215px;
+    height: 209px;
+    margin-bottom: 30px;
+  }
+
+  section .content .congeratulations {
+    font: normal normal 600 20px/35px Poppins;
+    margin-bottom: 6px;
+  }
+
+  section .content .description {
+    font: normal normal normal 14px/23px Poppins;
+    margin-bottom: 6px;
+  }
+
+  section .content .login {
+    font: normal normal normal 14px/23px Poppins;
+  }
+
+  section .content a {
+    font: normal normal normal 14px/23px Poppins;
+    padding-bottom: 12px;
+  }
+}

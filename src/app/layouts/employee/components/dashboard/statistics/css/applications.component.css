@@ -1,0 +1,97 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: normal;
+}
+
+.one-static {
+  border-radius: 10px;
+  background: var(--primary-white, #FDFDFD);
+  box-shadow: 0px 0px 25px 0px rgba(119, 119, 119, 0.13);
+  width: 32.2%;
+  padding: 16px;
+}
+
+.one-static h1 {
+  color: var(--untap, #636363);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.one-static h2 {
+  color: var(--primary-black, #121212);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.one-static .firstprog {
+  background-color: #fbe8ea;
+  border-radius: 14px;
+}
+
+.one-static .firstprog .firstbar {
+  background-color: #16294f;
+  border-radius: 14px;
+}
+
+.one-static .secondprog {
+  background-color: #FFF2C2;
+}
+
+.one-static .secondprog .secondbar {
+  background-color: #F2C517;
+}
+
+.one-static .thirdprog {
+  background-color: #FEE6E6;
+}
+
+.one-static .thirdprog .thirdbar {
+  background-color: #FF5151;
+}
+
+.one-static .progcount {
+  color: var(--primary-black, #121212);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.one-app {
+  border-radius: 10px;
+  background: var(--primary-white, #FDFDFD);
+  box-shadow: 0px 0px 25px 0px rgba(119, 119, 119, 0.13);
+  width: 49%;
+}
+
+.one-app h1 {
+  color: var(--primary-black, #121212);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.one-app select {
+  padding: 4px 12px 4px 24px;
+  border-radius: var(--5, 5px);
+  border: 1px solid var(--secondry-grey, #7B7B7B);
+}
+
+.one-app select option {
+  color: var(--primary-black, #121212);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.one-app .apply {
+  color: var(--primary-white, #FDFDFD);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+  padding: 8px 0;
+  border: none;
+}

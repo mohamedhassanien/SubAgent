@@ -4,7 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Router } from '@angular/router';
 // import { ifStmt } from '@angular/compiler/src/output/output_ast';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'src/app/shared/services/Auth/auth.service';
 
 @Component({
   selector: 'app-verfiy',
@@ -17,7 +17,7 @@ export class VerfiyComponent implements OnInit {
 
   // Condition
   isLoading: boolean = false;
-  send: string = 'Resend';
+  send: string = 'Renvoyer';
 
   constructor(private authService: AuthService) {}
 

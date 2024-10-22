@@ -1,0 +1,74 @@
+.lemp {
+  border-radius: 10px;
+  border: 10px solid var(--primary-white, #FDFDFD);
+}
+
+.lemp .lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+  border-radius: 10px 10px 0px 0px;
+  background: #F2F2F2;
+  padding: 12px;
+}
+
+.lemp .lists .name {
+  width: 128px;
+  align-items: center;
+}
+
+.lemp .lists .name img {
+  border-radius: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.lemp .lists .name p {
+  color: var(--primary-black, #121212);
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 14px;
+  margin-bottom: 0;
+}
+
+.lemp .lists .proglist {
+  border-radius: 27px;
+  background: var(--light-purple, #fbe8ea);
+}
+
+.lemp .lists .proglist .progsc {
+  border-radius: 27px;
+  background: var(--primary-purple, #16294f);
+}
+
+.lemp .lists .scrore h2 {
+  color: var(--primary-black, #121212);
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: var(--5, 5px);
+  background: var(--light-purple, #fbe8ea);
+  padding: 10px;
+  width: 67px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.apply {
+  color: var(--primary-white, #FDFDFD);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+  padding: 10px 32px;
+  border: none;
+  text-align: center;
+}
+
+.listemp {
+  color: var(--primary-black, #121212);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+}

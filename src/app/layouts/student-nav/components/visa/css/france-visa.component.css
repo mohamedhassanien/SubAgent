@@ -1,0 +1,203 @@
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+p span {
+  font-weight: 600;
+}
+
+a {
+  color: #16294f;
+  font-weight: 600;
+  text-decoration: underline !important;
+}
+
+.back-blue {
+  margin-top: 40px;
+  background: #fbe8ea;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.back-blue h2 {
+  background: #fbe8ea;
+  border-radius: 5px;
+  padding: 16px;
+  text-align: center;
+}
+
+.back-blue a {
+  font-size: 24px;
+  justify-content: center;
+  display: flex;
+}
+
+.france-visa a {
+  font-size: 20px;
+}
+
+.france-visa .video {
+  margin-top: 40px;
+}
+
+.france-visa .video iframe {
+  margin-top: 24px;
+  height: 486px;
+}
+
+.france-visa .cards {
+  margin-top: 40px;
+}
+
+.france-visa .cards h1 {
+  text-align: center;
+}
+
+.france-visa .cards .row {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.france-visa .cards .row p {
+  margin-top: 16px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .back-blue {
+    margin-top: 32px;
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .back-blue h2 {
+    padding: 8px;
+  }
+
+  .back-blue a {
+    font-size: 24px;
+    justify-content: center;
+    display: flex;
+  }
+
+  .france-visa a {
+    font-size: 16px;
+  }
+
+  .france-visa .video {
+    margin-top: 32px;
+  }
+
+  .france-visa .video iframe {
+    margin-top: 16px;
+    height: 476px;
+  }
+
+  .france-visa .cards {
+    margin-top: 32px;
+  }
+
+  .france-visa .cards .row {
+    margin-top: 16px;
+  }
+
+  .france-visa .cards .row img {
+    width: 61%;
+  }
+
+  .france-visa .cards p {
+    margin-top: 14px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .back-blue {
+    margin-top: 24px;
+    border-radius: 5px;
+    padding: 8px;
+  }
+
+  .back-blue h2 {
+    padding: 8px;
+  }
+
+  .back-blue a {
+    font-size: 24px;
+    justify-content: center;
+    display: flex;
+  }
+
+  .france-visa a {
+    font-size: 12px;
+  }
+
+  .france-visa .video {
+    margin-top: 24px;
+  }
+
+  .france-visa .video iframe {
+    margin-top: 8px;
+    height: 165px;
+  }
+
+  .france-visa .cards {
+    margin-top: 24px;
+  }
+
+  .france-visa .cards h1 {
+    font-size: 14px;
+  }
+
+  .france-visa .cards .row {
+    margin-top: 8px;
+  }
+
+  .france-visa .cards .row img {
+    width: 61%;
+    justify-content: center;
+    display: initial;
+  }
+
+  .france-visa .cards p {
+    margin-top: 14px;
+  }
+}

@@ -1,11 +1,11 @@
-import { finalize, switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import {
   AngularFireDatabase,
   AngularFireList,
 } from '@angular/fire/compat/database';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Injectable } from '@angular/core';
+import { finalize, switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Upload } from './upload';
@@ -67,20 +67,18 @@ export class UploadService {
       .snapshotChanges()
       .pipe(
         finalize(() => {
-          storageRef
-            .getDownloadURL()
-            .subscribe((downloadURL: any | number | boolean) => {
-              fileUpload.url = downloadURL;
-              fileUpload.name = fileUpload.file.name.replace(/'/g, '');
+          storageRef.getDownloadURL().subscribe((downloadURL) => {
+            fileUpload.url = downloadURL;
+            fileUpload.name = fileUpload.file.name.replace(/'/g, '');
 
-              const url = encodeURIComponent(downloadURL);
-              if (fileType === 'image') {
-                this.imageAPI(this.userName, this.userEmail, url);
-              } else {
-                // To call Savefile API that saves the file on our DataBase
-                this.saveFileApi(fileType, url, fileUpload.name, userName);
-              }
-            });
+            const url = encodeURIComponent(downloadURL);
+            if (fileType === 'image') {
+              this.imageAPI(this.userName, this.userEmail, url);
+            } else {
+              // To call Savefile API that saves the file on our DataBase
+              this.saveFileApi(fileType, url, fileUpload.name, userName);
+            }
+          });
         })
       )
       .subscribe();
@@ -90,21 +88,17 @@ export class UploadService {
   getFiles(studentUsername: string): Observable<string[]> {
     const ref = this._AngularFireStorage.ref(`/uploads/${studentUsername}/`);
     return ref.listAll().pipe(
-      switchMap((list: any) => {
+      switchMap((list) => {
         const calls: Promise<string>[] = [];
-        list.items.forEach((item: { getDownloadURL: () => Promise<string> }) =>
-          calls.push(item.getDownloadURL())
-        );
+        list.items.forEach((item) => calls.push(item.getDownloadURL()));
         return Promise.all(calls);
       })
     );
   }
 
   getFilesTest(numberItems: number, userName: string): AngularFireList<Upload> {
-    return this._AngularFireDatabase.list(
-      this.getFilePath(userName),
-      (ref: { limitToLast: (arg0: number) => any }) =>
-        ref.limitToLast(numberItems)
+    return this._AngularFireDatabase.list(this.getFilePath(userName), (ref) =>
+      ref.limitToLast(numberItems)
     );
   }
 
@@ -162,7 +156,7 @@ export class UploadService {
           }&fileType=${fileType}&fileUrl=${url}&fileName=${fileName}`,
         httpOptions
       )
-      .subscribe((data: any) => console.log(data));
+      .subscribe((data) => console.log(data));
   }
 
   // To delete file API to organize the code
@@ -173,7 +167,7 @@ export class UploadService {
           `student/deleteStudentFile?studentUserName=${userName}&fileType=${fileType}`,
         httpOptions
       )
-      .subscribe((data: any) => console.log(data));
+      .subscribe((data) => console.log(data));
   }
 
   // To upload Image to data base
@@ -184,7 +178,7 @@ export class UploadService {
           `student/saveLinkOfProfilePic?studentUserName=${userName}&studentEmail=${userEmail}&studentProfilePicture=${url}`,
         httpOptions
       )
-      .subscribe((data: any) => {
+      .subscribe((data) => {
         const imageUrl = decodeURIComponent(url);
         this._SharedService.profilePictureChanged.emit(imageUrl);
       });

@@ -2,13 +2,23 @@ import { ChatBotService } from 'src/app/shared/services/chat-bot/chat-bot.servic
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'src/app/shared/services/Auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { GoogleAuthProvider, FacebookAuthProvider } from '@angular/fire/auth';
+import {
+  FacebookLoginProvider,
+  SocialAuthService,
+  MicrosoftLoginProvider
+} from 'angularx-social-login';
 import { StudentsService } from 'src/app/shared/services/students/students.service';
-import { TranslateService } from '@ngx-translate/core';
-import { TranslatorService } from 'src/app/shared/services/translate/translate.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import Swal from 'sweetalert2';
+import { MsalService } from '@azure/msal-angular';
+import { AuthenticationResult } from '@azure/msal-browser';
+import { getAuth, linkWithPopup, OAuthProvider } from "firebase/auth";
+
 
 @Component({
   selector: 'app-login',
@@ -22,6 +32,7 @@ export class LoginComponent implements OnInit {
   // Conditions
   // To show password or hide password
   show: boolean = false;
+  // To show error message
   error: boolean = false;
   forgotPassword: boolean = false;
   errorFB: boolean = false;
@@ -35,21 +46,21 @@ export class LoginComponent implements OnInit {
   public loggedIn!: boolean;
   public user!: any;
 
+  provider = new OAuthProvider('microsoft.com');
+  auth = getAuth();
+
+  havError = false;
+
   constructor(
     public authService: AuthService,
     private studentService: StudentsService,
+    private socialAuthService: SocialAuthService,
     private http: HttpClient,
     private router: Router,
     private _ChatBotService: ChatBotService,
-    public translate: TranslateService,
-    private translator: TranslatorService
-  ) {
-    this.translator.localEvent;
-    translate.setDefaultLang('en');
-    this.translator.localEvent.subscribe((locale) =>
-      this.translate.use(locale)
-    );
-  }
+    private afAuth: AngularFireAuth,
+    private msalService: MsalService
+  ) { }
   FB: any;
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -60,9 +71,106 @@ export class LoginComponent implements OnInit {
     // this.getLocation();
   }
 
+  GoogleAuth() {
+    this.afAuth.signInWithPopup(new GoogleAuthProvider()).then(
+      (data: any) => {
+        const {
+          additionalUserInfo: {
+            profile: { name, email, id, picture, password },
+          },
+          credential: { idToken },
+        } = data;
+        this.isLoading = true;
+        this.isVerified = false;
+        this.error = false;
+        this.forgotPassword = false;
+        let sha1 = require('sha1');
+        let idhash = sha1(id);
+        this.loginUser(email, idhash);
+      },
+      (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          confirmButtonColor: '#16294f',
+        });
+      }
+    );
+  }
+
+  FaceBookAuth() {
+    this.afAuth.signInWithPopup(new FacebookAuthProvider()).then(
+      (data: any) => {
+        const {
+          additionalUserInfo: {
+            profile: { name, email, id, picture },
+          },
+          credential: { idToken },
+        } = data;
+        this.isLoading = true;
+        this.isVerified = false;
+        this.error = false;
+        this.forgotPassword = false;
+        let sha1 = require('sha1');
+        let idhash = sha1(id);
+        this.loginUser(email, idhash);
+      },
+      (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          confirmButtonColor: '#16294f',
+        });
+      }
+    );
+  }
+
   // To show password or hide password
   showPassword() {
     this.show = !this.show;
+  }
+
+  // To login with facebook
+  signInWithFB() {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.socialAuthService.authState.subscribe((user) => {
+      this.user = user;
+
+      this.loggedIn = user != null;
+
+      const {
+        email,
+        name,
+        authToken,
+        photoUrl,
+        id,
+        response: {
+          picture: {
+            data: { url },
+          },
+        },
+      } = user;
+
+      this.authService
+        .registerFBStudent(name, email, authToken, photoUrl, id)
+        .subscribe((data: any) => {
+          if (data[0].status == 200) {
+            this.errorFB = false;
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('type', 'student');
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', data[0].data.username);
+            localStorage.setItem('token', data[0].data.token);
+            localStorage.setItem('name', data[0].data.name);
+            localStorage.setItem('verified', data[0].data.verified);
+            this.router.navigate(['/landing/home']);
+          } else {
+            this.errorFB = true;
+          }
+        });
+    });
   }
 
   // To get IP address and location
@@ -81,19 +189,19 @@ export class LoginComponent implements OnInit {
   }
 
   // to get chatbot data
-  // checkChatBot(userName: string, name: string) {
-  //   this._ChatBotService.checkchatbot(userName).subscribe((data) => {
-  //     if (userName !== null || userName !== '') {
-  //       if (data === true) {
-  //         this.router.navigate(['/chat-bot']).then(() => {
-  //           window.location.reload();
-  //         });
-  //       } else {
-  //         this.router.navigate(['/students', name, 'profile', 'myinfo']);
-  //       }
-  //     }
-  //   });
-  // }
+  checkChatBot(userName: string, name: string) {
+    this._ChatBotService.checkchatbot(userName).subscribe((data) => {
+      if (userName !== null || userName !== '') {
+        if (data) {
+          this.router.navigate(['/chat-bot']).then(() => {
+            window.location.reload();
+          });
+        } else {
+          this.router.navigate(['/profile']);
+        }
+      }
+    });
+  }
 
   loginUser(email: string, password: string) {
     this.authService.checkAuth(email, password).subscribe((data: any) => {
@@ -111,8 +219,9 @@ export class LoginComponent implements OnInit {
           subagentName,
           subagentEmail,
           subagentUsername,
+          FirstLogin
         },
-      ] = data;
+      ] = data.message;
       if (status === 200) {
         this.error = false;
         this.forgotPassword = false;
@@ -120,7 +229,6 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
         // To get picture from profile API
         this.studentService.profile(email).subscribe((data: any) => {
-          // console.log(data);
           const [
             {
               data: [{ profile_picture_url: picture }],
@@ -137,29 +245,53 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('nationality', nationality);
         localStorage.setItem('verified', verified);
         localStorage.setItem('phone', phone);
+        localStorage.setItem('reloaded', 'false');
 
         if (type == '0') {
           sessionStorage.setItem('done', 'done');
           localStorage.setItem('type', 'student');
-          this.router
-            .navigate(['/students', name, 'general', 'how-to-start'])
-            .then((res) => {
-              window.scrollBy(0, 388);
-            });
+          this.checkChatBot(username, name);
+          localStorage.setItem('FirstLogin', FirstLogin);
         } else if (type == '1') {
           sessionStorage.setItem('done', 'done');
           localStorage.setItem('type', 'employee');
-          this.router.navigate(['/landing/programs']);
+          this.router.navigate([
+            '/employees',
+            username,
+            'dashboard',
+            'statistics',
+          ]);
         } else if (type == '2') {
           sessionStorage.setItem('done', 'done');
           localStorage.setItem('type', 'owner');
-          this.router.navigate(['/landing/programs']);
-        } else {
-          localStorage.setItem('type', 'tech');
+          this.router.navigate([
+            '/employees',
+            username,
+            'dashboard',
+            'statistics',
+          ]);
+        } else if (type == '7') {
+          localStorage.setItem('type', 'owner');
           sessionStorage.setItem('done', 'done');
-          this.router.navigate(['/landing/programs']);
+          this.router.navigate([
+            '/employees',
+            username,
+            'dashboard',
+            'statistics',
+          ]);
+        } else if (type == '9') {
+          localStorage.setItem('type', 'sub-agent');
+          sessionStorage.setItem('done', 'done');
+          this.router.navigate(['/sub-agents', name, 'dashboard']);
+        } else if (type == '10') {
+          localStorage.setItem('type', 'sub-agent-emp');
+          localStorage.setItem('subagent-username', subagentUsername);
+          localStorage.setItem('subagent-name', subagentName);
+          localStorage.setItem('subagent-email', subagentEmail);
+          this.router.navigate(['/sub-agents', subagentName, 'dashboard']);
         }
       } else {
+        this.havError = true;
         this.isLoading = false;
         const [{ message }] = data;
         this.errMessage = message;
@@ -202,6 +334,7 @@ export class LoginComponent implements OnInit {
             this.isVerified = true;
             this.verMsg = message;
             this.isLoading = false;
+            console.log(message);
           } else if (status === 203) {
             this.loginUser(email, password);
           }
@@ -209,5 +342,34 @@ export class LoginComponent implements OnInit {
     } else if (this.router.url === '/auth/login') {
       this.loginUser(email, password);
     }
+  }
+
+  MicrosoftAuth() {
+    this.msalService.loginPopup({ scopes: ['openid', 'profile', 'User.read'] }).subscribe(
+      (data: any) => {
+        console.log(data);
+        const {
+          additionalUserInfo: {
+            profile: { name, email, id, picture },
+          },
+          credential: { idToken },
+        } = data;
+        this.isLoading = true;
+        this.isVerified = false;
+        this.error = false;
+        this.forgotPassword = false;
+        let sha1 = require('sha1');
+        let idhash = sha1(id);
+        this.loginUser(email, idhash);
+      },
+      (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          confirmButtonColor: '#16294f',
+        });
+      }
+    );
   }
 }

@@ -1,0 +1,43 @@
+.fixed {
+  position: fixed;
+  z-index: 999999999999999;
+  top: 16px;
+  // left: 58px;
+  // width: 22%;
+}
+
+.static {
+  position: relative;
+}
+
+.open {
+  pointer-events: all;
+}
+
+.close {
+  pointer-events: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .fixed {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  .check-circle {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .fixed {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  .check-circle {
+    display: none;
+  }
+}

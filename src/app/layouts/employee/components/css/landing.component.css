@@ -1,0 +1,1580 @@
+ul {
+  list-style: none;
+}
+
+mat-drawer-container {
+  min-height: 100vh;
+  position: relative;
+}
+
+mat-drawer-container mat-drawer.mat-drawer {
+  border-radius: 0rem 0.625rem 0.625rem 0rem;
+  background: ##ffe8ea;
+  box-shadow: 1px 1px 10px 0px rgba(119, 119, 119, 0.13);
+  padding-inline: 1.5rem;
+  border: none;
+  outline: none;
+  transition: all 0.4s linear;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .container-part {
+  padding: 3.5rem 0px 0 10px;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside img.sg-logo {
+  width: 13.625rem;
+  height: 2.5rem;
+  margin-bottom: 45px;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside h3.title {
+  font: normal normal 600 18px Poppins;
+  color: #fff;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list {
+  margin-top: 15px;
+  margin-bottom: 0 !important;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .main-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  height: 48px;
+  width: 48px;
+  background: transparent;
+  border: 0;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .main-link .drop {
+  display: none;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .main-link span {
+  display: none;
+  font-family: Poppins;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .main-link i {
+  margin-right: 0px;
+  font-size: 15px;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .main-link:hover {
+  color: #16294f;
+  transition: all 0.2s ease-in-out;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .main-link:hover i {
+  color: #16294f;
+  transition: all 0.2s ease-in-out;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .activated-secondary-link {
+  border-radius: 0.3125rem;
+  background: var(--primary-purple, #16294f);
+  color: var(--primary-white, #fdfdfd);
+  font-weight: 600;
+  position: relative;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .activated-secondary-link i {
+  color: var(--primary-white, #fdfdfd);
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .activated-secondary-link:hover {
+  color: var(--primary-white, #fdfdfd);
+  transition: all 0.2s ease-in-out;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .main-list .activated-secondary-link:hover i {
+  color: var(--primary-white, #fdfdfd);
+  transition: all 0.2s ease-in-out;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .card {
+  padding: 0 !important;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .secondary-list .secondary-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding: 10px 0px;
+  font: normal normal 400 16px Poppins;
+  color: #121212;
+  border: none;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .secondary-list .secondary-link:hover {
+  color: #121212;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .secondary-list .secondary-link i {
+  font-size: 20px;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .secondary-list .secondary-link span {
+  display: none;
+}
+
+mat-drawer-container mat-drawer.mat-drawer aside .secondary-list a.secondary-link.activated-secondary-link {
+  color: #16294f;
+  font-weight: 600;
+}
+
+mat-drawer-container mat-drawer.mat-drawer.mat-drawer-side {
+  transform: none !important;
+  visibility: visible !important;
+  width: 95px;
+}
+
+mat-drawer-container .mat-drawer-opened {
+  width: 285px !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .container-part {
+  padding: 3.5rem 25px 0 5px !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside img.sg-logo {
+  width: 13.625rem;
+  height: 2.5rem;
+  margin-bottom: 45px;
+}
+
+mat-drawer-container .mat-drawer-opened aside h3.title {
+  font: normal normal 600 18px Poppins;
+  color: #fff;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list {
+  margin-top: 15px;
+  margin-bottom: 0 !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .main-link {
+  justify-content: start !important;
+  width: 100%;
+  text-align: left;
+  height: auto !important;
+  width: auto !important;
+  padding: 16px 10px 16px 24px !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .main-link .drop {
+  display: inline-block !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .main-link span {
+  display: inline-block !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .main-link i {
+  margin-right: 16px !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .main-link:hover {
+  color: #16294f;
+  transition: all 0.4s ease-in-out;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .main-link:hover i {
+  color: #16294f;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .activated-secondary-link {
+  border-radius: 0.3125rem;
+  background: var(--primary-purple, #16294f);
+  color: var(--primary-white, #fdfdfd);
+  font-weight: 600;
+  position: relative;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .activated-secondary-link i {
+  color: var(--primary-white, #fdfdfd);
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .activated-secondary-link .drop {
+  transform: rotateX(180deg);
+  display: inline-block !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .activated-secondary-link:hover {
+  color: var(--primary-white, #fdfdfd);
+  transition: all 0.4s ease-in-out;
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .activated-secondary-link:hover i {
+  color: var(--primary-white, #fdfdfd);
+}
+
+mat-drawer-container .mat-drawer-opened aside .main-list .main-link.stats {
+  justify-content: space-between !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .secondary-list .secondary-link {
+  display: block !important;
+  padding: 8px 15px 8px 30px !important;
+  font: normal normal 400 16px Poppins;
+  color: #121212;
+  border: none;
+}
+
+mat-drawer-container .mat-drawer-opened aside .secondary-list .secondary-link:hover {
+  color: #fff;
+}
+
+mat-drawer-container .mat-drawer-opened aside .secondary-list .secondary-link span {
+  display: inline-block !important;
+}
+
+mat-drawer-container .mat-drawer-opened aside .secondary-list .secondary-link i {
+  margin-right: 16px;
+  font-size: 20px;
+}
+
+mat-drawer-container .mat-drawer-opened aside .secondary-list a.secondary-link.activated-secondary-link {
+  color: #16294f;
+  font-weight: 600;
+}
+
+mat-drawer-container .mat-drawer-opened~mat-drawer-content {
+  margin-left: 300px !important;
+}
+
+mat-drawer-container .mat-drawer-opened~mat-drawer-content .side-menu-toggle {
+  top: 74px;
+  left: 260px;
+  transform: translate(0%, -50%);
+  cursor: pointer;
+  z-index: 99;
+}
+
+mat-drawer-container .mat-drawer-opened~mat-drawer-content .side-menu-toggle img {
+  transition: all 0.4s linear;
+  transform: rotate(0deg);
+}
+
+mat-drawer-container mat-drawer-content {
+  margin-left: 92px;
+  position: static;
+  transition: all 0.4s linear;
+  z-index: 99;
+}
+
+mat-drawer-container .side-menu-toggle {
+  transition: all 0.4s linear;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--light-purple, #fbe8ea);
+  box-shadow: 0px 0px 25px 0px rgba(119, 119, 119, 0.13);
+  border-radius: 50%;
+  position: absolute;
+  top: 74px;
+  left: 70px;
+  transform: translate(0%, -50%);
+  cursor: pointer;
+  z-index: 99;
+}
+
+mat-drawer-container .side-menu-toggle img {
+  transition: all 0.4s linear;
+  transform: rotateY(-180deg);
+}
+
+nav {
+  border-radius: 0.625rem;
+  background: var(--primary-white, #fdfdfd);
+  box-shadow: 0px 0px 25px 0px rgba(119, 119, 119, 0.13);
+  margin-top: 2.5rem;
+  margin-inline: 1.5rem;
+  padding: 0rem 16px;
+}
+
+nav ul .hello-message span {
+  color: var(--primary-black, #121212);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+nav ul .notification-item {
+  margin: 0 16px;
+  position: relative;
+  z-index: 3;
+}
+
+nav ul .notification-item:hover ul.notification-list {
+  display: block;
+  max-height: 485px;
+  overflow-y: auto;
+}
+
+nav ul .notification-item .image-container {
+  border-radius: 50%;
+  padding: 6px;
+}
+
+nav ul .notification-item .image-container img.list-image {
+  width: 25px;
+  height: 25px;
+}
+
+nav ul .notification-item ul.notification-list {
+  padding: 20px 48px;
+  display: none;
+  position: absolute;
+  width: 460px;
+  right: -20px;
+  top: 42px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1529411765);
+}
+
+nav ul .notification-item ul.notification-list hr {
+  width: 100%;
+  height: 1px;
+  background-color: #f1f1f3;
+}
+
+nav ul .notification-item ul.notification-list li.title p {
+  margin-bottom: 18px;
+  font: normal normal normal 17px poppins;
+  color: #4d4f5c;
+}
+
+nav ul .notification-item ul.notification-list li.notification .notificaiton-info img {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+nav ul .notification-item ul.notification-list li.notification .notificaiton-info p.notification-status {
+  font: normal normal normal 13px Poppins;
+  color: #4d565c;
+  margin-bottom: 3px;
+}
+
+nav ul .notification-item ul.notification-list li.notification .notificaiton-info p.notification-status span.notification-name {
+  font: normal normal 600 14px Poppins;
+  color: #4d565c;
+}
+
+nav ul .notification-item ul.notification-list li.notification .notificaiton-info p.notification-duration {
+  font: normal normal normal 11px Poppins;
+  color: #808495;
+}
+
+nav ul .notification-item ul.notification-list li.more a.more-link {
+  margin-top: 20px;
+  font: normal normal normal 12px Poppins;
+  color: #ab4851;
+}
+
+nav ul .profile-dropdown {
+  padding-left: 16px;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+nav ul .profile-dropdown:hover .dropdown {
+  display: block;
+}
+
+nav ul .profile-dropdown a {
+  margin-right: 16px;
+}
+
+nav ul .profile-dropdown a img.profile-image {
+  width: 19px;
+  height: 22px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+nav ul .profile-dropdown a .employee-name {
+  font: normal normal 500 16px/24px Poppins;
+  color: #373b79;
+  cursor: default;
+}
+
+nav ul .profile-dropdown i {
+  padding-top: 2px;
+  font-size: 19px;
+  color: #373b79;
+}
+
+nav ul .profile-dropdown .dropdown {
+  position: absolute;
+  width: 221px;
+  opacity: 0.97;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  top: 48px;
+  right: 0;
+  background-color: #fff;
+  display: none;
+  padding: 0;
+  z-index: 999;
+}
+
+nav ul .profile-dropdown .dropdown .dropdown-list {
+  padding: 20px 0 20px 32px;
+}
+
+nav ul .profile-dropdown .dropdown .dropdown-list:hover .dropdown-link {
+  color: #16294f;
+}
+
+nav ul .profile-dropdown .dropdown .dropdown-list:hover .dropdown-link i {
+  color: #16294f;
+}
+
+nav ul .profile-dropdown .dropdown .dropdown-list .dropdown-link {
+  font: normal normal normal 16px Poppins;
+  color: #373b79;
+  cursor: pointer;
+}
+
+nav ul .profile-dropdown .dropdown .dropdown-list .dropdown-link i {
+  margin-right: 10px;
+  color: #373b79;
+}
+
+::ng-deep .status {
+  text-transform: capitalize !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+::ng-deep .table-header {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 1.5rem;
+  height: 54px;
+  min-height: 54px !important;
+}
+
+::ng-deep .table-header .activated-secondary-link::after {
+  top: 38px !important;
+  border-radius: 5px;
+}
+
+::ng-deep .p-datatable-thead tr th .table-title {
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+::ng-deep .p-datatable-header button i {
+  font-size: 1.5rem;
+  height: 1.5rem;
+  color: rgb(18, 18, 18);
+}
+
+::ng-deep td .mat-menu-item {
+  font-size: 16px !important;
+}
+
+::ng-deep td .p-button-text {
+  color: black !important;
+}
+
+::ng-deep td .form-control:disabled,
+::ng-deep td .form-control[readonly] {
+  background-color: transparent !important;
+}
+
+::ng-deep .top-controls .p-button-icon-only {
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: transparent !important;
+  border-radius: 5px !important;
+  border: 2px solid var(--primary-purple, #16294f) !important;
+  color: #16294f !important;
+  padding: 0 !important;
+  height: 2rem !important;
+  width: 2rem !important;
+}
+
+::ng-deep .mat-menu-content {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 25px 0px rgba(119, 119, 119, 0.13);
+  padding: 16px !important;
+}
+
+::ng-deep .mat-menu-content .mat-menu-item {
+  display: flex;
+  align-items: center;
+  height: auto;
+  line-height: normal;
+  font-size: 16px;
+  font-family: Poppins;
+  padding: 8px 8px !important;
+  border-radius: 10px;
+}
+
+::ng-deep .mat-menu-content .mat-menu-item i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .mat-menu-content .mat-menu-item i+span {
+  color: black;
+}
+
+::ng-deep .mat-menu-content .mat-menu-item:hover {
+  background: #f6f0f6;
+}
+
+::ng-deep button.add-button {
+  height: 40px !important;
+  background-color: #16294f;
+  border-radius: 5px;
+  padding: 4px 32px;
+  font: normal normal 600 16px Poppins;
+  color: #fdfdfd;
+  border: none;
+  width: auto !important;
+}
+
+::ng-deep button.add-button:hover {
+  background-color: #ab4851 !important;
+}
+
+::ng-deep button.add-button:focus {
+  background-color: #ab4851 !important;
+}
+
+::ng-deep .modal-content .modal-header button i {
+  font-size: 24px;
+  color: #cfd1f8;
+}
+
+::ng-deep .modal-content .modal-header {
+  border: none !important;
+}
+
+::ng-deep .modal-content .modal-header button.close-btn {
+  color: #cfd1f8;
+  font-size: 22px;
+  background-color: #fff;
+  border: 0;
+}
+
+::ng-deep .add-modal .modal-content,
+::ng-deep .edit-modal .modal-content {
+  padding: 40px;
+  border-radius: 10px !important;
+}
+
+::ng-deep .add-modal .modal-content .container-fluid,
+::ng-deep .edit-modal .modal-content .container-fluid {
+  padding: 0 !important;
+  background-color: #fff !important;
+  border-radius: 10px !important;
+}
+
+::ng-deep .add-modal .modal-content .container-fluid .row,
+::ng-deep .edit-modal .modal-content .container-fluid .row {
+  margin: 0 !important;
+}
+
+::ng-deep .add-modal .modal-content .container-fluid .row .section-title,
+::ng-deep .edit-modal .modal-content .container-fluid .row .section-title {
+  padding-inline-start: 24px;
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+::ng-deep .add-modal .modal-content .container-fluid .row .col-12 .form-section,
+::ng-deep .edit-modal .modal-content .container-fluid .row .col-12 .form-section {
+  padding: 0 !important;
+}
+
+::ng-deep .add-modal .modal-content .form-input,
+::ng-deep .edit-modal .modal-content .form-input {
+  padding: 8px 16px !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-dropdown,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-dropdown {
+  width: 100% !important;
+  border: none !important;
+  height: 100% !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-dropdown .p-dropdown-trigger,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-dropdown .p-dropdown-trigger {
+  justify-content: flex-end;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-dropdown .p-dropdown-trigger .p-dropdown-trigger-icon::after,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-dropdown .p-dropdown-trigger .p-dropdown-trigger-icon::after {
+  all: unset;
+  content: "";
+  border: solid #bebebe;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotateX(0) rotateY(0) rotateZ(45deg);
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-dropdown .p-dropdown-trigger .p-dropdown-trigger-icon::before,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-dropdown .p-dropdown-trigger .p-dropdown-trigger-icon::before {
+  display: none !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-multiselect,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-multiselect {
+  width: 100% !important;
+  border: none !important;
+  height: 100% !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-trigger,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-trigger {
+  justify-content: flex-end;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-trigger ::after,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-trigger ::after {
+  all: unset;
+  content: "";
+  border: solid #bebebe;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotateX(0) rotateY(0) rotateZ(45deg);
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-trigger ::before,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-trigger ::before {
+  display: none !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-token,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-multiselect .p-multiselect-token {
+  border-radius: 100px !important;
+  background: var(--light-grey, #e8e8e8) !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-inputnumber,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-inputnumber {
+  width: 100% !important;
+  border: none !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-inputnumber .p-inputtext,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-inputnumber .p-inputtext {
+  width: 100% !important;
+  border: none !important;
+}
+
+::ng-deep .add-modal .modal-content .p-element.form-input .p-inputnumber .p-inputtext:focus,
+::ng-deep .edit-modal .modal-content .p-element.form-input .p-inputnumber .p-inputtext:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+::ng-deep .add-modal .modal-content .requirements .p-multiselect-filter,
+::ng-deep .add-modal .modal-content .languages .p-multiselect-filter,
+::ng-deep .edit-modal .modal-content .requirements .p-multiselect-filter,
+::ng-deep .edit-modal .modal-content .languages .p-multiselect-filter {
+  display: none !important;
+}
+
+::ng-deep .add-modal .modal-content .requirements .p-multiselect-filter-icon,
+::ng-deep .add-modal .modal-content .languages .p-multiselect-filter-icon,
+::ng-deep .edit-modal .modal-content .requirements .p-multiselect-filter-icon,
+::ng-deep .edit-modal .modal-content .languages .p-multiselect-filter-icon {
+  display: none !important;
+}
+
+::ng-deep .add-modal .modal-content .input-col .image-preview img,
+::ng-deep .edit-modal .modal-content .input-col .image-preview img {
+  width: 432px;
+  height: 250px;
+  object-fit: contain;
+  object-position: center;
+}
+
+::ng-deep .comments-modal .modal-content .modal-header {
+  border: 0;
+}
+
+::ng-deep .comments-modal .modal-content .modal-header .modal-title {
+  color: var(--primary-black, #121212) !important;
+  font-family: Poppins !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+
+::ng-deep .comments-modal .modal-content .comment-box {
+  padding: 16px 12px !important;
+  border-radius: 5px !important;
+  border: 1px solid var(--secondry-grey, #7b7b7b) !important;
+  background: var(--background, #f7f7f7) !important;
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+}
+
+::ng-deep .comments-modal .modal-content .comment-box .comment {
+  font-size: 14px;
+}
+
+::ng-deep .comments-modal .modal-content .comment-box .comment-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+::ng-deep .comments-modal .modal-content .comment-box .comment-name i {
+  font-size: 14px;
+  cursor: pointer;
+  margin-inline-start: 0.3rem;
+}
+
+::ng-deep .comments-modal .modal-content .comment-box .comment-time {
+  color: var(--untap, #636363);
+  font-family: Poppins;
+  font-size: 12px;
+}
+
+::ng-deep .comments-modal .modal-content .comment-toggler {
+  color: var(--primary-purple, #16294f);
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .comments-modal .modal-content .comment-toggler i {
+  font-size: 24px;
+  margin-inline-end: 0.5rem;
+}
+
+::ng-deep .comments-modal .modal-content .add-comment-box {
+  padding: 0 !important;
+  background-color: white !important;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .comments-modal .modal-content .add-comment-box .comment-area {
+  border-radius: 5px !important;
+  border: 1px solid var(--secondry-grey, #7b7b7b) !important;
+  background-color: white !important;
+  margin-bottom: 0.5rem !important;
+}
+
+::ng-deep .comments-modal .modal-content .add-comment-box .new-comment-name {
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0.1rem;
+}
+
+::ng-deep .comments-modal .modal-content .add-comment-box .new-comment-time {
+  color: var(--untap, #636363);
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+::ng-deep .comments-modal .modal-content .add-comment-box .submit-btn {
+  width: 107px;
+  height: 40px;
+  margin-left: auto;
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+}
+
+::ng-deep .comment-toggler {
+  color: var(--primary-purple, #16294f);
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .comment-toggler i {
+  font-size: 24px;
+  margin-inline-end: 0.5rem;
+}
+
+
+
+::ng-deep .suggested-modal form.form-section .input-col input,
+::ng-deep .secondary-modal form.form-section .input-col input {
+  height: 56px;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+  background-color: #fff;
+  box-shadow: none;
+  font: normal normal normal 16px Poppins;
+  color: #bebebe;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col input:hover,
+::ng-deep .secondary-modal form.form-section .input-col input:hover {
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col input:focus,
+::ng-deep .secondary-modal form.form-section .input-col input:focus {
+  border: 1px solid #cfd1f8;
+  box-shadow: none;
+}
+
+/* ::ng-deep .suggested-modal form.form-section .input-col input:focus::after,
+::ng-deep .secondary-modal form.form-section .input-col input:focus::after {
+  border: solid #000;
+  border-width: 0 4px 4px 0;
+  transform: rotateX(180deg) rotateY(0) rotateZ(45deg);
+} */
+
+::ng-deep .suggested-modal form.form-section,
+::ng-deep .secondary-modal form.form-section {
+  padding: 0 !important;
+  background-color: #fff;
+  box-shadow: 0px 0px 0px rgba(90, 113, 208, 0.1058823529);
+  border-radius: 5px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col,
+::ng-deep .secondary-modal form.form-section .input-col {
+  margin-bottom: 30px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col label,
+::ng-deep .secondary-modal form.form-section .input-col label {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-bottom: 8px;
+}
+
+/* font-size: 30px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    line-height: 21px;
+    color: #121212;
+    margin-bottom: 8px; */
+
+::ng-deep .suggested-modal form.form-section .input-col .form-input,
+::ng-deep .secondary-modal form.form-section .input-col .form-input {
+  border: 1px solid #bebebe;
+  width: 100%;
+  height: 56px;
+  border-radius: 5px;
+  padding: 16px;
+  font: normal normal normal 16px Poppins;
+  color: #4848.48;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .form-input:hover,
+::ng-deep .secondary-modal form.form-section .input-col .form-input:hover {
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep suggested-modal form.form-section .input-col .form-input:focus,
+::ng-deep .secondary-modal form.form-section .input-col .form-input:focus {
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .form-input-error,
+::ng-deep .secondary-modal form.form-section .input-col .form-input-error {
+  border: 1px solid #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .form-input-error:hover,
+::ng-deep .secondary-modal form.form-section .input-col .form-input-error:hover {
+  border: 1px solid #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .form-input-error:focus,
+::ng-deep .secondary-modal form.form-section .input-col .form-input-error:focus {
+  border: 1px solid #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col span.error-text,
+::ng-deep .secondary-modal form.form-section .input-col span.error-text {
+  font: normal normal normal 14px Poppins;
+  color: #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .iti,
+::ng-deep .secondary-modal form.form-section .input-col .iti {
+  width: 100%;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .iti input[type=tel],
+::ng-deep .secondary-modal form.form-section .input-col .iti input[type=tel] {
+  color: #484848;
+  padding-left: 50px;
+  height: 56px;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+  font: normal normal normal 16px Poppins;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .iti input[type=tel]:focus,
+::ng-deep .secondary-modal form.form-section .input-col .iti input[type=tel]:focus {
+  box-shadow: none;
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .iti input[type=tel]:hover,
+::ng-deep .secondary-modal form.form-section .input-col .iti input[type=tel]:hover {
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col ::-webkit-scrollbar,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col ::-webkit-scrollbar {
+  border-right: 30px white solid;
+  width: 6px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col ::-webkit-scrollbar-track,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col ::-webkit-scrollbar-track {
+  background: #dedddd 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col ::-webkit-scrollbar-thumb,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col ::-webkit-scrollbar-thumb {
+  background: #bebebe 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col button,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col button {
+  height: 56px;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+  background-color: #fff;
+  box-shadow: none;
+  font: normal normal normal 16px Poppins;
+  color: #bebebe;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col button::after,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col button::after {
+  all: unset;
+  content: "";
+  border: solid #bebebe;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotateX(0) rotateY(0) rotateZ(45deg);
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col button:hover,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col button:hover {
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col button:focus,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col button:focus {
+  border: 1px solid #cfd1f8;
+  box-shadow: none;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col button:focus::after,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col button:focus::after {
+  border: solid #000;
+  border-width: 0 4px 4px 0;
+  transform: rotateX(180deg) rotateY(0) rotateZ(45deg);
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu {
+  padding: 20px 30px;
+  width: 600px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container {
+  position: relative;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput {
+  padding: 10px 16px;
+  width: 100%;
+  height: 40px;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 5px;
+  font: normal normal normal 14px/21px Poppins;
+  color: #bebebe;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput:focus::placeholder,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput:focus::placeholder {
+  color: transparent;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput:focus+i,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput:focus+i {
+  color: transparent;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container i.place-holder,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container i.place-holder {
+  position: absolute;
+  color: #bebebe;
+  top: 13px;
+  right: 16px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container hr,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container hr {
+  margin: 10px 0;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option {
+  padding: 6px 0 6px 32px;
+  font: normal normal normal 16px Poppins;
+  margin-right: 18px;
+  border-radius: 5px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option img,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option img {
+  width: 70px;
+  height: 38px;
+  margin-right: 16px;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option:hover,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option:hover {
+  cursor: pointer;
+  background-color: rgb(229, 231, 255);
+  color: #000;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu.score-menu,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu.score-menu {
+  padding: 0;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu.score-menu .dropdown-container .dropdown-container-overflow option,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu.score-menu .dropdown-container .dropdown-container-overflow option {
+  padding: 13px 0 13px 40px;
+  margin: 0;
+}
+
+::ng-deep .suggested-modal form.form-section .input-col .dropdown-col .dropdown-menu.score-menu .dropdown-container .dropdown-container-overflow option:hover,
+::ng-deep .secondary-modal form.form-section .input-col .dropdown-col .dropdown-menu.score-menu .dropdown-container .dropdown-container-overflow option:hover {
+  cursor: pointer;
+  background-color: rgba(229, 231, 255, 0.38);
+}
+
+::ng-deep .suggested-modal form.form-section .source-col,
+::ng-deep .secondary-modal form.form-section .source-col {
+  margin-bottom: 30px;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col label,
+::ng-deep .secondary-modal form.form-section .source-col label {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-bottom: 10px;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .radio-btn,
+::ng-deep .secondary-modal form.form-section .source-col .radio-btn {
+  margin-bottom: 20px;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .radio-btn .mat-radio-outer-circle,
+::ng-deep .secondary-modal form.form-section .source-col .radio-btn .mat-radio-outer-circle {
+  border: 2px solid #16294f;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .radio-btn .mat-radio-inner-circle,
+::ng-deep .secondary-modal form.form-section .source-col .radio-btn .mat-radio-inner-circle {
+  background: linear-gradient(142deg, #ff5151 0%, #16294f 100%);
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .radio-btn .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle,
+::ng-deep .secondary-modal form.form-section .source-col .radio-btn .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border: 2px solid #16294f;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .radio-btn .mat-ripple-element,
+::ng-deep .secondary-modal form.form-section .source-col .radio-btn .mat-ripple-element {
+  background-color: #edeeff;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .radio-btn .mat-radio-label-content,
+::ng-deep .secondary-modal form.form-section .source-col .radio-btn .mat-radio-label-content {
+  padding-left: 17px;
+  font: normal normal normal 16px/33px Poppins;
+  color: #000;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .radio-btn .mat-radio-container:hover .mat-ripple-element,
+::ng-deep .secondary-modal form.form-section .source-col .radio-btn .mat-radio-container:hover .mat-ripple-element {
+  background-color: #edeeff;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .form-input,
+::ng-deep .secondary-modal form.form-section .source-col .form-input {
+  border: 1px solid #bebebe;
+  width: 100%;
+  height: 56px;
+  border-radius: 5px;
+  padding: 16px;
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .form-input:hover,
+::ng-deep .secondary-modal form.form-section .source-col .form-input:hover {
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .form-input:focus,
+::ng-deep .secondary-modal form.form-section .source-col .form-input:focus {
+  border: 1px solid #cfd1f8;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .form-input-error,
+::ng-deep .secondary-modal form.form-section .source-col .form-input-error {
+  border: 1px solid #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .form-input-error:hover,
+::ng-deep .secondary-modal form.form-section .source-col .form-input-error:hover {
+  border: 1px solid #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col .form-input-error:focus,
+::ng-deep .secondary-modal form.form-section .source-col .form-input-error:focus {
+  border: 1px solid #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section .source-col span.error-text,
+::ng-deep .secondary-modal form.form-section .source-col span.error-text {
+  font: normal normal normal 14px Poppins;
+  color: #ff0000;
+}
+
+::ng-deep .suggested-modal form.form-section button.submit-button,
+::ng-deep .secondary-modal form.form-section button.submit-button {
+  padding: 16px 80px;
+  border-radius: 8px;
+  background-color: #16294f;
+  font: normal normal 500 18px Poppins;
+  color: #fff;
+  border: none;
+}
+
+::ng-deep .suggested-modal form.form-section button.submit-button:hover,
+::ng-deep .secondary-modal form.form-section button.submit-button:hover {
+  background-color: #16294f;
+}
+
+::ng-deep .suggested-modal form.form-section button.submit-button:disabled,
+::ng-deep .secondary-modal form.form-section button.submit-button:disabled {
+  background-color: #c5c8f1;
+}
+
+::ng-deep .suggested-modal .modal-content,
+::ng-deep .secondary-modal .modal-content {
+  /* padding: 40px; */
+  padding-top: 24px;
+  padding-left: 15px;
+  padding-bottom: 1px;
+  border-radius: 10px !important;
+}
+
+::ng-deep .suggested-modal .modal-content .container-fluid,
+::ng-deep .secondary-modal .modal-content .container-fluid {
+  padding: 0 !important;
+  background-color: #fff !important;
+  border-radius: 10px !important;
+}
+
+::ng-deep .suggested-modal .modal-content .container-fluid,
+::ng-deep .secondary-modal .modal-content .container-fluid {
+  padding: 0 !important;
+  background-color: #fff !important;
+  border-radius: 10px !important;
+  width: 800px;
+  height: 333px;
+}
+
+::ng-deep .suggested-modal .modal-content .container-fluid .row,
+::ng-deep .secondary-modal .modal-content .container-fluid .row {
+  margin: 0 !important;
+}
+
+::ng-deep .suggested-modal .modal-content .container-fluid .row .section-title,
+::ng-deep .secondary-modal .modal-content .container-fluid .row .section-title {
+  padding-inline-start: 24px;
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+::ng-deep .suggested-modal .modal-content .container-fluid .row .col-12 .form-section,
+::ng-deep .secondary-modal .modal-content .container-fluid .row .col-12 .form-section {
+  padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+  mat-drawer-container {
+    min-height: 100vh;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer {
+    transition: all 0.4s linear;
+    background: ##ffe8ea;
+    border: none;
+    outline: none;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .container-part {
+    padding: 32px 20px 0 16px;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside h3.title {
+    font: normal normal 600 18px Poppins;
+    color: #fff;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .main-list {
+    margin-top: 24px;
+    margin-bottom: 0 !important;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .main-list a.main-link {
+    display: inline-block;
+    width: 100%;
+    font: normal normal 500 16px Poppins;
+    color: #fff;
+    padding: 10px 16px 10px 16px;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .main-list a.main-link i {
+    margin-right: 12px;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .main-list a.main-link.activated-main-link {
+    background: linear-gradient(91deg, rgba(255, 255, 255, 0) 0%, rgba(136, 142, 243, 0.7568627451) 0%, #ab4851 100%);
+    position: relative;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .main-list a.main-link.activated-main-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background-color: #fcb2b2;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .main-list a.main-link.activated-main-link i {
+    color: #fac0c0;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .secondary-list {
+    margin-top: 25px;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .secondary-list a.secondary-link {
+    padding: 8px 15px 8px 16px;
+    font: normal normal 400 16px Poppins;
+    color: #121212;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .secondary-list a.secondary-link:hover {
+    color: #121212;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .secondary-list a.secondary-link i {
+    margin-right: 12px;
+    font-size: 20px;
+  }
+
+  mat-drawer-container mat-drawer.mat-drawer aside .secondary-list a.secondary-link.activated-secondary-link {
+    color: #16294f;
+    font-weight: 600;
+  }
+
+  mat-drawer-container mat-drawer-content {
+    transition: all 0.4s linear;
+  }
+
+  nav {
+    height: 70px;
+    background-color: #fff;
+    padding: 0 16px;
+  }
+
+  nav ul li.side-menu .menu-container {
+    padding: 8px;
+    background: #e5e7ff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  nav ul li.fullscreen-item {
+    margin: 0 16px;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  nav ul li.fullscreen-item:hover {
+    background-color: #ffdddd;
+  }
+
+  nav ul li.fullscreen-item img {
+    width: 24px;
+    height: 24px;
+  }
+
+  nav ul .notification-item {
+    margin: 0 16px;
+    position: relative;
+    z-index: 3;
+  }
+
+  nav ul .notification-item:hover .image-container {
+    background-color: #ffdddd;
+  }
+
+  nav ul .notification-item:hover ul.notification-list {
+    display: block;
+  }
+
+  nav ul .notification-item .image-container {
+    border-radius: 50%;
+    padding: 6px;
+  }
+
+  nav ul .notification-item .image-container img.list-image {
+    width: 25px;
+    height: 25px;
+  }
+
+  nav ul .notification-item ul.notification-list {
+    padding: 20px 48px;
+    display: none;
+    position: absolute;
+    width: 460px;
+    right: -20px;
+    top: 42px;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1529411765);
+  }
+
+  nav ul .notification-item ul.notification-list hr {
+    width: 100%;
+    height: 1px;
+    background-color: #f1f1f3;
+  }
+
+  nav ul .notification-item ul.notification-list li.title p {
+    margin-bottom: 18px;
+    font: normal normal normal 17px poppins;
+    color: #4d4f5c;
+  }
+
+  nav ul .notification-item ul.notification-list li.notification .notificaiton-info img {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+
+  nav ul .notification-item ul.notification-list li.notification .notificaiton-info p.notification-status {
+    font: normal normal normal 13px Poppins;
+    color: #4d565c;
+    margin-bottom: 3px;
+  }
+
+  nav ul .notification-item ul.notification-list li.notification .notificaiton-info p.notification-status span.notification-name {
+    font: normal normal 600 14px Poppins;
+    color: #4d565c;
+  }
+
+  nav ul .notification-item ul.notification-list li.notification .notificaiton-info p.notification-duration {
+    font: normal normal normal 11px Poppins;
+    color: #808495;
+  }
+
+  nav ul .notification-item ul.notification-list li.more a.more-link {
+    margin-top: 20px;
+    font: normal normal normal 12px Poppins;
+    color: #ab4851;
+  }
+
+  nav ul .profile-dropdown {
+    margin-left: 16px;
+    position: relative;
+  }
+
+  nav ul .profile-dropdown:hover .dropdown {
+    display: block;
+  }
+
+  nav ul .profile-dropdown a {
+    margin-right: 16px;
+  }
+
+  nav ul .profile-dropdown a img.profile-image {
+    width: 19px;
+    height: 22px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+
+  nav ul .profile-dropdown a .employee-name {
+    font: normal normal 500 16px/24px Poppins;
+    color: #373b79;
+    cursor: default;
+  }
+
+  nav ul .profile-dropdown i {
+    padding-top: 2px;
+    font-size: 19px;
+    color: #373b79;
+  }
+
+  nav ul .profile-dropdown .dropdown {
+    position: absolute;
+    width: 221px;
+    opacity: 0.97;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    display: none;
+    padding: 0;
+  }
+
+  nav ul .profile-dropdown .dropdown .dropdown-list {
+    padding: 20px 0 20px 32px;
+  }
+
+  nav ul .profile-dropdown .dropdown .dropdown-list:hover .dropdown-link {
+    color: #16294f;
+  }
+
+  nav ul .profile-dropdown .dropdown .dropdown-list:hover .dropdown-link i {
+    color: #16294f;
+  }
+
+  nav ul .profile-dropdown .dropdown .dropdown-list .dropdown-link {
+    font: normal normal normal 16px Poppins;
+    color: #373b79;
+    cursor: pointer;
+  }
+
+  nav ul .profile-dropdown .dropdown .dropdown-list .dropdown-link i {
+    margin-right: 10px;
+    color: #373b79;
+  }
+}
+
+.modal-content {
+  padding: 40px 40px 2px 40px;
+}
+
+.modal-content .modal-body {
+  padding-bottom: 35px;
+  padding-top: 45px;
+}
+
+.modal-content .modal-body .d-flex {
+  padding-bottom: 8px;
+}
+
+.modal-content .modal-body h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #121212;
+}
+
+.modal-content .modal-body p {
+  font-size: 15px;
+  font-weight: 400;
+  color: grey;
+}
+
+.modal-content .modal-body hr {
+  color: rgba(124, 141, 141, 0.5803921569);
+}
+
+.modal-content .modal-body input {
+  outline: none;
+  box-shadow: none !important;
+  border: 2px solid rgba(111, 119, 244, 0.4);
+}
+
+.modal-content .modal-footer {
+  border-top: none !important;
+  margin-top: 31px;
+}
+
+.modal-content .modal-footer :nth-child(1) {
+  color: white;
+  background-color: #f2818b;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.modal-content .modal-footer :nth-child(2) {
+  color: white;
+  background-color: #16294f;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}

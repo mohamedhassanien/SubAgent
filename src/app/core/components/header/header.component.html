@@ -1,269 +1,84 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a
-      class="navbar-brand"
-      routerLink="/landing/programs"
-      routerLinkActive="router-link-active"
-    >
-      <img
-        src="../../../../assets/images/elysee-logo.png"
-        alt="logo"
-        title="Homepage"
-      />
-    </a>
-    <button
-      mat-button
-      data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop"
-      style="color: #6f77f4"
-      class="navbar-toggler h-100"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
+<div class="header top-0 start-0 end-0 d-flex flex-column text-white">
 
-    <!-- navbar mobile -->
-    <div class="modal fade" id="staticBackdrop">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header px-5 border-0">
-            <button
-              type="button"
-              class="ms-auto btn shadow-none"
-              style="color: #373b79"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              <i class="fas fa-window-close fa-2x"></i>
-            </button>
-          </div>
+  <section class="elemenator-section elemenator-top-section bg-main-blue ">
+    <div class="container d-flex justify-content-between align-items-center me-auto">
+      <div class="elemenator-contacts d-flex justify-content-between align-items-center">
+        <div class="phone d-flex align-items-center pe-5 fw-normal">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+21628395065">+216 28 395 065</a>
+        </div>
+        <div class="email d-flex align-items-center fw-normal">
+          <i class="far fa-envelope"></i>
+          <span class="ms-2">
+            <a href="mailto:contact@courselysee.com.tn">contact@courselysee.com.tn</a>
+          </span>
+        </div>
+      </div>
 
-          <div
-            class="modal-body d-flex flex-column align-items-center justify-content-center"
-          >
-            <div class="line"></div>
+      <div class="elemenator-social-icons d-flex align-items-center">
+        <a target="_blank" href="https://www.facebook.com/courselysee"><i class="fab fa-facebook-f p-3"></i></a>
+        <a target="_blank" href="https://www.instagram.com/cours.elysee/"><i class="fab fa-instagram p-3"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/company/cours-elys%C3%A9e/posts/?feedView=all"><i class="fab fa-linkedin-in p-3"></i></a>
+        <a target="_blank" href="https://www.tiktok.com/@cours.elysee8"><i class="fab fa-tiktok p-3"></i></a>
+      </div>
 
-            <div
-              class="profile-info d-flex align-self-center justify-content-start"
-              *ngIf="isLoggedIn"
-            >
-              <img
-                [src]="
-                  profilePic == 'None' ||
-                  profilePic == 'null' ||
-                  profilePic == '' ||
-                  profilePic ==
-                    'https://studentgator.com/assets/images/navbar/default-pic.svg'
-                    ? '../../../../assets/images/navbar/default-pic.svg'
-                    : profilePic
-                "
-                class="me-2"
-                alt="profile-pic"
-              />
-              <p class="m-0">Hello {{ name }}</p>
-            </div>
-            <div
-              class="profile-info d-flex align-self-center flex-column justify-content-center"
-              *ngIf="!isLoggedIn"
-            >
-              <p class="title text-center">Login Or Registration</p>
-              <hr class="seperator" />
-              <a
-                class="log-btn btn d-flex justify-content-center align-items-center"
-                data-bs-dismiss="modal"
-                (click)="logInPage()"
-              >
-                Login
-              </a>
-              <a
-                class="reg-btn btn d-flex justify-content-center align-items-center"
-                data-bs-dismiss="modal"
-                (click)="registerPage()"
-              >
-                Registration
-              </a>
-              <hr />
-            </div>
-            <div class="search-menu">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search for a program"
-                (keydown.enter)="searchForPrograms()"
-                [(ngModel)]="searchText"
-              />
-              <i class="fas fa-search search-icon"></i>
-            </div>
-            <ul class="menu-list align-self-center p-0 mt-3">
-              <hr />
-              <hr />
-              <li class="nav-item">
-                <a
-                  data-bs-toggle="collapse"
-                  href="#collapsePrograms"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapsePrograms"
-                  class="d-flex align-items-center"
-                >
-                  <img
-                    src="/assets/images/navbar/menu icons/programs.svg"
-                    alt="home-icon"
-                    class="me-3"
-                  />
-                  Programmes
-                  <mat-icon>expand_more</mat-icon>
-                </a>
-                <div class="collapse mt-3" id="collapsePrograms">
-                  <li
-                    data-bs-dismiss="modal"
-                    *ngFor="let category of categories; let i = index"
-                  >
-                    <a
-                      (click)="goToPrograms(category[1])"
-                      class="nav-item d-flex justify-content-start align-items-center"
-                    >
-                      <img
-                        src="/assets/images/navbar/{{ category[0] }}.svg"
-                        alt="category[0]"
-                        class="category-img me-2"
-                        style="width: 10%"
-                      />
-                      {{ category[0] }}
-                    </a>
-                    <hr *ngIf="i != categories.length - 1" />
+    </div>
+  </section>
+
+  <section class="elemenator-section elemenator-bottom-section ">
+    <nav class="navbar navbar-expand-md bg-main-mustard">
+      <div class="container">
+        <a class="navbar-brand" [routerLink]="['/']">
+          <img src="assets/images/elias.png" style="width: 150px;" />
+        </a>
+        <button class="navbar-toggler d-lg-none  text-white mt-3 mb-3 " type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon text-white">
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav m-auto mt-lg-0">
+            <li class="nav-item links">
+              <a class="nav-link" routerLink="/landing/home" routerLinkActive="clicked-link">Qui Sommes Nous</a>
+            </li>
+            <li class="nav-item links">
+              <a class="nav-link" routerLink="/landing/About-Us" routerLinkActive="clicked-link">Nos services</a>
+            </li>
+            
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Admission
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a class="nav-link dropdown-item" routerLinkActive="clicked-link"
+                      routerLink="/landing/Schools">Ecoles</a>
                   </li>
-                </div>
-              </li>
-              <hr />
-
-              <li data-bs-dismiss="modal" *ngIf="isLoggedIn">
-                <a
-                  class="nav-item d-flex justify-content-start align-items-center"
-                  [routerLink]="
-                    type === 'student'
-                      ? ['/students', 'myinfo']
-                      : type === 'employee' || 'owner'
-                      ? ['/employees', name, 'dashboard']
-                      : ['/employees', name, 'dashboard']
-                  "
-                >
-                  <img
-                    src="../../../../assets/images/navbar/menu icons/profile.svg"
-                    alt="home-icon"
-                    class="me-3"
-                  />
-                  <p>Mon profil</p>
-                </a>
-              </li>
-
-              <hr *ngIf="isLoggedIn" />
-              <li *ngIf="isLoggedIn" data-bs-dismiss="modal">
-                <a
-                  class="nav-item d-flex justify-content-start align-items-center"
-                  (click)="logoutMob()"
-                >
-                  <img
-                    src="../../../../assets/images/navbar/menu icons/logout.svg"
-                    alt="home-icon"
-                    class="me-3"
-                  />
-                  <p>Déconnexion</p>
-                </a>
-              </li>
-            </ul>
+                  <li>
+                    <a class="nav-link dropdown-item" routerLinkActive="clicked-link"
+                      routerLink="/landing/programs">programmes</a>
+                  </li>
+                </ul>
+              </div>
+            
+          </ul>
+          <div class="auth_links">
+            <a (click)="logInPage()">
+              <i class="fas fa-sign-in-alt"></i>
+              <div>Connexion</div>
+            </a>
+            <a (click)="registerPage()">
+              <i class="fas fa-user-plus"></i>
+              <div>S'inscrire</div>
+            </a>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- navbar web -->
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mx-auto">
-        <!-- <li class="nav-item pe-4 px-2 mt-2 links">
-          <a
-            class="nav-link"
-            routerLink="/landing/programs"
-            routerLinkActive="clicked-link"
-            >Programs</a
-          >
-        </li> -->
-      </ul>
 
-      <select
-        class="form-control-sm mx-3"
-        #locale
-        (change)="changeLocale(locale.value)"
-      >
-        <option selected value="en">En</option>
-        <option selected value="fr">Fr</option>
-      </select>
+    </nav>
 
-      <div class="btn-group" *ngIf="!isLoggedIn">
-        <button class="btn log-in ms-3" routerLink="/auth/login">LOGIN</button>
-      </div>
-
-      <ul class="navbar-nav">
-        <li class="nav-item ms-auto profile-nav" *ngIf="isLoggedIn">
-          <div class="dropdown-profile">
-            <a
-              class="nav-link d-flex justify-content-between align-items-center"
-              [routerLink]="getType()"
-            >
-              <img
-                [src]="
-                  profilePic === 'None' ||
-                  profilePic === null ||
-                  profilePic === '' ||
-                  profilePic === undefined ||
-                  profilePic ===
-                    'https://studentgator.com/assets/images/navbar/default-pic.svg'
-                    ? '../../../../assets/images/navbar/default-pic.svg'
-                    : profilePic
-                "
-                alt="profile-pic"
-                class="rounded-circle"
-              />
-              <p class="m-0">{{ name }}</p>
-              <mat-icon>expand_more</mat-icon>
-            </a>
-            <div class="dropdown-content-profile py-4 px-4">
-              <a
-                class="py-2"
-                [routerLink]="
-                  type === 'student'
-                    ? ['/students', 'myinfo']
-                    : type === 'employee' || 'owner'
-                    ? ['/employees', name, 'dashboard']
-                    : ['/employees', name, 'dashboard']
-                "
-              >
-                <img
-                  src="/assets/images/navbar/profile/My profile.svg"
-                  alt="profile-pic"
-                  class="me-1"
-                  style="width: 17%"
-                />
-                Mon profil
-              </a>
-              <div *ngFor="let link of profileLinks; let i = index">
-                <a
-                  class="py-2"
-                  [routerLink]="link[1]"
-                  (click)="logOut(link[0])"
-                >
-                  <img
-                    src="/assets/images/navbar/profile/{{ link[0] }}.svg"
-                    [alt]="link[0]"
-                    class="me-1"
-                    style="width: 17%"
-                  />
-                  {{ link[0] }}
-                </a>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </section>
+</div>

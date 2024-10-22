@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://admin-mfyg726r7q-uc.a.run.app",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

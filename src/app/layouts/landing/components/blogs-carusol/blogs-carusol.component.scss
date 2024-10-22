@@ -1,0 +1,437 @@
+// .carasoul-section-title{
+//   font-size: 2rem;
+//   font-weight: 700;
+//   font-stretch: normal;
+//   font-style: normal;
+//   line-height: normal;
+//   letter-spacing: normal;
+//   text-align: left;
+//   color: #000;
+// }
+// .line {
+//   border-bottom: 4px solid #000;
+//   border-radius: 0 0 3% 3%;
+// }
+
+// .reviews-btn{
+//   // height: 39px !important;
+//   // margin: 20.5px 76px 5.8px 33.1px;
+//   // padding: 12.5px 40.8px 12.5px 40.7px !important;
+//   // border-radius: 19px !important;
+//   font-family: 'Poppins';
+//   font-size: 14px;
+//   font-weight: 600;
+//   font-stretch: normal;
+//   font-style: normal;
+//   line-height: normal;
+//   letter-spacing: normal;
+//   color: #fff;
+// }
+
+// .full-width {
+//   position: relative;
+//   width: 300px;
+//   height: 200px;
+// }
+
+// img.imgone {
+//   position:absolute;
+//   width: 275px;
+//   height: 292.5px;
+//   margin: 0 47px 145.5px 0;
+//   object-fit: contain;
+// }
+// img.imgtwo {
+//   position:absolute;
+//   top: 58px;
+//   right: -51px;
+//   background-color: #707070;
+//   width: 282px;
+//   height: 383.5px;
+// }
+// .imgtwo {
+//   position:absolute;
+//   top: 34px;
+//   right: -51px;
+//   z-index: 111;
+//   object-fit: contain;
+//   border-radius: 0px 75px ;
+//   background-image: url('../../../../../assets/images/blogs-img/paris.png');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 282px;
+//   height: 383.5px;
+//   overflow: hidden;
+// }
+// .imgtwo2 {
+//   position:absolute;
+//   top: 34px;
+//   right: -51px;
+//   z-index: 111;
+//   object-fit: contain;
+//   border-radius: 0px 75px ;
+//   background-image: url('../../../../../assets/images/blogs-img/fourth-topic.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 282px;
+//   height: 383.5px;
+//   overflow: hidden;
+// }
+// .imgtwo3 {
+//   position:absolute;
+//   top: 34px;
+//   right: -51px;
+//   z-index: 111;
+//   object-fit: contain;
+//   border-radius: 0px 75px ;
+//   background-image: url('../../../../../assets/images/blogs-img/third-topic.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 282px;
+//   height: 383.5px;
+//   overflow: hidden;
+// }
+// .imgtwo4 {
+//   position:absolute;
+//   top: 34px;
+//   right: -51px;
+//   z-index: 111;
+//   object-fit: contain;
+//   border-radius: 0px 75px ;
+//   background-image: url('../../../../../assets/images/blogs-img/second-topic.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 282px;
+//   height: 383.5px;
+//   overflow: hidden;
+// }
+
+// .layout{
+//   position: relative;
+//   background-image: linear-gradient(to bottom, rgba(0, 67, 108, 0) 5%, rgba(0, 53, 86, 0.83) 76%, #012942);  width: 100%;
+//   height: 100px;
+//   border-radius: 0px 0px 0px 75px ;
+// }
+
+// .blog-sg{
+//   width: 32.5px;
+//   height: 32.5px;
+//   padding: 5px;
+//   border-radius: 50%;
+//   background-color: #cecece;
+// }
+
+// .ratings {
+//   font-size: 13px ;
+
+//   }
+
+//   .time-blog{
+//     font-size: 14px;
+//     font-weight: 600;
+//   }
+
+// .blog-header{
+//   display: block;
+//   position: absolute;
+//   top: 80px;
+//   right: -417px;
+//   font-size: 25px;
+//   color: #f66666;
+//   font-weight: 700;
+// }
+
+// .blog-desc{
+//   position:absolute;
+//   padding: 19px 32px 19.5px;
+//   z-index: 555555555;
+//   top: 140px;
+//   width: 660.5px;
+//   height: 183.5px;
+//   border-radius: 7.5px;
+//   box-shadow: 1.5px 1.5px 4px 0 rgba(0, 0, 0, 0.16);
+//   border: solid 0.3px #707070;
+//   background-color: #fff;
+//   left: 300px;
+// }
+
+// // -----------------------------------------
+
+// .blog-background{
+// // height: 38vh;
+// margin: 0px 0px 220px 140px;
+// }
+// .blog-background-back{
+//   width: 282px;
+//   height: 383.5px;
+//   margin: 54.5px 0 0 40px;
+//   padding: 282px 0 1.5px;
+//   background-color: #707070;
+// }
+// .blog-background-front{
+//   width: 275px;
+//   height: 292.5px;
+//   margin: 0 47px 145.5px 0;
+//   object-fit: contain;
+//   border: solid 0.5px #707070;
+// }
+
+// .card-body {
+//   width: 100%;
+//   .card-title {
+//     font-size: 12px;
+//   }
+//   .card-text {
+//     font-size: 11px;
+//     .text-dark {
+//       font-size: 12px;
+//     }
+//   }
+//   .ratings {
+//     // margin-right: 10px;
+//     font-size: 9px !important;
+//     i {
+//       color: #cecece;
+//       font-size: 9px;
+//     }
+//     .rating-color {
+//       color: #f66666;
+//     }
+//   }
+//   .ratings-box {
+//     font-size: 13px;
+//   }
+// }
+
+// // <------------ Media Query Start -------------->
+
+// // spcial size From 0 To 390px (sm)
+// @media only screen and (max-width: 390px) {
+//   .imgtwo111{
+//     right: 1px;
+//   }
+//   .imgtwo111{
+//     right: 1px;
+//   }
+//   .imgtwo111{
+//     right: 1px;
+//   }
+//   .imgtwo111{
+//     right: 1px;
+//   }
+
+//   .blog-header {
+//     display: block;
+//     position: absolute;
+//     top: 466px;
+//     right: -379px;
+//     font-size: 19px;
+//     color: #f66666;
+//     font-weight: 700;
+//   }
+
+// }
+
+// // From 0 To 576px (sm)
+// @media only screen and (max-width: 576px){
+
+// .blog-background{
+//   }
+//   .blog-background-back{
+//     width: 282px;
+//     height: 383.5px;
+//     margin: 54.5px 0 0 40px;
+//     padding: 282px 0 1.5px;
+//     background-color: #707070;
+//   }
+//   .blog-background-front{
+//     width: 275px;
+//     height: 292.5px;
+//     margin: 0 47px 145.5px 0;
+//     object-fit: contain;
+//     border: solid 0.5px #707070;
+//   }
+
+// }
+
+// // From 0 To 766px (md)
+// @media only screen and (max-width: 766px){
+
+// }
+
+// // From 0 To 991Px (lg)
+// @media only screen and (max-width: 991px){
+//   .full-width11{
+//     margin-bottom: 200px;
+//   }
+//   .imgtwo111{
+//     background-color: #012942;
+//     position:absolute;
+//     top: 58px;
+//     right: 80px;
+//     z-index: 111;
+//     object-fit: contain;
+//     border-radius: 0px 75px ;
+//     background-image: url('../../../../../assets/images/blogs-img/paris.png');
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     width: 258px;
+//     height: 370.5px;
+//     overflow: hidden;
+//   }
+//   .imgtwo1112{
+//     background-color: #012942;
+//     position:absolute;
+//     top: 58px;
+//     right: 80px;
+//     z-index: 111;
+//     object-fit: contain;
+//     border-radius: 0px 75px ;
+//     background-image: url('../../../../../assets/images/blogs-img/fourth-topic.jpg');
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     width: 258px;
+//     height: 370.5px;
+//     overflow: hidden;
+//   }
+//   .imgtwo1113{
+//     background-color: #012942;
+//     position:absolute;
+//     top: 58px;
+//     right: 80px;
+//     z-index: 111;
+//     object-fit: contain;
+//     border-radius: 0px 75px ;
+//     background-image: url('../../../../../assets/images/blogs-img/third-topic.jpg');
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     width: 258px;
+//     height: 370.5px;
+//     overflow: hidden;
+//   }
+//   .imgtwo1114{
+//     background-color: #012942;
+//     position:absolute;
+//     top: 58px;
+//     right: 80px;
+//     z-index: 111;
+//     object-fit: contain;
+//     border-radius: 0px 75px ;
+//     background-image: url('../../../../../assets/images/blogs-img/second-topic.jpg');
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     width: 258px;
+//     height: 370.5px;
+//     overflow: hidden;
+//   }
+//   .imgtwo111{
+//     background-color: #012942;
+//     position:absolute;
+//     top: 58px;
+//     right: 80px;
+//     z-index: 111;
+//     object-fit: contain;
+//     border-radius: 0px 75px ;
+//     background-image: url('../../../../../assets/images/blogs-img/paris.png');
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     width: 258px;
+//     height: 370.5px;
+//     overflow: hidden;
+//   }
+//   .imgone111{
+//     position: relative;
+//     width: 275px;
+//     height: 292.5px;
+//   // margin: 0 47px 145.5px 0;
+//     object-fit: contain;
+//   }
+
+//   .blogs{
+//     display: none;
+//   }
+//   .blogs-responsive-sm{
+//     display: block;
+//   }
+//   .description-res{
+//     margin: 11.5px 4.1px 25.5px 5.5px;
+//     padding: 15.5px 13px 18.5px;
+//     border-radius: 7.5px;
+//     box-shadow: 1.5px 1.5px 4px 0 rgba(0, 0, 0, 0.16);
+//     border: solid 0.3px #707070;
+//     background-color: #fff;
+//   }
+// }
+
+// // From 0 To 1200Px (lg)
+// @media only screen and (max-width: 1200px){
+
+// }
+
+// // From 576px To 766px (lg)
+// @media only screen and (max-width: 766px) and (min-width: 576px){
+
+// }
+
+// //  from 575 to  bigest screen
+// @media (min-width: 576px) {
+
+//  }
+
+// // From 766 To 992px (lg)
+// @media only screen and (max-width: 992px) and (min-width: 576px){
+//   .imgtwo111{
+//     right: 173px;
+//   }
+//   .imgtwo1112{
+//     right: 173px;
+//   }
+//   .imgtwo1113{
+//     right: 173px;
+//   }
+//   .imgtwo1114{
+//     right: 173px;
+//   }
+
+//   .blog-header {
+//     display: block;
+//     position: absolute;
+//     top: 459px;
+//     right: -12px;
+//     font-size: 25px;
+//     color: #f66666;
+//     font-weight: 800;
+//   }
+
+// }
+
+// // From 992 To 1200px (lg)
+// @media only screen and (max-width: 1200px) and (min-width: 992px){
+
+// }
+
+// // From 991Px (lg) To All
+// @media only screen and (min-width: 992px){
+// .blogs{
+//   display: block;
+// }
+// .blogs-responsive-sm{
+//   display: none;
+// }
+// }
+
+// // From 1200Px to All
+// @media only screen and (min-width: 1200px){
+
+// }
+
+// // <------------ Media Query End -------------->

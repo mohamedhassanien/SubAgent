@@ -1,0 +1,185 @@
+section {
+  background-image: url(../../../../../assets/images/login-pages/map-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section .content {
+  margin-top: 52px;
+  padding: 0 120px;
+}
+
+section .content img {
+  width: 213px;
+  height: 39px;
+  margin-bottom: 33px;
+}
+
+section .content .check {
+  font: normal normal 600 30px/35px Poppins;
+  text-transform: capitalize;
+  color: #FD8282;
+  margin-bottom: 20px;
+}
+
+section .content .description {
+  font: normal normal normal 16px Poppins;
+  color: #8B8B8B;
+  margin-bottom: 41px;
+}
+
+section .content .check-image {
+  width: 215px;
+  height: 187px;
+  margin-bottom: 100px;
+}
+
+section .content .send {
+  width: 100%;
+  height: 47px;
+  margin-bottom: 16px;
+}
+
+section .content .send button {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #16294f 0%, #4751DE 100%);
+  border-radius: 8px;
+  font: normal normal normal 18px Poppins;
+  color: #FFFFFF;
+}
+
+section .content .send button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+section .content .fa-exclamation-circle {
+  font-size: 20px;
+}
+
+section .content .skip {
+  font: normal normal normal 16px/23px Poppins;
+}
+
+section .content .spam {
+  text-align: center;
+  font: normal normal normal 14px/23px Poppins;
+  color: #8B8B8B;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+section .content .another {
+  cursor: pointer;
+  text-align: center;
+  font: normal normal 500 16px/23px Poppins;
+  color: #6770F7;
+}
+
+section .content .another button {
+  all: unset;
+}
+
+section .content .another button:disabled {
+  color: #8B8B8B;
+}
+
+@media only screen and (max-width: 1199.9px) and (min-width: 768px) {
+  section .content {
+    padding: 0 210px;
+  }
+
+  section .content img {
+    width: 172px;
+    height: 32px;
+  }
+
+  section .content .reset {
+    font: normal normal 600 18px Poppins;
+    margin-bottom: 6.4px;
+  }
+
+  section .content .description {
+    font: normal normal normal 16px Poppins;
+    margin-bottom: 30px;
+  }
+
+  section .content .send {
+    margin-top: 46px;
+    width: 100%;
+    height: 47px;
+  }
+
+  section .content .send button {
+    width: 100%;
+    height: 100%;
+    font: normal normal normal 18px Poppins;
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  section .content {
+    padding: 0 40px;
+  }
+
+  section .content img {
+    width: 172px;
+    height: 32px;
+  }
+
+  section .content .reset {
+    font: normal normal 600 18px Poppins;
+    color: #FD8282;
+    margin-bottom: 6.4px;
+  }
+
+  section .content .description {
+    font: normal normal normal 14px Poppins;
+    margin-bottom: 25px;
+  }
+
+  section .content label {
+    font: normal normal normal 12px Poppins;
+    top: 10px;
+    right: -25px;
+    padding: 0 10px;
+  }
+
+  section .content input {
+    font: normal normal normal 14px Poppins;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #DEDDDD;
+    border-radius: 8px;
+  }
+
+  section .content input:-webkit-autofill {
+    -webkit-box-shadow: 200px 200px 100px white inset;
+  }
+
+  section .content input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid #6770F7;
+    -webkit-box-shadow: 200px 200px 100px white inset;
+  }
+
+  section .login {
+    margin-top: 22px;
+  }
+
+  section .login button {
+    font: normal normal normal 16px Poppins;
+  }
+
+  section .create {
+    margin-top: 14px;
+    font: normal normal normal 14px Poppins;
+    color: #8B8B8B;
+  }
+
+  section .create a {
+    font: normal normal normal 14px Poppins;
+  }
+}

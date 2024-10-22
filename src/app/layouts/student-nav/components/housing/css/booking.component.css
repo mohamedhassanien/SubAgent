@@ -1,0 +1,166 @@
+h1 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 46px;
+  margin-top: 8px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  margin-bottom: 38px;
+  margin-top: 16px;
+}
+
+.action-btn {
+  margin-right: 0px;
+  padding: 12px 64px;
+}
+
+.book {
+  margin-top: 40px;
+  padding: 24px 24px 37px 24px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 20px;
+}
+
+.book .row img {
+  margin-bottom: 8px;
+}
+
+.book .row a {
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  color: #16294f;
+}
+
+.back-blue {
+  margin-top: 40px;
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+  padding: 24px;
+}
+
+.back-blue .content {
+  border-radius: var(--5, 5px);
+  background: var(--primary-white, #FDFDFD);
+  text-align: center;
+  padding: 16px;
+}
+
+.back-blue .content h6 {
+  color: var(--secondry-red, #FF5151);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 8px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 30px;
+    margin-top: 8px;
+  }
+
+  .action-btn {
+    margin-right: 0px;
+    padding: 8px 32px;
+  }
+
+  .book {
+    margin-top: 32px;
+    padding: 16px 16px 27px 16px;
+    border-radius: 5px;
+  }
+
+  .book .row img {
+    margin-bottom: 8px;
+  }
+
+  .book .row a {
+    font-size: 14px;
+  }
+
+  .back-blue {
+    margin-top: 32px;
+    padding: 16px;
+  }
+
+  .back-blue h2 {
+    padding: 8px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 8px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 24px;
+    margin-top: 8px;
+  }
+
+  .action-btn {
+    margin-right: 0px;
+    padding: 8px 27px;
+  }
+
+  .book {
+    margin-top: 24px;
+    padding: 8px 8px 27px 8px;
+    border-radius: 5px;
+  }
+
+  .book .book-img {
+    width: 112px;
+    height: 24px;
+  }
+
+  .book .row img {
+    margin-bottom: 4px;
+    width: 112px;
+    height: 24px;
+  }
+
+  .book .row a {
+    font-size: 11px;
+  }
+
+  .back-blue {
+    margin-top: 24px;
+    padding: 8px;
+  }
+
+  .back-blue h2 {
+    padding: 8px;
+    text-align: center;
+  }
+}

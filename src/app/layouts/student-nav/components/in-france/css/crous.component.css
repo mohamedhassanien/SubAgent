@@ -1,0 +1,166 @@
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+p span {
+  font-weight: 600;
+}
+
+.crous .missions {
+  margin-top: 40px;
+}
+.crous .missions h1 {
+  text-align: center;
+}
+.crous .missions .row {
+  justify-content: space-between;
+}
+.crous .missions .row .one-col {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 10px;
+  display: inline-grid;
+  align-items: center;
+}
+.crous .missions .row .one-col p {
+  text-align: center;
+}
+.crous .missions .row .col-lg-6 {
+  width: 49%;
+  padding: 16px 31px;
+  margin-top: 24px;
+}
+.crous .missions .row .col-lg-4 {
+  width: 32.1%;
+  padding: 16px 22px;
+  margin-top: 24px;
+}
+.crous .blue-sec {
+  margin-top: 40px;
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+  padding: 24px;
+}
+.crous .blue-sec h2 {
+  border-radius: var(--5, 5px);
+  background: var(--primary-white, #FDFDFD);
+  padding: 24px;
+  text-align: center;
+}
+
+.last-sections {
+  margin-top: 40px;
+}
+.last-sections p {
+  margin-top: 16px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .crous .missions {
+    margin-top: 32px;
+  }
+  .crous .missions .row {
+    justify-content: space-between;
+  }
+  .crous .missions .row .one-col {
+    display: inline-grid;
+    align-items: center;
+  }
+  .crous .missions .row .col-lg-6 {
+    width: 49%;
+    padding: 16px;
+    margin-top: 24px;
+  }
+  .crous .missions .row .col-lg-4 {
+    width: 32.2%;
+    padding: 16px 8px;
+    margin-top: 16px;
+  }
+  .crous .blue-sec {
+    margin-top: 32px;
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .crous .blue-sec h2 {
+    padding: 16px;
+  }
+  .last-sections {
+    margin-top: 32px;
+  }
+  .last-sections p {
+    margin-top: 8px;
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .crous .missions {
+    margin-top: 24px;
+  }
+  .crous .missions h1 {
+    margin-bottom: 8px;
+  }
+  .crous .missions .row {
+    justify-content: center;
+  }
+  .crous .missions .row .one-col {
+    display: inline-grid;
+    align-items: center;
+    border-radius: 5px;
+  }
+  .crous .missions .row .col-lg-6 {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+  }
+  .crous .missions .row .col-lg-4 {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+  }
+  .crous .blue-sec {
+    margin-top: 24px;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  .crous .blue-sec h2 {
+    padding: 8px;
+  }
+  .last-sections {
+    margin-top: 24px;
+  }
+  .last-sections p {
+    margin-top: 4px;
+  }
+}

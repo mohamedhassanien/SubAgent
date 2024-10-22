@@ -1,0 +1,144 @@
+<div class="section-container">
+  <div class="side-menu">
+    <div class="logo">
+      <img src="/assets/images/SG-logo.svg" alt="" />
+    </div>
+
+    <div class="navigation">
+      <p class="title">NAVIGATIONS</p>
+      <ul>
+        <li>
+          <a routerLink="/owners/dashboard" routerLinkActive="active">
+            <div class="ictx">
+              <div class="ictx-icon">
+                <img src="/assets/images/dummy-dashboard.svg" alt="" />
+              </div>
+              <div class="ictx-text">
+                <p class="o186d">Dashboards</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/owners/Requests" routerLinkActive="active">
+            <div class="ictx">
+              <div class="ictx-icon">
+                <img src="/assets/images/docs.png" alt="" />
+              </div>
+              <div class="ictx-text">
+                <p class="o186d">Requests</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/owners/Statistics" routerLinkActive="active">
+            <div class="ictx">
+              <div class="ictx-icon">
+                <img src="/assets/images/docs.png" alt="" />
+              </div>
+              <div class="ictx-text">
+                <p class="o186d">Statistics</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/owners/Applications" routerLinkActive="active">
+            <div class="ictx">
+              <div class="ictx-icon">
+                <img src="/assets/images/docs.png" alt="" />
+              </div>
+              <div class="ictx-text">
+                <p class="o186d">Documents</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/owners/Contacts" routerLinkActive="active">
+            <div class="ictx">
+              <div class="ictx-icon">
+                <img src="/assets/images/docs.png" alt="" />
+              </div>
+              <div class="ictx-text">
+                <p class="o186d">Contacts</p>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pages">
+      <p class="title">PAGES</p>
+      <ul>
+        <li>
+          <a routerLink="/owners/calender" routerLinkActive="active">
+            <div class="ictx">
+              <div class="ictx-icon">
+                <img src="/assets/images/docs.png" alt="" />
+              </div>
+              <div class="ictx-text">
+                <p class="o186d">Calendar</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="/owners/Logout" routerLinkActive="active">
+            <div class="ictx">
+              <div class="ictx-icon">
+                <img src="/assets/images/docs.png" alt="" />
+              </div>
+              <div class="ictx-text">
+                <p class="o186d">Logout</p>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="top-menu">
+    <div class="navbar">
+      <form action="">
+        <div class="control">
+          <img src="/assets/images/search.gif" alt="" />
+          <input type="text" placeholder="Search..." />
+        </div>
+      </form>
+      <div class="profile">
+        <div class="img-holder">
+          <img src="/assets/images/about-us@2x.jpg" alt="" />
+        </div>
+        <div class="text"><p>Madiha Elshamaa</p></div>
+      </div>
+    </div>
+
+    <div class="navbar">
+      <div><p class="page-name">Profile Page</p></div>
+      <div>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li>
+            <a href=""><span> - </span>Page </a>
+          </li>
+          <li>
+            <a href=""><span> - </span>Profile Page</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

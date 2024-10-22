@@ -1,0 +1,322 @@
+h1 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #FF5151;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+p span {
+  font-weight: 600;
+}
+
+.ticket {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 40px;
+}
+.ticket .ticket-section {
+  position: relative;
+}
+.ticket .ticket-section .ticket-img {
+  margin-top: 32px;
+}
+.ticket .ticket-section p {
+  position: absolute;
+  top: 0;
+  font-weight: 700;
+  font-size: 22px;
+  left: 21%;
+  top: 71%;
+}
+.ticket .ticket-section2 {
+  position: relative;
+}
+.ticket .ticket-section2 .ticket-img {
+  margin-top: 32px;
+}
+.ticket .ticket-section2 p {
+  position: absolute;
+  top: 0;
+  font-weight: 700;
+  font-size: 22px;
+  left: 15%;
+  top: 71%;
+}
+
+.garant2 {
+  margin-top: 32px;
+}
+.garant2 ul {
+  margin-top: 16px;
+}
+.garant2 ul li {
+  font-weight: 400;
+  font-size: 18px;
+  color: #121212;
+  padding-top: 8px;
+}
+.garant2 .action-btn {
+  padding: 12px 64px;
+}
+
+.accordion .row {
+  margin-top: 24px;
+}
+.accordion .row .accordion-item {
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  margin-bottom: 24px;
+  background-color: transparent;
+}
+.accordion .row .accordion-item h2 {
+  width: 100%;
+  margin: 0;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+}
+.accordion .row .accordion-item h2 button {
+  border-radius: 10px;
+  box-shadow: none !important;
+  border: none;
+  background: white;
+}
+.accordion .row .accordion-item h2 button::after {
+  display: none;
+}
+.accordion .row .accordion-item h2 button .open,
+.accordion .row .accordion-item h2 button .close {
+  border-radius: 10px;
+  border: 0px;
+  width: 24px;
+  height: 24px;
+  color: #4751de;
+}
+.accordion .row .accordion-item h2 button h3 {
+  font-weight: 600;
+}
+.accordion .row .accordion-item h2 .collapsed {
+  background-color: white;
+  border: none !important;
+  border-radius: 10px;
+  line-height: 1.2;
+  padding: 12px 24px 12px 24px;
+}
+.accordion .row .accordion-item h2 .collapsed::after {
+  border: none;
+}
+.accordion .row .accordion-item h2 .collapsed .open,
+.accordion .row .accordion-item h2 .collapsed .close {
+  border: none !important;
+  width: 24px;
+  height: 24px;
+}
+.accordion .row .accordion-item h2 .collapsed h3 {
+  font-weight: 400;
+}
+.accordion .row .accordion-item h2 img {
+  width: 24px;
+  height: 24px;
+}
+.accordion .row .accordion-item .accordion-body {
+  background-color: white;
+  margin-top: 8px;
+  border-radius: 10px;
+  padding: 12px 24px;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+}
+.accordion .row .accordion-item .accordion-body .click-here {
+  cursor: pointer;
+}
+.accordion .row .accordion-item .accordion-body .describtion a {
+  text-decoration: none;
+  color: rgb(111, 119, 244);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .ticket {
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 32px;
+  }
+  .ticket .garant img {
+    width: 23%;
+  }
+  .ticket .ticket-section {
+    position: relative;
+  }
+  .ticket .ticket-section .ticket-img {
+    margin-top: 16px;
+    width: 50%;
+  }
+  .ticket .ticket-section p {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    left: 17.4%;
+    top: 68%;
+  }
+  .ticket .ticket-section2 {
+    position: relative;
+  }
+  .ticket .ticket-section2 .ticket-img {
+    margin-top: 16px;
+    width: 50%;
+  }
+  .ticket .ticket-section2 p {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    left: 17.5%;
+    top: 69%;
+  }
+  .garant2 {
+    margin-top: 16px;
+  }
+  .garant2 img {
+    width: 27%;
+  }
+  .garant2 ul {
+    margin-top: 16px;
+  }
+  .garant2 ul li {
+    font-size: 16px;
+    padding-top: 8px;
+  }
+  .garant2 .action-btn {
+    padding: 8px 32px;
+  }
+  .accordion .row {
+    margin-top: 24px;
+  }
+  .accordion .row .accordion-item {
+    margin-bottom: 16px;
+  }
+  .accordion .row .accordion-item h2 button {
+    padding: 8px 16px;
+  }
+  .accordion .row .accordion-item h2 .collapsed {
+    padding: 8px 16px;
+  }
+  .accordion .row .accordion-item .accordion-body {
+    padding: 8px 16px;
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h3 {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .ticket {
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 24px;
+  }
+  .ticket .garant img {
+    width: 30%;
+  }
+  .ticket .ticket-section {
+    position: relative;
+  }
+  .ticket .ticket-section .ticket-img {
+    margin-top: 16px;
+    width: 100%;
+  }
+  .ticket .ticket-section p {
+    position: absolute;
+    top: 0;
+    font-size: 13px;
+    left: 37.4%;
+    top: 71%;
+  }
+  .ticket .ticket-section2 {
+    position: relative;
+  }
+  .ticket .ticket-section2 .ticket-img {
+    margin-top: 16px;
+    width: 100%;
+  }
+  .ticket .ticket-section2 p {
+    position: absolute;
+    top: 0;
+    font-size: 13px;
+    left: 37.5%;
+    top: 71%;
+  }
+  .garant2 {
+    margin-top: 16px;
+  }
+  .garant2 img {
+    width: 35%;
+  }
+  .garant2 ul {
+    margin-top: 8px;
+  }
+  .garant2 ul li {
+    font-size: 12px;
+    padding-top: 4px;
+  }
+  .garant2 .action-btn {
+    padding: 8px 32px;
+  }
+  .accordion .row {
+    margin-top: 16px;
+  }
+  .accordion .row .accordion-item {
+    margin-bottom: 12px;
+  }
+  .accordion .row .accordion-item h2 button {
+    padding: 8px 16px 8px 8px;
+  }
+  .accordion .row .accordion-item h2 .collapsed {
+    padding: 8px 16px 8px 8px;
+  }
+  .accordion .row .accordion-item .accordion-body {
+    padding: 8px;
+  }
+}

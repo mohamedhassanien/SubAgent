@@ -1,0 +1,126 @@
+<main class="m-4">
+    <div class="row">
+        <section class="col-4">
+            <!-- profile -->
+            <div class="one-group">
+                <h1>Your Profile</h1>
+                <div class="d-flex align-items-center mt-3">
+                    <img class="profile" src="../../../../../../assets/images/profile/{{userName}}.png" alt="human">
+                    <div class="ms-3">
+                        <h1>{{userName}}</h1>
+                        <p>Studentgator Employee</p>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-between align-items-center px-3">
+                    <div class="col-6 box">
+                        <img src="../../../../../../assets/images/employees/application.svg" alt="application">
+                        <h2 class="mt-2">{{applicationsNumer}}</h2>
+                        <h3 class="mt-2">Applications</h3>
+                    </div>
+                    <div class="col-6 box">
+                        <img src="../../../../../../assets/images/employees/prospect.svg" alt="prospect">
+                        <h2 class="mt-2">{{ProspectNumber}}</h2>
+                        <h3 class="mt-2">Prospect</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- statics -->
+            <div class="one-group mt-4" style="height: 551px;">
+                <h1>Your applications status</h1>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <select class="form-select" (change)="onMonthChange1($event)" id="floatingSelectGrid">
+                            <option [value]="selectedMonth1" disabled selected>
+                                Month
+                            </option>
+
+                            <option [value]="month" *ngFor="let month of months">
+                                {{ month }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-6">
+                        <select class="form-select" (change)="onYearChange1($event)" id="floatingSelectGrid">
+                            <option [value]="selectedYear1" disabled selected>
+                                Year
+                            </option>
+
+                            <option [value]="year" *ngFor="let year of years">
+                                {{ year }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button (click)="onProspectApply()" class="apply ms-3">
+                        Apply
+                    </button>
+                </div>
+                <div id="chart" class=" mt-3">
+                    <apx-chart [series]="appProspectChart.series" [chart]="appProspectChart.chart"
+                        [labels]="appProspectChart.labels" [responsive]="appProspectChart.responsive"
+                        [colors]="appProspectChart.colors">
+                    </apx-chart>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-8">
+            <div class="one-group">
+                <div class="d-flex align-items-center">
+                    <h1>Your target</h1>
+                    <p class="hurry ms-5 me-3">Hurry up, you almost reach to your target </p>
+                    <img src="../../../../../../assets/images/employees/hurry.svg" alt="hurry">
+                </div>
+
+                <div>
+                    <h5 class="mt-4">Monthly applications</h5>
+                    <div class="main-prog position-relative mt-3">
+                        <div class="progress firstprog" style="height: 16px;">
+                            <div class="progress-bar firstbar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100" [ngStyle]="{ width: monthlyApp + '%' }"></div>
+                        </div>
+                        <!-- <img class="position-absolute" [ngStyle]="{'left': 'calc(' + progressWidth +'%' +  ' - 3%)','top':'-17px'}"  src="../../../assets/images/chat-bot/air.svg" alt="air"> -->
+                        <p *ngIf="monthlyApp != 0" class="progcount position-absolute mb-2"
+                            [ngStyle]="{'left': 'calc(' + monthlyApp +'%'+  ' - 3%)','top':'13px'}">{{monthlyApp}}</p>
+                    </div>
+                    <img class="position-absolute" style="top: 212.5px;right: 39px;" src="../../../../../../assets/images/employees/bl.svg" alt="bl">
+
+                    <h5 class="mt-5">Individual prime</h5>
+                    <div class="main-prog position-relative mt-3">
+                        <div class="progress secondprog" style="height: 16px;">
+                            <div class="progress-bar secondbar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100" [ngStyle]="{ width: individualPrime + '%' }"></div>
+                        </div>
+                        <img class="mt-2" src="../../../../../../assets/images/employees/rub1.svg" alt="rub">
+                        <!-- <img class="position-absolute" [ngStyle]="{'left': 'calc(' + progressWidth +'%' +  ' - 3%)','top':'-17px'}"  src="../../../assets/images/chat-bot/air.svg" alt="air"> -->
+                        <!-- <p class="progcount position-absolute mb-2"
+                            [ngStyle]="{'left': 'calc(' + 50 +'%'+  ' - 3%)','top':'13px'}">50</p> -->
+                    </div>
+                    <img class="position-absolute" style="top: 310.5px;right: 39px;" src="../../../../../../assets/images/employees/yl.svg" alt="yl">
+
+                    <h5 class="mt-4">Annual collective prime</h5>
+                    <div class="main-prog position-relative mt-3">
+                        <div class="progress thirdprog" style="height: 16px;">
+                            <div class="progress-bar thirdbar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100" [ngStyle]="{ width: anualPrime + '%' }"></div>
+                        </div>
+                        <img class="mt-2" src="../../../../../../assets/images/employees/rub2.svg" alt="rub">
+                        <!-- <img class="position-absolute" [ngStyle]="{'left': 'calc(' + progressWidth +'%' +  ' - 3%)','top':'-17px'}"  src="../../../assets/images/chat-bot/air.svg" alt="air"> -->
+                        <!-- <p class="progcount position-absolute mb-2"
+                            [ngStyle]="{'left': 'calc(' + 50 +'%'+  ' - 3%)','top':'13px'}">50</p> -->
+                    </div>
+                    <img class="position-absolute" style="top: 427.5px;right: 39px;" src="../../../../../../assets/images/employees/rd.svg" alt="rd">
+                    
+                </div>
+            </div>
+
+            <!-- <div class="one-group mt-4" style="height: 435px;">
+                <h1>StudentGator Academy</h1>
+            </div> -->
+        </section>
+    </div>
+</main>

@@ -1,0 +1,18 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <section class="table-section row">
+        <app-prospects-table
+          [searchLeads]="searchLeads"
+          [sizeName]="sizeName"
+          (refresh)="getStudents()"
+          [allStudents]="allStudents"
+          [loading]="loading"
+          [originalStudents]="originalStudents"
+          [archived]="archiveState"
+          class="p-0"
+        ></app-prospects-table>
+      </section>
+    </div>
+  </div>
+</section>

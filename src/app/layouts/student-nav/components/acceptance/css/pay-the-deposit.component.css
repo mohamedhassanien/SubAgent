@@ -1,0 +1,218 @@
+h1,
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+  color: #121212;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+p span {
+  font-weight: 600;
+}
+
+.first-content h2 {
+  color: #FF5151;
+}
+.first-content h1 {
+  margin-top: 24px;
+}
+.first-content p {
+  margin-top: 8px;
+}
+
+.cards {
+  margin-top: 40px;
+}
+.cards h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.cards .card .card-body .card-text {
+  padding-top: 24px;
+}
+
+.when-pay {
+  margin-top: 40px;
+}
+.when-pay p {
+  margin-top: 8px;
+}
+
+.how-pay {
+  padding: 24px;
+  margin-top: 40px;
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+}
+.how-pay h1 {
+  margin-bottom: 24px;
+}
+.how-pay p {
+  border-radius: var(--5, 5px);
+  background: var(--primary-white, #FDFDFD);
+  padding: 16px;
+  margin-top: 16px;
+}
+.how-pay p a {
+  text-decoration: none;
+  color: rgb(111, 119, 244);
+}
+
+.refund {
+  margin-top: 40px;
+}
+.refund .fund-text {
+  font-size: 20px;
+  margin-top: 24px;
+}
+.refund .row {
+  justify-content: space-between;
+}
+.refund .row .one-col {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 10px;
+  padding: 24px 17px;
+  display: inline-grid;
+  align-items: center;
+  width: 49.4%;
+}
+.refund .row .one-col h1 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+}
+.refund .row .one-col p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1,
+  h2 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #121212;
+  }
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p span {
+    font-weight: 600;
+  }
+  .first-content h1 {
+    margin-top: 16px;
+  }
+  .cards {
+    margin-top: 32px;
+  }
+  .cards h1 {
+    margin-bottom: 16px;
+  }
+  .cards p {
+    font-size: 14px;
+  }
+  .when-pay {
+    margin-top: 32px;
+  }
+  .how-pay {
+    padding: 16px;
+    margin-top: 32px;
+    border-radius: 10px;
+  }
+  .how-pay h1 {
+    margin-bottom: 16px;
+  }
+  .how-pay p {
+    padding: 8px 16px;
+    margin-top: 8px;
+  }
+  .refund {
+    margin-top: 32px;
+  }
+  .refund .fund-text {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  .refund .row .one-col {
+    padding: 16px;
+    display: inline-grid;
+  }
+  .refund .row .one-col h1 {
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 8px;
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1,
+  h2 {
+    font-size: 14px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .first-content h1 {
+    margin-top: 8px;
+  }
+  .first-content p {
+    margin-top: 4px;
+  }
+  .cards {
+    margin-top: 24px;
+  }
+  .cards .card .card-body .card-text {
+    padding-top: 8px;
+  }
+  .when-pay {
+    margin-top: 24px;
+  }
+  .when-pay p {
+    margin-top: 8px;
+  }
+  .how-pay {
+    padding: 8px;
+    margin-top: 24px;
+    border-radius: 5px;
+  }
+  .how-pay h1 {
+    margin-bottom: 8px;
+  }
+  .how-pay p {
+    padding: 8px 4px;
+    margin-top: 8px;
+  }
+  .refund {
+    margin-top: 24px;
+  }
+  .refund .fund-text {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .refund .row {
+    justify-content: center;
+  }
+  .refund .row .one-col {
+    padding: 8px;
+    width: 100%;
+  }
+  .refund .row .one-col h1 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .refund .row .one-col p {
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 8px;
+  }
+}

@@ -1,0 +1,516 @@
+.section-container {
+  gap: 40px;
+}
+.section-container .custom-row {
+  flex-wrap: wrap;
+}
+.section-container .custom-row p.title {
+  margin: 0 0 35px 0;
+  font-size: 22px;
+  font-family: "Open sans";
+  color: #464a53;
+}
+.section-container .custom-row .box p {
+  font-size: 18px;
+  color: #464a53;
+  margin: 19px 0 0 0;
+}
+.section-container .custom-row .box div {
+  text-align: center;
+}
+.section-container .custom-row .box div span {
+  text-align: center;
+  font-size: 24px;
+  color: var(--main-color);
+}
+.section-container .custom-row .box:nth-child(2) div span {
+  color: var(--yellow-color);
+}
+.section-container .custom-row .box:nth-child(3) div span {
+  color: var(--red-color);
+}
+.section-container .custom-row .box:nth-child(4) div span {
+  color: var(--green-color);
+}
+.section-container .custom-row .custom-col.selling {
+  padding: 29px 50px 47px 28px;
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  flex: 0 0 30%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.section-container .custom-row .custom-col.selling ul {
+  margin: 0;
+  list-style-type: disc;
+}
+.section-container .custom-row .custom-col.selling ul li {
+  font-size: 14px;
+  letter-spacing: 0.14px;
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(1) {
+  color: var(--green-color);
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(1)::marker {
+  color: var(--green-color);
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(2) {
+  color: var(--main-color);
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(2)::marker {
+  color: var(--main-color);
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(3) {
+  color: var(--red-color);
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(3)::marker {
+  color: var(--red-color);
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(4) {
+  color: var(--yellow-color);
+}
+.section-container .custom-row .custom-col.selling ul li:nth-child(4)::marker {
+  color: var(--yellow-color);
+}
+.section-container .custom-row .custom-col.selling .custom-row {
+  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.section-container .custom-row .custom-col.selling .custom-row div.percent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+.section-container .custom-row .custom-col.selling .custom-row div.percent svg {
+  width: 200px;
+  height: 200px;
+}
+.section-container .custom-row .custom-col.selling .custom-row div.percent svg circle {
+  stroke-width: 50px;
+  fill: transparent;
+  stroke-dasharray: 440;
+  transition: all 0.3s ease;
+}
+.section-container .custom-row .custom-col.selling .custom-row div.percent svg circle:nth-child(1) {
+  stroke: var(--main-color);
+  stroke-dashoffset: 0; /*35*/
+}
+.section-container .custom-row .custom-col.selling .custom-row div.percent svg circle:nth-child(2) {
+  stroke: var(--yellow-color);
+  stroke-dashoffset: 154; /*30*/
+}
+.section-container .custom-row .custom-col.selling .custom-row div.percent svg circle:nth-child(3) {
+  stroke: var(--red-color);
+  stroke-dashoffset: 286; /*35*/
+}
+.section-container .custom-row .custom-col.selling .custom-row div.percent svg circle:nth-child(4) {
+  stroke: var(--green-color);
+  stroke-dashoffset: 352; /*20*/
+}
+.section-container .custom-row .custom-col.map {
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  flex-direction: row;
+  flex: 0 0 68%;
+}
+.section-container .custom-row .custom-col.map .custom-col {
+  padding: 29px 41px 11px 30px;
+  text-align: center;
+}
+.section-container .custom-row .custom-col.map .custom-col:nth-child(2) {
+  background-color: var(--main-color);
+}
+.section-container .custom-row .custom-col.map .custom-col:nth-child(2) p {
+  font-size: 18px;
+  letter-spacing: 0.18px;
+  color: #fff;
+}
+.section-container .custom-row .custom-col.map .custom-col:nth-child(2) div {
+  display: flex;
+  justify-content: space-between;
+}
+.section-container .custom-row .custom-col.map .custom-col:nth-child(2) div p {
+  display: flex;
+  flex-direction: column;
+}
+.section-container .custom-row .custom-col.map .custom-col:nth-child(2) div p span {
+  font-size: 24px;
+}
+.section-container .custom-row.overview {
+  width: 75%;
+  margin: auto;
+  padding: 38.2px 70px 36px 66px;
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+}
+.section-container .custom-row.overview .box div {
+  position: relative;
+}
+.section-container .custom-row.overview .box div svg circle {
+  stroke-dasharray: 352px;
+  fill: white;
+}
+.section-container .custom-row.overview .box div svg circle:nth-child(1) {
+  stroke-width: 10px;
+  stroke: #f3f6f9;
+}
+.section-container .custom-row.overview .box div svg circle:nth-child(2) {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  stroke-dasharray: 352px;
+  stroke: var(--main-color);
+}
+.section-container .custom-row.overview .box div span {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  left: 0;
+}
+.section-container .custom-row.overview .box:nth-child(2) div svg circle:nth-child(2) {
+  stroke: var(--yellow-color);
+}
+.section-container .custom-row.overview .box:nth-child(3) div svg circle:nth-child(2) {
+  stroke: var(--red-color);
+}
+.section-container .custom-row.overview .box:nth-child(4) div svg circle:nth-child(2) {
+  stroke: var(--green-color);
+}
+.section-container .custom-row.details {
+  width: 75%;
+  margin: auto;
+  padding: 38.2px 70px 36px 66px;
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  flex-wrap: wrap;
+  gap: 0 19px;
+  justify-content: flex-start;
+}
+.section-container .custom-row.details p.title {
+  flex: 0 0 100%;
+}
+.section-container .custom-row.details .axis {
+  width: 75%;
+  display: flex;
+  gap: 0 19px;
+  justify-content: flex-start;
+}
+.section-container .custom-row.details .custom-col {
+  height: fit-content;
+}
+.section-container .custom-row.details .custom-col.y-axis {
+  gap: 35px;
+  flex: 0 0 5%;
+}
+.section-container .custom-row.details .custom-col.y-axis div {
+  font-size: 16px;
+  text-align: right;
+  color: #6a707e;
+}
+.section-container .custom-row.details .custom-col.x-axis {
+  flex: 0 0 55%;
+}
+.section-container .custom-row.details .custom-col.x-axis table {
+  position: relative;
+  height: 100%;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody {
+  height: 95%;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr {
+  display: flex;
+  justify-content: space-between;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress {
+  border-radius: 6.5px;
+  background-color: #f1f3f7;
+  width: 13px;
+  display: flex;
+  height: 317px;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div {
+  position: relative;
+  width: 13px;
+  height: 90%;
+  border-radius: 6.5px;
+  align-self: flex-end;
+  background-color: rgba(111, 119, 244, 0.5);
+  transition: all 0.5s ease;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div .hover {
+  height: fit-content;
+  box-shadow: 0px 10px 30px 0 rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  width: 190px;
+  padding: 24px 20px 35px 24px;
+  position: absolute;
+  border-radius: 0;
+  transition: all 0.5s ease;
+  bottom: 112%;
+  left: -90px;
+  visibility: hidden;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div .hover::after {
+  content: "";
+  border: 14px solid var(--main-color);
+  position: absolute;
+  width: 0;
+  top: 100%;
+  border-color: transparent;
+  left: 43%;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div .hover p {
+  font-size: 14px;
+  font-family: "Open sans";
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+  color: transparent;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div:hover {
+  background-color: var(--main-color);
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div:hover .hover {
+  background-color: var(--main-color);
+  visibility: visible;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div:hover .hover::after {
+  border-color: var(--main-color) transparent transparent transparent;
+}
+.section-container .custom-row.details .custom-col.x-axis table tbody tr td .custom-progress div:hover .hover p {
+  color: #fff;
+}
+.section-container .custom-row.details .custom-col.x-axis table thead {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+.section-container .custom-row.details .custom-col.x-axis table thead tr {
+  justify-content: space-between;
+  display: flex;
+}
+.section-container .custom-row.details .custom-col.x-axis table thead tr th {
+  width: 13px;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0.32px;
+  text-align: center;
+  color: #6a707e;
+}
+.section-container .custom-row.details .custom-col .box {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 41px;
+}
+.section-container .custom-row.details .custom-col .box .img-holder {
+  align-self: center;
+  width: 38.1px;
+  height: 39.2px;
+}
+.section-container .custom-row.details .custom-col .box .img-holder img {
+  height: 100%;
+  object-fit: contain;
+}
+.section-container .custom-row.details .custom-col .box .text {
+  align-self: center;
+}
+.section-container .custom-row.details .custom-col .box .text p {
+  margin: 0;
+  font-size: 30px;
+  color: var(--yellow-color);
+  line-height: 1;
+  text-align: center;
+}
+.section-container .custom-row.details .custom-col .box .text span {
+  text-align: center;
+  font-size: 16px;
+  color: #6a707e;
+  font-family: "Open sans";
+}
+.section-container .custom-row.details .custom-col .box:nth-child(2) .text p {
+  color: var(--red-color);
+}
+.section-container .custom-row.students form,
+.section-container .custom-row.students table,
+.section-container .custom-row.students .d-flex {
+  width: 95%;
+  margin: auto;
+}
+.section-container .custom-row.students table {
+  margin-bottom: 0;
+  font-family: "Roboto";
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+.section-container .custom-row.students table thead tr th {
+  padding: 12px 11px 11px 12px;
+  border: none;
+  font-weight: normal;
+  color: #464a53;
+}
+.section-container .custom-row.students table tbody tr {
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  margin: 12px 0;
+}
+.section-container .custom-row.students table tbody tr td {
+  height: 70px;
+  line-height: 70px;
+  border: none;
+  padding: 0 11px 0 12px;
+}
+.section-container .custom-row.students table tbody tr td .flex {
+  display: flex;
+  gap: 13px;
+}
+.section-container .custom-row.students table tbody tr td .flex .img-holder {
+  width: 39px;
+  height: 39px;
+  background-color: #000;
+  border-radius: 50%;
+  align-self: center;
+  display: flex;
+}
+.section-container .custom-row.students table tbody tr td .flex .img-holder img {
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-container .custom-row.students table tbody tr td .flex .text {
+  align-self: center;
+}
+.section-container .custom-row.students table tbody tr td .flex .text p {
+  margin: 0;
+}
+.section-container .custom-row.students table tbody tr td.nationality {
+  font-size: 14px;
+  letter-spacing: 0.32px;
+  color: var(--main-color);
+}
+.section-container .custom-row.students table tbody tr td.status p {
+  margin: 0;
+}
+.section-container .custom-row.students table tbody tr td.status p span {
+  padding: 9px 19px 9px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 15px;
+  font-family: "Open Sans";
+  letter-spacing: 0.16px;
+  color: #fff;
+}
+.section-container .custom-row.students table tbody tr td.status p span.pending {
+  background-color: var(--main-color);
+}
+.section-container .custom-row.students table tbody tr td.status p span.declined {
+  background-color: var(--red-color);
+}
+.section-container .custom-row.students table tbody tr td.status p span.accepted {
+  background-color: var(--green-color);
+}
+.section-container .custom-row.students table tbody tr td.status p span.hold {
+  background-color: var(--yellow-color);
+}
+.section-container .custom-row.students table tbody tr td.date {
+  font-size: 16px;
+  color: #abafb3;
+}
+.section-container .custom-row.students table tbody tr:hover {
+  box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.section-container .custom-row.students .d-flex {
+  margin: 31px auto;
+  justify-content: flex-end;
+}
+.section-container .custom-row.students .d-flex ::ng-deep ngb-pagination ul {
+  margin: 0;
+  gap: 12px;
+}
+.section-container .custom-row.students .d-flex ::ng-deep ngb-pagination ul li a {
+  width: 38.2px;
+  height: 38.2px;
+  box-shadow: 0px 10px 30px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  border-radius: 50%;
+  border: none;
+  color: #abafb3;
+  text-align: center;
+}
+.section-container .custom-row.students .d-flex ::ng-deep ngb-pagination ul li a:hover {
+  background: #fff;
+}
+.section-container .custom-row.students .d-flex ::ng-deep ngb-pagination ul li a:focus {
+  box-shadow: none;
+}
+.section-container .custom-row.students .d-flex ::ng-deep ngb-pagination ul li.active a {
+  color: #fff;
+  background-color: var(--main-color);
+}
+.section-container .custom-row.students form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 29px;
+}
+.section-container .custom-row.students form .control {
+  padding: 10px 20.7px 12px 19px;
+  border-radius: 3px;
+  border: solid 1px #dddfe1;
+  background-color: rgba(33, 141, 250, 0);
+}
+.section-container .custom-row.students form .control input {
+  border: none;
+  background: unset;
+}
+.section-container .custom-row.students form .control input::placeholder {
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  color: #464a53;
+}
+.section-container .custom-row.numbers {
+  flex: 0 0 95%;
+  margin: auto;
+}
+.section-container .custom-row.numbers > div {
+  padding: 37px 40px 40px 41px;
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px 0 rgba(119, 119, 119, 0.1);
+  background-color: #fff;
+  display: flex;
+  width: 72%;
+}
+.section-container .custom-row.numbers > div .box {
+  gap: 20px;
+  flex: 0 0 25%;
+  display: flex;
+}
+.section-container .custom-row.numbers > div .box .img-holder {
+  width: 31px;
+  align-self: center;
+}
+.section-container .custom-row.numbers > div .box .text, .section-container .custom-row.numbers > div .box .img-holder {
+  position: static;
+}
+.section-container .custom-row.numbers > div .box .text {
+  text-align: left;
+}
+.section-container .custom-row.numbers > div .box .text span {
+  position: static;
+}
+.section-container .custom-row.numbers > div .box .text p {
+  font-size: 15px;
+  margin-top: 0;
+  letter-spacing: 0.3px;
+  color: #6a707e;
+}
+.section-container .custom-row.numbers > div:nth-child(2) {
+  width: 25%;
+}
+.section-container .custom-row.numbers > div:nth-child(2) .box {
+  flex: 0 0 100%;
+}

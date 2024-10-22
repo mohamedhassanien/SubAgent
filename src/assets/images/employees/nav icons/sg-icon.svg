@@ -2,7 +2,7 @@
   <defs>
     <linearGradient id="linear-gradient" x1="-0.137" y1="-0.024" x2="0.955" y2="1" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#fff" stop-opacity="0.4"/>
-      <stop offset="0.874" stop-color="#6f77f4" stop-opacity="0"/>
+      <stop offset="0.874" stop-color="#16294f" stop-opacity="0"/>
       <stop offset="1" stop-color="#d59bf6" stop-opacity="0"/>
     </linearGradient>
   </defs>

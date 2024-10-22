@@ -1,0 +1,297 @@
+.modal-header {
+  border: none;
+  padding: 24px;
+}
+
+.download-doc h6 {
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.download-doc h4 {
+  color: #E88852;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.download-doc .upload-input {
+  border-radius: var(--5, 5px);
+  border: 1px solid var(--secondry-grey, #7B7B7B);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.download-doc .upload-input p {
+  color: var(--secondry-grey, #7B7B7B);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.download-doc .upload-input label {
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid var(--primary-purple, #16294f);
+  color: var(--primary-purple, #16294f);
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--primary-white, #FDFDFD);
+  padding: 8px 24px;
+  display: inline-block;
+}
+
+.download-doc .upload-input input[type=file] {
+  display: none;
+}
+
+.download-doc .upload-input .upload-text {
+  border-radius: 4px;
+  border: 1px solid var(--light-grey, #E8E8E8);
+  padding: 8px 8px 8px 24px;
+}
+
+.download-doc .upload-input .upload-text h5 {
+  color: var(--untap, #636363);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.help-step {
+  margin-top: 24px;
+}
+
+.help-step .lott {
+  width: 109px;
+  height: 109px;
+}
+
+.help-step h1 {
+  color: var(--primary-black, #121212);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+.help-step a {
+  border-radius: 8px;
+  background: var(--light-purple, #fbe8ea);
+  padding: 8px 32px;
+  color: var(--primary-black, #121212);
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: none;
+  border: none;
+  margin-top: 16px;
+}
+
+.first-section h1 {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 24px;
+}
+
+.first-section p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tips .card {
+  align-items: center;
+}
+
+.tips .card img {
+  width: 121px;
+  height: 100px;
+}
+
+.hints-row {
+  margin-top: 40px;
+}
+
+.hints-row .wrap {
+  padding: 24px;
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+}
+
+.hints-row .wrap h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 48px;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.hints-row .wrap h1 span {
+  font-size: 32px;
+  line-height: 60px;
+}
+
+.hints-row .hint {
+  margin-top: 16px;
+  border-radius: var(--5, 5px);
+  background: var(--primary-white, #FDFDFD);
+  padding: 16px;
+}
+
+.hints-row .hint img {
+  margin-right: 8px;
+}
+
+.hints-row .hint p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.hints-row .hint p span {
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .first-section h1 {
+    font-size: 16px;
+    padding-bottom: 16px;
+  }
+
+  .first-section p {
+    font-size: 14px;
+  }
+
+  .tips .card img {
+    width: 164px;
+    height: 165px;
+  }
+
+  .hints-row {
+    margin-top: 32px;
+  }
+
+  .hints-row .wrap {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .hints-row .wrap h1 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 8px;
+  }
+
+  .hints-row .wrap h1 span {
+    font-size: 24px;
+    line-height: 48px;
+  }
+
+  .hints-row .hint {
+    margin-top: 16px;
+    padding: 16px;
+  }
+
+  .hints-row .hint img {
+    margin-right: 8px;
+  }
+
+  .hints-row .hint p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .modal-dialog {
+    max-width: 100%;
+    margin: 24px 24px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .first-section h1 {
+    font-size: 14px;
+    padding-bottom: 12px;
+  }
+
+  .first-section p {
+    font-size: 12px;
+  }
+
+  .tips .card img {
+    width: 164px;
+    height: 165px;
+  }
+
+  .hints-row {
+    margin-top: 24px;
+  }
+
+  .hints-row .wrap {
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  .hints-row .wrap h1 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 4px;
+  }
+
+  .hints-row .wrap h1 span {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .hints-row .hint {
+    margin-top: 12px;
+    padding: 8px;
+  }
+
+  .hints-row .hint img {
+    margin-right: 0px;
+    width: 8%;
+  }
+
+  .hints-row .hint p {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .download-doc h6 {
+    font-size: 14px;
+  }
+
+  .download-doc .upload-input {
+    padding: 4px 8px;
+    margin-top: 10px;
+  }
+
+  .download-doc .upload-input p {
+    font-size: 12px;
+  }
+
+  .download-doc .upload-input label {
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 8px 12px;
+  }
+
+  .help-step {
+    margin-top: 20px;
+  }
+
+  .help-step h1 {
+    margin-top: 14px;
+  }
+
+  .help-step a {
+    margin-top: 10px;
+  }
+}

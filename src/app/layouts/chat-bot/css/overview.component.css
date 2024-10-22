@@ -1,0 +1,88 @@
+section .outer-container {
+  background-image: url(../../../../assets/images/chat-bot/Frame.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+section .outer-container .inner-container {
+  background-position: top right;
+  padding: 40px 24px 0px 24px;
+  border-radius: 10px 30px 10px;
+  border: 3px solid var(--shade, #fbe8ea);
+}
+
+section .outer-container .inner-container .info img {
+  width: 118px;
+  height: 118px;
+  margin-right: 16px;
+}
+
+section .outer-container .inner-container .info p.full-name {
+  display: inline-block;
+  border-radius: 28px;
+  background: var(--primary-white, #FDFDFD);
+  box-shadow: 0px 0px 10px 0px rgba(119, 119, 119, 0.13);
+  font-size: 20px;
+  font-weight: 600;
+  color: #121212;
+  padding: 10px 24px;
+  margin-top: 36px;
+  text-transform: lowercase;
+}
+
+section .outer-container .inner-container .info-card {
+  min-width: 288px;
+  min-height: 142px;
+  display: inline-block;
+  border-radius: 0px 10px 10px 10px;
+  background: var(--primary-white, #FDFDFD);
+  box-shadow: 0px 0px 10px 0px rgba(119, 119, 119, 0.13);
+  padding: 24px;
+  position: relative;
+  top: -50px;
+}
+
+section .outer-container .inner-container .info-card .card-title {
+  position: absolute;
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0;
+  top: -36px;
+  left: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #121212;
+  border-radius: 20px 20px 0px 0px;
+  background: #FFE170;
+}
+
+section .outer-container .inner-container .info-card .main-card-info {
+  margin-top: 20px;
+}
+
+section .outer-container .inner-container .info-card .main-card-info .main-card-single-info {
+  margin-bottom: 16px;
+}
+
+section .outer-container .inner-container .info-card .main-card-info .main-card-single-info img {
+  margin-right: 8px;
+}
+
+section .outer-container .inner-container .info-card .main-card-info .main-card-single-info p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #121212;
+}
+
+section .outer-container .inner-container .info-card ul.single-info {
+  margin: 0;
+}
+
+section .outer-container .inner-container .info-card ul.single-info li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #121212;
+}

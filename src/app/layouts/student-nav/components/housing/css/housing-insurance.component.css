@@ -1,0 +1,233 @@
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #FF5151;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+p span {
+  font-weight: 600;
+}
+
+.luko p {
+  margin-top: 24px;
+}
+
+.get-free {
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+  margin-top: 24px;
+  padding: 24px 101px;
+}
+.get-free p {
+  font-weight: 600;
+  font-size: 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  border-radius: var(--5, 5px);
+  background: var(--primary-white, #FDFDFD);
+}
+
+.action-btn {
+  padding: 12px 64px;
+}
+
+.accordion {
+  margin-top: 40px;
+}
+.accordion h5 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #FF5151;
+}
+.accordion .row .accordion-item {
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  margin-bottom: 24px;
+  background-color: transparent;
+}
+.accordion .row .accordion-item h2 {
+  width: 100%;
+  margin: 0;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+}
+.accordion .row .accordion-item h2 button {
+  border-radius: 10px;
+  box-shadow: none !important;
+  border: none;
+  background: white;
+}
+.accordion .row .accordion-item h2 button::after {
+  display: none;
+}
+.accordion .row .accordion-item h2 button .open,
+.accordion .row .accordion-item h2 button .close {
+  border-radius: 10px;
+  border: 0px;
+  width: 24px;
+  height: 24px;
+  color: #4751de;
+}
+.accordion .row .accordion-item h2 button h3 {
+  font-weight: 600;
+}
+.accordion .row .accordion-item h2 .collapsed {
+  background-color: white;
+  border: none !important;
+  border-radius: 10px;
+  line-height: 1.2;
+  padding: 12px 24px 12px 24px;
+}
+.accordion .row .accordion-item h2 .collapsed::after {
+  border: none;
+}
+.accordion .row .accordion-item h2 .collapsed .open,
+.accordion .row .accordion-item h2 .collapsed .close {
+  border: none !important;
+  width: 24px;
+  height: 24px;
+}
+.accordion .row .accordion-item h2 .collapsed h3 {
+  font-weight: 400;
+}
+.accordion .row .accordion-item h2 img {
+  width: 24px;
+  height: 24px;
+}
+.accordion .row .accordion-item .accordion-body {
+  background-color: white;
+  margin-top: 8px;
+  border-radius: 10px;
+  padding: 12px 24px;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+}
+.accordion .row .accordion-item .accordion-body .click-here {
+  cursor: pointer;
+}
+.accordion .row .accordion-item .accordion-body .describtion a {
+  text-decoration: none;
+  color: rgb(111, 119, 244);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .luko p {
+    margin-top: 16px;
+  }
+  .get-free {
+    border-radius: 10px;
+    margin-top: 16px;
+    padding: 16px;
+  }
+  .get-free p {
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  .action-btn {
+    padding: 8px 32px;
+  }
+  .accordion {
+    margin-top: 32px;
+  }
+  .accordion h5 {
+    font-size: 20px;
+  }
+  .accordion .row .accordion-item {
+    margin-bottom: 16px;
+  }
+  .accordion .row .accordion-item h2 button {
+    padding: 12px 16px;
+  }
+  .accordion .row .accordion-item h2 .collapsed {
+    padding: 12px 16px;
+  }
+  .accordion .row .accordion-item .accordion-body {
+    padding: 12px 16px;
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 12px;
+  }
+  h3 {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .luko img {
+    width: 20%;
+  }
+  .luko p {
+    margin-top: 8px;
+  }
+  .get-free {
+    border-radius: 5px;
+    margin-top: 8px;
+    padding: 8px;
+  }
+  .get-free p {
+    font-size: 13px;
+    padding: 4px;
+    border-radius: 5px;
+  }
+  .action-btn {
+    padding: 8px 24px;
+  }
+  .accordion {
+    margin-top: 24px;
+  }
+  .accordion h5 {
+    font-size: 16px;
+  }
+  .accordion .row .accordion-item {
+    margin-bottom: 12px;
+  }
+  .accordion .row .accordion-item h2 button {
+    padding: 8px 16px 8px 8px;
+  }
+  .accordion .row .accordion-item h2 .collapsed {
+    padding: 8px 16px 8px 8px;
+  }
+  .accordion .row .accordion-item .accordion-body {
+    padding: 8px;
+  }
+}

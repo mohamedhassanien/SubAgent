@@ -1,0 +1,91 @@
+<section>
+  <div class="border-horizontal headline">
+    <h1>{{ formModel.fullName }}</h1>
+    <p>{{ formModel.jobTitle }}</p>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <div class="left-side">
+        <h1>details</h1>
+        <div class="headings">
+          <div class="adress">
+            <h2>Address</h2>
+            <p>{{ formModel.adress }}</p>
+          </div>
+          <div class="phone">
+            <h2>Phone</h2>
+            <p>{{ formModel.phone }}</p>
+          </div>
+          <div class="email">
+            <h2>email</h2>
+            <p>{{ formModel.email }}</p>
+          </div>
+          <div class="linkedIn">
+            <h2>LinkedIn</h2>
+            <p>{{ formModel.linkedIn }}</p>
+          </div>
+        </div>
+
+        <div class="education py-3">
+          <h1>education</h1>
+          <div class="headings" *ngFor="let edu of formModel.edu">
+            <h1>{{ edu.programName }}</h1>
+            <p>
+              {{ edu.schName }},
+              <span>
+                class of {{ edu.startDate | date : "YYYY" }} -
+                <span *ngIf="edu.endDate && edu.present === false">
+                  {{ edu.endDate | date : "YYYY" }}
+                </span>
+                <span *ngIf="edu.present">Present</span>
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="skills py-3">
+          <h1>skills</h1>
+          <div class="headings" *ngFor="let skill of formModel.skills">
+            <p>{{ skill.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1 d-flex justify-content-center" style="height: 500px">
+      <div class="vr bg-secondary"></div>
+    </div>
+
+    <div class="col-5">
+      <div>
+        <div class="right-side">
+          <div class="profile">
+            <h1>profile</h1>
+            <div class="headings">
+              <p>{{ formModel.summary }}</p>
+            </div>
+          </div>
+
+          <div class="experiance py-3">
+            <h1>experiance</h1>
+            <div class="exp-headings" *ngFor="let exp of formModel.exps">
+              <p>{{ exp.company }}</p>
+              <p>{{ exp.title }}</p>
+              <p>{{ exp.startDate }}</p>
+              <p>{{ exp.endDate }}</p>
+              <p>{{ exp.present }}</p>
+              <p>{{ exp.description }}</p>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="experiance py-3">
+            <h1>Language</h1>
+            <div class="headings" *ngFor="let lang of formModel.langs">
+              <p>{{ lang.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

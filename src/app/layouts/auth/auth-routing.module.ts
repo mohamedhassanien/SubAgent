@@ -1,14 +1,15 @@
+import { ConfirmPasswordGuard } from './../../shared/guards/confirm-password/confirm-password.guard';
 import { CheckInboxComponent } from './components/check-inbox/check-inbox.component';
 import { DoneComponent } from './components/done/done.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './components/auth/auth.component';
 import { VerfiyComponent } from './components/verfiy/verfiy.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { ConfirmPasswordGuard } from './guards/confirm-password/confirm-password.guard';
+import { RepresentativePasswordComponent } from './components/representative-password/representative-password.component';
 
 const routes: Routes = [
   {
@@ -49,13 +50,17 @@ const routes: Routes = [
         component: VerfiyComponent,
       },
       {
-        path: 'register',
-        component: RegisterComponent,
+        path: 'register/student',
+        component: RegisterStudentComponent,
       },
       {
         path: 'change-password/:token',
         component: ChangePasswordComponent,
         canActivate: [ConfirmPasswordGuard],
+      },
+      {
+        path: 'representative-password',
+        component: RepresentativePasswordComponent,
       },
     ],
   },

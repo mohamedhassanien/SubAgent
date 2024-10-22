@@ -1,0 +1,566 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <h2 class="section-title">{{ isEdit ? "Edit" : "Add" }} School</h2>
+      <div class="col-12">
+        <form class="form-section" [formGroup]="addSchForm" (ngSubmit)="sumbit(addSchForm)">
+          <div class="row align-items-start">
+            <div class="row" style="padding: 0px;">
+              <div class="col-4 input-col">
+                <label for="firstName">Nom de l'école*</label>
+                <input type="text" id="schoolName" class="form-input" formControlName="schoolName" />
+              </div>
+              <div class="col-4 input-col">
+                <label for="firstName">Description in English*</label>
+                <input type="text" id="engdesc" class="form-input" formControlName="engdesc" />
+              </div>
+              <div class="col-4 input-col">
+                <label for="firstName">Description in French*</label>
+                <input type="text" id="frdesc" class="form-input" formControlName="frdesc" />
+              </div>
+            </div>
+            <div class="row" style="padding: 0px;">
+              <div class="col-4 input-col">
+                <label for="firstName">Alumni*</label>
+                <input type="number" id="alumni" class="form-input" formControlName="alumni" />
+              </div>
+              <div class="col-4 input-col">
+                <label for="firstName">Google maps link*</label>
+                <input type="text" id="gmaps" class="form-input" formControlName="gmaps" />
+              </div>
+              <div class="col-4 input-col">
+                <label for="firstName">Youtube link*</label>
+                <input type="text" id="youtube" class="form-input" formControlName="youtube" />
+              </div>
+            </div>
+            <div class="row" style="padding: 0px;">
+              <div class="col-4 input-col">
+                <label for="school">Location*</label>
+                <div class="dropdown-center dropdown-col" #dropdown>
+                  <button class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12" [ngClass]="{
+                      'text-dark': locationName !== 'Select Location'
+                    }">
+                    {{ locationName | shorten : 25 }}
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-container">
+                      <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="searchLocation"
+                        [ngModelOptions]="{ standalone: true }" [value]="
+                          locationName === 'Select Country' ? '' : locationName
+                        " />
+                      <i class="fas fa-search place-holder"></i>
+                      <hr />
+                      <div class="dropdown-container-overflow">
+                        <option [value]="location" *ngFor="
+                            let location of locations
+                              | filterOne : searchLocation
+                          " (click)="
+                            changeSelection('location', $event);
+                            dropdown.click()
+                          ">
+                          {{ location.country | shorten : 35 }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 input-col">
+                <label for="school">Ranking</label>
+                <div class="dropdown-center dropdown-col" #dropdown>
+                  <button class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12" [ngClass]="{
+                      'text-dark': rankName !== 'Select Rank'
+                    }">
+                    {{ rankName }}
+                  </button>
+                  <div class="dropdown-menu score-menu">
+                    <div class="dropdown-container">
+                      <div class="dropdown-container-overflow">
+                        <option *ngFor="let rank of ranks" (click)="
+                            changeSelection('rank', $event); dropdown.click()
+                          ">
+                          Top {{ rank }}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4 input-col">
+                <label for="school">Field</label>
+                <div class="dropdown-center dropdown-col" #dropdown>
+                  <button class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12" [ngClass]="{
+                      'text-dark': rankName !== 'Select Rank'
+                    }">
+                    {{ schoolField }}
+                  </button>
+                  <div class="dropdown-menu score-menu">
+                    <div class="dropdown-container">
+                      <div class="dropdown-container-overflow">
+                        <option *ngFor="let field of fields" (click)="
+                            changeSelection('field', $event); dropdown.click()
+                          ">
+                          {{field}}
+                        </option>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="padding: 0px;">
+              <div class="col-12 input-col">
+                <label for="school">Select Accreditation</label>
+                <section class="example-section">
+                  <mat-checkbox class="example-margin" formControlName="EFMD">EFMD</mat-checkbox>
+                  <mat-checkbox class="example-margin" formControlName="AACSB">AACSB</mat-checkbox>
+                  <mat-checkbox class="example-margin" formControlName="AMBA">AMBA</mat-checkbox>
+                  <mat-checkbox class="example-margin" formControlName="EQUIS">EQUIS</mat-checkbox>
+                  <mat-checkbox class="example-margin" formControlName="EMBA">EMBA</mat-checkbox>
+                </section>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 input-col">
+                <label for="firstName">Logo Photo*</label>
+                <input id="img1" #logoInput type="file" (change)="chooseFile($event, 'logo')" style="display: none" />
+
+                <label for="img1" *ngIf="!logo" class="col-12 rmpm dropzone" appDrag
+                  (files)="filesDropped($event, 'logo')">
+                  <div class="text-wrapper">
+                    <img src="../../../../../../../assets/images/employees/modal-visuals/drop-image.svg" alt=""
+                      class="mx-auto" />
+                    <div class="centered">
+                      <i class="fi fi-rr-upload me-1"></i> Drop your file here!
+                      <!-- <span (click)="logoInput.click()"> Browse</span> -->
+                    </div>
+                  </div>
+                </label>
+
+                <!--droped image preview-->
+                <div *ngIf="logo" class="image-preview">
+                  <img src="{{logo}}" class="w-100" />
+                </div>
+
+              </div>
+
+              <div class="col-6 input-col">
+                <label for="firstName">Cover Image*</label>
+                <input id="img2" #coverInput type="file" (change)="chooseFile2($event, 'coverImage')"
+                  style="display: none" />
+
+                <label for="img2" *ngIf="!coverImage" class="col-12 rmpm dropzone" appDrag
+                  (files)="filesDropped($event, 'coverImage')">
+                  <div class="text-wrapper">
+                    <img src="../../../../../../../assets/images/employees/modal-visuals/drop-image.svg" alt=""
+                      class="mx-auto" />
+                    <div class="centered">
+                      <i class="fi fi-rr-upload me-1"></i>
+                      Drop your file here or
+                      <!-- <span (click)="coverInput.click()"> Browse</span> -->
+                    </div>
+                  </div>
+                </label>
+                <!--droped image preview-->
+                <div *ngIf="coverImage" class="image-preview">
+                  <img [src]="isEdit ? coverImage : coverImage[0].url" class="w-100" />
+                </div>
+
+              </div>
+            </div>
+            <!-- !addSchForm.valid ||
+            locationName === 'Select Location' ||
+            (!isEdit && (!logo || !coverImage))
+          " -->
+
+
+            <div class="d-flex justify-content-end">
+              <button class="submit-button" type="submit" [disabled]="!addSchForm.valid">
+                {{ isEdit ? "Edit" : "Add" }} School
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ||
+                  schoolName === 'Select School' ||
+                  seriousNumber === 'Select Score' ||
+                  countryName === 'Select Country' -->
+
+<!-- <section>
+  <div class="container">
+    <h2 class="section-title">Add School</h2>
+
+    <form [formGroup]="addSchForm">
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-4">
+          <div class="row shadow-sm p-3">
+            <h2 class="text-info">School Info</h2>
+
+            <div class="input-col py-3">
+              <label for="schName">Name of school</label>
+              <input
+                type="text"
+                id="schName"
+                formControlName="schName"
+                class="form-control"
+              />
+            </div>
+            <div class="input-col py-3">
+              <label for="engDesc">Description in English </label>
+              <input
+                type="text"
+                id="enDesc"
+                formControlName="engDesc"
+                class="form-control"
+              />
+            </div>
+            <div class="input-col py-3">
+              <label for="frDesc">Description in French</label>
+              <input
+                type="text"
+                id="frDesc"
+                formControlName="frDesc"
+                class="form-control"
+              />
+            </div>
+            <div class="input-col py-3">
+              <label for="fieldOfStudies">Field of studies</label>
+              <input
+                type="text"
+                id="fieldOfStudies"
+                formControlName="fieldOfStudies"
+                class="form-control"
+              />
+            </div>
+            <div class="input-col">
+              <label for="videoLink">Video link on youtube</label>
+              <input
+                type="text"
+                id="videoLink"
+                formControlName="videoLink"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-5">
+          <table class="documents-table shadow-sm p-3">
+            <h2>School Images</h2>
+            <tr class="table-row">
+              <td class="documents">Images</td>
+              <td class="status text-center" colspan="2">Status</td>
+            </tr>
+            <tr class="main-row">
+              <td class="main-title">LIST OF IMAGES</td>
+              <td class="sec-title">Uploaded</td>
+              <td class="sec-title w-25">Choose</td>
+            </tr>
+            <tr class="sec-row">
+              <td class="main-desc">Image1</td>
+              <td
+                class="sec-desc d-flex justify-content-between align-items-center"
+              >
+                <div class="status-desc d-flex align-items-center">
+                  <div
+                    class="status-icon d-flex justify-content-center align-items-center"
+                    [ngStyle]="{
+                      'background-color': urlObject.img1 ? '#E5E7FF' : '#FFDDDD'
+                    }"
+                  >
+                    <i
+                      class="fas"
+                      [ngClass]="{
+                        'fa-times': !urlObject.img1,
+                        'fa-check': urlObject.img1
+                      }"
+                      [ngStyle]="{
+                        color: urlObject.img1 ? '#16294f' : '#F66666'
+                      }"
+                    ></i>
+                  </div>
+                  <span
+                    class="status-name"
+                    [ngStyle]="{
+                      color: urlObject.img1 ? '#16294f' : '#F66666'
+                    }"
+                  >
+                    {{ urlObject.img1 ? "Yes" : "No" }}
+                  </span>
+                </div>
+              </td>
+              <td class="sec-desc text-center">
+                <div
+                  class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                  (click)="img1.click()"
+                  *ngIf="!uploadPercentage.img1 && !urlObject.img1"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+                <p class="percentage" *ngIf="uploadPercentage.img1">
+                  {{ uploadPercentage.img1 }}%
+                </p>
+                <p *ngIf="urlObject.img1" class="text-success fw-bold">Done</p>
+              </td>
+    
+              <input
+                #img1
+                type="file"
+                (change)="chooseFile($event, 'img1')"
+                style="display: none"
+              />
+            </tr>
+            <tr class="sec-row">
+              <td class="main-desc">Image2</td>
+              <td
+                class="sec-desc d-flex justify-content-between align-items-center"
+              >
+                <div class="status-desc d-flex align-items-center">
+                  <div
+                    class="status-icon d-flex justify-content-center align-items-center"
+                    [ngStyle]="{
+                      'background-color': urlObject.img2 ? '#E5E7FF' : '#FFDDDD'
+                    }"
+                  >
+                    <i
+                      class="fas"
+                      [ngClass]="{
+                        'fa-times': !urlObject.img2,
+                        'fa-check': urlObject.img2
+                      }"
+                      [ngStyle]="{
+                        color: urlObject.img2 ? '#16294f' : '#F66666'
+                      }"
+                    ></i>
+                  </div>
+                  <span
+                    class="status-name"
+                    [ngStyle]="{
+                      color: urlObject.img2 ? '#16294f' : '#F66666'
+                    }"
+                  >
+                    {{ urlObject.img2 ? "Yes" : "No" }}
+                  </span>
+                </div>
+              </td>
+              <td class="sec-desc text-center">
+                <div
+                  class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                  (click)="img2.click()"
+                  *ngIf="!uploadPercentage.img2 && !urlObject.img2"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+                <p
+                  class="percentage"
+                  *ngIf="uploadPercentage.img2 && !urlObject.img2"
+                >
+                  {{ uploadPercentage.img2 }}%
+                </p>
+                <p *ngIf="urlObject.img2" class="text-success fw-bold">Done</p>
+              </td>
+
+              <input
+                #img2
+                type="file"
+                (change)="chooseFile($event, 'img2')"
+                style="display: none"
+              />
+            </tr>
+            <tr class="sec-row">
+              <td class="main-desc">Image3</td>
+              <td
+                class="sec-desc d-flex justify-content-between align-items-center"
+              >
+                <div class="status-desc d-flex align-items-center">
+                  <div
+                    class="status-icon d-flex justify-content-center align-items-center"
+                    [ngStyle]="{
+                      'background-color': urlObject.img3 ? '#E5E7FF' : '#FFDDDD'
+                    }"
+                  >
+                    <i
+                      class="fas"
+                      [ngClass]="{
+                        'fa-times': !urlObject.img3,
+                        'fa-check': urlObject.img3
+                      }"
+                      [ngStyle]="{
+                        color: urlObject.img3 ? '#16294f' : '#F66666'
+                      }"
+                    ></i>
+                  </div>
+                  <span
+                    class="status-name"
+                    [ngStyle]="{
+                      color: urlObject.img3 ? '#16294f' : '#F66666'
+                    }"
+                  >
+                    {{ urlObject.img3 ? "Yes" : "No" }}
+                  </span>
+                </div>
+              </td>
+              <td class="sec-desc text-center">
+                <div
+                  class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                  (click)="img3.click()"
+                  *ngIf="!uploadPercentage.img3 && !urlObject.img3"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+                <p
+                  class="percentage"
+                  *ngIf="uploadPercentage.img3 && !urlObject.img3"
+                >
+                  {{ uploadPercentage.img3 }}%
+                </p>
+                <p *ngIf="urlObject.img3" class="text-success fw-bold">Done</p>
+              </td>
+
+              <input
+                #img3
+                type="file"
+                (change)="chooseFile($event, 'img3')"
+                style="display: none"
+              />
+            </tr>
+            <tr class="sec-row">
+              <td class="main-desc">Image4</td>
+              <td
+                class="sec-desc d-flex justify-content-between align-items-center"
+              >
+                <div class="status-desc d-flex align-items-center">
+                  <div
+                    class="status-icon d-flex justify-content-center align-items-center"
+                    [ngStyle]="{
+                      'background-color': urlObject.img4 ? '#E5E7FF' : '#FFDDDD'
+                    }"
+                  >
+                    <i
+                      class="fas"
+                      [ngClass]="{
+                        'fa-times': !urlObject.img4,
+                        'fa-check': urlObject.img4
+                      }"
+                      [ngStyle]="{
+                        color: urlObject.img4 ? '#16294f' : '#F66666'
+                      }"
+                    ></i>
+                  </div>
+                  <span
+                    class="status-name"
+                    [ngStyle]="{
+                      color: urlObject.img4 ? '#16294f' : '#F66666'
+                    }"
+                  >
+                    {{ urlObject.img4 ? "Yes" : "No" }}
+                  </span>
+                </div>
+              </td>
+              <td class="sec-desc text-center">
+                <div
+                  class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                  (click)="img4.click()"
+                  *ngIf="!uploadPercentage.img4 && !urlObject.img4"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+                <p
+                  class="percentage"
+                  *ngIf="uploadPercentage.img4 && !urlObject.img4"
+                >
+                  {{ uploadPercentage.img4 }}%
+                </p>
+                <p *ngIf="urlObject.img4" class="text-success fw-bold">Done</p>
+              </td>
+
+              <input
+                #img4
+                type="file"
+                (change)="chooseFile($event, 'img4')"
+                style="display: none"
+              />
+            </tr>
+            <tr class="sec-row">
+              <td class="main-desc">Image5</td>
+              <td
+                class="sec-desc d-flex justify-content-between align-items-center"
+              >
+                <div class="status-desc d-flex align-items-center">
+                  <div
+                    class="status-icon d-flex justify-content-center align-items-center"
+                    [ngStyle]="{
+                      'background-color': urlObject.img5 ? '#E5E7FF' : '#FFDDDD'
+                    }"
+                  >
+                    <i
+                      class="fas"
+                      [ngClass]="{
+                        'fa-times': !urlObject.img5,
+                        'fa-check': urlObject.img5
+                      }"
+                      [ngStyle]="{
+                        color: urlObject.img5 ? '#16294f' : '#F66666'
+                      }"
+                    ></i>
+                  </div>
+                  <span
+                    class="status-name"
+                    [ngStyle]="{
+                      color: urlObject.img5 ? '#16294f' : '#F66666'
+                    }"
+                  >
+                    {{ urlObject.img5 ? "Yes" : "No" }}
+                  </span>
+                </div>
+              </td>
+              <td class="sec-desc text-center">
+                <div
+                  class="add-btn d-flex justify-content-center align-items-center mx-auto"
+                  (click)="img5.click()"
+                  *ngIf="!uploadPercentage.img5 && !urlObject.img5"
+                >
+                  <i class="fas fa-plus"></i>
+                </div>
+                <p
+                  class="percentage"
+                  *ngIf="uploadPercentage.img5 && !urlObject.img5"
+                >
+                  {{ uploadPercentage.img5 }}%
+                </p>
+                <p *ngIf="urlObject.img5" class="text-success fw-bold">Done</p>
+              </td>
+
+              <input
+                #img5
+                type="file"
+                (change)="chooseFile($event, 'img5')"
+                style="display: none"
+              />
+            </tr>
+          </table>
+        </div>
+
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <button
+            type="submit"
+            (click)="onSubmit()"
+            class="btn btn-primary mt-4"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section> -->

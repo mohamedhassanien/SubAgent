@@ -1,0 +1,87 @@
+section.header {
+  background: linear-gradient(139deg, #16294f -4.59%, #fd8282 103.99%), #fff;
+  height: 347px;
+}
+
+section.header h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+section.header p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+section.navigation {
+  padding-top: 40px;
+}
+
+section.navigation h2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  text-align: center;
+  color: #121212;
+}
+
+section.navigation .nav-link {
+  background: #000;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  line-height: 1;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 1rem;
+  border-top-right-radius: 20%;
+}
+
+section.navigation .nav-link:before,
+section.navigation .nav-link:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  width: 20%;
+  height: 20%;
+  border-top-right-radius: 20%;
+}
+
+section.navigation .nav-link.up {
+  transform: rotate(60deg) skewX(-30deg) scale(1, 0.866);
+  transform-origin: 30% 90%;
+}
+
+section.navigation .nav-link.down {
+  transform: rotate(-120deg) skewX(-30deg) scale(1, 0.866);
+  transform-origin: 30% 45%;
+}
+
+section.navigation .nav-link.left {
+  transform: rotate(90deg) skewX(-30deg) scale(1, 0.866);
+  transform-origin: 45% 75%;
+}
+
+section.navigation .nav-link.right {
+  transform: rotate(30deg) skewX(-30deg) scale(1, 0.866);
+  transform-origin: 45% 75%;
+}
+
+section.navigation .nav-link:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707) translate(0, -50%);
+}
+
+section.navigation .nav-link:after {
+  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+}
+
+/*# sourceMappingURL=student-nav.component.css.map */

@@ -1,0 +1,368 @@
+<!-- accordion for web and tab -->
+<section class="accordion d-lg-block d-md-block d-none">
+  <div class="row">
+    <div class="col-lg-12 px-0">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
+              (click)="showIconBtn()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex">
+                  <img class="me-2" src="/assets/images/navigator/visa/campus france/1..svg" alt="1" />
+                  <h3 routerLinkActive="bordertext" class="m-0">
+                    EEF procedure (pastel)
+                  </h3>
+                </div>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center" *ngIf="!showIcon">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <app-occordion-one></app-occordion-one>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingtwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapsetwo" aria-expanded="false" aria-controls="flush-collapsetwo"
+              (click)="showIconBtn2()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex">
+                  <img class="me-2" src="/assets/images/navigator/visa/campus france/2..svg" alt="2" />
+                  <h3 routerLinkActive="bordertext" class="m-0">
+                    How to pay Campus France?
+                  </h3>
+                </div>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon2">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                  *ngIf="!showIcon2">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapsetwo" class="accordion-collapse collapse" aria-labelledby="flush-headingtwo"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <h1>How to pay?</h1>
+              <p class="mt-lg-2 mt-md-2">
+                After submitting you will receive a link, then you will have to
+                pay fees.
+              </p>
+              <div class="mt-lg-4 mt-md-3">
+                <h2>There are different types of payment</h2>
+                <h3>
+                  (depending on your country)
+                </h3>
+                <ul class="mt-lg-3 mt-md-3">
+                  <li>
+                    <p>Pay online.</p>
+                  </li>
+                  <li>
+                    <p>
+                      By check or credit card (NO CASH) directly to your Campus
+                      France.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="back-blue">
+                <h4>Only paid and submitted applications will be processed.</h4>
+                <h4 class="mt-lg-3 mt-md-2">
+                  In most countries, the answer will come after 1 - 2 weeks
+                </h4>
+              </div>
+              <div class="back-red">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img class="me-2" src="/assets/images/navigator/visa/campus france/tunisia.svg" alt="tunisia" />
+                  <h1>For Tunisia</h1>
+                </div>
+                <h4>
+                  Students must wait for their file to be accepted first before
+                  the payment.
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingthree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree"
+              (click)="showIconBtn3()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex">
+                  <img class="me-2" src="/assets/images/navigator/visa/campus france/3..svg" alt="3" />
+                  <h3 routerLinkActive="bordertext" class="m-0">
+                    Book a meeting for campus France interview
+                  </h3>
+                </div>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon3">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                  *ngIf="!showIcon3">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapsethree" class="accordion-collapse collapse" aria-labelledby="flush-headingthree"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <div class="describtion">
+                <div class="back-blue mt-0">
+                  <h4 class="px-5">
+                    Once Campus France validates your file, they will reach out
+                    to schedule a Campus France interview.
+                  </h4>
+                  <h4 class="mt-lg-3 mt-md-2 px-4">
+                    In case any errors are identified, they will request that
+                    you make the necessary modifications before resubmitting
+                    your file
+                  </h4>
+                </div>
+                <div class="back-orange">
+                  <h1>After checking your file, Campus France sends</h1>
+                  <div class="row">
+                    <div class="col-lg-6 one-col">
+                      <h5>1st message</h5>
+                      <p>
+                        Informing you that your application has been validated
+                      </p>
+                    </div>
+                    <div class="col-lg-6 one-col">
+                      <h5>2nd message</h5>
+                      <p>
+                        Asking you to make your online appointment for the
+                        Campus France interview
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingfour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour"
+              (click)="showIconBtn4()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex">
+                  <img class="me-2" src="/assets/images/navigator/visa/campus france/4..svg" alt="4" />
+                  <h3 routerLinkActive="bordertext" class="m-0">
+                    Campus France interview
+                  </h3>
+                </div>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon4">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                  *ngIf="!showIcon4">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <app-occordion-four></app-occordion-four>
+              <!-- <p class="describtion">
+                                It is not mandatory for tenants to obtain a housing guarantee in
+                                France. However, landlords often request one as a condition for
+                                renting a property, especially if the tenant's financial
+                                situation or credit history is uncertain. Providing a housing
+                                guarantee can enhance a tenant's chances of being accepted for a
+                                rental property.
+                            </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- modal buttons for mobile -->
+<section class="modals d-lg-none d-md-none d-block">
+  <div class="row">
+    <div class="co1-12 px-0">
+      <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#stepone">
+        <img src="../../../../../../assets/images/navigator/visa/campus france/1..svg" alt="1">
+        <h3>EEF procedure (pastel)</h3>
+      </button>
+      <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#steptwo">
+        <img src="../../../../../../assets/images/navigator/visa/campus france/2..svg" alt="2">
+        <h3>How to pay Campus France?</h3>
+      </button>
+      <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#stepthree">
+        <img src="../../../../../../assets/images/navigator/visa/campus france/3..svg" alt="3">
+        <h3>Booking meeting</h3>
+      </button>
+      <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#stepfour">
+        <img src="../../../../../../assets/images/navigator/visa/campus france/4..svg" alt="4">
+        <h3>Campus France interview</h3>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- modal content -->
+<div class="modal fade" id="stepone">
+  <div class="modal-dialog modal-dialog-centered modal-lg p-1">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center">
+          <img src="/assets/images/navigator/visa/campus france/1..svg" alt="1">
+          <h5>EEF procedure (pastel)</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-occordion-one></app-occordion-one>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="steptwo">
+  <div class="modal-dialog modal-dialog-centered modal-lg p-1">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center">
+          <img src="/assets/images/navigator/visa/campus france/2..svg" alt="2">
+          <h5>How to pay Campus France?</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+          <h1>How to pay?</h1>
+          <p class="mt-lg-2 mt-md-2 mt-2">
+            After submitting you will receive a link, then you will have to
+            pay fees.
+          </p>
+          <div class="mt-lg-4 mt-md-3 mt-3">
+            <h1>There are different types of payment</h1>
+            <h1 style="color: rgba(255, 81, 81, 1)">
+              (depending on your country)
+            </h1>
+            <ul class="mt-lg-3 mt-md-3 mt-2">
+              <li>
+                <p>Pay online.</p>
+              </li>
+              <li>
+                <p>
+                  By check or credit card (NO CASH) directly to your Campus
+                  France.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="back-blue">
+            <h4>Only paid and submitted applications will be processed.</h4>
+            <h4 class="mt-lg-3 mt-md-2 mt-2">
+              In most countries, the answer will come after 1 - 2 weeks
+            </h4>
+          </div>
+          <div class="back-red">
+            <div class="d-flex justify-content-center align-items-center">
+              <img class="me-2" src="/assets/images/navigator/visa/campus france/tunisia.svg" alt="tunisia" />
+              <h1>For Tunisia</h1>
+            </div>
+            <h4>
+              Students must wait for their file to be accepted first before
+              the payment.
+            </h4>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="stepthree">
+  <div class="modal-dialog modal-dialog-centered modal-lg p-1">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center">
+          <img src="/assets/images/navigator/visa/campus france/3..svg" alt="3">
+          <h5>Booking meeting</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="describtion">
+            <div class="back-blue mt-0">
+              <h4 class="px-5">
+                Once Campus France validates your file, they will reach out
+                to schedule a Campus France interview.
+              </h4>
+              <h4 class="mt-lg-3 mt-md-2 mt-2 px-4">
+                In case any errors are identified, they will request that
+                you make the necessary modifications before resubmitting
+                your file
+              </h4>
+            </div>
+            <div class="back-orange">
+              <h1>After checking your file, Campus France sends</h1>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 one-col">
+                  <h5>1st message</h5>
+                  <p>
+                    Informing you that your application has been validated
+                  </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 one-col">
+                  <h5>2nd message</h5>
+                  <p>
+                    Asking you to make your online appointment for the
+                    Campus France interview
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="stepfour">
+  <div class="modal-dialog modal-dialog-centered modal-lg p-1">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center">
+          <img src="/assets/images/navigator/visa/campus france/4..svg" alt="4">
+          <h5>Campus France interview</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-occordion-four></app-occordion-four>
+      </div>
+    </div>
+  </div>
+</div>

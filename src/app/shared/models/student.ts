@@ -1,14 +1,17 @@
 export interface Student {
-  studentName: string;
+  firstname: string;
+  lastname: string;
+  studentName:string;
   studentUserName: string;
   studentEmail: string;
   studentNationality: string;
+  CountryOfResidence: string;
   studentPhone: string;
   studentStatus: string;
   schoolOfInterest: string;
   programOfInterest: string;
   studentCreatedAt: number;
-  studentSource: string;
+  studentSource: string[];
   studentSeriousnessScore: any;
   studentDocs: [
     {

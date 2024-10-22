@@ -1,0 +1,520 @@
+section {
+  background-image: url(../../../../../assets/images/login-pages/map-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section .content {
+  margin-top: 60px;
+  padding: 0 60px;
+}
+
+section .content img {
+  width: 174px;
+  height: 32px;
+  margin-bottom: 40px;
+}
+
+section .content .signup-text {
+  font: normal normal 600 24px Poppins;
+  margin-bottom: 24px;
+}
+
+section .content .start {
+  font: normal normal 600 18px Poppins;
+  text-transform: capitalize;
+  color: #ff5151;
+  margin-bottom: 16px;
+}
+
+section .content .btn-group .btn {
+  margin-right: 24px;
+}
+
+section .content .btn-group .microsoft {
+  margin-right: 0px;
+}
+
+section .content .row .btn-group .google,
+section .content .row .btn-group .facebook,
+section .content .row .btn-group .microsoft {
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  width: 220px;
+  height: 40px;
+  font: normal normal 400 13px Poppins;
+  border: 1px solid transparent;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+}
+
+section .content .row .btn-group .google .btn,
+section .content .row .btn-group .facebook .btn,
+section .content .row .btn-group .microsoft .btn {
+  margin-right: 24px !important;
+}
+
+section .content .row .btn-group .google:hover,
+section .content .row .btn-group .facebook:hover,
+section .content .row .btn-group .microsoft:hover {
+  border: 1px solid #6770f7;
+}
+
+section .content .row .btn-group .google:focus,
+section .content .row .btn-group .facebook:focus,
+section .content .row .btn-group .microsoft:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: #edeeff 0% 0% no-repeat padding-box;
+}
+
+section .content .row .btn-group .google .logo,
+section .content .row .btn-group .facebook .logo,
+section .content .row .btn-group .microsoft .logo {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
+
+section .content .row .btn-group .google .text-mobile,
+section .content .row .btn-group .facebook .text-mobile,
+section .content .row .btn-group .microsoft .text-mobile {
+  display: none;
+}
+
+section .content .row .btn-group .google p,
+section .content .row .btn-group .facebook p,
+section .content .row .btn-group .microsoft p {
+  margin: 0;
+  margin-left: 8px;
+}
+
+section .content .seperator {
+  margin: 24px 0;
+}
+
+section .content .seperator hr {
+  width: 45.4545454545%;
+}
+
+section .content .seperator p {
+  font: normal normal normal 18px Poppins;
+  color: #8b8b8b;
+  margin: 0;
+}
+
+section .content label {
+  font: normal normal normal 14px Poppins;
+  color: #121212;
+  padding: 0 20px;
+  padding-left: 0px;
+  margin-bottom: 8px;
+  user-select: none;
+  -webkit-user-xselect: none;
+}
+
+section .content .name-inputs,
+section .content .phone,
+section .content .email-input,
+section .content .password {
+  margin-bottom: 24px;
+}
+
+section .content .select-age .col,
+section .content .select-age .col-12 {
+  margin-bottom: 24px;
+}
+
+section .content .form-control {
+  color: #121212 !important;
+}
+
+section .content input,
+section .content select,
+section .content ngx-intl-tel-input {
+  width: 100%;
+  height: 47px;
+  border: 1px solid #7b7b7b;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+}
+
+section .content input:-webkit-autofill,
+section .content select:-webkit-autofill,
+section .content ngx-intl-tel-input:-webkit-autofill {
+  -webkit-box-shadow: 200px 200px 100px white inset;
+}
+
+section .content input:focus,
+section .content select:focus,
+section .content ngx-intl-tel-input:focus {
+  color: "red";
+  outline: none;
+  box-shadow: none;
+  border: 2px solid #6770f7;
+  -webkit-box-shadow: 200px 200px 100px white inset;
+}
+
+section .content input:focus::placeholder,
+section .content select:focus::placeholder,
+section .content ngx-intl-tel-input:focus::placeholder {
+  color: transparent;
+}
+
+section .content input:focus+label,
+section .content select:focus+label,
+section .content ngx-intl-tel-input:focus+label {
+  color: #6770f7;
+}
+
+section .content ngx-intl-tel-input {
+  border: none;
+}
+
+section .content ngx-intl-tel-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 2px solid #6770f7;
+  -webkit-box-shadow: 200px 200px 100px white inset;
+}
+
+section .content .iti {
+  width: 100%;
+}
+
+section .content .iti input[type=tel] {
+  padding-left: 50px;
+}
+
+section .content .mat-icon {
+  cursor: pointer;
+  position: relative;
+  left: 83%;
+  top: 47px;
+  margin-left: 3px;
+}
+
+section .content .mat-icon1 {
+  cursor: pointer;
+  position: relative;
+  left: 75%;
+  top: 47px;
+  margin-left: 8px;
+}
+
+section .content .validation {
+  color: #f66666;
+}
+
+section .content .signUp {
+  margin-top: 30px;
+  width: 100%;
+  height: 47px;
+}
+
+section .content .signUp button {
+  width: 100%;
+  height: 100%;
+  background: #16294f;
+  border-radius: 8px;
+  font: normal normal normal 16px Poppins;
+  color: #ffffff;
+}
+
+section .content .signUp button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+section .content .checkbox input {
+  width: 24px;
+  height: 24px;
+  -webkit-box-shadow: unset;
+  display: block;
+}
+
+section .content .checkbox label,
+section .content .checkbox .check-title {
+  font-size: 16px;
+  margin-bottom: 0;
+  color: #121212;
+}
+
+section .content .checkbox span {
+  color: #16294f;
+}
+
+section .content .logIn {
+  margin-top: 13px;
+  font: normal normal 400 16px Poppins;
+  color: #121212;
+  padding-bottom: 90px;
+}
+
+section .content .logIn a {
+  font: normal normal 600 16px Poppins;
+  color: #16294f;
+}
+
+@media only screen and (max-width: 1199.9px) and (min-width: 768px) {
+  section .content {
+    padding: 75px 40px 75px 40px !important;
+  }
+
+  section .content img {
+    width: 174px;
+    height: 32px;
+  }
+
+  section .content .reset {
+    font: normal normal 600 18px Poppins;
+    margin-bottom: 6.4px;
+  }
+
+  section .content .description {
+    font: normal normal normal 16px Poppins;
+    margin-bottom: 30px;
+  }
+
+  section .content .text-mobile {
+    display: none;
+  }
+
+  section .content .col-12 {
+    margin-bottom: 24px;
+  }
+
+  section .content .send {
+    margin-top: 46px;
+    width: 100%;
+    height: 47px;
+  }
+
+  section .content .send button {
+    width: 100%;
+    height: 100%;
+    font: normal normal normal 18px Poppins;
+  }
+}
+
+@media only screen and (max-width: 767.9px) {
+  section .content {
+    margin-top: 30px;
+    padding: 0px 20px 30px 20px;
+  }
+
+  section .content img {
+    width: 115px;
+    height: 23px;
+    margin-bottom: 19px;
+  }
+
+  section .content .signup-text {
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  section .content .start {
+    font-size: 12px;
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+
+  section .content .btn-group .btn {
+    margin-right: 8px;
+  }
+
+  section .content .btn-group .microsoft {
+    margin-right: 0px;
+  }
+
+  section .content .row .btn-group .google,
+  section .content .row .btn-group .facebook,
+  section .content .row .btn-group .microsoft {
+    box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+    width: 98px;
+    height: 26px;
+    font: normal normal 400 13px Poppins;
+    border: 1px solid transparent;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+  }
+
+  section .content .row .btn-group .google .btn,
+  section .content .row .btn-group .facebook .btn,
+  section .content .row .btn-group .microsoft .btn {
+    margin-right: 24px !important;
+  }
+
+  section .content .row .btn-group .google:hover,
+  section .content .row .btn-group .facebook:hover,
+  section .content .row .btn-group .microsoft:hover {
+    border: 1px solid #6770f7;
+  }
+
+  section .content .row .btn-group .google:focus,
+  section .content .row .btn-group .facebook:focus,
+  section .content .row .btn-group .microsoft:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #edeeff 0% 0% no-repeat padding-box;
+  }
+
+  section .content .row .btn-group .google .logo,
+  section .content .row .btn-group .facebook .logo,
+  section .content .row .btn-group .microsoft .logo {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  section .content .row .btn-group .google .text-mobile,
+  section .content .row .btn-group .facebook .text-mobile,
+  section .content .row .btn-group .microsoft .text-mobile {
+    display: block;
+  }
+
+  section .content .row .btn-group .google .text-full,
+  section .content .row .btn-group .facebook .text-full,
+  section .content .row .btn-group .microsoft .text-full {
+    display: none;
+  }
+
+  section .content .row .btn-group .google p,
+  section .content .row .btn-group .facebook p,
+  section .content .row .btn-group .microsoft p {
+    font-size: 12px;
+    margin: 0;
+    margin-left: 8px;
+  }
+
+  section .content .reset {
+    font: normal normal 600 18px Poppins;
+    color: #fd8282;
+    margin-bottom: 6.4px;
+  }
+
+  section .content .description {
+    font: normal normal normal 14px Poppins;
+    margin-bottom: 25px;
+  }
+
+  section .content label {
+    font: normal normal normal 12px Poppins;
+    top: -58px;
+    right: -25px;
+    padding: 0 10px;
+  }
+
+  section .content input {
+    font: normal normal normal 14px Poppins;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #dedddd;
+    border-radius: 8px;
+  }
+
+  section .content input:-webkit-autofill {
+    -webkit-box-shadow: 200px 200px 100px white inset;
+  }
+
+  section .content input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid #6770f7;
+    color: "black";
+    -webkit-box-shadow: 200px 200px 100px white inset;
+  }
+
+  section .content .col-12 {
+    margin-bottom: 16px;
+  }
+
+  section .content .name-inputs,
+  section .content .phone,
+  section .content .email-input,
+  section .content .password {
+    margin-bottom: 16px;
+  }
+
+  section .content .mat-icon {
+    cursor: pointer;
+    position: relative;
+    left: 69%;
+    top: 48px;
+    margin-left: 3px;
+  }
+
+  section .content .mat-icon1 {
+    cursor: pointer;
+    position: relative;
+    left: 56%;
+    top: 48px;
+    margin-left: 4px;
+  }
+
+  section .content select {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  section .content .checkbox input {
+    width: 16px;
+    height: 16px;
+  }
+
+  section .content .checkbox label,
+  section .content .checkbox .check-title {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  section .content .checkbox span {
+    color: #16294f;
+  }
+
+  section .content .signUp {
+    margin-top: 40px;
+    width: 100%;
+    height: 47px;
+  }
+
+  section .content .signUp button {
+    width: 100%;
+    height: 100%;
+    background: #16294f;
+    border-radius: 8px;
+    font: normal normal normal 12px Poppins;
+    color: #ffffff;
+  }
+
+  section .content .signUp button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  section .content .create {
+    margin-top: 14px;
+    font: normal normal normal 12px Poppins;
+    color: #8b8b8b;
+  }
+
+  section .content .create a {
+    font: normal normal 600 14px/23px Poppins;
+  }
+
+  section .content .logIn {
+    font-size: 12px;
+    margin-top: 40px;
+  }
+
+  section .content .logIn a {
+    font-size: 12px;
+  }
+
+  section .content .logIn button {
+    font: normal normal normal 12px Poppins;
+  }
+}

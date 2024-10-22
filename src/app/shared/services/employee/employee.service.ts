@@ -1,9 +1,10 @@
 import { Prospect } from './../../models/prospect';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Student } from '../../models/student';
+import { map } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -14,96 +15,293 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class EmployeeService {
+  filterData = new Subject<any>();
   // employee service ==> all employee APIs
   // Each function expresses its job
   email: string = String(localStorage.getItem('EmpEmail'));
   empEmail: string = String(localStorage.getItem('userEmail'));
   empUsername: string = String(localStorage.getItem('userName'));
+  empid: string = String(localStorage.getItem('userName'));
+  dateyear: number = new Date().getFullYear();
 
   employee!: any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getAllEmployeesStudents() {
-    return this.http.post<Student[]>(
-      environment.APIURL +
-        `employee/get/all/leads?empEmail=${this.empEmail}&empUserName=${this.empUsername}`,
+  getAllEmployeesStudentsJanthisyear() {
+    return this.http.get<Student[]>(
+      environment.APIURL + `prospects/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername
+      }&month=September&year=${this.dateyear - 1}`,
+      httpOptions
+    );
+  }
+  getEmployeesNotification() {
+    return this.http.get<Student[]>(
+      environment.APIURL + `prospects/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername
+      }&month=September&year=${this.dateyear - 1}`,
       httpOptions
     );
   }
 
-  //get all prospect
+  getAllEmployeesStudentsJthisyear() {
+    return this.http.get<Student[]>(
+      environment.APIURL + `prospects/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername}&month=January&year=${this.dateyear}`,
+      httpOptions
+    );
+  }
+
+  // getAllEmployeesStudents() {
+  //   return this.http.get<Student[]>(
+  //     environment.APIURL + `no-employee/students?empEmail=${this.empEmail}&empUserName=${this.empUsername
+  //     }&archive=${0}`,
+  //     httpOptions
+  //   );
+  // }
+
+  // Get all archived leads
+  getArchivedLeads() {
+    return this.http.get(
+      environment.APIURL + `no-employee/students?empEmail=${this.empEmail}&empUserName=${this.empUsername
+      }&archive=${1}`,
+      httpOptions
+    );
+  }
+
+  getAllEmployeesStudentsSepthisyear() {
+    return this.http.get<Student[]>(
+      environment.APIURL + `prospects/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername}&month=September&year=${this.dateyear}`,
+      httpOptions
+    );
+  }
+  getAllEmployeesStudentsJannextyear() {
+    return this.http.get<Student[]>(
+      environment.APIURL + `prospects/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername
+      }&month=January&year=${this.dateyear - 1}`,
+      httpOptions
+    );
+  }
+
+  getAllEmployeesStudentsCount() {
+    return this.http.post(environment.APIURL + `/count`, httpOptions);
+  }
+
   getAllProspect() {
+    return this.http.get<Prospect[]>(
+      environment.APIURL + `leads/intake?representative=${this.empid}&leadtype=4&year=null&month=null&archive=0`,
+      httpOptions
+    );
+  }
+  getAllProspectGrid() {
+    return this.http.get<Prospect[]>(
+      environment.APIURL + `prospects/intake?empUserName=${this.empid}&empEmail=${this.empEmail}&type=0&year=null&month=null`,
+      httpOptions
+    );
+  }
+  getAllApplications() {
+    return this.http.get(
+      environment.APIURL + `allapps/intake?empName=${this.empid}&type=0&year=null&month=null`,
+      httpOptions
+    );
+  }
+
+  sendToProspect(studentUserName, status) {
+    return this.http.put<Prospect[]>(
+      environment.APIURL + `employee/editstudentstatus?empid=${this.empid}&studentUserName=${studentUserName}&status=${status}`,
+      httpOptions
+    );
+  }
+  sendToApplicationApp(studentUserName, status) {
+    return this.http.put<Prospect[]>(
+      environment.APIURL + `employee/editstudentstatus?empid=${this.empid}&studentUserName=${studentUserName}&status=${status}`,
+      httpOptions
+    );
+  }
+  applicationStatus(studentUserName, status) {
+    return this.http.put(
+      environment.APIURL + `applications/status?empid=${this.empid}&studentUserName=${studentUserName}&status=${status}`,
+      httpOptions
+    );
+  }
+  prospectStatus(studentUserName, status) {
+    return this.http.put(
+      environment.APIURL + `employee/editprospectstatus?empid=${this.empid}&studentUserName=${studentUserName}&status=${status}`,
+      httpOptions
+    );
+  }
+
+  //get all schools data
+  getAllSchoolsData() {
+    return this.http.get(
+      environment.APIURL + `allschoolsdashboard`,
+      httpOptions
+    );
+  }
+  //add New School data
+  // addNewSchoolData(formData: any) {
+  //   return this.http.post(environment.APIURL + `data-school`, httpOptions, formData)
+  // }
+
+  addNewSchoolData(formData: any) {
+    return this.http.post(
+      environment.APIURL + `data-school`, formData, httpOptions);
+  }
+
+  //get all programs data
+  getAllProgramsData() {
+    return this.http.get(environment.APIURL + `programs?name=null`, httpOptions);
+  }
+
+  //get all registered leads
+  getAllRegisteredLeads() {
     return this.http.post<Prospect[]>(
-      environment.APIURL + `get/allpros`,
+      environment.APIURL + `get/accounts/created?empEmail=${this.empEmail}&empUserName=${this.empUsername}`,
       httpOptions
     );
   }
 
-  // add prospect
-  addProspect(
-    name: string,
-    email: string,
-    score: string,
-    empName: string,
-    phone: string,
-    nation: string,
-    foi: string
+
+  addNewLead(
+    studentFirstName: any,
+    studentLastName: any,
+    studentEmail: any,
+    studentPhone: any,
+    studnetSchoolInterest: any,
+    studnetProgInterest: any,
+    studentNationality: any,
+    studentCountryOfResidence: any,
+    serious: any,
+    empid: any,
+    intakeYear: any,
+    intakeMonth: any,
+    foi: any,
+    fututrelead: any,
+    budget: any,
+    password: any,
+    iswebsite: any,
+    source: any,
+    language_study: any,
+    eng_test_name: any,
+    eng_test_score: any,
+    fr_test_name: any,
+    fr_test_score: any,
+    commentContent: any,
+    entry_level: any
   ) {
     return this.http.post(
-      environment.APIURL +
-        `add/prospect?name=${name}&email=${email}&score=${score}&empid=${empName}&phone=${phone}&nation=${nation}&foi=${foi}`,
+      environment.APIURL + `leads?studentFirstName=${studentFirstName}&studentLastName=${studentLastName}&studentEmail=${studentEmail}&studentPhone=${studentPhone}&studnetSchoolInterest=${studnetSchoolInterest}&studnetProgInterest=${studnetProgInterest}&studentNationality=${studentNationality}&serious=${serious}&empid=${empid}&intakeYear=${intakeYear}&intakeMonth=${intakeMonth}&foi=${foi}&fututrelead=${fututrelead}&budget=${budget}&password=${password}&iswebsite=${iswebsite}&source=${source}&language_study=${language_study}&eng_test_name=${eng_test_name}&eng_test_score=${eng_test_score}&fr_test_name=${fr_test_name}&fr_test_score=${fr_test_score}&commentContent=${commentContent}&level=${entry_level}&countryofresidence=${studentCountryOfResidence}`,
+      httpOptions
+    );
+  }
+  editStudentLead(
+    studentusername: any,
+    studentFirstName: any,
+    studentLastName: any,
+    studentEmail: any,
+    studentPhone: any,
+    studnetSchoolInterest: any,
+    studnetProgInterest: any,
+    studentNationality: any,
+    studentCountryOfResidence: any,
+    serious: any,
+    empid: any,
+    intakeYear: any,
+    intakeMonth: any,
+    foi: any,
+    fututrelead: any,
+    budget: any,
+    source: any,
+    language_study: any,
+    eng_test_name: any,
+    eng_test_score: any,
+    fr_test_name: any,
+    fr_test_score: any,
+    entry_level: any,
+    prvschool: any
+  ) {
+    return this.http.put(
+      environment.APIURL + `student/view?studentusername=${studentusername}&studentFirstName=${studentFirstName}&studentLastName=${studentLastName}&studentEmail=${studentEmail}&studentPhone=${studentPhone}&studnetSchoolInterest=${studnetSchoolInterest}&studnetProgInterest=${studnetProgInterest}&studentNationality=${studentNationality}&studentCountryOfResidence=${studentCountryOfResidence}&serious=${serious}&empid=${empid}&intakeYear=${intakeYear}&intakeMonth=${intakeMonth}&foi=${foi}&fututrelead=${fututrelead}&budget=${budget}&source=${source}&language_study=${language_study}&eng_test_name=${eng_test_name}&eng_test_score=${eng_test_score}&fr_test_name=${fr_test_name}&fr_test_score=${fr_test_score}&level=${entry_level}&prvschool=${prvschool}`,
       httpOptions
     );
   }
 
-  editProspect(
-    username: string,
+  // add school
+  addSchool(school) {
+    // const school = {
+    //   "name": name,
+    //   "descr": '-',
+    //   "descr_fr": '-',
+    //   "alumni": '-',
+    //   "efmd": '-',
+    //   "ranking": ranking,
+    //   "aacsb": '-',
+    //   "amba": '-',
+    //   "equis": '-',
+    //   "field": '-',
+    //   "country": country,
+    //   "emba": '-',
+    //   "gmaps": '-',
+    //   "youtube": '-',
+    //   "coverpics": logo,
+    //   "logopics": cover
+    // }
+    return this.http.post(
+      environment.APIURL + `allschoolsdashboard`,
+      school,
+      httpOptions
+    );
+  }
+
+  // edit school
+  editSchool(
     name: string,
-    email: string,
-    foi: string,
-    phone: string,
-    score: string,
-    nationality: string
+    country: string,
+    ranking: string,
+    pics: string,
+    school
   ) {
     return this.http.post(
       environment.APIURL +
-        `/EditProspect?username=${username}&name=${name}&email=${email}&phone=${phone}&score=${score}&foi=${foi}&nationality=${nationality}`,
+      `editschooldashboard?id=${school.id}&name=${name}&descr=${school.descr
+      }&descr_fr=${school.descr_fr}&alumni=${school.alumni}&efmd=${school.EFMD
+      }&ranking=${ranking}&aacsb=${school.aacsb}&amba=${school.amba}&equis=${school.equis
+      }&field=${school.field.replace(/&/g, 'and')}&country=${country}&emba=${school.emba
+      }&gmaps=${school.gmaps}&youtube=${school.youtube}&pics=${pics}`,
       httpOptions
     );
   }
 
   // To get a specific employee students
   getEmployeeStudents() {
-    return this.http.post(
-      environment.APIURL +
-        `employee/students?empEmail=${this.empEmail}&empUserName=${this.empUsername}`,
+    return this.http.get(
+      environment.APIURL + `prospect/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername
+      }&month=September&year=${this.dateyear - 1}`,
       httpOptions
     );
   }
 
-  // To get all sub-agents info
-  getAllSubAgents() {
-    return this.http.post(
-      environment.APIURL +
-        `employee/getAllSubAgents?empUserName=${this.empUsername}&empEmail=${this.empEmail}`,
+  getEmployeeStudentstotal() {
+    return this.http.get(
+      environment.APIURL + `employee/students?empEmail=${this.empEmail}&empUserName=${this.empUsername}`,
       httpOptions
     );
   }
 
-  // To get all sub agents applications info
-  getSubAgentsApps() {
-    return this.http.post(
-      environment.APIURL +
-        `employee/getAppsOfSubAgent?empName=${this.empUsername}`,
+  getEmployeeStudentssepthis() {
+    return this.http.get(
+      environment.APIURL + `prospect/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername}&month=September&year=${this.dateyear}`,
       httpOptions
     );
   }
 
-  // To Delete a subagent
-  deleteSubAgent(username: string, email: string) {
-    return this.http.post(
-      environment.APIURL +
-        `employee/deleteSubAgent?empName=${this.empUsername}&empEmail=${this.empEmail}&subAgentUserName=${username}&subAgentEmail=${email}`,
+  getEmployeeStudentsjannext() {
+    return this.http.get(
+      environment.APIURL + `prospect/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername
+      }&month=January&year=${this.dateyear - 1}`,
+      httpOptions
+    );
+  }
+  getEmployeeStudentsjnnext() {
+    return this.http.get(
+      environment.APIURL + `prospect/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername}&month=January&year=${this.dateyear}`,
       httpOptions
     );
   }
@@ -111,26 +309,15 @@ export class EmployeeService {
   // Assign leads for employees
   assignLeads(studentUserName: string, empUserName: string) {
     return this.http.post(
-      environment.APIURL +
-        `employee/assign/emp/lead?userNameStudent=${studentUserName}&empUserName=${empUserName}`,
+      environment.APIURL + `employee/assign/emp/lead?userNameStudent=${studentUserName}&empUserName=${empUserName}`,
       httpOptions
     );
   }
 
   // Assign leads for prospect
   assignProspects(studentUserName: string) {
-    return this.http.post(
-      environment.APIURL +
-        `assign/pro/emp?username=${studentUserName}&EmpId=${this.empUsername}`,
-      httpOptions
-    );
-  }
-
-  // Get all archived leads
-  getArchivedLeads() {
-    return this.http.post(
-      environment.APIURL +
-        `employee/get/archived/leads?empName=${this.empUsername}`,
+    return this.http.put(
+      environment.APIURL + `assign/pro/emp?username=${studentUserName}&EmpId=${this.empUsername}`,
       httpOptions
     );
   }
@@ -138,8 +325,7 @@ export class EmployeeService {
   // To archive a lead
   archiveLead(studentEmail: string) {
     return this.http.post(
-      environment.APIURL +
-        `employee/archive/lead?empName=${this.empUsername}&studentEmail=${studentEmail}`,
+      environment.APIURL + `employee/archive/lead?empName=${this.empUsername}&studentEmail=${studentEmail}`,
       httpOptions
     );
   }
@@ -147,26 +333,15 @@ export class EmployeeService {
   // To archive a lead
   unarchiveLead(studentEmail: string) {
     return this.http.post(
-      environment.APIURL +
-        `restore/student/archive?empName=${this.empUsername}&studentEmail=[${studentEmail}]`,
+      environment.APIURL + `restore/student/archive?empName=${this.empUsername}&studentEmail=${studentEmail}`,
       httpOptions
     );
   }
 
-  // Get all archived leads
-  getArchivedApplications() {
-    return this.http.post(
-      environment.APIURL +
-        `employee/get/application/archived?empName=${this.empUsername}`,
-      httpOptions
-    );
-  }
-
-  // To archive a lead
+  // To archive an application
   archiveApplication(studentEmail: string) {
     return this.http.post(
-      environment.APIURL +
-        `employee/archive/app?studentEmail=${studentEmail}&empName=${this.empUsername}`,
+      environment.APIURL + `employee/archive/app?studentEmail=${studentEmail}&empName=${this.empUsername}`,
       httpOptions
     );
   }
@@ -174,72 +349,23 @@ export class EmployeeService {
   // To archive a lead
   unarchiveApplication(studentEmail: string) {
     return this.http.post(
-      environment.APIURL +
-        `restore/application/archive?empName=${this.empUsername}&studentEmail=[${studentEmail}]`,
+      environment.APIURL + `restore/application/archive?empName=${this.empUsername}&studentEmail=${studentEmail}`,
       httpOptions
     );
   }
 
-  // get Employee's Applications
+  getProspectNotifications(empName: string, empEmail: string, studenUsername: string) {
 
-  // empId == emplopyeeID which we can get it by getID() fun.
-  getMyApplication(empId: string): Observable<any> {
-    return this.http.post(environment.APIURL + `appsemp/${empId}`, httpOptions);
-  }
-
-  // delete all applications
-  deleteAllApps(email: String, empName: string) {
-    return this.http.post(
-      environment.APIURL + `delete_application?email=${email}&empid=${empName}`,
-      httpOptions
-    );
-  }
-
-  // return all employee's student
-  // email == employee's email which stored in localstorage whitin login
-  getMyStudents(email: string) {
-    return this.http.post(
-      environment.APIURL + `employeestudents?email=${email}`,
-      httpOptions
-    );
-  }
-
-  // To Edit employee's Student Info
-  oldEditStudent(
-    name: string,
-    nat: string,
-    email: string,
-    phone: string,
-    username: string,
-    school: string,
-    program: string
-  ) {
-    return this.http.post(
-      environment.APIURL +
-        `/editstudentinfo/${name}/${email}/${nat}/${phone}/${username}/${school}/${program}`,
-      httpOptions
-    );
-  }
-
-  editApp(
-    name: string,
-    nat: string,
-    email: string,
-    phone: string,
-    username: string
-  ) {
-    return this.http.post(
-      environment.APIURL +
-        `/editstudentinfo/${name}/${email}/${nat}/${phone}/${username}`,
+    return this.http.get<Student[]>(
+      environment.APIURL + `prospect/notification?empUserName=${empName}&empEmail=${empEmail}&studentusername=${studenUsername}`,
       httpOptions
     );
   }
 
   // To get latest notifications
   getNotifications() {
-    return this.http.post(
-      environment.APIURL +
-        `employee/get/getnotifications?empid=${this.empUsername}`,
+    return this.http.get(
+      environment.APIURL + `employee/get/getnotifications?empid=${this.empUsername}`,
       httpOptions
     );
   }
@@ -251,6 +377,67 @@ export class EmployeeService {
       httpOptions
     );
   }
+
+  // get suggested program
+  getSuggestedProgram(username: string, empusername?) {
+    const data = JSON.stringify({
+      "studentusername": username,
+      "empid": empusername
+    });
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      params: data,
+    };
+    return this.http.get(
+      environment.APIURL + `suggestprograms?data=${data}`,
+      httpOptions
+    );
+  }
+
+  // add suggested program
+  addSuggestedProgram(username: string, object: string) {
+    console.log(object);
+    return this.http.post(
+      environment.APIURL + `/suggestProgram?username=${username}&object=${object}`,
+      httpOptions
+    );
+  }
+  addSuggestedPrograms(program) {
+    return this.http.post(environment.APIURL + `suggestprograms`, program, httpOptions);
+  }
+
+  //EDIT SUGGESTED PROGRAM
+  editSuggestedProgram(program) {
+
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: program,
+    };
+    return this.http.put(
+      environment.APIURL + `suggestprograms`,
+      program,
+      httpOptions
+    );
+  }
+
+  //DELETE SUGGESTED PROGRAM
+  deleteSuggestedProgram(program) {
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: program,
+    };
+    return this.http.delete(
+      environment.APIURL + `suggestprograms`,
+      options
+    );
+  }
+
 
   // To get all programs names
   getProgramsNames() {
@@ -284,30 +471,37 @@ export class EmployeeService {
   ) {
     return this.http.post(
       environment.APIURL +
-        `empadd?studentFullName=${fullName}&studentEmail=${email}&empid=${empId}&studentPhone=${phone}&studnetSchoolInterest=${school}&studnetProgInterest=${program}&studentNationality=${country}&serious=${score}&source=${source}&intakeYear=${year}&intakeMonth=${month}`,
+      `empadd?studentFullName=${fullName}&studentEmail=${email}&empid=${empId}&studentPhone=${phone}&studnetSchoolInterest=${school}&studnetProgInterest=${program}&studentNationality=${country}&serious=${score}&source=${source}&intakeYear=${year}&intakeMonth=${month}`,
       httpOptions
     );
   }
 
   // To edit a student
   editStudent(
-    fullName: string,
-    email: string,
-    userName: string,
-    phone: string,
-    nationality: string,
-    school: string,
-    program: string,
-    source: string,
-    score: string,
-    status: string,
-    month: string,
-    year: string,
-    vip?: string
-  ) {
+email: string, userName: string, phone: string, nationality: string, school: string, program: string, source: string, score: string, status: string, month: string, year: string, previousSchool?: string, employeeName?: string, firstname?: string, lastname?: string  ) {
     return this.http.post(
       environment.APIURL +
-        `employee/editstudentinfo?empid=${this.empUsername}&studentFullName=${fullName}&studentEmail=${email}&studentUserName=${userName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolInterest=${school}&studnetProgInterest=${program}&source=${source}&serious=${score}&status=${status}&intakeYear=${year}&intakeMonth=${month}&vip=${vip}`,
+      `employee/editstudentinfo?empid=${employeeName}&studentEmail=${email}&studentUserName=${userName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolInterest=${school}&studnetProgInterest=${program}&source=${JSON.stringify(source)}&serious=${score}&status=${status}&intakeYear=${year}&intakeMonth=${month}&requested=${this.empUsername}&Prschool=${previousSchool}&studentFirstName=${firstname}&studentLastName=${lastname}`,
+      httpOptions
+    );
+  }
+
+  // To edit a lead
+  editLead(
+    fullName: string,
+    email: string,
+    interest: string,
+    phone: string,
+    score: string,
+    status: string,
+    nationality: string,
+    username: string
+  ) {
+    // foi=${encodeURIComponent(interest)}
+    console.log('service', fullName, email, interest, phone, score);
+    return this.http.put(
+      environment.APIURL +
+      `leads?username=${username}&name=${fullName}&status=${status}&phone=${phone}&score=${score}&foi=${interest}&empid=${this.empid}&nationality=${nationality}`,
       httpOptions
     );
   }
@@ -327,33 +521,130 @@ export class EmployeeService {
     campus: string,
     month: string,
     year: string,
-    vip?: string
+    schoolFee: number,
+    previousSchool: string,
+    id: number
   ) {
-    return this.http.post(
+    return this.http.put(
       environment.APIURL +
-        `employee/edit/app?empid=${this.empUsername}&studentFullName=${studentName}&studentEmail=${studentEmail}&studentUserName=${studentUserName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolName=${school}&studnetProgName=${program}&source=${source}&serious=${score}&status=${status}&schoolCampus=${campus}&studnetIntakeMonth=${month}&studnetIntakeYear=${year}&vip=${vip}`,
+      `applications?empid=${this.empUsername}&studentFullName=${studentName}&studentEmail=${studentEmail}&studentUserName=${studentUserName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolName=${school}&studnetProgName=${program}&source=${JSON.stringify(source)}&serious=${score}&status=${status}&schoolCampus=${campus}&studnetIntakeMonth=${month}&studnetIntakeYear=${year}&schoolFee=${schoolFee}&IDapp=${id}&Prschool=${previousSchool}`,
       httpOptions
     );
   }
 
+  // To edit secondary application
+  editSecondaryApplication(
+    studentName: string,
+    studentEmail: string,
+    studentUserName: string,
+    phone: string,
+    nationality: string,
+    school: string,
+    program: string,
+    source: string,
+    score: number,
+    status: string,
+    campus: string,
+    month: string,
+    year: string,
+    schoolFee: number,
+    id: number
+  ) {
+    return this.http.post(
+      environment.APIURL +
+      `empEditAppSecondary?empid=${this.empUsername}&studentFullName=${studentName}&studentEmail=${studentEmail}&studentUserName=${studentUserName}&studentPhone=${phone}&studentNationality=${nationality}&studnetSchoolName=${school}&studnetProgName=${program}&source=${source}&serious=${score}&status=${status}&schoolCampus=${campus}&studnetIntakeMonth=${month}&studnetIntakeYear=${year}&schoolFee=${schoolFee}&IDapp=${id}`,
+      httpOptions
+    );
+  }
+
+
+  editSecondaryApp(
+    studentUserName: string,
+    school: string,
+    program: string,
+    status: string,
+    campus: string,
+    id: number
+  ) {
+    return this.http.put(
+      environment.APIURL +
+      `empEditAppSecondary?empid=${this.empUsername}&studentUserName=${studentUserName}&studnetSchoolName=${school}&studnetProgName=${program}&status=${status}&schoolCampus=${campus}&IDapp=${id}`,
+      httpOptions
+    );
+  }
+
+  deleteSecondaryApp(id) {
+    return this.http.delete(
+      environment.APIURL + `secondary-apps?appid=${id.toString()}&empid=${this.empid}`,
+      httpOptions
+    );
+  }
+
+  getSecondaryPrograms(username: string) {
+    return this.http.get(
+      environment.APIURL +
+      `secondary-apps?username=${username}&empname=${this.empUsername}`
+    );
+
+  }
+
+
   // to add new employee
   addEmployee(name: string, email: string) {
     return this.http.post(
-      environment.APIURL + `addEmpDash?name=${name}&email=${email}`,
+      environment.APIURL + `employee?name=${name}&email=${email}`,
+      httpOptions
+    );
+  }
+
+  addNewEmployee(name: string, email: string, job: string, number: string, password: string) {
+    return this.http.post(
+      environment.APIURL + `employee?name=${name}&email=${email}&password=${password}&jobtitle=${job}&phone=${number}`,
       httpOptions
     );
   }
 
   // to get all employees
   getAllEmployees() {
-    return this.http.post(environment.APIURL + `GetEmpsDash`, httpOptions);
+    return this.http.get(
+      environment.APIURL + `representative-names`,
+      httpOptions
+    );
   }
+  getAllTargets(month, year, emptype: number) {
+    return this.http.get(
+      environment.APIURL + `target?month=${month}&year=${year}&type=${emptype}&targettype=${emptype}`,
+      httpOptions
+    );
+  }
+  getTheTargets(month, year, emptype: number) {
+    return this.http.get(
+      environment.APIURL + `target?month=${month}&year=${year}&type=${emptype}&targettype=${emptype}`,
+      httpOptions
+    );
+  }
+  MorningMail() {
+    return this.http.post(environment.APIURL + `morning/mail`, httpOptions);
+  }
+  EmployeeEmail(username: string, email: string) {
+    return this.http.post(
+      environment.APIURL + `/notistudents?username=${username}&email=${email}`,
+      httpOptions
+    );
+  }
+  ProspectNotification(username: string) {
+    return this.http.get(
+      environment.APIURL + `/prospectnotifications?username=${username}`,
+      httpOptions
+    );
+  }
+
 
   // To restore application to lead
   restoreApplication(userName: string) {
     return this.http.post(
       environment.APIURL +
-        `employee/retrive/application?empid=${this.empUsername}&studentUserName=${userName}`,
+      `employee/retrive/application?empid=${this.empUsername}&studentUserName=${userName}`,
       httpOptions
     );
   }
@@ -362,7 +653,7 @@ export class EmployeeService {
   softDeleteLead(userName: string) {
     return this.http.post(
       environment.APIURL +
-        `employee/delete/student?studentUserName=${userName}&empName=${this.empUsername}`,
+      `employee/delete/student?studentUserName=${userName}&empName=${this.empUsername}`,
       httpOptions
     );
   }
@@ -371,7 +662,7 @@ export class EmployeeService {
   getDeletedLeads() {
     return this.http.post(
       environment.APIURL +
-        `employee/get/soft_deleted/leads?empName=${this.empUsername}`,
+      `employee/get/soft_deleted/leads?empName=${this.empUsername}`,
       httpOptions
     );
   }
@@ -380,21 +671,21 @@ export class EmployeeService {
   restoreDeletedLeads(studentEmail: string) {
     return this.http.post(
       environment.APIURL +
-        `employee/restore/soft_deleted/leads?empName=${this.empUsername}&studentEmail=[${studentEmail}]`,
+      `employee/restore/soft_deleted/leads?empName=${this.empUsername}&studentEmail=${studentEmail}`,
       httpOptions
     );
   }
 
   // Soft delete application
   softDeleteApplication(appid: number) {
-    return this.http.post(
-      environment.APIURL + `employee/app/deletepp?appid=${appid}`,
+    return this.http.delete(
+      environment.APIURL + `applications?appid=${appid}`,
       httpOptions
     );
   }
 
-  // add new program
-  addNewProgram(
+  // add new application
+  addNewApplication(
     email: string,
     name: string,
     school: string,
@@ -405,7 +696,7 @@ export class EmployeeService {
   ) {
     return this.http.post(
       environment.APIURL +
-        `employee/add/newapp?email=${email}&name=${name}&school=${school}&program=${program}&empid=${empUserName}&month=${month}&year=${year}
+      `applications?email=${email}&name=${name}&school=${school}&program=${program}&empid=${empUserName}&month=${month}&year=${year}
       `,
       httpOptions
     );
@@ -415,7 +706,7 @@ export class EmployeeService {
   getDeletedApplications() {
     return this.http.post(
       environment.APIURL +
-        `employee/get/application/soft_deleted?empName=${this.empUsername}`,
+      `employee/get/application/soft_deleted?empName=${this.empUsername}`,
       httpOptions
     );
   }
@@ -428,34 +719,32 @@ export class EmployeeService {
     );
   }
 
-  // to restore application to prospect
-  restoreToProspect(userName: string) {
+  // to restore prospect to lead
+  restoreToProspect(userName: string, empid: any) {
     return this.http.post(
-      environment.APIURL + `employee/revert/prospect?username=${userName}`,
-      httpOptions
-    );
-  }
-
-  // get my prospect
-  getMyProspect() {
-    return this.http.post(
-      environment.APIURL + `/get/employeepros?empid=${this.empUsername}`,
+      environment.APIURL + `employee/revert/prospect?username=${userName}&empid=${empid}`,
       httpOptions
     );
   }
 
   // to send prospect to leads
   sendProspectToLeads(userName: string) {
+    // return this.http.post(
+    //   environment.APIURL + `/prosLead?username=${userName}`,
+    //   httpOptions
+    // );
     return this.http.post(
-      environment.APIURL + `/prosLead?username=${userName}`,
+      environment.APIURL +
+      `employee/assign/emp/lead?userNameStudent=${userName}&empUserName=${this.empid}`,
       httpOptions
     );
   }
 
   // to send prospect to leads
-  checkType() {
+  sendRegistered(studentUserName: string, empid: string) {
     return this.http.post(
-      environment.APIURL + `/checktype8?username=${this.empUsername}`,
+      environment.APIURL +
+      `newaccounttoprospect?studentUserName=${studentUserName}&empid=${empid}`,
       httpOptions
     );
   }
@@ -464,7 +753,7 @@ export class EmployeeService {
   restoreToLeads(userName: string) {
     return this.http.post(
       environment.APIURL +
-        `employee/retrive/application?empid=${this.empUsername}&studentUserName=${userName}`,
+      `employee/retrive/application?empid=${this.empUsername}&studentUserName=${userName}`,
       httpOptions
     );
   }
@@ -473,24 +762,22 @@ export class EmployeeService {
   changeStatus(status: string, userName: string, type: string) {
     return this.http.post(
       environment.APIURL +
-        `employee/student/update/status?status=${status}&studentUserName=${userName}&empName=${this.empUsername}&identifier=${type}`,
-      httpOptions
-    );
-  }
-
-  // To get statistics numbers
-  getStatistics(type: string) {
-    return this.http.post(
-      environment.APIURL +
-        `employee/getstatistics?identifier=${type}&empName=${this.empUsername}`,
+      `employee/student/update/status?status=${status}&studentUserName=${userName}&empName=${this.empUsername}&identifier=${type}`,
       httpOptions
     );
   }
 
   // To get comments
   getAllComments() {
-    return this.http.post(
-      environment.APIURL + `employee/get/comments?empName=${this.empUsername}`,
+    return this.http.get(
+      environment.APIURL + `comments?empName=${this.empUsername}`,
+      httpOptions
+    );
+  }
+
+  getStudentComments(email: string) {
+    return this.http.get(
+      environment.APIURL + `comments?studentemail=${email}&empname=${this.empUsername}`,
       httpOptions
     );
   }
@@ -499,65 +786,89 @@ export class EmployeeService {
   addNewComment(email: string, comment: string) {
     return this.http.post(
       environment.APIURL +
-        `employee/student/addComment?empName=${this.empUsername}&studentEmail=${email}&commentContent=${comment}`,
+      `comments?empName=${this.empUsername}&studentEmail=${email}&commentContent=${comment}`,
       httpOptions
     );
   }
 
   // To delete an old comments
   deleteOldComment(id: number) {
-    return this.http.post(
+    return this.http.delete(
       environment.APIURL +
-        `employee/delete/comment?commentId=${id}&empName=${this.empUsername}`,
+      `comments?commentId=${id}&empName=${this.empUsername}`,
       httpOptions
     );
   }
 
   // to edit old comments
   editOldComment(email: string, comment: string, id: number) {
-    return this.http.post(
+    return this.http.put(
       environment.APIURL +
-        `employee/student/edit/comment?empName=${this.empUsername}&studentEmail=${email}&updatedCommentContent=${comment}&commentId=${id}`,
+      `comments?empName=${this.empUsername}&studentEmail=${email}&updatedCommentContent=${comment}&commentId=${id}`,
       httpOptions
     );
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  getAllApps() {
-    return this.http.post(
-      environment.APIURL + `employee/get_all_roles?empName=${this.empUsername}`,
-      httpOptions
-    );
-  }
+
+  // Get all archived applications
 
   getSiteApps() {
-    return this.http.post(
+    return this.http.get(
       environment.APIURL + `get/app/website?empName=${this.empUsername}`,
       httpOptions
     );
   }
 
   getSchPrograms(sch: string) {
-    return this.http.post(
-      environment.APIURL + `get/progs/school?school=${sch}`,
+    return this.http.get(
+      environment.APIURL + `programs/school?school=${sch}`,
+      httpOptions
+    );
+  }
+  getCampus() {
+    return this.http.get(
+      environment.APIURL + `/cities`,
       httpOptions
     );
   }
 
   // To get emps app
   getEmployeeApps() {
-    return this.http.post(
-      environment.APIURL + `employee/apps/get?empName=${this.empUsername}`,
+    return this.http.get(
+      environment.APIURL +
+      `apps/intake?empName=${this.empUsername}&month=September&year=${this.dateyear - 1
+      }`,
+      httpOptions
+    );
+  }
+  getEmployeeAppsj() {
+    return this.http.get(
+      environment.APIURL +
+      `apps/intake?empName=${this.empUsername}&month=January&year=${this.dateyear}`,
       httpOptions
     );
   }
 
-  // get student's employeeID
-  // empID is the last index in array
-  getID() {
-    return this.http.post(
-      environment.APIURL + `profile/getstudentInfo?email=${this.email}`,
+  getEmployeeAppstotal() {
+    return this.http.get(
+      environment.APIURL + `applications?empName=${this.empUsername}`,
+      httpOptions
+    );
+  }
+  getEmployeeAppsjantwo() {
+    return this.http.get(
+      environment.APIURL +
+      `apps/intake?empName=${this.empUsername}&month=January&year=${this.dateyear - 1
+      }`,
+      httpOptions
+    );
+  }
+  getEmployeeAppssep() {
+    return this.http.get(
+      environment.APIURL +
+      `apps/intake?empName=${this.empUsername}&month=September&year=${this.dateyear}`,
       httpOptions
     );
   }
@@ -568,42 +879,11 @@ export class EmployeeService {
     return this.http.post(environment.APIURL + `delapp/${appId}`, httpOptions);
   }
 
-  // get application by type
-  // types is [requests, archive, pending-deposit, sent-to-school, to-be-sent]
-  getAppByType(type: string, empId: string) {
-    return this.http.post(
-      environment.APIURL + `getapps/${type}/${empId}`,
-      httpOptions
-    );
-  }
-
-  // change application status in db
-  changeAppStatus(
-    status: string,
-    empId: string,
-    appId: number,
-    studentUserName: string
-  ) {
-    return this.http.post(
-      environment.APIURL +
-        `updateapp/${status}/${empId}/${appId}/${studentUserName}`,
-      httpOptions
-    );
-  }
-
   // To archive applications
   archiveSelectedApps(emails: string[], empId: string) {
-    return this.http.post(
+    return this.http.put(
       environment.APIURL +
-        `archive/applications?studentEmail=[${emails}]&empName=${empId}`,
-      httpOptions
-    );
-  }
-
-  // to get archived applications
-  getArchivedApps(empId: string) {
-    return this.http.post(
-      environment.APIURL + `show/archive/applications?empName=${empId}`,
+      `archive/applications?studentEmail=[${emails}]&empName=${empId}`,
       httpOptions
     );
   }
@@ -627,22 +907,6 @@ export class EmployeeService {
   // get all student in database
   getAllStudents() {
     return this.http.post(environment.APIURL + 'getallstudents', httpOptions);
-  }
-  // to change student score
-  changeScore(email: string, score: string) {
-    return this.http.post(
-      environment.APIURL + `modifyscore?email=${email}&score=${score}`,
-      httpOptions
-    );
-  }
-
-  //  get all students in the amb array in db
-  getAllEmbStudents() {
-    return this.http.post(environment.APIURL + 'amb', httpOptions);
-  }
-  // change status of contacted in db
-  changeContactStatus(id: number) {
-    return this.http.post(environment.APIURL + `amb2/${id}`, httpOptions);
   }
 
   // To pass inputs to registration form
@@ -674,69 +938,68 @@ export class EmployeeService {
     );
   }
 
-  // Delete students from ambassador
-  deleteEmbStudents(id: number) {
-    return this.http.post(
-      environment.APIURL + `ambassador/delete?id=${id}`,
-      httpOptions
-    );
-  }
-
-  // add student to employee's student
-  // by student username and employee email
-  addToMyStudents(username: string, empId: string) {
-    return this.http.post(
-      environment.APIURL + `addstudent/${empId}/${username}`,
-      httpOptions
-    );
-  }
-
-  // add student to another employee
-  addToAnotherEmp(username: string, empId: string) {
-    return this.http.post(
-      environment.APIURL + `addstudent/${empId}/${username}`,
-      httpOptions
-    );
-  }
-
-  // the application has three actions to deal with
-  // accept == mean the application has been accepted in this level, so this app can move to the next level
-  // reject == mean the application has been rejected
-  // variable == the level where the app can move to [to-be-sent, sent-to-school, pending-deposit, archive],
-  //empId == EmployeeID, id == application's id
-  reponseToApplication(variable: string, empId: string, id: number) {
-    return this.http.post(
-      environment.APIURL + `updateapp/${variable}/${empId}/${id}`,
-      httpOptions
-    );
-  }
-
   // send Email to the student from employee
   sendEmail(message: string, studentemail: string, empolyee: string) {
     return this.http.post(
       environment.APIURL +
-        `messageemail/${message}/${studentemail}/${empolyee}`,
+      `messageemail/${message}/${studentemail}/${empolyee}`,
       httpOptions
     );
   }
 
   // To get all students
   getAllSchools() {
-    return this.http.post(environment.APIURL + 'getallschools', httpOptions);
-  }
-
-  // To get programs of school
-  getSchoolProgs(school: string) {
-    return this.http.post(
-      environment.APIURL + `getallprogs/${school}`,
-      httpOptions
-    );
+    return this.http.get(environment.APIURL + 'allschoolsnames', httpOptions);
   }
 
   // To get programs of school for edit program
   getEditSchoolProgs(school: string) {
+    return this.http.get(
+      environment.APIURL + `programs/school?school=${school}`,
+      httpOptions
+    );
+  }
+
+  // To add program
+  addProgram(
+    name: string,
+    type: string,
+    city: string,
+    level: string,
+    fees: number,
+    length: number,
+    intake: string,
+    lang: string,
+    schName: string
+  ) {
     return this.http.post(
-      environment.APIURL + `/get/progs/school?school=${school}`,
+      environment.APIURL +
+      `programs?name=${name}&language=${lang}&type=${type.replace(
+        /&/g,
+        'and'
+      )}&city=${city}&level=${level}&fee=${fees}&length=${length}&intake=${intake}&school=${schName}&spec=${'-'}`,
+      httpOptions
+    );
+  }
+  // To edit program
+  editProgram(
+    name: string,
+    type: string,
+    city: string,
+    level: string,
+    fees: number,
+    length: number,
+    intake: string,
+    lang: string,
+    schName: string,
+    id: string
+  ) {
+    return this.http.post(
+      environment.APIURL +
+      `/editProgramDashboard?name=${name}&language=${lang}&type=${type.replace(
+        /&/g,
+        '%26'
+      )}&city=${city}&level=${level}&fee=${fees}&length=${length}&intake=${intake}&school=${schName}&spec=${'-'}&id=${id}`,
       httpOptions
     );
   }
@@ -752,55 +1015,8 @@ export class EmployeeService {
   ) {
     return this.http.post(
       environment.APIURL +
-        `/edit/prog/school?progid=${ID}&progname=${name}&programtype=${type}&programcity=${city}&programlevel=${level}&programfee=${fees}
+      `/edit/prog/school?progid=${ID}&progname=${name}&programtype=${type}&programcity=${city}&programlevel=${level}&programfee=${fees}
       `,
-      httpOptions
-    );
-  }
-
-  // change status of a studend
-  changeStudentStatus(email: string, stats: string) {
-    return this.http.post(
-      environment.APIURL + `updatestatus/${email}/${stats}`,
-      httpOptions
-    );
-  }
-
-  // create students labels
-  createLabel(labelName: string, empName: string, color: string) {
-    return this.http.post(
-      environment.APIURL + `newlabel/${labelName}/${empName}/${color}`,
-      httpOptions
-    );
-  }
-
-  // get all labels
-  getEmpLabels(empName: string) {
-    return this.http.post(
-      environment.APIURL + `get_labels_emps/${empName}`,
-      httpOptions
-    );
-  }
-
-  // connect label id with student email
-  connectIdWithEmail(id: number, email: string) {
-    return this.http.post(
-      environment.APIURL + `labelstudent/${id}/${email}`,
-      httpOptions
-    );
-  }
-  // Then get the labels
-  getStudentLabels(email: string) {
-    return this.http.post(
-      environment.APIURL + `getlabelstud/${email}`,
-      httpOptions
-    );
-  }
-
-  // Delete a specific label
-  deleteLabel(id: number, email: string) {
-    return this.http.post(
-      environment.APIURL + `delete_label/${email}/${id}`,
       httpOptions
     );
   }
@@ -809,6 +1025,23 @@ export class EmployeeService {
   getComments(email: string) {
     return this.http.post(
       environment.APIURL + `get_student_comment/${email}`,
+      httpOptions
+    );
+  }
+
+  // to get all programs of a specific school
+  getSchoolPrograms(school: string) {
+    return this.http.post(
+      environment.APIURL + `AllProgramsPerSchoolDashboard?school=${school}`,
+      httpOptions
+    );
+  }
+
+  // to get secondary applications
+  getSecondaryApp(username: string) {
+    return this.http.get(
+      environment.APIURL +
+      `secondary-apps?username=${username}&empname=${this.empUsername}`,
       httpOptions
     );
   }
@@ -829,89 +1062,261 @@ export class EmployeeService {
     );
   }
 
-  // Create an application
-  createApplication(
-    program: string,
-    school: string,
+  // Create an secondary application
+  createSecondaryApplication(
+    username: string,
     email: string,
+    school: string,
+    program: string,
     city: string,
-    empName: string
+    status: string
   ) {
     return this.http.post(
       environment.APIURL +
-        `apply2/1?progname=${program}&schoolname=${school}&email=${email}&city=${city}&empid=${empName}`,
+      `secondary-apps?username=${username}&progname=${program}&schoolname=${school}&city=${city}&email=${email}&empid=${this.empUsername}&status=${status}`,
       httpOptions
     );
   }
 
-  deleteLabels(ids: any[]) {
-    return this.http.post(
-      environment.APIURL + `delete/label?id=[${ids}]`,
-      httpOptions
-    );
-  }
-
-  // move student to trash bin
-  moveToTrashBin(email: string, empId: string) {
-    return this.http.post(
-      environment.APIURL + `delete/student?email=${email}&emp=${empId}`,
-      httpOptions
-    );
-  }
-
-  // get students from trash bin
-  getTrashBinStudents(empId: string) {
-    return this.http.post(
-      environment.APIURL + `gettrashed/students?empName=${empId}`,
-      httpOptions
-    );
-  }
-
-  // archive Selected Students
-  archiveSelected(empId: string, emails: string[]) {
-    return this.http.post(
-      environment.APIURL + `archieve/student?email=[${emails}]&emp=${empId}`,
-      httpOptions
-    );
-  }
-
-  // restore archived students
-  restoreArchivedStudents(emails: string[], empId: string) {
+  // Create an secondary application
+  switchToSecondaryApplication(primary, secondary) {
     return this.http.post(
       environment.APIURL +
-        `restore/student/archive?empName=${empId}&studentEmail=[${emails}]`,
-      httpOptions
-    );
-  }
-
-  // restore archived students
-  restoreArchivedApps(emails: string[], empId: string) {
-    return this.http.post(
-      environment.APIURL +
-        `restore/archive/application?studentEmail=[${emails}]&empName=${empId}`,
-      httpOptions
-    );
-  }
-
-  // delete selected Students
-  deleteSelected(empId: string, emails: string[]) {
-    return this.http.post(
-      environment.APIURL + `student/delete?email=${emails}&emp=${empId}`,
-      httpOptions
-    );
-  }
-
-  // restore deleted Students
-  restoreDeletedStudents(emails: string[], empId: string) {
-    return this.http.post(
-      environment.APIURL +
-        `restore/student/trash?empName=${empId}&studentEmail=[${emails}]`,
+      `/switchPrimaryapp?app1=${secondary}&app2=${primary}`,
       httpOptions
     );
   }
 
   // To get all employees names
-  getAllEmps() {
-    return this.http.post(environment.APIURL + `getemps`, httpOptions);
+  getAllData() {
+    return this.http.post(environment.APIURL + `getcardData`, httpOptions);
   }
+
+  getCardData(month, year) {
+    return this.http.get(environment.APIURL + `getcardData?month=${month}&year=${year}`, httpOptions);
+  }
+
+  // To get profile numbers
+  getProfileNunmbers(userName: string) {
+    return this.http.get(
+      environment.APIURL + `profilenumber?empUsername=${userName}`,
+      httpOptions
+    );
+  }
+
+  // To delete emplyee
+  deleteEmplyee(emplyeeName: string) {
+    return this.http.delete(
+      environment.APIURL + `/employee?empUsername=${emplyeeName}`,
+      httpOptions
+    );
+  }
+  theEmplyee() {
+    return this.http.get(
+      environment.APIURL + `employee?username=${this.empUsername}`,
+      httpOptions
+    );
+  }
+  filterAction(leadType, year, month, archive) {
+    return this.http.get(
+      environment.APIURL + `/leads/intake?representative=${this.empUsername}&leadtype=${leadType}&year=${year}&month=${month}&archive=${archive}`,
+      httpOptions
+    );
+  }
+  filterProspectAction(Type, year, month, archive, soft) {
+    return this.http.get(
+      environment.APIURL + `/prospects/intake?empEmail=${this.empEmail}&empUserName=${this.empUsername}&type=${Type}&year=${year}&month=${month}&archive=${archive}&soft=${soft}`,
+      httpOptions
+    );
+  }
+  archiveAction(Type, year, month, archive, soft) {
+    return this.http.get(
+      environment.APIURL + `/prospects/intake/archive?empEmail=${this.empEmail}&empUserName=${this.empUsername}&type=${Type}&year=${year}&month=${month}&archive=${archive}&soft=${soft}`,
+      httpOptions
+    );
+  }
+  filterApplicationAction(Type, year, month, secondary, archive, soft) {
+    return this.http.get(
+      environment.APIURL + `/allapps/intake?empName=${this.empUsername}&type=${Type}&year=${year}&month=${month}&secondary=${secondary.toString()}&archive=${archive.toString()}&soft=${soft}`,
+      httpOptions
+    );
+  }
+
+  getStudentData(studentName, type) {
+    return this.http.get(
+      environment.APIURL + `/student/view?representative=${this.empUsername}&studentusername=${studentName}&type=${type}`,
+      httpOptions
+    );
+  }
+  getStudentDocs(studentName) {
+    return this.http.get(
+      environment.APIURL + `/apps/documnet?empName=${this.empUsername}&studentusername=${studentName}`,
+      httpOptions
+    );
+  }
+
+  getAllEmployeeNames() {
+    return this.http.get(
+      environment.APIURL + `employee-dashboard?username=${this.empUsername}`,
+      httpOptions
+    );
+  }
+
+
+  getProgramsByName(name: string) {
+    return this.http.get(
+      environment.APIURL + `programs?name=${name}`,
+      httpOptions
+    );
+  }
+
+  getProspects(Type, year, month, empUserName, empEmail, archive, soft) {
+    return this.http.get(
+      environment.APIURL + `/prospects/intake?empEmail=${empEmail}&empUserName=${empUserName}&type=${Type}&year=${year}&month=${month}&archive=${archive}&soft=${soft}`,
+      httpOptions
+    );
+  }
+  getMsg(threadid, msg) {
+    return this.http.get(
+      `https://admin-mfyg726r7q-uc.a.run.app/gator?threadid=${threadid}&message=${msg}`,
+      httpOptions
+    );
+  }
+  getMsgChatBotPage(threadid, msg) {
+    return this.http.post(
+      `https://mohanad-gadallah-mfyg726r7q-uc.a.run.app/tuinsBot?threadid=${threadid}&message=${msg}`,
+      httpOptions
+    );
+  }
+  getMsgChatBotMoroccoPage(threadid, msg) {
+    return this.http.post(
+      `https://mohanad-gadallah-mfyg726r7q-uc.a.run.app/morrccobot?threadid=${threadid}&message=${msg}`,
+      httpOptions
+    );
+  }
+
+  // To delete employee
+  deleteEmployee(empUsername) {
+    return this.http.get(
+      environment.APIURL + `/employee?delid=${empUsername}&username=${this.empUsername}`,
+      httpOptions
+    );
+  }
+  restoreAppProspect(Username) {
+    return this.http.post(
+      environment.APIURL + `/restore_app_prospect?username=${Username}&empid=${this.empUsername}`,
+      httpOptions
+    );
+  }
+
+
+  addArtical(link) {
+    return this.http.post(
+      environment.APIURL + `/article?link=${link}`,
+      httpOptions
+    );
+  }
+
+  deleteProspect(studentUsername) {
+    var del = {
+      "username": studentUsername,
+      'empid': this.empUsername
+    }
+
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: del,
+    };
+    return this.http.delete(
+      environment.APIURL + `/student/delete`,
+      options
+    );
+  }
+
+  editTarget(target, username, month, year, emptype) {
+    var edit = {
+      "month": month,
+      "year": year,
+      "empid": username,
+      "target": target,
+      "username": this.empUsername,
+      "targettype": emptype
+    }
+
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: edit,
+    };
+    return this.http.put(
+      environment.APIURL + `/targets`,
+      edit,
+      httpOptions
+    );
+  }
+
+  deleteTarget(username, month, year, emptype) {
+    var del = {
+      "month": month,
+      "year": year,
+      "empid": username,
+      "username": this.empUsername,
+      "targettype": emptype
+    }
+
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: del,
+    };
+    return this.http.delete(
+      environment.APIURL + `/targets`,
+      options
+    );
+  }
+
+  sendToPrimary(id, studentusername) {
+    var app = {
+      "studentusername": studentusername,
+      "empid": this.empUsername,
+      "appid": id
+    }
+
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: app,
+    };
+    return this.http.post(
+      environment.APIURL + `/switchprimaryapp`,
+      app,
+      httpOptions
+    );
+  }
+  addNewProgram(data) {
+ 
+    return this.http.post(
+      environment.APIURL + `/data-program`, data, httpOptions);
+  }
+  addNewSchool(data:any) {
+    const httpOptions2 = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'getSchool':'False'
+      }),
+    };
+    return this.http.post(environment.APIURL + `/data-school`, data, httpOptions2)
+  }
+  getAllCampus() {
+    return this.http.get(environment.APIURL + `/cities_dashboard`, httpOptions)
+  }
+  getSchoolNames(){
+    return this.http.get(environment.APIURL + `/data-school`,httpOptions)
+  }
+
 }

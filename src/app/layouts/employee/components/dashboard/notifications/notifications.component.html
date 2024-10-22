@@ -1,0 +1,13 @@
+<div class="mx-4">
+  <h4 class="noti_page">Notifications</h4>
+  
+  <app-prospects-table
+    [searchLeads]="searchLeads"
+    [sizeName]="sizeName"
+    [allStudents]="allStudents"
+    [originalStudents]="originalStudents"
+    [loading]="loading"
+    (refresh)="getStudents()"
+    class="p-0"
+  ></app-prospects-table>
+</div>

@@ -1,0 +1,711 @@
+<section class="register-section">
+  <div class="row">
+    <div class="login-card">
+    <div class="content">
+      <a routerLink="/landing/home">
+        <img src="../../../../../assets/images/elias_logo.svg" alt="SG logo" />
+      </a>
+      <h1 class="signup-text">S’inscrire</h1>
+      <!-- <p class="start">Let’s Start</p> -->
+      <div *ngIf="isLoading && !isError">
+        <div
+          class="spinner-border text-primary d-flex m-auto"
+          role="status"
+        ></div>
+      </div>
+      <div class="row">
+        <div class="btn-group">
+          <button
+            (click)="GoogleAuth()"
+            class="btn d-flex justify-content-center align-items-center google"
+          >
+            <img
+              src="/assets/images/login-pages/google.svg"
+              alt="google"
+              class="logo"
+            />
+            <p class="text-full">Connectez-vous avec Google</p>
+            <p class="text-mobile">Google</p>
+          </button>
+          <button
+            class="btn d-flex justify-content-center align-items-center facebook"
+            (click)="FaceBookAuth()"
+          >
+            <img
+              src="/assets/images/login-pages/facebook1.svg"
+              alt="facebook"
+              class="logo"
+            />
+            <p class="text-full">Connectez-vous avec Facebook</p>
+            <p class="text-mobile">Facebook</p>
+          </button>
+          <!-- <button
+          style="display: none;"
+          class="btn d-flex justify-content-center align-items-center facebook"
+          (click)="FaceBookAuth()"
+        >
+        <img
+        src="../../../../../assets/images/login-pages/Apple-logo.svg"
+        alt="facebook"
+        class="logo"
+      />
+      <p class="text-full">Sign up with Apple ID</p>
+      <p class="text-mobile">Apple</p>
+        </button> -->
+        </div>
+        <div
+          class="seperator d-flex justify-content-between align-items-center"
+        >
+          <hr />
+          <p>Ou</p>
+          <hr />
+        </div>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="isError">
+        <h4 class="alert-heading">Un problème est survenu !</h4>
+        <p>{{ errorMessage }}</p>
+      </div>
+      <div *ngIf="!isLoading">
+        <form
+          [formGroup]="registerationForm"
+          (ngSubmit)="onSubmit(registerationForm)"
+        >
+          <div class="row name-inputs">
+            <div class="col-lg-6 col-12">
+              <label for="name">Prénom</label>
+              <input
+                #authdisabled
+                type="text"
+                id="firstName"
+                formControlName="firstName"
+                class="form-control"
+                placeholder="Jean"
+                [(ngModel)]="firstName"
+                [ngClass]="{
+                  'border-danger':
+                    submitted && registerationForm.controls.firstName.invalid
+                }"
+                style="text-transform: capitalize"
+              />
+              <p
+                class="validation mb-3"
+                *ngIf="
+                  submitted && registerationForm.controls.firstName.invalid
+                "
+              >
+              Vous devez entrer un nom valide.
+              </p>
+            </div>
+            <div class="col-lg-6 col">
+              <label for="name">Nom</label>
+              <input
+                #authdisabled
+                type="text"
+                id="lastName"
+                formControlName="lastName"
+                class="form-control"
+                placeholder="DUPONT"
+                [(ngModel)]="lastName"
+                [ngClass]="{
+                  'border-danger':
+                    submitted && registerationForm.controls.lastName.invalid
+                }"
+                style="text-transform: uppercase"
+              />
+  
+              <p
+                class="validation mb-3"
+                *ngIf="submitted && registerationForm.controls.lastName.invalid"
+              >
+              Vous devez entrer un nom valide.
+              </p>
+            </div>
+          </div>
+
+          <div class="phone">
+            <label for="phone">Tél</label>
+            <ngx-intl-tel-input
+              [enableAutoCountrySelect]="false"
+              [enablePlaceholder]="true"
+              [searchCountryFlag]="true"
+              [searchCountryField]="[
+                SearchCountryField.Iso2,
+                SearchCountryField.Name
+              ]"
+              [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.Tunisia"
+              [maxlength]="15"
+              name="phone"
+              formControlName="phone"
+              [cssClass]="
+                submitted && registerationForm.controls.phone.invalid
+                  ? 'border-danger'
+                  : 'phone'
+              "
+            ></ngx-intl-tel-input>
+            <p
+              class="validation mb-2"
+              *ngIf="submitted && registerationForm.controls.phone.invalid"
+            >
+            Vous devez entrer un numéro de téléphone valide
+            </p>
+          </div>
+
+          <div class="email-input">
+            <label for="email">Adresse mail</label>
+            <input
+              #authdisabled1
+              type="email"
+              id="email"
+              formControlName="email"
+              class="form-control"
+              placeholder="Jeandupont@Courselysee.com"
+              [(ngModel)]="email"
+              [ngClass]="{
+                'border-danger':
+                  submitted && registerationForm.controls.email.invalid
+              }"
+            />
+            <p
+              class="validation mb-3"
+              *ngIf="
+                submitted &&
+                !isError &&
+                registerationForm.controls.email.errors?.required
+              "
+            >
+              You must Enter a Valid email.
+            </p>
+            <p
+              class="validation mb-3"
+              *ngIf="
+                submitted &&
+                isError &&
+                registerationForm.controls.email.invalid &&
+                registerationForm.controls.email.errors?.email
+              "
+            >
+            Cet e-mail est incorrect.
+            </p>
+          </div>
+
+          <div #authhidden class="password">
+            <label for="password">Mot de passe</label>
+            <mat-icon
+              fontSet="material-icons-outlined"
+              class="mat-icon"
+              (click)="showPassword()"
+              >{{ show ? "visibility_off" : "visibility_outlined" }}</mat-icon
+            >
+            <input
+              [type]="show ? 'text' : 'password'"
+              id="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="************"
+              [(ngModel)]="password"
+              [ngClass]="{
+                'border-danger':
+                  submitted && registerationForm.controls.password.invalid
+              }"
+            />
+
+            <p
+              class="validation mb-0"
+              *ngIf="
+                submitted &&
+                registerationForm.controls.password.errors?.required
+              "
+            >
+            Vous devez entrer un mot de passe
+            </p>
+            <p
+              class="validation mb-0"
+              *ngIf="
+                submitted &&
+                registerationForm.controls.password.invalid &&
+                (registerationForm.controls.password.errors?.password ||
+                  registerationForm.controls.password.errors?.pattern)
+              "
+            >
+            Votre mot de passe doit :
+            </p>
+            <ul
+              class="validation mb-0"
+              *ngIf="
+                submitted &&
+                registerationForm.controls.password.invalid &&
+                (registerationForm.controls.password.errors?.minlength ||
+                  registerationForm.controls.password.errors?.pattern)
+              "
+            >
+              <li>inclure à la fois des caractères minuscules et majuscules.</li>
+              <li>inclure au moins un chiffre et un symbole ($, @, !, %, *, ?, &)</li>
+              <li>faire au moins 8 caractères de long</li>
+            </ul>
+          </div>
+          <div #authhidden1 class="password">
+            <label for="confirmPassword">Confirmation du mot de passe</label>
+            <mat-icon
+              fontSet="material-icons-outlined"
+              class="mat-icon1"
+              (click)="showConfirmPassword()"
+              >{{
+                showConfirm ? "visibility_off" : "visibility_outlined"
+              }}</mat-icon
+            >
+            <input
+              [type]="showConfirm ? 'text' : 'password'"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              class="form-control"
+              placeholder="************"
+              [(ngModel)]="confirmPassword"
+              [ngClass]="{
+                'border-danger':
+                  submitted &&
+                  registerationForm.controls.confirmPassword.invalid
+              }"
+            />
+            <p
+              class="validation mb-3"
+              *ngIf="
+                submitted && registerationForm.controls.confirmPassword.invalid
+              "
+            >
+            Vous devez entrer le même mot de passe.
+            </p>
+          </div>
+          <div class="row select-age">
+            <div class="col-lg-6 col-12">
+              <label for="country">Pays</label>
+              <select
+                id="country"
+                formControlName="country"
+                class="form-select"
+                placeholder="select country"
+                [ngClass]="{
+                  'border-danger':
+                    submitted && registerationForm.controls.country.invalid
+                }"
+              >
+                <option value="" disabled>Sélectionnez un pays</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Åland Islands">Åland Islands</option>
+                <option value="Albania">Albania</option>
+                <option value="Algeria">Algeria</option>
+                <option value="American Samoa">American Samoa</option>
+                <option value="Andorra">Andorra</option>
+                <option value="Angola">Angola</option>
+                <option value="Anguilla">Anguilla</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Armenia">Armenia</option>
+                <option value="Aruba">Aruba</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Belarus">Belarus</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Belize">Belize</option>
+                <option value="Benin">Benin</option>
+                <option value="Bermuda">Bermuda</option>
+                <option value="Bhutan">Bhutan</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Bosnia and Herzegovina">
+                  Bosnia and Herzegovina
+                </option>
+                <option value="Botswana">Botswana</option>
+                <option value="Bouvet Island">Bouvet Island</option>
+                <option value="Brazil">Brazil</option>
+                <option value="British Indian Ocean Territory">
+                  British Indian Ocean Territory
+                </option>
+                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cambodia">Cambodia</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Canada">Canada</option>
+                <option value="Cape Verde">Cape Verde</option>
+                <option value="Cayman Islands">Cayman Islands</option>
+                <option value="Central African Republic">
+                  Central African Republic
+                </option>
+                <option value="Chad">Chad</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Christmas Island">Christmas Island</option>
+                <option value="Cocos (Keeling) Islands">
+                  Cocos (Keeling) Islands
+                </option>
+                <option value="Colombia">Colombia</option>
+                <option value="Comoros">Comoros</option>
+                <option value="Congo">Congo</option>
+                <option value="Congo, The Democratic Republic of The">
+                  Congo, The Democratic Republic of The
+                </option>
+                <option value="Cook Islands">Cook Islands</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Ivory Coast">Cote D'ivoire</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Djibouti">Djibouti</option>
+                <option value="Dominica">Dominica</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Egypt">Egypt</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                <option value="Eritrea">Eritrea</option>
+                <option value="Estonia">Estonia</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Falkland Islands (Malvinas)">
+                  Falkland Islands (Malvinas)
+                </option>
+                <option value="Faroe Islands">Faroe Islands</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="French Guiana">French Guiana</option>
+                <option value="French Polynesia">French Polynesia</option>
+                <option value="French Southern Territories">
+                  French Southern Territories
+                </option>
+                <option value="Gabon">Gabon</option>
+                <option value="Gambia">Gambia</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Germany">Germany</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Gibraltar">Gibraltar</option>
+                <option value="Greece">Greece</option>
+                <option value="Greenland">Greenland</option>
+                <option value="Grenada">Grenada</option>
+                <option value="Guadeloupe">Guadeloupe</option>
+                <option value="Guam">Guam</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guernsey">Guernsey</option>
+                <option value="Guinea">Guinea</option>
+                <option value="Guinea-bissau">Guinea-bissau</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Haiti">Haiti</option>
+                <option value="Heard Island and Mcdonald Islands">
+                  Heard Island and Mcdonald Islands
+                </option>
+                <option value="Holy See (Vatican City State)">
+                  Holy See (Vatican City State)
+                </option>
+                <option value="Honduras">Honduras</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Iceland">Iceland</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Iran, Islamic Republic of">
+                  Iran, Islamic Republic of
+                </option>
+                <option value="Iraq">Iraq</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Isle of Man">Isle of Man</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Japan">Japan</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Kiribati">Kiribati</option>
+                <option value="Korea, Democratic People's Republic of">
+                  Korea, Democratic People's Republic of
+                </option>
+                <option value="Korea, Republic of">Korea, Republic of</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                <option value="Lao People's Democratic Republic">
+                  Lao People's Democratic Republic
+                </option>
+                <option value="Latvia">Latvia</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Lesotho">Lesotho</option>
+                <option value="Liberia">Liberia</option>
+                <option value="Libyan Arab Jamahiriya">
+                  Libyan Arab Jamahiriya
+                </option>
+                <option value="Liechtenstein">Liechtenstein</option>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Macao">Macao</option>
+                <option value="Macedonia, The Former Yugoslav Republic of">
+                  Macedonia, The Former Yugoslav Republic of
+                </option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="Malawi">Malawi</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Mali">Mali</option>
+                <option value="Malta">Malta</option>
+                <option value="Marshall Islands">Marshall Islands</option>
+                <option value="Martinique">Martinique</option>
+                <option value="Mauritania">Mauritania</option>
+                <option value="Mauritius">Mauritius</option>
+                <option value="Mayotte">Mayotte</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Micronesia, Federated States of">
+                  Micronesia, Federated States of
+                </option>
+                <option value="Moldova, Republic of">
+                  Moldova, Republic of
+                </option>
+                <option value="Monaco">Monaco</option>
+                <option value="Mongolia">Mongolia</option>
+                <option value="Montenegro">Montenegro</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Namibia">Namibia</option>
+                <option value="Nauru">Nauru</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Netherlands Antilles">
+                  Netherlands Antilles
+                </option>
+                <option value="New Caledonia">New Caledonia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Niue">Niue</option>
+                <option value="Norfolk Island">Norfolk Island</option>
+                <option value="Northern Mariana Islands">
+                  Northern Mariana Islands
+                </option>
+                <option value="Norway">Norway</option>
+                <option value="Oman">Oman</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Palau">Palau</option>
+                <option value="Palestinian Territory, Occupied">
+                  Palestinian Territory, Occupied
+                </option>
+                <option value="Panama">Panama</option>
+                <option value="Papua New Guinea">Papua New Guinea</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Peru">Peru</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Pitcairn">Pitcairn</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Reunion">Reunion</option>
+                <option value="Romania">Romania</option>
+                <option value="Russian Federation">Russian Federation</option>
+                <option value="Rwanda">Rwanda</option>
+                <option value="Saint Helena">Saint Helena</option>
+                <option value="Saint Kitts and Nevis">
+                  Saint Kitts and Nevis
+                </option>
+                <option value="Saint Lucia">Saint Lucia</option>
+                <option value="Saint Pierre and Miquelon">
+                  Saint Pierre and Miquelon
+                </option>
+                <option value="Saint Vincent and The Grenadines">
+                  Saint Vincent and The Grenadines
+                </option>
+                <option value="Samoa">Samoa</option>
+                <option value="San Marino">San Marino</option>
+                <option value="Sao Tome and Principe">
+                  Sao Tome and Principe
+                </option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Serbia">Serbia</option>
+                <option value="Seychelles">Seychelles</option>
+                <option value="Sierra Leone">Sierra Leone</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Slovakia">Slovakia</option>
+                <option value="Slovenia">Slovenia</option>
+                <option value="Solomon Islands">Solomon Islands</option>
+                <option value="Somalia">Somalia</option>
+                <option value="South Africa">South Africa</option>
+                <option value="South Georgia and The South Sandwich Islands">
+                  South Georgia and The South Sandwich Islands
+                </option>
+                <option value="Spain">Spain</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Sudan">Sudan</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Svalbard and Jan Mayen">
+                  Svalbard and Jan Mayen
+                </option>
+                <option value="Swaziland">Swaziland</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Syrian Arab Republic">
+                  Syrian Arab Republic
+                </option>
+                <option value="Taiwan">Taiwan</option>
+                <option value="Tajikistan">Tajikistan</option>
+                <option value="Tanzania, United Republic of">
+                  Tanzania, United Republic of
+                </option>
+                <option value="Thailand">Thailand</option>
+                <option value="Timor-leste">Timor-leste</option>
+                <option value="Togo">Togo</option>
+                <option value="Tokelau">Tokelau</option>
+                <option value="Tonga">Tonga</option>
+                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Turkmenistan">Turkmenistan</option>
+                <option value="Turks and Caicos Islands">
+                  Turks and Caicos Islands
+                </option>
+                <option value="Tuvalu">Tuvalu</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="United Arab Emirates">
+                  United Arab Emirates
+                </option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="United States Minor Outlying Islands">
+                  United States Minor Outlying Islands
+                </option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Uzbekistan">Uzbekistan</option>
+                <option value="Vanuatu">Vanuatu</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Viet Nam">Viet Nam</option>
+                <option value="Virgin Islands, British">
+                  Virgin Islands, British
+                </option>
+                <option value="Virgin Islands, U.S.">
+                  Virgin Islands, U.S.
+                </option>
+                <option value="Wallis and Futuna">Wallis and Futuna</option>
+                <option value="Western Sahara">Western Sahara</option>
+                <option value="Yemen">Yemen</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+              </select>
+              <p
+                class="validation m-0"
+                *ngIf="submitted && registerationForm.controls.country.invalid"
+              >
+              Vous devez choisir un pays.
+              </p>
+            </div>
+            <div class="col">
+              <label for="age">Age</label>
+              <input
+                type="number"
+                id="age"
+                formControlName="age"
+                class="form-control"
+                placeholder="18"
+                min = 16
+                [ngClass]="{
+                  'border-danger':
+                    submitted && registerationForm.controls.age.invalid
+                }"
+              />
+              <!-- <select
+                id="country"
+                formControlName="country"
+                class="form-select"
+                placeholder="select country"
+                [ngClass]="{
+                  'border-danger':
+                    submitted && registerationForm.controls.country.invalid
+                }"
+              >
+                <option value="" disabled>Select Country</option>
+                <option [value]="loc" *ngFor="let loc in locations">
+                        {{ loc }}
+                      </option>
+                 <option *ngFor = "let loc in locations">{{loc}}</option> 
+              </select> -->
+              <p
+                class="validation m-0"
+                *ngIf="submitted && registerationForm.controls.age.invalid"
+              >
+              Vous devez entrer un âge
+              </p>
+            </div>
+
+
+            
+            <div class="col-12 contact-question">
+              <label for="contact">
+                Êtes-vous en contact avec l'un de nos représentants ?
+              </label>
+              <select
+                id="contact"
+                formControlName="contact"
+                class="form-select"
+                [ngClass]="{
+                  'border-danger':
+                    submitted && registerationForm.controls.contact.invalid
+                }"
+              >
+                <option value="" disabled>Sélectionner un représentant</option>
+                <!-- <option value="maitest/Alaa">
+                  ilyes
+                </option> -->
+                <option
+                  value="{{ representative.names }}"
+                  *ngFor="let representative of representatives"
+                >
+                  <div class="d-flex justify-content-evenly align-items-center">
+                    <p>{{ representative.names }}</p>
+                  </div>
+                </option>
+              </select>
+
+              <p
+                class="validation m-0"
+                *ngIf="submitted && registerationForm.controls.contact.invalid"
+              >
+                You must Select a representative.
+              </p>
+            </div>
+            <!-- <div
+              class="checkbox d-flex justify-content-start align-items-center"
+            >
+              <input
+                type="checkbox"
+                id="checkbox"
+                formControlName="keep"
+                value="true"
+                class="checkbox-input"
+                (click)="onCheckboxChange()"
+              />
+              <label class="ms-2 check-title"
+                >I agree to <span>terms & conditions</span></label
+              >
+            </div> -->
+          </div>
+          <div class="signUp">
+            <button class="btn" type="submit">S’inscrire</button>
+          </div>
+          <p class="logIn d-flex justify-content-center">
+            Vous avez déjà un compte ?
+            <a class="ms-2" routerLink="/auth/login"> Connexion </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

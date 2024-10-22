@@ -1,0 +1,37 @@
+p,
+h1,
+h2,
+h3 {
+  font-family: Poppins !important;
+}
+
+.container h1 {
+  font-size: 26px;
+  color: #000000;
+}
+
+.container h2 {
+  color: #16294f;
+}
+
+.container p {
+  color: #6c6c6c;
+  text-align: justify;
+}
+
+.container .bigBox {
+  background-color: white;
+  border-radius: 3px;
+  margin-bottom: 45px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-top: 45px;
+}
+
+.container .bigBox .content {
+  padding: 9px 52px;
+}
+
+.container .bigBox .agment {
+  font-size: 15px;
+  color: #000;
+}

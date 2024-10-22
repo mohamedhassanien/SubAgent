@@ -1,0 +1,133 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <h2 class="section-title">{{ isEdit ? "Edit" : "Add" }} Program</h2>
+      <div class="col-12">
+        <form
+          class="form-section"
+          [formGroup]="editForm"
+          (ngSubmit)="onSubmit(editForm)"
+        >
+          <div class="row align-items-start">
+            <div class="col-6 row mx-0">
+              <div class="col-12 input-col">
+                <label for="firstName">Program Name*</label>
+                <input
+                  type="text"
+                  id="programName"
+                  class="form-input"
+                  formControlName="programName"
+                  placeholder="Program name"
+                />
+              </div>
+
+              <div class="col-12 input-col d-flex flex-column">
+                <label for="firstName">Nom de l'école*</label>
+                <p-dropdown
+                  class="form-input"
+                  formControlName="schoolName"
+                  [options]="schools"
+                  placeholder="Select a school"
+                  optionLabel="schoolName"
+                ></p-dropdown>
+              </div>
+
+              <div class="col-12 input-col d-flex flex-column">
+                <label for="location">Location*</label>
+                <p-multiSelect
+                  [options]="locations"
+                  class="form-input"
+                  formControlName="locationName"
+                  display="chip"
+                  [filter]="true"
+                  optionLabel="name"
+                  placeholder="Select cities"
+                ></p-multiSelect>
+              </div>
+
+              <div class="col-12 input-col d-flex flex-column">
+                <label for="fee">Fee*</label>
+                <p-inputNumber
+                  mode="currency"
+                  currency="EUR"
+                  locale="fr-FR"
+                  class="form-input"
+                  formControlName="progFees"
+                  placeholder="Fee"
+                ></p-inputNumber>
+              </div>
+
+              <div class="col-12 input-col d-flex flex-column">
+                <label for="school">Field*</label>
+                <p-dropdown
+                  class="form-input"
+                  formControlName="fieldName"
+                  [options]="fields"
+                  placeholder="Select a field"
+                ></p-dropdown>
+              </div>
+
+              <div class="col-12 input-col">
+                <label for="duration">Duration*</label>
+                <p-inputNumber
+                  id="duration"
+                  class="form-input"
+                  formControlName="duration"
+                  suffix=" years"
+                  placeholder="Duration"
+                  mode="decimal"
+                  [maxFractionDigits]="1"
+                  [minFractionDigits]="1"
+                ></p-inputNumber>
+              </div>
+            </div>
+
+            <div class="col-6 row mx-0">
+              <div class="col-12 input-col d-flex flex-column">
+                <label for="requirement">Requirement*</label>
+                <p-multiSelect
+                  [options]="requirements"
+                  class="form-input requirements"
+                  formControlName="progLevel"
+                  display="chip"
+                  placeholder="Select requirements"
+                ></p-multiSelect>
+              </div>
+
+              <div class="col-12 input-col d-flex flex-column">
+                <label for="language">Language*</label>
+                <p-multiSelect
+                  [options]="languages"
+                  class="form-input languages"
+                  formControlName="languageName"
+                  display="chip"
+                  placeholder="Select languages"
+                ></p-multiSelect>
+              </div>
+
+              <div class="col-12 input-col d-flex flex-column">
+                <label for="intake">Intake*</label>
+                <p-multiSelect
+                  [options]="intakes"
+                  class="form-input languages"
+                  formControlName="intakeName"
+                  display="chip"
+                  placeholder="Select intakes"
+                ></p-multiSelect>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button
+                class="submit-button"
+                type="submit"
+                [disabled]="!editForm.valid"
+              >
+                {{ isEdit ? "Edit" : "Add" }} Program
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,365 @@
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+p span {
+  font-weight: 600;
+}
+
+.first-section .back-orange {
+  margin-top: 40px;
+}
+
+.first-section .back-orange h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.first-section .back-orange .one-col {
+  background: #FFF2C2;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 10px;
+  padding: 16px 21px;
+  align-items: center;
+  margin: auto;
+  display: block;
+  width: 527px;
+  text-align: center;
+}
+
+.first-section .back-orange .one-col h5 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.first-section .back-orange .one-col p {
+  padding-top: 8px;
+}
+
+.first-section .back-orange .last-orange {
+  background: #FFF2C2;
+  border-radius: 5px;
+  margin-top: 24px;
+}
+
+.first-section .back-orange .last-orange h4 {
+  padding: 16px;
+  text-align: center;
+}
+
+.first-section .back-red {
+  background: #FDC9C9;
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.first-section .back-red h1 {
+  font-size: 22px;
+  text-align: center;
+}
+
+.first-section .back-red ul {
+  background: #FFE4E4;
+  border-radius: 5px;
+  padding: 16px 16px 16px 31px;
+  margin-top: 10px;
+}
+
+.accordion {
+  margin-top: 40px;
+}
+
+.accordion h1 {
+  margin-bottom: -20px;
+}
+
+.accordion .row .accordion-item {
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  margin-bottom: 24px;
+}
+
+.accordion .row .accordion-item h2 {
+  width: 100%;
+  margin: 0;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+}
+
+.accordion .row .accordion-item h2 button {
+  border-radius: 10px;
+  box-shadow: none !important;
+  border: none;
+  background: #fbe8ea;
+}
+
+.accordion .row .accordion-item h2 button::after {
+  display: none;
+}
+
+.accordion .row .accordion-item h2 button h3 {
+  font-weight: 600;
+}
+
+.accordion .row .accordion-item h2 .collapsed {
+  background: #fbe8ea;
+  border: none !important;
+  border-radius: 10px;
+  line-height: 1.2;
+  padding: 12px 24px 12px 24px;
+}
+
+.accordion .row .accordion-item h2 .collapsed::after {
+  border: none;
+}
+
+.accordion .row .accordion-item h2 .collapsed h3 {
+  font-weight: 400;
+}
+
+.accordion .row .accordion-item h2 img {
+  width: 24px;
+  height: 24px;
+}
+
+.accordion .row .accordion-item .accordion-body {
+  background-color: white;
+  margin-top: 8px;
+  border-radius: 10px;
+  padding: 12px 24px;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+}
+
+.accordion .row .accordion-item .accordion-body .click-here {
+  cursor: pointer;
+}
+
+.accordion .row .accordion-item .accordion-body .describtion a {
+  text-decoration: none;
+  color: rgb(111, 119, 244);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  h4 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .first-section .back-red {
+    border-radius: 5px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .first-section .back-red h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .first-section .back-red ul {
+    padding: 8px 8px 8px 24px;
+    margin-top: 8px;
+  }
+
+  .first-section .back-red ul p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .first-section .back-orange {
+    margin-top: 32px;
+  }
+
+  .first-section .back-orange h1 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .first-section .back-orange .one-col {
+    padding: 8px 16px;
+    align-items: center;
+    margin: auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .first-section .back-orange .one-col h5 {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .first-section .back-orange .one-col p {
+    padding-top: 8px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .first-section .back-orange .last-orange {
+    margin-top: 16px;
+  }
+
+  .first-section .back-orange .last-orange h4 {
+    padding: 8px;
+  }
+
+  .accordion {
+    margin-top: 32px;
+  }
+
+  .accordion h1 {
+    margin-bottom: -20px;
+  }
+
+  .accordion .row .accordion-item {
+    margin-bottom: 16px;
+  }
+
+  .accordion .row .accordion-item h2 button {
+    padding: 12px 16px;
+  }
+
+  .accordion .row .accordion-item h2 .collapsed {
+    padding: 12px 16px;
+  }
+
+  .accordion .row .accordion-item .accordion-body {
+    padding: 12px 16px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  h4 {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .first-section .back-red {
+    padding: 8px;
+    margin-top: 8px;
+  }
+
+  .first-section .back-red h1 {
+    font-size: 14px;
+  }
+
+  .first-section .back-red ul {
+    padding: 8px 4px 8px 23px;
+    margin-top: 8px;
+  }
+
+  .first-section .back-red ul p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .first-section .back-orange {
+    margin-top: 24px;
+  }
+
+  .first-section .back-orange h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .first-section .back-orange .one-col {
+    padding: 4px 8px;
+    align-items: center;
+    margin: auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .first-section .back-orange .one-col h5 {
+    font-size: 16px;
+  }
+
+  .first-section .back-orange .one-col p {
+    padding-top: 4px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .first-section .back-orange .last-orange {
+    margin-top: 8px;
+  }
+
+  .first-section .back-orange .last-orange h4 {
+    padding: 4px;
+  }
+
+  .accordion {
+    margin-top: 24px;
+  }
+
+  .accordion h1 {
+    margin-bottom: -10px;
+  }
+
+  .accordion .row .accordion-item {
+    margin-bottom: 12px;
+  }
+
+  .accordion .row .accordion-item h2 button {
+    padding: 8px 16px 8px 8px;
+  }
+
+  .accordion .row .accordion-item h2 .collapsed {
+    padding: 8px 16px 8px 8px;
+  }
+
+  .accordion .row .accordion-item .accordion-body {
+    padding: 8px;
+  }
+}

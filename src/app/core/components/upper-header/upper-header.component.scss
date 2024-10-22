@@ -1,0 +1,43 @@
+section {
+  height: 60px;
+  background: transparent linear-gradient(250deg, #7f87f8 0%, #6770f7 100%) 0%
+    0% no-repeat padding-box;
+  .container {
+    width: 1366px !important;
+  }
+  .phone {
+    font: normal normal 500 16px/25px Poppins;
+    color: #ffffff;
+    i {
+      font-size: 20px;
+    }
+  }
+  .offer {
+    font: normal normal 500 16px/25px Poppins;
+    color: #fff;
+    span {
+      color: #ffd844;
+      text-transform: capitalize;
+    }
+  }
+  .links {
+    a {
+      color: #fff;
+      .circle {
+        width: 26px;
+        height: 26px;
+        border: 1px solid #ffffff;
+        border-radius: 50%;
+        &:hover {
+          background-color: #000;
+          border: 0;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 1199.9px) {
+  span {
+    display: inline-block;
+  }
+}

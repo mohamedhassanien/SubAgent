@@ -1,0 +1,146 @@
+section {
+  background: var(--background, #F7F7F7);
+  padding: 40px 48px;
+
+  .main-prog {
+    position: relative;
+
+    .progress {
+      .progress-bar {
+        background-color: #16294f;
+
+        &::after {
+          content: '';
+          background-image: url('../../../assets/images/chat-bot/air.svg');
+        }
+      }
+
+      .progcount {
+        color: var(--untap, #636363);
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .information {
+    h1 {
+      color: var(--secondry-red, #FF5151);
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--content-grey, #444);
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  section {
+    background: var(--background, #F7F7F7);
+    padding: 40px 28px;
+
+    .main-prog {
+      position: relative;
+
+      .progress {
+        .progress-bar {
+          background-color: #16294f;
+
+          &::after {
+            content: '';
+            background-image: url('../../../assets/images/chat-bot/air.svg');
+          }
+        }
+
+        .progcount {
+          color: var(--untap, #636363);
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .information {
+      h1 {
+        color: var(--secondry-red, #FF5151);
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      p {
+        color: var(--content-grey, #444);
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 12px;
+        margin-bottom: 24px;
+      }
+    }
+
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  section {
+    background: var(--background, #F7F7F7);
+    padding: 20px 16px;
+
+    .main-prog {
+      position: relative;
+      margin-top: 22px;
+
+      .progress {
+        .progress-bar {
+          background-color: #16294f;
+
+          &::after {
+            content: '';
+            background-image: url('../../../assets/images/chat-bot/air.svg');
+          }
+        }
+
+
+        .progcount {
+          color: var(--untap, #636363);
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .information {
+      h1 {
+        color: var(--secondry-red, #FF5151);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      p {
+        color: var(--content-grey, #444);
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: 0px;
+        margin-bottom: 17px;
+      }
+
+      img {
+        width: 50%;
+        margin-bottom: 16px;
+      }
+    }
+
+  }
+}
+
+// @media (max-width: 575.98px) {
+//   .container {
+//     padding: 0;
+
+//   }
+// }

@@ -1,0 +1,226 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <!-- <h2 class="section-title">All Leads</h2>
+      <section class="stats-section row p-0"> -->
+      <!-- <div class="col-lg-3 col-12">
+            <div
+              class="stats-col d-flex justify-content-between align-items-center"
+              (click)="filterStatus('Total Users')"
+              (click)="
+                tUsers = true; fContact = false; cPrograms = false; pDocs = false
+              "
+              [class.active]="tUsers"
+            >
+              <div> -->
+      <!-- <p class="number">{{ employeeStats?.getAll }}</p> -->
+      <!-- <p class="number">{{ totalusers }}</p>
+                <p class="stats">Total Users</p>
+              </div>
+              <img
+                src="/../assets/images/employees/lead-visualisation/total-usesrs.svg"
+                alt="Total Usesrs"
+              />
+            </div>
+          </div>
+          <div class="col-lg-3 col-12">
+            <div
+              class="stats-col d-flex justify-content-between align-items-center"
+              (click)="filterStatus('First Contact')"
+              (click)="
+                tUsers = false; fContact = true; cPrograms = false; pDocs = false
+              "
+              [class.active]="fContact"
+            >
+              <div> -->
+      <!-- <p class="number">{{ employeeStats?.getApplied }}</p> -->
+      <!-- <p class="number">{{ FirstContact }}</p>
+                <p class="stats">First Contact <span class="text-danger">({{ firstCoReminders }})</span></p>
+              </div>
+              <img
+                src="/../assets/images/employees/lead-visualisation/Applied-users.svg"
+                alt="Applied Users"
+              />
+            </div>
+          </div>
+          <div class="col-lg-3 col-12">
+            <div
+              class="stats-col d-flex justify-content-between align-items-center"
+              (click)="filterStatus('Checking Programs')"
+              (click)="
+                tUsers = false; fContact = false; cPrograms = true; pDocs = false
+              "
+              [class.active]="cPrograms"
+            >
+              <div> -->
+      <!-- <p class="number">{{ employeeStats?.getFirstContact }}</p> -->
+      <!-- <p class="number">{{ CheckingPrograms }}</p>
+                <p class="stats">
+                  Checking Programs <span class="text-danger">({{ checkingProReminders }})</span>
+                </p>
+              </div>
+              <img
+                src="/../assets/images/employees/lead-visualisation/First-contact.svg"
+                alt="First Contact"
+              />
+            </div>
+          </div>
+          <div class="col-lg-3 col-12">
+            <div
+              class="stats-col d-flex justify-content-between align-items-center"
+              (click)="filterStatus('Preparing Docs')"
+              (click)="
+                tUsers = false; fContact = false; cPrograms = false; pDocs = true
+              "
+              [class.active]="pDocs"
+            >
+              <div> -->
+      <!-- <p class="number">{{ employeeStats?.getPreparingDocs }}</p> -->
+      <!-- <p class="number">{{ preparingDocs }}</p>
+                <p class="stats">
+                  Preparing Docs <span class="text-danger">({{ preparingDocsReminders }})</span>
+                </p>
+              </div>
+              <img
+                src="/../assets/images/employees/lead-visualisation/Preparing-docs.svg"
+                alt="Preparing Docs"
+              />
+            </div>
+          </div>
+      </section> -->
+      <section class="table-section row">
+        <!-- Web -->
+        <!-- <div
+            class="customization col-12 d-lg-flex align-items-center justify-content-between d-none"
+          >
+            <div class="table-size d-flex align-items-center">
+              <p class="data-size">Data size:</p>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                >
+                  {{ sizeName }} Rows
+                </button>
+                <div class="dropdown-menu">
+                  <div *ngFor="let size of sizes; let i = index">
+                    <option
+                      (click)="sizeName = size; pageSize = size; dropdown.click()"
+                    >
+                      {{ size }} Rows
+                    </option>
+                    <hr *ngIf="i !== sizes.length - 1" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="search-part d-flex align-items-center">
+              <p class="search-title">Search</p>
+              <input
+                type="text"
+                placeholder="Search"
+                class="search-input"
+                [(ngModel)]="searchLeads"
+              />
+              <a
+                class="add-button"
+                [routerLink]="[
+                  '/employees',
+                  empName,
+                  'dashboard',
+                  'lead-management',
+                  'add-lead'
+                ]"
+              >
+                Add lead
+              </a>
+              <button
+                class="reset-btn d-flex justify-content-center align-items-center ms-3"
+                (click)="resetFilter()"
+              >
+                <i class="fas fa-redo-alt me-2"></i>
+                Reset
+              </button>
+            </div>
+          </div> -->
+        <!-- Mobile -->
+        <!-- <div class="customization col-12 d-lg-none">
+            <div class="row">
+              <div class="col-12">
+                <div class="search-part d-flex flex-column align-items-start">
+                  <p class="search-title">Search</p>
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="search-input"
+                    [(ngModel)]="searchLeads"
+                  />
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="table-size d-flex flex-column align-items-start">
+                  <p class="data-size">Data size:</p>
+                  <div class="dropdown-center dropdown-col" #dropdown>
+                    <button
+                      class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="0,12"
+                    >
+                      {{ sizeName }} Rows
+                    </button>
+                    <div class="dropdown-menu">
+                      <div *ngFor="let size of sizes; let i = index">
+                        <option
+                          (click)="
+                            sizeName = size; pageSize = size; dropdown.click()
+                          "
+                        >
+                          {{ size }} Rows
+                        </option>
+                        <hr *ngIf="i !== sizes.length - 1" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col d-flex align-items-end">
+                <a
+                  class="add-button w-100 d-flex justify-content-center"
+                  [routerLink]="[
+                    '/employees',
+                    empName,
+                    'dashboard',
+                    'lead-management',
+                    'add-lead'
+                  ]"
+                >
+                  Add lead
+                </a>
+                <button
+                  class="reset-btn d-flex justify-content-center align-items-center ms-2"
+                  (click)="resetFilter()"
+                >
+                  <i class="fas fa-redo-alt me-2"></i>
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div> -->
+        <app-prospects-table
+          [searchLeads]="searchLeads"
+          [sizeName]="sizeName"
+          [allStudents]="allStudents"
+          [originalStudents]="originalStudents"
+          [loading]="loading"
+          (refresh)="getStudents()"
+          class="p-0"
+        ></app-prospects-table>
+      </section>
+    </div>
+  </div>
+</section>

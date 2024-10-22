@@ -1,0 +1,635 @@
+<section>
+  <!-- <div class="btn-group col-xs-12">
+      <div class="select">
+          <input type="checkbox" id="item_1">
+          <label class="btn" for="item_1">Business</label>
+      </div>
+      
+      <div class="select">
+          <input type="checkbox" id="item_2">
+          <label class="btn" for="item_2">Art, Design & Architecture</label>
+      </div>
+      
+      <div class="select">
+          <input type="checkbox" id="item_3">
+          <label class="btn" for="item_3">Law</label>
+      </div>
+      
+      <div class="select">
+          <input type="checkbox" id="item_4">
+          <label class="btn" for="item_4">Engineering</label>
+      </div>
+      <div class="select">
+        <input type="checkbox" id="item_5">
+        <label class="btn" for="item_5">Others</label>
+    </div>
+    </div> -->
+
+  <!-- <p>Single Option </p>
+    <div class="btn-group col-xs-12">
+        <label class="option">
+          <input type="radio" name="optradio"><span class="btn btn-warning btn-option">Option 1</span>
+        </label>
+        <label class="option">
+        <input type="radio" name="optradio"><span class="btn btn-warning btn-option">Option 2</span>
+        </label>
+        <label class="option">
+        <input type="radio" name="optradio"><span class="btn btn-warning btn-option">Option 3</span>
+        </label>
+    </div> -->
+  <div class="">
+    <div class="row progress-row d-flex justify-content-center">
+      <div class="col-md-12">
+        <div class="progress-box">
+          <!-- <div class="information">
+            <h1>Hi {{ student?.studentName }}</h1>
+            <p>To get started, let's define your search criteria together in 3 steps!</p>
+          </div> -->
+          <!-- <div class="right-info">
+            <p class="progress-percentage">
+              <span>{{ progressCount }}</span> let's start
+            </p>
+            <div class="progress" >
+              <div
+                class="progress-bar"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                [ngStyle]="{ width: progressWidth + '%' }"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="left-section">
+      <div class="chat-content">
+        <!-- default msg -->
+        <!-- <div class="row">
+          <div class="col-lg-1 col-md-1 col-2 px-0">
+            <img
+              src="../../../../assets/images/chat-bot/logo.svg"
+              class="w-75 d-flex align-items-end mx-0 mx-md-5"
+              alt="nico_logo"
+              [ngStyle]="{ 'margin-top': imgHeight + 'em' }"
+            />
+            <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo">
+          </div>
+        </div> -->
+
+        <section #education>
+          <h5>Education</h5>
+          <!-- Defualt step -->
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-2 px-0">
+              <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+            </div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <div class="chat-info">
+                <div class="card">
+                  <div class="d-flex align-items-start">
+                    <img class="me-2" src="../../../../assets/images/chat-bot/waving-hand-gesture 1.svg" alt="waving" />
+                    <p>
+                      Hello! I'm here to guide you through the exciting journey
+                      of studying abroad. To help me provide you with the best
+                      advice, could you please answer a few questions?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1-q -->
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <!-- Education step -->
+              <div class="chat-info">
+                <div class="card mt-lg-3 mt-md-3 mt-2">
+                  <p>What is your current status?</p>
+                </div>
+
+                <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                  <div class="button-group p-0">
+                    <button [style.background-color]="color == 1 ? '#fbe8ea' : ''" class="btn col-lg-4 col-md-3 col-12"
+                      (click)="getEduLevel($event)">
+                      I am in high school
+                    </button>
+                    <button [style.background-color]="color == 2 ? '#fbe8ea' : ''"
+                      class="btn col-lg-4 col-md-3 col-12 mt-lg-0 mt-md-0 mt-2" (click)="getEduLevel($event)">
+                      I am in University
+                    </button>
+                    <button [style.background-color]="color == 3 ? '#fbe8ea' : ''"
+                      class="btn col-lg-3 me-0 col-md-3 col-12 mt-lg-0 mt-md-0 mt-2" (click)="getEduLevel($event)">
+                      I have graduated
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2-q -->
+          <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="isSchool">
+            <div class="col-lg-1 col-md-1 col-2 px-0">
+              <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+            </div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <div class="chat-info">
+                <div class="card">
+                  <p>What is your highest level of education ?</p>
+                </div>
+                <div class="button-group row mt-lg-4 mt-md-4 mt-3 d-flex">
+                  <button [style.background-color]="edu_grade == 1 ? '#fbe8ea' : ''" class="btn col-lg-3 co-md-3 col-4"
+                    (click)="getGrade($event)">
+                    11th grade
+                  </button>
+                  <button [style.background-color]="edu_grade == 2 ? '#fbe8ea' : ''" class="btn col-lg-3 co-md-3 col-4"
+                    (click)="getGrade($event)">
+                    12th grade
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3-q -->
+          <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="isUniversity">
+            <div class="col-lg-1 col-md-1 col-2 px-0">
+              <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+            </div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <div class="chat-info">
+                <div class="card">
+                  <p>What is your highest level of education ?</p>
+                </div>
+
+                <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                  <button [style.background-color]="edu_grade == 1 ? '#fbe8ea' : ''" class="btn col-lg-3 col-md-3 col-5"
+                    (click)="getGrade($event)">
+                    First year
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 2 ? '#fbe8ea' : ''" class="btn col-lg-3 col-md-3 col-5"
+                    (click)="getGrade($event)">
+                    Second year
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 3 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5 mt-lg-0 mt-md-0 mt-2" (click)="getGrade($event)">
+                    Third year
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 4 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5 mt-lg-3 mt-md-3 mt-2" (click)="getGrade($event)">
+                    Forth year
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 5 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5 mt-lg-3 mt-md-3 mt-2" (click)="getGrade($event)">
+                    Above
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4-q -->
+          <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="graduated">
+            <div class="col-lg-1 col-md-1 col-2 px-0">
+              <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+            </div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <div class="chat-info">
+                <div class="card">
+                  <p>What is the highest degree you have obtained?</p>
+                </div>
+
+                <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                  <button [style.background-color]="edu_grade == 1 ? '#fbe8ea' : ''"
+                    class="btn col-lg-4 col-md-4 col-12" (click)="getGrade($event)">
+                    High School / Baccalaureate
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 2 ? '#fbe8ea' : ''"
+                    class="btn col-lg-4 col-md-4 col-12 mt-lg-0 mt-md-0 mt-2" (click)="getGrade($event)">
+                    DUT / BTS / Preparatory classes
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 3 ? '#fbe8ea' : ''"
+                    class="btn col-lg-4 col-md-4 col-5 mt-lg-3 mt-md-3 mt-2" (click)="getGrade($event)">
+                    Bachelor (3 years)
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 4 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5 mt-lg-3 mt-md-3 mt-2" (click)="getGrade($event)">
+                    Bachelor (4 years)
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 6 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5 mt-lg-3 mt-md-3 mt-2" (click)="getGrade($event)">
+                    Master 1
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 7 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5 mt-lg-3 mt-md-3 mt-2" (click)="getGrade($event)">
+                    Master 2
+                  </button>
+
+                  <button [style.background-color]="edu_grade == 5 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-12 mt-lg-3 mt-md-3 mt-2" (click)="getGrade($event)">
+                    Above
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5-q -->
+          <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="fieldsStep">
+            <div class="col-lg-1 col-md-1 col-2 px-0">
+              <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+            </div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <div class="chat-info">
+                <!-- Field of interest step -->
+                <div class="card">
+                  <p>What is your field of interest?</p>
+                </div>
+
+                <div class="pt-4">
+                  <div class="btn-group row mx-auto">
+                    <div class="select col-5 px-0" (click)="f1()">
+                      <input type="checkbox" id="item_1" (click)="$event.stopPropagation()" />
+                      <label class="btn" for="item_1">Business and management</label>
+                    </div>
+
+                    <div class="select col-5 px-0">
+                      <input type="checkbox" id="item_2" (click)="f2()" />
+                      <label class="btn" for="item_2">Art, design and architecture</label>
+                    </div>
+
+                    <div class="select col-5 px-0 mt-lg-3 mt-md-3 mt-2">
+                      <input type="checkbox" id="item_3" (click)="f3()" />
+                      <label class="btn" for="item_3">Computer science and IT</label>
+                    </div>
+
+                    <div class="select col-5 px-0 mt-lg-3 mt-md-3 mt-2">
+                      <input type="checkbox" id="item_4" (click)="f4()" />
+                      <label class="btn" for="item_4">Engineering and technology</label>
+                    </div>
+                    <div class="select col-6 px-0 mt-lg-3 mt-md-3 mt-2">
+                      <input type="checkbox" id="item_6" (click)="f5()" />
+                      <label class="btn" for="item_6">Marketing and communication</label>
+                    </div>
+                    <div class="select col-6 px-0 mt-lg-3 mt-md-3 mt-2">
+                      <input type="checkbox" id="item_7" (click)="f6()" />
+                      <label class="btn" for="item_7">Others</label>
+                    </div>
+                  </div>
+                  <!-- <div class="">
+                    <div class="col-12">
+                      <p-selectButton class="btn" [options]="interests" (click)="onClick()" [(ngModel)]="selectedInterest"
+                      optionLabel="name" [multiple]="true">
+                    </p-selectButton>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section #language>
+          <!-- 6-q -->
+          <div class="row" *ngIf="langStep">
+            <h5 class="ps-0">Language test</h5>
+            <div class="col-lg-1 col-md-1 col-2 px-0">
+              <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+            </div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <div class="chat-info">
+                <div class="card">
+                  <p>Would you like to study in English or French?</p>
+                </div>
+
+                <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                  <button [style.background-color]="language_preference == 1 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5" (click)="getlang($event)">
+                    English
+                  </button>
+
+                  <button [style.background-color]="language_preference == 2 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5" (click)="getlang($event)">
+                    French
+                  </button>
+
+                  <button [style.background-color]="language_preference == 3 ? '#fbe8ea' : ''"
+                    class="btn col-lg-3 col-md-3 col-5 mt-lg-0 mt-md-0 mt-2" (click)="getlang($event)">
+                    Open to both
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- english test total -->
+          <div *ngIf="englishlang">
+            <!-- 7-q -->
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>Do you have a English language proficiency test ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <button [style.background-color]="proficiency_english == 1 ? '#fbe8ea' : ''"
+                      class="btn col-lg-4 col-md-4 col-12" (click)="qteseE($event)">
+                      Yes, I have
+                    </button>
+
+                    <button [style.background-color]="proficiency_english == 2 ? '#fbe8ea' : ''"
+                      class="btn col-lg-5 col-md-5 col-12 mt-lg-0 mt-md-0 mt-2" (click)="qteseE($event)">
+                      I am planning to take one
+                    </button>
+
+                    <button [style.background-color]="proficiency_english == 3 ? '#fbe8ea' : ''"
+                      class="btn col-lg-4 col-md-4 col-12 mt-lg-3 mt-md-2 mt-2" (click)="qteseE($event)">
+                      I don't have a test
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 9-q -->
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="yeshave">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>Which test did you take ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <button [style.background-color]="english_test == 1 ? '#fbe8ea' : ''"
+                      class="btn col-lg-2 col-md-2 col-5" (click)="optiontest($event)">
+                      IELTS
+                    </button>
+
+                    <button [style.background-color]="english_test == 2 ? '#fbe8ea' : ''"
+                      class="btn col-lg-2 col-md-2 col-5" (click)="optiontest($event)">
+                      TOEFL
+                    </button>
+
+                    <button [style.background-color]="english_test == 3 ? '#fbe8ea' : ''"
+                      class="btn col-lg-2 col-md-3 col-5 mt-lg-0 mt-md-0 mt-2" (click)="optiontest($event)">
+                      Duolingo
+                    </button>
+
+                    <button [style.background-color]="english_test == 4 ? '#fbe8ea' : ''"
+                      class="btn col-lg-3 col-md-3 col-5 mt-lg-0 mt-md-0 mt-2" (click)="optiontest($event)">
+                      Easy speaking
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 10-q -->
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="ilets">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>What is your score (1-9) ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <input min="1" max="9" type="number" (change)="scoreL($event)" pattern="[0-9]*" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="toefl">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>What is your score (0-120) ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <input min="0" max="120" type="number" (change)="scoreL($event)" pattern="[0-9]*" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="duolong">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>What is your score (10-160) ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <input min="10" max="160" type="number" (change)="scoreL($event)" pattern="[0-9]*" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="easy">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>What is your score (1-100) ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <input min="1" max="100" type="number" (change)="scoreL($event)" pattern="[0-9]*" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- french tests total -->
+          <div *ngIf="frenchlang">
+            <!-- 8-q -->
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>Do you have a French language proficiency test ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <button [style.background-color]="proficiency_french == 1 ? '#fbe8ea' : ''"
+                      class="btn col-lg-4 col-md-4 col-12" (click)="qteseF($event)">
+                      Yes, I have
+                    </button>
+
+                    <button [style.background-color]="proficiency_french == 2 ? '#fbe8ea' : ''"
+                      class="btn col-lg-5 col-md-5 col-12 mt-lg-0 mt-md-0 mt-2" (click)="qteseF($event)">
+                      I am planning to take one
+                    </button>
+
+                    <button [style.background-color]="proficiency_french == 3 ? '#fbe8ea' : ''"
+                      class="btn col-lg-4 col-md-4 col-12 mt-lg-3 mt-md-3 mt-2" (click)="qteseF($event)">
+                      I don't have a test
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="yeshave1">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>Which test did you take ?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <button [style.background-color]="french_test == 1 ? '#fbe8ea' : ''" class="btn col-3"
+                      (click)="optiontest1($event)">
+                      DELF
+                    </button>
+
+                    <button [style.background-color]="french_test == 2 ? '#fbe8ea' : ''" class="btn col-3"
+                      (click)="optiontest1($event)">
+                      DALF
+                    </button>
+
+                    <button [style.background-color]="french_test == 3 ? '#fbe8ea' : ''" class="btn col-3"
+                      (click)="optiontest1($event)">
+                      TCF
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11-q -->
+            <div class="row pt-lg-4 mt-lg-3 pt-md-4 mt-md-3 mt-4" *ngIf="scoreF">
+              <div class="col-lg-1 col-md-1 col-2 px-0"></div>
+              <div class="col-lg-11 col-md-11 col-10 px-0">
+                <div class="chat-info">
+                  <div class="card">
+                    <p>What is your score?</p>
+                  </div>
+
+                  <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3">
+                    <button class="btn col-2" (click)="scoref($event)">
+                      B1
+                    </button>
+
+                    <button class="btn col-2" (click)="scoref($event)">
+                      B2
+                    </button>
+
+                    <button class="btn col-2" (click)="scoref($event)">
+                      C1
+                    </button>
+
+                    <button class="btn col-2" (click)="scoref($event)">
+                      C2
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section #budget>
+          <!-- budget -->
+          <div class="row" *ngIf="budgetStep">
+            <h5 class="ps-0">Budget</h5>
+            <div class="col-lg-1 col-md-1 col-2 px-0">
+              <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+            </div>
+            <div class="col-lg-11 col-md-11 col-10 px-0">
+              <div class="chat-info">
+                <div class="card">
+                  <p>
+                    On average, the tuition fees for a
+                    <strong>bachelor in France</strong> is between
+                    <span>7000 € to 9000 € / year</span>, and master is between
+                    <span>9000 € to 12,000 € / year.</span>
+                  </p>
+                </div>
+
+                <div class="card mt-3">
+                  <p>What is your maximum annual tuition fees budget ?</p>
+                </div>
+
+                <div class="row d-flex mx-auto mt-lg-4 mt-md-4 mt-3 mb-2">
+                  <input type="number" minlength="5000" maxlength="100000" placeholder="5000€ To 100,000€"
+                    (change)="userBudget($event)" (keyup)="userBudget($event)" (focusout)="limit($event)"
+                    [(ngModel)]="budgetLimit" step="500" pattern="[0-9]*" />
+                </div>
+                <span class="budgetLimit"> Budget limit from 5000€ to 100,000€ </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="row align-items-center" *ngIf="lastStep">
+          <div class="col-lg-1 col-md-1 col-2 px-0">
+            <img src="../../../../assets/images/chat-bot/logo.svg" alt="logo" />
+          </div>
+          <div class="col-lg-11 col-md-11 col-10 px-0">
+            <div class="chat-info">
+              <div class="card mt-lg-4 mt-md-4 mt-3">
+                <div class="d-flex align-items-start">
+                  <img class="me-2" src="../../../../assets/images/chat/congratulation 1.svg" alt="congratulation" />
+                  <p>
+                    Wohooo ! we are done with essentials, Now you can select
+                    programs or visit your profile.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-start pt-lg-5 pt-md-4 pt-4 justify-content-end last-btns">
+          <!-- <div class="btn" (click)="step1()" *ngIf="stepA">Next</div> -->
+          <!-- <div class="btn" (click)="step2()" *ngIf="stepB ">Next</div> -->
+          <div class="btn" (click)="step3()" *ngIf="stepC">Next</div>
+
+          <div class="btn1" (click)="back()" #backone *ngIf="stepScore">
+            back
+          </div>
+          <div class="btn" (click)="steps()" *ngIf="stepScore">Next</div>
+
+          <div class="btn1" (click)="back1()" *ngIf="stepE">back</div>
+          <div class="btn" (click)="step5()" *ngIf="stepE">Next</div>
+        </div>
+
+        <div class="row mt-lg-5">
+          <div class="final-btns d-flex justify-content-end align-items-end px-0" *ngIf="lastStep">
+            <button class="btn1" (click)="redirectToProfile()">
+              My profile
+            </button>
+            <button class="btn2" (click)="redirectToPrgrams()">
+              Select program
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

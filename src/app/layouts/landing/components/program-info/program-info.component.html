@@ -1,0 +1,838 @@
+<main class="pb-5" style="background-color: #f7f7f7">
+  <app-loading *ngIf="isLoaded"></app-loading>
+
+  <!-- first section -->
+  <section class="title-section" *ngIf="!isLoaded">
+    <div class="row main-content">
+      <div class="col-12 title-col px-0">
+        <div class="nav-pages mb-4 d-lg-block d-md-block d-none">
+          <a routerLink="/landing/home">Page d'accueil</a>
+          <img src="../../../../../assets/images/program-info/fi-rr-angle-small-right.svg" alt="right" />
+          <a routerLink="/landing/programs">Programmes</a>
+          <img src="../../../../../assets/images/program-info/fi-rr-angle-small-right.svg" alt="right" />
+          <span class="m-0">{{ title }}</span>
+        </div>
+
+        <div class="program-data">
+          <div class="cont-img">
+            <img class="w-100 h-100" src="{{programData.coverpic}}" alt="main-img" />
+          </div>
+
+          <div class="row">
+            <div class="col-lg-2 col-md-4 col-4">
+              <div class="small-img">
+                <img class="" src="{{programData.logopic}}" alt="images-schools" />
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-5 px-0">
+              <div class="card-text">
+                <p class="card-category">
+                  {{ programData.programType | shorten : 25 }}
+                </p>
+                <p class="card-name mt-2 d-lg-block d-md-block d-none">
+                  {{ programData.programName }}
+                </p>
+                <p class="card-name mt-2 d-lg-none d-md-none d-block">
+                  {{ programData.programName | shorten : 21 }}
+                </p>
+                <p class="card-fee mt-1 d-lg-block d-none">
+                  <span class="me-1">€</span>{{ programData.programFee }}
+                </p>
+                <div class="d-lg-none d-md-block d-none">
+                  <div class="card-end d-flex">
+                    <!-- <button class="app-btn" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                      Start application
+                    </button> -->
+                    <div class="fav-ico ms-3">
+                      <button style="border: none" i-button (click)="
+                          $event.preventDefault(); $event.stopPropagation();
+                        " class="like">
+                        <img *ngIf="!isFav[programData.programId]"
+                          src="../../../../../assets/images/program-info/fi-rr-heart.svg" alt="heart" />
+                        <img *ngIf="isFav[programData.programId]"
+                          src="../../../../../assets/images/program-info/fi-sr-heart-fav.svg" alt="heart" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-2 col-3">
+              <div class="d-lg-block d-none">
+                <div class="card-end d-flex justify-content-end">
+                  <!-- <button
+                    class="app-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal2"
+                  >
+                    Start application
+                  </button> -->
+                  <div class="fav-ico ms-3">
+                    <button style="border: none" i-button (click)="
+                        $event.preventDefault(); $event.stopPropagation(); addToWishlist(programData.programId)
+                      " class="like">
+                      <img *ngIf="!isFav[programData.programId]"
+                        src="../../../../../assets/images/program-info/fi-rr-heart.svg" alt="heart" />
+                      <img *ngIf="isFav[programData.programId]"
+                        src="../../../../../assets/images/program-info/fi-sr-heart-fav.svg" alt="heart" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-text mt-1 d-lg-none d-md-block d-block">
+                <p class="card-fee">
+                  <span class="me-1">€</span>{{ programData.programFee }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- second-section -->
+  <section class="main-data" *ngIf="!isLoaded">
+    <div class="row">
+      <div class="col-lg-8 col-12">
+        <div class="left-content order-lg-first order-md-last order-last">
+          <!-- location -->
+          <div class="location">
+            <div class="d-flex align-items-center my-auto">
+              <img class="me-2 main-logo" src="../../../../../assets/images/program-info/fi-rr-marker.svg"
+                alt="marker" />
+              <p>Location </p>
+              <div class="dropdown">
+                <button class="dropdown-toggle d-flex justify-content-between" type="button" id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ nameCity}}
+                  <img class="ms-1" src="../../../../../assets/images/program-info/angle-white.svg" alt="angle"
+                    *ngIf=" cityCount > 1 " />
+                </button>
+                <ul *ngIf="programData.cities.length > 1" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <div *ngFor="let pro of programData.cities">
+                    <li class="dropdownMenu-item" (click)="changeVideo(pro.youtubelink, pro.Name)">
+                      {{ pro.Name }}
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- overview -->
+          <div class="overview">
+            <div class="d-flex align-items-center">
+              <img class="me-2 main-logo" src="../../../../../assets/images/program-info/fi-rr-eye.svg" alt="eye" />
+              <h2>Aperçu</h2>
+            </div>
+            <h3 class="mt-lg-3 mt-md-2 mt-1">{{ programData.programType }}</h3>
+            <p class="mt-3">{{ programData.schoolInfo.schoolDesr }}</p>
+            <div class="map">
+              <!-- <iframe src='sanitizer.bypassSecurityTrustResourceUrl ()' width="600" height="450"
+                frameborder="0" style="border:0" allowfullscreen>
+              </iframe> -->
+              <!-- <iframe src=''></iframe> -->
+              <!-- <iframe src="programData.gmaps" frameborder="0"></iframe> -->
+              <!-- <img class="w-100" src="../../../../../assets/images/program-info/map.svg" alt="map"> -->
+            </div>
+          </div>
+          <!-- speclization-occordion -->
+          <div *ngIf="SPECIALISATIONEror" class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
+                  (click)="showIconBtn()">
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <div class="d-flex align-items-center">
+                      <img class="me-2 main-logo" src="../../../../../assets/images/program-info/fi-rr-book-alt.svg"
+                        alt="book" />
+                      <h3 routerLinkActive="bordertext" style="width: 90%" class="m-0">
+                        Spécialisation
+                      </h3>
+                    </div>
+                  </div>
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  <div>
+                    <!-- <h3 class="title mb-2">
+                    {{ programData.programType | shorten : 30 }}
+                  </h3> -->
+                    <div class="row card-type mb-3" *ngFor="let pro of programData.spec">
+                      <p class="card-title">
+                        {{ pro }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Almani -->
+          <div class="Alumni">
+            <div class="d-flex align-items-center">
+              <img class="me-2 main-logo" src="../../../../../assets/images/program-info/fi-sr-chart-histogram.svg"
+                alt="histogram" />
+              <h2>Alumni</h2>
+            </div>
+            <p>Basé sur LinkedIn</p>
+            <div class="row justify-content-between rates">
+              <div class="col-lg-5 col-12">
+                <h3 class="final-question">Que font-ils ?</h3>
+                <div class="progress-section" *ngFor="let activity of activities; let i = index">
+                  <div class="progress-text d-flex justify-content-between aling-items-center">
+                    <p class="text">{{ activity.text }}</p>
+                    <p class="number">
+                      {{
+                      ((activity.number / activityPercentage) * 100).toFixed(
+                      0
+                      )
+                      }}%
+                    </p>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" [ngStyle]="{
+                        width:
+                          (activity.number / activityPercentage) * 100 + '%',
+                        background: '#16294f'
+                      }" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-5 col-12 offset-lg-2 mt-lg-0 mt-md-4 mt-4">
+                <h3 class="final-question">Quelles études ont-ils suivies ?</h3>
+                <div class="progress-section" *ngFor="let study of studies; let i = index">
+                  <div class="progress-text d-flex justify-content-between aling-items-center">
+                    <p class="text">{{ study.text }}</p>
+                    <p class="number">
+                      {{ ((study.number / studyPercentage) * 100).toFixed(0) }}%
+                    </p>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" [ngStyle]="{
+                        width: (study.number / studyPercentage) * 100 + '%',
+                        background: '#16294f'
+                      }" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- accerdiation -->
+          <div *ngIf="
+              programData.schoolInfo['AACSB'] != '0' ||
+              programData.schoolInfo['AMBA'] != '0' ||
+              programData.schoolInfo['EFMD'] != '0' ||
+              programData.schoolInfo['EMBA'] != '0' ||
+              programData.schoolInfo['EQUIS'] != '0'
+            " class="accerdiation">
+            <div class="d-flex align-items-center">
+              <img class="me-2 main-logo" src="../../../../../assets/images/program-info/safety.svg" alt="safety" />
+              <h2>Accréditation</h2>
+            </div>
+            <div class="img-content d-flex">
+              <div class="row d-flex align-items-center">
+                <div *ngIf="programData.schoolInfo['AACSB'] == '1'" class="col-2 me-3">
+                  <img class="w-100" src="https://studentgator.com/assets/images/schools/Accreditation/AACSB.png"
+                    alt="safety" />
+                </div>
+                <div *ngIf="programData.schoolInfo['AMBA'] == '1'" class="col-2 me-3">
+                  <img class="w-100" src="https://studentgator.com/assets/images/schools/Accreditation/AMBA.png"
+                    alt="safety" />
+                </div>
+                <div *ngIf="programData.schoolInfo['EFMD'] == '1'" class="col-2 me-3">
+                  <img class="w-100" src="https://studentgator.com/assets/images/schools/Accreditation/EFMD.png"
+                    alt="safety" />
+                </div>
+                <div *ngIf="programData.schoolInfo['EMBA'] == '1'" class="col-2 me-3">
+                  <img class="w-100" src="https://studentgator.com/assets/images/schools/Accreditation/EMBA.png"
+                    alt="safety" />
+                </div>
+                <div *ngIf="programData.schoolInfo['EQUIS'] == '1'" class="col-2 me-3">
+                  <img class="w-100" src="https://studentgator.com/assets/images/schools/Accreditation/EQUIS.png"
+                    alt="safety" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ranking -->
+          <div *ngIf="programData.schoolInfo['ranking'] != '0'" class="ranking">
+            <div class="d-flex align-items-center">
+              <img class="me-2 main-logo" src="../../../../../assets/images/program-info/rate.svg" alt="rate" />
+              <h2>Classement</h2>
+            </div>
+            <p>Top {{ programData.schoolInfo["ranking"] }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-12 order-lg-last order-md-first order-first">
+        <div class="right-content">
+          <!-- video-section -->
+          <div class="video-container">
+            <iframe [src]="videoCity | safe" frameborder="0" allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              class="video"></iframe>
+            <div class="info-col">
+              <div class="align-items-center flex-wrap">
+                <div class="single-info d-flex justify-content-between align-items-center">
+                  <div class="property-name d-flex">
+                    <img class="me-2" src="../../../../../assets/images/program-info/fi-rr-marker.svg" alt="marker" />
+                    <p class="property">Location</p>
+                  </div>
+                  <div class="property-value">
+                    <p class="value">{{ programData.cityInfo?.Name }}</p>
+                    <p class="value">{{ nameCity }}</p>
+                  </div>
+                </div>
+                <div class="seperator"></div>
+                <hr />
+                <div class="single-info d-flex justify-content-between align-items-center">
+                  <div class="property-name d-flex">
+                    <img class="me-2" src="../../../../../assets/images/program-info/fi-rr-time-forward.svg"
+                      alt="time" />
+                    <p class="property">Duration</p>
+                  </div>
+                  <div class="property-value">
+                    <p class="value">
+                      {{ programData.programLength }} Year<span *ngIf="programData.programLength > 1">s</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="seperator"></div>
+                <hr />
+                <div class="single-info d-flex justify-content-between align-items-center">
+                  <div class="property-name d-flex">
+                    <img class="me-2" src="../../../../../assets/images/program-info/fi-rr-calendar.svg"
+                      alt="calendar" />
+                    <p class="property">Admission</p>
+                  </div>
+                  <div class="property-value">
+                    <p class="value">{{ programData.programIntake }}</p>
+                  </div>
+                </div>
+                <div class="seperator"></div>
+                <hr />
+                <div class="single-info d-flex justify-content-between align-items-center">
+                  <div class="property-name d-flex">
+                    <img class="me-2" src="../../../../../assets/images/program-info/fi-rr-globe.svg" alt="globe" />
+                    <p class="property">Langue</p>
+                  </div>
+                  <div class="property-value">
+                    <p class="value">{{ programData.programLang }}</p>
+                  </div>
+                </div>
+                <div class="seperator"></div>
+                <hr />
+                <div class="single-info d-flex justify-content-between align-items-center">
+                  <div class="property-name align-items-center d-flex">
+                    <img class="me-2" src="../../../../../assets/images/program-info/fi-rr-book-alt.svg" alt="book" />
+                    <p class="property">Requirement</p>
+                  </div>
+                  <div class="property-value">
+                    <p class="value">{{ programData.programLevel }}</p>
+                  </div>
+                </div>
+                <div class="seperator"></div>
+                <hr />
+                <div class="single-info d-flex justify-content-between align-items-center">
+                  <div class="property-name align-items-center d-flex">
+                    <img class="me-2" src="../../../../../assets/images/program-info/fi-rr-money.svg" alt="money" />
+                    <p class="property">Frais</p>
+                  </div>
+                  <div class="property-value">
+                    <p class="value">
+                      <span class="me-1">€</span>{{ programData.programFee }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row d-flex justify-content-between align-items-center apply-now">
+                <div class="col-lg-10 col-md-11 col-10">
+                  <button *ngIf="login" class="app-btn w-100 d-lg-block d-none" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal2">
+                    Postuler maintenant
+                  </button>
+                  <button *ngIf="!login" class="app-btn w-100 d-lg-block d-none" (click)="checkLogin()">
+                    Postuler maintenant
+                  </button>
+                  <button class="app-btn w-100 d-lg-none d-block" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal3">
+                    Postuler maintenant
+                  </button>
+                </div>
+                <div class="col-lg-2 col-md-1 col-2 px-0 d-flex justify-content-center">
+                  <div class="fav-ico">
+                    <button style="border: none" i-button (click)="
+                        $event.preventDefault(); $event.stopPropagation(); addToWishlist(programData.programId)
+                      " class="like">
+                      <img *ngIf="!isFav[programData.programId]"
+                        src="../../../../../assets/images/program-info/fi-rr-heart.svg" alt="heart" />
+                      <img *ngIf="isFav[programData.programId]"
+                        src="../../../../../assets/images/program-info/fi-sr-heart-fav.svg" alt="heart" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- popular-program -->
+        <div class="related-programs d-lg-block d-none">
+          <h3 class="title">Programmes populaires</h3>
+          <div class="related-programs-container">
+            <a class="program-card d-flex" *ngFor="let program of ratedProgs; let i = index"
+              (click)="reload(program.programId)" [routerLink]="[
+                '/landing/programs',
+                program.programName,
+                program.programId
+              ]">
+              <div class="image-container">
+                <img src="https://studentgator.com/assets/images/schools/schools logos/{{
+                    program.logo
+                  }}.png" alt="" />
+              </div>
+              <div class="details-container">
+                <h2 class="title">
+                  {{ program.programType | shorten : 25 }}
+                </h2>
+
+                <p class="description">
+                  {{ programData.programName | shorten : 25 }}
+                </p>
+
+                <p class="school-name">
+                  {{ programData.schoolInfo.schoolName | shorten : 30 }}
+                </p>
+
+                <p class="school-fee">
+                  <span class="me-1">€</span>{{ program.programFee }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- poupup -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div [hidden]="IsmodelShow" style="max-width: 76%" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <br /><br />
+      <div class="first-row">
+        <h1 class="welcome pb-0 mb-0">Welcome to</h1>
+        <div class="first-textpop">
+          <img class="" _ngcontent-lin-c364="" src="../../../../assets/images/navbar/studentgator icon/logo.svg"
+            alt="SG-logo" title="Homepage" />
+        </div>
+        <p class="details-tit">
+          Nous avons vos informations de base, veuillez les examiner et vous assurer que toutes vos données sont exactes
+        </p>
+      </div>
+      <div style="padding: 0px 140px 40px" class="modal-body popup madel-total-body">
+        <mat-stepper #stepper>
+          <mat-step *ngIf="ANYPROGRAM">
+            <ng-template matStepLabel>Info Verification</ng-template>
+            <section>
+              <div class="all-inputs">
+                <p class="basic-details">
+                  Remarque : pour modifier vos informations de base, veuillez vous rendre dans les ''aramètres du compte''
+                </p>
+                <div class="row mt-lg-2">
+                  <div class="col-lg-6 mt-4 form-group">
+                    <input class="w-100" type="text" name="name" [value]="name" disabled />
+                  </div>
+                  <div class="col-lg-6 mt-4 form-group">
+                    <input class="w-100" type="text" name="name" [value]="name" disabled />
+                  </div>
+                </div>
+                <form [formGroup]="form">
+                  <div class="row mt-lg-4">
+                    <div class="col-lg-6 mt-4 form-group">
+                      <input class="w-100" type="text" name="email" [value]="email" disabled />
+                    </div>
+                    <div class="col-lg-6 mt-4 form-group">
+                      <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="[
+                          CountryISO.UnitedStates,
+                          CountryISO.UnitedKingdom
+                        ]" [enableAutoCountrySelect]="true" [enablePlaceholder]="false" [searchCountryFlag]="true"
+                        [searchCountryField]="[
+                          SearchCountryField.Iso2,
+                          SearchCountryField.Name
+                        ]" [selectedCountryISO]="CountryISO.UnitedKingdom" [phoneValidation]="true" name="phone"
+                        formControlName="phone">
+                      </ngx-intl-tel-input>
+                    </div>
+                  </div>
+                </form>
+                <div class="row mt-lg-4">
+                  <div class="col-lg-6 mt-4 form-group">
+                    <input class="w-100" type="text" [value]="nationality" disabled />
+                  </div>
+                  <div class="col-lg-6 mt-4">
+                    <input class="w-100" type="text" [value]="empid" disabled />
+                  </div>
+                </div>
+
+                <!-- <div class="">
+                  <p class="basic-info mt-lg-6 mt-4">
+                    Program related information
+                  </p>
+                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="row mt-lg-2">
+                      <div class="col-lg-6 mt-4 input-total">
+                        <input class="w-100 input-i" type="text" formControlName="educationLevel"
+                          [(ngModel)]="educationLevel" />
+                        <i class="fas fa-pen-to-square input-icon1"></i>
+                      </div>
+                      <div class="col-lg-6 mt-4 input-total">
+                        <input class="w-100 input-i" type="text" formControlName="studentDegree"
+                          [(ngModel)]="studentDegree" />
+                        <i class="fas fa-pen-to-square input-icon1"></i>
+                      </div>
+                    </div>
+                    <div class="row mt-lg-4">
+                    <div class="col-lg-6 mt-4">
+                      <p-multiSelect [style]="{
+                          width: '100%',
+                          'background-color': '#E0E0FF',
+                          'border-radius': '10px',
+                          border: 'none',
+                          height: '41px'
+                        }" defaultLabel="Fields Interest" [maxSelectedLabels]="2" [options]="fields"
+                        [(ngModel)]="selectedField"formControlName="selectedField" [filter]="false" optionLabel="name" display="chip"></p-multiSelect>
+                    </div>
+                    <div class="col-lg-6 mt-4">
+                      <p-multiSelect [style]="{
+                          width: '100%',
+                          'background-color': '#E0E0FF',
+                          'border-radius': '10px',
+                          border: 'none',
+                          height: '41px'
+                        }" defaultLabel="Languages Tests" [maxSelectedLabels]="2" [options]="fields"
+                        [(ngModel)]="selectedField" formControlName="selectedField" [filter]="false" optionLabel="name" display="chip"></p-multiSelect>
+                    </div>
+                  </div>
+                    <div class="row mt-lg-6 mt-4">
+                      <div class="col-lg-6 input-total">
+                        <input class="w-100 input-i" type="text" [(ngModel)]="budget" formControlName="budget" />
+                        <i class="fas fa-pen-to-square input-icon1"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div> -->
+              </div>
+              <button class="btn-next" matStepperNext>Suivant</button>
+            </section>
+          </mat-step>
+
+          <mat-step>
+            <ng-template matStepLabel>Télécharger les documents</ng-template>
+            <p class="basic-details pt-4">
+              Veuillez remplir tous les champs pour passer à l'étape suivante de votre candidature
+            </p>
+
+            <div class="row first-step-row pt-3">
+              <div class="col-md-6 pb-3">
+                <div class="doc-details d-flex justify-content-between align-items-center">
+                  <h3>
+                    CV
+                    <span *ngIf="!urlObject.cv" class="text-danger">*</span>
+                  </h3>
+
+                  <div class="d-flex">
+                    <a class="view-btn" *ngIf="urlObject.cv" [href]="urlObject.cv" target="_blank">
+                      <i class="fa fa-eye"></i><span class="px-2">Voir</span>
+                    </a>
+                    <p class="percentage m-0 text-success" *ngIf="uploadPercentage.cv && !urlObject.cv">
+                      {{ uploadPercentage.cv }}%
+                    </p>
+
+                    <button class="trash-btn" (click)="deleteFile('cv', studentUserName)"
+                      *ngIf="!uploadPercentage.cv && urlObject.cv">
+                      <span class="px-2">Supprimer</span><i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center file" (click)="cvInput.click()">
+                  <p class="m-0" [ngStyle]="{
+                      color: nameObject.cv ? '#6263D2' : '#000000'
+                    }">
+                    {{ nameObject.cv ? nameObject.cv : "Resume file" }}
+                  </p>
+                  <i class="fa fa-plus"></i>
+                  <input #cvInput type="file" style="display: none" required
+                    (change)="chooseFile($event, 'cv', studentUserName)" />
+                </div>
+              </div>
+
+              <div class="col-md-6 pb-3">
+                <div class="doc-details d-flex justify-content-between align-items-center">
+                  <h3>
+                    Certificat
+                    <span *ngIf="!urlObject.certificate" class="text-danger">*</span>
+                  </h3>
+
+                  <div class="d-flex">
+                    <a class="view-btn" *ngIf="urlObject.certificate" [href]="urlObject.certificate" target="_blank">
+                      <i class="fa fa-eye"></i><span class="px-2">Voir</span>
+                    </a>
+                    <p class="percentage m-0 text-success" *ngIf="
+                        uploadPercentage.certificate && !urlObject.certificate
+                      ">
+                      {{ uploadPercentage.certificate }}%
+                    </p>
+
+                    <button class="trash-btn" (click)="deleteFile('certificate', studentUserName)" *ngIf="
+                        !uploadPercentage.certificate && urlObject.certificate
+                      ">
+                      <span class="px-2">Supprimer</span><i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center file" (click)="certificateInput.click()">
+                  <p class="m-0" [ngStyle]="{
+                      color: nameObject.certificate ? '#6263D2' : '#000000'
+                    }">
+                    {{
+                    nameObject.certificate
+                    ? nameObject.certificate
+                    : "Certificate file"
+                    }}
+                  </p>
+                  <i class="fa fa-plus"></i>
+                  <input #certificateInput type="file" style="display: none" required (change)="
+                      chooseFile($event, 'certificate', studentUserName)
+                    " />
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex py-5 justify-content-between align-items-center interview">
+              <p class="text-dark info">
+                <i class="fas fa-info"></i>
+
+                Vérifier <a href="https://www.ilovepdf.com/">ILovePdf</a> pour obtenir de l'aide dans la conversion et la fusion de fichiers
+              </p>
+              <button class="btn-next" type="submit" (click)="onDocsStep()" matStepperNext>
+                Suivant
+              </button>
+            </div>
+          </mat-step>
+
+          <mat-step>
+            <ng-template matStepLabel>Statut de la candidature</ng-template>
+            <div class="third-row">
+              <p class="app-done pt-4">Votre candidature est en cours d'examen</p>
+              <div class="d-flex justify-content-center">
+                <ng-lottie [options]="options" width="211px" height="211px"></ng-lottie>
+              </div>
+              <p class="interview">
+                <i class="fas fa-info"></i>En attendant, vous pouvez commencer à préparer votre entretien
+              </p>
+              <button data-bs-dismiss="modal" class="pad-btn" (click)="postProgram()">
+                Terminé
+              </button>
+            </div>
+          </mat-step>
+        </mat-stepper>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup mobile -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div [hidden]="IsmodelShow" class="modal-dialog modal-dialog-centered lg">
+    <div class="modal-content total-data">
+      <br /><br />
+      <div class="first-row1">
+        <h1 class="welcome1 pb-0 mb-0">Bienvenue à</h1>
+        <div class="">
+          <img class="img22" _ngcontent-lin-c364="" src="../../../../assets/images/navbar/studentgator icon/logo.svg"
+            alt="SG-logo" title="Homepage" />
+        </div>
+        <p class="details-tit1">
+          Nous avons vos informations de base, veuillez les examiner et vous assurer que toutes vos données sont exactes
+        </p>
+      </div>
+      <div class="modal-body popup madel-total-body pt-0 mt-0">
+        <mat-vertical-stepper linear #stepper>
+          <mat-step *ngIf="ANYPROGRAM" [stepControl]="firstFormGroup" [editable]="isEditable">
+            <ng-template matStepLabel class="text-label">Vérification des informations</ng-template>
+
+            <section>
+              <div class="all-inputs">
+                <p class="basic-details1">
+                  Remarque : pour modifier vos informations de base, veuillez vous rendre dans les 'Paramètres du compte'
+                </p>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="row mt-lg-2">
+                    <div class="col-lg-6 mt-4 form-group">
+                      <input class="w-100" type="text" name="name" [value]="name" disabled />
+                    </div>
+                    <div class="col-lg-6 mt-4 form-group">
+                      <input class="w-100" type="text" name="name" [value]="name" disabled />
+                    </div>
+                  </div>
+                  <div class="row mt-lg-4">
+                    <div class="col-lg-6 mt-4 form-group">
+                      <input class="w-100" type="text" name="email" [value]="email" disabled />
+                    </div>
+                    <div class="col-lg-6 mt-4 form-group">
+                      <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="[
+                          CountryISO.UnitedStates,
+                          CountryISO.UnitedKingdom
+                        ]" [enableAutoCountrySelect]="true" [enablePlaceholder]="false" [searchCountryFlag]="true"
+                        [searchCountryField]="[
+                          SearchCountryField.Iso2,
+                          SearchCountryField.Name
+                        ]" [selectedCountryISO]="CountryISO.UnitedKingdom" [phoneValidation]="true" name="phone"
+                        formControlName="phone">
+                      </ngx-intl-tel-input>
+                    </div>
+                  </div>
+                  <div class="row mt-lg-4">
+                    <div class="col-lg-6 mt-4 form-group">
+                      <input class="w-100" type="text" [value]="nationality" disabled />
+                    </div>
+                    <div class="col-lg-6 mt-4">
+                      <input class="w-100" type="text" [value]="empid" disabled />
+                    </div>
+                  </div>
+                </form>
+                <button class="btn-next" type="submit" matStepperNext>
+                  Next
+                </button>
+              </div>
+            </section>
+          </mat-step>
+
+          <mat-step>
+            <ng-template matStepLabel>Télécharger les documents</ng-template>
+            <p class="basic-details1">
+              Veuillez remplir tous les champs pour passer à l'étape suivante de votre candidature
+            </p>
+
+            <div class="row first-step-row pt-1">
+              <div class="col-md-6 pb-2">
+                <div class="doc-details d-flex justify-content-between align-items-center">
+                  <h3>
+                    CV
+                    <span *ngIf="!urlObject.cv" class="text-danger">*</span>
+                  </h3>
+
+                  <div class="d-flex">
+                    <a class="view-btn" *ngIf="urlObject.cv" [href]="urlObject.cv" target="_blank">
+                      <i class="fa fa-eye"></i><span class="px-2">View</span>
+                    </a>
+                    <p class="percentage m-0 text-success" *ngIf="uploadPercentage.cv && !urlObject.cv">
+                      {{ uploadPercentage.cv }}%
+                    </p>
+
+                    <button class="trash-btn" (click)="deleteFile('cv', studentUserName)"
+                      *ngIf="!uploadPercentage.cv && urlObject.cv">
+                      <span class="px-2">Delete</span><i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center file" (click)="cvInput.click()">
+                  <p class="m-0" [ngStyle]="{
+                      color: nameObject.cv ? '#6263D2' : '#000000'
+                    }">
+                    {{ nameObject.cv ? nameObject.cv : "Resume file" }}
+                  </p>
+                  <i class="fa fa-plus"></i>
+                  <input #cvInput type="file" style="display: none" required
+                    (change)="chooseFile($event, 'cv', studentUserName)" />
+                </div>
+              </div>
+
+              <div class="col-md-6 pb-2">
+                <div class="doc-details d-flex justify-content-between align-items-center">
+                  <h3>
+                    Certificat
+                    <span *ngIf="!urlObject.certificate" class="text-danger">*</span>
+                  </h3>
+
+                  <div class="d-flex">
+                    <a class="view-btn" *ngIf="urlObject.certificate" [href]="urlObject.certificate" target="_blank">
+                      <i class="fa fa-eye"></i><span class="px-2">View</span>
+                    </a>
+                    <p class="percentage m-0 text-success" *ngIf="
+                        uploadPercentage.certificate && !urlObject.certificate
+                      ">
+                      {{ uploadPercentage.certificate }}%
+                    </p>
+
+                    <button class="trash-btn" (click)="deleteFile('certificate', studentUserName)" *ngIf="
+                        !uploadPercentage.certificate && urlObject.certificate
+                      ">
+                      <span class="px-2">Delete</span><i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center file" (click)="certificateInput.click()">
+                  <p class="m-0" [ngStyle]="{
+                      color: nameObject.certificate ? '#6263D2' : '#000000'
+                    }">
+                    {{
+                    nameObject.certificate
+                    ? nameObject.certificate
+                    : "Certificate file"
+                    }}
+                  </p>
+                  <i class="fa fa-plus"></i>
+                  <input #certificateInput type="file" style="display: none" required (change)="
+                      chooseFile($event, 'certificate', studentUserName)
+                    " />
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center pt-2 interview">
+              <p class="text-dark info">
+                <i class="fas fa-info"></i>
+
+                Vérifier <a href="https://www.ilovepdf.com/">ILovePdf</a> pour obtenir de l'aide dans la conversion et la fusion de fichiers
+              </p>
+            </div>
+            <button class="btn-next" type="submit" (click)="onDocsStep()" matStepperNext>
+              Suivant
+            </button>
+          </mat-step>
+
+          <mat-step>
+            <ng-template matStepLabel>Statut de la candidature</ng-template>
+            <div class="third-row1">
+              <p class="app-done1 p-0 m-0">
+                Votre candidature est en cours d'examen
+              </p>
+
+              <div class="d-flex justify-content-center">
+                <ng-lottie [options]="options" width="211px" height="211px"></ng-lottie>
+              </div>
+
+              <p class="interview1 pt-0">
+                <i class="fas fa-info"></i>En attendant, vous pouvez commencer à préparer votre entretien
+              </p>
+              <button data-bs-dismiss="modal" class="pad-btn" (click)="postProgram()">
+                Terminé
+              </button>
+            </div>
+          </mat-step>
+        </mat-vertical-stepper>
+      </div>
+    </div>
+  </div>
+</div>

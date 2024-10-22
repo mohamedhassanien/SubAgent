@@ -1,0 +1,291 @@
+<!-- first-content -->
+<!-- <section class="first-content">
+  <div class="row">
+    <div class="col-lg-8 col-md-12 col-12 ps-0">
+      <h2>What is the deposit and how to pay?</h2>
+      <h1>Definition</h1>
+      <p>
+        A deposit is a partial payment of the total amount due to the School
+        Amount.
+      </p>
+      <p>
+        <span>The deposit is required by all schools</span> after receiving an
+        acceptance the amount varies by school.
+        <span>It is generally between 2000 and 5000 euros.</span>
+      </p>
+    </div>
+    <div class="col-lg-4 pe-0 d-lg-block d-md-none d-none">
+      <ng-lottie width="100%" height="100%" [options]="pay"></ng-lottie>
+    </div>
+  </div>
+</section> -->
+
+<div>
+  <h1 class="upload_header">Upload enrollment letter *</h1>
+  <div class="upload-input">
+      <p *ngIf="!firstFileLoading">Choose PNG, jPG or PDF format</p>
+      <div *ngIf="firstFileLoading" class="d-flex align-items-center upload-text">
+          <h5>{{firstFileName}}</h5>
+          <img (click)="deleteFirst()" class="ms-4" src="../../../../../../assets/images/navigator/x.svg" alt="x">
+      </div>
+      <label *ngIf="!firstFileLoading" for="inputTag" class="align-items-center" (change)="chooseFirst($event)">
+          <img class="me-2" src="../../../../../../assets/images/why-assets/upload-white.svg" alt="upload">
+          Upload
+          <input id="inputTag" type="file" />
+          <span id="imageName"></span>
+      </label>
+      <label *ngIf="firstFileLoading" class="align-items-center">
+          <i class="me-2" style="color: white;" class="fas fa-check"></i>
+          <!-- <img class="me-2" src="../../../../../../assets/images/navigator/check.svg" alt="check"> -->
+          Done
+      </label>
+  </div>
+
+
+  <!-- <div *ngIf="firstFileLoading" class="d-flex align-items-center mt-2">
+      <img class="me-2" src="../../../../../../assets/images/navigator/Processing.svg" alt="Processing">
+      <h4>Someone from our team will review your eligibility for this program</h4>
+  </div> -->
+</div>
+
+<!-- cards -->
+<section class="cards">
+  <h1 class="header">What is the enrollment letter ?</h1>
+  <p>A university issues an enrollment letter to confirm a student's final enrollment at the university. 
+    To receive the Letter of Enrollment (LoE), <span>students must pay an initial tuition fee.</span> 
+    This amount is required to secure a seat in a specific course at the university.</p>
+    <div class="row">
+  <h1 class="header">What is the deposit and how to pay?</h1>
+    <div class="col-lg-10">
+      <p>A deposit is a partial payment of the total amount due to the School Amount.
+        <span>The deposit is required by all schools</span> after receiving an acceptance the amount varies by school. 
+        <span> is generally between 2000 and 5000 euros.</span></p>
+    </div>
+    <div class="col-lg-2">
+      <img
+      src="../../../../../../assets/images/navigator/accaptance/pay-deposit/Lottie.svg"
+      alt="card-img-1"
+      class="img-fluid card-img"
+    />
+    </div>
+  </div>
+
+  <!-- web and tab -->
+  <h1>Why paying deposit</h1>
+  <div class="d-none d-lg-block d-md-block">
+    <div class="row">
+      <div class="col-lg-4 col-4 ps-0">
+        <div class="card">
+          <div class="row justify-content-center">
+            <div class="col-lg-7">
+          <img
+            src="../../../../../../assets/images/navigator/accaptance/pay-deposit/card-1.svg"
+            alt="card-img-1"
+            class="img-fluid card-img"
+          />
+        </div>
+        </div>
+          <div class="card-body">
+            <p class="card-text">
+              Prevent students from booking seats when they plan to change
+              schools.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-4">
+        <div class="card">
+          <div class="row justify-content-center">
+            <div class="col-lg-7">
+          <img
+            src="../../../../../../assets/images/navigator/accaptance/pay-deposit/card-2.svg"
+            alt="card-img-1"
+            class="img-fluid card-img"
+          />
+        </div>
+      </div>
+          <div class="card-body">
+            <p class="card-text">
+              Manage the number of students admitted, This also allows them to
+              respond quickly to students on the waiting list.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-4 pe-0">
+        <div class="card">
+          <div class="row justify-content-center">
+            <div class="col-lg-7">
+          <img
+            src="../../../../../../assets/images/navigator/accaptance/pay-deposit/card-3.svg"
+            alt="card-img-1"
+            class="img-fluid card-img"
+          />
+        </div>
+      </div>
+          <div class="card-body">
+            <p class="card-text">
+              After receiving the deposit, the school will send you the final
+              letter of acceptance to start the VISA procedures.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile -->
+  <div class="d-sm-block d-lg-none d-md-none">
+    <div class="row">
+      <div class="col-lg-12 px-0">
+        <owl-carousel-o [options]="teamOptions">
+          <ng-container>
+            <ng-template carouselSlide>
+              <div class="col-12 px-0">
+                <div class="card">
+                  <img
+                    src="../../../../../../assets/images/navigator/accaptance/pay-deposit/card-1.svg"
+                    alt="card-img-1"
+                    class="img-fluid card-img"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      Prevent students from booking seats when they plan to
+                      change schools.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="col-12 px-0">
+                <div class="card">
+                  <img
+                    src="../../../../../../assets/images/navigator/accaptance/pay-deposit/card-2.svg"
+                    alt="card-img-1"
+                    class="img-fluid"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      Manage the number of students admitted, This also allows
+                      them to respond quickly to students on the waiting list.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+              <div class="col-12 px-0">
+                <div class="card">
+                  <img
+                    src="../../../../../../assets/images/navigator/accaptance/pay-deposit/card-3.svg"
+                    alt="card-img-1"
+                    class="img-fluid"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      After receiving the deposit, the school will send you the
+                      final letter of acceptance to start the VISA procedures.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- when-pay -->
+<section class="when-pay">
+  <h1>When to pay it?</h1>
+  <p>
+    In general, the deposit must be paid 3 weeks after receiving admission to
+    the school. After this date, your place is no longer guaranteed.
+  </p>
+</section>
+
+<!-- how-pay -->
+<section class="how-pay">
+  <h1 class="text-lg-left text-md-left">How to pay it ?</h1>
+  <p class="d-lg-block d-md-block d-none">
+    <span>By credit card:</span> Some schools accept credit card payments
+    directly on their website.
+  </p>
+  <p class="text-center d-lg-none d-md-none d-block">
+    <span>By credit card</span><br />
+    Some schools accept credit card payments directly on their website.
+  </p>
+
+  <p class="d-lg-block d-md-block d-none">
+    <span>By Bank Transfer:</span> The RIB (statement of banking identity) of
+    the schools can be requested to pay, be sure to write your name in the
+    reason of the transfer.
+  </p>
+  <p class="text-center d-lg-none d-md-none d-block">
+    <span>By Bank Transfer</span> <br />
+    The RIB (statement of banking identity) of the schools can be requested to
+    pay, be sure to write your name in the reason of the transfer.
+  </p>
+
+  <p class="d-lg-block d-md-block d-none">
+    <span>FLY WIRE:</span> In some countries, it is difficult to make
+    international payments. Some schools, therefore, offer payment by fly wire
+    to facilitate this. (See list of schools
+    <a href="https://pay.flywire.com/" target="_blank">pay.flywire.com</a> )
+  </p>
+  <p class="text-center d-lg-none d-md-none d-block">
+    <span>FLY WIRE</span> <br />
+    In some countries, it is difficult to make international payments. Some
+    schools, therefore, offer payment by fly wire to facilitate this. (See list
+    of schools
+    <a href="https://pay.flywire.com/" target="_blank">pay.flywire.com</a> )
+  </p>
+</section>
+
+<!-- refund -->
+<section class="refund">
+  <h1 class="refund_header text-center">Can I get a refund?</h1>
+  <p class="text-center fund-text">
+    Before paying the deposit it is always important to read the school's
+    general conditions. However, here are the conditions that we find for the
+    Grandes Ecoles:
+  </p>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-12 one-col mt-lg-3 mt-md-3 mt-3">
+      <h1>In the event of serious unforeseen 
+        circumstances</h1>
+      <p>
+        (death, accident, or serious illness), schools may review the situation
+        and grant a refund.
+      </p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-12 one-col mt-lg-3 mt-md-3 mt-3">
+      <h1>Applicant's Right to Cancel</h1>
+      <p>
+        Applicants may request a refund of the tuition deposit within the 14-day
+        cooling-off period without giving a reason.
+      </p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-12 one-col mt-lg-4 mt-md-3 mt-3">
+      <h1>The student has not passed the year</h1>
+      <p>
+        If the student has not passed the year or failed to provide a language
+        test and therefore does not have the required admission criteria to
+        pursue his studies.
+      </p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-12 one-col mt-lg-4 mt-md-3 mt-3">
+      <h1>In case of visa refusal</h1>
+      <p>
+        In case of visa refusal, the school will accept the refund. Of course,
+        you will have to show proof of the refusal.
+      </p>
+    </div>
+  </div>
+</section>

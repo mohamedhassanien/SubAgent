@@ -1,0 +1,364 @@
+<section id="programs-container">
+  <div class="tab-content-horizontal d-xl-none d-block" (click)="goDown()">
+    <div
+      class="nav nav-pills child-nav justify-content-evenly w-100"
+      id="v-pills-tab"
+      role="tablist"
+      aria-orientation="vertical"
+      [ngClass]="navbarFixed ? 'fixed' : 'static'"
+    >
+      <a
+        class="nav-link d-flex align-items-center flex-column mx-0"
+        id="pills-acceptance-letter-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-acceptance-letter"
+        type="button"
+        role="tab"
+        aria-controls="pills-acceptance-letter"
+        aria-selected="true"
+        routerLink="acceptance-letter"
+        routerLinkActive="active"
+      >
+        <img
+          src="/assets/images/navigator/accaptance/acceptance-nav-icons/4.svg"
+          alt="Alternance"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        Acceptance letter
+      </a>
+      <a
+        class="nav-link d-flex align-items-center flex-column mx-0"
+        id="pills-pay-the-deposit-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-pay-the-deposit"
+        type="button"
+        role="tab"
+        aria-controls="pills-pay-the-deposit"
+        aria-selected="false"
+        routerLink="pay-the-deposit"
+        routerLinkActive="active"
+        [ngClass]="acceptanceletter ? 'open' : 'close'"
+        (click)="steps1()"
+      >
+      <!-- [ngClass]="acceptanceletter ? 'open' : 'close'" -->
+        <img
+          src="/assets/images/navigator/accaptance/acceptance-nav-icons/1.svg"
+          alt="pay-the-deposit"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        Pay-the-deposit
+      </a>
+      <a
+        class="nav-link d-flex align-items-center flex-column mx-0"
+        id="pills-pay-cvec-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-pay-cvec"
+        type="button"
+        role="tab"
+        aria-controls="pills-pay-cvec"
+        aria-selected="false"
+        routerLink="pay-cvec"
+        routerLinkActive="active"
+        [ngClass]="deposit ? 'open' : 'close'"
+        (click)="steps2()"
+      >
+      <!-- [ngClass]="deposit ? 'open' : 'close'" -->
+        <img
+          src="/assets/images/navigator/accaptance/acceptance-nav-icons/2.svg"
+          alt="pay-cvec"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        Pay-CVEC
+      </a>
+      <!-- <a
+        class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-4"
+        id="pills-Alternance-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-Alternance"
+        type="button"
+        role="tab"
+        aria-controls="pills-Alternance"
+        aria-selected="false"
+        routerLink="alternance"
+        routerLinkActive="active"
+      >
+        <img
+          src="/assets/images/navigator/accaptance/acceptance-nav-icons/3.svg"
+          alt="Alternance"
+          class="me-lg-3 me-md-2 me-1"
+        />
+        Alternance
+      </a> -->
+    </div>
+    <div *ngIf="cvec" class="d-xl-flex align-items-center next mt-3 d-none">
+      <h4>Next</h4>
+      <img
+        class="mx-1"
+        src="../../../../../assets/images/navigator/next.svg"
+        alt="next"
+      />
+      <h4
+        routerLink="/student-navigator/housing/booking"
+        style="cursor: pointer"
+      >
+        Housing
+      </h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-xl-3 col-12 ps-lg-0 pe-lg-4 d-xl-block d-none"
+        (click)="goDown()"
+      >
+        <div
+          class="nav flex-xl-column nav-pills child-nav"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+          [ngClass]="navbarFixed ? 'fixed' : 'static'"
+        >
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-acceptance-letter-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-acceptance-letter"
+            type="button"
+            role="tab"
+            aria-controls="pills-acceptance-letter"
+            aria-selected="true"
+            routerLink="acceptance-letter"
+            routerLinkActive="active"
+          >
+            <img
+              src="/assets/images/navigator/accaptance/acceptance-nav-icons/4.svg"
+              alt="Alternance"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Acceptance letter
+            <img
+              *ngIf="!acceptanceletter"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="acceptanceletter"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-pay-the-deposit-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-pay-the-deposit"
+            type="button"
+            role="tab"
+            aria-controls="pills-pay-the-deposit"
+            aria-selected="false"
+            routerLink="pay-the-deposit"
+            routerLinkActive="active"
+            [ngClass]="acceptanceletter ? 'open' : 'close'"
+            (click)="steps1()"
+          >
+          <!-- [ngClass]="acceptanceletter ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/accaptance/acceptance-nav-icons/1.svg"
+              alt="pay-the-deposit"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Pay-the-deposit
+            <img
+              *ngIf="!deposit"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="deposit"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-3"
+            id="pills-pay-cvec-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-pay-cvec"
+            type="button"
+            role="tab"
+            aria-controls="pills-pay-cvec"
+            aria-selected="false"
+            routerLink="pay-cvec"
+            routerLinkActive="active"
+            [ngClass]="deposit ? 'open' : 'close'"
+            (click)="steps2()"
+          >
+          <!-- [ngClass]="deposit ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/accaptance/acceptance-nav-icons/2.svg"
+              alt="pay-cvec"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Pay-CVEC
+            <img
+              *ngIf="!cvec"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="cvec"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <!-- <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-4"
+            id="pills-Alternance-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-Alternance"
+            type="button"
+            role="tab"
+            aria-controls="pills-Alternance"
+            aria-selected="false"
+            routerLink="alternance"
+            routerLinkActive="active"
+          >
+            <img
+              src="/assets/images/navigator/accaptance/acceptance-nav-icons/3.svg"
+              alt="Alternance"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Alternance
+          </a> -->
+        </div>
+        <div *ngIf="cvec" class="d-flex align-items-center next mt-3">
+          <h4>Next</h4>
+          <img
+            class="mx-1"
+            src="../../../../../assets/images/navigator/next.svg"
+            alt="next"
+          />
+          <h4
+            routerLink="/student-navigator/housing/booking"
+            style="cursor: pointer"
+          >
+            Housing
+          </h4>
+        </div>
+      </div>
+      <div class="tab-content navs col-xl-9 col-12" id="v-pills-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<ng-template #onOpenAcceptance let-c="close" let-d="dismiss">
+  <!-- <div class="modal-header d-flex justify-content-end p-0" style="padding-bottom: 10px !important;">
+    <div class="col-sm-6">
+      <h2 class="section-title">Suggested Programs</h2>
+    </div>
+    <div class="col-sm-6">
+      <button type="button" class="close-btn float-end" aria-label="Close"
+        >
+        <i class="fi-rr-cross-small"></i>
+      </button>
+    </div>
+  </div> -->
+  <div class="d-flex popup_header">
+    <img
+            class="mx-1"
+            src="../../../../../assets/images/navigator/acc-popup.svg"
+            alt="next"
+          />
+      <div class="">
+          
+        <div class="row justify-content-end">
+          
+
+            <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="dismissPopup()"
+        ></button>
+    
+
+        </div>
+        <div class="row card_title">
+          Have you recently completed your interview ?
+        </div>
+        <div class="row card_text">
+          Your insights and firsthand knowledge can be incredibly valuable in helping others prepare for similar opportunities.<br> <br>
+           By sharing the questions you were asked, the format of the interview, and any tips or insights you gained from the experience, 
+           you can provide invaluable guidance to your peers.
+        </div>
+
+      </div>
+  
+  </div>
+  <!-- <div class="d-flex">
+    <img
+            class="mx-1"
+            src="../../../../../assets/images/navigator/acc-popup.svg"
+            alt="next"
+          />
+      <div class="col-lg-8">
+        <div class="row">
+          <button type="button" class="close-btn float-end" aria-label="Close"
+          >
+          <i class="fi-rr-cross-small"></i>
+        </button>
+        </div>
+        <div class="row">
+          Have you recently completed your interview ?
+        </div>
+        <div class="row">
+          Your insights and firsthand knowledge can be incredibly valuable in helping others prepare for similar opportunities.
+           By sharing the questions you were asked, the format of the interview, and any tips or insights you gained from the experience, 
+           you can provide invaluable guidance to your peers.
+        </div>
+
+      </div>
+  
+  </div> -->
+
+
+    <label class="textarea_label" for="Interview_Questions">Interview Questions</label>
+
+  
+
+<textarea class="popup_textarea" id="Interview_Questions" name="Interview_Questions" rows="8" cols="50"
+placeholder="Share the questions you were asked... &#10;1.. &#10;2.. &#10;3.. &#10;4.."></textarea>
+
+
+  <label class="textarea_label" for="Interview_insights">Interview insights</label>
+
+  <textarea class="popup_textarea" id="Interview_insights" name="Interview_insights" rows="6" cols="50"
+  placeholder="Write any tips or insights you gained from the experience, you can provide invaluable guidance to your peers. "></textarea>
+<div class="row done_button">
+  <div class="col-sm-3 done_button">
+    <button
+    class="contact-us"
+    (click)="dismissPopup()"
+  >
+    Done
+  </button>
+  </div>
+</div>
+
+</ng-template>

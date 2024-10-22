@@ -1,0 +1,223 @@
+h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+a {
+    color: #16294f;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: underline !important;
+}
+
+
+.back-blue {
+    margin-top: 40px;
+    background: #FBF7EA;
+    border-radius: 10px;
+    padding: 24px;
+
+    h2 {
+        background: #FFFFFF;
+        border-radius: 5px;
+        padding: 16px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    a {
+        font-size: 24px;
+        justify-content: center;
+        display: flex;
+    }
+}
+
+.france-visa {
+    a {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .video {
+        margin-top: 40px;
+
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        iframe {
+            margin-top: 24px;
+            height: 486px;
+        }
+    }
+
+    .cards {
+        margin-top: 40px;
+
+        h1 {
+            text-align: center;
+        }
+
+        .row {
+            margin-top: 24px;
+            text-align: center;
+
+            p {
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 16px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .back-blue {
+        margin-top: 32px;
+        border-radius: 10px;
+        padding: 16px;
+
+        h2 {
+            padding: 8px;
+        }
+
+        a {
+            font-size: 24px;
+            justify-content: center;
+            display: flex;
+        }
+    }
+
+    .france-visa {
+        a {
+            font-size: 16px;
+        }
+
+        .video {
+            margin-top: 32px;
+
+            iframe {
+                margin-top: 16px;
+                height: 476px;
+            }
+        }
+
+        .cards {
+            margin-top: 32px;
+
+            .row {
+                margin-top: 16px;
+
+                img {
+                    width: 61%;
+                }
+            }
+
+            p {
+                margin-top: 14px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+    h1 {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .back-blue {
+        margin-top: 24px;
+        border-radius: 5px;
+        padding: 8px;
+
+        h2 {
+            padding: 8px;
+        }
+
+        a {
+            font-size: 24px;
+            justify-content: center;
+            display: flex;
+        }
+    }
+
+    .france-visa {
+        a {
+            font-size: 12px;
+        }
+
+        .video {
+            margin-top: 24px;
+
+            iframe {
+                margin-top: 8px;
+                height: 165px;
+            }
+        }
+
+        .cards {
+            margin-top: 24px;
+
+            h1 {
+                font-size: 14px;
+            }
+
+            .row {
+                margin-top: 8px;
+
+                img {
+                    width: 61%;
+                    justify-content: center;
+                    display: initial;
+                }
+            }
+
+            p {
+                margin-top: 14px;
+            }
+        }
+    }
+}

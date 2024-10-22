@@ -1,0 +1,398 @@
+<div class="my-2 px-2 d-flex flex-column">
+  <div class="table-header d-flex ps-0 justify-content-between">
+    <div class="d-flex align-items-center">
+      <a class="secondary-link me-5" [routerLink]="[
+          '/employees',
+          empName,
+          'dashboard',
+          'programs-management',
+          'all-schools'
+        ]" routerLinkActive="activated-secondary-link">
+        List of Schools
+      </a>
+      <a class="secondary-link" [routerLink]="[
+          '/employees',
+          empName,
+          'dashboard',
+          'programs-management',
+          'all-programs'
+        ]" routerLinkActive="activated-secondary-link">
+        List of Programs
+      </a>
+    </div>
+
+    <button mat-menu-item (click)="openModal(add, 'add-modal', 'xl', [])" class="add-button" *ngIf="
+        empUserName === 'Nicolas' ||
+        empUserName === 'Oumaima EL HADDADI' ||
+        empUserName === 'Abdelouahab OULMAATI'
+      ">
+      <span>Add Program</span>
+    </button>
+
+    <ng-template #add let-c="close" let-d="dismiss">
+      <app-add-program></app-add-program>
+    </ng-template>
+  </div>
+  <p-table [value]="allPrograms" [paginator]="true" [rows]="rows" [(first)]="first"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10, 25, 50]"
+    [showCurrentPageReport]="true" responsiveLayout="scroll" currentPageReportTemplate="" [resizableColumns]="true"
+    styleClass="table-style p-datatable-striped" columnResizeMode="expand" [loading]="loading"
+    [reorderableColumns]="true" exportHeader="customExportHeader" [globalFilterFields]="[
+      'name',
+      'country',
+      'intake',
+      'ranking',
+      'language',
+      'city',
+      'fee',
+      'level',
+      'overview',
+      'length'
+    ]" [filterDelay]="0" [(selection)]="selectedColumns"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" selectionMode="single" #table>
+    <ng-template pTemplate="caption">
+      <div class="d-flex  align-items-center">
+        <span class="p-input-icon-left ms-auto search_con">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_6034_12415)">
+              <path
+                d="M23.7068 22.2938L17.7378 16.3248C19.3644 14.3354 20.1642 11.7969 19.9716 9.23432C19.7791 6.67179 18.609 4.28129 16.7034 2.55728C14.7977 0.833269 12.3024 -0.0923492 9.73342 -0.0281174C7.16447 0.0361144 4.71849 1.08528 2.9014 2.90237C1.08431 4.71946 0.0351379 7.16545 -0.029094 9.7344C-0.0933258 12.3034 0.832293 14.7987 2.5563 16.7043C4.28031 18.61 6.67081 19.7801 9.23334 19.9726C11.7959 20.1651 14.3344 19.3654 16.3238 17.7388L22.2928 23.7078C22.4814 23.8899 22.734 23.9907 22.9962 23.9884C23.2584 23.9862 23.5092 23.881 23.6946 23.6956C23.88 23.5102 23.9852 23.2594 23.9875 22.9972C23.9897 22.735 23.8889 22.4824 23.7068 22.2938ZM9.99978 18.0008C8.41753 18.0008 6.87081 17.5316 5.55522 16.6525C4.23963 15.7735 3.21425 14.524 2.60875 13.0622C2.00324 11.6004 1.84482 9.99189 2.1535 8.44004C2.46218 6.88819 3.22411 5.46272 4.34293 4.3439C5.46175 3.22508 6.88721 2.46316 8.43906 2.15448C9.99091 1.84579 11.5994 2.00422 13.0613 2.60972C14.5231 3.21522 15.7725 4.2406 16.6515 5.5562C17.5306 6.87179 17.9998 8.41851 17.9998 10.0008C17.9974 12.1218 17.1538 14.1552 15.654 15.655C14.1542 17.1548 12.1208 17.9984 9.99978 18.0008Z"
+                fill="#636363" />
+            </g>
+            <defs>
+              <clipPath id="clip0_6034_12415">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <input #input pInputText type="text" (input)="table.filterGlobal(input.value, 'contains')"
+            placeholder="Search" class="form-control search_table" />
+        </span>
+      </div>
+      <div class="w-100 d-flex justify-content-center position-relative top-controls">
+        <button type="button" pButton pRipple icon="fi fi-rr-download" (click)="exportExcel()"
+          class="p-button-success mr-2 position-relative" pTooltip="XLS" tooltipPosition="bottom"></button>
+        <button (click)="goLeft()">
+          <i class="fi fi-rr-angle-double-small-left me-2"></i>
+        </button>
+        <button (click)="goRight()">
+          <i class="fi fi-rr-angle-double-small-right ms-2"></i>
+        </button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pResizableColumn id="left-most">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+
+        <th><span class="table-title">ID</span></th>
+
+        <!-- <th
+          pSortableColumn="pics.logo"
+          pReorderableColumn
+          *ngIf="mainLink !== 'leads'"
+        >
+          <div class="d-flex align-items-center">
+            <span class="table-title">Logo </span>
+          </div>
+        </th>
+
+        <th
+          pSortableColumn="pics.coverPhoto"
+          pResizableColumn
+          pReorderableColumn
+          *ngIf="mainLink !== 'leads'"
+        >
+          <div class="d-flex align-items-center">
+            <span class="table-title">Cover Photo</span>
+          </div>
+        </th> -->
+
+        <th pSortableColumn="name" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Name of Program </span>
+            <p-sortIcon field="name"></p-sortIcon>
+            <p-columnFilter type="text" field="name" display="menu" [hideOnClear]="true"
+              placeholder="Name"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="school" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Name of School </span>
+            <p-sortIcon field="school"></p-sortIcon>
+            <p-columnFilter type="text" field="school" display="menu" [hideOnClear]="true"
+              placeholder="School"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="intake" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Intake </span>
+            <p-sortIcon field="intake"></p-sortIcon>
+            <p-columnFilter type="text" field="intake" display="menu" [hideOnClear]="true"
+              placeholder="Intake"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="language" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Language</span>
+            <p-sortIcon field="language"></p-sortIcon>
+            <p-columnFilter type="text" field="language" display="menu" [hideOnClear]="true"
+              placeholder="Language"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="city" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Location</span>
+            <p-sortIcon field="city"></p-sortIcon>
+            <p-columnFilter type="text" field="city" display="menu" [hideOnClear]="true"
+              placeholder="City"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="length" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Duration</span>
+            <p-sortIcon field="length"></p-sortIcon>
+            <p-columnFilter type="text" field="length" display="menu" [hideOnClear]="true"
+              placeholder="Duration"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="fee" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Fees</span>
+            <p-sortIcon field="fee"></p-sortIcon>
+            <p-columnFilter type="text" field="fee" display="menu" [hideOnClear]="true"
+              placeholder="Fee"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="level" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Year of Entry</span>
+            <p-sortIcon field="level"></p-sortIcon>
+            <p-columnFilter type="text" field="level" display="menu" [hideOnClear]="true"
+              placeholder="Year of Entry"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="type" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Field</span>
+            <p-sortIcon field="type"></p-sortIcon>
+            <p-columnFilter type="text" field="type" display="menu" [hideOnClear]="true"
+              placeholder="Field"></p-columnFilter>
+          </div>
+        </th>
+
+        <!-- <th pSortableColumn="overview" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Overview</span>
+          </div>
+        </th>
+
+        <th pSortableColumn="linkedin" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Linkedin Link</span>
+          </div>
+        </th> -->
+
+        <!-- <th pSortableColumn="ranking" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Ranking</span>
+            <p-sortIcon field="ranking"></p-sortIcon>
+            <p-columnFilter
+              type="numeric"
+              field="ranking"
+              display="menu"
+              [hideOnClear]="true"
+              placeholder="Ranking"
+              prefix="+"
+              [useGrouping]="false"
+            ></p-columnFilter>
+          </div>
+        </th> -->
+
+        <th style="width: 8rem" id="right-most"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowIndex="rowIndex" let-program>
+      <tr style="height: 75px">
+        <td>
+          <p-tableCheckbox [value]="program" [index]="rowIndex"></p-tableCheckbox>
+        </td>
+
+        <!-- id -->
+        <td>
+          <span class="id-text"> {{ rowIndex + 1 }}</span>
+        </td>
+
+        <!-- logo -->
+        <!-- <td
+          pEditableColumn
+          class="ui-resizable-column font-poppins"
+          [pEditableColumn]="program"
+          [pEditableColumnField]="'pics.logo'"
+          [pEditableColumnRowIndex]="rowIndex"
+        >
+          {{ program.pics.logo }}
+        </td> -->
+
+        <!-- cover photo -->
+        <!-- <td
+          pEditableColumn
+          class="ui-resizable-column font-poppins"
+          [pEditableColumn]="program"
+          [pEditableColumnField]="'pics.coverPhoto'"
+          [pEditableColumnRowIndex]="rowIndex"
+        >
+          {{ program.pics.coverPhoto }}
+        </td> -->
+
+        <!-- name -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'name'" [pEditableColumnRowIndex]="rowIndex">
+          <span>{{ program.name }}</span>
+        </td>
+
+        <!-- school -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'school'" [pEditableColumnRowIndex]="rowIndex">
+          <span>{{ program.school }}</span>
+        </td>
+
+        <!-- intake -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'intake'" [pEditableColumnRowIndex]="rowIndex">
+          <span class="status me-1" [ngStyle]="{
+              background: '#E8E8E8',
+              color: '#121212'
+            }" *ngFor="let intake of extractIntake(program.intake)">
+            {{ intake }}
+          </span>
+        </td>
+
+        <!-- language -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'language'" [pEditableColumnRowIndex]="rowIndex">
+          <span class="status me-1" [ngStyle]="{
+              background: '#E8E8E8',
+              color: '#121212'
+            }" *ngFor="let language of extractLanguages(program.language)">
+            {{ language }}
+          </span>
+        </td>
+
+        <!-- location -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'city'" [pEditableColumnRowIndex]="rowIndex">
+          <span class="status me-1" [ngStyle]="{
+              background: '#E8E8E8',
+              color: '#121212'
+            }" *ngFor="let city of program.city">
+            {{ city }}
+          </span>
+        </td>
+
+        <!-- duration -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'length'" [pEditableColumnRowIndex]="rowIndex">
+          <span>{{ program.length }} years</span>
+        </td>
+
+        <!-- fees -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'fee'" [pEditableColumnRowIndex]="rowIndex">
+          <span>{{ program.fee }}</span>
+        </td>
+
+        <!-- year of entry -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'level'" [pEditableColumnRowIndex]="rowIndex">
+          <span class="status me-1" [ngStyle]="{
+              background: '#E8E8E8',
+              color: '#121212'
+            }" *ngFor="let requirement of program.level">{{ getProgramLevel(requirement) }}
+          </span>
+        </td>
+
+        <!-- field -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="program"
+          [pEditableColumnField]="'type'" [pEditableColumnRowIndex]="rowIndex">
+          <span>{{ program.type }}</span>
+        </td>
+
+        <!-- overview -->
+        <!-- <td
+          pEditableColumn
+          class="ui-resizable-column font-poppins"
+          [pEditableColumn]="program"
+          [pEditableColumnField]="'overview'"
+          [pEditableColumnRowIndex]="rowIndex"
+        >
+          <span>{{ program.overview }}</span>
+        </td> -->
+
+        <!-- linkedin -->
+        <!-- <td
+          pEditableColumn
+          class="ui-resizable-column font-poppins"
+          [pEditableColumn]="program"
+          [pEditableColumnField]="'linkedin'"
+          [pEditableColumnRowIndex]="rowIndex"
+        >
+          <span>{{ program.linkedin }}</span>
+        </td> -->
+
+        <!-- ranking -->
+        <!-- <td
+          pEditableColumn
+          class="ui-resizable-column font-poppins"
+          [pEditableColumn]="program"
+          [pEditableColumnField]="'ranking'"
+          [pEditableColumnRowIndex]="rowIndex"
+        >
+          <span class="status" [ngClass]="getRankingColor(program.ranking)">
+            {{ program.ranking > 0 ? "Top " + program.ranking : "" }}
+          </span>
+        </td> -->
+
+        <td style="text-align: center">
+          <button pButton type="button" class="p-button-text p-button-rounded p-button-secondary"
+            icon="pi pi-ellipsis-v" [matMenuTriggerFor]="menu" *ngIf="
+              empUserName === 'Nicolas' ||
+              empUserName === 'Oumaima EL HADDADI' ||
+              empUserName === 'Abdelouahab OULMAATI'
+            "></button>
+
+          <mat-menu #menu="matMenu">
+            <!-- To assign for other employees -->
+            <button mat-menu-item (click)="openModal(edit, 'edit-modal', 'xl', [])">
+              <i class="fi fi-rr-edit"></i>
+              <span>Edit</span>
+            </button>
+
+            <ng-template #edit>
+              <app-add-program [isEdit]="isEdit" [program]="program"></app-add-program>
+            </ng-template>
+
+            <!-- <button mat-menu-item>
+              <i class="fi fi-rr-trash"></i>
+              <span>Archive</span>
+            </button> -->
+          </mat-menu>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length">No schools found</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

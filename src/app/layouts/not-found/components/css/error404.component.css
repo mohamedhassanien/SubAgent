@@ -1,0 +1,192 @@
+section.not-found-section {
+  margin: 30px 0;
+  background-image: url(../../../../../assets/images/not-found/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section.not-found-section .logo-col {
+  margin-bottom: 80px;
+}
+
+section.not-found-section .logo-col .logo {
+  height: 49px;
+  width: 264px;
+}
+
+section.not-found-section .back-col {
+  margin-bottom: 15px;
+}
+
+section.not-found-section .back-col button.back-btn {
+  width: 52px;
+  height: 52px;
+  background-color: #5652e5;
+  border-radius: 50%;
+  border: none;
+}
+
+section.not-found-section .back-col button.back-btn:hover {
+  background-color: #a3a0ee;
+}
+
+section.not-found-section .back-col button.back-btn img {
+  width: 48px;
+  height: 39px;
+}
+
+section.not-found-section .body-col {
+  position: relative;
+}
+
+section.not-found-section .body-col h1.title {
+  position: absolute;
+  top: 0;
+  font: normal normal 600 40px Poppins;
+  letter-spacing: 1.85px;
+  color: #2d2d2d;
+}
+
+section.not-found-section .body-col h1.title span {
+  font: normal normal 600 53px Poppins;
+  color: #16294f;
+  letter-spacing: 1.85px;
+}
+
+section.not-found-section .body-col img.man-sitting {
+  width: 236px;
+  height: 236px;
+  position: absolute;
+  bottom: 130px;
+}
+
+section.not-found-section .body-col .description {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+}
+
+section.not-found-section .body-col .description .paragraph {
+  margin: 0;
+  font: normal normal 200 28px Poppins;
+  color: #2d2d2d;
+}
+
+section.not-found-section .body-col .description .home-link {
+  font: normal normal 300 24px Poppins;
+  color: #1e2cff;
+}
+
+section.not-found-section .body-col .description .home-link:hover {
+  color: #a3a0ee;
+}
+
+section.not-found-section .body-col .description .back-btn {
+  padding: 18px 65px;
+  margin-bottom: 5px;
+  background: transparent linear-gradient(112deg, #6770f7 0%, #a0a6ff 100%, #000000 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border: none;
+  border-radius: 23px;
+  font: normal normal 600 20px/27px Poppins;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  color: #fff7f7;
+}
+
+section.not-found-section .body-col .description .back-btn:hover {
+  background: transparent linear-gradient(112deg, #16294f 0%, rgba(253, 130, 130, 0.4509803922) 100%, #000000 100%) 0% 0% no-repeat padding-box;
+}
+
+@media (max-width: 767.9px) {
+  section.not-found-section {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../../../../../assets/images/not-found/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -40px;
+  }
+
+  section.not-found-section .logo-col {
+    margin-bottom: 80px;
+    height: 60px;
+    background: linear-gradient(217deg, #7f87f8 0%, #6770f7 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.not-found-section .logo-col .logo {
+    width: 172px;
+    height: 32px;
+  }
+
+  section.not-found-section button.back-btn {
+    position: absolute;
+    top: 4px;
+    left: 20px;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+  }
+
+  section.not-found-section button.back-btn img {
+    width: 38px;
+    height: 29px;
+  }
+
+  section.not-found-section .body-col {
+    position: relative;
+  }
+
+  section.not-found-section .body-col h1.title {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    font: normal normal 600 24px Poppins;
+    letter-spacing: 1.85px;
+    color: #2d2d2d;
+  }
+
+  section.not-found-section .body-col h1.title span {
+    font: normal normal 600 24px Poppins;
+    color: #16294f;
+    letter-spacing: 1.85px;
+  }
+
+  section.not-found-section .body-col ng-lottie div:nth-child(1) {
+    width: 501px !important;
+    height: 463px !important;
+  }
+
+  section.not-found-section .body-col img.man-sitting {
+    width: 98px;
+    height: 99px;
+    position: absolute;
+    bottom: 140px;
+  }
+
+  section.not-found-section .body-col .description {
+    position: absolute;
+    text-align: center;
+    bottom: -70px;
+  }
+
+  section.not-found-section .body-col .description .paragraph {
+    margin-bottom: 13px;
+    font: normal normal 200 16px Poppins;
+    color: #2d2d2d;
+  }
+
+  section.not-found-section .body-col .description .home-link {
+    font: normal normal 300 12px/18px Poppins;
+    color: #1e2cff;
+  }
+
+  section.not-found-section .body-col .description .home-link:hover {
+    color: #a3a0ee;
+  }
+}

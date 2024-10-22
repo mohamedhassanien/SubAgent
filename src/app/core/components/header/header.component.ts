@@ -1,17 +1,25 @@
+import { UploadService } from './../../../shared/services/upload/upload.service';
 import {
   Component,
   ElementRef,
   HostListener,
   Inject,
+  Input,
   OnInit,
+  Output,
   PLATFORM_ID,
+  // Renderer2,
   ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { SocialAuthService } from 'angularx-social-login';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { StudentsService } from 'src/app/shared/services/students/students.service';
-import { TranslatorService } from 'src/app/shared/services/translate/translate.service';
+import { isPlatformBrowser } from '@angular/common';
+import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
+import { ProgramsService } from 'src/app/shared/services/programs/programs.service';
+import { EventEmitter } from 'stream';
 declare var $: any;
 
 @Component({
@@ -20,6 +28,7 @@ declare var $: any;
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  /////// Variables
   // User Data
   name: string = '';
   username: string = '';
@@ -29,6 +38,8 @@ export class HeaderComponent implements OnInit {
   // offers
   offer: string = '';
   router: string = '';
+  userName = localStorage.getItem('userName') as String;
+  lengthWishlist = localStorage.getItem('lengthWhshlist');
 
   // Conditions
   searchMenu: boolean = false;
@@ -55,10 +66,18 @@ export class HeaderComponent implements OnInit {
   ];
 
   profileLinks: any[] = [
-    // ['My profile', '/students/dashboard'],
-    // ['Edit profile', '/students/myinfo'],
-    ['Programmes', '/landing/programs'],
-    ['Déconnexion', '/auth/login'],
+    ['My profile', '/students/dashboard'],
+    ['Logout', '/auth/login'],
+  ];
+
+  profileLinksNoLogin: any[] = [
+    ['Sign Up', '/students/dashboard'],
+    ['Login', '/auth/login'],
+  ];
+
+  programsLinks: any[] = [
+    ['Schools', '/landing/Schools'],
+    ['Programs', '/landing/programs'],
   ];
 
   // Elements in HTML
@@ -69,30 +88,39 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private _router: Router,
+    private activeRouter: ActivatedRoute,
     // private _Renderer: Renderer2,
+    private socialAuthService: SocialAuthService,
     private _StudentsService: StudentsService,
     private _SharedService: SharedService,
-    translate: TranslateService,
-    private translator: TranslatorService,
+    private _programService: ProgramsService,
+
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this._SharedService.profilePictureChanged.subscribe((data: any) => {
       this.profilePic = data;
     });
-
-    translate.setDefaultLang('fr');
-  }
-
-  changeLocale(locale: string) {
-    this.translator.changeLocale(locale);
   }
 
   setFocus() {
     this.showInput = !this.showInput;
   }
+  numwishlist: any;
+  hidebadge: boolean = false;
 
   ngOnInit(): void {
-    document.addEventListener('touchstart', function () {}, true);
+    this.navMenu = false;
+
+    this._SharedService.wishlistLength.subscribe((data: any) => {
+      this.numwishlist = data;
+    });
+    // To get number wishlist programs
+    // let name =String( localStorage.getItem('userName'))
+    // this._programService.getWishlistedPrograms(name).subscribe((data:any)=>{
+    //   const[{programs}] = data
+    //   this.numwishlist = programs.length
+    // })
+    document.addEventListener('touchstart', function () { }, true);
 
     if (
       String(localStorage.getItem('isLoggedIn')) == 'true' ||
@@ -121,6 +149,13 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
+
+  // numbers programs in wishlist
+  // getWishlistLength(){
+  //   this._SharedService.wishlistLength.subscribe((data:any)=>{
+  //     this.numwishlist = data
+  //   })
+  // }
 
   // To Show search Menu
   showSearch() {
@@ -154,14 +189,50 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  loginOrSignin(condition: string) {
+    if (condition == 'Sign Up') {
+      this._router.navigate(['/auth/register/student']);
+    }
+    if (condition == 'Login') {
+      this._router.navigate(['/auth/login']);
+    }
+  }
+
+  wishlesticon() {
+    if (this.isLoggedIn) {
+      // this._router.navigate([`/students/${this.userName}/profile/mywishlist`]);
+      this._router.navigate([`/profile/wishlist`])
+    }
+    if (!this.isLoggedIn) {
+      Swal.fire({
+        title: 'Sorry!',
+        text: 'You Must be Logged in first',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#16294f',
+        cancelButtonColor: '#f2818b',
+        confirmButtonText: 'Login Now',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this._router.navigate(['/auth/login']);
+        }
+      });
+    }
+  }
+
   // to logout
   logOut(condition: string) {
     if (condition == 'Logout') {
       localStorage.clear();
+      this.socialAuthService.signOut();
+      this._router.navigate(['/auth/login']).then(() => {
+        window.location.reload();
+      });
     }
   }
   logoutMob() {
     localStorage.clear();
+    this.socialAuthService.signOut();
     this._router.navigate(['/auth/login']);
   }
 
@@ -174,14 +245,16 @@ export class HeaderComponent implements OnInit {
   }
 
   getType() {
-    if (this.type === 'student') return ['/students', this.name];
+    // if (this.type === 'student') return ['/students', this.name];
+    if (this.type === 'student') return ['/profile/documents'];
     else if (this.type === 'employee' || this.type === 'owner')
       return ['/employees', this.name, 'dashboard'];
-    else return ['/employees', this.name, 'dashboard'];
+    else return ['/sub-agents', this.name, 'dashboard'];
   }
-  navbarFixed: Boolean = false;
+
+  navbarFixed: boolean = false;
   @HostListener('window:scroll', ['$event']) onScroll() {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
       this.navbarFixed = true;
     } else this.navbarFixed = false;
   }

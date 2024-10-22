@@ -1,0 +1,691 @@
+<nav class="navbar housing-nav navbar-light">
+  <div class="container">
+    <div class="me-auto">
+      <a class="navbar-brand" href="https://housinganywhere.com/"
+        ><img
+          src="/assets/images/navigator/housing/housinganywhere/housing anywhere logo.svg"
+          alt="housing anywhere"
+      /></a>
+      <a class="navbar-brand" href="https://www.studentgator.com/#/landing/home"
+        ><img
+          src="/assets/images/navigator/housing/housinganywhere/studentgator icon.svg"
+          alt="studentgator"
+      /></a>
+    </div>
+  </div>
+</nav>
+
+<section class="filter-section container">
+  <div class="row mt-2">
+    <div class="col-xl-4 col-md-4 d-none d-md-block">
+      <div
+        class="filter-options d-flex justify-content-between align-items-center"
+      >
+        <div class="filter-number ms-4">
+          <p>Filter</p>
+        </div>
+        <!-- <div class="notifications ms-auto">
+                      <button mat-button>
+                          <mat-icon>notifications_active</mat-icon>
+                          Notifications
+                      </button>
+                  </div> -->
+        <div class="clear-filter">
+          <button mat-button (click)="getHousingAnywhereData(); clearAll()">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <mat-accordion multi>
+        <mat-expansion-panel class="location">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="location-title"> Location </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Location</mat-label>
+            <input matInput [(ngModel)]="searchText" />
+          </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="price">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="price-title"> Price </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="mb-4">
+            <ngx-slider
+              [(value)]="value"
+              [(highValue)]="highValue"
+              [options]="options"
+            ></ngx-slider>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div
+              class="d-flex justinfy-content-center align-items-start flex-column col-3"
+            >
+              <p>Min price</p>
+              <input
+                matInput
+                placeholder="€ {{ value }}"
+                value="€ {{ value }}"
+              />
+            </div>
+            <div class="col-6"></div>
+            <div
+              class="d-flex justinfy-content-center align-items-start flex-column col-3"
+            >
+              <p>Max price</p>
+              <input
+                matInput
+                placeholder="€ {{ highValue }}"
+                value="€ {{ highValue }}"
+              />
+            </div>
+          </div>
+          <!-- <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex me-auto align-items-center">
+                              <mat-checkbox color="primary">
+                                  <p class="ms-2">
+                                      Bills included
+                                  </p>
+                              </mat-checkbox>
+                          </div>
+                          <mat-chip-list>
+                              <mat-chip>185</mat-chip>
+                          </mat-chip-list>
+                      </div> -->
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="date">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="date-title"> Date </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="col-5">
+              <p class="mb-2">Move-in</p>
+              <input type="date" class="form-control" [(ngModel)]="moveIn" />
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+              <p class="mb-2">Move-out</p>
+              <input type="date" class="form-control" [(ngModel)]="moveOut" />
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="type">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="type-title"> Type </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="d-flex justify-content-center flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="house">
+                <p class="ms-2">House</p>
+              </mat-checkbox>
+              <!-- <mat-chip-list>
+                                  <mat-chip>185</mat-chip>
+                              </mat-chip-list> -->
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="building">
+                <p class="ms-2">Building</p>
+              </mat-checkbox>
+              <!-- <mat-chip-list>
+                                  <mat-chip>185</mat-chip>
+                              </mat-chip-list> -->
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="apartment">
+                <p class="ms-2">Apartment</p>
+              </mat-checkbox>
+              <!-- <mat-chip-list>
+                                  <mat-chip>185</mat-chip>
+                              </mat-chip-list> -->
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <!-- <mat-expansion-panel class="size">
+                      <mat-expansion-panel-header>
+                          <mat-panel-title class="size-title">
+                              Size
+                          </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex me-auto align-items-center">
+                              <mat-checkbox color="primary"></mat-checkbox>
+                              <p class="ms-2">
+                                  15 m or more
+                              </p>
+                          </div>
+                          <mat-chip-list>
+                              <mat-chip>185</mat-chip>
+                          </mat-chip-list>
+                      </div>
+                  </mat-expansion-panel> -->
+
+        <mat-expansion-panel class="furniture">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="furniture-title">
+              Furniture
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="d-flex justify-content-center flex-column">
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="furn">
+                <p class="ms-2">Furniture</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="unFurn">
+                <p class="ms-2">Un Furniture</p>
+              </mat-checkbox>
+            </div>
+            <!-- <mat-chip-list>
+                              <mat-chip>185</mat-chip>
+                          </mat-chip-list> -->
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="facilities">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="facilities-title">
+              Facilities
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="d-flex justify-content-center flex-column">
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="bathroom">
+                <p class="ms-2">Private bathroom</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="balcony">
+                <p class="ms-2">Balcony/Terrace</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="garden">
+                <p class="ms-2">Garden</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="kitchen">
+                <p class="ms-2">Kitchen</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="pets">
+                <p class="ms-2">Pets allowed</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="parking">
+                <p class="ms-2">Parking</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="wheelchair">
+                <p class="ms-2">Wheelchair accessible</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="basement">
+                <p class="ms-2">Basement</p>
+              </mat-checkbox>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="amenities">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="amenities-title">
+              Amenities
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="d-flex justify-content-center flex-column">
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="dishWasher">
+                <p class="ms-2">Dish Washer</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="washingMachine">
+                <p class="ms-2">Washing Machine</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="dryer">
+                <p class="ms-2">Dryer</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="airConditioning">
+                <p class="ms-2">Air Conditioning</p>
+              </mat-checkbox>
+            </div>
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="heating">
+                <p class="ms-2">Heating</p>
+              </mat-checkbox>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="registration">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="registration-title">
+              Registration
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex me-auto align-items-center">
+              <mat-checkbox color="primary" [(ngModel)]="reg">
+                <p class="ms-2">Registration</p>
+              </mat-checkbox>
+            </div>
+            <!-- <mat-chip-list>
+                              <mat-chip>185</mat-chip>
+                          </mat-chip-list> -->
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+    <div class="resposive-row d-block d-md-none mb-3">
+      <div class="row">
+        <div
+          class="d-flex d-md-none justify-content-start align-items-start col-2"
+        >
+          <button
+            class="options btn"
+            type="button"
+            (click)="openFilterScreen(); $event.preventDefault()"
+          >
+            <img
+              src="/assets/images/navigator/housing/housinganywhere/filter.svg"
+              alt="Options"
+            />
+          </button>
+        </div>
+        <div class="col-10">
+          <input
+            type="text"
+            class="w-100 h-100 form-control"
+            placeholder="Search here.."
+            [(ngModel)]="searchText"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="filterScreen" class="row d-block d-md-none" *ngIf="filterBox">
+      <div class="backdrop" (click)="closeFilterScreen()"></div>
+      <div class="filter-box">
+        <div
+          class="close-btn btn d-flex justify-content-center align-items-center"
+          (click)="closeFilterScreen()"
+        >
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-4 mb-1">
+          <div class="col-12">
+            <h2>Price Range:</h2>
+            <ngx-slider
+              [(value)]="valueSm"
+              [(highValue)]="highValueSm"
+              [options]="options"
+              class="w-100"
+            ></ngx-slider>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3 mb-1">
+          <div class="col-12">
+            <h2>Date:</h2>
+            <div class="row">
+              <div class="col-6">
+                <h3 class="mb-2">Move-in</h3>
+                <input type="date" class="form-control" [(ngModel)]="moveIn" />
+              </div>
+              <!-- <div class="col-2"></div> -->
+              <div class="col-6">
+                <h3 class="mb-2">Move-out</h3>
+                <input type="date" class="form-control" [(ngModel)]="moveOut" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3 mb-1">
+          <div class="col-12">
+            <h2>Type:</h2>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <mat-checkbox color="primary" [(ngModel)]="house">
+                  <p class="ms-2">House</p>
+                </mat-checkbox>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="building">
+                  <p class="ms-2">Building</p>
+                </mat-checkbox>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="apartment">
+                  <p class="ms-2">Apartment</p>
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3 mb-1">
+          <div class="col-12">
+            <h2>Furniture:</h2>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="furn">
+                  <p class="ms-2">Furniture</p>
+                </mat-checkbox>
+              </div>
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="unFurn">
+                  <p class="ms-2">Un Furniture</p>
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3 mb-1">
+          <div class="col-12">
+            <h2>Facilities:</h2>
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="bathroom">
+                    <p class="ms-2">Private bathroom</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="balcony">
+                    <p class="ms-2">Balcony/Terrace</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="garden">
+                    <p class="ms-2">Garden</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="kitchen">
+                    <p class="ms-2">Kitchen</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="pets">
+                    <p class="ms-2">Pets allowed</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="parking">
+                    <p class="ms-2">Parking</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="wheelchair">
+                    <p class="ms-2">Wheelchair accessible</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex me-auto align-items-center">
+                  <mat-checkbox color="primary" [(ngModel)]="basement">
+                    <p class="ms-2">Basement</p>
+                  </mat-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3 mb-1">
+          <div class="col-12">
+            <h2>Amenities:</h2>
+            <div class="d-flex justify-content-center flex-wrap">
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="dishWasher">
+                  <p class="ms-2">Dish Washer</p>
+                </mat-checkbox>
+              </div>
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="washingMachine">
+                  <p class="ms-2">Washing Machine</p>
+                </mat-checkbox>
+              </div>
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="dryer">
+                  <p class="ms-2">Dryer</p>
+                </mat-checkbox>
+              </div>
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="airConditioning">
+                  <p class="ms-2">Air Conditioning</p>
+                </mat-checkbox>
+              </div>
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="heating">
+                  <p class="ms-2">Heating</p>
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3 mb-1">
+          <div class="col-12">
+            <h2>Registration:</h2>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex me-auto align-items-center">
+                <mat-checkbox color="primary" [(ngModel)]="reg">
+                  <p class="ms-2">Registration</p>
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <button class="btn btn-primary w-100" (click)="closeFilterScreen()">
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="col-xl-8 col-md-8 col-12 d-flex justify-content-center my-auto"
+      *ngIf="isLoading"
+    >
+      <app-spinner></app-spinner>
+    </div>
+    <div class="col-xl-8 col-md-8 col-12" *ngIf="!isLoading">
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="info-title">
+          {{ houses.length }} Room, Studios And Apartments For Rent
+        </p>
+      </div>
+      <div class="row pt-3">
+        <div
+          class="col-xl-4 col-md-6 col-12 d-flex justify-content-center"
+          *ngFor="
+            let house of houses
+              | filter : searchText
+              | price : value : highValue
+              | price : valueSm : highValueSm
+              | dateFilter : moveIn : moveOut
+              | checkFilter : house : building : apartment
+              | furn : furn : unFurn
+              | reg : reg
+              | suitable
+                : dishWasher
+                : washingMachine
+                : dryer
+                : airConditioning
+                : heating
+              | slice : (page - 1) * pageSize : page * pageSize
+              | facilities
+                : bathroom
+                : balcony
+                : garden
+                : kitchen
+                : pets
+                : parking
+                : wheelchair
+                : basement
+          "
+        >
+          <a href="{{ house.originalLink }}" class="mb-xl-5 mb-md-4 mb-3">
+            <mat-card>
+              <div class="row">
+                <div class="col-md-12 col-6">
+                  <img
+                    class="img-fluid d-none d-md-block"
+                    src="{{ house.images[0].originalLink }}"
+                    alt=""
+                  />
+                  <!-- Responsive -->
+                  <div class="d-md-none">
+                    <img
+                      class="card-img m-0 img-fluid"
+                      src="{{ house.images[0].originalLink }}"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    class="price justify-content-center align-items-center d-none d-md-flex"
+                  >
+                    <p>€ {{ house?.costsFormatted.price }}</p>
+                  </div>
+                </div>
+                <!-- Responsive -->
+                <div class="col-6 d-block d-md-none">
+                  <p class="program-title">
+                    {{ house?.typeLabel | firstLetter }}
+                  </p>
+                  <p class="program-name">
+                    {{ house?.title }}
+                  </p>
+                  <p class="program-description my-2">
+                    {{ house?.description | shorten : 90 }}
+                  </p>
+                  <div class="row">
+                    <div
+                      class="col-12 d-flex justify-content-start align-items-center ps-0 m-0"
+                    >
+                      <div
+                        class="lang d-flex justify-content-center align-items-center"
+                      >
+                        <i class="far fa-calendar"></i>
+                        <p class="ms-2">
+                          From {{ house?.available[0].from | date }}
+                        </p>
+                      </div>
+                      <div
+                        class="date d-flex justify-content-center align-items-center ms-3"
+                      >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p class="ms-2">
+                          {{ house?.location.city }}
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="price d-flex justify-content-center align-items-center"
+                    >
+                      <p>€ {{ house?.costsFormatted.price }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12 d-none d-md-block">
+                  <p class="program-title">
+                    {{ house?.typeLabel | firstLetter }}
+                  </p>
+                  <p class="program-name">
+                    {{ house?.title }}
+                  </p>
+                  <p class="program-description mt-3">
+                    {{ house?.description | shorten : 65 }}
+                  </p>
+                  <!-- <div class="school-name d-flex justify-content-start align-items-center">
+                                              <p>
+                                                  4
+                                              </p>
+                                          </div> -->
+                </div>
+                <div class="info col-12 mt-3 d-none d-md-block">
+                  <div class="row d-flex flex-column justify-content-between">
+                    <div
+                      class="first-info d-flex justify-content-between align-items-center"
+                    >
+                      <div
+                        class="d-flex justify-content-center align-items-center"
+                      >
+                        <i class="far fa-calendar"></i>
+                        <p class="ms-2">
+                          From {{ house?.available[0].from | date }}
+                        </p>
+                      </div>
+                      <!-- <div class="d-flex justify-content-center align-items-center">
+                                                      <i class="fas fa-globe"></i>
+                                                      <p>
+                                                          5
+                                                      </p>
+                                                  </div> -->
+                    </div>
+                    <div>
+                      <hr />
+                    </div>
+                    <div
+                      class="second-info d-flex justify-content-between align-items-center"
+                    >
+                      <div
+                        class="d-flex justify-content-center align-items-center"
+                      >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p class="ms-2">
+                          {{ house?.location.city }}
+                        </p>
+                      </div>
+                      <!-- <div class="d-flex justify-content-center align-items-center animation">
+                                                      <mat-icon>done</mat-icon>
+                                                      <p> Bills Included</p>
+                                                  </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </a>
+        </div>
+      </div>
+      <ngb-pagination
+        [collectionSize]="houses.length"
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [maxSize]="4"
+        [ellipses]="true"
+        class="d-flex justify-content-center mt-5"
+      ></ngb-pagination>
+    </div>
+  </div>
+</section>

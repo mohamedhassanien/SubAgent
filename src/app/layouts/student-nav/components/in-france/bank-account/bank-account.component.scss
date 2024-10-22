@@ -1,0 +1,185 @@
+h1 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+h5 {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.documentaion {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    .row {
+        text-align: center;
+
+        h5 {
+            font-weight: 400;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+    }
+}
+
+.info {
+    border-radius: 10px;
+    background: var(--frame, #FBF7EA);
+    border-radius: 20px;
+    padding: 32px;
+
+    .row {
+        border-radius: var(--5, 5px);
+        background: var(--primary-white, #FDFDFD);
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        li {
+            margin-top: 16px;
+        }
+    }
+
+}
+
+.banks {
+    margin-top: 80px;
+
+    h1 {
+        text-align: center;
+    }
+
+    .row {
+        text-align: center;
+
+        p {
+            margin-top: 12px;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .documentaion {
+        margin-top: 32px;
+
+        .row {
+
+            h5 {
+                margin-top: 8px;
+            }
+        }
+    }
+
+    .info {
+        margin-top: 32px;
+        border-radius: 10px;
+        padding: 16px;
+
+        .row {
+            padding: 8px;
+
+            li {
+                margin-top: 8px;
+            }
+        }
+
+    }
+
+    .banks {
+        margin-top: 32px;
+
+        .row {
+            p {
+                margin-top: 12px;
+                font-size: 15px;
+                list-style: 22px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+    h1 {
+        font-size: 14px;
+    }
+
+    h5 {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .documentaion {
+        margin-top: 24px;
+
+        .row {
+            img {
+                width: 45%;
+            }
+
+            h5 {
+                margin-top: 4px;
+            }
+        }
+    }
+
+    .info {
+        margin-top: 24px;
+        border-radius: 5px;
+        padding: 8px;
+
+        .row {
+            padding: 8px;
+
+            li {
+                margin-top: 4px;
+            }
+        }
+
+    }
+
+    .banks {
+        margin-top: 24px;
+
+        .row {
+            img {
+                width: 85%;
+            }
+
+            p {
+                margin-top: 4px;
+                font-size: 11px;
+                line-height: 16px;
+            }
+        }
+    }
+}

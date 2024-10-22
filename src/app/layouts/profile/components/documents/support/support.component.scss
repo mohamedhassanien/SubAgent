@@ -1,0 +1,391 @@
+h1,
+h2,
+h3,
+h3,
+h4,
+h5,
+p,
+span {
+  margin-bottom: 0;
+  line-height: normal;
+  color: var(--primary-black, #121212);
+  font-family: "Poppins";
+}
+
+.widthcustom {
+  width: 100% !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  display: none !important;
+}
+
+.uploadDocs {
+  display: none;
+}
+
+.uploadDocs+label {
+  border: none;
+  background-color: #16294f;
+  padding: 8px 32px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+
+  &:hover {
+    opacity: .7;
+    transition: all 0.5s ease;
+  }
+}
+
+.accordion-button::after {
+  display: none;
+}
+
+.accordion-item {
+  border: none;
+  border-radius: 10px;
+  background: var(--primary-white, #fdfdfd);
+  box-shadow: 0px 0px 10px 0px rgba(119, 119, 119, 0.13);
+
+  .accordion-header {
+    button {
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: none;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: #121212;
+    }
+  }
+
+  .accordion-body {
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 0px 0px 5px 5px;
+    display: flex;
+    align-items: center;
+    border: none;
+    box-shadow: none;
+
+    // margin-bottom: 16px;
+    img {
+      width: 22px;
+      height: 29px;
+      margin-right: 13px;
+    }
+
+    p.name {
+      font: normal normal normal 14px/27px Poppins;
+      color: #8b8b8b;
+      margin: 0;
+    }
+
+    .stats {
+      .percentage {
+        font: normal normal normal 18px/27px Poppins;
+        color: #8b8b8b;
+        margin: 0 21px 0 21px;
+      }
+
+      button.view {
+        font: normal normal normal 18px/27px Poppins;
+        color: #16294f;
+        margin-right: 26px;
+        margin-left: 26px;
+        border: none;
+        background-color: transparent;
+
+        &:hover {
+          color: #3e49e2;
+        }
+
+        &:disabled {
+          color: #acb0ec;
+        }
+      }
+
+      button.square {
+        width: 24px;
+        height: 24px;
+        background-color: #edeeff;
+        border-radius: 5px;
+        border: none;
+
+        &:hover {
+          background-color: #d1d4fd;
+        }
+
+        i {
+          color: #16294f;
+        }
+
+        &:disabled {
+          background-color: #edeeff;
+
+          &:hover {
+            background-color: #edeeff;
+          }
+
+          & i {
+            color: #acb0ec;
+          }
+        }
+      }
+    }
+
+    .error-msg {
+      color: red;
+    }
+
+    .upload-btn {
+      background-color: #16294f;
+      color: #fff;
+
+      &:hover {
+        background-color: #4751de;
+        box-shadow: none;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .widthcustom {
+    width: 80% !important;
+    -webkit-width: 80% !important;
+  }
+
+  .accordion-item {
+    .accordion-header {
+      button {
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: none;
+        font-weight: 400;
+        font-size: 14px;
+        box-shadow: none;
+      }
+
+      .accordion-button:not(.collapsed) {
+        color: #121212;
+      }
+    }
+
+    .accordion-body {
+      padding: 16px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+
+      // margin-bottom: 16px;
+      img {
+        width: 22px;
+        height: 29px;
+        margin-right: 13px;
+      }
+
+      p.name {
+        font: normal normal normal 18px/27px Poppins;
+        color: #8b8b8b;
+        margin: 0;
+      }
+
+      .stats {
+        .percentage {
+          font: normal normal normal 18px/27px Poppins;
+          color: #8b8b8b;
+          margin: 0 21px 0 21px;
+        }
+
+        button.view {
+          font: normal normal normal 18px/27px Poppins;
+          color: #16294f;
+          margin-right: 26px;
+          border: none;
+          background-color: transparent;
+
+          &:hover {
+            color: #3e49e2;
+          }
+
+          &:disabled {
+            color: #acb0ec;
+          }
+        }
+
+        button.square {
+          width: 24px;
+          height: 24px;
+          background-color: #edeeff;
+          border-radius: 5px;
+          border: none;
+
+          &:hover {
+            background-color: #d1d4fd;
+          }
+
+          i {
+            color: #16294f;
+          }
+
+          &:disabled {
+            background-color: #edeeff;
+
+            &:hover {
+              background-color: #edeeff;
+            }
+
+            & i {
+              color: #acb0ec;
+            }
+          }
+        }
+      }
+
+      .error-msg {
+        color: red;
+      }
+
+      .upload-btn {
+        background-color: #16294f;
+        color: #fff;
+
+        &:hover {
+          background-color: #4751de;
+          box-shadow: none;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .widthcustom {
+    width: 80% !important;
+    -webkit-width: 80% !important;
+  }
+
+  .accordion-item {
+    .accordion-header {
+      button {
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: none;
+        font-weight: 400;
+        font-size: 14px;
+        box-shadow: none;
+      }
+
+      .accordion-button:not(.collapsed) {
+        color: #121212;
+      }
+    }
+
+    .accordion-body {
+      padding: 16px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 22px;
+        height: 29px;
+        margin-right: 1px;
+      }
+
+      p.name {
+        font: normal normal normal 14px/27px Poppins;
+        color: #8b8b8b;
+        margin: 0;
+      }
+
+      .stats {
+        .percentage {
+          font: normal normal normal 15px/27px Poppins;
+          color: #8b8b8b;
+          margin: 0 14px 0 14px;
+        }
+
+        button.view {
+          font: normal normal normal 14px/27px Poppins;
+          color: #16294f;
+          margin-right: 24px;
+          border: none;
+          background-color: transparent;
+
+          &:hover {
+            color: #3e49e2;
+          }
+
+          &:disabled {
+            color: #acb0ec;
+          }
+        }
+
+        button.square {
+          width: 24px;
+          height: 24px;
+          background-color: #edeeff;
+          border-radius: 5px;
+          border: none;
+
+          &:hover {
+            background-color: #d1d4fd;
+          }
+
+          i {
+            color: #16294f;
+          }
+
+          &:disabled {
+            background-color: #edeeff;
+
+            &:hover {
+              background-color: #edeeff;
+            }
+
+            & i {
+              color: #acb0ec;
+            }
+          }
+        }
+      }
+
+      .error-msg {
+        color: red;
+      }
+
+      .upload-btn {
+        background-color: #16294f;
+        color: #fff;
+
+        &:hover {
+          background-color: #4751de;
+          box-shadow: none;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

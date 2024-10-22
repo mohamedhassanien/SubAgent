@@ -1,0 +1,441 @@
+<div class="download-doc">
+  <h6>Upload recommendation letter*</h6>
+  <div class="upload-input">
+    <p *ngIf="!firstFileLoading">Choose PNG, jPG or PDF format</p>
+    <div *ngIf="firstFileLoading" class="d-flex align-items-center upload-text">
+      <h5>{{firstFileName}}</h5>
+      <img (click)="deleteFirst()" class="ms-4" src="../../../../../../assets/images/navigator/x.svg" alt="x">
+    </div>
+    <label *ngIf="!firstFileLoading" for="inputTag" class="align-items-center" (change)="chooseFirst($event)">
+      <img class="me-2" src="../../../../../assets/images/why-assets/upload-blue.svg" alt="upload">
+      Upload
+      <input id="inputTag" type="file" />
+      <span id="imageName"></span>
+    </label>
+    <label *ngIf="firstFileLoading" class="align-items-center">
+      <img class="me-2" src="../../../../../../assets/images/navigator/check.svg" alt="check">
+      Done
+    </label>
+  </div>
+  <!-- <div *ngIf="firstFileLoading" class="d-flex align-items-center mt-2">
+    <img class="me-2" src="../../../../../../assets/images/navigator/Processing.svg" alt="Processing">
+    <h4>Someone from our team will review your eligibility for this program</h4>
+  </div> -->
+</div>
+
+<!-- help-step -->
+<div class="d-flex help">
+  <img
+    src="../../../../../assets/images/why-assets/creative-male 1.svg"
+    alt=""
+  />
+  <div class="col-sm-7" style="margin-left: 24px;">
+    <div class="row r1">
+      Hey !
+    </div>
+    <div class="row r2">
+      You need help in recommendation letter ?
+        </div>
+    <div class="row r2">
+      Now, studentGator can help you in recommendation letter
+    </div>
+  </div>
+  <a class="btn" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+  <button
+  class="contact-us"
+>
+  Click here
+</button>
+</a>
+</div>
+
+<!-- modal-data -->
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content" style="padding: 0px 12px;">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-lg-4 p-md-3 p-2">
+
+        <!-- first section -->
+        <section class="first-section">
+          <h1 class="pt-0">Recommendation letter</h1>
+          <div class="row">
+            <div class="col-lg-8 col-md-12 col-12 p-0">
+              <p>
+                A recommendation letter is a written document that
+                <span>provides insight into the character, abilities, and accomplishments
+                  of a student,</span>
+                usually written by a teacher, or other individual who can speak to the
+                student's academic performance and personal qualities.
+              </p>
+              <p class=" mt-lg-4 mt-2">
+                This letter is typically submitted as part of the
+                <span>student's application package and is used by the university
+                  admissions committee</span>
+                to assess the student's suitability for admission.
+              </p>
+            </div>
+            <div class="col-lg-4 d-lg-block d-md-none d-none p-0">
+              <div class="anime w-50 m-auto">
+                <ng-lottie width="100%" height="100%" [options]="ml"></ng-lottie>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- tips section -->
+        <section class="tips">
+          <h1 class="main-section-heading text-center">Tips for the letter</h1>
+          <!-- web and tab -->
+          <div class="d-lg-block d-md-block d-none">
+            <div class="row">
+              <div class="col-lg-4 col-4 ps-0">
+                <div class="card">
+                  <img src="/assets/images/navigator/application/rl/tips/img-tip-1.svg" alt="tip-1" class="img-fluid" />
+                  <div class="card-body mt-lg-4 mt-md-2">
+                    <p class="main-section-title">
+                      Letters
+                      <span>can be written by a teacher or an internship leader/manager</span>
+                      that you have or have had in the past.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-4">
+                <div class="card">
+                  <img src="/assets/images/navigator/application/rl/tips/img-tip-2.svg" alt="tip-2" class="img-fluid" />
+                  <div class="card-body mt-lg-4 mt-md-2">
+                    <p class="main-section-title">
+                      <span>For bachelor’s degree programs,</span> only one letter is
+                      required. <span>For Master’s programs,</span> two letters are
+                      required.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-4 pe-0">
+                <div class="card">
+                  <img src="/assets/images/navigator/application/rl/tips/img-tip-3.svg" alt="tip-3" class="img-fluid" />
+                  <div class="card-body mt-lg-4 mt-md-2">
+                    <p class="main-section-title">
+                      Make sure
+                      <span>the person’s contact information is included</span> in the
+                      letter (email address, phone number).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- mobile -->
+          <div class="d-block d-lg-none d-md-none">
+            <div class="row">
+              <div class="col-lg-12 px-0">
+                <owl-carousel-o [options]="teamOptions">
+                  <ng-container>
+                    <ng-template carouselSlide>
+                      <div class="col-12 px-0">
+                        <div class="card">
+                          <img src="/assets/images/navigator/application/rl/tips/img-tip-1.svg" alt="tip-1"
+                            class="img-fluid" />
+                          <div class="card-body mt-1">
+                            <p class="main-section-title">
+                              Letters
+                              <span>can be written by a teacher or an internship leader/manager</span>
+                              that you have or have had in the past.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+                    <ng-template carouselSlide>
+                      <div class="col-12 px-0">
+                        <div class="card">
+                          <img src="/assets/images/navigator/application/rl/tips/img-tip-2.svg" alt="tip-2"
+                            class="img-fluid" />
+                          <div class="card-body mt-1">
+                            <p class="main-section-title">
+                              <span>For bachelor’s degree programs,</span> only one letter is
+                              required. <span>For Master’s programs,</span> two letters are
+                              required.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+                    <ng-template carouselSlide>
+                      <div class="col-12 px-0">
+                        <div class="card">
+                          <img src="/assets/images/navigator/application/rl/tips/img-tip-3.svg" alt="tip-3"
+                            class="img-fluid" />
+                          <div class="card-body mt-1">
+                            <p class="main-section-title">
+                              Make sure
+                              <span>the person’s contact information is included</span> in the
+                              letter (email address, phone number).
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+                  </ng-container>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- hints row -->
+        <div class="row hints-row">
+          <div class="wrap">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-12 col-md-12 col-12">
+                <h1>
+                  <span>SIX</span> components you should have on your recommendation
+                  letter
+                </h1>
+              </div>
+              <div class="col-3 d-lg-none d-md-block d-none text-end">
+                <img class="w-100" src="../../../../../../assets/images/navigator/application/rl/writing-news.svg"
+                  alt="writing-news">
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="hint d-lg-none d-md-none d-block text-center">
+                <img style="width: 5%;" src="/assets/images/navigator/application/cv/numbers/1.svg" alt="1"
+                  class="img-fluid" />
+                <p class="mt-2"><span>Introduction</span></p>
+                <p>
+                  The letter should begin with an
+                  introduction that includes the writer's name, title, and affiliation
+                  with the student (e.g., teacher, counselor, etc.).
+                </p>
+              </div>
+              <div class="d-lg-block d-md-block d-none">
+                <div class="hint d-flex align-items-center ">
+                  <img src="/assets/images/navigator/application/cv/numbers/1.svg" alt="1" class="img-fluid" />
+                  <p>
+                    <span>Introduction:</span> The letter should begin with an
+                    introduction that includes the writer's name, title, and affiliation
+                    with the student (e.g., teacher, counselor, etc.).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class=" hint d-lg-none d-md-none d-block text-center">
+                <img src="/assets/images/navigator/application/cv/numbers/2.svg" alt="1" class="img-fluid" />
+                <p class="mt-2"><span>Relationship with the student</span></p>
+                <p>
+                  The writer should
+                  describe the nature of their relationship with the student and provide
+                  context for their evaluation of the student's abilities and character.
+                </p>
+              </div>
+              <div class="d-lg-block d-md-block d-none">
+                <div class="hint d-flex align-items-center">
+                  <img src="/assets/images/navigator/application/cv/numbers/2.svg" alt="1" class="img-fluid" />
+                  <p>
+                    <span>Relationship with the student: </span> The writer should
+                    describe the nature of their relationship with the student and provide
+                    context for their evaluation of the student's abilities and character.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="hint d-lg-none d-md-none d-block text-center">
+                <img src="/assets/images/navigator/application/cv/numbers/3.svg" alt="1" class="img-fluid" />
+                <p class="mt-2"><span>Academic performance</span></p>
+                <p>
+                  The writer should provide an
+                  assessment of the student's academic performance, including their
+                  grades, class rank, and any academic honors or awards the student has
+                  received.
+                </p>
+              </div>
+              <div class="d-lg-block d-md-block d-none">
+                <div class="hint d-flex align-items-center">
+                  <img src="/assets/images/navigator/application/cv/numbers/3.svg" alt="1" class="img-fluid" />
+
+                  <p>
+                    <span>Academic performance: </span> The writer should provide an
+                    assessment of the student's academic performance, including their
+                    grades, class rank, and any academic honors or awards the student has
+                    received.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="hint d-lg-none d-md-none d-block text-center">
+                <img src="/assets/images/navigator/application/cv/numbers/4.svg" alt="1" class="img-fluid" />
+                <p class="mt-2"><span>Personal qualities</span></p>
+                <p>
+                  The writer should highlight the
+                  student's personal qualities, such as their motivation, leadership
+                  skills, creativity, and character.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row align-items-center">
+                <div class="col-lg-9 col-md-12 col-12 p-0">
+                  <div class="hint d-flex align-items-center">
+                    <img src="/assets/images/navigator/application/cv/numbers/4.svg" alt="4" class="img-fluid" />
+                    <p>
+                      <span>Personal qualities: </span> The writer should highlight the
+                      student's personal qualities, such as their motivation, leadership
+                      skills, creativity, and character.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-3 d-lg-block d-md-none d-none mt-lg-2 pt-lg-1 pe-0">
+                  <img src="../../../../../../assets/images/navigator/application/rl/writing-news.svg"
+                    alt="writing-news">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="hint d-lg-none d-md-none d-block text-center">
+                <img src="/assets/images/navigator/application/cv/numbers/5.svg" alt="1" class="img-fluid" />
+                <p class="mt-2"><span>Achievements and accomplishments</span> </p>
+                <p>
+                  The writer may mention
+                  any notable achievements or accomplishments of the student, such as
+                  research projects, community service, or other relevant activities.
+                </p>
+              </div>
+              <div class="d-lg-block d-md-block d-none">
+                <div class="hint d-flex align-items-center">
+                  <img src="/assets/images/navigator/application/cv/numbers/5.svg" alt="1" class="img-fluid" />
+
+                  <p>
+                    <span>Achievements and accomplishments: </span> The writer may mention
+                    any notable achievements or accomplishments of the student, such as
+                    research projects, community service, or other relevant activities.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="hint d-lg-none d-md-none d-block text-center">
+                <img src="/assets/images/navigator/application/cv/numbers/6.svg" alt="1" class="img-fluid" />
+                <p class="mt-2"><span>Conclusion</span> </p>
+                <p>
+                  The letter should conclude with a summary of
+                  the writer's overall recommendation for the student, expressing
+                  confidence in the student's abilities and potential for success in a
+                  university setting.
+                </p>
+              </div>
+              <div class=" d-lg-block d-md-block d-none">
+                <div class="hint d-flex align-items-center">
+                  <img src="/assets/images/navigator/application/cv/numbers/6.svg" alt="1" class="img-fluid" />
+
+                  <p>
+                    <span>Conclusion: </span> The letter should conclude with a summary of
+                    the writer's overall recommendation for the student, expressing
+                    confidence in the student's abilities and potential for success in a
+                    university setting.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- examples section -->
+        <section>
+          <h1 class="main-section-heading">Examples of recommendation letter</h1>
+          <!-- web and tab -->
+          <!-- <div class="d-lg-block d-md-block d-none">
+    <div class="row">
+      <div class="col-lg-4 col-4 ps-0">
+        <img src="/assets/images/navigator/application/rl/examples/rl-1.svg" alt="rl-1" class="img-fluid" />
+      </div>
+      <div class="col-lg-4 col-4">
+        <img src="/assets/images/navigator/application/rl/examples/rl-2.svg" alt="rl-1" class="img-fluid" />
+      </div>
+      <div class="col-lg-4 col-4 pe-0">
+        <img src="/assets/images/navigator/application/rl/examples/rl-3.svg" alt="rl-1" class="img-fluid" />
+      </div>
+    </div>
+  </div> -->
+          <p-galleria [value]="images" [(visible)]="displayCustom" [(activeIndex)]="activeIndex"
+            [responsiveOptions]="responsiveOptions" [circular]="true" [fullScreen]="true" [showItemNavigators]="true"
+            [showThumbnails]="false" [baseZIndex]="100000">
+            <ng-template pTemplate="item" let-item>
+              <img [src]="item.previewImageSrc" style="width:400px; display: block;" class="img-fluid" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+              <div class="row justify-content-center">
+                <img [src]="item.thumbnailImageSrc" style="display: block;" class="img-fluid" />
+              </div>
+            </ng-template>
+
+            <!-- <ng-template pTemplate="footer">
+    <a class="btn d-block mx-auto btn-white" routerLink="/builder/cv-1">Choose the cv</a>
+  </ng-template> -->
+          </p-galleria>
+          <div class="d-lg-block d-md-block d-none">
+            <div *ngIf="images" class="row">
+              <div *ngFor="let image of images; let index = index" class="col-4" key="index">
+                <div class="template">
+                  <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer; width: 100%;"
+                    (click)="imageClick(index)" class="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- mobile -->
+          <div class="d-lg-none d-md-none d-block">
+            <div class="row">
+              <div class="col-lg-12 px-0">
+                <owl-carousel-o [options]="teamOptions">
+                  <ng-container>
+                    <ng-template carouselSlide>
+                      <div class="col-12 px-0">
+                        <img src="/assets/images/navigator/application/rl/examples/rl-1.svg" alt="rl-1"
+                          class="img-fluid" />
+                      </div>
+                    </ng-template>
+
+                    <ng-template carouselSlide>
+                      <div class="col-12 px-0">
+                        <img src="/assets/images/navigator/application/rl/examples/rl-2.svg" alt="rl-1"
+                          class="img-fluid" />
+                      </div>
+                    </ng-template>
+
+                    <ng-template carouselSlide>
+                      <div class="col-12 px-0">
+                        <img src="/assets/images/navigator/application/rl/examples/rl-3.svg" alt="rl-1"
+                          class="img-fluid" />
+                      </div>
+                    </ng-template>
+
+                  </ng-container>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+h1,
+h2,
+h3,
+h3,
+h4,
+h5,
+p,
+span {
+  margin-bottom: 0;
+  line-height: normal;
+  color: var(--primary-black, #121212);
+  font-family: "Poppins";
+}
+
+section h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+section .notification {
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: #F3F5FF;
+  box-shadow: 0px 0px 10px 0px rgba(119, 119, 119, 0.13);
+  margin-bottom: 24px;
+}
+section .notification img {
+  margin-right: 16px;
+}
+section .notification h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+section .notification p {
+  color: var(--secondry-grey, #7B7B7B);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  section h1 {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  section .notification {
+    padding: 12px 12px;
+    margin-bottom: 16px;
+  }
+  section .notification img {
+    margin-right: 16px;
+  }
+  section .notification h2 {
+    font-size: 14px;
+  }
+  section .notification p {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  section h1 {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  section .notification {
+    padding: 8px 8px;
+    margin-bottom: 12px;
+  }
+  section .notification img {
+    margin-right: 8px;
+  }
+  section .notification h2 {
+    font-size: 12px;
+  }
+  section .notification p {
+    font-size: 10px;
+  }
+}

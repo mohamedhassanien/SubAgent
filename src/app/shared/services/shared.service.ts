@@ -13,5 +13,7 @@ export class SharedService {
 
   @Output() public progressChanged: EventEmitter<any> = new EventEmitter();
 
+  @Output() public wishlistLength: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
 }

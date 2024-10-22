@@ -1,7 +1,13 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { StudentsService } from './../../../shared/services/students/students.service';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -13,32 +19,22 @@ import { throwError } from 'rxjs';
 })
 export class FooterComponent implements OnInit {
   location!: string;
+  subscribeForm!: FormGroup;
+  subscribed: boolean = false;
+  alreadySubscribed: boolean = false;
+  isLoading: boolean = false;
+  currentYear = new Date().getFullYear();
 
-  constructor(private _Http: HttpClient) {
-    this.getLocation();
+  constructor(
+    private _Http: HttpClient,
+    private _FormBuilder: FormBuilder,
+    private _StudentsService: StudentsService
+  ) {
   }
 
-  ngOnInit(): void {}
-
-  // To get IP address and location
-  getLocation() {
-    this._Http
-      .get<any>('https://geolocation-db.com/json/')
-      .pipe(
-        catchError((err) => {
-          return throwError(err);
-        })
-      )
-      .subscribe((data: any) => {
-        const { country_name } = data;
-        this.location = country_name;
-      });
+  ngOnInit(): void {
+    
   }
 
-  isLoggedIn() {
-    return (
-      Boolean(localStorage.getItem('isLoggedIn')) ||
-      Boolean(localStorage.getItem('EmpLoggedIn'))
-    );
-  }
+
 }

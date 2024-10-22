@@ -1,0 +1,164 @@
+<!-- <div class="section-container home">
+    <h2>Our Events</h2>
+    <div class="custom-row events-holder">
+        <div class="custom-row date">
+            <div>
+                <span>4</span>
+                <p>Days</p>
+            </div>
+            <div>
+                <span>7</span>
+                <p>Hours</p>
+            </div>
+            <div>
+                <span>43</span>
+                <p>Minuts</p>
+            </div>
+            <div>
+                <span>37</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+
+        <div class="custom-col border">
+            <ul>
+                <li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li>
+            </ul>
+        </div>
+        
+        <div class="custom-col"> 
+            <div class="date"> <p> <span>8</span> {{events[events.length-1].date}}</p> </div>
+            <div class="title"> <h5>{{events[events.length-1].name}}</h5> </div>
+            
+            <div class="ictx-holder">
+                <div class="ictx">
+                    <div class="ictx-icon">
+                        <img
+src="/assets/images/user.png" alt="">
+                    </div>
+                    <div class="ictx-text">
+                        <p class="o146d">{{events[events.length-1].in}}</p>
+                    </div>
+                </div>
+                <div class="ictx">
+                    <div class="ictx-icon">
+                        <img
+src="/assets/images/docs.png" alt="">
+                    </div>
+                    <div class="ictx-text">
+                        <p class="o146d">2:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructor">
+                <div class="img-holder">
+                    <img
+src="" alt="">
+                </div>
+                <div class="text">
+                    <div class="o146db">{{events[events.length-1].instructorName}}</div>
+                    <div class="o146d">{{events[events.length-1].instructorJob}}</div>
+                </div>
+            </div>
+
+            <div class="ticket">
+                <button routerLink="/landing/Event-details">Get Ticket</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-container all-events">
+    
+    <div class="custom-row">
+        <div>
+            <p class="o166d"><span>Events</span> available for you</p>
+        </div>
+        <div>
+            <form>
+                <select name="" id="">
+
+                </select>
+            </form>
+        </div>
+    </div>
+
+    <div class="custom-row">
+        <div class="events-holder">
+            <div class="custom-col"  *ngFor="let event of events 
+            | slice: (page-1) * pageSize : page * pageSize" routerLink="/landing/Event-details">
+            
+                <div class="date"> <p> <span>8</span> {{event.date}}</p> </div>
+                <div class="title"> <h5>{{event.name}}</h5> </div>
+                
+                <div class="ictx-holder">
+                    <div class="ictx">
+                        <div class="ictx-icon">
+                            <img
+src="/assets/images/user.png" alt="">
+                        </div>
+                        <div class="ictx-text">
+                            <p class="o146d">{{event.in}}</p>
+                        </div>
+                    </div>
+                    <div class="ictx">
+                        <div class="ictx-icon">
+                            <img
+src="/assets/images/docs.png" alt="">
+                        </div>
+                        <div class="ictx-text">
+                            <p class="o146d">2:00 AM</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="instructor">
+                    <div class="img-holder">
+                        <img
+src="" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="o146db">{{event.instructorName}}</div>
+                        <div class="o146d">{{event.instructorJob}}</div>
+                    </div>
+                </div>
+    
+                <div class="ticket">
+                    <div>
+                        <ul>
+                            <li></li><li></li><li></li><li></li><li></li>
+                            <li></li><li></li><li></li><li></li>
+                        </ul>
+                    </div>
+                    <button routerLink="/landing/Event-details">Get Ticket</button>
+                </div>
+            </div>
+        </div>
+  
+        <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [maxSize]="2"
+        [collectionSize]="events.length"></ngb-pagination>
+    </div>
+    
+</div>
+
+<div class="section-container subscribe">
+    <div class="custom-col">
+        <div>
+            <h2>Subscribe Newsletters</h2>
+        </div>
+        <div>
+            <p class="o186d">Cras pulvinar mattis nunc sed blandit. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Lacus laoreet non curabitur gravida arcu ac.</p>
+        </div>
+        <div>
+            <form action="">
+                <input type="text" placeholder="Enter Your Email">
+                <button>Subscribe</button>
+            </form>
+        </div>
+    </div>
+</div> -->

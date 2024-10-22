@@ -1,0 +1,718 @@
+h1,
+h2,
+h3,
+h3,
+h4,
+h5,
+p,
+span {
+  margin-bottom: 0;
+  line-height: normal;
+  color: var(--primary-black, #121212);
+  font-family: "Poppins";
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}
+
+option {
+  padding: 6px 0 6px 32px;
+  font: normal normal normal 16px Poppins;
+  margin-right: 18px;
+  border-radius: 5px;
+}
+
+option img {
+  width: 70px;
+  height: 38px;
+  margin-right: 16px;
+}
+
+option:hover {
+  cursor: pointer;
+  background-color: rgb(229, 231, 255);
+  color: #000;
+}
+
+.profile-information .addimg {
+  z-index: 999;
+  left: 178px;
+  top: 140px;
+}
+
+.profile-information .addimg img {
+  width: 56px !important;
+  height: 56px !important;
+  border: none !important;
+}
+
+.profile-information .information .profile-pic {
+  margin-top: -121px;
+  z-index: 99;
+}
+
+.profile-information .information .profile-pic img {
+  width: 231px;
+  height: 231px;
+  border-radius: 221px;
+  border: 8px solid var(--primary-white, #fdfdfd);
+}
+
+.profile-information .information .profile-info {
+  margin-top: -46px;
+  z-index: 99;
+  padding-left: 40px;
+}
+
+.profile-information .information .profile-info .user-name {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.profile-information .information .profile-info .profile-details {
+  margin-top: 7px;
+}
+
+.profile-information .information .profile-info .profile-details .lang {
+  padding-top: 15px;
+}
+
+.profile-information .information .profile-info .profile-details .lang h2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.profile-information .information .profile-info .profile-details .lang p {
+  border-radius: 100px;
+  background: var(--light-grey, #e8e8e8);
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 6px;
+  text-align: center;
+  align-items: center;
+  display: inline-block;
+}
+
+.profile-information .information .profile-info .profile-details .lang h5 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 31px;
+}
+
+.profile-information .information .profile-info .profile-details .lang h5 span {
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.profile-information .information .profile-info .last-step .representive {
+  text-align: center;
+  border-left: 1px solid black;
+  padding-left: 30px;
+}
+
+.profile-information .information .profile-info .last-step .representive img {
+  width: 44px;
+  height: 44px;
+}
+
+.profile-information .information .profile-info .last-step .representive h1 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.profile-information .information .profile-info .last-step .representive h2 {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--untap, #636363);
+  margin-top: 4px;
+}
+
+.profile-information .information .profile-info .last-step .representive button {
+  border-radius: 8px;
+  border: 1px solid var(--primary-purple, #16294f);
+  padding: 4px 32px;
+  margin-top: 8px;
+  background: transparent;
+}
+
+.profile-information .information .profile-info .last-step .representive button img {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-information .information .profile-info .last-step .representive button p {
+  color: var(--primary-purple, #16294f);
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.all-tabs {
+  padding-right: 24px;
+}
+
+.all-tabs .nav-pills .nav-link {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px;
+  color: #121212;
+  text-transform: capitalize;
+  display: inline-block;
+  position: relative;
+  margin: 0 0 8px 8px;
+}
+
+.all-tabs .nav-pills .nav-link i {
+  font-size: 1.5rem;
+  margin-inline-end: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-tabs .nav-pills .nav-link.active {
+  border-radius: 10px;
+  border: 2px solid var(--light-purple, #fbe8ea);
+  background: #f0f2ff;
+  color: #121212;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.all-tabs .nav-pills .nav-link:not(.active):hover {
+  background: var(--primary-white, #fdfdfd);
+}
+
+.section-tabs {
+  padding: 40px 60px;
+  margin-top: 0px;
+  background-color: rgba(247, 247, 247, 0.968627451);
+}
+
+.section-tabs .tab-content {
+  border-radius: 10px;
+  background: var(--primary-white, #fdfdfd);
+  padding: 16px;
+  margin-bottom: 38px;
+}
+
+.mprefrence {
+  padding: 40px;
+  border-radius: 10px;
+  background: var(--primary-white, #fdfdfd);
+}
+
+.mprefrence h6 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.mprefrence .data {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(119, 119, 119, 0.13);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+}
+
+.mprefrence .data h1 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mprefrence .data img {
+  cursor: pointer;
+}
+
+.mprefrence .data p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+.mprefrence .data small {
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 100px;
+  background: var(--light-grey, #e8e8e8);
+  padding: 4px 12px;
+  margin-right: 6px;
+  margin-top: 16px;
+}
+
+.mprefrence .data .input-data {
+  margin-top: 16px;
+}
+
+.mprefrence .data .input-data .p-inputnumber,
+.mprefrence .data .input-data p-inputnumber {
+  width: 100%;
+}
+
+.mprefrence .data .input-data label {
+  color: var(--primary-black, #121212);
+  text-align: center;
+  font-family: Poppins !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 0.5rem;
+}
+
+.mprefrence .data .input-data input {
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid var(--secondry-grey, #7b7b7b);
+  background-color: white;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondry-grey, #7b7b7b);
+}
+
+.mprefrence .data .input-data .input .p-dropdown {
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid var(--secondry-grey, #7b7b7b);
+  background-color: white;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondry-grey, #7b7b7b);
+}
+
+.mprefrence .data .input-data i {
+  font-size: 18px;
+  position: absolute;
+  right: 28px;
+  top: 14px;
+}
+
+.mprefrence .data .input-data button {
+  border-radius: 8px;
+  background: var(--primary-purple, #16294f);
+  padding: 8px 32px;
+  color: var(--primary-white, #fdfdfd);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  margin-top: 16px;
+}
+
+.main-img {
+  height: 150px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 1400px) {
+  .last-step {
+    height: 100%;
+  }
+
+  .last-step .representive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lang div p {
+    text-align: left !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .profile-info {
+    padding-left: 60px !important;
+  }
+
+  .profile-details {
+    justify-content: space-between !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .profile-information .addimg {
+    left: 142px !important;
+    top: 125px !important;
+  }
+
+  .profile-pic img {
+    width: 195px !important;
+    height: 195px !important;
+    border-radius: 50% !important;
+  }
+
+  .profile-info {
+    padding-left: 60px !important;
+  }
+
+  .profile-details {
+    justify-content: flex-start !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .profile-information .main-img {
+    height: 63px;
+  }
+
+  .profile-information .information .profile-pic {
+    margin-top: -48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-information .information .profile-pic img {
+    width: 100%;
+  }
+
+  .profile-information .information .profile-pic .user-image {
+    width: 4.8125rem !important;
+    height: 4.8125rem !important;
+    border-radius: 50% !important;
+    border: 3px solid var(--primary-white, #fdfdfd);
+    box-shadow: 0px 0px 10px 0px rgba(119, 119, 119, 0.13);
+  }
+
+  .profile-information .information .profile-pic .user-name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .profile-information .information .profile-info {
+    margin-top: 0px;
+    padding-left: 0px !important;
+  }
+
+  .profile-information .information .profile-info .user-name {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .profile-information .information .profile-info .profile-details {
+    margin-top: 0px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang {
+    margin-top: 15px;
+    padding: 0px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang h2 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang p {
+    padding: 4px 12px;
+    font-size: 12px;
+    margin-right: 6px;
+    display: block !important;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang h5 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 46px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang h5 span {
+    font-weight: 400;
+    margin-left: 4px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive {
+    text-align: -webkit-center;
+    border-left: none;
+    padding-left: 0px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive h1 {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive h2 {
+    font-size: 10px;
+    margin-top: 0px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive button {
+    border-radius: 8px;
+    padding: 4px 32px;
+    margin-top: 6px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive button img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive button p {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .all-tabs {
+    margin-top: 2rem;
+  }
+
+  .all-tabs .nav-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    justify-content: space-around;
+    border-bottom: 1px solid rgb(107, 97, 97);
+  }
+
+  .all-tabs .nav-pills .nav-link {
+    font-size: 16px;
+    line-height: normal;
+    text-transform: capitalize;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    display: inline;
+    position: inherit;
+    justify-content: center;
+    padding-bottom: 12px;
+    margin: 0;
+  }
+
+  .all-tabs .nav-pills .nav-link i {
+    font-size: 1.5rem;
+    margin-inline-end: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .all-tabs .nav-pills .nav-link.active {
+    background: none;
+    box-shadow: none;
+    background-position: center;
+    font-weight: 600;
+    border: none;
+    border-bottom: 4px solid #16294f;
+    color: #16294f;
+    font-weight: 600;
+    padding-bottom: 12px;
+    border-radius: 1px;
+    margin: 0;
+  }
+
+  .section-tabs {
+    padding: 40px 40px;
+    margin-top: 16px;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  .section-tabs .tab-content {
+    border-radius: 10px;
+    background: var(--primary-white, #fdfdfd);
+    padding: 16px;
+    margin-top: 22px;
+    margin-bottom: 45px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .profile-information .main-img {
+    height: 59px;
+  }
+
+  .profile-information .information {
+    margin-left: 20px;
+    margin-right: 16px;
+  }
+
+  .profile-information .information .profile-pic {
+    margin-top: -47px;
+  }
+
+  .profile-information .information .profile-pic img {
+    width: 77px !important;
+    height: 77px !important;
+    border: 3px solid var(--primary-white, #fdfdfd);
+    display: flex;
+    margin: auto;
+  }
+
+  .profile-information .information .profile-pic .user-name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .profile-information .information .profile-info {
+    margin-top: 0px;
+    padding-left: 0px !important;
+  }
+
+  .profile-information .information .profile-info .user-name {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .profile-information .information .profile-info .profile-details {
+    margin-top: 0px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang {
+    margin-top: 15px;
+    padding-top: 0px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang h2 {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang p {
+    padding: 4px 8px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang h5 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 46px;
+  }
+
+  .profile-information .information .profile-info .profile-details .lang h5 span {
+    font-weight: 400;
+    margin-left: 4px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive {
+    text-align: -webkit-center;
+    border-left: none;
+    padding-left: 1rem;
+    padding-right: 0 !important;
+  }
+
+  .profile-information .information .profile-info .last-step .representive img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive h1 {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive h2 {
+    font-size: 8px;
+    margin-top: 0px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive button {
+    border-radius: 8px;
+    padding: 4px 24px;
+    margin-top: 6px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive button img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .profile-information .information .profile-info .last-step .representive button p {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .all-tabs {
+    margin-top: 1.5rem;
+  }
+
+  .all-tabs .nav-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    justify-content: space-around;
+    border-bottom: 1px solid rgb(107, 97, 97);
+  }
+
+  .all-tabs .nav-pills .nav-link {
+    font-size: 14px;
+    line-height: normal;
+    text-transform: capitalize;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    display: inline;
+    position: inherit;
+    justify-content: center;
+    padding-bottom: 8px;
+    margin: 0;
+  }
+
+  .all-tabs .nav-pills .nav-link i {
+    font-size: 1.1rem;
+    margin-inline-end: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .all-tabs .nav-pills .nav-link.active,
+  .all-tabs .nav-pills .nav-link:focus {
+    background: none;
+    box-shadow: none;
+    background-position: center;
+    font-weight: 600;
+    border: none;
+    border-bottom: 4px solid #16294f;
+    color: #16294f;
+    font-weight: 600;
+    padding-bottom: 8px;
+    border-radius: 1px;
+    margin: 0;
+  }
+
+  .section-tabs {
+    padding: 16px 16px;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  .section-tabs .tab-content {
+    border-radius: 5px;
+    background: var(--primary-white, #fdfdfd);
+    padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 115px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 480px) {
+  .all-tabs {
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+
+  .all-tabs .nav-pills {
+    width: 150%;
+  }
+
+  .all-tabs .nav-pills .nav-link {
+    padding-inline: 0.5rem;
+    white-space: nowrap;
+  }
+}

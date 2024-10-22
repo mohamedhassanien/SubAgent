@@ -1,0 +1,211 @@
+<section id="programs-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 ps-lg-0 pe-lg-4" (click)="goDown()">
+        <div
+          class="nav flex-xl-column nav-pills child-nav"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+          [ngClass]="navbarFixed ? 'fixed' : 'static'"
+        >
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-4"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="campus-france"
+            routerLinkActive="active"
+            (click)="steps1()"
+          >
+            <img
+              src="/assets/images/navigator/visa/visa-nav-icons/1.svg"
+              alt="Campus France"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Campus France
+            <img
+              *ngIf="!comps"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="comps"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-4"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="france-visa"
+            routerLinkActive="active"
+            [ngClass]="comps ? 'open' : 'close'"
+            (click)="steps2()"
+          >
+          <!-- [ngClass]="comps ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/visa/visa-nav-icons/2.svg"
+              alt="France visa"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            France visa
+            <img
+              *ngIf="!fvisa"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="fvisa"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-4"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="tls-vfs"
+            routerLinkActive="active"
+            [ngClass]="fvisa ? 'open' : 'close'"
+            (click)="steps3()"
+          >
+          <!-- [ngClass]="fvisa ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/visa/visa-nav-icons/3.svg"
+              alt="tls/vfs"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            TLS/VFS
+            <img
+              *ngIf="!tls"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="tls"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="validate-your-visa"
+            routerLinkActive="active"
+            [ngClass]="tls ? 'open' : 'close'"
+            (click)="steps4()"
+          >
+          <!-- [ngClass]="tls ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/visa/visa-nav-icons/4.svg"
+              alt="Validate your visa"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Validate your visa
+            <img
+              *ngIf="!validate"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="validate"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="my-visa-rejected"
+            routerLinkActive="active"
+            [ngClass]="validate ? 'open' : 'close'"
+            (click)="steps5()"
+          >
+          <!-- [ngClass]="validate ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/visa/visa-nav-icons/5.svg"
+              alt="My visa is rejected"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            My visa is rejected
+            <img
+              *ngIf="!myvisa"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="myvisa"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+        </div>
+        <div *ngIf="myvisa" class="d-flex align-items-center next mt-3">
+          <h4>Next</h4>
+          <img
+            class="mx-1"
+            src="../../../../../assets/images/navigator/next.svg"
+            alt="next"
+          />
+          <h4
+            routerLink="/student-navigator/in-france/extra-insurance"
+            style="cursor: pointer"
+          >
+            In France
+          </h4>
+        </div>
+      </div>
+      <div class="tab-content navs col-lg-9" id="v-pills-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

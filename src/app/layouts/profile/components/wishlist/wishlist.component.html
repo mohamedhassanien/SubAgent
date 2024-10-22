@@ -1,0 +1,133 @@
+<section class="programs-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-12" *ngFor="let program of programs">
+        <div
+          class="card mb-4"
+          [routerLink]="['/landing/programs', program.name, program.id]"
+        >
+          <div class="main-img" style="width: 100%; height: 167px">
+            <img
+              class="w-100 h-100"
+              src="https://studentgator.com/assets/images/schools/{{
+                program.school.charAt(program.school.length - 1) === ' '
+                  ? program.school.slice(0, -1).replace(':', '_')
+                  : program.school.replace(':', '_')
+              }}/1.jpg"
+              alt="back-img"
+            />
+          </div>
+          <div class="fav-ico" (click)="removeFromWishlist(program.id)">
+            <button
+              style="border: none; background-color: transparent"
+              i-button
+              class="like"
+            >
+              <!-- <img *ngIf="isFav[program.id]"
+                                src="../../../../../assets/images/programs/fi-rr-heart.svg" alt="heart"> -->
+              <img
+                src="../../../../../assets/images/programs/fi-sr-heart-fav.svg"
+                alt="heart-fav"
+              />
+            </button>
+          </div>
+          <div class="logo-img">
+            <img
+              class="w-100 h-100"
+              style="object-fit: fill !important"
+              src="https://studentgator.com/assets/images/schools/schools logos/{{
+                program.school.charAt(program.school.length - 1) === ' '
+                  ? program.school.slice(0, -1).replace(':', '_')
+                  : program.school.replace(':', '_')
+              }}.png"
+              alt="logo"
+            />
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <p class="category">{{ program.type }}</p>
+              <p class="pfee">€ {{ program.fee }}</p>
+              <!-- <p *ngIf="program.fee == 'Alternance only'" style="font-size: 12px;" class="pfee"> {{program.fee }}</p> -->
+            </div>
+            <h2 class="progname">{{ program.name | shorten : 20 }}</h2>
+            <p class="schoolname">{{ program.school | shorten : 37 }}</p>
+            <div class="d-flex justify-content-between">
+              <div class="last-data">
+                <div class="d-flex">
+                  <img
+                    class="me-2"
+                    src="../../../.././../assets/images/programs/fi-rr-calendar.svg"
+                    alt="calendar"
+                  />
+                  <p *ngIf="program.intake.length == '1'">
+                    {{ program?.intake }}
+                  </p>
+                  <p *ngIf="program.intake.length > '1'">
+                    {{ program?.intake[0] }}, +{{ program?.intake.length - 1 }}
+                  </p>
+                </div>
+                <div class="d-flex pt-2">
+                  <img
+                    class="me-2"
+                    src="../../../.././../assets/images/programs/fi-rr-globe.svg"
+                    alt="globe"
+                  />
+                  <p *ngIf="program.lang.length == '1'">
+                    {{ program?.lang }}
+                  </p>
+                  <p *ngIf="program.lang.length > '1'">
+                    {{ program?.lang[0] }}, +{{ program?.lang.length - 1 }}
+                  </p>
+                </div>
+              </div>
+              <div class="last-data">
+                <div class="d-flex">
+                  <img
+                    class="me-2"
+                    src="../../../.././../assets/images/programs/fi-rr-time-oclock.svg"
+                    alt="time"
+                  />
+                  <p>{{ program.length }} Years</p>
+                </div>
+                <div class="d-flex pt-2">
+                  <img
+                    class="me-2"
+                    src="../../../.././../assets/images/programs/fi-rr-marker.svg"
+                    alt="marker"
+                  />
+                  <p *ngIf="program.city.length == '1'">
+                    {{ program?.city }}
+                  </p>
+                  <p *ngIf="program.city.length > '1'">
+                    {{ program?.city[0] }}, +{{ program?.city.length - 1 }}
+                  </p>
+                  <!-- <p *ngIf="program.city.length > '1'">{{ program?.city[0]}},+2</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- noprograms -->
+    <div *ngIf="noProgramsWishlist" class="text-center noprograms">
+      <img
+        src="../../../../../assets/images/profile/applications/notfound.svg" style="width: 162px;"
+        alt="searching"
+      />
+      <p>Aucun programme dans la liste de souhaits</p>
+      <div class="d-flex justify-content-center">
+        <button class="add-program" routerLink="/landing/programs">
+          Ajouter un programme
+        </button>
+        <!-- <button class="contact-us">Contact us</button> -->
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn add-wishlist" type="submit" routerLink="../../landing/programs">
+        Ajouter à la liste de souhaits
+      </button>
+    </div>
+  </div>
+</section>

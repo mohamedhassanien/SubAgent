@@ -1,0 +1,49 @@
+section .row {
+  width: 602px;
+  height: 650px;
+  padding: 0 40px;
+  box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.2509803922);
+}
+section .row .headline {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1490196078);
+  padding-top: 40px;
+  padding-top: 20px;
+}
+section .row .headline h1 {
+  font: normal normal bold 36px/48px Roboto;
+  text-transform: uppercase;
+  color: #000000;
+}
+section .row .headline p {
+  font: normal normal normal 12px/16px Roboto;
+  color: rgba(0, 0, 0, 0.7019607843);
+  text-transform: capitalize;
+}
+section .row .left-side h1,
+section .row .right-side h1 {
+  text-decoration: underline;
+  font: normal normal bold 15px/20px Roboto;
+  text-transform: uppercase;
+  padding-top: 25px;
+}
+section .row .left-side .headings h2,
+section .row .right-side .headings h2 {
+  font: normal normal bold 10px/13px Roboto;
+  color: #000000;
+}
+section .row .left-side .headings p,
+section .row .right-side .headings p {
+  font: normal normal normal 9px/11px Roboto;
+  color: rgba(0, 0, 0, 0.7019607843);
+}
+section .row .left-side .exp-headings h1,
+section .row .right-side .exp-headings h1 {
+  font: normal normal bold 12px/16px Roboto;
+  color: #000000;
+  text-transform: capitalize;
+}
+section .row .left-side .exp-headings p,
+section .row .right-side .exp-headings p {
+  font: normal normal normal 10px/13px Roboto;
+  color: #000000;
+}

@@ -1,0 +1,137 @@
+<div class="section-container">
+  <form [formGroup]="registerForm">
+    <div class="page step1" *ngIf="stepOne">
+      <div class="custom-row">
+        <div class="custom-col">
+          <p><span>01</span>------<span>02</span>------<span>03</span></p>
+          <div>
+            <img src="/assets/images/phone.png" alt="" />
+            <p>Personal Information</p>
+            <span>(+1)408-657-9007</span> <br />
+            <span>info@Deanne.com</span>
+          </div>
+          <div class="img-holder">
+            <img src="/assets/images/register-wbg.png" alt="" />
+          </div>
+        </div>
+
+        <div class="custom-col">
+          <p>Sign up as an agent</p>
+          <div class="control">
+            <label for="fname">Name*</label>
+            <input
+              type="text"
+              placeholder="Parsley"
+              formControlName="name"
+              id="fname"
+            />
+          </div>
+          <div class="control">
+            <label for="email">Email Address*</label>
+            <input
+              type="email"
+              placeholder="montana@gmail.com"
+              formControlName="email"
+              id="email"
+            />
+          </div>
+          <div class="control">
+            <label for="phone">Phone Number*</label>
+            <input
+              type="text"
+              placeholder="(+1)408-657-9007"
+              formControlName="phone"
+              id="phone"
+            />
+          </div>
+          <div class="control">
+            <label for="city">Whare are you form?</label>
+            <input
+              type="text"
+              placeholder=""
+              formControlName="city"
+              id="city"
+            />
+          </div>
+          <div class="btn-holder">
+            <button class="next" (click)="NextToStep2()">
+              Next Step &#8594;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page step2" *ngIf="stepTwo">
+      <div class="custom-col">
+        <div class="steps">
+          <div>
+            <span>01</span>
+            <span>02</span>
+            <span>03</span>
+          </div>
+          <div>
+            <p>Personal Information</p>
+            <p>Company Info</p>
+            <p>Email Setup</p>
+          </div>
+        </div>
+        <div class="control">
+          <label for="profilePhoto"
+            ><span>Upload photo</span> or Just Drag and Drop</label
+          >
+          <input
+            type="file"
+            formControlName="profilePhoto"
+            id="profilePhoto"
+            placeholder="profilePhoto"
+          />
+        </div>
+        <div class="control">
+          <label for="cName">Company Name*</label>
+          <input
+            type="text"
+            formControlName="cName"
+            id="cName"
+            placeholder="Company Name"
+          />
+        </div>
+        <div class="control">
+          <label for="cEmail">Company Eamil Address*</label>
+          <input
+            type="email"
+            formControlName="cEmail"
+            id="cEmail"
+            placeholder="companyname@example.com"
+          />
+        </div>
+        <div class="control">
+          <label for="cPhone">Company Phone Number*</label>
+          <input
+            type="text"
+            formControlName="cPhone"
+            id="cPhone"
+            placeholder="(+1)408-657-9007"
+          />
+        </div>
+        <div class="control">
+          <label for="cPosition">You Position in Company*</label>
+          <input
+            type="text"
+            formControlName="cPosition"
+            id="cPosition"
+            placeholder=""
+          />
+        </div>
+        <div class="btn-holder">
+          <button (click)="PrevToStep2()">&larr; Previous</button>
+          <button class="next" (click)="NextToStep3()">Next Step</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page step3">
+      <div class="custom-col"></div>
+    </div>
+  </form>
+</div>

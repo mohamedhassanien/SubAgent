@@ -1,0 +1,133 @@
+<section class="search-section">
+  <div class="container">
+    <div
+      class="position-relative d-flex justify-content-center align-items-center col-md-12 col-12"
+    >
+      <form [formGroup]="searchForm" (ngSubmit)="searchSchool(searchForm)">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Rechercher des écoles..."
+          formControlName="search"
+          (keyup)="searchSchool(searchForm)"
+        />
+        <button class="btn" type="submit">
+          <p class="m-0">Search</p>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="school-section">
+  <div class="row text-center mt-5" *ngIf="isLoading">
+    <app-spinner></app-spinner>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="total_programs"><span class="black_color">Total des écoles  : </span>{{pageData.length}}</h3>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div
+        class="d-flex justify-content-center col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 text-center"
+        *ngFor="
+          let card of pageData
+            | slice : (page - 1) * pageSize : page * pageSize;
+          let i = index
+        "
+      >
+        <div class="card" (click)="viewProgram(card.shcool_name)"
+        [ngStyle]=" card.programsflag == 0 ?  {
+          opacity: '0.5', 'pointer-events': 'none'
+        } : {}">
+          <div class="card-images">
+            <img
+              style="z-index: 1"
+              src={{card.coverpic}}
+              alt="Card image cap"
+            />
+            <div class="logo-container">
+              <img
+                src={{card.logopic}}
+                alt="New image"
+              />
+            </div>
+            <div class="card-img-overlay">
+              <img
+                style="z-index: 5"
+                *ngIf="card.ranking != 0"
+                class="card-icon"
+                src="../../../../../assets/images/ranks/{{ card.ranking }}.svg"
+                alt="Card icon"
+              />
+            </div>
+          </div>
+
+          <div class="card-body p-0">
+            <h5>
+              {{ card.shcool_name }}
+            </h5>
+            <div class="card-link">
+              <a class="view-link" (click)="viewProgram(card.shcool_name)" *ngIf="card.programsflag == 1">
+                <img
+                  src="../../../../../assets/images/programs/fi-rr-eye.svg"
+                  alt="eye"
+                />
+                Voir le programme</a
+              >
+              <a class="view-link" (click)="viewProgram(card.shcool_name)" *ngIf="card.programsflag == 0">
+                
+                Aucun programme disponible</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+     
+
+      <ngb-pagination [collectionSize]="pageData.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
+          [boundaryLinks]="true" *ngIf="pageData.length != 0" (pageChange)="loadPage()" class="d-flex justify-content-center">
+        </ngb-pagination>
+      
+    </div>
+  </div>
+</section>
+
+<!-- <section class="pagination-section justify-content-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4 mb-4 pb-4">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center pagination-md">
+            <li class="page-item">
+              <a
+                class="page-link"
+                aria-label="Previous"
+                (click)="previousPage()"
+              >
+                <span aria-hidden="true">&#8249;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item mr-4" *ngFor="let page of pages">
+              <a
+                class="page-link"
+                [class.active]="page === currentPage"
+                (click)="goToPage(page)"
+                >{{ page }}</a
+              >
+            </li>
+            <li class="page-item">
+              <a class="page-link" aria-label="Next" (click)="nextPage()">
+                <span aria-hidden="true">&#8250;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section> -->

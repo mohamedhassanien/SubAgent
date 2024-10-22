@@ -1,0 +1,584 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <h2 class="section-title p-0">Add Lead</h2>
+      <div class="col-12 p-0">
+        <form class="form-section" [formGroup]="addForm" (ngSubmit)="submit(addForm)">
+          <div class="row">
+            <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+              <label for="name">First Name</label>
+              <input type="text" id="name" class="form-input" formControlName="firstName" placeholder="Ex. John"
+                [ngClass]="{
+                  'form-input-error':
+                    !addForm.controls.firstName.valid &&
+                    addForm.controls.firstName.touched
+                }" />
+              <!--  <span class="error-text" *ngIf="
+                  !addForm.controls.firstName.valid && addForm.controls.firstName.touched
+                ">
+                First Name is required
+              </span> -->
+              <p *ngIf="addForm.get('firstName')?.hasError('required') && addForm.get('firstName')?.touched"
+                class="text-danger">First name is required.</p>
+
+              <!-- <p *ngIf="addForm.get('firstName')?.hasError('pattern') && addForm.get('firstName')?.touched" class="text-danger">First name must contain letters or numbers only.</p> -->
+            </div>
+            <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+              <label for="name">Last Name</label>
+              <input type="text" id="name" class="form-input" formControlName="lastName" placeholder="Ex. John"
+                [ngClass]="{
+                  'form-input-error':
+                    !addForm.controls.lastName.valid &&
+                    addForm.controls.lastName.touched
+                }" />
+              <!-- <span class="error-text" *ngIf="
+                  !addForm.controls.lastName.valid && addForm.controls.lastName.touched
+                ">
+                Last Name is required
+              </span> -->
+              <p *ngIf="addForm.get('lastName')?.hasError('required') && addForm.get('lastName')?.touched"
+                class="text-danger">Last name is required.</p>
+
+              <!-- <p *ngIf="addForm.get('lastName')?.hasError('pattern') && addForm.get('lastName')?.touched" class="text-danger">Last name must contain letters or numbers only.</p> -->
+            </div>
+
+            <div class="col-lg-6 col-12 input-col pr-0">
+              <label for="school">Nationality</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                  [ngClass]="{ 'text-dark': countryName !== 'Select Country' }">
+                  {{ countryName | shorten : 25 }}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="searchCountry"
+                      [ngModelOptions]="{ standalone: true }" [value]="
+                        countryName === 'Select Country' ? '' : countryName
+                      " />
+                    <i class="fas fa-search place-holder"></i>
+                    <hr />
+                    <div class="dropdown-container-overflow">
+                      <option [value]="country" *ngFor="
+                          let country of countries | filterOne : searchCountry
+                        " (click)="
+                          changeSelection('country', $event); dropdown.click()
+                        ">
+                        {{ country.country | shorten : 35 }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-12 input-col pr-0">
+              <label for="school">Country of Residence</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                  [ngClass]="{ 'text-dark': residenceCountry !== 'Select Country' }">
+                  {{ residenceCountry | shorten : 25 }}
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-container">
+                    <input type="text" placeholder="Search" class="searchInput" [(ngModel)]="searchCountry"
+                      [ngModelOptions]="{ standalone: true }" [value]="
+                      residenceCountry === 'Select Country' ? '' : residenceCountry
+                      " />
+                    <i class="fas fa-search place-holder"></i>
+                    <hr />
+                    <div class="dropdown-container-overflow">
+                      <option [value]="country" *ngFor="
+                          let country of countries | filterOne : searchCountry
+                        " (click)="
+                          changeSelection('residence', $event); dropdown.click()
+                        ">
+                        {{ country.country | shorten : 35 }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-input" formControlName="email"
+                placeholder="Ex. johnsmith@company.com" [ngClass]="{
+                  'form-input-error':
+                    !addForm.controls.email.valid &&
+                    addForm.controls.email.touched
+                }" />
+              <span class="error-text" *ngIf="
+                  !addForm.controls.email.valid &&
+                  addForm.controls.email.touched
+                ">
+                Email is required
+              </span>
+            </div>
+
+            <div class="col-lg-6 col-12 input-col pr-0">
+              <label for="phone">Phone</label>
+              <ngx-intl-tel-input [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                [searchCountryField]="[
+                  SearchCountryField.Iso2,
+                  SearchCountryField.Name
+                ]" [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.France" maxlength="15" id="phone"
+                formControlName="phone" [separateDialCode]="separateDialCode"></ngx-intl-tel-input>
+              <span class="error-text" *ngIf="
+                  !addForm.controls.phone.valid &&
+                  addForm.controls.phone.touched &&
+                  addForm.controls.phone.dirty
+                ">
+                Your number is required
+              </span>
+            </div>
+            <div class="col-lg-6 col-12 input-col pl-0 ">
+              <div class="maximum_budget">
+                <label for="phone">Maximum budget/year</label>
+                <input type="text" value="{{ budgetValue }}" (keyup)="change($event)" class="form-input budget_disabled"
+                  formControlName="budget" />
+                <ngx-slider [(value)]="budgetValue" [options]="budgetOptions"></ngx-slider>
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-6 col-12 input-col pr-0">
+              <label for="school">Seriousness*</label>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                  [ngClass]="{
+                    'text-dark': seriousNumber !== 'Select Score'
+                  }"
+                >
+                  {{ seriousNumber }}
+                </button>
+                <div class="dropdown-menu score-menu">
+                  <div class="dropdown-container">
+                    <div class="dropdown-container-overflow">
+                      <option
+                        *ngFor="let seriousScore of seriousScores"
+                        (click)="
+                          changeSelection('score', $event); dropdown.click()
+                        "
+                      >
+                        {{ seriousScore }}
+                      </option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="row form_section tags_section">
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">
+                <h2 class="section-title p-0">Title</h2>
+              </div>
+              <div class="col-lg-9">
+                <h2 class="section-title p-0">Tags</h2>
+              </div>
+            </div>
+
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Source</div>
+              <div class="col-lg-9 input-col" style="padding-bottom: 5px;">
+                <mat-form-field>
+                  <mat-label>Select your source</mat-label>
+                  <mat-select [formControl]="toppings" multiple>
+                    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Language</div>
+              <div class="col-lg-9 input-col">
+                <mat-form-field>
+                  <mat-label>-</mat-label>
+                  <mat-select formControlName="language_study" single>
+                    <mat-option value="English">English</mat-option>
+                    <mat-option value="French">French</mat-option>
+                    <mat-option value="Both">Both</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Field of interest</div>
+              <div class="col-lg-9 input-col">
+                <mat-form-field>
+                  <mat-label>-</mat-label>
+                  <mat-select formControlName="field_of_interest" multiple>
+                    <mat-option value="Business / Management/ Analytics">Business / Management/ Analytics</mat-option>
+                    <mat-option value="Marketing / Marketing Digital / Data">Marketing / Marketing Digital /
+                      Data</mat-option>
+                    <mat-option value="Finance / Audit / Controle">Finance / Audit / Controle</mat-option>
+                    <mat-option value="Supply Chain / Achat">Supply Chain / Achat</mat-option>
+                    <mat-option value="HR">HR</mat-option>
+                    <mat-option value="Luxury Management">Luxury Management</mat-option>
+                    <mat-option value="Project Management">Project Management</mat-option>
+                    <mat-option value="Mecanical / Aeronotic / Automobile Engeneering"> Mecanical / Aeronotic /
+                      Automobile Engeneering</mat-option>
+                    <mat-option value="IT ( Data Science, Computer Science, Informatique, Cybersecurity, etc )">IT (
+                      Data Science, Computer Science, Informatique,
+                      Cybersecurity, etc )</mat-option>
+                    <mat-option value="Civil Engeneering">Civil Engeneering</mat-option>
+                    <mat-option value="Interior Architecture / Design">Interior Architecture / Design</mat-option>
+                    <mat-option value="Fashion Design">Fashion Design</mat-option>
+                    <mat-option value="Other">Other</mat-option>
+
+
+                  </mat-select>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Current/previous school</div>
+              <div class="col-lg-9 input-col">
+                <input type="text" class="form-input" placeholder="Add Current/previous school"
+                  formControlName="current_previous_school" />
+              </div>
+            </div>
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Entry level (desired)</div>
+              <div class="col-lg-9 input-col">
+                <mat-form-field>
+                  <mat-label>-</mat-label>
+                  <mat-select formControlName="entry_level" single>
+                    <mat-option value="B1">B1</mat-option>
+                    <mat-option value="B2">B2</mat-option>
+                    <mat-option value="B3">B3</mat-option>
+                    <mat-option value="M1">M1</mat-option>
+                    <mat-option value="M2">M2</mat-option>
+                    <mat-option value="MS">MS</mat-option>
+                    <mat-option value="MBA">MBA</mat-option>
+                    <mat-option value="MIM">MIM</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Intake</div>
+              <div class="col-lg-9 input-col">
+                <mat-form-field>
+                  <mat-label>-</mat-label>
+                  <mat-select formControlName="intake" single>
+                    <mat-option value="January">January</mat-option>
+                    <mat-option value="September">September</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Year</div>
+              <div class="col-lg-9 input-col">
+                <mat-form-field>
+                  <mat-label>-</mat-label>
+                  <mat-select formControlName="year" single>
+                    <mat-option value="2024">2024</mat-option>
+                    <mat-option value="2025">2025</mat-option>
+                    <mat-option value="2026">2026</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-0">
+              <div class="col-lg-3 p-0">Score</div>
+              <div class="col-lg-9 input-col">
+                <mat-form-field>
+                  <mat-label>-</mat-label>
+                  <mat-select formControlName="score" single>
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">4</mat-option>
+                    <mat-option value="5">5</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <!-- <div class="col-lg-6 col-12 input-col pl-0">
+                <label for="school" class="d-block">Title</label>
+                <select name='main_select' #val (change)="onChangeTitle(val.value)" class="tag_select" formControlName="tag_select">
+                  <option *ngFor="let tag_option of tag_options; index as i" [value]="tag_option">{{tag_option}}</option>
+                </select>
+              </div>
+              <div class="col-lg-6 col-12 input-col pr-0">
+                <label for="school">Tag</label>
+                <input
+                  type="text"
+                  id="tag"
+                  class="form-input"
+                  formControlName="tag"
+                  placeholder=""
+                  *ngIf="!viewSource"
+                />
+
+                
+                  <select *ngIf="viewSource" name='main_select' #viewSource (change)="onChangeviewSource(viewSource.value)" class="tag_select">
+                    <option value="">Direct Message META : FB / INSTA / WSP</option>
+                    <option value="">Facebook Groups</option>
+                    <option value="">Study in France FB Group</option>
+                    <option value="">WhatsApp Groups</option>
+                    <option value="">Prospection : INSTA</option>
+                    <option value="">Prospection : LINKEDIN</option>
+                    <option value="">Fair</option>
+                    <option value="">Ambassador</option>
+                    <option value="">Cyrus</option>
+                    <option value="">Oussama</option>
+                    <option value="">Marwa</option>
+                    <option value="">Manal</option>
+                    <option value="">Fatima</option>
+                    <option value="">Meta Ads</option>
+                    <option value="">WOM</option>
+                    <option value="">Other</option>
+                  </select>
+               
+              </div> -->
+
+            <div class="row" *ngFor="let div of divs; index as i"></div>
+            <!-- <button class="add_another_tag"  (click)="createDiv()">
+              <div>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 5H7V1C7 0.734784 6.89464 0.48043 6.70711 0.292893C6.51957 0.105357 6.26522 0 6 0C5.73478 0 5.48043 0.105357 5.29289 0.292893C5.10536 0.48043 5 0.734784 5 1V5H1C0.734784 5 0.48043 5.10536 0.292893 5.29289C0.105357 5.48043 0 5.73478 0 6C0 6.26522 0.105357 6.51957 0.292893 6.70711C0.48043 6.89464 0.734784 7 1 7H5V11C5 11.2652 5.10536 11.5196 5.29289 11.7071C5.48043 11.8946 5.73478 12 6 12C6.26522 12 6.51957 11.8946 6.70711 11.7071C6.89464 11.5196 7 11.2652 7 11V7H11C11.2652 7 11.5196 6.89464 11.7071 6.70711C11.8946 6.51957 12 6.26522 12 6C12 5.73478 11.8946 5.48043 11.7071 5.29289C11.5196 5.10536 11.2652 5 11 5Z"
+                    fill="#16294f"
+                  />
+                </svg>
+                <span>Add another Tag</span>
+              </div>
+            </button> -->
+          </div>
+          <div class="row form_section lang_test">
+            <h2 class="section-title p-0">Language Test</h2>
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="p-0">
+              <mat-tab label="English">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label for="">English Test</label>
+                    <select formControlName="eng_test_name">
+                      <option value="" disabled selected hidden>-</option>
+                      <option>IELTS</option>
+                      <option>TOEFL</option>
+                      <option>Duolingo</option>
+                      <option>Easy speaking</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="">Score</label>
+                    <input type="number" placeholder="Score" formControlName="eng_test_score"
+                      (keypress)="validateNo($event)" />
+                  </div>
+                </div>
+              </mat-tab>
+              <mat-tab label="French">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label for="">French Test</label>
+                    <select formControlName="fr_test_name">
+                      <option value="" disabled selected hidden>-</option>
+                      <option>DELF</option>
+                      <option>DALF</option>
+                      <option>TCF</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="">Score</label>
+                    <select formControlName="fr_test_score">
+                      <option value="" disabled selected hidden>-</option>
+                      <option>B1</option>
+                      <option>B2</option>
+                      <option>C1</option>
+                      <option>C2</option>
+                    </select>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+
+          <div class="row form_section">
+            <h2 class="section-title p-0">Which Type</h2>
+
+            <div class="radio-toolbar">
+              <input type="radio" id="radio1" value="0" [checked]="is_checked" formControlName="Which_table"
+                [class.checked]="checked" />
+              <label for="radio1">Direct Lead</label>
+
+              <input type="radio" id="radio2" value="1" formControlName="Which_table" (change)="changeChecked()" />
+              <label for="radio2">Future Lead</label>
+            </div>
+          </div>
+
+          <div class="row form_section">
+            <h2 class="section-title p-0">Add Comment</h2>
+            <div class="d-flex add_comment_container">
+              <svg width="119" height="113" viewBox="0 0 119 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.71484 102.513C5.71484 101.375 30.3775 100.444 60.8023 100.444C91.2272 100.444 115.89 101.371 115.89 102.513C115.89 103.655 91.2272 104.58 60.8023 104.58C30.3775 104.58 5.71484 103.654 5.71484 102.513Z"
+                  fill="#E9EDF7" />
+                <path
+                  d="M54.7003 20.6714C52.253 18.3607 44.9681 8.85605 41.7782 2.95892M49.5831 10.8142C49.4146 10.8018 49.2535 10.7398 49.1201 10.636C48.9868 10.5321 48.8873 10.3911 48.8341 10.2306C48.7809 10.0702 48.7765 9.89764 48.8214 9.73471C48.8663 9.57178 48.9584 9.4258 49.0862 9.31524C49.2141 9.20468 49.3718 9.13448 49.5395 9.11354C49.7072 9.09259 49.8773 9.12182 50.0284 9.19755C50.1795 9.27327 50.3048 9.39208 50.3883 9.53897C50.4719 9.68586 50.5101 9.85423 50.498 10.0228C50.49 10.1349 50.4599 10.2442 50.4096 10.3447C50.3592 10.4451 50.2896 10.5346 50.2046 10.6082C50.1197 10.6817 50.021 10.7377 49.9144 10.773C49.8077 10.8084 49.6952 10.8224 49.5831 10.8142ZM49.5831 10.8142C49.367 11.2432 49.0111 13.367 49.2126 14.0869M43.8761 3.03042C43.7981 3.61217 43.465 5.46792 43.6535 6.11792M42.6655 9.36792C43.1839 9.4053 45.1794 9.66367 46.4469 10.2942M48.2116 16.3099C48.756 16.4529 51.3593 17.1842 51.8305 17.4328M41.3038 3.07917C41.1502 3.06816 41.0033 3.01183 40.8817 2.91733C40.7601 2.82283 40.6693 2.69439 40.6208 2.54826C40.5722 2.40214 40.5681 2.24489 40.6089 2.09642C40.6497 1.94794 40.7337 1.81492 40.8501 1.71416C40.9666 1.61341 41.1103 1.54946 41.2631 1.5304C41.4159 1.51134 41.5709 1.53803 41.7085 1.60709C41.8462 1.67616 41.9602 1.78449 42.0363 1.91838C42.1123 2.05228 42.1469 2.20572 42.1358 2.3593C42.1208 2.56505 42.0247 2.75644 41.8687 2.89142C41.7127 3.0264 41.5095 3.09393 41.3038 3.07917ZM41.8595 10.065C41.7111 10.0531 41.5696 9.99751 41.4527 9.90526C41.3359 9.81301 41.249 9.68823 41.2029 9.54666C41.1569 9.40509 41.1538 9.25305 41.194 9.10972C41.2343 8.96639 41.316 8.83818 41.429 8.74124C41.542 8.6443 41.6811 8.58297 41.8289 8.56499C41.9767 8.54701 42.1265 8.57318 42.2594 8.6402C42.3923 8.70722 42.5025 8.81209 42.5759 8.94159C42.6493 9.0711 42.6827 9.21944 42.672 9.36792C42.6646 9.46711 42.6377 9.56386 42.5928 9.65263C42.5479 9.74139 42.486 9.82043 42.4105 9.8852C42.335 9.94996 42.2475 9.99919 42.1529 10.0301C42.0584 10.0609 41.9587 10.0728 41.8595 10.065ZM47.2334 16.903C47.0378 16.889 46.8507 16.8173 46.6959 16.6969C46.5411 16.5766 46.4254 16.413 46.3636 16.2269C46.3017 16.0408 46.2965 15.8405 46.3485 15.6514C46.4005 15.4624 46.5074 15.2929 46.6558 15.1647C46.8041 15.0364 46.9871 14.9549 47.1817 14.9307C47.3763 14.9064 47.5737 14.9405 47.749 15.0285C47.9243 15.1164 48.0695 15.2544 48.1663 15.425C48.2631 15.5955 48.3072 15.791 48.2929 15.9865C48.2737 16.2485 48.1514 16.4922 47.9528 16.664C47.7541 16.8359 47.4954 16.9218 47.2334 16.903ZM43.9671 3.04992C43.8384 3.04144 43.7152 2.99488 43.613 2.91615C43.5109 2.83742 43.4345 2.73009 43.3935 2.6078C43.3526 2.48552 43.3489 2.35381 43.383 2.22944C43.4171 2.10507 43.4874 1.99365 43.585 1.90937C43.6826 1.82508 43.8031 1.77173 43.9311 1.75611C44.0591 1.74049 44.1889 1.7633 44.3039 1.82165C44.4189 1.87999 44.514 1.97123 44.577 2.08375C44.64 2.19628 44.6681 2.325 44.6577 2.45355C44.644 2.62374 44.5639 2.78169 44.4347 2.89329C44.3054 3.00488 44.1375 3.06114 43.9671 3.04992Z"
+                  stroke="#DAE0F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M111.576 57.9487C108.017 61.3304 109.444 63.6444 110.861 64.1936C110.497 66.0477 112.304 68.1879 115.736 67.6386"
+                  stroke="#9F9CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M113.519 58.3276C110.375 59.7674 109.645 62.5949 111.047 64.1013C111.21 65.5638 113.278 67.5576 116.925 66.3519"
+                  stroke="#9F9CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M115.894 59.6097C114.801 59.5431 110.002 61.316 111.318 63.9566C111.419 65.4094 114.958 66.3827 117.788 65.0535"
+                  stroke="#9F9CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M116.101 64.8647C115.386 65.0109 112.788 64.6161 111.319 63.9563C112.053 62.7148 114.309 61.2361 115.191 61.0703M111.325 63.9563C112.869 64.1448 114.556 64.3333 116.979 63.6411M117.573 62.2322C116.324 62.0502 112.814 63.1097 111.697 64.0018M110.86 64.1936C109.624 64.4243 102.464 67.5573 99.7764 69.3318"
+                  stroke="#9F9CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M22.2896 84.7421C17.4975 82.7807 13.6771 85.7577 12.1675 91.6679C16.8459 92.573 22.5594 90.3971 22.2896 84.7421Z"
+                  fill="#CED3F8" />
+                <path
+                  d="M23.6173 80.7946C19.0137 76.4802 13.3701 78.2108 9.08984 84.2851C14.0233 87.3466 21.4723 87.3482 23.6173 80.7946Z"
+                  fill="#DDE2F8" />
+                <path d="M23.6172 80.7949C21.0774 81.5603 14.7204 82.6247 10.8496 83.7735" stroke="#BBC0E6"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M96.627 82.771C98.6777 84.6934 104.217 88.6957 107.352 91.6094" stroke="#BBC0E6"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M95.9219 80.9624C99.4286 80.6374 107.784 78.7962 113.114 78.2876" stroke="white"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M61.8584 33.509C57.7487 31.0504 47.0839 26.3915 40.813 22.6768" stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M25.2911 78.3655C24.8897 79.139 16.7956 80.7007 16.3991 79.1878C16.0903 78.008 17.3464 77.6522 17.8128 77.5628C18.5457 77.4149 20.3348 77.1744 20.1414 76.6528C19.7888 75.7103 15.3412 76.8933 14.2394 77.1143C13.1377 77.3353 10.9407 77.475 10.0876 76.5813C9.23443 75.6875 8.97931 75.2407 10.9277 74.9563C12.8761 74.6719 16.7777 74.5923 15.6922 73.666C14.6067 72.7398 11.5826 73.5035 9.69268 73.3102C7.8028 73.1168 4.27331 72.1158 5.20281 71.0352C6.03481 70.0748 11.4737 71.4252 11.2819 70.4713C11.1194 69.7092 9.51393 69.9025 7.05693 69.4264C4.59993 68.9503 2.28756 68.4872 2.45006 67.0149C2.57518 65.8319 4.07506 66.4657 5.40593 66.7045C6.73681 66.9434 8.59256 67.2083 8.25618 66.5274C7.91981 65.8465 1.31256 65.2957 1.08831 63.3375C0.93718 62.0375 2.30706 62.6063 3.86706 62.7997C5.42706 62.993 5.98931 62.9443 5.9243 62.6274C5.8593 62.3105 3.80043 61.7125 2.66131 61.4184C1.52218 61.1243 -0.00856943 60.3037 0.238431 59.2393C0.485431 58.1749 2.26318 58.8428 2.86118 59.2393C3.45918 59.6358 4.20018 59.7642 4.32368 59.5854C4.44718 59.4067 2.56381 57.9604 3.47381 57.1122C4.38381 56.2639 6.04131 57.8288 6.28506 59.0362C6.52881 60.2435 6.89931 61.8653 7.34293 61.7759C7.78656 61.6865 7.50543 60.289 7.28443 59.1873C7.06343 58.0855 7.22918 57.5964 7.52493 57.5379C8.51293 57.338 9.63743 58.6039 9.79993 59.4083C9.96243 60.2127 10.2777 64.8423 10.9374 64.7107C11.5972 64.579 11.2917 62.8549 11.1129 61.9644C10.9342 61.0739 10.5149 59.0004 11.6167 58.7778C12.7184 58.5552 13.8738 61.2332 14.1094 62.9475C14.3451 64.6619 14.5141 67.4715 15.0211 67.3692C15.5281 67.2668 15.7767 64.9918 15.5589 63.9112C15.3412 62.8305 14.4019 61.0154 15.7572 60.7424C17.1124 60.4694 17.7202 62.0635 18.1476 64.1842C18.3263 65.0698 18.7456 67.2717 18.2337 68.6074C17.6503 70.1349 17.6113 70.9897 17.9623 71.1392C18.6627 71.4398 18.9942 70.0293 19.0023 68.9698C19.0104 67.9103 18.8301 64.6197 20.4746 64.9073C22.1191 65.1949 21.5796 67.881 21.4723 68.9828C21.3651 70.0845 20.6403 73.9309 21.4869 74.0918C22.3336 74.2527 22.1711 72.1239 22.1906 71.4593C22.2101 70.7947 22.6959 69.4297 23.2176 69.7758C23.7392 70.1219 26.0126 76.9875 25.2911 78.3655Z"
+                  fill="#CED3F8" />
+                <path
+                  d="M74.3353 97.4415C74.3794 97.1608 74.3613 96.8739 74.2823 96.601C74.2033 96.3282 74.0652 96.076 73.878 95.8623C73.6907 95.6487 73.4587 95.4788 73.1986 95.3648C72.9384 95.2507 72.6563 95.1952 72.3723 95.2023C71.7555 95.2164 71.1638 95.4493 70.703 95.8596C70.2421 96.2698 69.9422 96.8305 69.8568 97.4415C69.8129 97.7222 69.8312 98.0092 69.9104 98.2821C69.9897 98.555 70.1279 98.8071 70.3153 99.0207C70.5027 99.2343 70.7347 99.4041 70.9949 99.5182C71.2552 99.6322 71.5373 99.6877 71.8214 99.6808C72.4379 99.6663 73.0292 99.4331 73.4897 99.0229C73.9502 98.6127 74.2499 98.0522 74.3353 97.4415Z"
+                  stroke="#807DFB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M82.5659 51.5693L88.6922 55.2305L95.7154 51.5693H82.5659Z" fill="#E9EDF7" />
+                <path d="M82.5659 51.5693L88.463 57.0943L95.7154 51.5693L88.6922 55.2305L82.5659 51.5693Z"
+                  fill="#CED3F8" />
+                <path
+                  d="M53.5915 42.0092L55.6542 25.1963C55.8625 23.7218 56.587 22.3691 57.6989 21.3787C58.8107 20.3883 60.2378 19.8245 61.7262 19.7876H99.7117C102.702 19.7876 104.824 22.209 104.459 25.1963L101.518 49.1539C101.309 50.6287 100.583 51.9815 99.4711 52.9718C98.3586 53.9621 96.9311 54.5258 95.4423 54.5626H41.0187C40.0383 54.5626 39.8205 53.2798 40.713 52.7527L50.1057 47.1929C51.04 46.6477 51.8388 45.8982 52.4425 45.0005C53.0461 44.1028 53.4389 43.0802 53.5915 42.0092Z"
+                  fill="#FCBA06" />
+                <path d="M97.4824 37.4137H59.3252L59.5179 35.9512H97.6752L97.4824 37.4137Z" fill="#E19100" />
+                <path d="M96.9942 41.8014H58.6753L58.865 40.3389H97.1878L96.9942 41.8014Z" fill="#E19100" />
+                <path d="M88.5479 46.1886H58.1875L58.3771 44.7261H88.7375L88.5479 46.1886Z" fill="#E19100" />
+                <path
+                  d="M75.6706 30.4337C75.8405 29.2633 75.609 28.2609 75.1535 28.1947C74.698 28.1286 74.1909 29.0238 74.021 30.1942C73.8511 31.3647 74.0826 32.3671 74.5382 32.4332C74.9937 32.4993 75.5007 31.6041 75.6706 30.4337Z"
+                  fill="white" />
+                <path
+                  d="M78.3767 30.2658C78.5195 29.1125 79.0136 28.1514 79.4768 28.1514C79.94 28.1514 80.2025 29.0971 80.0558 30.2658C79.9091 31.4345 79.4189 32.3764 78.9557 32.3764C78.4925 32.3764 78.2339 31.4306 78.3767 30.2658ZM82.7926 30.2658C82.9354 29.1125 83.4295 28.1514 83.8927 28.1514C84.3559 28.1514 84.6184 29.0971 84.4717 30.2658C84.325 31.4345 83.8348 32.3764 83.3716 32.3764C82.9084 32.3764 82.6652 31.4306 82.7926 30.2658Z"
+                  fill="white" />
+                <path
+                  d="M66.1677 67.4405C66.3156 67.1155 67.874 68.7162 71.0297 68.8787C73.3551 68.9973 76.7091 66.9465 76.8944 67.1237C77.0796 67.3008 73.9092 70.1673 71.0216 70.0015C68.212 69.839 65.924 67.967 66.1677 67.4405ZM69.5624 65.8951C70.0986 65.185 70.0499 64.2214 69.8646 63.8493C69.8264 63.756 69.7636 63.6749 69.6828 63.6147C69.602 63.5545 69.5063 63.5175 69.406 63.5077C69.3057 63.4978 69.2046 63.5155 69.1137 63.5588C69.0227 63.6021 68.9452 63.6694 68.8896 63.7534C68.5857 64.1694 68.4102 65.2435 68.5467 65.7034C68.6832 66.1633 69.148 66.4509 69.5624 65.8951ZM73.23 65.8951C72.8676 65.185 73.1601 64.2214 73.4315 63.8493C73.7029 63.4772 74.2294 63.339 74.4325 63.7534C74.6356 64.1678 74.5462 65.2435 74.296 65.7034C74.0457 66.1633 73.5111 66.4509 73.23 65.8951Z"
+                  fill="#9F9CFF" />
+                <path
+                  d="M66.2997 87.9918C67.9577 86.4326 68.1839 83.9799 66.8049 82.5134C65.4259 81.047 62.9638 81.1221 61.3058 82.6813C59.6478 84.2404 59.4216 86.6932 60.8007 88.1597C62.1797 89.6261 64.6417 89.551 66.2997 87.9918Z"
+                  fill="#FCBA06" />
+                <path
+                  d="M63.6458 86.617L62.1508 87.3547L62.6123 85.7931L61.6113 84.6865L63.2087 84.459L64.0846 83.0371L64.6127 84.459L66.1532 84.6865L64.8825 85.7931L64.9588 87.3547L63.6458 86.617Z"
+                  fill="white" />
+                <path
+                  d="M73.5738 13.4395C75.6363 11.377 75.6363 8.03313 73.5738 5.97067C71.5114 3.90821 68.1675 3.90821 66.105 5.97067C64.0426 8.03313 64.0426 11.377 66.105 13.4395C68.1675 15.5019 71.5114 15.5019 73.5738 13.4395Z"
+                  fill="#DDE2F8" />
+                <path
+                  d="M68.4511 6.9289C68.3504 6.68678 68.274 6.67703 68.1261 6.67215C68.0676 6.67215 68.0091 6.67215 67.9506 6.67215C67.7555 6.66338 67.5646 6.73033 67.4176 6.85903C67.2429 7.02065 67.1047 7.21783 67.0125 7.4373C66.9203 7.65677 66.8761 7.89344 66.883 8.1314C66.883 8.88053 67.429 9.60528 67.5021 9.70603C67.5753 9.80678 68.5681 11.3684 70.1021 12.0038C71.303 12.501 71.6589 12.4555 71.9335 12.397C72.3316 12.3109 72.8321 12.0152 72.9589 11.6593C73.0564 11.4309 73.0873 11.1797 73.0483 10.9345C73.0109 10.8695 72.9101 10.8338 72.7558 10.7558C72.6014 10.6778 71.8555 10.3105 71.7141 10.2683C71.6488 10.2375 71.5744 10.232 71.5053 10.2531C71.4363 10.2741 71.3775 10.3201 71.3404 10.382C71.1925 10.5884 71.0479 10.7964 70.9325 10.9232C70.8845 10.9696 70.8233 11.0002 70.7573 11.0107C70.6913 11.0211 70.6237 11.011 70.5636 10.9817C70.1117 10.8084 69.6961 10.5521 69.3384 10.226C69.0064 9.91775 68.7207 9.56308 68.4901 9.17303C68.4008 9.01865 68.4804 8.92928 68.5519 8.84803C68.6234 8.76678 68.7014 8.68553 68.7794 8.59615C68.8451 8.52504 68.8999 8.44453 68.9419 8.35728C68.9608 8.31173 68.9687 8.26232 68.9647 8.21315C68.9608 8.16398 68.9451 8.11646 68.9191 8.07453C68.8834 7.99815 68.5763 7.2474 68.4495 6.93703L68.4511 6.9289Z"
+                  fill="#9F9CFF" />
+                <path
+                  d="M19.7012 61.0298C19.8165 70.3004 20.9605 72.4942 21.9762 81.0173C20.8565 85.0099 20.4925 95.8048 20.2927 99.0548H21.9762C23.6272 94.547 28.5152 83.4662 28.0813 61.0379L19.7012 61.0298Z"
+                  fill="#362E94" />
+                <path
+                  d="M19.9058 99.6627C20.0469 99.4644 20.1776 99.2588 20.2974 99.0469H21.9809C21.8184 99.523 21.7176 99.9293 21.7826 100.167C21.3439 100.336 20.7036 99.9 19.9058 99.6627Z"
+                  fill="#F8D8D0" />
+                <path
+                  d="M19.9057 99.6626C20.7036 99.9015 21.3438 100.335 21.7826 100.166C22.0133 100.329 25.4274 101.564 25.7752 101.801C26.1229 102.038 26.0791 102.422 25.7021 102.422C25.1528 102.422 20.6191 102.224 20.6191 102.224C20.5264 102.323 20.4566 102.422 20.4566 102.422H19.4214C19.1078 101.886 19.1874 100.278 19.9057 99.6626Z"
+                  fill="#423EAF" />
+                <path
+                  d="M28.0099 33.7948C28.1497 34.8738 28.9037 38.0636 28.2699 39.2141C27.7515 40.1599 26.6839 40.3191 24.9647 39.7358C23.2454 39.1524 23.1772 36.0275 22.948 35.1256C22.5905 33.6973 27.7174 31.523 28.0099 33.7948Z"
+                  fill="#F8D8D0" />
+                <path
+                  d="M26.508 39.6775C26.6022 40.2252 26.924 41.3025 26.924 41.3025C26.6867 41.6275 25.1365 42.141 23.4497 41.1807C23.5716 40.1732 23.4903 37.8364 23.4903 37.8364L26.508 39.6775Z"
+                  fill="#F8D8D0" />
+                <path
+                  d="M18.2465 52.4613C18.0385 55.6869 20.2907 56.7659 20.2907 56.7659L21.6362 48.9269C20.4419 48.7254 19.6862 48.389 18.9794 47.9097C18.5837 49.3986 18.3382 50.9234 18.2465 52.4613Z"
+                  fill="#ED0000" />
+                <path
+                  d="M18.9795 47.9097C19.6847 48.389 20.442 48.7222 21.6364 48.9269L22.925 41.3999C21.7875 42.0402 20 44.1348 18.9795 47.9097Z"
+                  fill="#ED0000" />
+                <path
+                  d="M23.4499 41.1853C22.4375 41.3998 20.6029 43.067 20 47.3473C19.3971 51.6275 19.7091 61.0298 19.7091 61.0298H31.6123C32.0364 58.446 31.7081 50.4673 30.8404 46.4584C30.374 44.3037 29.2999 42.2886 27.4588 41.4891C25.8663 40.8018 23.4499 41.1853 23.4499 41.1853Z"
+                  fill="#FF5151" />
+                <path
+                  d="M19.7012 61.0298C19.8165 70.3004 26.0127 74.7562 27.753 80.7345C27.753 87.5205 29.0335 97.5598 29.1473 99.0467H30.8308C31.7473 95.041 35.2638 73.8592 31.6043 61.0298H19.7012Z"
+                  fill="#5652CC" />
+                <path
+                  d="M29.1519 99.6627C29.1519 99.3832 29.1519 99.0469 29.1519 99.0469H30.8354C30.7736 99.523 30.9702 99.9293 31.0336 100.167C30.5916 100.336 29.9514 99.9 29.1519 99.6627Z"
+                  fill="#F8D8D0" />
+                <path
+                  d="M29.1519 99.6626C29.9514 99.9015 30.5917 100.335 31.0288 100.166C31.2612 100.329 34.6753 101.564 35.023 101.801C35.3708 102.038 35.3269 102.422 34.9499 102.422C34.399 102.422 29.8653 102.224 29.8653 102.224C29.7743 102.323 29.7028 102.422 29.7028 102.422H28.666C28.354 101.886 28.4369 100.278 29.1519 99.6626Z"
+                  fill="#423EAF" />
+                <path
+                  d="M31.6042 61.03C31.9975 58.6315 31.744 51.592 31.0111 47.38L25.0376 44.7329C25.7201 48.485 28.5167 53.4023 28.91 54.6178C29.3032 55.8333 29.17 59.2913 29.17 61.03H31.6042Z"
+                  fill="#ED0000" />
+                <path
+                  d="M23.4499 32.6458C25.2244 31.8463 27.5465 30.1368 27.8 30.3595C27.8472 30.3985 27.735 30.522 27.7887 30.5707C27.878 30.6503 28.6954 29.417 29.4137 29.9061C30.1319 30.3952 29.7045 32.745 28.0129 33.7947C26.3213 34.8445 27.9073 35.9527 27.1533 36.5393C26.3993 37.126 26.4497 39.2336 25.1903 39.2531C23.9309 39.2726 23.1964 40.0445 23.2403 39.2531C23.2842 38.4617 22.561 36.8903 22.6358 35.5465C22.7105 34.2026 22.4652 33.0878 23.4499 32.6458Z"
+                  fill="#362E94" />
+                <path
+                  d="M26.7422 36.1152C26.7276 35.7902 26.8803 35.5335 27.0851 35.5237C27.2898 35.514 27.4653 35.7642 27.4799 36.0811C27.4946 36.398 27.3402 36.6628 27.1371 36.6726C26.9339 36.6823 26.7568 36.4321 26.7422 36.1152Z"
+                  fill="#F8D8D0" />
+                <path
+                  d="M42.0626 42.0822C41.7457 41.5232 37.9481 42.8183 37.8165 42.8216C37.6849 42.8248 37.7515 41.5589 37.5857 41.4972C37.42 41.4354 37.2607 42.5112 37.173 42.8606C37.0852 43.2099 37.2185 43.5333 36.9682 44.2646C36.9135 44.4241 36.8404 44.5768 36.7505 44.7196L38.135 45.5499C38.2309 45.4053 38.3267 45.2639 38.4242 45.1307C38.7704 44.6026 39.1929 44.9519 39.799 44.0484C40.7057 42.6997 42.3795 42.6428 42.0626 42.0822Z"
+                  fill="#F7D3C9" />
+                <path
+                  d="M36.7505 44.7198C36.6766 44.8344 36.5941 44.943 36.5035 45.0448C35.0774 46.7232 33.5657 48.3271 31.9746 49.85C31.4595 48.5191 30.9183 47.2142 30.7965 46.8291C30.4406 45.8005 30.114 44.8011 29.711 43.8781C29.2478 42.8153 28.5865 41.7412 27.4083 41.5153C26.2302 41.2895 24.6816 41.9102 24.9188 44.0828C25.0228 45.0383 25.6647 46.7511 26.6332 48.485C27.163 49.538 29.7548 53.4282 31.1946 53.893C31.7975 54.0863 32.4052 54.036 32.7383 53.6996C33.5411 53.2495 34.5843 52.2127 35.4082 50.7421C36.2321 49.2715 37.1226 47.0988 38.135 45.5502L36.7505 44.7198Z"
+                  fill="#FF5151" />
+                <path
+                  d="M4.87281 47.1151L6.02981 44.8401C6.09444 44.7143 6.2062 44.619 6.34074 44.5752C6.47527 44.5314 6.62168 44.5425 6.74806 44.6061L9.02306 45.7648C9.08548 45.7964 9.14105 45.8401 9.1866 45.8933C9.23214 45.9464 9.26677 46.0081 9.2885 46.0746C9.31023 46.1412 9.31864 46.2113 9.31324 46.2811C9.30785 46.3509 9.28876 46.419 9.25706 46.4814L8.10006 48.7564C8.03575 48.8826 7.924 48.9781 7.78934 49.022C7.65467 49.0658 7.50811 49.0545 7.38181 48.9904L5.10681 47.8334C4.98062 47.7691 4.88511 47.6573 4.84124 47.5227C4.79737 47.388 4.80872 47.2414 4.87281 47.1151Z"
+                  fill="#6B67E9" />
+                <path
+                  d="M108.376 8.96501L109.502 11.9404C109.53 12.0141 109.576 12.0792 109.637 12.1291C109.698 12.1791 109.771 12.2121 109.848 12.2248C109.926 12.2375 110.006 12.2294 110.079 12.2015C110.153 12.1735 110.218 12.1266 110.267 12.0655L112.282 9.60363C112.332 9.54286 112.365 9.47001 112.378 9.39243C112.391 9.31485 112.383 9.23529 112.355 9.16177C112.327 9.08825 112.28 9.02339 112.219 8.97372C112.158 8.92405 112.085 8.89134 112.008 8.87888L108.867 8.36538C108.789 8.35254 108.71 8.36037 108.636 8.38808C108.562 8.41579 108.498 8.46241 108.448 8.52322C108.398 8.58403 108.365 8.6569 108.352 8.73446C108.34 8.81203 108.348 8.89155 108.376 8.96501Z"
+                  fill="#FFD03E" />
+                <path
+                  d="M80.5833 108.675L78.4091 110.999C78.3555 111.056 78.3179 111.127 78.3001 111.203C78.2824 111.28 78.2851 111.36 78.308 111.435C78.3309 111.51 78.3731 111.578 78.4305 111.632C78.4879 111.686 78.5584 111.723 78.635 111.741L81.7338 112.461C81.8103 112.479 81.8902 112.477 81.9655 112.454C82.0407 112.431 82.1086 112.389 82.1623 112.332C82.216 112.274 82.2537 112.204 82.2715 112.127C82.2893 112.051 82.2865 111.971 82.2636 111.896L81.339 108.852C81.3165 108.776 81.2745 108.708 81.2172 108.654C81.1599 108.6 81.0893 108.562 81.0126 108.544C80.9358 108.526 80.8557 108.529 80.7803 108.552C80.705 108.575 80.637 108.617 80.5833 108.675Z"
+                  fill="#FCBA06" />
+              </svg>
+              <div>
+                <textarea class="form-input" formControlName="comment"></textarea>
+
+                <div class="d-flex">
+                  <div class="user_img"></div>
+                  <div class="emp_comment">
+                    <span class="d-block emp_name">{{empName}}</span>
+                    <span class="d-block emp_time">10:49 AM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <!-- <button
+              class="submit-button"
+              type="submit"
+              [disabled]="!addForm.valid"
+            >
+              Done
+            </button> -->
+            <button class="submit-button" type="submit">Done</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

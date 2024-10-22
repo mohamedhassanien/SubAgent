@@ -1,0 +1,64 @@
+<section class="not-found-section">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-12 logo-col">
+        <button
+          class="back-btn d-flex justify-content-center align-items-center d-md-none"
+          (click)="goBack()"
+        >
+          <img
+            src="../../../../../assets/images/not-found/back.png"
+            alt="back"
+          />
+        </button>
+        <a routerLink="/landing/home">
+          <img
+            src="../../../../../assets/images/elias_logo.svg"
+            alt="logo"
+            class="logo d-md-block d-none"
+          />
+          <img
+            src="../../../../../assets/images/not-found/logo-responsive.svg"
+            alt="logo"
+            class="logo d-md-none"
+          />
+        </a>
+      </div>
+      <div class="back-col d-md-block d-none">
+        <button
+          class="back-btn d-flex justify-content-center align-items-center"
+          (click)="goBack()"
+        >
+          <img
+            src="../../../../../assets/images/not-found/back.png"
+            alt="back"
+          />
+        </button>
+      </div>
+      <div class="col-12 body-col">
+        <div
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <h1 class="title">
+            <span>Oups!</span><br/>
+            Une erreur s'est produit
+          </h1>          
+          <img
+            src="../../../../../assets/images/not-found/oops.png"
+            class="man-sitting"
+            alt="man"
+
+          />
+          <div class="description">
+            <p class="paragraph">
+              La page que vous cherchez est peut-être supprimée ou le lien que vous avez suivi est peut-être incorrect.
+            </p>
+            <a class="home-link" routerLink="/landing/home">
+              Retourner à Cours Elysée
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

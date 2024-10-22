@@ -1,0 +1,12 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <app-cv-form (FormValuesChange)="formData($event)"></app-cv-form>
+      </div>
+      <div class="col-6">
+        <app-cv-view [formModel]="formModel"></app-cv-view>
+      </div>
+    </div>
+  </div>
+</section>

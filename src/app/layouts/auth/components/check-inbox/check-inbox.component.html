@@ -3,7 +3,7 @@
     <div class="content">
       <a routerLink="/landing/home">
         <img
-          src="../../../../../assets/images/elysee-logo.png"
+          src="../../../../../assets/images/elias_logo.svg"
           alt="SG logo"
         />
       </a>
@@ -13,7 +13,7 @@
       </p>
       <div class="d-flex justify-content-center">
         <img
-          src="../../../../assets/images/login-pages/computer.svg"
+          src="../../../../../assets/images/login-pages/computer.svg"
           alt="check your email"
           class="check-image"
         />
@@ -25,9 +25,9 @@
             </div> -->
       <div class="d-flex justify-content-center">
         <p class="spam">
-          Did not receive the email? check your spam filter, <br />or
+          Did not receive the email? check your spam folder or  <a routerLink="/auth/check-your-inbox" (click)="resendEmail()">Resend Email</a> ,<br />or
           <span class="another">
-            <a routerLink="/auth/register/student"> Sign up </a>
+            <a routerLink="/auth/register/student"> S’inscrire </a>
           </span>
         </p>
       </div>

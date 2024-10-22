@@ -1,0 +1,271 @@
+<!-- accordion -->
+<section class="accordion">
+  <h5>FAQS</h5>
+  <div class="row">
+    <div class="col-lg-12 px-0">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
+              (click)="showIconBtn()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <h3 routerLinkActive="bordertext" style="width: 90%" class="m-0">
+                  What is a housing guarantee in France?
+                </h3>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center" *ngIf="!showIcon">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <p class="describtion">
+                A housing guarantee in France, also known as "garantie
+                locative," is a financial arrangement that serves as a guarantee
+                for the payment of rent and potential damages in the context of
+                a rental agreement. It provides security to landlords by
+                ensuring that they will receive the rent and any necessary
+                repairs or replacements in case the tenant fails to fulfill
+                their obligations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- // -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingtwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapsetwo" aria-expanded="false" aria-controls="flush-collapsetwo"
+              (click)="showIconBtn2()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <h3 routerLinkActive="bordertext" style="width: 90%" class="m-0">
+                  Who typically provides a housing guarantee in France?
+                </h3>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon2">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                  *ngIf="!showIcon2">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapsetwo" class="accordion-collapse collapse" aria-labelledby="flush-headingtwo"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <p class="describtion">
+                In France, there are specialized entities called "organismes de
+                cautionnement" or "garanties de loyer" that offer housing
+                guarantees. These entities, such as insurance companies or
+                financial institutions, act as intermediaries between the
+                landlord and the tenant, providing assurance to the landlord
+                that they will be compensated in case of default by the tenant.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- //// -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingthree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapsethree" aria-expanded="false" aria-controls="flush-collapsethree"
+              (click)="showIconBtn3()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <h3 routerLinkActive="bordertext" style="width: 90%" class="m-0">
+                  What are the benefits of a housing guarantee for landlords?
+                </h3>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon3">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                  *ngIf="!showIcon3">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapsethree" class="accordion-collapse collapse" aria-labelledby="flush-headingthree"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <div class="describtion">
+                <p>
+                  The housing guarantee provides several benefits to landlords,
+                  including:
+                </p>
+                <ul>
+                  <li>
+                    <p>
+                      <span>Financial security:</span> Landlords are protected
+                      against potential rent arrears or damages caused by
+                      tenants.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span>Simplified rental process:</span> Landlords can be
+                      assured of a tenant's financial reliability and decrease
+                      the risk of unpaid rents.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span>Legal support:</span> Housing guarantee providers
+                      may offer legal assistance and support in case of disputes
+                      or lease terminations.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- // -->
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingfour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour"
+              (click)="showIconBtn4()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <h3 routerLinkActive="bordertext" style="width: 90%" class="m-0">
+                  Are tenants required to obtain a housing guarantee in France?
+                </h3>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon4">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                  *ngIf="!showIcon4">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <p class="describtion">
+                It is not mandatory for tenants to obtain a housing guarantee in
+                France. However, landlords often request one as a condition for
+                renting a property, especially if the tenant's financial
+                situation or credit history is uncertain. Providing a housing
+                guarantee can enhance a tenant's chances of being accepted for a
+                rental property.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- // -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingfive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive"
+              (click)="showIconBtn5()">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                <h3 routerLinkActive="bordertext" style="width: 90%" class="m-0">
+                  How does a housing guarantee work in terms of financial
+                  responsibility?
+                </h3>
+                <div style="width: 3%" class="open d-flex justify-content-center align-items-center" *ngIf="showIcon5">
+                  <img src="/assets/images/navigator/housing/garant/up.svg" alt="" />
+                </div>
+                <div style="width: 3%" class="close d-flex justify-content-center align-items-center"
+                  *ngIf="!showIcon5">
+                  <img src="/assets/images/navigator/housing/garant/down.svg" alt="" />
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="flush-collapsefive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <p class="describtion">
+                When a tenant obtains a housing guarantee in France, the
+                guarantee provider becomes responsible for paying the rent and
+                potential damages to the landlord if the tenant fails to fulfill
+                their obligations. In such cases, the landlord can make a claim
+                to the guarantee provider for compensation. The guarantee
+                provider may then seek reimbursement from the tenant.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- first ticket -->
+<section class="ticket">
+  <!-- garant -->
+  <section class="garant">
+    <img src="/assets/images/navigator/housing/garant/garant.svg" alt="garant" class="logo"/>
+    <h1 class="my-lg-3 my-md-2 my-2">What is Garantme?</h1>
+    <p>
+      In France, Garantme is the greatest housing guarantee for those
+      <span>who are new to France or do not have any French guarantor. </span><br />
+      In only 5 minutes, you may submit an application and receive a response
+      within 24 hours. Garantme
+      <span>is trusted by over 1000 real estate professionals</span> for their
+      insurance needs.
+    </p>
+  </section>
+  <section class="garant2">
+    <h1>The below very well renowned landlords prefer Garantme tenants:</h1>
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-12 ps-0">
+        <ul>
+          <li class="pt-0">Book a Flat - Paris</li>
+          <li>Flatlooker</li>
+          <li>Lodgis</li>
+          <li>Nous Gérons</li>
+          <li>Paris Attitude - Location meublés</li>
+          <li>Paris-Housing.com and many more….</li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4 d-lg-block d-md-block d-none pe-0">
+        <img class="w-100" src="/assets/images/navigator/housing/garant/real-estate.svg" alt="real-estate" />
+      </div>
+    </div>
+    <div class="mt-lg-4 pt-lg-3 mt-4 pt-md-2 pb-md-1 mb-2">
+      <a class="action-btn" href="https://garantme.fr/fr/student-gator" target="_blank">Check offers</a>
+    </div>
+    <div class="ticket-section">
+      <img class="ticket-img" src="../../../../../../assets/images/navigator/housing/garant/ticket1.svg"
+        alt="ticket1" />
+      <p>STUDENTGATORTEAM</p>
+    </div>
+  </section>
+</section>
+
+<!-- second ticket -->
+<section class="ticket">
+  <section class="garant2 mt-0">
+    <img src="/assets/images/navigator/housing/garant/smartgarant.svg" alt="smartgarant" class="logo"/>
+    <h1 class="my-lg-3 my-md-2 my-2">
+      A guarantor is a personwho agrees to be financially liable
+    </h1>
+    <p class="mt-lg-3">
+      Just like you, we were tenants and franklyrenting an apartment has become
+      a real headache Faced with the hundredsof applications that owners receive
+      only the best will be selected (and we can understand them!).
+    </p>
+    <div class="mt-lg-4 pt-lg-3 mt-4 pt-md-2 mb-md-2 pb-lg-2 mb-lg-2 pb-md-1 pb-1 mb-2">
+      <a class="action-btn" href="https://www.smart-garant.com/" target="_blank">Check offers</a>
+    </div><br class="d-lg-none d-none">
+  </section>
+  <div class="ticket-section2">
+    <img class="ticket-img" src="/assets/images/navigator/housing/garant/ticket2.svg" alt="ticket1" />
+    <p>SMARTSTUDENTGATOR</p>
+  </div>
+</section>

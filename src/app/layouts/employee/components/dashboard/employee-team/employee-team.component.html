@@ -1,0 +1,61 @@
+<section class="m-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="listemp">Monthly applications per employee</h1>
+        <div class="d-flex">
+            <div class="">
+                <select class="form-select" style="width: 168px;"  (change)="onemployeemonth($event)" id="floatingSelectGrid">
+                    <option [value]="selectmemp" disabled selected>
+                        Month
+                    </option>
+
+                    <option [value]="month" *ngFor="let month of monthsNum">
+                        {{ month }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="ms-3">
+                <select class="form-select" style="width: 168px;" (change)="onemployeeyear($event)" id="floatingSelectGrid">
+                    <option [value]="selectyemp" disabled selected>
+                        Year
+                    </option>
+
+                    <option [value]="year" *ngFor="let year of years">
+                        {{ year }}
+                    </option>
+                </select>
+            </div>
+
+            <button (click)="onempApply()" class="apply ms-3">
+                Apply
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="m-4 lemp">
+    <div class="lists" *ngFor="let pro of memp">
+        <div class="d-flex name">
+            <img src="../../../../../../assets/images/employees/human.svg" alt="human">
+            <p>{{pro.employee}}</p>
+        </div>
+        <div style="width: 552px">
+            <div class="progress proglist" style="height: 10px;width: 100%;">
+                <div class="progress-bar progsc" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                    [ngStyle]="{ width: pro.width + '%' }"></div>
+            </div>
+        </div>
+        <div class="scrore d-flex">
+            <h2>{{pro.current}}/{{pro.target}}</h2>
+        </div>
+    </div>
+</section>
+
+<section class="m-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <img class="me-4 pe-2" src="../../../../../../assets/images/employees/target.svg" alt="target">
+            <img src="../../../../../../assets/images/employees/score.svg" alt="score">
+        </div>
+    </div>
+</section>

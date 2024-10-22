@@ -1,0 +1,426 @@
+<app-header></app-header>
+<main>
+  <!-- hero section -->
+  <section class="hero container">
+    <div class="d-flex align-items-center">
+      <p class="blue">My Profile</p>
+      <img
+        class="mx-1 angle"
+        src="../../../assets/images/navigator/angle.svg"
+        alt="angle"
+      />
+      <p class="blue">My Programs</p>
+      <img
+        class="mx-1 angle"
+        src="../../../assets/images/navigator/angle.svg"
+        alt="angle"
+      />
+      <p>{{ schoolName }}</p>
+    </div>
+
+    <div class="yellow-card">
+      <h1>{{ progName }}</h1>
+      <div class="d-flex align-items-center mt-1">
+        <img
+          class="school-img"
+          src="https://studentgator.com/assets/images/schools/schools logos/{{
+            schoolName.charAt(schoolName.length - 1) === ' '
+              ? schoolName.slice(0, -1).replace(':', '_')
+              : schoolName.replace(':', '_')
+          }}.png"
+          alt="skema"
+        />
+        <h2>{{ schoolName }}</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- navigator -->
+  <section class="navigation">
+    <div class="" id="programs-container">
+      <ul class="nav nav-pills container" id="pills-tab" role="tablist">
+        <li
+          style="z-index: 900"
+          class="nav-item main-nav-item m-0"
+          role="presentation"
+          (click)="goDown()"
+        >
+          <a
+            class="nav-link main-nav"
+            id="pills-application-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-application"
+            type="button"
+            role="tab"
+            aria-controls="pills-application"
+            aria-selected="true"
+            routerLink="application"
+            routerLinkActive="main-nav-active"
+            [ngClass]="application ? 'open' : 'close'"
+          >
+            <p>Doc preparation</p>
+            <img
+              *ngIf="application"
+              class="ms-4"
+              src="../../../assets/images/navigator/checked.svg"
+              alt="checked"
+            />
+            <circle-progress
+              *ngIf="!application"
+              class="ms-2"
+              [percent]="appPercent"
+              [radius]="9"
+              [outerStrokeWidth]="2"
+              [innerStrokeWidth]="2"
+              [space]="-2"
+              [animation]="true"
+              [animationDuration]="1000"
+              [maxPercent]="100"
+              [outerStrokeColor]="'#FF5151'"
+              [innerStrokeColor]="'#E9E8E8'"
+              [titleColor]="'#C7E596'"
+              [unitsColor]="'#C7E596'"
+              unitsFontSize="24"
+              titleFontSize="24"
+              titleFontWeight="600"
+              [showTitle]="false"
+              unitsFontWeight="600"
+              [showUnits]="false"
+              [showSubtitle]="false"
+            >
+            </circle-progress>
+            <small *ngIf="!application" style="color: #ff5151; margin-left: 4px"
+              >{{ appPercent }}%</small
+            >
+          </a>
+        </li>
+        <li
+          style="z-index: 800"
+          class="nav-item main-nav-item"
+          role="presentation"
+          (click)="goDown()"
+        >
+          <a
+            class="nav-link main-nav"
+            id="pills-interview-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-interview"
+            type="button"
+            role="tab"
+            aria-controls="pills-interview"
+            aria-selected="true"
+            routerLink="interview"
+            routerLinkActive="main-nav-active"
+            [ngClass]="application ? 'open' : 'close'"
+          >
+            <img
+              *ngIf="!application"
+              src="../../../assets/images/navigator/lock.svg"
+              class="me-2"
+              alt="lock"
+            />
+            <p>Interview</p>
+            <img
+              *ngIf="interview"
+              class="ms-4"
+              src="../../../assets/images/navigator/checked.svg"
+              alt="checked"
+            />
+            <div *ngIf="application">
+              <circle-progress
+                *ngIf="!application"
+                class="ms-4"
+                [percent]="interviewPercent"
+                [radius]="9"
+                [outerStrokeWidth]="2"
+                [innerStrokeWidth]="2"
+                [space]="-2"
+                [animation]="true"
+                [animationDuration]="1000"
+                [maxPercent]="100"
+                [outerStrokeColor]="'#FF5151'"
+                [innerStrokeColor]="'#E9E8E8'"
+                [titleColor]="'#C7E596'"
+                [unitsColor]="'#C7E596'"
+                unitsFontSize="24"
+                titleFontSize="24"
+                titleFontWeight="600"
+                [showTitle]="false"
+                unitsFontWeight="600"
+                [showUnits]="false"
+                [showSubtitle]="false"
+              >
+              </circle-progress>
+              <small *ngIf="!interview" style="color: #ff5151; margin-left: 8px"
+                >{{ interviewPercent }}%</small
+              >
+            </div>
+          </a>
+        </li>
+        <li
+          style="z-index: 700"
+          class="nav-item main-nav-item"
+          role="presentation"
+          (click)="goDown()"
+        >
+          <a
+            class="nav-link main-nav"
+            id="pills-acceptance-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-acceptance"
+            type="button"
+            role="tab"
+            aria-controls="pills-acceptance"
+            aria-selected="false"
+            routerLink="acceptance"
+            routerLinkActive="main-nav-active"
+            [ngClass]="interview ? 'open' : 'close'"
+          >
+          <!-- [ngClass]="interview ? 'open' : 'close'" -->
+            <img
+              *ngIf="!interview"
+              src="../../../assets/images/navigator/lock.svg"
+              class="me-2"
+              alt="lock"
+            />
+            <p>Acceptance</p>
+            <img
+              *ngIf="acceptance"
+              class="ms-4"
+              src="../../../assets/images/navigator/checked.svg"
+              alt="checked"
+            />
+            <div *ngIf="interview" class="d-flex align-items-center">
+              <circle-progress
+                *ngIf="!acceptance"
+                class="ms-1"
+                [percent]="acceptancePercent"
+                [radius]="9"
+                [outerStrokeWidth]="2"
+                [innerStrokeWidth]="2"
+                [space]="-2"
+                [animation]="true"
+                [animationDuration]="1000"
+                [maxPercent]="100"
+                [outerStrokeColor]="'#FF5151'"
+                [innerStrokeColor]="'#E9E8E8'"
+                [titleColor]="'#C7E596'"
+                [unitsColor]="'#C7E596'"
+                unitsFontSize="24"
+                titleFontSize="24"
+                titleFontWeight="600"
+                [showTitle]="false"
+                unitsFontWeight="600"
+                [showUnits]="false"
+                [showSubtitle]="false"
+              >
+              </circle-progress>
+              <small
+                *ngIf="!acceptance"
+                style="color: #ff5151"
+                class="ms-lg-1 ms-md-1 ms-0"
+                >{{ acceptancePercent }}%</small
+              >
+            </div>
+          </a>
+        </li>
+        <li
+          style="z-index: 600"
+          class="nav-item main-nav-item"
+          role="presentation"
+          (click)="goDown()"
+        >
+        <!-- [ngClass]="acceptance ? 'open' : 'close'" -->
+          <a
+            class="nav-link main-nav"
+            id="pills-housing-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-housing"
+            type="button"
+            role="tab"
+            aria-controls="pills-housing"
+            aria-selected="false"
+            routerLink="housing"
+            routerLinkActive="main-nav-active"
+            [ngClass]="acceptance ? 'open':'close'"
+          >
+            <img
+              *ngIf="!acceptance"
+              src="../../../assets/images/navigator/lock.svg"
+              class="me-2"
+              alt="lock"
+            />
+            <p>Housing</p>
+            <img
+              *ngIf="housing"
+              class="ms-4"
+              src="../../../assets/images/navigator/checked.svg"
+              alt="checked"
+            />
+            <div *ngIf="acceptance" class="d-flex align-items-center">
+              <circle-progress
+                *ngIf="!housing"
+                class="ms-2"
+                [percent]="houingPercent"
+                [radius]="9"
+                [outerStrokeWidth]="2"
+                [innerStrokeWidth]="2"
+                [space]="-2"
+                [animation]="true"
+                [animationDuration]="1000"
+                [maxPercent]="100"
+                [outerStrokeColor]="'#FF5151'"
+                [innerStrokeColor]="'#E9E8E8'"
+                [titleColor]="'#C7E596'"
+                [unitsColor]="'#C7E596'"
+                unitsFontSize="24"
+                titleFontSize="24"
+                titleFontWeight="600"
+                [showTitle]="false"
+                unitsFontWeight="600"
+                [showUnits]="false"
+                [showSubtitle]="false"
+              >
+              </circle-progress>
+              <small *ngIf="!housing" style="color: #ff5151; margin-left: 0px"
+                >{{ houingPercent }}%</small
+              >
+            </div>
+          </a>
+        </li>
+        <li
+          style="z-index: 500"
+          class="nav-item main-nav-item"
+          role="presentation"
+          (click)="goDown()"
+        >
+          <a
+            class="nav-link main-nav"
+            id="pills-housing-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-housing"
+            type="button"
+            role="tab"
+            aria-controls="pills-housing"
+            aria-selected="false"
+            routerLink="visa"
+            routerLinkActive="main-nav-active"
+            [ngClass]="housing ? 'open' : 'close'"
+          >
+          <!-- [ngClass]="housing ? 'open' : 'close'" -->
+            <img
+              *ngIf="!housing"
+              src="../../../assets/images/navigator/lock.svg"
+              class="me-2"
+              alt="lock"
+            />
+            <p>Visa</p>
+            <img
+              *ngIf="visa"
+              class="ms-4"
+              src="../../../assets/images/navigator/checked.svg"
+              alt="checked"
+            />
+            <div *ngIf="housing" class="d-flex align-items-center">
+              <circle-progress
+                *ngIf="!visa"
+                class="ms-lg-3 ms-2"
+                [percent]="visaPercent"
+                [radius]="9"
+                [outerStrokeWidth]="2"
+                [innerStrokeWidth]="2"
+                [space]="-2"
+                [animation]="true"
+                [animationDuration]="1000"
+                [maxPercent]="100"
+                [outerStrokeColor]="'#FF5151'"
+                [innerStrokeColor]="'#E9E8E8'"
+                [titleColor]="'#C7E596'"
+                [unitsColor]="'#C7E596'"
+                unitsFontSize="24"
+                titleFontSize="24"
+                titleFontWeight="600"
+                [showTitle]="false"
+                unitsFontWeight="600"
+                [showUnits]="false"
+                [showSubtitle]="false"
+              >
+              </circle-progress>
+              <small *ngIf="!visa" style="color: #ff5151; margin-left: 4px"
+                >{{ visaPercent }}%</small
+              >
+            </div>
+          </a>
+        </li>
+        <li
+          style="z-index: 400"
+          class="nav-item main-nav-item"
+          role="presentation"
+          (click)="goDown()"
+        >
+          <a
+            class="nav-link main-nav"
+            id="pills-housing-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-housing"
+            س
+            type="button"
+            role="tab"
+            aria-controls="pills-housing"
+            aria-selected="false"
+            routerLink="in-france"
+            routerLinkActive="main-nav-active"
+            [ngClass]="visa ? 'open' : 'close'"
+          >
+          <!-- [ngClass]="visa ? 'open' : 'close'" -->
+            <img
+              *ngIf="!visa"
+              src="../../../assets/images/navigator/lock.svg"
+              class="me-2"
+              alt="lock"
+            />
+            <p>In France</p>
+            <img
+              *ngIf="infrance"
+              class="ms-4"
+              src="../../../assets/images/navigator/checked.svg"
+              alt="checked"
+            />
+            <div *ngIf="visa" class="d-flex align-items-center">
+              <circle-progress
+                *ngIf="!infrance"
+                class="ms-2"
+                [percent]="infrancePercent"
+                [radius]="9"
+                [outerStrokeWidth]="2"
+                [innerStrokeWidth]="2"
+                [space]="-2"
+                [animation]="true"
+                [animationDuration]="1000"
+                [maxPercent]="100"
+                [outerStrokeColor]="'#FF5151'"
+                [innerStrokeColor]="'#E9E8E8'"
+                [titleColor]="'#C7E596'"
+                [unitsColor]="'#C7E596'"
+                unitsFontSize="24"
+                titleFontSize="24"
+                titleFontWeight="600"
+                [showTitle]="false"
+                unitsFontWeight="600"
+                [showUnits]="false"
+                [showSubtitle]="false"
+              >
+              </circle-progress>
+              <small *ngIf="!infrance" style="color: #ff5151; margin-left: 4px"
+                >{{ infrancePercent }}%</small
+              >
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content main-content" id="pills-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,95 @@
+<section>
+  <div class="row">
+    <div class="col-12">
+      <div class="outer-container">
+        <!-- <div class="tag">My Profile</div> -->
+        <div class="inner-container">
+          <div class="info d-flex align-items-start mb-5 pb-2">
+            <img src="/assets/images/chat-bot/scholar 1.svg" alt="user" />
+            <p class="full-name">{{ stuName }}</p>
+          </div>
+          
+          <div class="info-card-container d-flex justify-content-end">
+            <div class="info-card">
+              <div class="card-title d-flex align-items-center">
+                <img class="me-2" src="../../../../assets/images/chat-bot/fi-rr-comment-info.svg" alt="comment">
+                Personal Information
+              </div>
+              <div class="main-card-info">
+                <div class="d-flex align-items-center main-card-single-info">
+                  <img src="../../../../assets/images/chat-bot/fi-rr-envelope.svg" alt="envelope">
+                  <p>{{ email }}</p>
+                </div>
+                <div class="d-flex align-items-center main-card-single-info">
+                  <img src="../../../../assets/images/chat-bot/fi-rr-phone-call.svg" alt="phone">
+                  <p>{{ student?.studentPhone }}</p>
+                </div>
+                <div class="d-flex align-items-center main-card-single-info">
+                  <img src="../../../../assets/images/chat-bot/fi-rr-marker.svg" alt="marker">
+                  <p>{{ nationality }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="info-card-container d-flex justify-content-start">
+            <div class="info-card">
+              <div class="card-title d-flex align-items-center">
+                <img class="me-2" src="../../../../assets/images/chat-bot/fi-rr-graduation-cap.svg" alt="graduation">
+                Education
+              </div>
+              <ul class="single-info">
+                <li *ngIf="chatData[0]?.eduLevel" class="single-list-info">{{chatData[0]?.eduLevel}}</li>
+                <li *ngIf="chatData[0]?.grade" class="single-list-info">{{chatData[0]?.grade}}</li>
+              </ul> 
+            </div>
+          </div>
+          <div class=" info-card-container d-flex justify-content-end">
+            <div class="info-card">
+              <div class="card-title d-flex align-items-center">
+                <img class="me-2" src="../../../../assets/images/chat-bot/fi-rr-notebook.svg" alt="notebook">
+                Field of interest
+              </div>
+              <ul class="single-info">
+                <li *ngFor="let item of chatData[1]" class="single-list-info">{{item}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="info-card-container d-flex justify-content-start">
+            <div class="info-card">
+              <div class="card-title d-flex align-items-center">
+                <img class="me-2" src="../../../../assets/images/chat-bot/fi-rr-globe.svg" alt="comment">
+                Language
+              </div>
+              <ul class="single-info">
+                <li *ngIf="chatData[2]?.lang">{{chatData[2]?.lang}}</li>
+                <li *ngIf="chatData[5]?.answer">{{chatData[5]?.answer}}</li>
+                <li *ngIf="chatData[5]?.option">{{chatData[5]?.option}}</li>
+                <li *ngIf="chatData[5]?.sc">{{chatData[5]?.sc}}</li>
+                <li *ngIf="chatData[6]?.answer">{{chatData[6]?.answer}}</li>
+                <li *ngIf="chatData[6]?.option">{{chatData[6]?.option}}</li>
+                <li *ngIf="chatData[6]?.sc">{{chatData[6]?.sc}}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card-container d-flex justify-content-end">
+            <div class="info-card ">
+              <div class="card-title">
+                <img class="me-2" src="../../../../assets/images/chat-bot/ion_wallet-outline.svg" alt="ion_wallet">
+                Budget
+              </div>
+              <ul class="single-info">
+                <li *ngIf="chatData[3]?.min">
+                  € {{chatData[3]?.min}}
+                  <!-- {{chatData[3]?.max}} <span>&#8364;</span> -->
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

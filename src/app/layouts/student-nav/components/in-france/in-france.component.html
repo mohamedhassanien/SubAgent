@@ -1,0 +1,233 @@
+<section id="programs-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 ps-lg-0 pe-lg-4" (click)="goDown()">
+        <div
+          class="nav flex-xl-column nav-pills child-nav"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+          [ngClass]="navbarFixed ? 'fixed' : 'static'"
+        >
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-4"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="extra-insurance"
+            routerLinkActive="active"
+            (click)="steps1()"
+          >
+            <img
+              src="/assets/images/navigator/in france/inFrance-nav-icons/1.svg"
+              alt="Extra insurance"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Extra insurance
+            <img
+              *ngIf="!extra"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="extra"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-4"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="bank-account"
+            routerLinkActive="active"
+            [ngClass]="extra ? 'open' : 'close'"
+            (click)="steps2()"
+          >
+          <!-- [ngClass]="extra ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/in france/inFrance-nav-icons/2.svg"
+              alt="Bank account"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Bank account
+            <img
+              *ngIf="!bank"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="bank"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-3 col-3"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="crous"
+            routerLinkActive="active"
+            [ngClass]="bank ? 'open' : 'close'"
+            (click)="steps3()"
+          >
+          <!-- [ngClass]="bank ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/in france/inFrance-nav-icons/3.svg"
+              alt="Crous"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Crous
+            <img
+              *ngIf="!crous"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="crous"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="gym-membership"
+            routerLinkActive="active"
+            [ngClass]="crous ? 'open' : 'close'"
+            (click)="steps4()"
+          >
+          <!-- [ngClass]="crous ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/in france/inFrance-nav-icons/4.svg"
+              alt="Gym membership"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Gym membership
+            <img
+              *ngIf="!gym"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="gym"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-6"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="sim-card-internet"
+            routerLinkActive="active"
+            [ngClass]="gym ? 'open' : 'close'"
+            (click)="steps5()"
+          >
+          <!-- [ngClass]="gym ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/in france/inFrance-nav-icons/5.svg"
+              alt="SIM card and internet"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            SIM card and internet
+            <img
+              *ngIf="!sim"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="sim"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+          <a
+            class="nav-link d-flex align-items-center col-lg-12 col-md-4 col-5"
+            id="pills-booking-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-booking"
+            type="button"
+            role="tab"
+            aria-controls="pills-booking"
+            aria-selected="false"
+            routerLink="social-security-card"
+            routerLinkActive="active"
+            [ngClass]="sim ? 'open' : 'close'"
+            (click)="steps6()"
+          >
+          <!-- [ngClass]="sim ? 'open' : 'close'" -->
+            <img
+              src="/assets/images/navigator/in france/inFrance-nav-icons/6.svg"
+              alt="Social security card"
+              class="me-lg-3 me-md-2 me-1"
+            />
+            Social security card
+            <img
+              *ngIf="!social"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/non-check.svg"
+              alt="check"
+            />
+            <img
+              *ngIf="social"
+              class="check-circle"
+              style="position: absolute; right: 10px"
+              src="../../../../../assets/images/navigator/true-check.svg"
+              alt="check"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="tab-content navs col-lg-9" id="v-pills-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

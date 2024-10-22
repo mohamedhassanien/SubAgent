@@ -1,0 +1,552 @@
+<section>
+  <div class="d-flex justify-content-between align-items-center header_nav">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2 *ngIf="!targetPage">Employees</h2>
+      <div *ngIf="targetPage" class="d-flex align-items-center targetFilter">
+        <h2>Targets</h2>
+        <div>
+          <select (change)="onYearChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedYear" disabled selected>
+              Year
+            </option>
+
+            <option [value]="year" *ngFor="let year of years">
+              {{ year }}
+            </option>
+          </select>
+          <select #mon (change)="onMonthNumChange($event)" id="floatingSelectGrid">
+            <option [value]="selectedMonthNum" disabled selected>
+              Month
+            </option>
+
+            <option [value]="month" *ngFor="let month of monthsNum">
+              {{ month }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <span class="p-input-icon-left ms-auto search_con">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_6034_12415)">
+            <path
+              d="M23.7068 22.2938L17.7378 16.3248C19.3644 14.3354 20.1642 11.7969 19.9716 9.23432C19.7791 6.67179 18.609 4.28129 16.7034 2.55728C14.7977 0.833269 12.3024 -0.0923492 9.73342 -0.0281174C7.16447 0.0361144 4.71849 1.08528 2.9014 2.90237C1.08431 4.71946 0.0351379 7.16545 -0.029094 9.7344C-0.0933258 12.3034 0.832293 14.7987 2.5563 16.7043C4.28031 18.61 6.67081 19.7801 9.23334 19.9726C11.7959 20.1651 14.3344 19.3654 16.3238 17.7388L22.2928 23.7078C22.4814 23.8899 22.734 23.9907 22.9962 23.9884C23.2584 23.9862 23.5092 23.881 23.6946 23.6956C23.88 23.5102 23.9852 23.2594 23.9875 22.9972C23.9897 22.735 23.8889 22.4824 23.7068 22.2938ZM9.99978 18.0008C8.41753 18.0008 6.87081 17.5316 5.55522 16.6525C4.23963 15.7735 3.21425 14.524 2.60875 13.0622C2.00324 11.6004 1.84482 9.99189 2.1535 8.44004C2.46218 6.88819 3.22411 5.46272 4.34293 4.3439C5.46175 3.22508 6.88721 2.46316 8.43906 2.15448C9.99091 1.84579 11.5994 2.00422 13.0613 2.60972C14.5231 3.21522 15.7725 4.2406 16.6515 5.5562C17.5306 6.87179 17.9998 8.41851 17.9998 10.0008C17.9974 12.1218 17.1538 14.1552 15.654 15.655C14.1542 17.1548 12.1208 17.9984 9.99978 18.0008Z"
+              fill="#636363" />
+          </g>
+          <defs>
+            <clipPath id="clip0_6034_12415">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <input type="text" placeholder="Search" (keyup)="getEmp($event)" class="form-control search_table" />
+      </span>
+    </div>
+    
+    <div class="d-flex">
+      <button class="emp_nav" (click)="openModall(artical, 'suggestedd-modal', 'md', [])"
+      *ngIf="username == 'Nicolas' ||
+      username == 'Oumaima EL HADDADI'">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519943 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.8071 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0866C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0V0ZM12 22C10.0222 22 8.08879 21.4135 6.4443 20.3147C4.79981 19.2159 3.51809 17.6541 2.76121 15.8268C2.00433 13.9996 1.8063 11.9889 2.19215 10.0491C2.578 8.10929 3.53041 6.32746 4.92894 4.92893C6.32746 3.53041 8.10929 2.578 10.0491 2.19215C11.9889 1.8063 13.9996 2.00433 15.8268 2.7612C17.6541 3.51808 19.2159 4.79981 20.3147 6.4443C21.4135 8.08879 22 10.0222 22 12C21.9971 14.6513 20.9426 17.1931 19.0679 19.0679C17.1931 20.9426 14.6513 21.9971 12 22ZM17 12C17 12.2652 16.8946 12.5196 16.7071 12.7071C16.5196 12.8946 16.2652 13 16 13H13V16C13 16.2652 12.8946 16.5196 12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071C11.1054 16.5196 11 16.2652 11 16V13H8.00001C7.73479 13 7.48043 12.8946 7.2929 12.7071C7.10536 12.5196 7.00001 12.2652 7.00001 12C7.00001 11.7348 7.10536 11.4804 7.2929 11.2929C7.48043 11.1054 7.73479 11 8.00001 11H11V8C11 7.73478 11.1054 7.48043 11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289C12.8946 7.48043 13 7.73478 13 8V11H16C16.2652 11 16.5196 11.1054 16.7071 11.2929C16.8946 11.4804 17 11.7348 17 12Z"
+            fill="white" />
+        </svg>
+        <span>Add Artical</span>
+      </button>
+
+      <button *ngIf="!targetPage" class="emp_nav" (click)="openModall(suggestedd, 'suggestedd-modal', 'lg', [])">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519943 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.8071 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0866C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0V0ZM12 22C10.0222 22 8.08879 21.4135 6.4443 20.3147C4.79981 19.2159 3.51809 17.6541 2.76121 15.8268C2.00433 13.9996 1.8063 11.9889 2.19215 10.0491C2.578 8.10929 3.53041 6.32746 4.92894 4.92893C6.32746 3.53041 8.10929 2.578 10.0491 2.19215C11.9889 1.8063 13.9996 2.00433 15.8268 2.7612C17.6541 3.51808 19.2159 4.79981 20.3147 6.4443C21.4135 8.08879 22 10.0222 22 12C21.9971 14.6513 20.9426 17.1931 19.0679 19.0679C17.1931 20.9426 14.6513 21.9971 12 22ZM17 12C17 12.2652 16.8946 12.5196 16.7071 12.7071C16.5196 12.8946 16.2652 13 16 13H13V16C13 16.2652 12.8946 16.5196 12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071C11.1054 16.5196 11 16.2652 11 16V13H8.00001C7.73479 13 7.48043 12.8946 7.2929 12.7071C7.10536 12.5196 7.00001 12.2652 7.00001 12C7.00001 11.7348 7.10536 11.4804 7.2929 11.2929C7.48043 11.1054 7.73479 11 8.00001 11H11V8C11 7.73478 11.1054 7.48043 11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289C12.8946 7.48043 13 7.73478 13 8V11H16C16.2652 11 16.5196 11.1054 16.7071 11.2929C16.8946 11.4804 17 11.7348 17 12Z"
+            fill="white" />
+        </svg>
+        <span>Add Employee</span>
+      </button>
+      <button *ngIf="targetPage" class="emp_nav" (click)="openModal(suggested, 'suggested-modal', 'lg', [])">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519943 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.8071 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0866C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0V0ZM12 22C10.0222 22 8.08879 21.4135 6.4443 20.3147C4.79981 19.2159 3.51809 17.6541 2.76121 15.8268C2.00433 13.9996 1.8063 11.9889 2.19215 10.0491C2.578 8.10929 3.53041 6.32746 4.92894 4.92893C6.32746 3.53041 8.10929 2.578 10.0491 2.19215C11.9889 1.8063 13.9996 2.00433 15.8268 2.7612C17.6541 3.51808 19.2159 4.79981 20.3147 6.4443C21.4135 8.08879 22 10.0222 22 12C21.9971 14.6513 20.9426 17.1931 19.0679 19.0679C17.1931 20.9426 14.6513 21.9971 12 22ZM17 12C17 12.2652 16.8946 12.5196 16.7071 12.7071C16.5196 12.8946 16.2652 13 16 13H13V16C13 16.2652 12.8946 16.5196 12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071C11.1054 16.5196 11 16.2652 11 16V13H8.00001C7.73479 13 7.48043 12.8946 7.2929 12.7071C7.10536 12.5196 7.00001 12.2652 7.00001 12C7.00001 11.7348 7.10536 11.4804 7.2929 11.2929C7.48043 11.1054 7.73479 11 8.00001 11H11V8C11 7.73478 11.1054 7.48043 11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289C12.8946 7.48043 13 7.73478 13 8V11H16C16.2652 11 16.5196 11.1054 16.7071 11.2929C16.8946 11.4804 17 11.7348 17 12Z"
+            fill="white" />
+        </svg>
+        <span>Set Target</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<section class="page_tap">
+  <div class="header_nav d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center">
+      <button class="empMainTab" [class.activeTab]="!targetPage" (click)="employeeAction()">
+        <span>Employees</span>
+      </button>
+      <button class="empMainTab" [class.activeTab]="targetPage" (click)="targetsAction($event)">
+        <span>Targets</span>
+      </button>
+    </div>
+    <select (change)="targetsActionDrop($event)" *ngIf="targetPage">
+      <option value="Counselling team">Counselling team</option>
+      <option value="Acquisition team">Acquisitions team</option>
+
+    </select>
+  </div>
+</section>
+<section class="card_container" *ngIf="!targetPage">
+  <ul>
+    <li *ngFor="let emp of targetData">
+      <div class="empCardMenu">
+        <button *ngIf="username == 'Nicolas' ||
+        username == 'Oumaima EL HADDADI' || 
+        username == 'Salah'"  class="card_menu" mat-button [matMenuTriggerFor]="menu">
+          <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_6627_1102)">
+              <path
+                d="M6 2.5C6.55228 2.5 7 2.05228 7 1.5C7 0.947715 6.55228 0.5 6 0.5C5.44771 0.5 5 0.947715 5 1.5C5 2.05228 5.44771 2.5 6 2.5Z"
+                fill="#121212" />
+              <path
+                d="M6 7.5C6.55228 7.5 7 7.05228 7 6.5C7 5.94771 6.55228 5.5 6 5.5C5.44771 5.5 5 5.94771 5 6.5C5 7.05228 5.44771 7.5 6 7.5Z"
+                fill="#121212" />
+              <path
+                d="M6 12.5C6.55228 12.5 7 12.0523 7 11.5C7 10.9477 6.55228 10.5 6 10.5C5.44771 10.5 5 10.9477 5 11.5C5 12.0523 5.44771 12.5 6 12.5Z"
+                fill="#121212" />
+            </g>
+            <defs>
+              <clipPath id="clip0_6627_1102">
+                <rect width="12" height="12" fill="white" transform="translate(0 0.5)" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="deleteEmp(emp.username)" mat-menu-item>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6719_7775)">
+                <path
+                  d="M21 4H17.9C17.6679 2.87141 17.0538 1.85735 16.1613 1.12872C15.2687 0.40009 14.1522 0.00145452 13 0L11 0C9.8478 0.00145452 8.73132 0.40009 7.83875 1.12872C6.94618 1.85735 6.3321 2.87141 6.1 4H3C2.73478 4 2.48043 4.10536 2.29289 4.29289C2.10536 4.48043 2 4.73478 2 5C2 5.26522 2.10536 5.51957 2.29289 5.70711C2.48043 5.89464 2.73478 6 3 6H4V19C4.00159 20.3256 4.52888 21.5964 5.46622 22.5338C6.40356 23.4711 7.67441 23.9984 9 24H15C16.3256 23.9984 17.5964 23.4711 18.5338 22.5338C19.4711 21.5964 19.9984 20.3256 20 19V6H21C21.2652 6 21.5196 5.89464 21.7071 5.70711C21.8946 5.51957 22 5.26522 22 5C22 4.73478 21.8946 4.48043 21.7071 4.29289C21.5196 4.10536 21.2652 4 21 4ZM11 2H13C13.6203 2.00076 14.2251 2.19338 14.7316 2.55144C15.2381 2.90951 15.6214 3.41549 15.829 4H8.171C8.37858 3.41549 8.7619 2.90951 9.26839 2.55144C9.77487 2.19338 10.3797 2.00076 11 2ZM18 19C18 19.7956 17.6839 20.5587 17.1213 21.1213C16.5587 21.6839 15.7956 22 15 22H9C8.20435 22 7.44129 21.6839 6.87868 21.1213C6.31607 20.5587 6 19.7956 6 19V6H18V19Z"
+                  fill="#121212" />
+                <path
+                  d="M10 17.999C10.2652 17.999 10.5196 17.8937 10.7071 17.7061C10.8946 17.5186 11 17.2642 11 16.999V10.999C11 10.7338 10.8946 10.4795 10.7071 10.2919C10.5196 10.1044 10.2652 9.99902 10 9.99902C9.73478 9.99902 9.48043 10.1044 9.29289 10.2919C9.10536 10.4795 9 10.7338 9 10.999V16.999C9 17.2642 9.10536 17.5186 9.29289 17.7061C9.48043 17.8937 9.73478 17.999 10 17.999Z"
+                  fill="#121212" />
+                <path
+                  d="M14 17.999C14.2652 17.999 14.5196 17.8937 14.7071 17.7061C14.8947 17.5186 15 17.2642 15 16.999V10.999C15 10.7338 14.8947 10.4795 14.7071 10.2919C14.5196 10.1044 14.2652 9.99902 14 9.99902C13.7348 9.99902 13.4804 10.1044 13.2929 10.2919C13.1054 10.4795 13 10.7338 13 10.999V16.999C13 17.2642 13.1054 17.5186 13.2929 17.7061C13.4804 17.8937 13.7348 17.999 14 17.999Z"
+                  fill="#121212" />
+              </g>
+              <defs>
+                <clipPath id="clip0_6719_7775">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </div>
+      <div>
+        <div class="empImgCon">
+          <img src={{emp.profilepic}} />
+        </div>
+        <h4>{{emp.name}}</h4>
+        <h5>{{emp.joptitle}}</h5>
+      </div>
+      <div class="perSection">
+        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_5870_42478)">
+            <path
+              d="M8 0.5C6.41775 0.5 4.87104 0.969192 3.55544 1.84824C2.23985 2.72729 1.21447 3.97672 0.608967 5.43853C0.00346629 6.90034 -0.15496 8.50887 0.153721 10.0607C0.462403 11.6126 1.22433 13.038 2.34315 14.1569C3.46197 15.2757 4.88743 16.0376 6.43928 16.3463C7.99113 16.655 9.59966 16.4965 11.0615 15.891C12.5233 15.2855 13.7727 14.2602 14.6518 12.9446C15.5308 11.629 16 10.0823 16 8.5C15.9977 6.37897 15.1541 4.34547 13.6543 2.84568C12.1545 1.34589 10.121 0.502294 8 0.5V0.5ZM8.66667 15.1327V13.8333C8.66667 13.6565 8.59643 13.487 8.47141 13.3619C8.34638 13.2369 8.17682 13.1667 8 13.1667C7.82319 13.1667 7.65362 13.2369 7.5286 13.3619C7.40358 13.487 7.33334 13.6565 7.33334 13.8333V15.1327C5.80412 14.977 4.37546 14.2984 3.28854 13.2115C2.20163 12.1245 1.52304 10.6959 1.36734 9.16667H2.66667C2.84348 9.16667 3.01305 9.09643 3.13807 8.97141C3.2631 8.84638 3.33334 8.67681 3.33334 8.5C3.33334 8.32319 3.2631 8.15362 3.13807 8.0286C3.01305 7.90357 2.84348 7.83333 2.66667 7.83333H1.36734C1.52304 6.30411 2.20163 4.87545 3.28854 3.78854C4.37546 2.70163 5.80412 2.02304 7.33334 1.86733V3.16667C7.33334 3.34348 7.40358 3.51305 7.5286 3.63807C7.65362 3.7631 7.82319 3.83333 8 3.83333C8.17682 3.83333 8.34638 3.7631 8.47141 3.63807C8.59643 3.51305 8.66667 3.34348 8.66667 3.16667V1.86733C10.1959 2.02304 11.6245 2.70163 12.7115 3.78854C13.7984 4.87545 14.477 6.30411 14.6327 7.83333H13.3333C13.1565 7.83333 12.987 7.90357 12.8619 8.0286C12.7369 8.15362 12.6667 8.32319 12.6667 8.5C12.6667 8.67681 12.7369 8.84638 12.8619 8.97141C12.987 9.09643 13.1565 9.16667 13.3333 9.16667H14.6327C14.477 10.6959 13.7984 12.1245 12.7115 13.2115C11.6245 14.2984 10.1959 14.977 8.66667 15.1327ZM10.6667 8.5C10.6667 8.67681 10.5964 8.84638 10.4714 8.97141C10.3464 9.09643 10.1768 9.16667 10 9.16667H8.66667V10.5C8.66667 10.6768 8.59643 10.8464 8.47141 10.9714C8.34638 11.0964 8.17682 11.1667 8 11.1667C7.82319 11.1667 7.65362 11.0964 7.5286 10.9714C7.40358 10.8464 7.33334 10.6768 7.33334 10.5V9.16667H6C5.82319 9.16667 5.65362 9.09643 5.5286 8.97141C5.40358 8.84638 5.33334 8.67681 5.33334 8.5C5.33334 8.32319 5.40358 8.15362 5.5286 8.0286C5.65362 7.90357 5.82319 7.83333 6 7.83333H7.33334V6.5C7.33334 6.32319 7.40358 6.15362 7.5286 6.0286C7.65362 5.90357 7.82319 5.83333 8 5.83333C8.17682 5.83333 8.34638 5.90357 8.47141 6.0286C8.59643 6.15362 8.66667 6.32319 8.66667 6.5V7.83333H10C10.1768 7.83333 10.3464 7.90357 10.4714 8.0286C10.5964 8.15362 10.6667 8.32319 10.6667 8.5Z"
+              fill="#636363" />
+          </g>
+          <defs>
+            <clipPath id="clip0_5870_42478">
+              <rect width="16" height="16" fill="white" transform="translate(0 0.5)" />
+            </clipPath>
+          </defs>
+        </svg>
+        <div class="perBar">
+          <div class="progress proglist" style="height: 8px; width: 100%">
+            <div class="progress-bar progsc" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+              [ngStyle]="{ width: emp.width + '%' }"></div>
+          </div>
+        </div>
+        <div class="d-flex"><span>{{emp.width}}</span> <span>%</span></div>
+      </div>
+    </li>
+  </ul>
+</section>
+<section class="m-4 lemp" *ngIf="targetPage">
+  <div class="lists" *ngFor="let pro of targetData">
+    <div class="d-flex name">
+      <div class="targetImgCon">
+        <!-- <img src="../../../../../../assets/images/employees/human.svg" /> -->
+      </div>
+      <p>{{ pro.name }}</p>
+    </div>
+    <div style="width: 700px">
+      <div class="progress proglist" style="height: 10px; width: 100%">
+        <div class="progress-bar progsc" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{ width: pro.width + '%' }"></div>
+      </div>
+    </div>
+    <div class="scrore d-flex align-items-center">
+      <h2 [class.badTarget]="pro.width  < 25" [class.mediumTarget]="pro.width  > 40"
+        [class.goodTarget]="pro.width  > 60">{{ pro.current }}/{{ pro.target }}</h2>
+      <div>
+        <div class="empCardMenu">
+          <button *ngIf="username == 'Nicolas' ||
+          username == 'Oumaima EL HADDADI' || 
+          username == 'Salah'" class="card_menu" mat-button [matMenuTriggerFor]="menu">
+            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6627_1102)">
+                <path
+                  d="M6 2.5C6.55228 2.5 7 2.05228 7 1.5C7 0.947715 6.55228 0.5 6 0.5C5.44771 0.5 5 0.947715 5 1.5C5 2.05228 5.44771 2.5 6 2.5Z"
+                  fill="#121212" />
+                <path
+                  d="M6 7.5C6.55228 7.5 7 7.05228 7 6.5C7 5.94771 6.55228 5.5 6 5.5C5.44771 5.5 5 5.94771 5 6.5C5 7.05228 5.44771 7.5 6 7.5Z"
+                  fill="#121212" />
+                <path
+                  d="M6 12.5C6.55228 12.5 7 12.0523 7 11.5C7 10.9477 6.55228 10.5 6 10.5C5.44771 10.5 5 10.9477 5 11.5C5 12.0523 5.44771 12.5 6 12.5Z"
+                  fill="#121212" />
+              </g>
+              <defs>
+                <clipPath id="clip0_6627_1102">
+                  <rect width="12" height="12" fill="white" transform="translate(0 0.5)" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button (click)="openEditTarget(editTarget, 'suggested-modal', 'lg', pro)" mat-menu-item>
+              <span>Edit</span>
+            </button>
+            <button (click)="deleteTarget(pro)" mat-menu-item>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+
+      <ng-template #suggestede let-c="close" let-d="dismiss">
+        <div class="text-center justify-content-center content-delete">
+          <img src="../../../../../../assets/images/employees/imgdelete.svg" alt="imgdelete" />
+          <h4>Are you sure you want to delete this employee?</h4>
+          <div class="d-flex justify-content-center">
+            <a (click)="DeleteEmplyee(pro.employee)" class="yes">Yes</a>
+            <a class="no" (click)="closeMOdel()">No</a>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Edit target -->
+<ng-template #editTarget let-c="close" let-d="dismiss">
+  <div class="sett-target">
+    <form [formGroup]="editTargetForm" (ngSubmit)="EditTarget()" #editTarget="ngForm">  
+    <h5 class="card-header-addnew">Edit Target <button type="button" class="close-btn float-end" aria-label="Close"
+        (click)="d('dismiss')">
+        <i class="fi-rr-cross"></i>
+      </button></h5>
+    <!-- new code -->
+    <div class="formGroup">
+    <div class="row heightset">
+      <div class="col-sm-6 input-col">
+        <label for="field" class="targe-label">Month</label>
+        <div class="dropdown-center dropdown-col" #schoolSuggestion>
+          <select _ngcontent-ddr-c494="" (click)="
+          onadmonth($event)" class="drop-down-button"
+          formControlName="targetMonth">
+            <option selected disabled> Select Month</option>
+            <option [value]="month" *ngFor="
+                  let month of monthsNum
+                " (click)="
+                onadmonth($event);
+                  schoolSuggestion.click()
+                " class="dropdown-text">
+              {{ month }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6 input-col">
+        <label for="field" class="targe-label">Target team</label>
+        <div class="dropdown-center dropdown-col" #schoolSuggestion>
+          <select (change)="setTargetsAction($event)" _ngcontent-ddr-c494="" class="drop-down-button"
+          formControlName="targetTeam">
+            <option selected disabled> Select target team</option>
+            <option>Counselling team</option>
+            <option>Acquisition team</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row heightset">
+      <div class="col-sm-6 input-col">
+        <label for="field" class="targe-label">Year</label>
+        <div class="dropdown-center dropdown-col" #schoolSuggestion>
+          <select _ngcontent-ddr-c494="" (click)="
+          onadyear($event)" class="drop-down-button"
+          formControlName="targetYear">
+            <option selected disabled> Select Year</option>
+            <option [value]="year" *ngFor="
+                      let year of years
+                    " (click)="
+                    onadyear($event);
+                      schoolSuggestion.click()
+                    " class="dropdown-text">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6 target-input-col">
+        <label for="field" class="targe-label">Target</label>
+        <input _ngcontent-xva-c333="" id="targetvalue" type="number" min="0" class="target-input"
+          [(ngModel)]="targetValue"
+          formControlName="targetVal">
+      </div>
+    </div>
+  </div>
+    <!-- new code -->
+    <div class="d-flex justify-content-end">
+      <button type="submit">Edit Target</button>
+    </div>
+  </form>
+  </div>
+</ng-template>
+    </div>
+  </div>
+
+
+  <div class="lists totalRow">
+    <div class="d-flex name">
+      <svg style="width: 40px;" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_5870_44693)">
+          <path
+            d="M13 20C14.3256 19.9984 15.5964 19.4711 16.5338 18.5338C17.4711 17.5965 17.9984 16.3256 18 15V6.24302C18.0016 5.71738 17.8988 5.19665 17.6976 4.71104C17.4964 4.22542 17.2008 3.78456 16.828 3.41402L14.586 1.17202C14.2155 0.799191 13.7746 0.50362 13.289 0.302438C12.8034 0.101255 12.2826 -0.00153795 11.757 1.73896e-05H7C5.67441 0.00160525 4.40356 0.528899 3.46622 1.46624C2.52888 2.40358 2.00159 3.67442 2 5.00002V15C2.00159 16.3256 2.52888 17.5965 3.46622 18.5338C4.40356 19.4711 5.67441 19.9984 7 20H13ZM4 15V5.00002C4 4.20437 4.31607 3.44131 4.87868 2.8787C5.44129 2.31609 6.20435 2.00002 7 2.00002C7 2.00002 11.919 2.01402 12 2.02402V4.00002C12 4.53045 12.2107 5.03916 12.5858 5.41423C12.9609 5.7893 13.4696 6.00002 14 6.00002H15.976C15.986 6.08102 16 15 16 15C16 15.7957 15.6839 16.5587 15.1213 17.1213C14.5587 17.6839 13.7956 18 13 18H7C6.20435 18 5.44129 17.6839 4.87868 17.1213C4.31607 16.5587 4 15.7957 4 15ZM22 8.00002V19C21.9984 20.3256 21.4711 21.5965 20.5338 22.5338C19.5964 23.4711 18.3256 23.9984 17 24H8C7.73478 24 7.48043 23.8947 7.29289 23.7071C7.10536 23.5196 7 23.2652 7 23C7 22.7348 7.10536 22.4804 7.29289 22.2929C7.48043 22.1054 7.73478 22 8 22H17C17.7956 22 18.5587 21.6839 19.1213 21.1213C19.6839 20.5587 20 19.7957 20 19V8.00002C20 7.7348 20.1054 7.48045 20.2929 7.29291C20.4804 7.10537 20.7348 7.00002 21 7.00002C21.2652 7.00002 21.5196 7.10537 21.7071 7.29291C21.8946 7.48045 22 7.7348 22 8.00002Z"
+            fill="#121212" />
+        </g>
+        <defs>
+          <clipPath id="clip0_5870_44693">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <p style="font-weight: bold;">Total Leads</p>
+    </div>
+    <div style="width: 700px">
+      <div class="progress proglist" style="height: 10px; width: 100%">
+        <div class="progress-bar progsc" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{ width: widthtarget+ '%' }"></div>
+      </div>
+    </div>
+    <div class="scrore d-flex align-items-center">
+      <h2 class="totalNumber">{{ TotalCurrent }}/{{ TotalTargets }}</h2>
+      <div class="empCardMenu">
+        <!-- <button class="card_menu" mat-button [matMenuTriggerFor]="menu">
+          <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_6627_1102)">
+              <path
+                d="M6 2.5C6.55228 2.5 7 2.05228 7 1.5C7 0.947715 6.55228 0.5 6 0.5C5.44771 0.5 5 0.947715 5 1.5C5 2.05228 5.44771 2.5 6 2.5Z"
+                fill="#121212" />
+              <path
+                d="M6 7.5C6.55228 7.5 7 7.05228 7 6.5C7 5.94771 6.55228 5.5 6 5.5C5.44771 5.5 5 5.94771 5 6.5C5 7.05228 5.44771 7.5 6 7.5Z"
+                fill="#121212" />
+              <path
+                d="M6 12.5C6.55228 12.5 7 12.0523 7 11.5C7 10.9477 6.55228 10.5 6 10.5C5.44771 10.5 5 10.9477 5 11.5C5 12.0523 5.44771 12.5 6 12.5Z"
+                fill="#121212" />
+            </g>
+            <defs>
+              <clipPath id="clip0_6627_1102">
+                <rect width="12" height="12" fill="white" transform="translate(0 0.5)" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button> -->
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Set target -->
+<ng-template #suggested let-c="close" let-d="dismiss">
+  <div class="sett-target">
+    <form [formGroup]="targetForm" (ngSubmit)="clickadtarget()" #setTarget="ngForm">  
+    <h5 class="card-header-addnew">Add Target <button type="button" class="close-btn float-end" aria-label="Close"
+        (click)="d('dismiss')">
+        <i class="fi-rr-cross"></i>
+      </button></h5>
+    <!-- new code -->
+    <div class="formGroup">
+    <div class="row heightset">
+      <div class="col-sm-6 input-col">
+        <label for="field" class="targe-label">Employee name</label>
+        <div class="dropdown-center dropdown-col" #schoolSuggestion>
+          <select _ngcontent-ddr-c494="" (click)="
+          onademp($event)" class="drop-down-button"
+          formControlName="empName"
+          >
+            <option selected disabled> Employee Name</option>
+            <option [value]="name.Username" *ngFor="
+        let name of employeeNames
+      " (click)="
+      onademp($event);
+        schoolSuggestion.click()
+      " class="dropdown-text">
+              {{ name.Name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6 input-col">
+        <label for="field" class="targe-label">Month</label>
+        <div class="dropdown-center dropdown-col" #schoolSuggestion>
+          <select _ngcontent-ddr-c494="" (click)="
+          onadmonth($event)" class="drop-down-button"
+          formControlName="targetMonth">
+            <option selected disabled> Select Month</option>
+            <option [value]="month" *ngFor="
+                  let month of monthsNum
+                " (click)="
+                onadmonth($event);
+                  schoolSuggestion.click()
+                " class="dropdown-text">
+              {{ month }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row heightset">
+      <div class="col-sm-6 input-col">
+        <label for="field" class="targe-label">Year</label>
+        <div class="dropdown-center dropdown-col" #schoolSuggestion>
+          <select _ngcontent-ddr-c494="" (click)="
+          onadyear($event)" class="drop-down-button"
+          formControlName="targetYear">
+            <option selected disabled> Select Year</option>
+            <option [value]="year" *ngFor="
+                      let year of years
+                    " (click)="
+                    onadyear($event);
+                      schoolSuggestion.click()
+                    " class="dropdown-text">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6 target-input-col">
+        <label for="field" class="targe-label">Target</label>
+        <input _ngcontent-xva-c333="" id="targetvalue" type="number" min="0" class="target-input"
+          [(ngModel)]="targetValue"
+          formControlName="targetVal">
+      </div>
+    </div>
+
+    <div class="row heightset">
+      <div class="col-sm-6 input-col">
+        <label for="field" class="targe-label">Target team</label>
+        <div class="dropdown-center dropdown-col" #schoolSuggestion>
+          <select (change)="setTargetsAction($event)" _ngcontent-ddr-c494="" class="drop-down-button"
+          formControlName="targetTeam">
+            <option selected disabled> Select target team</option>
+            <option>Counselling team</option>
+            <option>Acquisition team</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- new code -->
+    <div class="d-flex justify-content-end">
+      <button type="submit" [disabled]="setTarget.form.invalid">Set Target</button>
+    </div>
+  </form>
+  </div>
+</ng-template>
+<!-- Add employee -->
+<ng-template #suggestedd let-c="close" let-d="dismiss">
+  <div class="row d-flex justify-content-between sett-target" style="padding: 20px; padding-right: 18px !important;">
+    <form [formGroup]="employeeForm" (ngSubmit)="clickedemplyee()" #addEmployee="ngForm"> 
+    <h5 class="card-header-addnew">Add Employee <button type="button" class="close-btn float-end" aria-label="Close"
+        (click)="d('dismiss')">
+        <i class="fi-rr-cross"></i>
+      </button></h5>
+    <!-- new code -->
+    <div class="row heightset">
+      <div class="col-sm-6 input-col">
+        <label for="field" class="add-emp-labels">Employee name</label>
+        <input type="text" class="form-input form-control emp-input" [(ngModel)]="employeeName"
+          placeholder="Employee name"
+          formControlName="employeeName">
+      </div>
+      <div class="col-sm-6 input-col">
+        <label for="price" class="add-emp-labels">Phone number</label>
+        <input type="text" class="form-input form-control emp-input" [(ngModel)]="employeeNumber"
+          placeholder="Phone number"
+          formControlName="employeeNumber">
+      </div>
+    </div>
+    <div class="row heightset add-emp-row">
+      <div class="col-sm-6 input-col">
+        <label for="field" class="add-emp-labels">Email</label>
+        <input type="text" class="form-input form-control emp-input" [(ngModel)]="employeeEmail" placeholder="Email"
+        formControlName="empEmail">
+      </div>
+      <div class="col-sm-6 input-col">
+        <label for="price" class="add-emp-labels">Password</label>
+        <input type="password" class="form-input form-control emp-input" [(ngModel)]="employeePassword"
+          placeholder="Password"
+          formControlName="empPassword">
+      </div>
+    </div>
+    <div class="row heightset add-emp-row">
+      <div class="col-sm-6 input-col">
+        <label for="school" class="inputfield add-emp-labels">Job Description</label>
+        <div class="row ">
+          <div class="dropdown-center dropdown-col" #schoolSuggestion>
+            <select _ngcontent-ddr-c494="" class="drop-down-button"
+            formControlName="empTeam">
+              <option selected disabled> Job Description</option>
+              <option [value]="job" *ngFor="
+                    let job of job_description
+                  " (click)="
+                    changeSelection($event);
+                    schoolSuggestion.click()
+                  " class="dropdown-text">
+                {{ job }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- new code -->
+    <div class="d-flex justify-content-end">
+      <button type="submit" [disabled]="addEmployee.form.invalid">Add Employee</button>
+    </div>
+    </form>
+  </div>
+</ng-template>
+<ng-template #artical let-c="close" let-d="dismiss">
+  <div class="row d-flex justify-content-between sett-target" style="padding: 20px; padding-right: 18px !important;">
+    <h5 class="card-header-addnew">Add Artical <button type="button" class="close-btn float-end" aria-label="Close"
+        (click)="d('dismiss')">
+        <i class="fi-rr-cross"></i>
+      </button></h5>
+    <div>
+      <label for="field" class="artical_link">Artical Link</label>
+      <input type="text" class="form-input form-control emp-input" [(ngModel)]="articalLink" placeholder="Link">
+    </div>
+    <div class="d-flex justify-content-end">
+      <button (click)="addArtical()">Add</button>
+    </div>
+  </div>
+</ng-template>

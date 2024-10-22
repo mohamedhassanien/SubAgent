@@ -1,0 +1,359 @@
+p {
+  font-family: Poppins;
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 14rem;
+}
+
+.country-item-value img.flag {
+  width: 17px;
+}
+
+p-skeleton {
+  width: 100%;
+}
+
+section {
+  background-color: #f7f7f7;
+}
+
+section .container-fluid {
+  padding: 26px 0 26px 16px;
+}
+
+section .container-fluid h2.section-title {
+  font: normal normal 600 24px Poppins;
+  color: #373b79;
+  margin-bottom: 26px;
+}
+
+section .container-fluid form.form-section {
+  padding: 70px 40px 40px;
+  background-color: #fff;
+  box-shadow: 0px 0px 0px rgba(90, 113, 208, 0.1058823529);
+  border-radius: 5px;
+}
+
+section .container-fluid form.form-section .dropzone {
+  min-height: 195px;
+  display: table;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px dashed var(--primary-purple, #16294f);
+  background: #f2f0f0;
+}
+
+section .container-fluid form.form-section .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 195px;
+}
+
+section .container-fluid form.form-section .text-wrapper img {
+  width: 76px;
+  height: 77px;
+  margin-bottom: 1rem;
+}
+
+section .container-fluid form.form-section .centered {
+  color: var(--primary-black, #121212);
+  text-align: center;
+  font-family: Poppins !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+section .container-fluid form.form-section .centered span {
+  color: var(--primary-purple, #16294f);
+}
+
+section .container-fluid form.form-section .input-col {
+  margin-bottom: 30px;
+}
+
+section .container-fluid form.form-section .input-col label {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-bottom: 8px;
+}
+
+section .container-fluid form.form-section .input-col .form-input {
+  border: 1px solid #bebebe;
+  width: 100%;
+  height: 56px;
+  border-radius: 5px;
+  padding: 16px;
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+}
+
+section .container-fluid form.form-section .input-col .form-input:hover {
+  border: 1px solid #cfd1f8;
+}
+
+section .container-fluid form.form-section .input-col .form-input:focus {
+  border: 1px solid #cfd1f8;
+}
+
+section .container-fluid form.form-section .input-col .form-input-error {
+  border: 1px solid #ff0000;
+}
+
+section .container-fluid form.form-section .input-col .form-input-error:hover {
+  border: 1px solid #ff0000;
+}
+
+section .container-fluid form.form-section .input-col .form-input-error:focus {
+  border: 1px solid #ff0000;
+}
+
+section .container-fluid form.form-section .input-col span.error-text {
+  font: normal normal normal 14px Poppins;
+  color: #ff0000;
+}
+
+section .container-fluid form.form-section .input-col .iti {
+  width: 100%;
+}
+
+section .container-fluid form.form-section .input-col .iti input[type=tel] {
+  color: #484848;
+  padding-left: 50px;
+  height: 56px;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+  font: normal normal normal 16px Poppins;
+}
+
+section .container-fluid form.form-section .input-col .iti input[type=tel]:focus {
+  box-shadow: none;
+  border: 1px solid #cfd1f8;
+}
+
+section .container-fluid form.form-section .input-col .iti input[type=tel]:hover {
+  border: 1px solid #cfd1f8;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col ::-webkit-scrollbar {
+  border-right: 30px white solid;
+  width: 6px;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col ::-webkit-scrollbar-track {
+  background: #dedddd 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col ::-webkit-scrollbar-thumb {
+  background: #bebebe 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col button {
+  height: 56px;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+  background-color: #fff;
+  box-shadow: none;
+  font: normal normal normal 16px Poppins;
+  color: #bebebe;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col button::after {
+  all: unset;
+  content: "";
+  border: solid #bebebe;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotateX(0) rotateY(0) rotateZ(45deg);
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col button:hover {
+  border: 1px solid #cfd1f8;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col button:focus {
+  border: 1px solid #cfd1f8;
+  box-shadow: none;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col button:focus::after {
+  border: solid #000;
+  border-width: 0 4px 4px 0;
+  transform: rotateX(180deg) rotateY(0) rotateZ(45deg);
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu {
+  padding: 20px 30px;
+  width: 600px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container {
+  position: relative;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput {
+  padding: 10px 16px;
+  width: 100%;
+  height: 40px;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 5px;
+  font: normal normal normal 14px/21px Poppins;
+  color: #bebebe;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput:focus::placeholder {
+  color: transparent;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container input.searchInput:focus+i {
+  color: transparent;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container i.place-holder {
+  position: absolute;
+  color: #bebebe;
+  top: 13px;
+  right: 16px;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container hr {
+  margin: 10px 0;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option {
+  padding: 6px 0 6px 32px;
+  font: normal normal normal 16px Poppins;
+  margin-right: 18px;
+  border-radius: 5px;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option img {
+  width: 70px;
+  height: 38px;
+  margin-right: 16px;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu .dropdown-container .dropdown-container-overflow option:hover {
+  cursor: pointer;
+  background-color: rgb(229, 231, 255);
+  color: #000;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu.score-menu {
+  padding: 0;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu.score-menu .dropdown-container .dropdown-container-overflow option {
+  padding: 13px 0 13px 40px;
+  margin: 0;
+}
+
+section .container-fluid form.form-section .input-col .dropdown-col .dropdown-menu.score-menu .dropdown-container .dropdown-container-overflow option:hover {
+  cursor: pointer;
+  background-color: rgba(229, 231, 255, 0.38);
+}
+
+section .container-fluid form.form-section .source-col {
+  margin-bottom: 30px;
+}
+
+section .container-fluid form.form-section .source-col label {
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+  margin-bottom: 10px;
+}
+
+section .container-fluid form.form-section .source-col .radio-btn {
+  margin-bottom: 20px;
+}
+
+section .container-fluid form.form-section .source-col .radio-btn .mat-radio-outer-circle {
+  border: 2px solid #16294f;
+}
+
+section .container-fluid form.form-section .source-col .radio-btn .mat-radio-inner-circle {
+  background: linear-gradient(142deg, #ff5151 0%, #16294f 100%);
+}
+
+section .container-fluid form.form-section .source-col .radio-btn .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border: 2px solid #16294f;
+}
+
+section .container-fluid form.form-section .source-col .radio-btn .mat-ripple-element {
+  background-color: #edeeff;
+}
+
+section .container-fluid form.form-section .source-col .radio-btn .mat-radio-label-content {
+  padding-left: 17px;
+  font: normal normal normal 16px/33px Poppins;
+  color: #000;
+}
+
+section .container-fluid form.form-section .source-col .radio-btn .mat-radio-container:hover .mat-ripple-element {
+  background-color: #edeeff;
+}
+
+section .container-fluid form.form-section .source-col .form-input {
+  border: 1px solid #bebebe;
+  width: 100%;
+  height: 56px;
+  border-radius: 5px;
+  padding: 16px;
+  font: normal normal normal 16px Poppins;
+  color: #484848;
+}
+
+section .container-fluid form.form-section .source-col .form-input:hover {
+  border: 1px solid #cfd1f8;
+}
+
+section .container-fluid form.form-section .source-col .form-input:focus {
+  border: 1px solid #cfd1f8;
+}
+
+section .container-fluid form.form-section .source-col .form-input-error {
+  border: 1px solid #ff0000;
+}
+
+section .container-fluid form.form-section .source-col .form-input-error:hover {
+  border: 1px solid #ff0000;
+}
+
+section .container-fluid form.form-section .source-col .form-input-error:focus {
+  border: 1px solid #ff0000;
+}
+
+section .container-fluid form.form-section .source-col span.error-text {
+  font: normal normal normal 14px Poppins;
+  color: #ff0000;
+}
+
+section .container-fluid form.form-section button.submit-button {
+  padding: 16px 80px;
+  border-radius: 8px;
+  background-color: #16294f;
+  font: normal normal 500 18px Poppins;
+  color: #fff;
+  border: none;
+}
+
+section .container-fluid form.form-section button.submit-button:hover {
+  background-color: #16294f;
+}
+
+section .container-fluid form.form-section button.submit-button:disabled {
+  background-color: #c5c8f1;
+}

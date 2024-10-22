@@ -1,0 +1,179 @@
+.section-container {
+  background-color: #f3f6f9;
+  min-height: 100vh;
+}
+
+.section-container form {
+  width: 90%;
+  margin: auto;
+}
+
+.section-container form .page {
+  display: flex;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 1.5px 2.6px 10px 0 rgba(119, 119, 119, 0.1);
+}
+
+.section-container form .page .control {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 8px 0;
+}
+
+.section-container form .page .control input {
+  padding: 11px 16px 11px 14px;
+  border: solid 1px #dddfe1;
+  background-color: rgba(106, 112, 126, 0);
+  font-size: 16px;
+}
+
+.section-container form .page .control input::placeholder {
+  font-size: 16px;
+  letter-spacing: 0.22px;
+  color: #abafb3;
+}
+
+.section-container form .page .control label {
+  margin-bottom: 5px;
+  font-size: 18px;
+  letter-spacing: 0.26px;
+  color: #686e7c;
+}
+
+.section-container form .page .control span.validation {
+  font-size: 12px;
+  letter-spacing: 0.32px;
+  color: #f66666;
+}
+
+.section-container form .page .btn-holder {
+  justify-content: flex-end;
+  display: flex;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.section-container form .page .btn-holder button {
+  padding: 10px 18px 10px 18px;
+  border-radius: 3px;
+  border: none;
+}
+
+.section-container form .page .btn-holder button.next {
+  background-color: var(--main-color);
+  font-size: 18px;
+  color: #fff;
+}
+
+.section-container form .step1 {
+  background-color: var(--main-color);
+}
+
+.section-container form .step1 .custom-col:nth-child(1) {
+  flex: 0 0 25%;
+  padding: 41px 41px 6px 50px;
+  border-radius: 3px;
+}
+
+.section-container form .step1 .custom-col:nth-child(1) p {
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+  color: #fff;
+}
+
+.section-container form .step1 .custom-col:nth-child(1) p span:nth-child(1) {
+  padding: 1px 4px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.section-container form .step1 .custom-col:nth-child(1) div:not(.img-holder) {
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+.section-container form .step1 .custom-col:nth-child(1) div:not(.img-holder) img {
+  height: 60px;
+  width: 60px;
+}
+
+.section-container form .step1 .custom-col:nth-child(2) {
+  padding: 29px 30px 27px 27px;
+  background-color: #fff;
+  flex: 0 0 75%;
+}
+
+.section-container form .step1 .custom-col:nth-child(2) p {
+  font-size: 22px;
+  color: #464a53;
+}
+
+.section-container form .step2 {
+  padding: 52px 15%;
+}
+
+.section-container form .step2 .custom-col {
+  width: 100%;
+}
+
+.section-container form .step2 .custom-col .steps div:nth-child(1) {
+  width: 61%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-container form .step2 .custom-col .steps div:nth-child(1) span {
+  width: 57px;
+  height: 57px;
+  padding: 14px;
+  text-align: center;
+  background-color: #16294f;
+  border-radius: 50%;
+  font-size: 16px;
+  display: inline-block;
+  color: #fff;
+  position: relative;
+}
+
+.section-container form .step2 .custom-col .steps div:nth-child(1) span:before {
+  content: "";
+  width: 210px;
+  height: 14px;
+  background-color: var(--main-color);
+  display: inline-block;
+  position: absolute;
+  left: 98%;
+  top: 40%;
+}
+
+.section-container form .step2 .custom-col .steps div:nth-child(1) span:nth-child(2)::before {
+  background-color: #f3f3f3;
+}
+
+.section-container form .step2 .custom-col .steps div:nth-child(1) span:last-child {
+  background-color: white;
+  border: solid 2px #dddfe1;
+  color: var(--main-color);
+}
+
+.section-container form .step2 .custom-col .steps div:nth-child(1) span:last-child::before {
+  display: none;
+}
+
+.section-container form .step2 .custom-col .steps div:nth-child(2) {
+  display: flex;
+  width: 63%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.section-container form .step2 .custom-col .control input[type=file] {
+  padding: 41px;
+  border: dashed 2px #ccc;
+  background-color: rgba(127, 99, 244, 0.02);
+}

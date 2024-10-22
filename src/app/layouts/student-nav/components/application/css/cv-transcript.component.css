@@ -1,0 +1,267 @@
+.modal-header {
+  border: none;
+  padding: 24px;
+}
+
+.download-doc h6 {
+  color: var(--primary-black, #121212);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.download-doc h4 {
+  color: #E88852;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.download-doc .upload-input {
+  border-radius: var(--5, 5px);
+  border: 1px solid var(--secondry-grey, #7B7B7B);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.download-doc .upload-input p {
+  color: var(--secondry-grey, #7B7B7B);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.download-doc .upload-input label {
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid var(--primary-purple, #16294f);
+  color: var(--primary-purple, #16294f);
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--primary-white, #FDFDFD);
+  padding: 8px 24px;
+  display: inline-block;
+}
+
+.download-doc .upload-input input[type=file] {
+  display: none;
+}
+
+.download-doc .upload-input .upload-text {
+  border-radius: 4px;
+  border: 1px solid var(--light-grey, #E8E8E8);
+  padding: 8px 8px 8px 24px;
+}
+
+.download-doc .upload-input .upload-text h5 {
+  color: var(--untap, #636363);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.help-step {
+  margin-top: 24px;
+}
+
+.help-step .lott {
+  width: 109px;
+  height: 109px;
+}
+
+.help-step h1 {
+  color: var(--primary-black, #121212);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+.help-step a {
+  border-radius: 8px;
+  background: var(--light-purple, #fbe8ea);
+  padding: 8px 32px;
+  color: var(--primary-black, #121212);
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: none;
+  border: none;
+  margin-top: 16px;
+}
+
+section.content-titles h1 {
+  color: var(--primary-black, #121212);
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 24px;
+}
+
+section.content-titles .content-wrapper ul {
+  padding-left: 24px;
+}
+
+section.content-titles .content-wrapper ul li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+section.content-titles .content-wrapper ul li span {
+  font-weight: 600;
+}
+
+section.divide .divide-card {
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 18px;
+}
+
+section.divide .divide-card .tag {
+  margin-bottom: 12.5px;
+}
+
+section.divide .divide-card .tag p {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+  color: var(--primary-black, #121212);
+}
+
+section.divide .divide-card .tag span {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: var(--primary-black, #121212);
+  border-radius: var(--5, 5px);
+  background: var(--light-yellow, #FFF2C2);
+  padding: 4px 8px;
+  margin-top: 2px;
+}
+
+section.divide .divide-card .divide-desc {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 27px;
+}
+
+section.divide .divide-card .divide-desc span {
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  section.content-titles .content-wrapper ul li {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  section.divide .divide-card {
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 18px;
+  }
+
+  section.divide .divide-card .tag {
+    margin-bottom: 8px;
+  }
+
+  section.divide .divide-card .tag p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  section.divide .divide-card .tag span {
+    font-size: 18px;
+    line-height: 27px;
+    padding: 4px 8px;
+    margin-top: 2px;
+  }
+
+  section.divide .divide-card .divide-desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .modal-dialog {
+    max-width: 100%;
+    margin: 24px 24px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  section.content-titles h1 {
+    font-size: 16px;
+    padding-bottom: 12px;
+  }
+
+  section.content-titles .content-wrapper ul li {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  section.divide .divide-card {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  section.divide .divide-card .tag {
+    margin-bottom: 8px;
+  }
+
+  section.divide .divide-card .tag p {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  section.divide .divide-card .tag span {
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 4px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  section.divide .divide-card .divide-desc {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .download-doc h6 {
+    font-size: 14px;
+  }
+
+  .download-doc .upload-input {
+    padding: 4px 8px;
+    margin-top: 10px;
+  }
+
+  .download-doc .upload-input p {
+    font-size: 12px;
+  }
+
+  .download-doc .upload-input label {
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 8px 12px;
+  }
+
+  .help-step {
+    margin-top: 20px;
+  }
+
+  .help-step h1 {
+    margin-top: 14px;
+  }
+
+  .help-step a {
+    margin-top: 10px;
+  }
+}

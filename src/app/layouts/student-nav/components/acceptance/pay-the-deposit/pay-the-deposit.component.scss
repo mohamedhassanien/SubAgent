@@ -1,0 +1,444 @@
+h1,
+h2 {
+    font-weight: 700;
+    font-size: 24px;
+    color: #121212;
+}
+
+p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.first-content {
+    h2 {
+        color: #FF5151;
+    }
+
+    h1 {
+        margin-top: 24px;
+    }
+
+    p {
+        margin-top: 8px;
+    }
+
+}
+
+.cards {
+    // margin-top: 40px;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 24px;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        margin-top: 80px;
+
+    }
+
+    .card {
+        .card-body {
+            .card-text {
+                // padding-top: 24px;
+                font-family: Poppins;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: center;
+
+            }
+        }
+    }
+
+    .header {
+        text-align: left;
+    }
+
+    p {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+
+        span {
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            text-align: left;
+
+        }
+    }
+}
+
+.when-pay {
+    margin-top: 40px;
+
+    p {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+    }
+
+    h1 {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: left;
+        margin-bottom: 8px;
+
+    }
+}
+
+.how-pay {
+    padding: 24px;
+    margin-top: 40px;
+    border-radius: 10px;
+    background: var(--frame, #FBF7EA);
+
+    h1 {
+        margin-bottom: 24px;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    p {
+        border-radius: var(--5, 5px);
+        background: var(--primary-white, #FDFDFD);
+        padding: 16px;
+        margin-top: 16px;
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+
+        a {
+            text-decoration: underline !important;
+            color: rgba(111, 119, 244, 1);
+        }
+
+        span {
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            text-align: left;
+        }
+    }
+}
+
+.refund {
+    margin-top: 40px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .refund_header {
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    .fund-text {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+        margin-top: 24px;
+    }
+
+    .row {
+        justify-content: space-between;
+
+        .one-col {
+            background: #FFFFFF;
+            box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+            border-radius: 10px;
+            padding: 24px 17px;
+            display: inline-grid;
+            align-items: center;
+            width: 49.4%;
+
+            h1 {
+                font-family: Poppins;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+                text-align: center;
+                margin-bottom: 8px;
+            }
+
+            p {
+                font-family: Poppins;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    h1,
+    h2 {
+        font-weight: 700;
+        font-size: 20px;
+        color: #121212;
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .first-content {
+
+        h1 {
+            margin-top: 16px;
+        }
+    }
+
+    .cards {
+        margin-top: 32px;
+
+        h1 {
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+
+    .when-pay {
+        margin-top: 32px;
+    }
+
+    .how-pay {
+        padding: 16px;
+        margin-top: 32px;
+        border-radius: 10px;
+
+        h1 {
+            margin-bottom: 16px;
+        }
+
+        p {
+            padding: 8px 16px;
+            margin-top: 8px;
+        }
+    }
+
+    .refund {
+        margin-top: 32px;
+
+        .fund-text {
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .row {
+
+            .one-col {
+                padding: 16px;
+                display: inline-grid;
+
+                h1 {
+                    font-weight: 600;
+                    font-size: 18px;
+                    padding-bottom: 8px;
+
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+
+    h1,
+    h2 {
+        font-size: 14px !important;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .first-content {
+
+        h1 {
+            margin-top: 8px;
+        }
+
+        p {
+            margin-top: 4px;
+        }
+
+    }
+
+    .cards {
+        margin-top: 24px;
+
+        .card {
+            .card-body {
+                .card-text {
+                    padding-top: 8px;
+                }
+            }
+        }
+    }
+
+    .when-pay {
+        margin-top: 24px;
+
+        p {
+            margin-top: 8px;
+        }
+    }
+
+    .how-pay {
+        padding: 8px;
+        margin-top: 24px;
+        border-radius: 5px;
+
+        h1 {
+            margin-bottom: 8px;
+        }
+
+        p {
+            padding: 8px 4px;
+            margin-top: 8px;
+        }
+    }
+
+    .refund {
+        margin-top: 24px;
+
+        .fund-text {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .row {
+            justify-content: center;
+
+            .one-col {
+                padding: 8px;
+                width: 100%;
+
+                h1 {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+
+                p {
+                    font-size: 12px;
+                    line-height: 18px;
+                    padding-top: 8px;
+                }
+            }
+        }
+    }
+
+    .upload-input {
+        padding: 4px 8px !important;
+        margin-top: 10px !important;
+
+        p {
+            font-size: 12px !important;
+        }
+
+        label {
+            cursor: pointer !important;
+            font-size: 12px !important;
+            border-radius: 4px !important;
+            padding: 8px 12px !important;
+        }
+
+    }
+}
+
+.upload-input {
+    border-radius: var(--5, 5px);
+    border: 1px solid var(--secondry-grey, #7B7B7B);
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+
+    p {
+        color: var(--secondry-grey, #7B7B7B);
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+
+    label {
+        cursor: pointer;
+        color: var(--primary-white, #FDFDFD);
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 8px;
+        background: var(--primary-purple, #16294f);
+        padding: 8px 24px;
+        display: inline-block;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+
+
+    .upload-text {
+        border-radius: 4px;
+        border: 1px solid var(--light-grey, #E8E8E8);
+        padding: 8px 8px 8px 24px;
+
+        h5 {
+            color: var(--untap, #636363);
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+}
+
+.upload_header {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: left;
+    margin-bottom: 16px;
+}

@@ -1,0 +1,16 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <section class="table-section row">
+        <app-programs-table
+          [searchPrograms]="searchPrograms"
+          [allPrograms]="allPrograms"
+          [originalPrograms]="originalPrograms"
+          [loading]="loading"
+          (refresh)="getPrograms()"
+          class="p-0"
+        ></app-programs-table>
+      </section>
+    </div>
+  </div>
+</section>

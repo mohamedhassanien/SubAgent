@@ -15,13 +15,25 @@ const httpOptions = {
 })
 export class StudentsService {
   email: string = String(localStorage.getItem('userEmail'));
+  empUsername: string = String(localStorage.getItem('userName'));
 
   constructor(private http: HttpClient, private _Storage: AngularFireStorage) {}
 
   // get student profile === all student's information
   profile(email: string) {
+    return this.http.get(
+      environment.APIURL + `profile/studentInfo?email=${email}`,
+      httpOptions
+    );
+  }
+
+  // edit student steps
+  editSteps(userName: string, studentsteps: any) {
+    console.log(studentsteps);
+
     return this.http.post(
-      environment.APIURL + `profile/getstudentInfo?email=${email}`,
+      environment.APIURL +
+        `editappsteps?username=${userName}&studentsteps=${studentsteps}`,
       httpOptions
     );
   }
@@ -76,39 +88,9 @@ export class StudentsService {
     return this.http.get('https://countriesnow.space/api/v0.1/countries');
   }
 
-  // Second step API
-  secondStep(
-    userEmail: string,
-    userName: string,
-    status: string,
-    country: string,
-    level: string,
-    degree: string,
-    interests: [],
-    english: string,
-    englishScores: string,
-    french: string,
-    frenchScores: string
-  ) {
-    return this.http.post(
-      environment.APIURL +
-        `student/stepTwoForStudent?studentEmail=${userEmail}&studentUserName=${userName}&educationStatus=${status}&countryWanted=${country}&educationLevel=${level}&studentDegree=${degree}&fieldsOfInterest=${interests}&studentEngTest=${english}&studentEngTestsTypeAndScore=${englishScores}&studentFrenchTest=${french}&studentFrenchTestsTypeAndScore=${frenchScores}`,
-      httpOptions
-    );
-  }
-
-  // Third step API
-  thirdStep(
-    email: string,
-    userName: string,
-    lang: string,
-    min: number,
-    max: number,
-    vip:string
-  ) {
-    return this.http.post(
-      environment.APIURL +
-        `student/stepThreeStudent?studentEmail=${email}&studentUserName=${userName}&wantedStudeyLang=${lang}&studentMinBudget=${min}&studentMaxBudget=${max}&vip=${vip}`,
+  getAllCities() {
+    return this.http.get(
+      environment.APIURL + `/get/all/cities?empName=${this.empUsername}`,
       httpOptions
     );
   }
@@ -125,18 +107,9 @@ export class StudentsService {
     faculty: string,
     university: string
   ) {
-    return this.http.post(
+    return this.http.put(
       environment.APIURL +
-        `student/aboutYou?studentEmail=${email}&studentUserName=${userName}&studentCountry=${country}&studentCity=${city}&studentJobTitle=${jobTitle}&studentDOB=${dob}&studentBio=${bio}&studentCollage=${faculty}&studentUni=${university}`,
-      httpOptions
-    );
-  }
-
-  // To Applay to a Program
-  applyProgram(programName: string, schoolName: string, city: string) {
-    return this.http.post(
-      environment.APIURL +
-        `program/student/studentApplyForProg?studentEmail=${this.email}&programName=${programName}&schoolName=${schoolName}&city=${city}`,
+        `student/aboutyou?studentEmail=${email}&studentUserName=${userName}&studentCountry=${country}&studentCity=${city}&studentJobTitle=${jobTitle}&studentDOB=${dob}&studentBio=${bio}&studentCollage=${faculty}&studentUni=${university}`,
       httpOptions
     );
   }
@@ -189,4 +162,36 @@ export class StudentsService {
       httpOptions
     );
   }
+  // send student data to book a session
+  bookSession(userName: string) {
+    return this.http.post(
+      environment.APIURL + `/book?stusername=${userName}`,
+      httpOptions
+    );
+  }
+
+  // TO get representative info
+  getRepresentative(empid: any) {
+    return this.http.get(
+      environment.APIURL + `representative?empid=${empid}`,
+      httpOptions
+    );
+  }
+
+  changeCountryPhone(
+    email: string,
+    userName: string,
+    country: string,
+    phone: any,
+    firstName: string,
+    lastName:string
+  ) {
+    return this.http.put(
+      environment.APIURL +
+        `student/aboutyou?studentEmail=${email}&studentUserName=${userName}&studentCountry=${country}&studentphone=${phone}&stundetfirstname=${firstName}&studentlastname=${lastName}`,
+      httpOptions
+    );
+  }
+
+  //studentname
 }

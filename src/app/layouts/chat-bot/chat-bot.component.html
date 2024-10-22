@@ -1,0 +1,38 @@
+<section>
+  <div class="row">
+    <div class="col-12">
+      <div class="information">
+        <div class="d-flex justify-content-between row align-items-center">
+          <div class="clo-lg-6 col-md-6 col-12 order-last order-lg-first order-md-first">
+            <h1 class="m-0">Hi {{stuName}}</h1>
+          </div>
+          <div class="clo-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end order-first order-lg-last order-md-last">
+            <img src="../../../assets/images/chat-bot/sg.svg" alt="sg">
+          </div>
+        </div>
+        <p>To get started, let's define your search criteria together in 3 steps!</p>
+      </div>
+      <div class="right-info">
+        <div class="main-prog">
+          <div class="progress" style="height: 8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+            [ngStyle]="{ width: progressWidth + '%' }"></div>
+          </div>
+          <img class="position-absolute" [ngStyle]="{'left': 'calc(' + progressWidth +'%' +  ' - 3%)','top':'-17px'}"  src="../../../assets/images/chat-bot/air.svg" alt="air">
+          <p class="progcount position-absolute mb-2" [ngStyle]="{'left': 'calc(' + progressWidth +'%'+  ' - 3%)','top':'30px'}">{{progressCount}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-6 col-md-12">
+      <app-chat (inputValue)="getOtherFields($event)" (profileData)="getData($event)" [student]="student"
+        (progressCount)="progres($event)" (progressWidth)="progresw($event)"></app-chat>
+    </div>
+    <div class="col-lg-6 d-none d-lg-block">
+      <app-overview [otherFields]="otherFields" [chatData]="chatData" [fieldsOfInterest]="fieldsOfInterest"
+        [student]="student"></app-overview>
+    </div>
+  </div>
+</section>

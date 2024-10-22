@@ -1,0 +1,328 @@
+.color-red {
+  color: #ff5151 !important;
+}
+
+section p.title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff5151;
+}
+
+.hints-row {
+  margin-top: 40px;
+}
+
+.hints-row .wrap {
+  padding: 24px;
+  background: #fbe8ea;
+  border-radius: 20px;
+}
+
+.hints-row .wrap h1 {
+  font-weight: 700;
+  font-size: 32px;
+  padding: 0;
+}
+
+.hints-row .wrap h1 span {
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.hints-row .wrap p.title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #ff5151;
+}
+
+.hints-row .hint {
+  margin-top: 16px;
+  background: #fbe8ea;
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.hints-row .hint li {
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.hints-row .hint li span {
+  font-weight: 600;
+}
+
+.hints-row .hint li:last-child {
+  margin-bottom: 0;
+}
+
+section.interviewQus .accordion-button::after {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+section.interviewQus ul {
+  margin-left: 18px;
+}
+
+section.interviewQus ul li {
+  font-weight: 500;
+  font-size: 22px;
+  color: #121212;
+}
+
+section.interviewQus ul li .accordion-item .accordion-header button {
+  padding: 16px;
+  background: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: none;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+section.interviewQus ul li .accordion-item .accordion-header .accordion-button:not(.collapsed) {
+  color: #121212;
+}
+
+section.interviewQus ul li .accordion-item .accordion-body {
+  background: #fdfdfd;
+  border-radius: 10px;
+  padding: 0 24px 16px 0px;
+  color: #121212;
+}
+
+section.interviewQus ul li .accordion-item .accordion-body ul.basic-list {
+  list-style: disc;
+}
+
+section.interviewQus ul li .accordion-item .accordion-body ul.basic-list li {
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 16px;
+  line-height: initial;
+  color: #121212;
+}
+
+section.interviewQus ul li .accordion-item .accordion-body ul.nested-list {
+  list-style: disc;
+}
+
+section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list ul.child-list {
+  list-style: disc;
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list ul.child-list li {
+  line-height: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  section p.title {
+    font-size: 18px;
+  }
+
+  section .card img {
+    width: 90%;
+  }
+
+  section .card h5 {
+    font-size: 18px;
+    line-height: 27px;
+    padding-top: 0px;
+  }
+
+  section .card p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .hints-row {
+    margin-top: 32px;
+  }
+
+  .hints-row .wrap {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .hints-row .wrap h1 {
+    font-size: 20px;
+  }
+
+  .hints-row .wrap p.title {
+    font-size: 18px;
+  }
+
+  .hints-row .wrap .col-md-3 img {
+    width: 66%;
+  }
+
+  .hints-row .hint {
+    margin-top: 3px;
+    padding: 16px;
+  }
+
+  .hints-row .hint li {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  section.interviewQus ul {
+    margin-left: 3px;
+  }
+
+  section.interviewQus ul li {
+    font-size: 22px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-header button {
+    font-size: 20px;
+    padding: 16px 16px 16px 8px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body {
+    padding: 0px 16px 8px 0px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.basic-list {
+    margin-left: 0px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.basic-list li {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 4px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list {
+    list-style: disc;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 700;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list ul.child-list {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 4px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list ul.child-list li {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 4px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  section p.title {
+    font-size: 14px;
+  }
+
+  section .card img {
+    width: 90%;
+  }
+
+  section .card h5 {
+    font-size: 14px;
+    line-height: 21px;
+    padding-top: 0px;
+  }
+
+  section .card p {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .hints-row {
+    margin-top: 24px;
+  }
+
+  .hints-row .wrap {
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  .hints-row .wrap h1 {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .hints-row .wrap p.title {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .hints-row .hint {
+    margin-top: 12px;
+    padding: 8px;
+  }
+
+  .hints-row .hint li {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  section.interviewQus ul {
+    margin-left: 0px;
+  }
+
+  section.interviewQus ul li {
+    font-size: 22px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-header button {
+    font-size: 14px;
+    padding: 8px 8px 8px 4px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body {
+    padding: 0px 16px 8px 0px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.basic-list {
+    margin-left: 0px;
+    padding: 0 0 0 16px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.basic-list li {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 4px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list {
+    padding: 0 0 0 16px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 700;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list ul.child-list {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 4px;
+    padding: 0 0 0 16px;
+  }
+
+  section.interviewQus ul li .accordion-item .accordion-body ul.nested-list li.main-list ul.child-list li {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 4px;
+  }
+}

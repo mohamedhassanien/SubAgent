@@ -1,0 +1,295 @@
+<section>
+  <h2>Profile settings </h2>
+  <!-- name -->
+  <div class="data">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Name</h1>
+      <img
+        *ngIf="!openName"
+        src="../../../../../assets/images/profile/setting/edit.svg"
+        alt="edit"
+        (click)="showName()"
+      />
+      <img
+        *ngIf="openName"
+        src="../../../../../assets/images/profile/setting/cancel.svg"
+        alt="cancel"
+        (click)="showName()"
+      />
+    </div>
+    <p *ngIf="!openName">{{ fullName }} {{ lastName }}</p>
+    <div *ngIf="openName" class="row input-data">
+      <form [formGroup]="nameForm" (ngSubmit)="onSubmitName(nameForm)">
+        <div class="row">
+          <div class="col-6">
+            <input class="w-100" type="text" placeholder="First Name" formControlName="namestudent" />
+          </div>
+          <div class="col-6">
+            <input class="w-100" type="text" placeholder="Last Name" formControlName="laststudent" oninput="this.value = this.value.toUpperCase()"/>
+          </div>
+        </div>
+        <button class="btn" type="submit" [disabled]="!nameForm.valid">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- email -->
+  <div class="data">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Email</h1>
+      <img
+        *ngIf="!openEmail"
+        src="../../../../../assets/images/profile/setting/edit.svg"
+        alt="edit"
+        (click)="showEmail()"
+      />
+      <img
+        *ngIf="openEmail"
+        src="../../../../../assets/images/profile/setting/cancel.svg"
+        alt="cancel"
+        (click)="showEmail()"
+      />
+    </div>
+    <p *ngIf="!openEmail">{{ userEmail }}</p>
+    <div *ngIf="openEmail" class="input-data">
+      <form
+        [formGroup]="changeEmailForm"
+        (ngSubmit)="onSubmitEmail(changeEmailForm)"
+      >
+        <div class="row">
+          <div class="col-6">
+            <label class="setting-label"> Current Email</label>
+            <input
+              class="w-100"
+              type="email"
+              formControlName="currentEmail"
+              placeholder="Current Email"
+            />
+            <span
+              *ngIf="
+                !changeEmailForm.controls.currentEmail.valid &&
+                changeEmailForm.controls.currentEmail.touched
+              "
+              class="text-danger"
+            >
+              You must Enter a valid Email.
+            </span>
+          </div>
+
+          <div class="col-6">
+            <label class="setting-label"> New Email</label>
+            <input
+              class="w-100"
+              type="email"
+              formControlName="newEmail"
+              placeholder="New Email"
+            />
+            <span
+              *ngIf="
+                !changeEmailForm.controls.newEmail.valid &&
+                changeEmailForm.controls.newEmail.touched
+              "
+              class="text-danger"
+            >
+              You must Enter a valid Email.
+            </span>
+          </div>
+
+          <div class="col-6 mt-2 position-relative">
+            <label class="setting-label"> Password</label>
+            <input
+              class="w-100"
+              formControlName="yourPassword"
+              placeholder="Password"
+              [type]="!secpass ? 'password' : 'text'"
+            />
+            <i *ngIf="!secpass" class="fas fa-eye" (click)="eyepass()"></i>
+            <i *ngIf="secpass" class="fas fa-eye-slash" (click)="eyepass()"></i>
+            <span
+              *ngIf="
+                !changeEmailForm.controls.yourPassword.valid &&
+                changeEmailForm.controls.yourPassword.touched
+              "
+              class="text-danger"
+            >
+              You must Enter a valid Password.
+            </span>
+          </div>
+        </div>
+        <button class="btn" type="submit" [disabled]="!changeEmailForm.valid">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- password -->
+  <div class="data">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Password</h1>
+      <img
+        *ngIf="!openPass"
+        src="../../../../../assets/images/profile/setting/edit.svg"
+        alt="edit"
+        (click)="showPass()"
+      />
+      <img
+        *ngIf="openPass"
+        src="../../../../../assets/images/profile/setting/cancel.svg"
+        alt="cancel"
+        (click)="showPass()"
+      />
+    </div>
+    <p *ngIf="!openPass">********</p>
+    <div *ngIf="openPass" class="input-data">
+      <form [formGroup]="changeForm" (ngSubmit)="onSubmitPassword(changeForm)">
+        <div class="row">
+          <div class="col-6 position-relative">
+            <label class="setting-label">Current Password</label>
+            <input
+              class="w-100 form-control"
+              [type]="!secpass ? 'password' : 'text'"
+              formControlName="currentPassword"
+              min="8"
+              max="16"
+              placeholder="Current Password"
+            />
+            <i *ngIf="!secpass" class="fas fa-eye" (click)="eyepass()"></i>
+            <i *ngIf="secpass" class="fas fa-eye-slash" (click)="eyepass()"></i>
+            <span
+              *ngIf="
+                !changeForm.controls.currentPassword.valid &&
+                changeForm.controls.currentPassword.touched
+              "
+              class="text-danger"
+            >
+              You must Enter a valid password.
+            </span>
+          </div>
+
+          <div class="col-6 position-relative">
+            <label class="setting-label"> New Password</label>
+            <input
+              class="w-100 form-control"
+              [type]="!secrepass ? 'password' : 'text'"
+              min="8"
+              max="16"
+              formControlName="newPassword"
+              placeholder="New Password"
+            />
+            <i *ngIf="!secrepass" class="fas fa-eye" (click)="eyerepass()"></i>
+            <i
+              *ngIf="secrepass"
+              class="fas fa-eye-slash"
+              (click)="eyerepass()"
+            ></i>
+            <span
+              *ngIf="
+                !changeForm.controls.newPassword.valid &&
+                changeForm.controls.newPassword.touched
+              "
+              class="text-danger"
+            >
+              You must Enter a valid password.
+            </span>
+          </div>
+        </div>
+        <button class="btn" type="submit" [disabled]="!changeForm.valid">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- mobile -->
+  <div class="data">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Mobile Number</h1>
+      <img
+        *ngIf="!openMobile"
+        src="../../../../../assets/images/profile/setting/edit.svg"
+        alt="edit"
+        (click)="showMobile()"
+      />
+      <img
+        *ngIf="openMobile"
+        src="../../../../../assets/images/profile/setting/cancel.svg"
+        alt="cancel"
+        (click)="showMobile()"
+      />
+    </div>
+    <p *ngIf="!openMobile">+{{ phoneNum }}</p>
+    <div *ngIf="openMobile" class="input-data">
+      <form [formGroup]="phoneForm" (ngSubmit)="onSubmit1(phoneForm)">
+        <div class="row">
+          <div class="col-6">
+            <ngx-intl-tel-input
+              class="h-100 w-100 form-control"
+              formControlName="phonenumber"
+              [cssClass]="'custom'"
+              [preferredCountries]="[
+                CountryISO.UnitedStates,
+                CountryISO.UnitedKingdom
+              ]"
+              [enableAutoCountrySelect]="true"
+              [enablePlaceholder]="false"
+              [searchCountryFlag]="true"
+              [searchCountryField]="[
+                SearchCountryField.Iso2,
+                SearchCountryField.Name
+              ]"
+              [selectedCountryISO]="CountryISO.UnitedKingdom"
+              name="phone"
+            >
+            </ngx-intl-tel-input>
+          </div>
+        </div>
+        <button class="btn" type="submit" [disabled]="!phoneForm.valid">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- country -->
+  <div class="data">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Country</h1>
+      <img
+        *ngIf="!openCountry"
+        src="../../../../../assets/images/profile/setting/edit.svg"
+        alt="edit"
+        (click)="showCountry()"
+      />
+      <img
+        *ngIf="openCountry"
+        src="../../../../../assets/images/profile/setting/cancel.svg"
+        alt="cancel"
+        (click)="showCountry()"
+      />
+    </div>
+    <p *ngIf="!openCountry">{{ country }}</p>
+    <div *ngIf="openCountry" class="input-data">
+      <form [formGroup]="countryForm" (ngSubmit)="onSubmitCountry(countryForm)">
+        <div class="row">
+          <div class="col-6">
+            <select class="w-100 form-control" formControlName="countrystudent">
+              <option
+                [value]="country.country"
+                *ngFor="let country of countries"
+              >
+                {{ country.country }}
+              </option>
+            </select>
+            <!-- <input class="w-100" type="text" [value]="country" [disabled]="country != ''"> -->
+          </div>
+        </div>
+        <button class="btn" type="submit" [disabled]="!countryForm.valid">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1406 @@
+<div class="my-2 px-2 d-flex flex-column">
+  <div class="table-header d-flex ps-0 justify-content-between">
+    <div class="d-flex align-items-center">
+
+
+      <div class="d-flex">
+        <select class="my_lead_select" #myLead (change)='changeMyLead(myLead.value)' [(ngModel)]="resetAllLeads">
+          <option value="4" selected>All Leads</option>
+          <option value="0">My Leads</option>
+          <option value="1">Direct Leads</option>
+          <option value="2">Website Leads</option>
+          <option value="3">Future Leads</option>
+        </select>
+        <select class="section_header_select" #Intake (change)='changeIntake(Intake.value)' [(ngModel)]="resetIntake">
+          <option selected disabled>Intake</option>
+          <option>January</option>
+          <option>September</option>
+        </select>
+        <select class="section_header_select" #Year (change)='changeYear(Year.value)' [(ngModel)]="resetYear">
+          <option selected disabled>Year</option>
+          <option>{{currentYear - 1}}</option>
+          <option>{{currentYear}}</option>
+          <option>{{currentYear + 1}}</option>
+          <option>{{currentYear + 2}}</option>
+        </select>
+        <button class="clearBTN" (click)="clearFilter()">
+          <i class="fi fi-rr-refresh"></i>
+          <span>Clear All</span>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex align-items-center" *ngIf="mainLink === 'archived-applications'">
+      <a class="secondary-link me-5" [routerLink]="[
+          '/employees',
+          empName,
+          'dashboard',
+          'archived-records',
+          'archived-prospects'
+        ]" routerLinkActive="activated-secondary-link">
+        Archived Prospects
+      </a>
+      <a class="secondary-link" [routerLink]="[
+          '/employees',
+          empName,
+          'dashboard',
+          'archived-records',
+          'archived-applications'
+        ]" routerLinkActive="activated-secondary-link">
+        Archived Leads
+      </a>
+    </div>
+    <div class="d-flex">
+      <div class="grid_btn">
+
+        <button [class.active_grid]="!showGridViewContainer" (click)="showListView()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_5847_51488)">
+              <path
+                d="M7 6H23C23.2652 6 23.5196 5.89464 23.7071 5.7071C23.8946 5.51957 24 5.26521 24 5C24 4.73478 23.8946 4.48043 23.7071 4.29289C23.5196 4.10536 23.2652 4 23 4H7C6.73478 4 6.48043 4.10536 6.29289 4.29289C6.10536 4.48043 6 4.73478 6 5C6 5.26521 6.10536 5.51957 6.29289 5.7071C6.48043 5.89464 6.73478 6 7 6Z"
+                fill="#636363" />
+              <path
+                d="M23 11H7C6.73478 11 6.48043 11.1054 6.29289 11.2929C6.10536 11.4804 6 11.7348 6 12C6 12.2652 6.10536 12.5196 6.29289 12.7071C6.48043 12.8947 6.73478 13 7 13H23C23.2652 13 23.5196 12.8947 23.7071 12.7071C23.8946 12.5196 24 12.2652 24 12C24 11.7348 23.8946 11.4804 23.7071 11.2929C23.5196 11.1054 23.2652 11 23 11Z"
+                fill="#636363" />
+              <path
+                d="M23 18H7C6.73478 18 6.48043 18.1054 6.29289 18.2929C6.10536 18.4804 6 18.7348 6 19C6 19.2652 6.10536 19.5196 6.29289 19.7071C6.48043 19.8947 6.73478 20 7 20H23C23.2652 20 23.5196 19.8947 23.7071 19.7071C23.8946 19.5196 24 19.2652 24 19C24 18.7348 23.8946 18.4804 23.7071 18.2929C23.5196 18.1054 23.2652 18 23 18Z"
+                fill="#636363" />
+              <path
+                d="M2 6.99999C3.10457 6.99999 4 6.10456 4 5C4 3.89543 3.10457 3 2 3C0.89543 3 0 3.89543 0 5C0 6.10456 0.89543 6.99999 2 6.99999Z"
+                fill="#636363" />
+              <path
+                d="M2 14C3.10457 14 4 13.1046 4 12C4 10.8954 3.10457 10 2 10C0.89543 10 0 10.8954 0 12C0 13.1046 0.89543 14 2 14Z"
+                fill="#636363" />
+              <path
+                d="M2 21C3.10457 21 4 20.1046 4 19C4 17.8954 3.10457 17 2 17C0.89543 17 0 17.8954 0 19C0 20.1046 0.89543 21 2 21Z"
+                fill="#636363" />
+            </g>
+            <defs>
+              <clipPath id="clip0_5847_51488">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+        </button>
+        <button [class.active_grid]="showGridViewContainer" (click)="showGridView()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_5847_51487)">
+              <path
+                d="M7 0H4C2.93913 0 1.92172 0.421427 1.17157 1.17157C0.421427 1.92172 0 2.93913 0 4L0 7C0 8.06087 0.421427 9.07828 1.17157 9.82843C1.92172 10.5786 2.93913 11 4 11H7C8.06087 11 9.07828 10.5786 9.82843 9.82843C10.5786 9.07828 11 8.06087 11 7V4C11 2.93913 10.5786 1.92172 9.82843 1.17157C9.07828 0.421427 8.06087 0 7 0V0ZM9 7C9 7.53043 8.78929 8.03914 8.41421 8.41421C8.03914 8.78929 7.53043 9 7 9H4C3.46957 9 2.96086 8.78929 2.58579 8.41421C2.21071 8.03914 2 7.53043 2 7V4C2 3.46957 2.21071 2.96086 2.58579 2.58579C2.96086 2.21071 3.46957 2 4 2H7C7.53043 2 8.03914 2.21071 8.41421 2.58579C8.78929 2.96086 9 3.46957 9 4V7Z"
+                fill="#121212" />
+              <path
+                d="M20 0H17C15.9391 0 14.9217 0.421428 14.1716 1.17157C13.4214 1.92172 13 2.93914 13 4V7C13 8.06087 13.4214 9.07829 14.1716 9.82843C14.9217 10.5786 15.9391 11 17 11H20C21.0609 11 22.0783 10.5786 22.8284 9.82843C23.5786 9.07829 24 8.06087 24 7V4C24 2.93914 23.5786 1.92172 22.8284 1.17157C22.0783 0.421428 21.0609 0 20 0V0ZM22 7C22 7.53044 21.7893 8.03915 21.4142 8.41422C21.0391 8.78929 20.5304 9.00001 20 9.00001H17C16.4696 9.00001 15.9609 8.78929 15.5858 8.41422C15.2107 8.03915 15 7.53044 15 7V4C15 3.46957 15.2107 2.96086 15.5858 2.58579C15.9609 2.21072 16.4696 2 17 2H20C20.5304 2 21.0391 2.21072 21.4142 2.58579C21.7893 2.96086 22 3.46957 22 4V7Z"
+                fill="#121212" />
+              <path
+                d="M7 13H4C2.93913 13 1.92172 13.4214 1.17157 14.1716C0.421427 14.9217 0 15.9391 0 17L0 20C0 21.0609 0.421427 22.0783 1.17157 22.8284C1.92172 23.5786 2.93913 24 4 24H7C8.06087 24 9.07828 23.5786 9.82843 22.8284C10.5786 22.0783 11 21.0609 11 20V17C11 15.9391 10.5786 14.9217 9.82843 14.1716C9.07828 13.4214 8.06087 13 7 13ZM9 20C9 20.5304 8.78929 21.0392 8.41421 21.4142C8.03914 21.7893 7.53043 22 7 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0392 2 20.5304 2 20V17C2 16.4696 2.21071 15.9609 2.58579 15.5858C2.96086 15.2107 3.46957 15 4 15H7C7.53043 15 8.03914 15.2107 8.41421 15.5858C8.78929 15.9609 9 16.4696 9 17V20Z"
+                fill="#121212" />
+              <path
+                d="M20 13H17C15.9391 13 14.9217 13.4214 14.1716 14.1716C13.4214 14.9217 13 15.9391 13 17V20C13 21.0609 13.4214 22.0783 14.1716 22.8284C14.9217 23.5786 15.9391 24 17 24H20C21.0609 24 22.0783 23.5786 22.8284 22.8284C23.5786 22.0783 24 21.0609 24 20V17C24 15.9391 23.5786 14.9217 22.8284 14.1716C22.0783 13.4214 21.0609 13 20 13ZM22 20C22 20.5304 21.7893 21.0392 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22H17C16.4696 22 15.9609 21.7893 15.5858 21.4142C15.2107 21.0392 15 20.5304 15 20V17C15 16.4696 15.2107 15.9609 15.5858 15.5858C15.9609 15.2107 16.4696 15 17 15H20C20.5304 15 21.0391 15.2107 21.4142 15.5858C21.7893 15.9609 22 16.4696 22 17V20Z"
+                fill="#121212" />
+            </g>
+            <defs>
+              <clipPath id="clip0_5847_51487">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+        </button>
+      </div>
+      <button mat-menu-item (click)="openModal(add, 'add-modal', 'xl', [])" class="add-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_5847_51837)">
+            <path
+              d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519943 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.8071 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0866C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0V0ZM12 22C10.0222 22 8.08879 21.4135 6.4443 20.3147C4.79981 19.2159 3.51809 17.6541 2.76121 15.8268C2.00433 13.9996 1.8063 11.9889 2.19215 10.0491C2.578 8.10929 3.53041 6.32746 4.92894 4.92893C6.32746 3.53041 8.10929 2.578 10.0491 2.19215C11.9889 1.8063 13.9996 2.00433 15.8268 2.7612C17.6541 3.51808 19.2159 4.79981 20.3147 6.4443C21.4135 8.08879 22 10.0222 22 12C21.9971 14.6513 20.9426 17.1931 19.0679 19.0679C17.1931 20.9426 14.6513 21.9971 12 22ZM17 12C17 12.2652 16.8946 12.5196 16.7071 12.7071C16.5196 12.8946 16.2652 13 16 13H13V16C13 16.2652 12.8946 16.5196 12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071C11.1054 16.5196 11 16.2652 11 16V13H8.00001C7.73479 13 7.48043 12.8946 7.2929 12.7071C7.10536 12.5196 7.00001 12.2652 7.00001 12C7.00001 11.7348 7.10536 11.4804 7.2929 11.2929C7.48043 11.1054 7.73479 11 8.00001 11H11V8C11 7.73478 11.1054 7.48043 11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289C12.8946 7.48043 13 7.73478 13 8V11H16C16.2652 11 16.5196 11.1054 16.7071 11.2929C16.8946 11.4804 17 11.7348 17 12Z"
+              fill="white" />
+          </g>
+          <defs>
+            <clipPath id="clip0_5847_51837">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+
+        <span>Add Lead</span>
+      </button>
+    </div>
+    <ng-template #add let-c="close" let-d="dismiss">
+      <app-add-prospect></app-add-prospect>
+    </ng-template>
+  </div>
+
+  <div class='drag_drop' *ngIf='showGridViewContainer'>
+    <app-grid-view></app-grid-view>
+  </div>
+
+  <p-table [hidden]="showGridViewContainer" [value]="allProspects" [paginator]="true" [rows]="rows" [(first)]="first"
+    [showCurrentPageReport]="true" responsiveLayout="scroll" currentPageReportTemplate="" [resizableColumns]="true"
+    styleClass="table-style p-datatable-striped" columnResizeMode="expand" [loading]="loading"
+    [reorderableColumns]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]" exportHeader="customExportHeader" [lazy]="false" [globalFilterFields]="[
+      'name',
+      'email',
+      'score',
+      'fieldOfInterest',
+      'phone',
+      'nationality',
+      'IntakeMonth',
+      'IntakeYear'
+    ]" [filterDelay]="0" [(selection)]="selectedColumns" (onEditComplete)="editFields($event)" selectionMode="single"
+    #table>
+    <ng-template pTemplate="caption">
+      <div class="col-3">
+      <div class="d-flex ps-0">
+        <span class="p-input-icon-left ms-auto search_con">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_6034_12415)">
+              <path
+                d="M23.7068 22.2938L17.7378 16.3248C19.3644 14.3354 20.1642 11.7969 19.9716 9.23432C19.7791 6.67179 18.609 4.28129 16.7034 2.55728C14.7977 0.833269 12.3024 -0.0923492 9.73342 -0.0281174C7.16447 0.0361144 4.71849 1.08528 2.9014 2.90237C1.08431 4.71946 0.0351379 7.16545 -0.029094 9.7344C-0.0933258 12.3034 0.832293 14.7987 2.5563 16.7043C4.28031 18.61 6.67081 19.7801 9.23334 19.9726C11.7959 20.1651 14.3344 19.3654 16.3238 17.7388L22.2928 23.7078C22.4814 23.8899 22.734 23.9907 22.9962 23.9884C23.2584 23.9862 23.5092 23.881 23.6946 23.6956C23.88 23.5102 23.9852 23.2594 23.9875 22.9972C23.9897 22.735 23.8889 22.4824 23.7068 22.2938ZM9.99978 18.0008C8.41753 18.0008 6.87081 17.5316 5.55522 16.6525C4.23963 15.7735 3.21425 14.524 2.60875 13.0622C2.00324 11.6004 1.84482 9.99189 2.1535 8.44004C2.46218 6.88819 3.22411 5.46272 4.34293 4.3439C5.46175 3.22508 6.88721 2.46316 8.43906 2.15448C9.99091 1.84579 11.5994 2.00422 13.0613 2.60972C14.5231 3.21522 15.7725 4.2406 16.6515 5.5562C17.5306 6.87179 17.9998 8.41851 17.9998 10.0008C17.9974 12.1218 17.1538 14.1552 15.654 15.655C14.1542 17.1548 12.1208 17.9984 9.99978 18.0008Z"
+                fill="#636363" />
+            </g>
+            <defs>
+              <clipPath id="clip0_6034_12415">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <input #input pInputText type="text" (input)="table.filterGlobal(input.value, 'contains')"
+            placeholder="Search" class="form-control search_table" />
+        </span>
+      </div>
+      </div>
+      
+      <div class="w-100 d-flex justify-content-center position-relative top-controls">
+        <button type="button" pButton pRipple icon="fi fi-rr-download" (click)="exportExcel()"
+          class="p-button-success mr-2 position-relative" pTooltip="XLS" tooltipPosition="bottom"></button>
+
+
+        <button (click)="goLeft()">
+          <i class="fi fi-rr-angle-double-small-left me-2"></i>
+        </button>
+        <button (click)="goRight()">
+          <i class="fi fi-rr-angle-double-small-right ms-2"></i>
+        </button>
+      </div>
+
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th pResizableColumn id="left-most">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+
+        <th><span class="table-title">ID</span></th>
+
+        <th pSortableColumn="score" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Score </span>
+            <p-sortIcon field="score"></p-sortIcon>
+            <p-columnFilter type="numeric" field="score" display="menu" [hideOnClear]="true" placeholder="score"
+              class="ms-auto"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="reminder" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Reminder</span>
+            <p-sortIcon field="reminder"></p-sortIcon>
+            <p-columnFilter type="numeric" field="reminder" display="menu" [hideOnClear]="true" placeholder="reminder"
+              class="ms-auto"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="status" pReorderableColumn *ngIf="mainLink !== 'leads'">
+          <div class="d-flex align-items-center">
+            <span class="table-title">Status </span>
+            <p-sortIcon field="status"></p-sortIcon>
+            <p-columnFilter type="text" field="status" display="menu" [hideOnClear]="true"
+              placeholder="status"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="name" pReorderableColumn *ngIf="mainLink !== 'leads'">
+          <div class="d-flex align-items-center">
+            <span class="table-title">Name </span>
+            <p-sortIcon field="name"></p-sortIcon>
+            <p-columnFilter type="text" field="name" display="menu" [hideOnClear]="true"
+              placeholder="Name"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="IntakeMonth" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Intake Month</span>
+            <p-sortIcon field="IntakeMonth"></p-sortIcon>
+            <p-columnFilter type="text" field="IntakeMonth" display="menu" [hideOnClear]="true"
+              placeholder="Intake Month"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="IntakeYear" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Intake Year</span>
+            <p-sortIcon field="IntakeYear"></p-sortIcon>
+            <p-columnFilter type="text" field="IntakeYear" display="menu" [hideOnClear]="true"
+              placeholder="Intake Year"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="nationality" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Nationality</span>
+            <p-sortIcon field="nationality"></p-sortIcon>
+            <p-columnFilter type="text" field="nationality" display="menu" [hideOnClear]="true"
+              placeholder="Intake Year"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="phone" pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Phone</span>
+            <p-sortIcon field="phone"></p-sortIcon>
+            <p-columnFilter type="text" field="phone" display="menu" [hideOnClear]="true" placeholder="Phone Number"
+              prefix="+" [useGrouping]="false"></p-columnFilter>
+          </div>
+        </th>
+
+       
+        <th pSortableColumn="email" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Email Address</span>
+            <p-sortIcon field="email"></p-sortIcon>
+            <p-columnFilter type="text" field="email" display="menu" [hideOnClear]="true"
+              placeholder="Email Address"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="emp" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Representative</span>
+            <p-sortIcon field="emp"></p-sortIcon>
+            <p-columnFilter type="text" field="eemp" display="menu" [hideOnClear]="true"
+              placeholder="Representative"></p-columnFilter>
+          </div>
+        </th>
+        
+        <th pSortableColumn="fieldOfInterest" pResizableColumn pReorderableColumn *ngIf="mainLink !== 'leads'">
+          <div class="d-flex align-items-center">
+            <span class="table-title">Tags</span>
+            <p-sortIcon field="fieldOfInterest"></p-sortIcon>
+            <p-columnFilter type="text" field="fieldOfInterest" display="menu" [hideOnClear]="true"
+              placeholder="Tags"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="source" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> source </span>
+            <p-sortIcon field="source"></p-sortIcon>
+            <p-columnFilter type="text" field="source" display="menu" [hideOnClear]="true"
+              placeholder="Source"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="date" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Date Of Creation</span>
+            <p-sortIcon field="date"></p-sortIcon>
+            <p-columnFilter type="text" field="date" display="menu" [hideOnClear]="true"
+              placeholder="Date Of Creation"></p-columnFilter>
+          </div>
+        </th>
+
+        <!-- <th pSortableColumn="datereminder" pResizableColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title">Reminder Year</span>
+            <p-sortIcon field="datereminder"></p-sortIcon>
+            <p-columnFilter
+              type="text"
+              field="datereminder"
+              display="menu"
+              [hideOnClear]="true"
+              placeholder="reminder date"
+            ></p-columnFilter>
+          </div>
+        </th>
+
+
+
+        <th
+          pSortableColumn="nationality"
+          pReorderableColumn
+          *ngIf="mainLink !== 'leads'"
+        >
+          <div class="d-flex align-items-center">
+            <span class="table-title">Country</span>
+            <p-sortIcon field="nationality"></p-sortIcon>
+            <p-columnFilter
+              type="text"
+              field="nationality"
+              display="menu"
+              [hideOnClear]="true"
+              placeholder="Nationality"
+            ></p-columnFilter>
+          </div>
+        </th>
+
+
+
+        <th pSortableColumn="empid" pResizabeColumn pReorderableColumn>
+          <div class="d-flex align-items-center">
+            <span class="table-title"> Restored by </span>
+            <p-sortIcon field="empid"></p-sortIcon>
+            <p-columnFilter
+              type="text"
+              field="empid"
+              display="menu"
+              [hideOnClear]="true"
+              placeholder="Employer ID"
+            ></p-columnFilter>
+          </div>
+        </th> -->
+        
+
+        <th style="width: 8rem" id="right-most"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowIndex="rowIndex" let-prospect>
+      <tr style="height: 75px">
+        <td pFrozenColumn>
+          <p-tableCheckbox [value]="prospect" [index]="rowIndex"></p-tableCheckbox>
+        </td>
+
+        <!-- id -->
+        <td>
+          <span class="id-text"> {{ rowIndex + 1 }}</span>
+        </td>
+
+        <!-- score -->
+        <td pEditableColumn class="ui-resizable-column" [pEditableColumn]="prospect" [pEditableColumnField]="'score'"
+          [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown [options]="scores" appendTo="body" [(ngModel)]="prospect.score"
+                [style]="{ width: '100%' }" [disabled]="mainLink === 'archived-applications'"></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <div class="d-flex justify-content-center">
+                <p-badge [styleClass]="getScoreColor(prospect.score)" [value]="prospect.score" size="large"></p-badge>
+              </div>
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        
+
+        <!-- reminder -->
+        <!-- <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'reminder'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="prospect.reminder" class="form-control w-100" />
+            </ng-template>
+            <ng-template pTemplate="output">
+              <button mat-menu-item (click)="openModal(studentView, 'comments-modal', 'lg', [])">
+                {{ prospect.reminder }}
+              </button>
+            </ng-template>
+          </p-cellEditor>
+        </td> -->
+
+        <td pEditableColumn class="ui-resizable-column" [pEditableColumnField]="'reminder'"
+          [pEditableColumnRowIndex]="rowIndex">
+          <div class="progress-container position-relative" *ngIf="prospect.reminder !== undefined">
+            <span class="position-absolute value font-poppins" [ngStyle]="{
+                color: prospect.reminder > 20 ? '#FDFDFD' : '#121212'
+              }">{{
+              prospect.reminder > 25
+              ? "25+ days"
+              : prospect.reminder === 1
+              ? prospect.reminder + " day"
+              : prospect.reminder + " days"
+              }}</span>
+            <p-progressBar [ngClass]="getProgressColor(prospect.reminder)" [value]="setProgressValue(prospect.reminder)"
+              [showValue]="false"></p-progressBar>
+          </div>
+        </td>
+
+
+        <!-- Status -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'status'" [pEditableColumnRowIndex]="rowIndex">
+          <div 
+                [class.account_created]="prospect.status == 'Account Created'"
+                [class.invited_leads]="prospect.status == 'Invited Leads'" 
+                [class.invited_lead]="prospect.status == 'Invited Lead'" 
+          >
+            {{ prospect.status }}
+          </div>
+        </td>
+
+
+        <!-- name -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'name'" [pEditableColumnRowIndex]="rowIndex" pFrozenColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="prospect.name" class="form-control w-100" [disabled]="mainLink === 'archived-applications'"/>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <button mat-menu-item (click)="openModal(studentView, 'comments-modal', 'lg', [])" [disabled]="mainLink === 'archived-applications'">
+                {{ prospect.name }}
+              </button>
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <!-- IntakeMonth -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'IntakeMonth'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown (keydown)="$event.preventDefault()" [editable]="true" [options]="intakes" appendTo="body"
+                [(ngModel)]="prospect.IntakeMonth" [style]="{ width: '100%' }" [disabled]="mainLink === 'archived-applications'"></p-dropdown>
+              <!-- <input pInputText type="text" [(ngModel)]="prospect.IntakeMonth" class="form-control w-100" /> -->
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.IntakeMonth }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <!-- IntakeYear -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'IntakeYear'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown (keydown)="$event.preventDefault()" [editable]="true" [options]="years" appendTo="body"
+                [(ngModel)]="prospect.IntakeYear" [style]="{ width: '100%' }" [disabled]="mainLink === 'archived-applications'"></p-dropdown>
+              <!-- <input pInputText type="text" [(ngModel)]="prospect.IntakeYear" class="form-control w-100" /> -->
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.IntakeYear }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+
+        <!-- Nationality -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'nationality'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown (keydown)="$event.preventDefault()" [editable]="true" [options]="allCountriess" appendTo="body"
+                [(ngModel)]="prospect.nationality" [style]="{ width: '100%' }" [disabled]="mainLink === 'archived-applications'"></p-dropdown>
+              <!-- <input pInputText type="text" [(ngModel)]="prospect.IntakeYear" class="form-control w-100" /> -->
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.nationality }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <!-- phone -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'phone'" [pEditableColumnRowIndex]="rowIndex">
+          <ngx-intl-tel-input [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="false"
+            [searchCountryField]="[
+              SearchCountryField.Iso2,
+              SearchCountryField.Name
+            ]" PhoneNumberFormat="INTERNATIONAL" [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.France"
+            [(ngModel)]="prospect.phone" name="phone" [disabled]="mainLink === 'archived-applications'"></ngx-intl-tel-input>
+        </td>
+
+        
+
+        <!-- email -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'email'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="prospect.email" class="form-control w-100" [disabled]="mainLink === 'archived-applications'"/>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.email }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'empid'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="prospect.empid" class="form-control w-100" [disabled]="mainLink === 'archived-applications'"/>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ prospect.empid }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        
+        <!-- fieldOfInterest -->
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+          [pEditableColumnField]="'fieldOfInterest'" [pEditableColumnRowIndex]="rowIndex">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown [options]="fieldsOfInterest" appendTo="body" [(ngModel)]="prospect.fieldOfInterest"
+                [style]="{ width: '100%' }" [disabled]="mainLink === 'archived-applications'"></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              <span *ngIf="prospect.fieldOfInterest !== ''" class="status" [ngStyle]="{
+                  background: '#e6e6e6',
+                  color: '#121212'
+                }" class="status">
+                {{ prospect.fieldOfInterest }}
+              </span>
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+        <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+        [pEditableColumnField]="'source'" [pEditableColumnRowIndex]="rowIndex">
+
+        <span *ngIf="
+        prospect.studentEmpName !== empUserName &&
+          mainLink !== 'leads' &&
+          empUserName !== 'Nicolas' &&
+          empUserName !== 'Oumaima EL HADDADI'
+        ">
+          {{ prospect.source }}
+        </span>
+        <p-cellEditor *ngIf="
+      prospect.studentEmpName === empUserName ||
+      mainLink === 'leads' ||
+      empUserName === 'Nicolas' ||
+      empUserName === 'Oumaima EL HADDADI'
+    ">
+          <ng-template pTemplate="input">
+            <p-multiSelect [options]="sources" class="form-input languages" display="chip"
+              placeholder="Select sources" [(ngModel)]="prospect.source" [style]="{ width: '100%' }"
+              appendTo="body" [disabled]="mainLink === 'archived-applications'"></p-multiSelect>
+          </ng-template>
+          <ng-template pTemplate="output">
+            <span class="status me-1" [ngStyle]="{
+          background: '#E8E8E8',
+          color: '#121212'
+        }" *ngFor="let source of prospect.source">
+              {{ source }}
+            </span>
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      
+        <!-- <td pEditableColumn class="ui-resizable-column font-poppins" [pEditableColumn]="prospect"
+        [pEditableColumnField]="'date'" [pEditableColumnRowIndex]="rowIndex">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown (keydown)="$event.preventDefault()" [editable]="true" [options]="years" appendTo="body"
+              [(ngModel)]="prospect.date" [style]="{ width: '100%' }"></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ prospect.date }}
+          </ng-template>
+        </p-cellEditor>
+      </td> -->
+      <td class="ui-resizable-column font-poppins">
+        <span>
+          {{ prospect.date }}
+        </span>
+      </td>
+        <td style="text-align: center">
+          <button pButton type="button" class="p-button-text p-button-rounded p-button-secondary"
+            icon="pi pi-ellipsis-v" [matMenuTriggerFor]="menu"></button>
+
+          <mat-menu #menu="matMenu">
+            <!-- To assign for other employees -->
+            <button mat-menu-item (click)="openModal(studentView, 'comments-modal', 'lg', [])">
+              <i class="fi fi-rr-eye"></i>
+              <span>View</span>
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="assign">
+              <i class="fi fi-rr-forward"></i>
+              <span>Assign</span>
+            </button>
+
+            <mat-menu #assign="matMenu">
+              <button mat-menu-item (click)="sendToLead(prospect.username)">
+                For Me
+              </button>
+              <button mat-menu-item [matMenuTriggerFor]="others">
+                For Others
+              </button>
+
+              <mat-menu #others="matMenu">
+                <button mat-menu-item *ngFor="let emp of employees"
+                  (click)="assignProspect(prospect.username, emp.username)">
+                  {{ emp.name }}
+                </button>
+              </mat-menu>
+            </mat-menu>
+
+            <!-- To view comments -->
+            <button mat-menu-item (click)="
+                openModal(comments, 'comments-modal', 'lg', prospect.email)
+              ">
+              <i class="fi fi-rr-comment"></i>
+              <span>Comments</span>
+            </button>
+            <button mat-menu-item (click)="sendToProspect(prospect.username)">
+              <i class="fi fi-rr-refresh"></i>
+              <span>Send to Prospect</span>
+            </button>
+
+
+            <ng-template #studentView let-d="dismiss">
+              <div *ngIf="studentViewShow">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <img
+                    [src]=" prospect.studentProfilepic ? prospect.studentProfilepic : '../../../../../../../../assets/images/navbar/default-pic.svg'"
+                    [alt]="prospect.studentFirstName" alt="human" class="viewImg">
+                    <span class="student_name">{{prospect.name}}</span>
+                  </div>
+                  <div>
+                    <button type="button" class="btn close-btn" aria-label="Close" (click)="d('Cross click')">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="student_main_data">
+
+                  <div>
+                    <div class="student_data_row">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M15.8333 0.833008H4.16667C3.062 0.834331 2.00296 1.27374 1.22185 2.05486C0.440735 2.83597 0.00132321 3.89501 0 4.99967L0 14.9997C0.00132321 16.1043 0.440735 17.1634 1.22185 17.9445C2.00296 18.7256 3.062 19.165 4.16667 19.1663H15.8333C16.938 19.165 17.997 18.7256 18.7782 17.9445C19.5593 17.1634 19.9987 16.1043 20 14.9997V4.99967C19.9987 3.89501 19.5593 2.83597 18.7782 2.05486C17.997 1.27374 16.938 0.834331 15.8333 0.833008ZM4.16667 2.49967H15.8333C16.3323 2.50066 16.8196 2.65094 17.2325 2.93118C17.6453 3.21142 17.9649 3.6088 18.15 4.07217L11.7683 10.4547C11.2987 10.9224 10.6628 11.1851 10 11.1851C9.33715 11.1851 8.70131 10.9224 8.23167 10.4547L1.85 4.07217C2.03512 3.6088 2.35468 3.21142 2.76754 2.93118C3.1804 2.65094 3.66768 2.50066 4.16667 2.49967ZM15.8333 17.4997H4.16667C3.50363 17.4997 2.86774 17.2363 2.3989 16.7674C1.93006 16.2986 1.66667 15.6627 1.66667 14.9997V6.24967L7.05333 11.633C7.83552 12.4132 8.89521 12.8514 10 12.8514C11.1048 12.8514 12.1645 12.4132 12.9467 11.633L18.3333 6.24967V14.9997C18.3333 15.6627 18.0699 16.2986 17.6011 16.7674C17.1323 17.2363 16.4964 17.4997 15.8333 17.4997Z"
+                          fill="#121212" />
+                      </svg>
+                      <span>{{prospect.email}}</span>
+                    </div>
+                    <div class="student_data_row">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_5843_50167)">
+                          <path
+                            d="M19.2448 14.4485C19.7277 14.9328 19.9989 15.5888 19.9989 16.2727C19.9989 16.9566 19.7277 17.6126 19.2448 18.0969L18.4865 18.971C11.6615 25.5052 -4.94685 8.90104 1.48647 2.05438L2.4448 1.22104C2.92961 0.751609 3.57974 0.491919 4.25455 0.498157C4.92936 0.504395 5.57459 0.77606 6.05063 1.25438C6.07647 1.28021 7.62063 3.28604 7.62063 3.28604C8.07882 3.7674 8.33388 4.40682 8.3328 5.07138C8.33171 5.73594 8.07456 6.37452 7.6148 6.85438L6.6498 8.06771C7.18384 9.3653 7.96902 10.5446 8.96022 11.5378C9.95142 12.531 11.1291 13.3186 12.4256 13.8552L13.6465 12.8844C14.1264 12.425 14.7648 12.1681 15.4292 12.1672C16.0936 12.1663 16.7327 12.4213 17.214 12.8794C17.214 12.8794 19.2189 14.4227 19.2448 14.4485ZM18.0981 15.6602C18.0981 15.6602 16.104 14.126 16.0781 14.1002C15.9064 13.93 15.6745 13.8345 15.4327 13.8345C15.1909 13.8345 14.959 13.93 14.7873 14.1002C14.7648 14.1235 13.084 15.4627 13.084 15.4627C12.9707 15.5529 12.8359 15.612 12.6928 15.6342C12.5498 15.6564 12.4034 15.641 12.2681 15.5894C10.5885 14.964 9.06291 13.985 7.79466 12.7186C6.52641 11.4522 5.54513 9.92807 4.9173 8.24938C4.86163 8.11226 4.84348 7.96279 4.86472 7.81633C4.88596 7.66987 4.94581 7.53171 5.03813 7.41605C5.03813 7.41605 6.3773 5.73438 6.3998 5.71271C6.57002 5.54103 6.66553 5.30906 6.66553 5.0673C6.66553 4.82553 6.57002 4.59356 6.3998 4.42188C6.37396 4.39688 4.8398 2.40104 4.8398 2.40104C4.66555 2.2448 4.43814 2.16112 4.20417 2.16717C3.97021 2.17321 3.74742 2.26851 3.58147 2.43354L2.62314 3.26688C-2.07853 8.92021 12.314 22.5144 17.2681 17.8327L18.0273 16.9577C18.2052 16.7929 18.312 16.5654 18.3253 16.3233C18.3385 16.0812 18.257 15.8434 18.0981 15.6602Z"
+                            fill="#121212" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5843_50167">
+                            <rect width="20" height="20" fill="white" transform="translate(0 0.5)" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <span>{{prospect.phone.number}}</span>
+                    </div>
+                    <div class="student_data_row">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_5843_50188)">
+                          <path
+                            d="M10.0003 5C9.34106 5 8.69659 5.1955 8.14843 5.56177C7.60026 5.92804 7.17302 6.44863 6.92073 7.05772C6.66844 7.66681 6.60243 8.33703 6.73104 8.98363C6.85966 9.63024 7.17713 10.2242 7.6433 10.6904C8.10948 11.1565 8.70342 11.474 9.35003 11.6026C9.99663 11.7312 10.6669 11.6652 11.2759 11.4129C11.885 11.1606 12.4056 10.7334 12.7719 10.1852C13.1382 9.63707 13.3337 8.9926 13.3337 8.33333C13.3337 7.44928 12.9825 6.60143 12.3574 5.97631C11.7322 5.35119 10.8844 5 10.0003 5ZM10.0003 10C9.67069 10 9.34846 9.90225 9.07438 9.71912C8.8003 9.53598 8.58667 9.27568 8.46053 8.97114C8.33438 8.6666 8.30138 8.33148 8.36569 8.00818C8.42999 7.68488 8.58873 7.38791 8.82182 7.15482C9.0549 6.92173 9.35188 6.763 9.67518 6.69869C9.99848 6.63438 10.3336 6.66739 10.6381 6.79353C10.9427 6.91968 11.203 7.1333 11.3861 7.40738C11.5692 7.68146 11.667 8.0037 11.667 8.33333C11.667 8.77536 11.4914 9.19928 11.1788 9.51184C10.8663 9.8244 10.4424 10 10.0003 10Z"
+                            fill="#121212" />
+                          <path
+                            d="M9.99977 20.0007C9.29806 20.0043 8.6057 19.8397 7.98066 19.5207C7.35562 19.2018 6.8161 18.7377 6.40727 18.1674C3.23144 13.7865 1.62061 10.4932 1.62061 8.37819C1.62061 6.1559 2.50341 4.02462 4.07481 2.45322C5.6462 0.881826 7.77748 -0.000976562 9.99977 -0.000976562C12.2221 -0.000976562 14.3533 0.881826 15.9247 2.45322C17.4961 4.02462 18.3789 6.1559 18.3789 8.37819C18.3789 10.4932 16.7681 13.7865 13.5923 18.1674C13.1834 18.7377 12.6439 19.2018 12.0189 19.5207C11.3938 19.8397 10.7015 20.0043 9.99977 20.0007ZM9.99977 1.81819C8.26012 1.82018 6.59229 2.51213 5.36217 3.74225C4.13204 4.97237 3.44009 6.6402 3.43811 8.37986C3.43811 10.0549 5.0156 13.1524 7.87894 17.1015C8.12202 17.4363 8.44091 17.7088 8.80953 17.8967C9.17815 18.0846 9.58602 18.1826 9.99977 18.1826C10.4135 18.1826 10.8214 18.0846 11.19 17.8967C11.5586 17.7088 11.8775 17.4363 12.1206 17.1015C14.9839 13.1524 16.5614 10.0549 16.5614 8.37986C16.5595 6.6402 15.8675 4.97237 14.6374 3.74225C13.4073 2.51213 11.7394 1.82018 9.99977 1.81819Z"
+                            fill="#121212" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5843_50188">
+                            <rect width="20" height="20" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+
+                      <span>{{prospect.nationality}}</span>
+                    </div>
+                  </div>
+
+                  <div class="representative_emp">
+                    <img [src]="prospect.EmpProfilepice" alt="human">
+                    <div>
+                      <h3>{{prospect.empid}}</h3>
+                      <span>The representative</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="colected_data">
+                  <div>
+                    <h4>Source</h4>
+                    <span>{{prospect.source}}</span>
+                  </div>
+                  <div>
+                    <h4>Previous school</h4>
+                    <span>{{prospect.Prvschool}}</span>
+                  </div>
+                  <div>
+                    <h4>School of interest</h4>
+                    <span>{{prospect.schoolofinterset}}</span>
+                  </div>
+                  <div>
+                    <h4>Program of interest</h4>
+                    <span>{{prospect.programofinterset}}</span>
+                  </div>
+                  <div>
+                    <h4>Intake</h4>
+                    <span>{{prospect.IntakeMonth}}</span>
+                  </div>
+                  <div>
+                    <h4>Year</h4>
+                    <span>{{prospect.IntakeYear}}</span>
+                  </div>
+
+                </div>
+
+                <div class="comment_section">
+                  <h4>Comments</h4>
+                  <div class="textarea">
+                    <div *ngFor="let comment of prospect.comments">
+                      {{comment.comment}}
+                    </div>
+                  </div>
+                  <div class="comment_emp">
+                    <img [src]="prospect.EmpProfilepice" alt="human">
+                    <div>
+                      <span class="comment_emp_name">{{prospect.empid}}</span>
+                      <span class="comment_emp_time">10:49 AM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                  <button [disabled]="mainLink === 'archived-applications'" class="edit_comment mat-focus-indicator add-button mat-menu-item" (click)="studentEdit(prospect.nationality ,prospect.CountryOfResidence)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M22.853 1.14795C22.1732 0.469151 21.2517 0.0878906 20.291 0.0878906C19.3303 0.0878906 18.4089 0.469151 17.729 1.14795L1.46502 17.412C0.999266 17.8751 0.629977 18.426 0.378513 19.0327C0.127049 19.6395 -0.00159798 20.2901 1.49812e-05 20.947V23C1.49812e-05 23.2652 0.105372 23.5195 0.292908 23.7071C0.480445 23.8946 0.734799 24 1.00002 24H3.05301C3.70978 24.0018 4.36038 23.8734 4.96717 23.6221C5.57396 23.3708 6.12487 23.0016 6.58801 22.536L22.853 6.27095C23.5315 5.59115 23.9126 4.66992 23.9126 3.70945C23.9126 2.74899 23.5315 1.82776 22.853 1.14795ZM5.17401 21.122C4.61002 21.6822 3.84798 21.9977 3.05301 22H2.00002V20.947C1.999 20.5529 2.07617 20.1625 2.22705 19.7984C2.37793 19.4343 2.59953 19.1038 2.87901 18.826L15.222 6.48295L17.522 8.78295L5.17401 21.122ZM21.438 4.85695L18.932 7.36395L16.632 5.06895L19.139 2.56195C19.29 2.41126 19.4693 2.29179 19.6664 2.21036C19.8636 2.12893 20.0749 2.08714 20.2883 2.08738C20.5016 2.08761 20.7128 2.12986 20.9098 2.21172C21.1069 2.29357 21.2858 2.41343 21.4365 2.56445C21.5872 2.71547 21.7067 2.8947 21.7881 3.09189C21.8695 3.28908 21.9113 3.50038 21.9111 3.71372C21.9109 3.92706 21.8686 4.13827 21.7868 4.33529C21.7049 4.5323 21.585 4.71126 21.434 4.86195L21.438 4.85695Z"
+                        fill="white" />
+                    </svg>
+                    <span>Edit</span>
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="!studentViewShow">
+                <div class="section">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="d-flex justify-content-between bg-none">
+                        <h2 class="section-title p-0">Edit</h2>
+                        <button type="button" class="close-btn border-0 bg-none" aria-label="Close" (click)="d('Cross click')">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                      <div class="col-12 p-0">
+                        <form class="form-section" [formGroup]="addForm" (ngSubmit)="submitEdit(addForm, prospect.username) ">
+                          <div class="row">
+                            <div class="col-lg-6 col-12 input-col pl-0">
+                              <label for="name">First name</label>
+                              <input type="text" id="name" class="form-input" formControlName="firstname"
+                                [(ngModel)]="prospect.firstname" [ngClass]="{
+                                'form-input-error':
+                                  !addForm.controls.firstname.valid &&
+                                  addForm.controls.firstname.touched
+                              }" />
+                              <!-- <span class="error-text" *ngIf="
+                                !addForm.controls.name.valid && addForm.controls.name.touched
+                              ">
+                                Name is required
+                              </span> -->
+                              <p *ngIf="addForm.get('firstname')?.hasError('required') && addForm.get('firstname')?.touched" class="text-danger">First name is required</p>
+                              <p *ngIf="addForm.get('firstname')?.hasError('pattern') && addForm.get('firstname')?.touched" class="text-danger">First name must contain letters and numbers only</p>
+
+                            </div>
+                            <div class="col-lg-6 col-12 input-col pl-0">
+                              <label for="name">Last name</label>
+                              <input type="text" id="name" class="form-input" formControlName="lastname"
+                                [(ngModel)]="prospect.lastname" [ngClass]="{
+                                'form-input-error':
+                                  !addForm.controls.lastname.valid &&
+                                  addForm.controls.lastname.touched
+                              }" />
+                              <!-- <span class="error-text" *ngIf="
+                                !addForm.controls.name.valid && addForm.controls.name.touched
+                              ">
+                                Name is required
+                              </span> -->
+                              <p *ngIf="addForm.get('lastname')?.hasError('required') && addForm.get('lastname')?.touched" class="text-danger">Last name is required</p>
+                              <p *ngIf="addForm.get('lastname')?.hasError('pattern') && addForm.get('lastname')?.touched" class="text-danger">Last name must contain letters and numbers only</p>
+
+                            </div>
+
+                            <div class="col-lg-6 col-12 input-col pr-0">
+                              <label for="school">Nationality</label>
+                              <div class="dropdown-center dropdown-col" #dropdown>
+                                <button
+                                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                                  type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                                  [ngClass]="{ 'text-dark': countryName !== 'Select Country' }">
+                                  {{ countryName }}
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-container">
+                                    <input type="text" placeholder="Search" class="searchInput"
+                                      [(ngModel)]="searchCountry" [ngModelOptions]="{ standalone: true }" [value]="
+                                      countryName === 'Select Country' ? '' : countryName
+                                    " />
+                                    <i class="fas fa-search place-holder"></i>
+                                    <hr />
+                                    <div class="dropdown-container-overflow">
+                                      <option [value]="country" *ngFor="
+                                        let country of countries | filterOne : searchCountry
+                                      " (click)="
+                                      changeSelection('country', $event); dropdown.click()
+                                      ">
+                                        {{ country | shorten : 35 }}
+                                      </option>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-12 input-col pr-0">
+                              <label for="school">Country of Residence</label>
+                              <div class="dropdown-center dropdown-col" #dropdown>
+                                <button
+                                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                                  type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,12"
+                                  [ngClass]="{ 'text-dark': residenceCountry !== 'Select Country' }">
+                                  {{ residenceCountry  }}
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-container">
+                                    <input type="text" placeholder="Search" class="searchInput"
+                                      [(ngModel)]="searchCountry" [ngModelOptions]="{ standalone: true }" [value]="
+                                      residenceCountry === 'Select Country' ? '' : residenceCountry
+                                    " />
+                                    <i class="fas fa-search place-holder"></i>
+                                    <hr />
+                                    <div class="dropdown-container-overflow">
+                                      <option [value]="country" *ngFor="
+                                        let country of countries | filterOne : searchCountry
+                                      " (click)="
+                                      changeSelection('residence', $event); dropdown.click()
+                                      ">
+                                        {{ country | shorten : 35 }}
+                                      </option>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                           
+
+                            <div class="col-lg-6 col-12 input-col pl-0">
+                              <label for="email">Email</label>
+                              <input type="email" id="email" class="form-input" formControlName="email"
+                                placeholder="Ex. johnsmith@company.com" [(ngModel)]="prospect.email" [ngClass]="{
+                                'form-input-error':
+                                  !addForm.controls.email.valid &&
+                                  addForm.controls.email.touched
+                              }" />
+                              <span class="error-text" *ngIf="
+                                !addForm.controls.email.valid &&
+                                addForm.controls.email.touched
+                              ">
+                                Email is required
+                              </span>
+                            </div>
+
+                            <div class="col-lg-6 col-12 input-col pr-0">
+                              <label for="phone">Phone</label>
+                              <!-- <ngx-intl-tel-input [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
+                                [searchCountryFlag]="true" [searchCountryField]="[
+                                SearchCountryField.Iso2,
+                                SearchCountryField.Name
+                              ]" [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.France" maxlength="15"
+                                id="phone" formControlName="phone"
+                                [(ngModel)]="prospect.phone.number"></ngx-intl-tel-input> -->
+                                <ngx-intl-tel-input [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                                  [searchCountryField]="[
+                                                  SearchCountryField.Iso2,
+                                                  SearchCountryField.Name
+                                                ]" [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.France" maxlength="15" id="phone"
+                                  formControlName="phone" [(ngModel)]="prospect.phone.number" [separateDialCode]="separateDialCode"></ngx-intl-tel-input>
+                              <span class="error-text" *ngIf="
+                                !addForm.controls.phone.valid &&
+                                addForm.controls.phone.touched &&
+                                addForm.controls.phone.dirty
+                              ">
+                                Your number is required
+                              </span>
+                            </div>
+                            <div class="col-lg-6 col-12 input-col pl-0">
+                              <div class="maximum_budget">
+                                <label for="phone">Maximum budget/year</label>
+                                <input type="text" value="{{ budgetValue }}" (keyup)="change($event)"
+                                  class="form-input budget_disabled" formControlName="budget"
+                                  [(ngModel)]="prospect.Budget" />
+                                <ngx-slider [(value)]="budgetValue" [options]="budgetOptions"></ngx-slider>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row form_section tags_section">
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">
+                                <h2 class="section-title p-0">Title</h2>
+                              </div>
+                              <div class="col-lg-9">
+                                <h2 class="section-title p-0">Tags</h2>
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Source</div>
+                              <div class="col-lg-9 input-col">
+                               <!--  <select formControlName="source" [(ngModel)]="prospect.source">
+                                  <option value="" disabled selected hidden>-</option>
+                                  <option value="Direct Message META">
+                                    Direct Message META
+                                  </option>
+                                  <option value="Facebook Groups">Facebook Groups</option>
+                                  <option value="Study in France FB Group">
+                                    Study in France FB Group
+                                  </option>
+                                  <option value="WhatsApp Groups">WhatsApp Groups</option>
+                                  <option value="Prospection : INSTA">
+                                    Prospection : INSTA
+                                  </option>
+                                  <option value="Prospection : LINKEDIN">
+                                    Prospection : LINKEDIN
+                                  </option>
+                                  <option value="Meta Ads">Meta Ads</option>
+                                  <option value="WOM">WOM</option>
+                                  <option value="Fair">Fair</option>
+                                  <option value="Ambassador">Ambassador</option>
+                                  <option value="Cyrus">Cyrus</option>
+                                  <option value="Oussama">Oussama</option>
+                                  <option value="Marwa">Marwa</option>
+                                  <option value="Manal">Manal</option>
+                                  <option value="Fatima">Fatima</option>
+                                  <option value="Other">Other</option>
+                                </select> -->
+                                <mat-form-field >
+                                  <mat-label>-</mat-label>
+                                  <mat-select formControlName="source" multiple [(ngModel)]="prospect.source">
+                                    <mat-option value="Direct Message META">Direct Message META</mat-option>
+                                    <mat-option value="Facebook Groups">Facebook Groups</mat-option>
+                                    <mat-option value="Study in France FB Group">Study in France FB Group</mat-option>
+                                    <mat-option value="WhatsApp Groups">WhatsApp Groups</mat-option>
+                                    <mat-option value="Prospection : INSTA">Prospection : INSTA</mat-option>
+                                    <mat-option value="Prospection : LINKEDIN">Prospection : LINKEDIN</mat-option>
+                                    <mat-option value="Meta Ads">Meta Ads</mat-option>
+                                    <mat-option value="WOM">WOM</mat-option>
+                                    <mat-option value="Fair">Fair</mat-option>
+                                      <mat-option value="Ambassador">Ambassador</mat-option>
+                                      <mat-option value="Cyrus">Cyrus</mat-option>
+                                      <mat-option value="Oussama">Oussama</mat-option>
+                                      <mat-option value="Marwa">Marwa</mat-option>
+                                      <mat-option value="Manal">Manal</mat-option>
+                                      <mat-option value="Fatima">Fatima</mat-option>
+                                      <mat-option value="Other">Other</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Language</div>
+                              <div class="col-lg-9 input-col">
+                                <!-- <select formControlName="language_study" [(ngModel)]="prospect.language_study">
+                                  <option value="" disabled selected hidden>-</option>
+                                  <option>English</option>
+                                  <option>French</option>
+                                  <option>Both</option>
+                                </select> -->
+                                <mat-form-field>
+                                  <mat-label>-</mat-label>
+                                  <mat-select formControlName="language_study" single [(ngModel)]="prospect.language_study">
+                                    <mat-option value="English">English</mat-option>
+                                    <mat-option value="French">French</mat-option>
+                                    <mat-option value="Both">Both</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Field of interest</div>
+                              <div class="col-lg-9 input-col">
+                                <!-- <select formControlName="field_of_interest" [(ngModel)]="prospect.fieldOfInterest">
+                                  <option value="" disabled selected hidden>-</option>
+                                  <option value="Business / Management/ Analytics">
+                                    Business / Management/ Analytics
+                                  </option>
+                                  <option value="Marketing / Marketing Digital / Data">
+                                    Marketing / Marketing Digital / Data
+                                  </option>
+                                  <option value="Finance / Audit / Controle">
+                                    Finance / Audit / Controle
+                                  </option>
+                                  <option value="Supply Chain / Achat">
+                                    Supply Chain / Achat
+                                  </option>
+                                  <option value="HR">HR</option>
+                                  <option value="Luxury Management">Luxury Management</option>
+                                  <option value="Project Management">Project Management</option>
+                                  <option value="Mecanical / Aeronotic / Automobile Engeneering">
+                                    Mecanical / Aeronotic / Automobile Engeneering
+                                  </option>
+                                  <option
+                                    value="IT ( Data Science, Computer Science, Informatique, Cybersecurity, etc )">
+                                    IT ( Data Science, Computer Science, Informatique,
+                                    Cybersecurity, etc )
+                                  </option>
+                                  <option value="Civil Engeneering">Civil Engeneering</option>
+                                  <option value="Interior Architecture / Design">
+                                    Interior Architecture / Design
+                                  </option>
+                                  <option value="Fashion Design">Fashion Design</option>
+                                  <option value="Other">Other</option>
+                                </select> -->
+                                <mat-form-field>
+                                  <mat-label>-</mat-label>
+                                  <mat-select formControlName="field_of_interest" multiple [(ngModel)]="prospect.fieldOfInterest">
+                                    <mat-option value="Business / Management/ Analytics">Business / Management/ Analytics</mat-option>
+                                    <mat-option value="Marketing / Marketing Digital / Data">Marketing / Marketing Digital / Data</mat-option>
+                                    <mat-option value="Finance / Audit / Controle">Finance / Audit / Controle</mat-option>
+                                    <mat-option value="Supply Chain / Achat">Supply Chain / Achat</mat-option>
+                                    <mat-option value="HR">HR</mat-option>
+                                    <mat-option value="Luxury Management">Luxury Management</mat-option>
+                                    <mat-option value="Project Management">Project Management</mat-option>
+                                    <mat-option value="Mecanical / Aeronotic / Automobile Engeneering"> Mecanical / Aeronotic / Automobile Engeneering</mat-option>
+                                    <mat-option value="IT ( Data Science, Computer Science, Informatique, Cybersecurity, etc )">IT ( Data Science, Computer Science, Informatique,
+                                      Cybersecurity, etc )</mat-option>
+                                      <mat-option value="Civil Engeneering">Civil Engeneering</mat-option>
+                                      <mat-option value="Interior Architecture / Design">Interior Architecture / Design</mat-option>
+                                      <mat-option value="Fashion Design">Fashion Design</mat-option>
+                                      <mat-option value="Other">Other</mat-option>
+                
+                
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Current/previous school</div>
+                              <div class="col-lg-9 input-col">
+                                <input type="text" class="form-input" placeholder="Add Current/previous school"
+                                  formControlName="current_previous_school" [(ngModel)]="prospect.Prvschool" />
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Entry level (desired)</div>
+                              <div class="col-lg-9 input-col">
+                                <!-- <select formControlName="entry_level" [(ngModel)]="prospect.level">
+                                  <option value="" disabled selected hidden>-</option>
+                                  <option value="B1">B1</option>
+                                  <option value="B2">B2</option>
+                                  <option value="B3">B3</option>
+                                  <option value="M1">M1</option>
+                                  <option value="M2">M2</option>
+                                  <option value="MS">MS</option>
+                                  <option value="MBA">MBA</option>
+                                  <option value="MIM">MIM</option>
+                                </select> -->
+
+                                <mat-form-field>
+                                  <mat-label>-</mat-label>
+                                  <mat-select formControlName="entry_level" [(ngModel)]="prospect.level" single>
+                                    <mat-option value="B1">B1</mat-option>
+                                    <mat-option value="B2">B2</mat-option>
+                                    <mat-option value="B3">B3</mat-option>
+                                    <mat-option value="M1">M1</mat-option>
+                                    <mat-option value="M2">M2</mat-option>
+                                    <mat-option value="MS">MS</mat-option>
+                                    <mat-option value="MBA">MBA</mat-option>
+                                    <mat-option value="MIM">MIM</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Intake</div>
+                              <div class="col-lg-9 input-col">
+                                <!-- <select formControlName="intake" [(ngModel)]="prospect.IntakeMonth">
+                                  <option value="" disabled selected hidden>-</option>
+                                  <option value="January">January</option>
+                                  <option value="September">September</option>
+                                </select> -->
+                                <mat-form-field>
+                                  <mat-label>-</mat-label>
+                                  <mat-select formControlName="intake" [(ngModel)]="prospect.IntakeMonth" single>
+                                    <mat-option value="January">January</mat-option>
+                                    <mat-option value="September">September</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Year</div>
+                              <div class="col-lg-9 input-col">
+                                <!-- <select formControlName="year" [(ngModel)]="prospect.IntakeYear">
+                                  <option value="" disabled selected hidden>-</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
+                                  <option value="2026">2026</option>
+                                </select> -->
+                                <mat-form-field>
+                                  <mat-label>-</mat-label>
+                                  <mat-select formControlName="year" [(ngModel)]="prospect.IntakeYear" single>
+                                    <mat-option value="2024">2024</mat-option>
+                                    <mat-option value="2025">2025</mat-option>
+                                    <mat-option value="2026">2026</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-0">Score</div>
+                              <div class="col-lg-9 input-col">
+                                <!-- <select formControlName="score" [(ngModel)]="prospect.score">
+                                  <option value="" disabled selected hidden>-</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select> -->
+                                <mat-form-field>
+                                  <mat-label>-</mat-label>
+                                  <mat-select formControlName="score" [(ngModel)]="prospect.score" single>
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="form_section lang_test">
+                            <h2 class="section-title p-0">Language Test</h2>
+                            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="p-0">
+                              <mat-tab label="English">
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <label for="">English Test</label>
+                                    <select formControlName="eng_test_name" [(ngModel)]="prospect.engTestsType">
+                                      <option value="" disabled selected hidden>-</option>
+                                      <option>IELTS</option>
+                                      <option>TOEFL</option>
+                                      <option>Duolingo</option>
+                                      <option>Easy speaking</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <label for="">Score</label>
+                                    <input type="number" placeholder="Score" formControlName="eng_test_score"
+                                      [(ngModel)]="prospect.engTestsScore" />
+                                  </div>
+                                </div>
+                              </mat-tab>
+                              <mat-tab label="French">
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <label for="">French Test</label>
+                                    <select formControlName="fr_test_name" [(ngModel)]="prospect.frenchTestsType">
+                                      <option value="" disabled selected hidden>-</option>
+                                      <option>DELF</option>
+                                      <option>DALF</option>
+                                      <option>TCF</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <label for="">Score</label>
+                                    <select formControlName="fr_test_score" [(ngModel)]="prospect.frenchTestsScore">
+                                      <option value="" disabled selected hidden>-</option>
+                                      <option>B1</option>
+                                      <option>B2</option>
+                                      <option>C1</option>
+                                      <option>C2</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </mat-tab>
+                            </mat-tab-group>
+                          </div>
+
+                          <div class="row form_section">
+                            <h2 class="section-title p-0">Which table</h2>
+
+                            <div class="radio-toolbar">
+                              <input type="radio" id="radio1" value="0" [checked]="is_checked"
+                                formControlName="Which_table" [class.checked]="checked" />
+                              <label for="radio1">Direct Lead</label>
+
+                              <input type="radio" id="radio2" value="1" formControlName="Which_table"
+                                (change)="changeChecked()" />
+                              <label for="radio2">Future Lead</label>
+                            </div>
+                          </div>
+
+
+                          <div class="d-flex justify-content-end">
+                            <!-- <button
+                            class="submit-button"
+                            type="submit"
+                            [disabled]="!addForm.valid"
+                          >
+                            Done
+                          </button> -->
+                            <button class="submit-button" type="submit">Done</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </ng-template>
+
+            <!-- Comments -->
+            <ng-template #comments let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">
+                  Comments of <span>{{ prospect.name }}</span>
+                </h4>
+                <button type="button" class="close-btn" aria-label="Close" (click)="d('Cross click')">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body row">
+                <div class="col-3">
+                  <img src="../../../../../../../assets/images/employees/modal-visuals/comments-modal.svg" alt=""
+                    class="w-100" />
+                </div>
+                <div class="col-9">
+                  <div *ngFor="let comment of allComments; let j = index">
+                    <div class="comment-box" *ngIf="comment.studentEmail === prospect.email">
+                      <div class="d-flex justify-content-between">
+                        <h4 class="comment-name">
+                          {{ comment.empName }}
+                        </h4>
+                        <button style="border: none; margin-bottom: 10px;" [matMenuTriggerFor]="commentsMenu">
+                          <i class="fi fi-rr-menu-dots-vertical d-flex justify-content-end mb-1"></i>
+                        </button>
+                        
+                      </div>
+                      <mat-menu #commentsMenu>
+                        <button mat-menu-item (click)="changeEditComment(j, comment.comment)">
+                          <i class="fi fi-rr-edit"></i>
+                          <span>Edit</span>
+                        </button>
+                        <button mat-menu-item (click)="deleteComment(comment.commentId, prospect.email)">
+                          <i class="fi fi-rr-trash"></i>
+                          <span>Delete</span>
+                        </button>
+                      </mat-menu>
+                      <div class="d-flex justify-content-between">
+                        
+                        <p class="comment-date">
+                          {{ comment.createdAt * 1000 | date : "short" }}
+                        </p>
+
+                      </div>
+                      <p class="comment" *ngIf="!editCommentMode[j]" [innerHTML]="comment.comment">
+                    
+                      </p>
+                      <form [formGroup]="editCommentForm" (ngSubmit)="
+                          editComment(
+                            editCommentForm,
+                            prospect.email,
+                            comment.commentId,
+                            j
+                          )
+                        " *ngIf="editCommentMode[j]">
+                        <textarea class="comment-area" formControlName="editComment">
+                        </textarea>
+                        
+                        <button class="submit-btn me-3" type="submit" [disabled]="!editCommentForm.valid" [ngClass]="{
+                            'main-btn':
+                              editCommentForm.controls.editComment.value,
+                            'sec-btn':
+                              !editCommentForm.controls.editComment.value
+                          }">
+                          Save
+                        </button>
+                        <button class="cancel-btn" type="button" (click)="cancelEditComment(j)" [ngClass]="{
+                            'main-btn':
+                              !editCommentForm.controls.editComment.value,
+                            'sec-btn':
+                              editCommentForm.controls.editComment.value
+                          }">
+                          Cancel
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- <h4 *ngIf="!isThereComments" class="no-comments-text">
+                    No Comments Were Found
+                  </h4> -->
+                  <button class="comment-toggler" (click)="toggleNewComment(prospect.email)" *ngIf="!isAddingComment">
+                    <i class="fi fi-rr-plus-small"></i>
+                    <span>Add Another Comment</span>
+                  </button>
+                  <div class="add-comment-box" *ngIf="isAddingComment">
+                    <form [formGroup]="commentForm" (ngSubmit)="submit(commentForm, prospect.email)">
+                      <textarea class="comment-area" placeholder="Your Comment" formControlName="comment"></textarea>
+                      <h4 class="new-comment-name">{{ empName }}</h4>
+                      <p class="new-comment-date">
+                        {{ getTime() | date : "shortTime" }}
+                      </p>
+                      <div class="btn-container d-flex justify-content-end">
+                        <button class="submit-btn" type="submit" [disabled]="!commentForm.valid" [ngClass]="{
+                            'main-btn': commentForm.controls.comment.value,
+                            'sec-btn': !commentForm.controls.comment.value
+                          }">
+                          Done
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+
+            <button mat-menu-item (click)="openModalArchive(archiveView, 'comments-modal', 'lg', [], prospect.email)" *ngIf="mainLink != 'archived-applications'">
+              <i class="fi fi-rr-trash"></i>
+              <span>Archive</span>
+            </button>
+            <button mat-menu-item (click)="unarchiveLead(prospect.email)" *ngIf="mainLink === 'archived-applications'">
+              <i class="fi fi-rr-trash-restore"></i>
+              <span>Unarchive</span>
+            </button>
+            <ng-template #archiveView let-d="dismiss">
+              <form [formGroup]="commentForm" (ngSubmit)="submitArchive(commentForm, prospect.email)" class="archiveForm">
+                <h3>Archive Comment</h3>
+                <textarea class="comment-area" placeholder="Your Comment" formControlName="comment"></textarea>
+                <h4 class="new-comment-name">{{ empName }}</h4>
+                <p class="new-comment-date">
+                  {{ getTime() | date : "shortTime" }}
+                </p>
+                <div class="btn-container d-flex justify-content-center">
+                  <button class="submit-btn" type="submit" [disabled]="!commentForm.valid" [ngClass]="{
+                      'main-btn': commentForm.controls.comment.value,
+                      'sec-btn': !commentForm.controls.comment.value
+                    }">
+                    Done
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+          </mat-menu>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length">No leads found</td>
+      </tr>
+    </ng-template>
+    
+  </p-table>
+</div>

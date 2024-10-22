@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-6">
+    <label for="fName">
+      Full Name
+      <input id="fName" type="text" class="form-control" formControlName="fullName" placeholder="basem serag" />
+    </label>
+
+    <label for="jT" class="py-3">
+      Job Title
+      <input id="jT" type="text" class="form-control" formControlName="fullName" placeholder="basem serag" />
+    </label>
+  </div>
+
+  <div class="col-6">
+    <div class="profile-pic">
+      <label class="-label" for="file">
+        <span class="glyphicon glyphicon-camera"></span>
+        <span>Change Image</span>
+      </label>
+      <input id="file" type="file" />
+      <img
+        src="https://png.pngtree.com/png-vector/20220627/ourmid/pngtree-black-photography-camera-icon-logo-png-image_5443643.png"
+        id="output" width="200" />
+    </div>
+  </div>
+
+  <div class="col-6">
+    <label for="email" class="py-3">
+      Email
+      <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email@email.com" />
+    </label>
+  </div>
+  <div class="col-6">
+    <label for="phone" class="py-3">
+      phone
+      <input id="phone" type="text" class="form-control" formControlName="phone" placeholder="01001010101" />
+    </label>
+  </div>
+  <div class="col-6">
+    <label for="adress">
+      Adress
+      <input id="adress" type="adress" class="form-control" formControlName="adress" placeholder="adress" />
+    </label>
+  </div>
+  <div class="col-6">
+    <label for="linkedIn">
+      LinkedIn
+      <input id="linkedIn" type="text" class="form-control" formControlName="linkedIn"
+        placeholder="linkedIn/basem.com" />
+    </label>
+  </div>
+
+  <div class="actions d-flex justify-content-end py-3">
+    <button class="btn bg-secondary">save</button>
+    <button class="btn">Cancel</button>
+  </div>
+</div>

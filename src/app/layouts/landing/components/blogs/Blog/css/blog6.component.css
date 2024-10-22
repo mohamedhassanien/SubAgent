@@ -1,0 +1,441 @@
+.section-container {
+  margin: 68px auto;
+  padding: 0 0 35px 0;
+  position: relative;
+  flex-direction: column;
+}
+.section-container .home {
+  background-color: #b8c5cc;
+  padding: 76px 0 85px 0;
+  margin: 0 0 51px 0;
+  width: 100%;
+}
+.section-container .home h2 {
+  font-family: "Open Sans";
+  margin: 0 0 10px 0;
+  font-size: 52px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+.section-container .home > p {
+  width: 16%;
+  margin: 0 auto 50px auto;
+  font-family: "Open Sans";
+  font-size: 11px;
+  text-align: center;
+  color: #fff;
+}
+.section-container .home .ictx-holder {
+  margin: auto;
+  gap: 50px;
+  justify-content: center;
+}
+.section-container .home .ictx-holder .ictx .ictx-text p {
+  color: white;
+}
+.section-container .home .ictx-holder .ictx .ictx-icon img {
+  width: 13px;
+}
+.section-container .home .ictx-holder .ictx.writer {
+  gap: 11px;
+  flex: 0 0 15%;
+}
+.section-container .home .ictx-holder .ictx.writer .ictx-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #dfe7ec;
+  border-radius: 50%;
+  color: white;
+}
+.section-container .home .ictx-holder .ictx.writer p {
+  letter-spacing: 0.5px;
+}
+.section-container .blog {
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.section-container .blog::after {
+  content: "";
+  position: absolute;
+  width: 78px;
+  height: 108.1px;
+  border-radius: 50px 2px;
+  background-color: var(--yellow-color);
+  right: 0%;
+  top: 5%;
+  transform: rotate(77deg);
+}
+.section-container .blog::before {
+  content: "";
+  position: absolute;
+  width: 96.1px;
+  height: 65.3px;
+  border-radius: 2px 60px;
+  background-color: var(--main-color);
+  left: 0%;
+  transform: rotate(140deg);
+}
+.section-container .blog-head {
+  width: 45%;
+  margin: auto;
+}
+.section-container .blog-head h3 {
+  font-family: "Open Sans";
+  font-size: 45px;
+  font-weight: bold;
+  color: #1a323e;
+  margin: 34px 0 22px;
+}
+.section-container .blog-body {
+  width: 45%;
+  margin: auto;
+}
+.section-container .blog-body .custom-col {
+  margin: 20px 0;
+}
+.section-container .blog-body .custom-col h4.title {
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-weight: bold;
+  color: #1a323e;
+  margin-bottom: 35px;
+}
+.section-container .blog-body .custom-col h4.title img.link {
+  width: 25px;
+  height: 25px;
+}
+.section-container .blog-body .custom-col ul {
+  margin: 0 0 0 18px;
+  list-style: circle;
+}
+.section-container .blog-body .custom-col ul li {
+  font-size: 17px;
+}
+.section-container .blog-body .custom-col ul li img.link {
+  width: 25px;
+  height: 25px;
+}
+.section-container .blog-body .custom-col video {
+  width: 100%;
+  height: 340px;
+}
+.section-container .blog-quote {
+  width: 36%;
+  margin: 71px auto 51px auto;
+}
+.section-container .blog-quote span {
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1;
+  text-align: center;
+  color: #1a323e;
+  font-size: 24px;
+}
+.section-container .blog-quote p {
+  color: #1a323e;
+  margin: 0;
+  margin-top: 7px;
+  line-height: normal;
+}
+.section-container .custom-col.share {
+  width: 45%;
+  margin: auto;
+}
+.section-container .custom-col.share .custom-row.N-PB {
+  border-top: 1px solid #dfe7ec;
+  padding-top: 39px;
+  margin-top: 37px;
+}
+.section-container .custom-col.share .custom-row.N-PB div:last-child {
+  text-align: right;
+}
+.section-container .custom-col.share .custom-row.N-PB p {
+  color: #1a323e;
+}
+.section-container .custom-col.comments {
+  width: 45%;
+  margin: 63px auto;
+}
+.section-container .custom-col.comments h4 {
+  font-family: "Open Sans";
+  font-size: 30px;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #1a323e;
+}
+.section-container .custom-col.comments div .comment-head {
+  position: relative;
+  display: flex;
+  gap: 23px;
+}
+.section-container .custom-col.comments div .comment-head .img-holder {
+  width: 57px;
+  height: 55px;
+  border-radius: 120px 120px 2px 120px;
+  background-color: #b8c5cc;
+}
+.section-container .custom-col.comments div .comment-head .img-holder img {
+  border-radius: 120px 120px 2px 120px;
+  object-fit: contain;
+}
+.section-container .custom-col.comments div .comment-head .text {
+  height: fit-content;
+  align-self: flex-end;
+}
+.section-container .custom-col.comments div .comment-head .text p {
+  margin: 0;
+  color: #1a323e;
+}
+.section-container .custom-col.comments div .comment-head a {
+  color: #646bde;
+  text-align: right;
+  align-self: center;
+  position: absolute;
+  right: 0;
+}
+.section-container .custom-col.comments div .comment-head a label {
+  margin: 0;
+}
+.section-container .custom-col.comments div .comment-body {
+  margin-top: 21px;
+}
+.section-container .custom-col.comments .form form .control textarea {
+  height: 128px;
+  min-height: 128px;
+  max-height: 128px;
+  min-width: 100%;
+  max-width: 100%;
+}
+.section-container .custom-col.comments .form form .control input, .section-container .custom-col.comments .form form .control textarea {
+  padding: 12px 20px 9px 22px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px #dfe7ec;
+  background-color: #fff;
+  margin: 20px 0 0 0;
+  text-transform: capitalize;
+}
+.section-container .custom-col.comments .form form .control input:focus, .section-container .custom-col.comments .form form .control textarea:focus {
+  border: solid 1px #646bde;
+}
+.section-container .custom-col.comments .form form .control input::placeholder, .section-container .custom-col.comments .form form .control textarea::placeholder {
+  font-family: "Open Sans";
+  font-size: 18px;
+  color: #b8c5cc;
+}
+.section-container .custom-col.comments .form form .control span {
+  margin: 7px 0 0;
+  font-family: "Open Sans";
+  font-size: 14px;
+  color: #b8c5cc;
+}
+.section-container .custom-col.comments .form form .submit {
+  text-align: center;
+  margin: 40px 0 20px 0;
+}
+.section-container .custom-col.comments .form form .submit button {
+  padding: 20px 98px;
+  background-color: #646bde;
+  border: none;
+  border-radius: 50px;
+  font-family: "Krona One";
+  color: #fff;
+  font-size: 15px;
+}
+.section-container .custom-row.subscribe {
+  width: 75%;
+  margin: 0 auto 90px auto;
+  background-color: #646bde;
+  border-radius: 120px 2px;
+  padding: 90px 0;
+  position: relative;
+}
+.section-container .custom-row.subscribe .custom-col {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+.section-container .custom-row.subscribe .custom-col > div {
+  width: 70%;
+  margin: 15px auto;
+}
+.section-container .custom-row.subscribe .custom-col > div h2 {
+  font-family: "Poppins";
+  font-size: 48px;
+  font-weight: normal;
+  color: #fff;
+  margin: 0;
+}
+.section-container .custom-row.subscribe .custom-col > div p {
+  color: #dfe7ec;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+.section-container .custom-row.subscribe .custom-col > div p::after {
+  content: "";
+  width: 190px;
+  height: 110px;
+  border-radius: 90px 2px;
+  bottom: 0%;
+  background-color: #ffd845;
+  position: absolute;
+  left: 88%;
+  z-index: -1;
+}
+.section-container .custom-row.subscribe .custom-col > div form {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 46px;
+}
+.section-container .custom-row.subscribe .custom-col > div form input {
+  flex: 0 0 50%;
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: none;
+}
+.section-container .custom-row.subscribe .custom-col > div form input::placeholder {
+  font-family: "Open Sans";
+  font-size: 18px;
+  color: #b8c5cc;
+}
+.section-container .custom-row.subscribe .custom-col > div form button {
+  flex: 0 0 16%;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--red-color);
+  font-family: "Krona One";
+  font-size: 14px;
+  color: #fff;
+}
+.section-container .custom-row.subscribe::after {
+  content: "";
+  width: 45%;
+  height: 160px;
+  background-color: var(--red-color);
+  border-radius: 120px 2px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 1050px) {
+  .section-container .home h2 {
+    font-size: 32px;
+  }
+  .section-container .home > p {
+    width: 55%;
+    margin-bottom: 25px;
+  }
+  .section-container .blog::before {
+    z-index: -1;
+  }
+  .section-container .blog-quote {
+    border-radius: 10px;
+    background-color: #fcfeff;
+    padding: 8px 15px;
+  }
+  .section-container .blog-body .custom-col h4.title {
+    font-size: 22px;
+  }
+  .section-container .blog-body .custom-col p {
+    font-size: 14px;
+  }
+  .section-container .blog-head, .section-container .blog-quote, .section-container .blog-body {
+    width: 90%;
+  }
+  .section-container .blog-head p, .section-container .blog-quote p, .section-container .blog-body p {
+    font-size: 16px;
+  }
+  .section-container .blog-head h3, .section-container .blog-quote h3, .section-container .blog-body h3 {
+    font-size: 32px;
+  }
+  .section-container .custom-col.share, .section-container .custom-col.comments {
+    width: 95%;
+  }
+  .section-container .custom-col.comments h4 {
+    font-size: 22px;
+  }
+  .section-container .custom-col.comments .comment .comment-head .text p.title {
+    font-size: 16px;
+  }
+  .section-container .custom-col.comments .comment .comment-head a {
+    font-size: 16px;
+  }
+  .section-container .custom-col.comments .comment .comment-body p {
+    font-size: 14px;
+  }
+  .section-container .custom-col.comments .form form .control input,
+  .section-container .custom-col.comments .form form .control textarea {
+    margin-top: 12px;
+  }
+  .section-container .custom-col.comments .form form .control input::placeholder,
+  .section-container .custom-col.comments .form form .control textarea::placeholder {
+    font-size: 14px;
+  }
+  .section-container .custom-col.comments .form form .control span {
+    font-size: 12px;
+  }
+  .section-container .custom-col.share .custom-row.N-PB span {
+    font-size: 12px;
+  }
+  .section-container .custom-col.share .custom-row.N-PB p {
+    font-size: 14px;
+  }
+  .section-container .subscribe {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section-container .home h2 {
+    font-size: 22px;
+  }
+  .section-container .home > p {
+    margin-bottom: 20px;
+  }
+  .section-container .blog-body .custom-col h4.title {
+    font-size: 18px;
+  }
+  .section-container .blog-body .custom-col p {
+    font-size: 11px;
+  }
+  .section-container .blog-head p, .section-container .blog-quote p, .section-container .blog-body p {
+    font-size: 14px;
+  }
+  .section-container .blog-head h3, .section-container .blog-quote h3, .section-container .blog-body h3 {
+    font-size: 22px;
+  }
+  .section-container .custom-col.comments h4 {
+    font-size: 18px;
+  }
+  .section-container .custom-col.comments .comment .comment-head .text p.title {
+    font-size: 12px;
+  }
+  .section-container .custom-col.comments .comment .comment-head a {
+    font-size: 12px;
+  }
+  .section-container .custom-col.comments .comment .comment-body p {
+    font-size: 11px;
+  }
+  .section-container .custom-col.comments .form form .control input::placeholder,
+  .section-container .custom-col.comments .form form .control textarea::placeholder {
+    font-size: 12px;
+  }
+  .section-container .custom-col.comments .form form .control span {
+    font-size: 10px;
+  }
+  .section-container .custom-col.share .custom-row.N-PB span {
+    font-size: 11px;
+  }
+  .section-container .custom-col.share .custom-row.N-PB p {
+    font-size: 12px;
+  }
+}

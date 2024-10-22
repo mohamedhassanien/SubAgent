@@ -1,0 +1,66 @@
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.second-section {
+  margin-top: 40px;
+}
+.second-section .row {
+  justify-content: space-between;
+  margin-bottom: 55px;
+}
+.second-section .row .one-col {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: inline-grid;
+  align-items: center;
+  width: 49%;
+  margin-top: 24px;
+}
+.second-section .action-btn {
+  padding: 12px 64px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 20px;
+  }
+  .second-section {
+    margin-top: 32px;
+  }
+  .second-section .row {
+    justify-content: space-between;
+    margin-bottom: 45px;
+  }
+  .second-section .row .one-col {
+    padding: 13px 16px;
+    width: 49%;
+    margin-top: 24px;
+  }
+  .second-section .action-btn {
+    padding: 8px 32px;
+  }
+}
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  h1 {
+    font-size: 16px;
+  }
+  .second-section {
+    margin-top: 24px;
+  }
+  .second-section .row {
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+  .second-section .row .one-col {
+    padding: 8px;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .second-section .action-btn {
+    padding: 8px 24px;
+  }
+}

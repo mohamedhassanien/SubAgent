@@ -2,39 +2,43 @@ p,
 h1,
 h2,
 h3 {
-    font-family: Poppins !important;
-
+  font-family: Poppins !important;
 }
 
 .container {
-    h1 {
-        font-size: 26px;
-        color: #000000;
+  margin-bottom: 180px;
+
+  h1 {
+    font-size: 26px;
+    color: #000000;
+  }
+
+  h2 {
+    color: #16294f;
+  }
+
+  p {
+    color: #6c6c6c;
+    text-align: justify;
+  }
+
+  .bigBox {
+    background-color: white;
+    border-radius: 3px;
+    margin-bottom: 45px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-top: 120px;
+    margin-bottom: 200px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+
+    .content {
+      padding: 9px 52px;
     }
 
-    h2 {
-        color: #6f77f4;
+    .agment {
+      font-size: 15px;
+      color: #000;
     }
-
-    p {
-        color: #6c6c6c;
-        text-align: justify;
-    }
-
-    .bigBox {
-        background-color: white;
-        border-radius: 3px;
-        margin-bottom: 45px;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        margin-top: 45px;
-
-        .content {
-            padding: 9px 52px;
-        }
-
-        .agment {
-            font-size: 15px;
-            color: #000;
-        }
-    }
+  }
 }

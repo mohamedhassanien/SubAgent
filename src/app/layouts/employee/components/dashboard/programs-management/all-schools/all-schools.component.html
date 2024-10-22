@@ -1,0 +1,16 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <section class="table-section row">
+        <app-schools-table
+          [searchSchools]="searchSchools"
+          [allSchools]="allSchools"
+          [originalSchools]="originalSchools"
+          (refresh)="getSchools()"
+          [loading]="loading"
+          class="p-0"
+        ></app-schools-table>
+      </section>
+    </div>
+  </div>
+</section>

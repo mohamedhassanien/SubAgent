@@ -1,12 +1,21 @@
-<section>
+<section class="container-fluid">
   <div class="row">
-    <div class="col-xl-6 col-12">
+      <!-- <div class="d-flex justify-content-left position-absolute">
+        <div class="login-card">
+    <router-outlet></router-outlet>
+  </div>
+  </div> -->
+    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0;">
+      <div class="login-z-index">
       <router-outlet></router-outlet>
     </div>
-    <div class="col-xl-6 d-none d-xl-flex">
+    </div>
+    <div
+      class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-none d-xl-flex justify-content-center align-items-center login-background"
+    >
       <img
-        src="../../../../../assets/images/login-pages/CoverSignUp.jpg"
-        class="img-fluid w-100"
+src="/assets/images/CoverSignUp.jpg"
+        class="w-75 img-fluid"
         alt="login-background"
       />
     </div>

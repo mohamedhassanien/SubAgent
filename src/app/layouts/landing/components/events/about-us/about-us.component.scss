@@ -1,0 +1,336 @@
+  /* assets-section */
+
+  .assets-section {
+    background-image: url(../../../../../assets/images/about-us/main-background.svg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: 100%;
+  }
+
+  .main-title {
+    color: #f66666;
+    font-family: 'Poppins';
+    font-size: 70px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+  .main-title p:first-child {
+    font-size: 70px;
+    font-weight: 500;
+    color: #1a323e;
+  }
+
+  .sec-title {
+    font-family: 'Poppins';
+    font-size: 35px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000;
+  }
+
+  .porpose-title, .team-section-title, .help-section-title {
+    font-size: 37px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000;
+  }
+
+
+  .showcase-cards-container .card {
+    border-radius: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    padding: 5px;
+    height: 13rem;
+  }
+
+  .rec-1 {
+    background-image: url(../../../../../assets/images/about-us/students-rec.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    background-size: 7rem;
+  }
+  .rec-2 {
+    background-image: url(../../../../../assets/images/about-us/nationalities-rec.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    background-size: 7rem;
+  }
+  .rec-3 {
+    background-image: url(../../../../../assets/images/about-us/scholarships-rec.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    background-size: 7rem;
+  }
+  .rec-4 {
+    background-image: url(../../../../../assets/images/about-us/students-rec.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    background-size: 7rem;
+  }
+  
+  .card-number {
+    padding-top: 60px;
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 33px;
+    font-size: 1.5rem;
+  }
+  
+  .assets-section .card-text {
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  /* porpose-section */
+  
+  .propose-rec {
+    border-radius: 15px;
+    box-shadow: 0 1.5px 3px 0 #f6d86a;
+    position: relative;
+  }
+
+  .gradient-rec {
+    background: linear-gradient(135deg, #f08e43, #ffd844);
+    border-radius: 45px 45px 0 45px;
+    padding: 3rem 2rem !important;
+  }
+  
+  .gradient-rec-content {
+    font-family: 'Poppins';
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.2;
+  }
+  
+  .porpose-rec-title {
+    color: #1a323e;
+    font-family: 'Poppins';
+    font-weight: 700;
+  }
+  
+  .porpose-rec-title span{
+    color: #000000;
+    font-weight: 500;
+  }
+  
+  /* Help Section */
+
+  .text-uppercase {
+    color: #f66666;
+    font-size: 35px;
+    font-weight: 500;
+  }
+  
+  .help-section p {
+    font-size: 27px;
+  }
+  
+  #help-section .card-body {
+    color: #6d7b82;
+    font-family: 'Poppins';
+    font-weight: 700;
+    letter-spacing: normal;
+  }
+  
+  #help-section .card{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 15px;
+  }
+
+  
+  #help-section .card img {
+    border-radius: 15px 15px 0 0;
+  }
+
+  #help-section .card-text {
+    font-weight: 500;
+  }
+  
+  /* Team Section */
+  
+  .team-text p{
+    font-family: 'Poppins';
+    font-size: 11px;
+    font-weight: 400;
+    color: #000;
+  }
+
+  .team-text p:first-child{
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+  }
+  
+  // story-section
+  
+  
+  .story-content {
+    padding: 2rem;
+    border-radius: 10px;
+    border: solid 0.5px #707070;
+    background-color: #fff;  
+  }
+  
+  .story-content h2 {
+    
+    padding-bottom: 25px;
+    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000;
+  }
+
+  .story-content p {
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #6d7b82;
+  }
+  
+  // General Classes 
+
+  .line {
+    border-bottom: 3px solid #000;
+    border-radius: 0 0 2% 2%;
+  }
+  
+  @media only screen and (max-width: 1024px){
+
+    // assets section
+
+    .main-title p:first-child {
+      font-size: 50px;
+    }
+
+    .main-title {
+      font-size: 60px;
+    }
+
+    .sec-title {
+      font-size: 26px;
+    }
+
+    .md-card {
+      margin-bottom: 1.5rem !important;
+    }
+
+    // porpose-section 
+
+    .gradient-rec {
+      padding: 2rem 1rem 0.5rem 1rem !important;
+      border-radius: 30px 30px 0 30px;
+      height: 16rem;
+    }
+
+    .gradient-rec-content {
+      font-size: 14px;
+    }
+
+    .porpose-rec-title {
+      font-size: 11px;
+    }
+
+    // Help section
+
+    .text-uppercase {
+      font-size: 25px;
+    }
+
+    #porpose-section .card-text {
+      padding: 0;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+  }
+    
+  @media only screen and (max-width: 550px) {
+
+    // assetes-section
+
+    .main-title p:first-child {
+      font-size: 30px;
+    }
+
+    .main-title {
+      font-size: 30px;
+    }
+
+    .sec-title {
+      font-size: 15px;
+    }
+
+    // Genetral class
+
+    .porpose-title, .team-section-title, .help-section-title {
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+    }
+
+    // propose-section
+
+    .propose-rec {
+      padding-top: 0rem !important;
+    }
+
+    .gradient-rec {
+      padding: 2rem 1rem 0.5rem 1rem !important;
+      border-radius: 30px 30px 0 30px;
+      height: 12rem;
+    }
+
+    .gradient-rec-content {
+      font-size: 12px;
+    }
+
+    .porpose-rec-title {
+      font-size: 10px;
+    }
+    .propose-rec img {
+      z-index: 1;
+      position: relative;
+      width: 50% !important;
+      top: 45px;
+    }
+
+    // Help section
+
+    .text-uppercase {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    #help-section .card-text {
+      font-size: 12px;
+      text-align: center;
+    }
+  }

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="254" height="177" viewBox="0 0 254 177">
+  <defs>
+    <clipPath id="clip-Artboard_9">
+      <rect width="254" height="177"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_9" data-name="Artboard – 9" clip-path="url(#clip-Artboard_9)">
+    <rect width="254" height="177" fill="#fff"/>
+    <path id="Path_1631" data-name="Path 1631" d="M231.884,809.357c15.349-13.217,12.507-30.692,41.5-9.657s46.048,42.068,21.6,52.87-105.74,31.836-83,0S216.534,822.575,231.884,809.357Z" transform="translate(-129.525 -740.915)" fill="#ffe173" opacity="0.387"/>
+    <path id="key-svgrepo-com" d="M62.37,0A25.806,25.806,0,0,0,40.222,39.142L.891,78.473a3.042,3.042,0,1,0,4.3,4.3l5.455-5.455L20.667,87.339a3.042,3.042,0,1,0,4.3-4.3L14.95,73.018l3.3-3.3,6.976,6.976a3.042,3.042,0,1,0,4.3-4.3l-6.976-6.976,3.3-3.3L35.879,72.127a3.042,3.042,0,1,0,4.3-4.3L30.162,57.806,43.967,44A25.852,25.852,0,1,0,62.37,0Zm0,45.636A19.776,19.776,0,1,1,82.145,25.861,19.8,19.8,0,0,1,62.37,45.636Z" transform="translate(78.491 44.923)" fill="#ffd846"/>
+  </g>
+</svg>

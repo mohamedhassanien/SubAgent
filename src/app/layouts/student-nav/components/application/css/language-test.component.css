@@ -1,0 +1,497 @@
+.wrap {
+  border-radius: 10px;
+  background: var(--frame, #FBF7EA);
+  padding: 24px;
+}
+
+.wrap .inside-wrap {
+  border-radius: 10px;
+  background: var(--primary-white, #FDFDFD);
+  padding: 16px;
+}
+
+.wrap .inside-wrap li {
+  color: var(--primary-black, #121212);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.wrap .inside-wrap li span {
+  font-weight: 600;
+}
+
+.qyuestion {
+  color: var(--primary-black, #121212);
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 24px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.nav-wrapper .nav-pills .nav-item button.nav-link {
+  font-weight: 600;
+  font-size: 24px;
+  color: #7b7b7b;
+  border-radius: 75px;
+  height: 60px;
+  border: 1px solid #7b7b7b;
+  text-transform: none;
+}
+
+.nav-wrapper .nav-pills .nav-item button.nav-link.eng {
+  margin-right: -100px;
+  padding-right: 120px;
+}
+
+.nav-wrapper .nav-pills .nav-item button.nav-link.eng.active {
+  background: #fbe8ea;
+  color: #121212;
+  border: none;
+  z-index: 999999;
+  position: relative;
+  padding-right: 30px;
+}
+
+.nav-wrapper .nav-pills .nav-item button.nav-link.fr {
+  padding-left: 120px;
+}
+
+.nav-wrapper .nav-pills .nav-item button.nav-link.fr.active {
+  background: #fbe8ea;
+  color: #121212;
+  border: none;
+  z-index: 999999999;
+  position: relative;
+  padding-left: 30px;
+}
+
+.tab-content .warning-msg {
+  padding: 20px 277px;
+  background: #ffd0d0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.tab-content .warning-msg p:first-child {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.tab-content .warning-msg P:last-child {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.tab-content .warning-msg-single {
+  padding: 20px;
+  background: #ffd0d0;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.tab-content .leave {
+  color: #ff5151;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.tab-content .duolingo {
+  margin-top: 40px;
+}
+
+.tab-content .duolingo h1 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #ff5151;
+}
+
+.tab-content .duolingo p {
+  font-weight: 700;
+  font-size: 24px;
+  color: #121212;
+}
+
+.tab-content ul li {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.tab-content ul li a {
+  color: #16294f;
+}
+
+.tab-content .child-list {
+  padding: 0;
+}
+
+.tab-content .child-list .nav-link {
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 20px;
+  background: #ffffff;
+  color: #121212;
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.tab-content .child-list .nav-link.active {
+  border: 4px solid #16294f;
+  background: #fdfdfd;
+  font-weight: 600;
+  font-size: 28px;
+  color: #16294f;
+  border-radius: 20px;
+}
+
+.tab-content .child-list .nav-link.active img {
+  opacity: 1;
+}
+
+.tab-content .child-list .nav-link img {
+  margin-right: 24px;
+  opacity: 0.4;
+}
+
+.tab-content .accordion-item .accordion-button::after {
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.tab-content .accordion-item .accordion-button {
+  font-weight: 400;
+  font-size: 24px;
+  color: #121212;
+  background: #fdfdfd;
+  border: 0;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 5px;
+  margin-bottom: 16px;
+  padding: 8px 24px;
+}
+
+.tab-content .accordion-item .accordion-button:not(.collapsed) {
+  font-weight: 500;
+}
+
+.tab-content .accordion-item .accordion-body {
+  background: #fdfdfd;
+  box-shadow: 0px 0px 20px rgba(119, 119, 119, 0.13);
+  border-radius: 5px;
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 8px 24px;
+}
+
+.tab-content .accordion-item .accordion-body .tags .tag {
+  padding: 4px 8px;
+  background: #fbe8ea;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.tab-content .accordion-item .accordion-body.others-content .headings p:first-child {
+  font-weight: 600;
+  font-size: 24px;
+  color: #ff5151;
+}
+
+.tab-content .accordion-item .accordion-body.others-content .headings p:last-child {
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 16px;
+}
+
+.tab-content .accordion-item .accordion-body.others-content .other-title {
+  margin-top: 24px;
+}
+
+.tab-content .accordion-item .accordion-body.others-content .other-title p {
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+}
+
+.tab-content .accordion-item .accordion-body.others-content .other-desc {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.tab-content .accordion-item .accordion-body.others-content .other-desc span {
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .nav-wrapper .nav-pills .nav-item button.nav-link {
+    font-size: 20px;
+    height: 55px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.eng {
+    margin-right: -100px;
+    padding-right: 110px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.eng.active {
+    padding-right: 30px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.fr {
+    padding-left: 110px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.fr.active {
+    padding-left: 30px;
+  }
+
+  .tab-content .warning-msg {
+    padding: 16px;
+  }
+
+  .tab-content .warning-msg p:first-child {
+    font-size: 20px;
+  }
+
+  .tab-content .warning-msg P:last-child {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .tab-content .warning-msg-single {
+    padding: 16px;
+    margin-top: 24px;
+  }
+
+  .tab-content .leave {
+    margin-bottom: 16px;
+  }
+
+  .tab-content .duolingo {
+    margin-top: 32px;
+  }
+
+  .tab-content .duolingo h1 {
+    font-size: 20px;
+  }
+
+  .tab-content .duolingo p {
+    font-size: 20px;
+  }
+
+  .tab-content ul li {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .tab-content .child-list .nav-link {
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .tab-content .child-list .nav-link.active {
+    font-size: 24px;
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .tab-content .child-list .nav-link img {
+    margin-right: 12px;
+  }
+
+  .tab-content .accordion-item .accordion-button {
+    font-size: 20px;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+  }
+
+  .tab-content .accordion-item .accordion-button:not(.collapsed) {
+    margin-bottom: 8px;
+  }
+
+  .tab-content .accordion-item .accordion-body {
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .tab-content .accordion-item .accordion-body .tags .tag {
+    font-size: 16px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .headings p:first-child {
+    font-size: 20px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .headings p:last-child {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-title {
+    margin-top: 0px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-title img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-title p {
+    font-size: 20px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 767.9px) {
+  .nav-wrapper .nav-pills .nav-item button.nav-link {
+    font-size: 14px;
+    height: 50px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.eng {
+    margin-right: -100px;
+    padding-right: 98px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.eng.active {
+    padding-right: 30px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.fr {
+    padding-left: 98px;
+  }
+
+  .nav-wrapper .nav-pills .nav-item button.nav-link.fr.active {
+    padding-left: 30px;
+  }
+
+  .tab-content .warning-msg {
+    padding: 4px;
+    margin-bottom: 0px;
+  }
+
+  .tab-content .warning-msg p:first-child {
+    font-size: 14px;
+  }
+
+  .tab-content .warning-msg P:last-child {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .tab-content .warning-msg-single {
+    padding: 8px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  .tab-content .leave {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .tab-content .duolingo {
+    margin-top: 16px;
+  }
+
+  .tab-content .duolingo h1 {
+    font-size: 16px;
+  }
+
+  .tab-content .duolingo p {
+    font-size: 14px;
+  }
+
+  .tab-content ul li {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .tab-content .child-list .nav-item {
+    margin: 0;
+    width: 50%;
+  }
+
+  .tab-content .child-list .nav-item .nav-link {
+    font-size: 12px;
+    padding: 9px;
+    border-radius: 5px;
+  }
+
+  .tab-content .child-list .nav-item .nav-link.active {
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 4px;
+  }
+
+  .tab-content .child-list .nav-item .nav-link img {
+    margin-right: 2px;
+    width: 27%;
+  }
+
+  .tab-content .accordion-item .accordion-button {
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+  }
+
+  .tab-content .accordion-item .accordion-button:not(.collapsed) {
+    margin-bottom: 4px;
+  }
+
+  .tab-content .accordion-item .accordion-body {
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 8px;
+  }
+
+  .tab-content .accordion-item .accordion-body .tags .tag {
+    font-size: 12px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .headings p:first-child {
+    font-size: 14px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .headings p:last-child {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-title {
+    margin-top: 0px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-title img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-title p {
+    font-size: 16px;
+  }
+
+  .tab-content .accordion-item .accordion-body.others-content .other-desc {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

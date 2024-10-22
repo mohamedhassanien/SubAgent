@@ -1,0 +1,199 @@
+.section-main .first-row {
+  background: url("../../../../../../../assets/images/articles/Mask Group 16.png");
+  width: 100%;
+  height: 375px;
+  border-radius: 5px;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding-top: 180px;
+}
+
+.section-main .first-row span {
+  font: normal normal bold 14px/21px Poppins;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  background: #16294f 0% 0% no-repeat padding-box;
+  border-radius: 21px;
+  padding: 8px 14px;
+  margin-left: 40px;
+}
+
+.section-main .first-row p {
+  text-align: left;
+  font: normal normal bold 44px/65px Poppins;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  padding-top: 20px;
+  padding-left: 40px;
+  line-height: 1;
+}
+
+.section-main .first-row small {
+  text-align: left;
+  font: normal normal normal 16px/25px Poppins;
+  letter-spacing: 0px;
+  color: #C9C9C9;
+  padding-left: 40px;
+}
+
+.section-main .dashed p {
+  text-align: left;
+  font: normal normal normal 19px/35px Poppins;
+  letter-spacing: 0px;
+  color: rgba(4, 4, 4, 0.7490196078);
+  line-height: 1.4;
+  padding-top: 50px;
+}
+
+.section-main .dashed span {
+  border-left: 2px solid #16294f;
+  margin-top: 55px;
+  padding-left: 27px;
+  text-align: left;
+  font: normal normal medium 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: #1E1E1E;
+  display: block;
+}
+
+.section-main .second-row {
+  padding-top: 55px;
+  padding-bottom: 30px;
+}
+
+.section-main .second-row h3 {
+  text-align: left !important;
+  font: normal normal bold 28px/60px Poppins;
+  letter-spacing: 0px;
+  color: #1E1E1E;
+}
+
+.section-main .second-row p {
+  text-align: left;
+  font: normal normal normal 19px/35px Poppins;
+  letter-spacing: 0px;
+  color: rgba(4, 4, 4, 0.7490196078);
+  line-height: 1.4;
+}
+
+.section-main .one-text {
+  padding-top: 50px;
+}
+
+.section-main .one-text h3 {
+  text-align: left;
+  font: normal normal bold 28px/42px Poppins;
+  letter-spacing: 0px;
+  color: #1E1E1E;
+}
+
+.section-main .one-text p {
+  text-align: left;
+  font: normal normal normal 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: rgba(30, 30, 30, 0.7490196078);
+}
+
+.section-main .one-text img {
+  padding-top: 50px;
+}
+
+.section-main .one-text .note {
+  width: 600px;
+  background: rgba(111, 119, 244, 0.1019607843) 0% 0% no-repeat padding-box;
+  border-radius: 7px;
+  display: inline-block;
+  border: none;
+}
+
+.section-main .one-text .note p {
+  text-align: left;
+  font: normal normal medium 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: rgba(111, 119, 244, 0.7490196078);
+  padding: 10px 17px;
+  font-size: 20px;
+}
+
+.section-main .check-more {
+  padding: 100px 0px;
+}
+
+.section-main .check-more p {
+  text-align: center;
+  font: normal normal bold 45px/60px Inter;
+  letter-spacing: 0px;
+  color: #1E1E1E;
+}
+
+.section-main .check-more span {
+  text-align: center;
+  font: normal normal bold 45px/60px Inter;
+  letter-spacing: 0px;
+  color: #16294f;
+}
+
+.section-main .main-card {
+  padding-right: 15px;
+}
+
+.section-main .main-card .cont-img {
+  position: relative;
+}
+
+.section-main .main-card .cont-img .back-img {
+  position: absolute;
+  background-color: rgba(10, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.section-main .main-card .small-details {
+  padding: 14.5px 7px 0px 7px;
+  line-height: 0;
+}
+
+.section-main .main-card .small-details p {
+  font: normal normal normal 12px/18px Poppins;
+  letter-spacing: 0px;
+  color: #7A7A7A;
+}
+
+.section-main .main-card .small-details i {
+  font-size: 11.3px;
+  padding-top: 1.9px;
+  color: white;
+  text-shadow: -1px 0 #7A7A7A, 0 1px #7A7A7A, 1px 0 #7A7A7A, 0 -1px #7A7A7A;
+}
+
+.section-main .main-card .card-content {
+  padding: 0px 5px 0px 5px;
+}
+
+.section-main .main-card .card-content .main-body {
+  font: normal normal bold 20px/33px Poppins;
+  color: #1E1E1E;
+  line-height: 1.3;
+}
+
+.section-main .main-card .card-content .by-body {
+  text-align: left;
+  font: normal normal 300 10px/16px Poppins;
+  letter-spacing: 0px;
+  color: #9F9F9F;
+  line-height: 0px;
+  padding-bottom: 7px;
+}
+
+.section-main .main-card .card-content .des-body {
+  font: normal normal normal 14px/21px Poppins;
+  letter-spacing: 0px;
+  color: rgba(30, 30, 30, 0.7490196078);
+  text-align: left;
+}
+
+.section-main .main-card .card-content .readmore-body {
+  font: normal normal 600 16px/24px Poppins;
+  letter-spacing: 0px;
+  color: #16294f;
+  cursor: pointer;
+}

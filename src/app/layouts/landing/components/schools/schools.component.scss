@@ -1,0 +1,670 @@
+// .spinner {
+//     margin: auto;
+// }
+
+// .section-container{
+//     margin: 40px 0;
+//     padding: 0 2%;
+// }
+
+// .school-name{
+//     color: #000;
+//     font-size: 18px;
+//     font-weight: 600;
+//     margin-top: 20px;
+// }
+
+// .section-container.about{
+//     margin-bottom: 0;
+//     background: url('../../../../../assets/images/bg.svg');
+//     background-position: top;
+//     background-size: contain;
+//     .custom-col{
+//         text-align: center;
+//         h2{
+//             font-family: 'Poppins';
+//             font-size: 64px;
+//             margin: 25px 0;
+//             span{
+//                 color: var(--red-color);
+//             }
+//         }
+//         p{
+//             margin: auto;
+//             width: 75%;
+//         }
+//     }
+//     .custom-row{
+//         justify-content: center;
+//         margin: 35px 0;
+//         form{
+//             display: flex;
+//             width: 34%;
+//             position: relative;
+//             .control{
+//                 padding: 9px 0 9px 13.6px;
+//                 border: solid 2.5px #f66666;
+//                 border-right: 0;
+//                 background-color: #fff;
+//                 border-radius: 25px ;
+//                 display: flex;
+//                 flex: 1 0 auto;
+//                 gap: 5px;
+//                 .img-holder{
+//                     width: 21px;
+//                     img{
+//                         object-fit: contain;
+//                         vertical-align: text-bottom;
+//                     }
+//                 }
+//                 input{
+//                     border: none;
+//                     width: 95%;
+//                     &::placeholder{
+//                         font-size: 14px;
+//                         line-height: 1.43;
+//                         letter-spacing: 0.35px;
+//                         color: #8f8e8e;
+//                     }
+//                 }
+//             }
+//             button{
+//                 padding: 10px 24px;
+//                 background-color: #f66666;
+//                 border: unset;
+//                 border-radius: 25px;
+//                 font-size: 18px;
+//                 line-height: 1.06;
+//                 color: #fff;
+//                 position: absolute;
+//                 right: 0;
+//                 height: 100%;
+//             }
+//         }
+//     }
+// }
+
+// .section-container.courses{
+//     justify-content: space-between;
+//     width: 85%;
+//     padding: 0;
+//     margin: 150px auto 120px;
+//     position: relative;
+//     .filter-form{
+//         flex: 0 0 28%;
+//         height: fit-content;
+//         form{
+//             width: 85%;
+//             height: 100%;
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: space-between;
+//             .search{
+//                 display: flex;
+//                 width: 34%;
+//                 position: absolute;
+//                 left: 35%;
+//                 top: -10%;
+//                 margin-top: 27px;
+//                 .control{
+//                     padding: 9px 0 9px 13.6px;
+//                     border: solid 2.5px #f66666;
+//                     border-right: 0;
+//                     background-color: #fff;
+//                     border-radius: 25px ;
+//                     display: flex;
+//                     flex: 1 0 auto;
+//                     gap: 5px;
+//                     .img-holder{
+//                         width: 21px;
+//                         img{
+//                             object-fit: contain;
+//                             vertical-align: text-bottom;
+//                         }
+//                     }
+//                     input{
+//                         border: none;
+//                         width: 95%;
+//                         &::placeholder{
+//                             font-size: 14px;
+//                             line-height: 1.43;
+//                             letter-spacing: 0.35px;
+//                             color: #8f8e8e;
+//                         }
+//                     }
+//                 }
+//                 button{
+//                     padding: 10px 24px;
+//                     background-color: #f66666;
+//                     border: unset;
+//                     border-radius: 25px;
+//                     font-size: 18px;
+//                     line-height: 1.06;
+//                     color: #fff;
+//                     position: absolute;
+//                     right: 0;
+//                     height: 100%;
+//                 }
+//             }
+//             &>div{
+//                 margin: 0 0 22px 0;
+//                 &>p{
+//                     margin: 0;
+//                     text-transform: uppercase;
+//                 }
+//             }
+//             .options, .select{
+//                 p{
+//                     margin-bottom: 11px;
+//                     &::before{
+//                         content: "";
+//                         width: 7px;
+//                         height: 24px;
+//                         display: inline-block;
+//                         background-color: var(--red-color);
+//                         border-radius: 25px 1px;
+//                         margin: 0 15px 0 0;
+//                         vertical-align: middle;
+//                     }
+//                 }
+//             }
+//             .options{
+//                 label, input{
+//                     margin: 0;
+//                 }
+//                 label{
+//                     color: #1a323e;
+//                     margin: 0 0 14px 23px;
+//                     text-transform: capitalize;
+//                     font-weight: 500;
+//                     padding:5px 5px;
+//                 }
+//                 input[type="radio"]{
+//                     display: none;
+//                     &:checked+label{
+//                         background-color: #ededed;
+//                         padding: 5px 9px;
+//                         border-radius: 15px;
+//                     }
+//                 }
+//             }
+//             .range{
+//                 ::ng-deep{
+//                     ngx-slider{
+//                         .ngx-slider-span{
+//                             padding: 0;
+//                         }
+//                         .ngx-slider-bubble{
+//                             display: none;
+//                         }
+//                         .ngx-slider-selection-bar{
+//                             .ngx-slider-bar{
+//                                 background-color: var(--main-color);
+//                             }
+//                         }
+//                         .ngx-slider-pointer{
+//                             width: 10px;
+//                             height: 10px;
+//                             top: -19px;
+//                             background-color: var(--main-color);
+//                             &::after{
+//                                 display: none;
+//                             }
+//                         }
+//                     }
+//                 }
+//                 .control{
+//                     display: flex;
+//                     justify-content: space-between;
+//                     p{
+//                         flex: 0 0 48%;
+//                         &.o146d{
+//                             color: black;
+//                         }
+//                         input{
+//                             width: 100%;
+//                             padding: 9px 13px;
+//                             border-radius: 15px;
+//                             box-shadow: 6px 3px 6px 0 rgba(0, 0, 0, 0.16);
+//                             background-color: #fff;
+//                             border: none;
+//                         }
+//                     }
+//                 }
+//             }
+//             .select{
+//                 // display: flex;
+//                 gap: 9px;
+//                 .control{
+//                     border-radius: 29px;
+//                     border: solid 1px #dfe7ec;
+//                     select{
+//                         border-radius: 29px;
+//                         padding: 15px 15px 15px 30px;
+//                         width: 100%;
+//                         font-size: 18px;
+//                         color: #1a323e;
+//                         appearance: none;
+//                         border: none;
+//                     }
+//                 }
+//             }
+//             .custom-row{
+//                 button{
+//                     width: 100%;
+//                     padding: 4px;
+//                     border-radius: 15px;
+//                     box-shadow: 6px 3px 6px 0 rgba(0, 0, 0, 0.16);
+//                     background-color: var(--main-color);
+//                     font-family: 'Poppins';
+//                     font-size: 21px;
+//                     color: white;
+//                     border: none;
+//                 }
+//             }
+//         }
+//     }
+//     .courses-holder{
+//         flex: 0 0 70%;
+//         .custom-row{
+//             flex-wrap: wrap;
+//             gap: 20px 2.5%;
+//             padding: 0 0 20px 0;
+//             justify-content: flex-start;
+//             .custom-col{
+//                 border-radius: 10px;
+//                 transition: all .6s ease;
+//                 flex: 0 0 30%;
+//                 padding: 0 0 20px;
+//                 position: relative;
+//                 box-shadow: 5px 5px 5px 0 rgba(51, 50, 50, 0.08);
+//                 transition: all .6s ease;
+//                 border: 2px solid white;
+//                 a{
+//                     position: relative;
+//                     .icon-holder{
+//                         position: relative;
+//                         border-radius: 10px 10px 0 0;
+//                         background-color: #fff;
+//                         height: 174px;
+//                         >img{
+//                             border-radius: 11px ;
+//                             height: 100%;
+//                             object-fit: contain;
+//                         }
+//                         .link{
+//                             display: flex;
+//                             position: absolute;
+//                             top: 90%;
+//                             left: 75%;
+//                             border-radius: 50%;
+//                             box-shadow: 0 5px 10px 0 rgb(0 0 0 / 2%);
+//                             background-color: #fff;
+//                             width: 35px;
+//                             height: 35px;
+//                             border: 1px solid #dfdcdc;
+//                             i{
+//                                 // width: 18px;
+//                                 margin: auto;
+//                                 display: block;
+
+//                                 &:hover {
+//                                     color: orange;
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     .text{
+//                         padding: 10px 15px 0;
+//                         &>div{
+//                             padding: 5px 0;
+//                             h5{
+//                                 color: #1a323e;
+//                                 margin-bottom: 32px;
+//                                 max-height: 38px;
+//                                 overflow: hidden;
+//                                 min-height: 38px;
+//                             }
+//                             // &:hover .hover{
+//                             //     z-index: 2;
+//                             //     opacity: 1;
+//                             // }
+//                             // .hover{
+//                             //     transition: all .6s ease;
+//                             //     font-size: 14px;
+//                             //     color: black;
+//                             //     position: absolute;
+//                             //     border: 1px solid #6d7b82;
+//                             //     box-shadow: 5px 5px 5px 0 rgba(246, 102, 102, .2);
+//                             //     width: 100%;
+//                             //     background-color: white;
+//                             //     padding: 13px;
+//                             //     font-family: 'Poppins';
+//                             //     left: 0;
+//                             //     border-radius: 12px;
+//                             //     top: 0;
+//                             //     z-index: -1;
+//                             //     opacity: 0;
+//                             // }
+//                             .img-holder{
+//                                 width: 50px;
+//                                 height: 50px;
+//                                 background-color: #b8c5cc;
+//                                 border-radius: 50%;
+//                             }
+//                             .ictx{
+//                                 flex: 0 0 48%;
+//                                 p{
+//                                     margin: 0;
+//                                 }
+//                             }
+//                             &:last-child{
+//                                 border-top: 1px solid #dfe7ec;
+//                                 padding-top: 15px;
+//                             }
+//                         }
+//                     }
+//                     &:hover{
+//                         text-decoration: none;
+//                     }
+//                 }
+//                 .price{
+//                     position: absolute;
+//                     font-family: 'Open Sans';
+//                     font-size: 18px;
+//                     font-weight: bold;
+//                     text-align: center;
+//                     color: #fff;
+//                     background-color: var(--red-color);
+//                     padding: 8px 15px;
+//                     border-radius: 10px 0;
+//                 }
+//                 &:hover{
+//                     border: 2px solid var(--red-color);
+//                     box-shadow: 5px 5px 5px 0 rgba(246, 102, 102, .2);
+//                 }
+//             }
+//         }
+//         ::ng-deep{
+//             ngb-pagination{
+//                 ul.pagination{
+//                     justify-content: center;
+//                     gap: 15px;
+//                     .page-item{
+//                         a.page-link{
+//                             color: #6d7b82;
+//                             font-weight: bold;
+//                             border: none;
+//                             border-radius: 17px 2px;
+//                             font-size: 18px;
+//                             &:focus{
+//                                 box-shadow: unset;
+//                             }
+//                         }
+//                         &.active{
+//                             a.page-link{
+//                                 background-color: var(--main-color);
+//                                 color: white;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// ::ng-deep{
+//     ngb-modal-window{
+//         background: url('../../../../../assets/images/bg.svg');
+//         background-position: center;
+//         background-size: contain;
+//         .modal-content{
+//             background: unset;
+//             border: 6px solid var(--main-color);
+//             .modal-body{
+//                 padding: 0;
+//                 background: #fff;
+//                 margin: 11px;
+//                 .logo-holder{
+//                     width: 70%;
+//                     margin: auto;
+//                     margin-top: 14px;
+//                 }
+//                 .section-container{
+//                     background: unset !important;
+//                     .custom-row{
+//                         justify-content: center !important;
+//                         .img-holder{
+//                             display: none;
+//                         }
+//                         .login{
+//                             flex: 0 0 100% !important;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 1050px) {
+//     .section-container.about{
+//         margin: 100px 0 0 0;
+//         .custom-col{
+//             h2{
+//                 font-size: 32px;
+//             }
+//             p{
+//                 width: 100%;
+//                 font-size: 14px;
+//             }
+//         }
+//         .custom-row{
+//             form{
+//                 width: 80%;
+
+//             }
+//         }
+//     }
+//     .section-container.courses{
+//         flex-wrap: nowrap;
+//         position: relative;
+//         width: 100%;
+//         padding: 0 2%;
+//         .filter-form{
+//             flex: 0 0 30%;
+//             form{
+//                 width: 100%;
+//                 .search{
+//                     width: 95%;
+//                     top: -4%;
+//                     left: 2%;
+//                     margin: auto;
+//                     .control{
+//                         padding: 3px 0 6px 12.6px;
+//                         .img-holder{
+//                             width: 13.4px;
+//                             height: 13.4px;
+//                         }
+//                         input{
+//                             &::placeholder{
+//                                 font-size: 13px;
+//                             }
+//                         }
+//                     }
+//                     button{
+//                         font-size: 14px;
+//                     }
+//                 }
+//                 &>div{
+//                     margin:0 0 20px 0;
+//                     p{
+//                         font-size: 13px;
+//                         margin: 0
+//                     }
+//                 }
+//                 .options label{
+//                     font-size: 11px;
+//                     margin: 0 0 5px 20px;
+//                 }
+//                 .custom-row{
+//                     button{
+//                         font-size: 13px;
+//                     }
+//                 }
+//             }
+//         }
+//         .courses-holder{
+//             flex: 0 0 69%;
+//             .custom-row{
+//                 justify-content: center;
+//                 .custom-col{
+//                     flex: 0 0 48%;
+//                     a{
+//                         .icon-holder{
+//                             height: 100px;
+//                         }
+//                         .text{
+//                             div{
+//                                 font-size: 12px;
+//                                 h5{
+//                                     font-size: 14px;
+//                                     max-height: 29px;
+//                                     min-height: 29px;
+//                                     margin-bottom: 12px;
+//                                     line-height: normal;
+//                                 }
+//                             }
+//                             .ictx-holder{
+//                                 .ictx{
+//                                     .ictx-icon{
+//                                         width: 11px;
+//                                         height: 11px;
+//                                         img{
+//                                             height: 100%;
+//                                         }
+//                                     }
+//                                     .ictx-text{
+//                                         p{
+//                                             font-size: 12px
+//                                         }
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     .price{
+//                         font-size: 14px;
+//                     }
+//                 }
+//             }
+//             ::ng-deep{
+//                 ngb-pagination{
+//                     left: 0;
+//                     right: 0;
+//                     position: absolute
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 600px) {
+//     .section-container.about{
+//         .custom-col{
+//             h2{
+//                 font-size: 30px;
+//             }
+//             p{
+//                 font-size: 10px;
+//             }
+//         }
+//         .custom-row{
+//             form{
+//                 .control{
+//                     input{
+//                         &::placeholder{
+//                             font-size: 10px;
+//                         }
+//                     }
+//                 }
+//                 button{
+//                     font-size: 11px;
+//                 }
+//             }
+//         }
+//     }
+//     .section-container.courses{
+//         .filter-form{
+//             flex: 0 0 41%;
+//             form{
+//                 &>div{
+//                     p{
+//                         font-size: 11px;
+//                     }
+//                 }
+//                 .options label{
+//                     font-size: 9px;
+//                 }
+//                 .custom-row{
+//                     button{
+//                         font-size: 11px;
+//                     }
+//                 }
+//             }
+//         }
+//         .courses-holder{
+//             flex: 0 0 58%;
+//             .custom-row{
+//                 .custom-col{
+//                     flex: 0 0 95%;
+//                     a{
+//                         .icon-holder{
+//                             height: 85px;
+//                         }
+//                         .text{
+//                             div{
+//                                 font-size: 9px;
+//                                 h5{
+//                                     font-size: 11px;
+//                                 }
+//                             }
+//                             .ictx-holder{
+//                                 .ictx{
+//                                     .ictx-text{
+//                                         p{
+//                                             font-size: 11px
+//                                         }
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     .price{
+//                         font-size: 12px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     ::ng-deep{
+//         ngb-modal-window{
+//             .modal-content{
+//                 .modal-body{
+//                     .section-container{
+//                         .custom-row{
+//                             .login{
+//                                 box-shadow: none !important;
+//                                 form{
+//                                     padding: 0 !important;
+//                                     width: 90%;
+//                                     margin: auto;
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

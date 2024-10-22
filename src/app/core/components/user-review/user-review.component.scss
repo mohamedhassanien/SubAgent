@@ -1,0 +1,248 @@
+// .carousel-control-next, .carousel-control-prev{
+//   opacity: 1;
+// }
+
+// .users-section-title {
+//   font-size: 2rem;
+//   font-weight: 700;
+//   font-stretch: normal;
+//   font-style: normal;
+//   line-height: normal;
+//   letter-spacing: normal;
+//   text-align: left;
+//   color: #000;
+// }
+
+// .line {
+//   border-bottom: 4px solid #000;
+//   border-radius: 0 0 3% 3%;
+// }
+
+// .carousel-item{
+//   background-color: rgb(255, 255, 255);
+//   padding: 5px;
+// }
+
+// .reviews-btn{
+//   font-family: 'Poppins';
+//   font-size: 14px;
+//   font-weight: 600;
+//   font-stretch: normal;
+//   font-style: normal;
+//   line-height: normal;
+//   letter-spacing: normal;
+// }
+
+// .card {
+//   // height: 383px;
+//   // padding: 4.8px 0px 22.5px 17.5px;
+//   border-radius: 15px;
+//   box-shadow: 0 1.5px 3px 1px rgba(0, 0, 0, 0.16);
+//   background-color: #fff;
+//   position: relative;
+//   height: 550px;
+
+//   // .daboule-quote{
+//   //   text-align: center;
+//   //   object-fit: contain;
+//   //   img{
+//   //     width: 47.8px;
+//   //     height: 47.8px;
+//   //   }
+//   }
+//   .card{
+
+//     .student-2 {
+//       height: 370px;
+//     }
+
+//     h4{
+//       color: #f66666;
+//       font-weight: 600;
+//       font-size: 24px;
+//       font-family: 'Poppins';
+//     }
+//     h5{
+//       color: #636363;
+//       font-size: 24px;
+//       font-weight: 500;
+//       font-family: 'Poppins';
+//     }
+
+//     p{
+//       font-size: 17px;
+//       color: #000;
+//       font-family: 'Poppins';
+//   }
+// }
+
+// .left-btn {
+//   position: absolute;
+//   top: 46%;
+//   right: 92%;
+//   width: 8%;
+//   transition: 200ms transform ease-in-out;
+// }
+
+// .right-btn {
+//   position: absolute;
+//   top: 46%;
+//   left: 92%;
+//   width: 8%;
+//   transition: 200ms transform ease-in-out;
+// }
+
+// .left-btn:hover, .right-btn:hover {
+//   transform: scale(1.2);
+// }
+
+// // .reviewer{
+// //   width: 334.5px;
+// //   height: 275px;
+// //   margin-left: 65px;
+// // }
+
+// @media only screen and (max-width: 991px){
+//   .Rectangle-40{
+//     overflow: hidden;
+//     // text-align: center;
+//     .daboule-quote{
+//       img{
+//         width: 27.8px;
+//         height: 27.8px;
+//       }
+//     }
+//   }
+//   .reviewer{
+//     width: 234.5px;
+//     height: 275px;
+//     margin-left: 0px;
+//   }
+//   .left-review-btn{
+//     width: 60px !important;
+//   }
+//   .gradient-text{
+//     font-size: 60px !important;
+//   }
+// }
+// .Rectangle-40 a{
+//   position: relative;
+// }
+
+// .card {
+//   height: 390px;
+
+//   .student-1 {
+//     height: 365px;
+//   }
+// }
+
+// .left-btn {
+//   width: 10%;
+//   right: 89%;
+//   top: 52%;
+// }
+// .right-btn {
+//   width: 10%;
+//   left: 89%;
+//   top: 52%;
+// }
+
+// @media only screen and (max-width: 576px){
+//   .reviewer{
+//     width: 190.5px;
+//     height: 200px;
+//     margin-left: 0px;
+//   }
+//   .review-text11{
+//     h4{
+//       font-size: 7px !important;
+//     }
+//     h2{
+//       font-size: 7px !important;
+//     }
+//     p{
+//       font-size: 6px !important;
+//     }
+//   }
+
+// }
+
+// @media only screen and (max-width: 460px){
+
+//   .reviewer {
+//     width: 160.5px;
+//     height: 180px !important;
+
+//   }
+//   .review-text11{
+//     width: 41% !important;
+//   }
+//   .left-review-btn{
+//     width: 40px !important;
+//   }
+//   .gradient-text{
+//     font-size: 40px !important;
+//   }
+//   .card{
+
+//     height: 270px;
+
+//     .student-1 {
+//       height: 250px;
+//     }
+
+//     .student-2 {
+//       height: 250px;
+//     }
+
+//     h4{
+//       font-size: 12px !important;
+//     }
+//     h5{
+//       font-size: 12px !important;
+//     }
+//     p{
+//       font-size: 9px !important;
+//     }
+//   }
+
+//   .left-btn {
+//     width: 14%;
+//     right: 83%;
+//     top: 51%;
+//   }
+//   .right-btn {
+//     width: 14%;
+//     left: 83%;
+//     top: 51%;
+//   }
+
+//   .reviews-btn{
+//     font-family: 'Poppins';
+//     font-size: 12px;
+//     font-weight: 500;
+//     font-stretch: normal;
+//     font-style: normal;
+//     line-height: normal;
+//     letter-spacing: normal;
+//   }
+// }
+
+// @media only screen and (min-width: 1000px) {
+//   .left-btn {
+//     position: absolute;
+//     top: 46%;
+//     right: 92%;
+//     width: 8%;
+//     transition: 200ms transform ease-in-out;
+//   }
+
+//   .right-btn {
+//     position: absolute;
+//     top: 46%;
+//     left: 92%;
+//     width: 8%;
+//     transition: 200ms transform ease-in-out;
+//   }
+// }

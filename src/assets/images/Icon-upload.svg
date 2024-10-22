@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36.021" height="30.002" viewBox="0 0 36.021 30.002">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#b8c5cc;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px}
+        </style>
+    </defs>
+    <g id="Icon_feather-upload-cloud" transform="translate(.014 -2.998)">
+        <path id="Path_9215" d="M24 24l-6-6-6 6" class="cls-1"/>
+        <path id="Path_9216" d="M18 18v13.5" class="cls-1"/>
+        <path id="Path_9217" d="M30.585 27.585A7.5 7.5 0 0 0 27 13.5h-1.89A12 12 0 1 0 4.5 24.45" class="cls-1"/>
+        <path id="Path_9218" d="M24 24l-6-6-6 6" class="cls-1"/>
+    </g>
+</svg>

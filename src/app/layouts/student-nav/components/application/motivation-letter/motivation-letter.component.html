@@ -1,0 +1,223 @@
+<div class="download-doc">
+  <h6>Upload motivation letter*</h6>
+  <div class="upload-input">
+    <p *ngIf="!firstFileLoading">Choose PNG, jPG or PDF format</p>
+    <div *ngIf="firstFileLoading" class="d-flex align-items-center upload-text">
+      <h5>{{firstFileName}}</h5>
+      <img (click)="deleteFirst()" class="ms-4" src="../../../../../../assets/images/navigator/x.svg" alt="x">
+    </div>
+    <label *ngIf="!firstFileLoading" for="inputTag" class="align-items-center" (change)="chooseFirst($event)">
+      <img class="me-2" src="../../../../../assets/images/why-assets/upload-blue.svg" alt="upload">
+      Upload
+      <input id="inputTag" type="file" />
+      <span id="imageName"></span>
+    </label>
+    <label *ngIf="firstFileLoading" class="align-items-center">
+      <img class="me-2" src="../../../../../../assets/images/navigator/check.svg" alt="check">
+      Done
+    </label>
+  </div>
+  <!-- <div *ngIf="firstFileLoading" class="d-flex align-items-center mt-2">
+    <img class="me-2" src="../../../../../../assets/images/navigator/Processing.svg" alt="Processing">
+    <h4>Someone from our team will review your eligibility for this program</h4>
+  </div> -->
+</div>
+
+<!-- help-step -->
+<div class="d-flex help">
+  <img src="../../../../../assets/images/why-assets/creative-male 1.svg" alt="" />
+  <div class="col-sm-7" style="margin-left: 24px;">
+    <div class="row r1">
+      Hey !
+    </div>
+    <div class="row r2">
+      You need help in motivation letter ?
+    </div>
+  </div>
+  <a class="btn" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+    <button class="contact-us">
+      Click here
+    </button>
+  </a>
+</div>
+
+<!-- modal-data -->
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-lg-4 p-md-3 p-2">
+
+        <!-- content-titles -->
+        <section class="content-titles">
+          <h1 class="pt-0">
+            How to write a successful cover letter
+          </h1>
+          <div class="row d-flex">
+            <div class="col-lg-8 col-md-12 col-12 p-0">
+              <div class="content-wrapper">
+                <ul>
+                  <li>
+                    Pay attention to the presentation of your letter,
+                    <span>work on the design and format.</span>
+                  </li>
+                  <li>
+                    Cite the name of the school and program several times to
+                    <span>show that the letter is personalized.</span>
+                  </li>
+                  <li>Start your application early</li>
+                  <li>Divide the letter into several parts, (see below)</li>
+                  <li>
+                    Pay attention to spelling and use appropriate language: Spelling
+                    Correction:
+                    <span><a href="https://app.grammarly.com/ddocs/1229064852" target="_blank" class="purple-color">
+                        https://app.grammarly.com/ddocs/1229064852
+                      </a></span>
+                  </li>
+                  <li>
+                    Show that you know the program, cite the modules, certificates,
+                    accreditations etc.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4 d-lg-block d-md-none d-none p-0">
+              <div class="anime w-75 m-auto">
+                <ng-lottie width="100%" height="100%" [options]="ml"></ng-lottie>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- divide -->
+        <section class="divide">
+          <h1 class="main-section-heading mb-md-2">
+            Divide your cover letter into several parts
+          </h1>
+          <div class="row">
+            <div class="col-lg-12 p-0">
+              <div class="divide-card">
+                <div class="row tag d-flex align-items-center">
+                  <div class="col-lg-2 col-md-3 col-12 p-0">
+                    <p>Introduction</p>
+                  </div>
+                  <div class="col-lg-10 col-md-9 p-md-0 col-12"><span>Current situation and program choice</span></div>
+                </div>
+                <p class="divide-desc">
+                  In the opening paragraph of your motivation letter, it is important to
+                  <span>clearly state your current situation</span> (student,
+                  professional, etc.) and <span>express your enthusiasm</span> by
+                  mentioning the program you are applying to.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-12 p-0">
+              <div class="divide-card">
+                <div class="row tag d-flex align-items-center">
+                  <div class="col-lg-2 col-md-3 col-12 p-0">
+                    <p>Paragraph 1</p>
+                  </div>
+                  <div class="col-lg-10 col-md-9 p-md-0 col-12"><span>Who you are and your experiences</span></div>
+                </div>
+                <p class="divide-desc">
+                  In this section, you have the opportunity you want to speak about your
+                  relevant experiences,
+                  <span>such as internships, work engagements, or involvement in
+                    organizations.</span>
+                  Describe the valuable skills you have acquired from these experiences.
+                  Additionally, highlight your personal identity by
+                  <span>sharing your interests, hobbies, and activities both within and
+                    outside of school.</span>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-12 p-0">
+              <div class="divide-card">
+                <div class="row tag d-flex align-items-center">
+                  <div class="col-lg-2 col-md-3 col-12 p-0">
+                    <p>Paragraph 2</p>
+                  </div>
+                  <div class="col-lg-10 col-md-9 p-md-0 col-12"><span>Why are you interested in this school and
+                      program</span>
+                  </div>
+                </div>
+                <p class="divide-desc">
+                  This paragraph emphasizes the importance of
+                  <span>showcasing meticulous motivation and thorough research.</span>
+                  It highlights the attractive aspects of the school, including its
+                  vision, diverse international student community, state-of-the-art
+                  facilities, and renowned professors. It encourages
+                  <span>explaining the specific interest in the chosen course, mentioning
+                    desired modules, proposed certifications, unique experiential
+                    learning opportunities, and exchange programs.</span>
+                  Overall, it underscores the significance of demonstrating a
+                  well-informed and enthusiastic approach to the courses and the school.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-12 p-0">
+              <div class="divide-card">
+                <div class="row tag d-flex align-items-center">
+                  <div class="col-lg-2 col-md-3 col-12 p-0">
+                    <p>Paragraph 3</p>
+                  </div>
+                  <div class="col-lg-10 col-md-9 p-md-0 col-12"><span>Your professional project</span></div>
+                </div>
+                <p class="divide-desc">
+                  After expressing your strong motivation to join this program, it is
+                  essential to
+                  <span>articulate your professional ambitions and outline your aspirations
+                    for the future.</span>
+                  Discuss your goals in both the short and long term, demonstrating a
+                  clear connection between your choice of studies and your career plans.
+                  Convince yourself and the admissions committee that this program is
+                  pivotal to the success of your project.
+                  <span>You can elaborate on the specific company you aspire to join, the
+                    challenging assignments you seek, the industry sector that aligns
+                    with your interests, preferred locations, and other relevant factors
+                    that contribute to your career vision.</span>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-12 p-0">
+              <div class="divide-card mb-0">
+                <div class="row tag d-flex align-items-center">
+                  <div class="col-lg-2 col-md-3 col-12 p-0">
+                    <p>Conclusion</p>
+                  </div>
+                  <div class="col-lg-10 col-md-9 p-md-0 col-12"><span>Reiterate motivation</span></div>
+                </div>
+                <p class="divide-desc">
+                  The conclusion of your motivation letter should serve as a concise
+                  summary and reiterate your strong interest and suitability for the
+                  program. It should leave a lasting impression on the reader.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- examples -->
+        <section class="examples">
+          <h1 class="main-section-heading">Example of Motivation letter</h1>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-12">
+              <a href="/assets/images/navigator/application/ml/Motivation-Letter-Example.pdf" target="_blank">
+                <img src="/assets/images/navigator/application/ml/Screenshot 2.svg" class="img-fluid"
+                  style="border: 1px solid #fbe8ea;" />
+              </a>
+            </div>
+            <!-- <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-1">
+              <a href="/assets/images/navigator/application/ml/Motivation-Letter-Example.pdf" target="_blank">
+                <img src="/assets/images/navigator/application/ml/Screenshot 1.svg" class="img-fluid" />
+              </a>
+            </div> -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

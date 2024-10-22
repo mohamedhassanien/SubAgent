@@ -1,0 +1,8 @@
+@media only screen and (min-width: 0) and (max-width: 1199.9px) {
+  .headers app-upper-header {
+    order: 2;
+  }
+  .headers app-header {
+    order: 1;
+  }
+}

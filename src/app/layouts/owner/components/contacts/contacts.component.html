@@ -1,0 +1,112 @@
+<div class="section-container">
+    <div class="custom-row">
+        <div class="custom-col">
+            <div class="title">
+                <div>
+                    <p>Contact / Employee List</p>
+                    <span>List of employee opend by offices</span>
+                </div>
+                <div>
+                    <button>+ Add An Agent</button>
+                </div>
+            </div>
+
+            <form action="">
+                <div class="control-input">
+                    <label for="">Keywords</label>
+                    <input type="text" placeholder="Type in a keyword or name...">
+                </div>
+
+                <div class="control-select">
+                    <label for="">Department</label>
+                    <select>
+                        <option value="">All Category</option>
+                    </select>
+                </div>
+
+                <div class="control-select">
+                    <label for="">Role</label>
+                    <select>
+                        <option value="">All</option>
+                    </select>
+                </div>
+
+                <button type="submit">Filter <span>&#63;</span></button>
+            </form>
+
+            <div class="sort">
+                <p>Showing 01 to 04 of {{COUNTRIES.length}} Results</p>
+                <div><span>Sort by: </span> <button>Alphabetical A-Z <span>&#63;</span> </button></div>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Phone No</th>
+                        <th scope="col">Agent</th>
+                        <th scope="col">...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let country of countries">
+                        <th scope="row">{{ country.id }}</th>
+                        <td>Inverness McKenzie</td>
+                        <td><span>Sales Manager</span></td>
+                        <td>(+1)850-335-1721</td>
+                        <td>LivFrance</td>
+                        <td>...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="d-flex">
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                    (pageChange)="refreshCountries()" [maxSize]="2">
+                    <ng-template ngbPaginationPrevious>Prev</ng-template>
+                    <ng-template ngbPaginationNext>Next</ng-template>
+                </ngb-pagination>
+            </div>
+        </div>
+
+        <div class="custom-col viewer">
+            <div class="img-holder">
+                <img
+src="" alt="">
+            </div>
+
+            <div class="text">
+                <p>Sales manager</p>
+                <p>bodrumsalvador@gmail.com</p>
+
+                <div>
+                    <p class="title">Contact Information</p>
+                    <ul>
+                        <li>Office Mobile No: <span> (+1)252-354-7309</span></li>
+                        <li>Experience: <span> 07 Year Experiences</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="title">Work Information</p>
+                    <ul>
+                        <li>Department: <span>  Business</span></li>
+                        <li>Role: <span> Sales manager</span></li>
+                        <li>Date of Join: <span> 02.04.2010 </span></li>
+                        <li>Office: <span>  LivFrance</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="title">Personal Information</p>
+                    <ul>
+                        <li>Age: <span>  28</span></li>
+                        <li>Date of Birth: <span> 20.04.1990</span></li>
+                        <li>Gender: <span> Male</span></li>
+                        <li>City: <span> Egypt</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

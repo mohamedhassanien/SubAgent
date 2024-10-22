@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="50" viewBox="0 0 70 50">
+
+  <g id="Artboard_3" data-name="Artboard – 3" clip-path="url(#clip-Artboard_3)">
+    <g id="Healthcare_Medicine_icon" data-name="Healthcare &amp; Medicine icon">
+      <path id="Path_170" data-name="Path 170" d="M281.012,117.387H232.283a.5.5,0,0,1-.5-.5V68.164a.5.5,0,0,1,.753-.429l23.853,14.422a.493.493,0,0,0,.511,0l23.853-14.422a.5.5,0,0,1,.752.429v48.721A.5.5,0,0,1,281.012,117.387Z" transform="translate(-231.785 -67.663)" fill="#00d1ff"/>
+      <path id="Path_171" data-name="Path 171" d="M282.685,119.518h-42.5V83.373a.5.5,0,0,1,.718-.454l17.077,10.333a.5.5,0,0,0,.414.009l24.093-14.422a.5.5,0,0,1,.7.463v39.712A.5.5,0,0,1,282.685,119.518Z" transform="translate(-233.185 -69.519)" fill="#fec144"/>
+      <path id="Path_172" data-name="Path 172" d="M287.889,79.4,268.408,119.62h18.981a.5.5,0,0,0,.5-.5Z" transform="translate(-237.889 -69.62)" fill="#de2c27"/>
+    </g>
+  </g>
+</svg>

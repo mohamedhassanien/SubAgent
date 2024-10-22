@@ -1,0 +1,609 @@
+<mat-drawer-container>
+  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open </button> -->
+
+  <mat-drawer #drawer [mode]="screenWidth > 768 ? 'side' : 'over'" [opened]="screenWidth > 768 ? true : false">
+    <aside>
+      <div class="container-part">
+        <a routerLink="/landing/home">
+          <img src="../../../../../../assets/images/elias_logo.svg" alt="SG-logo"
+            class="sg-logo d-none d-lg-block" />
+        </a>
+      </div>
+
+      <!-- stats menu -->
+      <!-- <p class="main-list">
+        <a
+          class="main-link stats"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#statsMenus"
+          aria-expanded="false"
+          aria-controls="statsMenus"
+          [routerLink]="['/employees', fullName, 'dashboard', 'statistics']"
+          routerLinkActive="activated-secondary-link"
+        >
+          <div>
+            <i class="fi fi-rr-chat-arrow-grow"></i>
+            <span> Statistics </span>
+          </div>
+          <i class="fi fi-rr-angle-small-down drop"></i>
+        </a>
+      </p> -->
+      <!-- <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="statsMenus">
+            <div
+              class="card pt-2 pb-0 card-body bg-transparent border-0 shadow-0"
+            >
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'statistics',
+                    'nationalities'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  <span> Nationalities</span>
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'statistics',
+                    'applications'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  <span>Applications</span>
+                </a>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <p class="main-list">
+        <a class="main-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'statistics',
+            'applications'
+          ]" routerLinkActive="activated-secondary-link">
+          <div>
+            <i class="fi fi-rr-chat-arrow-grow"></i>
+            <span> Statistics </span>
+          </div>
+        </a>
+      </p>
+      <!-- target menu -->
+      <!-- <p
+        class="main-list"
+        *ngIf="
+          empUserName == 'Nicolas' ||
+          empUserName == 'Oumaima' ||
+          empUserName == 'Salah' ||
+          empUserName == 'Mohamed'
+        "
+      >
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#targetMenu"
+          aria-expanded="false"
+          aria-controls="targetMenu"
+        >
+          <i class="fa fa-chart-line"></i>
+          <span> Target managment </span>
+        </button>
+      </p>
+      <div
+        class="row"
+        *ngIf="
+          empUserName == 'Nicolas' ||
+          empUserName == 'Oumaima' ||
+          empUserName == 'Salah' ||
+          empUserName == 'Mohamed'
+        "
+      >
+        <div class="col">
+          <div class="collapse multi-collapse" id="targetMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'add-target'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  Add Target
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- lead menu -->
+      <p class="main-list">
+        <a class="main-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'lead-management'
+          ]" routerLinkActive="activated-secondary-link">
+          <i class="fi fi-rr-user-time"></i>
+          <span> Leads management </span>
+        </a>
+      </p>
+
+      <!-- prospect menu -->
+      <p class="main-list">
+        <a class="main-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'prospect-management'
+          ]" routerLinkActive="activated-secondary-link">
+          <i class="fi fi-rr-user-add"></i>
+          <span> Prospect management </span>
+        </a>
+      </p>
+
+      <!-- apps menu -->
+      <p class="main-list">
+        <a class="main-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'application-management'
+          ]" routerLinkActive="activated-secondary-link">
+          <i class="fi fi-rr-file"></i>
+          <span> Application management </span>
+        </a>
+      </p>
+
+      <!-- emp menu -->
+      <p class="main-list">
+        <a class="main-link" type="button" data-bs-toggle="collapse" data-bs-target="#employeeMenu"
+          aria-expanded="false" aria-controls="employeeMenu" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'employee-manegment'
+          ]" routerLinkActive="activated-secondary-link">
+          <i class="fi fi-rr-users-alt"></i>
+          <span> Employee </span>
+        </a>
+      </p>
+      <!-- <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="employeeMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'add-employee'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  Add Employee
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- archive menu -->
+      <p class="main-list">
+        <a class="main-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'archived-records'
+          ]" routerLinkActive="activated-secondary-link">
+          <i class="fi fi-rr-trash"></i>
+          <span> Archived Records </span>
+        </a>
+      </p>
+      <!-- <p class="main-list">
+        <a class="main-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'deleted-records'
+          ]" routerLinkActive="activated-secondary-link">
+          <i class="fi fi-rr-trash"></i>
+          <span> Deleted Records </span>
+        </a>
+      </p> -->
+
+      <!-- delete -->
+      <!-- <p class="main-list">
+        <button
+          class="main-link"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#deletedMenu"
+          aria-expanded="false"
+          aria-controls="deletedMenu"
+        >
+          <i class="fas fa-trash"></i>
+          Deleted Records
+        </button>
+      </p> -->
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="deletedMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a class="secondary-link" [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'deleted-records',
+                    'deleted-leads'
+                  ]" routerLinkActive="activated-secondary-link">
+                  <i class="fas fa-angle-right"></i>
+                  <span> Deleted Prospect </span>
+                </a>
+                <a class="secondary-link" [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'deleted-records',
+                    'deleted-applications'
+                  ]" routerLinkActive="activated-secondary-link">
+                  <i class="fas fa-angle-right"></i>
+                  Deleted Applications
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programs Management -->
+      <p class="main-list">
+        <a class="main-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'programs-management'
+          ]" routerLinkActive="activated-secondary-link">
+          <i class="fi fi-rr-graduation-cap"></i>
+          <span> Programs </span>
+        </a>
+      </p>
+
+      <!-- <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="programsMenu">
+            <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+              <div class="secondary-list d-flex flex-column">
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'programs-management',
+                    'edit-program'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  Edit Program
+                </a>
+                <a
+                  class="secondary-link"
+                  [routerLink]="[
+                    '/employees',
+                    fullName,
+                    'dashboard',
+                    'programs-management',
+                    'add-school'
+                  ]"
+                  routerLinkActive="activated-secondary-link"
+                >
+                  <i class="fas fa-angle-right"></i>
+                  Add School
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </aside>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <nav class="d-flex align-items-center">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <ul class="d-flex align-items-center justify-content-end w-100 h-100 m-0 p-0">
+              <li class="hello-message me-auto">
+                <span>Hello, {{ fullName.split(" ")[0] }}</span>
+              </li>
+              <li class="d-flex align-items-center notification-item h-100">
+                <div class="image-container d-flex justify-content-center align-items-center">
+                  <div class="demo-section">
+                    <!-- <div *ngIf="notifications.length > 0" class="notification_alert"></div> -->
+                    <img src="../../../../../../assets/images/employees/nav icons/notification.svg"
+                      alt="notification" />
+                  </div>
+                </div>
+                <ul class="notification-list">
+                  <li class="title">
+                    <p>Notifications</p>
+                  </li>
+
+                  <li class="notification_data" *ngFor="let notification of notifications">
+                    <a (click)="getStudintUsername(notification.Studentusername, notification.id)">
+                      <h3>{{notification.Name}}</h3>
+                      <span class="d-block">{{notification.body}}</span>
+                      <span class="notification_time">{{notification.date}}</span>
+                    </a>
+                  </li>
+                  <!-- <li
+                    class="more d-flex justify-content-center"
+                    *ngIf="notifications?.length !== 0"
+                  >
+                    <a class="more-link">View all notifications</a>
+                  </li> -->
+                  <li class="no_notification d-flex justify-content-center" *ngIf="notifications?.length == 0">No
+                    Notifications</li>
+                </ul>
+              </li>
+              <li class="d-flex justify-content-between align-items-center profile-dropdown h-100">
+                <img src="../../../../../../assets/images/employees/nav icons/user_icon.svg" alt="user"
+                  routerLink="profile" />
+                <ul class="dropdown">
+                  <li class="dropdown-list" (click)="signOut()">
+                    <a class="dropdown-link"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div type="button" class="side-menu-toggle d-flex justify-content-center align-items-center"
+      (click)="drawer.toggle()">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<!-- <div class="modal fade"  data-backdrop="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="justify-content-start ps-1">
+        <img
+src="/assets/images/program-page/sg_logo.svg" alt="">
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="d-flex justify-content-between">
+              <h5>Student Name:</h5>
+              <p>Aya selim</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h5>Email:</h5>
+              <p>kokonaly12@gmail.com</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h5>Program Name:</h5>
+              <p>Galelio</p>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="d-flex justify-content-between">
+              <h5>Phone:</h5>
+              <p>020104578687</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h5>Country:</h5>
+              <p>kokonaly12@gmail.com</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h5>School:</h5>
+              <p>zedex</p>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <form [formGroup]="bookSessionform" (ngSubmit)="submit(bookSessionform)">
+          <div class="row pt-2">
+            <div class="col-6">
+              <p>Meeting Link</p>
+              <input type="text" class="form-control"
+              [class.is-invalid]="link?.invalid &&link?.touched" formControlName="meetingLink">
+            </div>
+            <div class="col-6">
+              <p>Meeting Date</p>
+              <input type="date" class="form-control"
+              [class.is-invalid]="date?.invalid &&date?.touched" formControlName="dateLink">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-bs-dismiss="modal">Close</button>
+            <button type="button" type="submit"[disabled]="!bookSessionform.valid">Confirm</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<!-- ///////////////////////////////////////////////////// -->
+
+<!-- <p class="main-list">
+  <button class="main-link" type="button" data-bs-toggle="collapse" data-bs-target="#leadMenu2" aria-expanded="false"
+    aria-controls="leadMenu2">
+    <i class="fa fa-chalkboard-teacher"></i> Lead management
+  </button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="leadMenu2">
+      <div class="card pt-0 card-body bg-transparent border-0 shadow-0">
+        <div class="secondary-list d-flex flex-column">
+          <p>
+            <a class="secondary-link" type="button" data-bs-toggle="collapse" data-bs-target="#leadMenu1"
+              aria-expanded="false" aria-controls="leadMenu1">
+              <i class="fas fa-angle-right"></i>
+              All Leads</a>
+          </p>
+
+
+          <div class="collapse multi-collapse" id="leadMenu1">
+            <div class="secondary-list d-flex ps-4 flex-column">
+              <a class="secondary-link" [routerLink]="[
+              '/employees',
+              fullName,
+              'dashboard',
+              'lead-management',
+              'all-leads'
+            ]" routerLinkActive="activated-secondary-link">
+                <i class="fas fa-angle-right"></i>
+                Sep {{dateyear+1}}
+              </a>
+              <a class="secondary-link" [routerLink]="[
+            '/employees',
+            fullName,
+            'dashboard',
+            'lead-management',
+            'all-leads'
+          ]" routerLinkActive="activated-secondary-link">
+                <i class="fas fa-angle-right"></i>
+                Sep {{dateyear}}
+              </a>
+              <a class="secondary-link" [routerLink]="[
+          '/employees',
+          fullName,
+          'dashboard',
+          'lead-management',
+          'all-leads'
+        ]" routerLinkActive="activated-secondary-link">
+                <i class="fas fa-angle-right"></i>
+                Jan {{dateyear+1}}
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- /////////////////////////////////////////////////////////// -->
+
+
+
+
+<div>
+  <button class="chat_bot" (click)="openChat()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" id="Chatbot">
+      <path fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="20"
+        d="m577.27 804.78-41.85.78-166.87 110.62c-.57.41-1.36 0-1.36-.7V804.34h-81.51c-59 0-106.81-47.82-106.81-106.81V394.45c0-58.99 47.81-106.81 106.81-106.81H738.33c58.99 0 106.81 47.82 106.81 106.81v303.08c0 58.99-47.82 106.81-106.81 106.81l-43.64.44H577.27z"
+        class="colorStroke000000 svgStroke"></path>
+      <circle cx="389.34" cy="448.2" r="61.34" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="20"
+        class="colorStroke000000 svgStroke"></circle>
+      <circle cx="635.34" cy="448.2" r="61.34" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="20"
+        class="colorStroke000000 svgStroke"></circle>
+      <path fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="20"
+        d="M847.21 634.45V463.13h46.48c19.39 0 35.11 15.72 35.11 35.11v101.11c0 19.39-15.72 35.11-35.11 35.11h-46.48zM95.2 599.35V498.24c0-19.39 15.72-35.11 35.11-35.11h46.48v171.33h-46.48c-19.39-.01-35.11-15.73-35.11-35.11zm546.66 6.99c-8.57 61.51-64.53 109-132.32 109-67.77 0-123.75-47.49-132.32-109h264.64z"
+        class="colorStroke000000 svgStroke"></path>
+      <circle cx="509.54" cy="149.59" r="41.94" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="20"
+        class="colorStroke000000 svgStroke"></circle>
+      <path fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="20" d="M509.54 244.21v-52.68"
+        class="colorStroke000000 svgStroke"></path>
+    </svg>
+  </button>
+  <div class="chatBot_container" *ngIf="chatBot">
+    <div class="chat">
+      <div class="contact bar">
+        <div class="pic">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" id="chatbot">
+            <path fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="20"
+              d="m577.27 804.78-41.85.78-166.87 110.62c-.57.41-1.36 0-1.36-.7V804.34h-81.51c-59 0-106.81-47.82-106.81-106.81V394.45c0-58.99 47.81-106.81 106.81-106.81H738.33c58.99 0 106.81 47.82 106.81 106.81v303.08c0 58.99-47.82 106.81-106.81 106.81l-43.64.44H577.27z">
+            </path>
+            <circle cx="389.34" cy="448.2" r="61.34" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="20">
+            </circle>
+            <circle cx="635.34" cy="448.2" r="61.34" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="20">
+            </circle>
+            <path fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="20"
+              d="M847.21 634.45V463.13h46.48c19.39 0 35.11 15.72 35.11 35.11v101.11c0 19.39-15.72 35.11-35.11 35.11h-46.48zM95.2 599.35V498.24c0-19.39 15.72-35.11 35.11-35.11h46.48v171.33h-46.48c-19.39-.01-35.11-15.73-35.11-35.11zm546.66 6.99c-8.57 61.51-64.53 109-132.32 109-67.77 0-123.75-47.49-132.32-109h264.64z">
+            </path>
+            <circle cx="509.54" cy="149.59" r="41.94" fill="none" stroke="#000" stroke-miterlimit="10"
+              stroke-width="20"></circle>
+            <path fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="20" d="M509.54 244.21v-52.68"></path>
+          </svg>
+        </div>
+        <div class="name">
+          Chat Bot
+        </div>
+        <div class="seen">
+          Today at {{time}}
+        </div>
+      </div>
+      <div class="messages" id="chat">
+        <div class="time">
+          Today at {{time}}
+        </div>
+
+        
+        <div *ngFor="let msg of commeMsg">
+          <span class="message"  [class.me]="msg.role == 'user'" #scrollMsg>
+            {{msg.message}}
+          </span>
+        </div>
+        <div class="message stark" *ngIf="showDots">
+          <div class="typing typing-1"></div>
+          <div class="typing typing-2"></div>
+          <div class="typing typing-3"></div>
+        </div>
+      </div>
+      <div class="input">
+        
+          <input placeholder="Type your message here!" type="text" [(ngModel)]="inputValue" (keyup.enter)="sendData()"/>
+          
+          <span class='sendBtn' (click)="sendData()" (keyup.enter)="sendData()" [class.showBtn]="inputData">
+            <i class="fas fa-paper-plane"></i>
+          </span>
+          
+        
+      </div>
+    </div>
+  </div>
+
+</div>

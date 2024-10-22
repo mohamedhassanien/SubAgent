@@ -10,7 +10,7 @@ export function ConfirmedValidator(controlName: string, matchingControlName: str
         // confirm password control
         const matchingControl = formGroup.controls[matchingControlName];
         // check for errors 
-        if (matchingControl.errors && !matchingControl.errors['confirmedValidator']) {
+        if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
             return;
         }
         

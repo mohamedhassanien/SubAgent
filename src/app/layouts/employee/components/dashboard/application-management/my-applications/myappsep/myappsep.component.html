@@ -1,0 +1,138 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <section class="table-section row">
+        <!-- Web -->
+        <!-- <div
+            class="customization col-12 d-lg-flex align-items-center justify-content-between d-none"
+          >
+            <div class="table-size d-flex align-items-center">
+              <p class="data-size">Data size:</p>
+              <div class="dropdown-center dropdown-col" #dropdown>
+                <button
+                  class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="0,12"
+                >
+                  {{ sizeName }} Rows
+                </button>
+                <div class="dropdown-menu">
+                  <div *ngFor="let size of sizes; let i = index">
+                    <option
+                      (click)="sizeName = size; pageSize = size; dropdown.click()"
+                    >
+                      {{ size }} Rows
+                    </option>
+                    <hr *ngIf="i !== sizes.length - 1" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="search-part d-flex align-items-center">
+              <p class="search-title">Search</p>
+              <input
+                type="text"
+                placeholder="Search"
+                class="search-input"
+                [(ngModel)]="searchApps"
+              />
+              <a
+                class="add-button"
+                [routerLink]="[
+                  '/employees',
+                  empName,
+                  'dashboard',
+                  'lead-management',
+                  'add-lead'
+                ]"
+              >
+                Add lead
+              </a>
+              <button
+                class="reset-btn d-flex justify-content-center align-items-center ms-3"
+                (click)="resetFilter()"
+              >
+                <i class="fas fa-redo-alt me-2"></i>
+                Reset
+              </button>
+            </div>
+          </div> -->
+        <!-- Mobile -->
+        <!-- <div class="customization col-12 d-lg-none">
+            <div class="row">
+              <div class="col-12">
+                <div class="search-part d-flex flex-column align-items-start">
+                  <p class="search-title">Search</p>
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="search-input"
+                    [(ngModel)]="searchApps"
+                  />
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="table-size d-flex flex-column align-items-start">
+                  <p class="data-size">Data size:</p>
+                  <div class="dropdown-center dropdown-col" #dropdown>
+                    <button
+                      class="btn dropdown-toggle col-12 d-flex justify-content-between align-items-center px-3"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="0,12"
+                    >
+                      {{ sizeName }} Rows
+                    </button>
+                    <div class="dropdown-menu">
+                      <div *ngFor="let size of sizes; let i = index">
+                        <option
+                          (click)="
+                            sizeName = size; pageSize = size; dropdown.click()
+                          "
+                        >
+                          {{ size }} Rows
+                        </option>
+                        <hr *ngIf="i !== sizes.length - 1" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col d-flex align-items-end">
+                <a
+                  class="add-button w-100 d-flex justify-content-center"
+                  [routerLink]="[
+                    '/employees',
+                    empName,
+                    'dashboard',
+                    'lead-management',
+                    'add-lead'
+                  ]"
+                >
+                  Add lead
+                </a>
+                <button
+                  class="reset-btn d-flex justify-content-center align-items-center ms-2"
+                  (click)="resetFilter()"
+                >
+                  <i class="fas fa-redo-alt me-2"></i>
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div> -->
+        <app-applications-table
+          class="p-0"
+          [allApplications]="allApplications"
+          [originalApplications]="originalApplications"
+          [searchApps]="searchApps"
+          [sizeName]="sizeName"
+          (refresh)="getApplications()"
+        ></app-applications-table>
+      </section>
+    </div>
+  </div>
+</section>

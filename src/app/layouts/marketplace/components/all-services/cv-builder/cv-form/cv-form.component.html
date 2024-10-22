@@ -1,0 +1,478 @@
+<section>
+  <!-- cv header -->
+  <div class="cv-header">
+    <div class="row d-flex">
+      <div class="col-2">
+        <div class="logo-wrapper d-flex align-items-center mb-4">
+          <img
+            src="./assets/images/spinner/logo.png"
+            alt="SG_LOGO"
+            class="logo"
+          />
+        </div>
+      </div>
+
+      <div class="col-9">
+        <div
+          class="cv-download d-flex px-3 align-items-center justify-content-between mb-4"
+        >
+          <h1>{{ resume.fullName }}<i class="far fa-edit px-2"></i></h1>
+          <a class="btn" (click)="exportToPDF()"
+            ><i class="fas fa-download"></i> Download</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- cv form -->
+  <div class="d-flex">
+    <form [formGroup]="cvForm" (ngSubmit)="onSubmit(cvForm)">
+      <ul
+        ngbNav
+        #nav="ngbNav"
+        [(activeId)]="active"
+        class="nav-pills text-center"
+        orientation="vertical"
+      >
+        <li ngbNavItem="info" class="pt-5">
+          <a ngbNavLink> <i class="fas fa-file-alt d-block"></i> Info</a>
+          <ng-template ngbNavContent>
+            <div class="card border-0 px-2">
+              <div class="card-body">
+                <h5 class="card-title py-3">Personal Details</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <label for="fullName">
+                      Full Name
+                      <input
+                        id="fullName"
+                        type="text"
+                        class="form-control"
+                        formControlName="fullName"
+                        placeholder="basem serag"
+                        (input)="changeData($event, 'fullName')"
+                      />
+                    </label>
+
+                    <label for="jT" class="py-3">
+                      Job Title
+                      <input
+                        id="jT"
+                        type="text"
+                        class="form-control"
+                        formControlName="jobTitle"
+                        placeholder="jobTitle"
+                        (input)="changeData($event, 'jobTitle')"
+                      />
+                    </label>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="profile-pic">
+                      <label class="-label" for="file">
+                        <span class="glyphicon glyphicon-camera"></span>
+                        <span>Change Image</span>
+                      </label>
+                      <input
+                        id="file"
+                        type="file"
+                        accept="jpg, png, jpeg"
+                        style="display: none"
+                        (change)="showPreview($event)"
+                      />
+                      <img
+                        [src]="
+                          imageURL
+                            ? imageURL
+                            : 'https://png.pngtree.com/png-vector/20220627/ourmid/pngtree-black-photography-camera-icon-logo-png-image_5443643.png'
+                        "
+                        id="output"
+                        width="200"
+                      />
+                    </div>
+                    <!-- <div class="pic-container" (click)="file.click()">
+                      <input
+                        type="file"
+                        accept="jpg, png, jpeg"
+                        #file
+                        style="display: none"
+                        (change)="showPreview($event)"
+                      />
+                      <img
+                        [src]="
+                          imageURL
+                            ? imageURL
+                            : 'https://cdn-icons-png.flaticon.com/512/3566/3566345.png'
+                        "
+                        alt="aa"
+                        class="profile-pic"
+                      />
+                    </div> -->
+                  </div>
+
+                  <div class="col-6">
+                    <label for="email" class="py-3">
+                      Email
+                      <input
+                        id="email"
+                        type="email"
+                        class="form-control"
+                        formControlName="email"
+                        placeholder="Email@email.com"
+                        (input)="changeData($event, 'email')"
+                      />
+                    </label>
+                  </div>
+                  <div class="col-6">
+                    <label for="phone" class="py-3">
+                      phone
+                      <input
+                        id="phone"
+                        type="text"
+                        class="form-control"
+                        formControlName="phone"
+                        placeholder="01001010101"
+                        (input)="changeData($event, 'phone')"
+                      />
+                    </label>
+                  </div>
+                  <div class="col-6">
+                    <label for="adress">
+                      Adress
+                      <input
+                        id="adress"
+                        type="adress"
+                        class="form-control"
+                        formControlName="adress"
+                        placeholder="adress"
+                        (input)="changeData($event, 'adress')"
+                      />
+                    </label>
+                  </div>
+                  <div class="col-6">
+                    <label for="linkedIn">
+                      LinkedIn
+                      <input
+                        id="linkedIn"
+                        type="text"
+                        class="form-control"
+                        formControlName="linkedIn"
+                        placeholder="linkedIn/basem.com"
+                        (input)="changeData($event, 'linkedIn')"
+                      />
+                    </label>
+                  </div>
+
+                  <div class="actions d-flex justify-content-end py-3">
+                    <button class="btn save-btn btnNext">save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+
+        <li ngbNavItem="profile" class="py-5">
+          <a ngbNavLink><i class="fas fa-user d-block"></i> Profile</a>
+          <ng-template ngbNavContent>
+            <div class="card border-0 px-2">
+              <div class="card-body">
+                <h5 class="card-title pt-3 py-3">Summary</h5>
+                <div class="row">
+                  <div class="col-11">
+                    <textarea
+                      class="form-control border rounded"
+                      placeholder="Your Text"
+                      id="summary"
+                      rows="10"
+                      formControlName="summary"
+                      (input)="changeData($event, 'summary')"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="actions d-flex justify-content-end py-3">
+                  <button class="btn save-btn">save</button>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+
+        <li ngbNavItem="job">
+          <a ngbNavLink><i class="fas fa-briefcase d-block"></i> job</a>
+          <ng-template ngbNavContent>
+            <div class="card border-0 px-2">
+              <div class="card-body">
+                <h5 class="card-title py-3">Create Job</h5>
+                <div formArrayName="exp" class="pt-3">
+                  <div *ngFor="let exp of exp.controls; let i = index">
+                    <div [formGroupName]="i">
+                      <div class="form-row row">
+                        <div class="col-6">
+                          <div class="form-floating mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="floatingInput"
+                              placeholder="title"
+                              formControlName="title"
+                            />
+                            <label for="floatingInput">Title</label>
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="form-floating mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="floatingInput"
+                              placeholder="company"
+                              formControlName="company"
+                            />
+                            <label for="floatingInput">Company</label>
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="form-floating mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="floatingInput"
+                              placeholder="location"
+                              formControlName="location"
+                            />
+                            <label for="floatingInput">Location</label>
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="form-floating mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="floatingInput"
+                              placeholder="description"
+                              formControlName="description"
+                            />
+                            <label for="floatingInput">Description</label>
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="form-floating mb-3">
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="floatingInput"
+                              placeholder="startDate"
+                              formControlName="startDate"
+                            />
+                            <label for="floatingInput">Start Date</label>
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div
+                            class="form-floating mb-3"
+                            *ngIf="exp.value.present == false"
+                          >
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="floatingInput"
+                              placeholder="company"
+                              formControlName="company"
+                            />
+                            <label for="floatingInput">End Date</label>
+                          </div>
+                        </div>
+
+                        <div class="form-row row">
+                          <div
+                            class="form-check d-flex justify-content-end col-12 pt-2"
+                          >
+                            <label class="form-check-label px-2">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                formControlName="present"
+                              />
+
+                              Present
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="actions d-flex">
+                        <button
+                          class="btn border-dark"
+                          (click)="removeFields(i, 'exp')"
+                        >
+                          Remove
+                        </button>
+                        <button
+                          class="btn border-dark mx-2"
+                          type="button"
+                          (click)="addField('exp')"
+                        >
+                          Add new
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="actions d-flex justify-content-end">
+                    <button class="btn save-btn mx-2 px-4">save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+
+        <li ngbNavItem="skills" class="py-5">
+          <a ngbNavLink>Skills</a>
+          <ng-template ngbNavContent>
+            <div class="card border-0 px-2">
+              <div class="card-body">
+                <h5 class="card-title py-3">Create Skill</h5>
+                <div formArrayName="skill" class="pt-3">
+                  <div *ngFor="let skill of skill.controls; let i = index">
+                    <div [formGroupName]="i">
+                      <div class="form-row row">
+                        <div class="col-10">
+                          <label for="name">
+                            Skill
+                            <input
+                              id="name"
+                              type="text"
+                              class="form-control"
+                              formControlName="name"
+                              placeholder="photoshop"
+                            />
+                          </label>
+                        </div>
+
+                        <div class="col-10">
+                          <label for="level" class="pt-3">
+                            Skill Level
+                            <select class="form-select" formControlName="level">
+                              <option selected value="">
+                                Choose your level
+                              </option>
+                              <option value="Beginner">Beginner</option>
+                              <option value="Skillful">Skillful</option>
+                              <option value="Experienced">Experienced</option>
+                              <option value="Expert">Expert</option>
+                            </select>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="actions d-flex pt-4">
+                        <button class="btn" (click)="removeFields(i, 'skill')">
+                          Remove
+                        </button>
+                        <button
+                          class="btn"
+                          type="button"
+                          (click)="addField('skill')"
+                        >
+                          Add new
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="actions d-flex justify-content-end">
+                    <button class="btn bg-secondary mx-2 px-4">save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+
+        <li ngbNavItem="language">
+          <a ngbNavLink><i class="fas fa-language d-block"></i> Language</a>
+          <ng-template ngbNavContent>
+            <div class="card border-0 px-2">
+              <div class="card-body">
+                <h5 class="card-title py-3">Language</h5>
+                <div formArrayName="lang" class="pt-3">
+                  <div *ngFor="let lang of lang.controls; let i = index">
+                    <div [formGroupName]="i">
+                      <div class="form-row row">
+                        <div class="col-10">
+                          <label for="name">
+                            Language
+                            <input
+                              id="name"
+                              type="text"
+                              class="form-control"
+                              formControlName="name"
+                              placeholder="photoshop"
+                            />
+                          </label>
+                        </div>
+
+                        <div class="col-10">
+                          <label for="level" class="pt-3">
+                            Level
+                            <select class="form-select" formControlName="level">
+                              <option selected value="">
+                                Choose your level
+                              </option>
+                              <option value="Beginner (A1, 0/0+)">
+                                Beginner (A1, 0/0+)
+                              </option>
+                              <option value="Elementary proficiency (A2, 1)">
+                                Elementary proficiency (A2, 1)
+                              </option>
+                              <option
+                                value="Limited working proficiency (B1, 1+)"
+                              >
+                                Limited working proficiency (B1, 1+)
+                              </option>
+                              <option
+                                value="Highly proficient in speaking and writing (B2 - C1, 2/2+/3/3+)"
+                              >
+                                Highly proficient in speaking and writing (B2 -
+                                C1, 2/2+/3/3+)
+                              </option>
+                              <option
+                                value="Native / full working proficiency (C2, 4/4+)"
+                              >
+                                Native / full working proficiency (C2, 4/4+)
+                              </option>
+                            </select>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="actions d-flex pt-4">
+                        <button class="btn" (click)="removeFields(i, 'lang')">
+                          Remove
+                        </button>
+                        <button
+                          class="btn"
+                          type="button"
+                          (click)="addField('lang')"
+                        >
+                          Add new
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="actions d-flex justify-content-end">
+                    <button class="btn bg-secondary mx-2 px-4">save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+    </form>
+    <div [ngbNavOutlet]="nav" class="ms-4"></div>
+  </div>
+</section>

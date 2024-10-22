@@ -1,0 +1,314 @@
+<div class="container dataentery">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="row form_section">
+
+            <h3>Program</h3>
+            <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                <label for="name">Program Name</label>
+                <input type="text" id="name" class="form-input" formControlName="program_name" placeholder="Ex. John" />
+                <p *ngIf="myForm.get('program_name')?.hasError('required') && myForm.get('program_name')?.touched"
+                    class="text-danger">Program name is required.</p>
+                <p *ngIf="myForm.get('program_name')?.hasError('pattern') && myForm.get('program_name')?.touched"
+                    class="text-danger">Program name must contain letters or numbers only.</p>
+            </div>
+
+            <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                <label>Nom de l'école</label>
+                <mat-form-field>
+                    <mat-select formControlName="school_id" single [ngClass]="{
+                        'form-input-error':
+                          !myForm.controls.program_name.valid &&
+                          myForm.controls.program_name.touched
+                      }">
+                        <mat-option *ngFor="let school of listOfSchools"
+                            [value]="school.school_id">{{school.school_name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <p *ngIf="addForm.get('school_id')?.hasError('required') && addForm.get('school_id')?.touched"
+                    class="text-danger">Le nom de l'école est requis.</p>
+                <div class="d-flex justify-content-end">
+                    <div class="add_btn btn new_school" (click)="openModal(add, 'add-modal', 'xl', [])">Add New
+                        School</div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-12 input-col pl-0 pr-0">
+                <label>Overview of the programs</label>
+                <textarea formControlName="program_overview"></textarea>
+                <p *ngIf="addForm.get('program_overview')?.hasError('required') && addForm.get('program_overview')?.touched"
+                    class="text-danger">Overview of the programs is required.</p>
+
+            </div>
+        </div>
+
+
+        <div formArrayName="program_years">
+
+            <div *ngFor="let year of programYears.controls; let i = index" [formGroupName]="i"
+                class="row form_section">
+                <h3 class="d-flex justify-content-center" style="border: none;">Program Year</h3>
+                <h3>Year</h3>
+                  <div class="col-12 input-col pl-0 pr-0 mb-0">
+                   <label>Program Year</label>
+                   <mat-form-field>
+                    <mat-select formControlName="program_year" single>
+                        <mat-option value="1">Year 1</mat-option>
+                        <mat-option value="2">Year 2</mat-option>
+                        <mat-option value="3">Year 3</mat-option>
+                        <mat-option value="4">Year 4</mat-option>
+                        <mat-option value="5">Year 5</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                  </div>
+                  <div *ngIf="year.get('program_year')?.invalid && year.get('program_year')?.touched">
+                    <p class="text-danger">Program year is required.</p>
+                  </div>
+                <div class="col-12 input-col pl-0 pr-0" formArrayName="program_intakes">
+                 <div *ngFor="let intake of getIntakes(i).controls ; let j = index" [formGroupName]="j" class="row form_section">
+                    <h3>Intake</h3>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label>Intake</label>
+                        <!-- <p-multiSelect [options]="schoolIntake" class="form-input languages" display="chip"
+                            formControlName="program_intake" placeholder="Select Intake" [style]="{ width: '100%' }"
+                            appendTo="body"></p-multiSelect> -->
+                            <mat-form-field>
+                                <mat-select formControlName="program_intake" multiple>
+                                    <mat-option value="0">Fall</mat-option>
+                                    <mat-option value="1">Spring</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                    </div>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label>Campus</label>
+                        <mat-form-field>
+                            <mat-select formControlName="campus" multiple>
+                                <mat-option *ngFor="let campus of campusString" value={{campus}}>{{campus}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label for="Price">Price</label>
+                        <input type="number" id="Price" class="form-input" formControlName="price" placeholder="15,000" />
+                    </div>
+    
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label for="Duration">Duration</label>
+                        <input type="text" id="Duration" class="form-input" formControlName="duration"
+                            placeholder="Duration" />
+                    </div>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label>Entry Level</label>
+                        <p-multiSelect [options]="entryLevel" class="form-input languages" display="chip"
+                            formControlName="entry_level" placeholder="Select Entry Level" [style]="{ width: '100%' }"
+                            appendTo="body"></p-multiSelect>
+                    </div>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label>Alternance</label>
+                        <mat-form-field>
+                            <mat-select formControlName="alternance" single>
+                                <mat-option value="0">Available</mat-option>
+                                <mat-option value="1">Not Available</mat-option>
+                                <mat-option value="2">Alternance Only</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label>EU</label>
+                        <mat-form-field>
+                            <mat-select formControlName="live_in_eu" single>
+                                <mat-option value="0">Yes</mat-option>
+                                <mat-option value="1">No</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label>Not EU</label>
+                        <mat-form-field>
+                            <mat-select formControlName="not_live_in_eu" single>
+                                <mat-option value="0">Yes</mat-option>
+                                <mat-option value="1">No</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                        <label>Intake Language</label>
+                        <mat-form-field>
+                            <mat-select formControlName="intake_language" single>
+                                <mat-option value="English">English</mat-option>
+                                <mat-option value="French">French</mat-option>
+                                <mat-option value="Mix">Mix</mat-option>
+                                <mat-option value="Both">Both</mat-option>
+                                <mat-option value="Not Specified">Not Specified</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                        <div class="d-flex justify-content-end">
+                        <button type="button" class="add_btn new_school" (click)="removeIntake(i,j)">Remove Intake</button>
+                        </div>
+                 </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <button type="button" class="add_btn new_school mt-2 mb-3" (click)="addIntake(i)">Add Intake</button>
+                </div>
+               
+
+                <div class="col-12 input-col pl-0 pr-0" formArrayName="program_specializations">
+                    <div *ngFor="let specialization of getSpecializations(i).controls ; let k=index" [formGroupName]="k" class="row form_section">
+                        <h3>Specialization</h3>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0" style="margin-bottom: 15px;">
+                            <label>Specialization</label>
+                            <input type="text" class="form-input" formControlName="specialization" placeholder="specialization" />
+                        </div>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                            <label>Price</label>
+                            <input type="number" class="form-input" formControlName="price" placeholder="15,000" />
+                        </div>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                            <label>Alternance</label>
+                            <mat-form-field>
+                                <mat-select formControlName="alternance" single>
+                                    <mat-option value="0">Available</mat-option>
+                                    <mat-option value="1">Not Available</mat-option>
+                                    <mat-option value="2">Alternance Only</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                            <label>Language</label>
+                            <mat-form-field>
+                                <mat-select formControlName="language" single>
+                                    <mat-option value="English">English</mat-option>
+                                    <mat-option value="French">French</mat-option>
+                                    <mat-option value="Mix">Mix</mat-option>
+                                    <mat-option value="Both">Both</mat-option>
+                                    <mat-option value="Not Specified">Not Specified</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                            <label>Campus</label>
+                            <!-- <p-multiSelect [options]="schoolCampus" class="form-input languages" display="chip" formControlName="campus"
+                                placeholder="Select Campus" [style]="{ width: '100%' }" appendTo="body"></p-multiSelect> -->
+                            <mat-form-field>
+                                <mat-select formControlName="campus" multiple>
+                                    <mat-option *ngFor="let campus of campusString" value={{campus}}>{{campus}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                            <label>Intake</label>
+                            <!-- <p-multiSelect [options]="schoolIntake" class="form-input languages" display="chip"
+                                formControlName="program_intake" placeholder="Select Intake" [style]="{ width: '100%' }"
+                                appendTo="body"></p-multiSelect> -->
+                                <mat-form-field>
+                                    <mat-select formControlName="program_intake" multiple>
+                                        <mat-option value="0">Fall</mat-option>
+                                        <mat-option value="1">Spring</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+            
+                        </div>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                            <label>EU</label>
+                            <mat-form-field>
+                                <mat-select formControlName="live_in_eu" single>
+                                    <mat-option value="1">Yes</mat-option>
+                                    <mat-option value="0">No</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                            <label>Not EU</label>
+                            <mat-form-field>
+                                <mat-select formControlName="not_live_in_eu" single>
+                                    <mat-option value="1">Yes</mat-option>
+                                    <mat-option value="0">No</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                        <button type="button" class="add_btn new_school" (click)="removeSpecialization(i,k)">Remove Specialization</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <button type="button" class="add_btn new_school" (click)="addSpecialization(i)">Add Specialization</button>
+                </div>
+               
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="button" class="add_btn new_school" (click)="removeYear(i)">Remove Year</button>
+                </div>
+            </div>
+            
+        </div>
+       <div class="d-flex justify-content-center">
+        <button type="button" class="add_btn new_school" (click)="addYear()">Add Year</button>
+       </div>
+        <br><br>
+
+
+        <br><br>
+        <div class="d-flex justify-content-center change">
+            <button type="submit" class="add_btn new_school" [disabled]="!myForm.valid" [class.disable]="!myForm.valid">Save</button>
+        </div>
+
+    </form>
+
+    <ng-template #add let-c="close" let-d="dismiss">
+        <form [formGroup]="addNewSchool" (ngSubmit)="submit(addNewSchool)">
+            <div class="row add_school_popup">
+                <h3>Add New School</h3>
+                <div class="col-lg-6 col-12 input-col pl-0 pr-0" style="margin-bottom: 25px;">
+                    <label for="name">Nom de l'école</label>
+                    <input type="text" class="form-input" formControlName="school_name" placeholder="" />
+                    <p *ngIf="addNewSchool.get('school_name')?.hasError('required') && addNewSchool.get('school_name')?.touched"
+                        class="text-danger">School name is required</p>
+                </div>
+                <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                    <label for="name">Campus</label>
+                    <!-- <p-multiSelect [options]="schoolCampus2" class="form-input languages" display="chip"
+                        formControlName="campus" placeholder="Select Campus" [style]="{ width: '100%' }"
+                        appendTo="body"></p-multiSelect> -->
+                    <mat-form-field>
+                        <mat-select formControlName="campus" multiple>
+                            <mat-option *ngFor="let campus of campusString" value={{campus}}>{{campus}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3 col-12 input-col pl-0 pr-0">
+                    <label for="name">Logo</label>
+                    <input type="file" class="form-input imgFile" formControlName="logo_pic_link"
+                        (change)="chooseFile($event , 'logo')" />
+                </div>
+                <div class="col-lg-3 col-12 input-col pl-0 pr-0">
+                    <label for="name">Cover</label>
+                    <input type="file" class="form-input imgFile" formControlName="cover_pic_link" placeholder=""
+                        (change)="chooseFile2($event , 'coverImage')" />
+                </div>
+
+                <div class="col-lg-6 col-12 input-col pl-0 pr-0">
+                    <label for="name">Rank</label>
+                    <mat-form-field>
+                        <mat-select formControlName="rank" single>
+                            <mat-option value="top 5">top 5</mat-option>
+                            <mat-option value="top 10">top 10</mat-option>
+                            <mat-option value="top 100">top 100</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 col-12 input-col pl-0 pr-0 mb-2">
+                    <label>School Type</label>
+                    <input type="text" formControlName="school_type">
+                </div>
+                <div class="col-lg-12 col-12 input-col pl-0 pr-0">
+                    <label>Description(English)</label>
+                    <textarea formControlName="description_en"></textarea>
+                </div>
+
+                <div class="col-12 d-flex justify-content-center saveSchoolCon">
+                    <button type="submit" class="saveSchool">Save School</button>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+</div>
