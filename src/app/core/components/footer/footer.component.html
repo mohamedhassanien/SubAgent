@@ -7,7 +7,7 @@
             <a class="navbar-brand" [routerLink]="['/']">
               <img src="assets/images/elias.png" style="width: 150px;" />
             </a>
-            <p class="white-text" style="width: 80%;">Bienvenue sur <strong> Cours Elysée la Plateforme</strong>, où
+            <p class="white-text" style="width: 80%;">Bienvenue sur <span class="bold"> Cours Elysée la Plateforme</span>, où
               vous découvrirez notre vaste réseau d'écoles en France, prêtes à vous accompagner dans la réussite de
               votre parcours académique.</p>
           </div>
@@ -20,10 +20,18 @@
               </div>
               <div>
                 <ul class="white-text ps-0">
-                  <li><a href="">Qui Sommes Nous</a></li>
-                  <li><a href="">Nos services</a></li>
-                  <li><a href="">Ecoles</a></li>
-                  <li><a href="">programmes</a></li>
+                  <li>
+                    <a href="/">Qui Sommes Nous</a>
+                  </li>
+                  <li>
+                    <a  routerLink="/landing/About-Us">Nos services</a>
+                  </li>
+                  <li>
+                    <a routerLink="/landing/Schools">Ecoles</a>
+                  </li>
+                  <li>
+                    <a routerLink="/landing/programs">programmes</a>
+                  </li>
                 </ul>
               </div>
             </div>

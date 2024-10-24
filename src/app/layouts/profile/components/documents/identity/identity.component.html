@@ -94,7 +94,7 @@
         aria-expanded="false"
         aria-controls="flush-collapseTwo"
       >
-        Identity photo
+      Photo d'identité
         <img
           src="../../../../../../assets/images/profile/documents/add.svg"
           alt="add"
@@ -117,7 +117,7 @@
             accept=".png, .jpg, .jpeg, .pdf, .doc"
             *ngIf="secondErrorMsg !== 'File has been Deleted Successfully!'"
           />
-          <label for="uploadDocs2" *ngIf="!secondSelectCondition">Upload Photo</label>
+          <label for="uploadDocs2" *ngIf="!secondSelectCondition">Télécharger</label>
           <span class="error-msg" *ngIf="secondSelectCondition">
             {{ secondErrorMsg }}
           </span>

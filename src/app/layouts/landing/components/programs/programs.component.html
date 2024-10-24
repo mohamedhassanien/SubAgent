@@ -4,12 +4,12 @@
     <div class="row">
       <div class="col-lg-6 col-12 ps-0 first-content">
         <h1>
-          Plus de 1000 programmes dans 120 écoles <br />
+          Plus de 1000 programmes dans 140 écoles <br />
           à travers le monde
         </h1>
         
         <p>
-          Abonnez-vous à notre newsletter et soyez informé de toutes nos nouvelles mises à jour
+          Les programmes disponibles peuvent varier à chaque rentrée en fonction de la demande. Pour obtenir les informations les plus récentes sur nos écoles partenaires, nous vous invitons à créer <a  routerLink="/landing/programs">ICI</a>
         </p>
         <div class="intro-input d-lg-block d-none">
           <div class="position-relative">
@@ -188,7 +188,7 @@
               <div class="d-flex justify-content-between mt-3 pt-2">
                 <input value="{{ slider.value }}" type="number" formControlName="budget" (keyup)="change($event)" />
                 <button class="budget-btn" (click)="onSubmit(filterForm); palce(); toggle=!toggle"  data-bs-toggle="dropdown" aria-expanded="true">
-                  Apply
+                  Appliquer
                 </button>
               </div>
             </ul>
@@ -517,7 +517,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="total_programs"><span class="black_color">Total des programmes : </span>{{programs.length}}</h3>
+          <!-- <h3 class="total_programs"><span class="black_color">Total des programmes : </span>{{programs.length}}</h3> -->
         </div>
       </div>
       <div class="row">
@@ -596,7 +596,7 @@
             </div>
           </div>
         </div>
-        <ngb-pagination [collectionSize]="programs.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
+        <ngb-pagination [collectionSize]="programs.length / 2" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
           [boundaryLinks]="true" *ngIf="programs.length != 0" (pageChange)="loadPage()" class="d-flex justify-content-center">
         </ngb-pagination>
         

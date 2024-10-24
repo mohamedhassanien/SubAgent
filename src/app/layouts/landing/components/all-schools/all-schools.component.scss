@@ -95,12 +95,13 @@ input {
 
     .card {
       width: 312px !important;
-      height: 232px !important;
       border: none;
       box-shadow: none;
       margin-bottom: 40px;
       background-color: #f7f7f7;
       cursor: pointer;
+      padding-bottom: 20px;
+      border-radius: 10px;
 
       .card-images {
         height: 169px;

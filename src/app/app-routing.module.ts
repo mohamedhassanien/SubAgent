@@ -41,7 +41,7 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () =>
       import('./layouts/profile/profile.module').then((m) => m.ProfileModule),
-    // canActivate: [StudentGuard]
+    canActivate: [StudentGuard]
   },
   {
     path: 'marketplace',

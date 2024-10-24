@@ -11,9 +11,6 @@
           formControlName="search"
           (keyup)="searchSchool(searchForm)"
         />
-        <button class="btn" type="submit">
-          <p class="m-0">Search</p>
-        </button>
       </form>
     </div>
   </div>
@@ -33,10 +30,7 @@
       <div
         class="d-flex justify-content-center col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 text-center"
         *ngFor="
-          let card of pageData
-            | slice : (page - 1) * pageSize : page * pageSize;
-          let i = index
-        "
+          let card of pageData | slice : (page - 1) * pageSize : page * pageSize; let i = index"
       >
         <div class="card" (click)="viewProgram(card.shcool_name)"
         [ngStyle]=" card.programsflag == 0 ?  {
@@ -87,9 +81,11 @@
       </div>
      
 
-      <ngb-pagination [collectionSize]="pageData.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
+      <ngb-pagination [collectionSize]="pageData.length / 2" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
           [boundaryLinks]="true" *ngIf="pageData.length != 0" (pageChange)="loadPage()" class="d-flex justify-content-center">
         </ngb-pagination>
+
+
       
     </div>
   </div>

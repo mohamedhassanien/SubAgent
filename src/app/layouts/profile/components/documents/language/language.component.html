@@ -14,7 +14,7 @@
                 <div *ngIf="!firstFileLoading" class="d-flex align-items-center widthcustom">
                     <input  class="uploadDocs" id="uploadDocs" type="file" (change)="chooseFirst($event)" accept=".png, .jpg, .jpeg, .pdf, .doc"
                         *ngIf="firstErrorMsg !== 'File has been Deleted Successfully!'" />
-                        <label for="uploadDocs" *ngIf="!firstSelectCondition">Upload</label>
+                        <label for="uploadDocs" *ngIf="!firstSelectCondition">Télécharger</label>
                     <span class="error-msg" *ngIf="firstSelectCondition">
                         {{ firstErrorMsg }}
                     </span>
@@ -62,7 +62,7 @@
                 <div *ngIf="!secondFileLoading" class="d-flex align-items-center widthcustom">
                     <input class="uploadDocs" id="uploadDocs2" type="file" (change)="chooseSecond($event)" accept=".png, .jpg, .jpeg, .pdf, .doc"
                         *ngIf="secondErrorMsg !== 'File has been Deleted Successfully!'" />
-                        <label for="uploadDocs2" *ngIf="!secondSelectCondition">Upload</label>
+                        <label for="uploadDocs2" *ngIf="!secondSelectCondition">Télécharger</label>
                     <span class="error-msg" *ngIf="secondSelectCondition">
                         {{ secondErrorMsg }}
                     </span>

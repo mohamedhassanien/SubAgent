@@ -64,7 +64,7 @@
               </div>
             
           </ul>
-          <div class="auth_links">
+          <div class="auth_links" *ngIf="!isLoggedIn">
             <a (click)="logInPage()">
               <i class="fas fa-sign-in-alt"></i>
               <div>Connexion</div>
@@ -74,6 +74,19 @@
               <div>S'inscrire</div>
             </a>
           </div>
+          <div class="auth_links" *ngIf="isLoggedIn">
+            <a [routerLink]=" type === 'student' ? ['/profile', 'documents'] : type === 'employee' || 'owner' ? ['/employees', name, 'dashboard'] : ['/sub-agents', name, 'dashboard']">
+              <i class="fas fa-user"></i>
+              <div>Mon profil</div>
+            </a>
+
+            <a (click)="logoutMob()">
+              <i class="fas fa-sign-out-alt"></i>
+              <div>Déconnexion</div>
+            </a>
+          </div>
+
+         
         </div>
       </div>
 

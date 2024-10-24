@@ -1,21 +1,17 @@
 <section>
-  <h2>Profile settings </h2>
+  <h2>Paramètres du profil</h2>
   <!-- name -->
   <div class="data">
     <div class="d-flex justify-content-between align-items-center">
-      <h1>Name</h1>
-      <img
-        *ngIf="!openName"
-        src="../../../../../assets/images/profile/setting/edit.svg"
-        alt="edit"
-        (click)="showName()"
-      />
-      <img
-        *ngIf="openName"
-        src="../../../../../assets/images/profile/setting/cancel.svg"
-        alt="cancel"
-        (click)="showName()"
-      />
+      <h1>Nom</h1>
+      <button class="btn_actions" *ngIf="!openName" (click)="showName()">
+        <i class="far fa-edit"></i>
+        <span>Modifier</span>
+      </button>
+      <button class="btn_actions" *ngIf="openName" (click)="showName()">
+        <i class="fas fa-times"></i>
+        <span>Annuler</span>
+      </button>
     </div>
     <p *ngIf="!openName">{{ fullName }} {{ lastName }}</p>
     <div *ngIf="openName" class="row input-data">
@@ -29,7 +25,7 @@
           </div>
         </div>
         <button class="btn" type="submit" [disabled]="!nameForm.valid">
-          Save
+          Enregistrer
         </button>
       </form>
     </div>
@@ -39,18 +35,14 @@
   <div class="data">
     <div class="d-flex justify-content-between align-items-center">
       <h1>Email</h1>
-      <img
-        *ngIf="!openEmail"
-        src="../../../../../assets/images/profile/setting/edit.svg"
-        alt="edit"
-        (click)="showEmail()"
-      />
-      <img
-        *ngIf="openEmail"
-        src="../../../../../assets/images/profile/setting/cancel.svg"
-        alt="cancel"
-        (click)="showEmail()"
-      />
+      <button class="btn_actions" *ngIf="!openEmail" (click)="showEmail()">
+        <i class="far fa-edit"></i>
+        <span>Modifier</span>
+      </button>
+      <button class="btn_actions" *ngIf="openEmail" (click)="showEmail()">
+        <i class="fas fa-times"></i>
+        <span>Annuler</span>
+      </button>
     </div>
     <p *ngIf="!openEmail">{{ userEmail }}</p>
     <div *ngIf="openEmail" class="input-data">
@@ -60,7 +52,7 @@
       >
         <div class="row">
           <div class="col-6">
-            <label class="setting-label"> Current Email</label>
+            <label class="setting-label"> Adresse E-mail actuelle</label>
             <input
               class="w-100"
               type="email"
@@ -74,17 +66,17 @@
               "
               class="text-danger"
             >
-              You must Enter a valid Email.
+            Vous devez entrer une adresse E-mail valide
             </span>
           </div>
 
           <div class="col-6">
-            <label class="setting-label"> New Email</label>
+            <label class="setting-label"> Nouvelle adresse E-mail</label>
             <input
               class="w-100"
               type="email"
               formControlName="newEmail"
-              placeholder="New Email"
+              placeholder="Nouvelle adresse E-mail"
             />
             <span
               *ngIf="
@@ -93,16 +85,16 @@
               "
               class="text-danger"
             >
-              You must Enter a valid Email.
+            Vous devez entrer une adresse E-mail valide
             </span>
           </div>
 
           <div class="col-6 mt-2 position-relative">
-            <label class="setting-label"> Password</label>
+            <label class="setting-label"> Mot de passe</label>
             <input
               class="w-100"
               formControlName="yourPassword"
-              placeholder="Password"
+              placeholder="Mot de passe"
               [type]="!secpass ? 'password' : 'text'"
             />
             <i *ngIf="!secpass" class="fas fa-eye" (click)="eyepass()"></i>
@@ -114,12 +106,12 @@
               "
               class="text-danger"
             >
-              You must Enter a valid Password.
+            Vous devez entrer un mot de passe valide
             </span>
           </div>
         </div>
         <button class="btn" type="submit" [disabled]="!changeEmailForm.valid">
-          Save
+          Enregistrer
         </button>
       </form>
     </div>
@@ -128,33 +120,29 @@
   <!-- password -->
   <div class="data">
     <div class="d-flex justify-content-between align-items-center">
-      <h1>Password</h1>
-      <img
-        *ngIf="!openPass"
-        src="../../../../../assets/images/profile/setting/edit.svg"
-        alt="edit"
-        (click)="showPass()"
-      />
-      <img
-        *ngIf="openPass"
-        src="../../../../../assets/images/profile/setting/cancel.svg"
-        alt="cancel"
-        (click)="showPass()"
-      />
+      <h1>Mot de passe</h1>
+      <button class="btn_actions" *ngIf="!openPass" (click)="showPass()">
+        <i class="far fa-edit"></i>
+        <span>Modifier</span>
+      </button>
+      <button class="btn_actions" *ngIf="openPass" (click)="showPass()">
+        <i class="fas fa-times"></i>
+        <span>Annuler</span>
+      </button>
     </div>
     <p *ngIf="!openPass">********</p>
     <div *ngIf="openPass" class="input-data">
       <form [formGroup]="changeForm" (ngSubmit)="onSubmitPassword(changeForm)">
         <div class="row">
           <div class="col-6 position-relative">
-            <label class="setting-label">Current Password</label>
+            <label class="setting-label">Mot de passe actuel</label>
             <input
               class="w-100 form-control"
               [type]="!secpass ? 'password' : 'text'"
               formControlName="currentPassword"
               min="8"
               max="16"
-              placeholder="Current Password"
+              placeholder="Mot de passe actuel"
             />
             <i *ngIf="!secpass" class="fas fa-eye" (click)="eyepass()"></i>
             <i *ngIf="secpass" class="fas fa-eye-slash" (click)="eyepass()"></i>
@@ -165,19 +153,19 @@
               "
               class="text-danger"
             >
-              You must Enter a valid password.
+            Vous devez entrer un mot de passe valide
             </span>
           </div>
 
           <div class="col-6 position-relative">
-            <label class="setting-label"> New Password</label>
+            <label class="setting-label"> Nouveau mot de passe</label>
             <input
               class="w-100 form-control"
               [type]="!secrepass ? 'password' : 'text'"
               min="8"
               max="16"
               formControlName="newPassword"
-              placeholder="New Password"
+              placeholder="Nouveau mot de passe"
             />
             <i *ngIf="!secrepass" class="fas fa-eye" (click)="eyerepass()"></i>
             <i
@@ -192,12 +180,12 @@
               "
               class="text-danger"
             >
-              You must Enter a valid password.
+            Vous devez entrer un mot de passe valide
             </span>
           </div>
         </div>
         <button class="btn" type="submit" [disabled]="!changeForm.valid">
-          Save
+          Enregistrer
         </button>
       </form>
     </div>
@@ -206,19 +194,15 @@
   <!-- mobile -->
   <div class="data">
     <div class="d-flex justify-content-between align-items-center">
-      <h1>Mobile Number</h1>
-      <img
-        *ngIf="!openMobile"
-        src="../../../../../assets/images/profile/setting/edit.svg"
-        alt="edit"
-        (click)="showMobile()"
-      />
-      <img
-        *ngIf="openMobile"
-        src="../../../../../assets/images/profile/setting/cancel.svg"
-        alt="cancel"
-        (click)="showMobile()"
-      />
+      <h1>Numéro de téléphone</h1>
+      <button class="btn_actions" *ngIf="!openMobile" (click)="showMobile()">
+        <i class="far fa-edit"></i>
+        <span>Modifier</span>
+      </button>
+      <button class="btn_actions" *ngIf="openMobile" (click)="showMobile()">
+        <i class="fas fa-times"></i>
+        <span>Annuler</span>
+      </button>
     </div>
     <p *ngIf="!openMobile">+{{ phoneNum }}</p>
     <div *ngIf="openMobile" class="input-data">
@@ -247,7 +231,7 @@
           </div>
         </div>
         <button class="btn" type="submit" [disabled]="!phoneForm.valid">
-          Save
+          Enregistrer
         </button>
       </form>
     </div>
@@ -256,19 +240,16 @@
   <!-- country -->
   <div class="data">
     <div class="d-flex justify-content-between align-items-center">
-      <h1>Country</h1>
-      <img
-        *ngIf="!openCountry"
-        src="../../../../../assets/images/profile/setting/edit.svg"
-        alt="edit"
-        (click)="showCountry()"
-      />
-      <img
-        *ngIf="openCountry"
-        src="../../../../../assets/images/profile/setting/cancel.svg"
-        alt="cancel"
-        (click)="showCountry()"
-      />
+      <h1>Pays</h1>
+      
+      <button class="btn_actions" *ngIf="!openCountry" (click)="showCountry()">
+        <i class="far fa-edit"></i>
+        <span>Modifier</span>
+      </button>
+      <button class="btn_actions" *ngIf="openCountry" (click)="showCountry()">
+        <i class="fas fa-times"></i>
+        <span>Annuler</span>
+      </button>
     </div>
     <p *ngIf="!openCountry">{{ country }}</p>
     <div *ngIf="openCountry" class="input-data">
@@ -287,7 +268,7 @@
           </div>
         </div>
         <button class="btn" type="submit" [disabled]="!countryForm.valid">
-          Save
+          Enregistrer
         </button>
       </form>
     </div>

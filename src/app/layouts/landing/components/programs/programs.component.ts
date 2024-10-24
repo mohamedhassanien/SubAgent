@@ -93,7 +93,7 @@ export class ProgramsComponent implements OnInit {
     ['3ème année', 'Bac+2'],
     ['4ème année', 'Bac+3'],
     ['5ème année', 'Bac+4'],
-    ['7ème année', 'Bac+5'],
+    ['6ème année', 'Bac+5'],
   ];
   // Array for budget
   Budgets: any[] = [
@@ -103,8 +103,8 @@ export class ProgramsComponent implements OnInit {
   // Array for language
   languages: any[] = [
 
-    ['English', 'english'],
-    ['French', 'french'],
+    ['Anglais', 'Anglais'],
+    ['Français', 'Français'],
   ];
   // Array of Favorites
   isFav: boolean[] = [];

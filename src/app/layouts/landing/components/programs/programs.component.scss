@@ -166,7 +166,7 @@ span {
       border-radius: 5px;
       padding-left: 10px;
       padding-right: 8px;
-      width: 62%;
+      width: 56%;
 
       &::before {
         content: "€";
@@ -288,7 +288,7 @@ span {
   position: fixed;
   width: 91.7%;
   transition: 0.2s linear;
-  top: 129px;
+  top: 42px;
   z-index: 99;
   opacity: 1;
   backdrop-filter: blur(49px);
@@ -364,7 +364,7 @@ span {
       }
 
       p {
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 400;
         padding-top: 8px;
       }

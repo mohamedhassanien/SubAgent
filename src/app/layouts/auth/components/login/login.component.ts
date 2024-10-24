@@ -193,7 +193,7 @@ export class LoginComponent implements OnInit {
     this._ChatBotService.checkchatbot(userName).subscribe((data) => {
       if (userName !== null || userName !== '') {
         if (data) {
-          this.router.navigate(['/chat-bot']).then(() => {
+          this.router.navigate(['/profile/documents']).then(() => {
             window.location.reload();
           });
         } else {

@@ -390,38 +390,38 @@
     .faq-occordion {
         .accordion {
             .accordion-item {
-                .accordion-header {
-                    margin-bottom: 0 !important;
-                    color: #fff;
-                    // background-color: #16294f !important;
-                    font-size: 15px !important;
-                    font-weight: 600 !important;
+                // .accordion-header {
+                //     margin-bottom: 0 !important;
+                //     color: #fff;
+                //     // background-color: #16294f !important;
+                //     font-size: 15px !important;
+                //     font-weight: 600 !important;
 
-                    button {
-                        color: #fff;
-                        background-color: #16294f !important;
-                        border: 0 !important;
-                        font-size: 15px !important;
-                        font-weight: 600 !important;
+                //     button {
+                //         color: #fff;
+                //         background-color: #16294f !important;
+                //         border: 0 !important;
+                //         font-size: 15px !important;
+                //         font-weight: 600 !important;
 
-                    }
+                //     }
 
-                    .accordion-button:active,
-                    .accordion-button:focus {
-                        color: #fff;
-                    }
+                //     .accordion-button:active,
+                //     .accordion-button:focus {
+                //         color: #fff;
+                //     }
 
-                    .accordion-button::after {
-                        background-image: url('../../../../../assets/images/home/icons8-plus-24.png');
-                        color: #16294f !important;
-                    }
+                //     .accordion-button::after {
+                //         background-image: url('../../../../../assets/images/home/icons8-plus-24.png');
+                //         color: #16294f !important;
+                //     }
 
-                    .accordion-button:not(.collapsed)::after {
-                        background-image: url('../../../../../assets/images/home/icons8-minus-24.png');
-                        color: #16294f;
-                    }
+                //     .accordion-button:not(.collapsed)::after {
+                //         background-image: url('../../../../../assets/images/home/icons8-minus-24.png');
+                //         color: #16294f;
+                //     }
 
-                }
+                // }
 
                 .accordion-body {
                     color: #16294f;
@@ -440,13 +440,13 @@
         .accordion-header {
             margin-bottom: 0 !important;
             color: #16294f;
-            background-color: #16294f !important;
+            // background-color: #16294f !important;
 
-            button {
-                color: #16294f;
-                background-color: #16294f !important;
-                border: 0 !important;
-            }
+            // button {
+            //     color: #16294f;
+            //     background-color: #16294f !important;
+            //     border: 0 !important;
+            // }
         }
 
         .accordion-body {
